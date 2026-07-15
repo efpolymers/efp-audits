@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COO Office — Department Audit Report | EF Polymers</title>
+<style>
+  @page { size: A4; margin: 20mm 18mm; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: #1e293b; line-height: 1.6; background: #fff; font-size: 11pt; }
+  .page { page-break-after: always; padding: 0; min-height: 100vh; }
+  .page:last-child { page-break-after: avoid; }
+  .cover { display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 100vh; background: linear-gradient(135deg, #1B2A4A 0%, #0F766E 100%); color: #fff; text-align: center; padding: 60px 40px; }
+  .cover-badge { font-size: 10pt; letter-spacing: 3px; text-transform: uppercase; opacity: 0.8; margin-bottom: 16px; border: 1px solid rgba(255,255,255,0.3); padding: 6px 20px; border-radius: 20px; }
+  .cover h1 { font-size: 32pt; font-weight: 700; margin: 20px 0 10px; }
+  .cover h2 { font-size: 16pt; font-weight: 300; opacity: 0.9; margin-bottom: 40px; }
+  .cover-meta { font-size: 10pt; opacity: 0.7; line-height: 2; }
+  .cover-line { width: 80px; height: 3px; background: rgba(255,255,255,0.5); margin: 30px auto; }
+  .section { padding: 40px 0; }
+  .section-num { font-size: 9pt; color: #0F766E; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 4px; }
+  h2 { font-size: 18pt; color: #1B2A4A; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #e2e8f0; }
+  h3 { font-size: 13pt; color: #1B2A4A; margin: 24px 0 12px; }
+  h4 { font-size: 11pt; color: #334155; margin: 16px 0 8px; }
+  p { margin-bottom: 12px; }
+  table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 10pt; }
+  th { background: #1B2A4A; color: #fff; padding: 10px 12px; text-align: left; font-weight: 600; }
+  td { padding: 9px 12px; border-bottom: 1px solid #e2e8f0; }
+  tr:nth-child(even) { background: #f8fafc; }
+  .card { border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px; margin: 16px 0; background: #fff; }
+  .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+  .card-title { font-weight: 700; font-size: 11pt; color: #1B2A4A; }
+  .badge { display: inline-block; padding: 3px 12px; border-radius: 12px; font-size: 8.5pt; font-weight: 600; }
+  .badge-critical { background: #fef2f2; color: #dc2626; border: 1px solid #fecaca; }
+  .badge-high { background: #fff7ed; color: #ea580c; border: 1px solid #fed7aa; }
+  .badge-medium { background: #fffbeb; color: #d97706; border: 1px solid #fde68a; }
+  .badge-low { background: #f0fdf4; color: #16a34a; border: 1px solid #bbf7d0; }
+  .metrics-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 16px 0; }
+  .metric-box { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px; text-align: center; }
+  .metric-value { font-size: 18pt; font-weight: 700; color: #0F766E; }
+  .metric-label { font-size: 8pt; color: #64748b; text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
+  .flow-container { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin: 20px 0; justify-content: center; }
+  .flow-step { background: #f0fdfa; border: 2px solid #0F766E; border-radius: 8px; padding: 12px 18px; font-size: 9.5pt; font-weight: 500; text-align: center; min-width: 140px; max-width: 200px; }
+  .flow-step.problem { border-color: #dc2626; background: #fef2f2; }
+  .flow-arrow { color: #94a3b8; font-size: 18pt; }
+  .solution-card { border-left: 4px solid #0F766E; background: #f0fdfa; border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 12px 0; }
+  .solution-card.suggestion { border-left-color: #6366f1; background: #eef2ff; }
+  .gap-item { display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid #f1f5f9; }
+  .gap-icon { width: 32px; height: 32px; background: #fef3c7; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14pt; flex-shrink: 0; }
+  .chart-container { display: flex; justify-content: center; margin: 24px 0; }
+  .roadmap-phase { border-left: 3px solid #0F766E; padding: 16px 0 16px 24px; margin-left: 12px; position: relative; }
+  .roadmap-phase::before { content: ''; width: 12px; height: 12px; background: #0F766E; border-radius: 50%; position: absolute; left: -7.5px; top: 20px; }
+  .roadmap-phase.phase-2 { border-left-color: #2563eb; }
+  .roadmap-phase.phase-2::before { background: #2563eb; }
+  .roadmap-phase.phase-3 { border-left-color: #7c3aed; }
+  .roadmap-phase.phase-3::before { background: #7c3aed; }
+  .phase-label { font-size: 9pt; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+  .phase-label { color: #0F766E; }
+  .phase-label.p2 { color: #2563eb; }
+  .phase-label.p3 { color: #7c3aed; }
+  .kpi-row { display: flex; gap: 8px; flex-wrap: wrap; margin: 8px 0; }
+  .kpi-tag { background: #f1f5f9; border-radius: 6px; padding: 4px 10px; font-size: 9pt; color: #475569; }
+  @media print { body { font-size: 10pt; } .page { min-height: auto; } .cover { min-height: 100vh; } }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="page cover">
+  <div class="cover-badge">Department Audit Report</div>
+  <h1>COO Office</h1>
+  <h2>Operations & Finance — Puran Singh Rajput</h2>
+  <div class="cover-line"></div>
+  <div class="cover-meta">
+    EF Polymers Private Limited<br>
+    Prepared by Creative Upaay Consulting<br>
+    July 2026 · Version 1.0<br>
+    Confidential — Executive Leadership Only
+  </div>
+</div>
+
+<!-- OVERVIEW -->
+<div class="page">
+  <div class="section">
+    <div class="section-num">Section 01</div>
+    <h2>Department Overview</h2>
+    <p>The COO Office provides strategic oversight of business operations, retail sales compliance, international business development (MENA), marketing projections, and board/investor reporting. Puran Singh Rajput oversees Finance, HR, and Marketing, with direct execution delegated to department heads. The role acts as an operational nexus, routing approvals, managing executive communications, and bridging leadership with ground-level execution.</p>
+
+    <div class="metrics-grid">
+      <div class="metric-box">
+        <div class="metric-value">50–80</div>
+        <div class="metric-label">Emails / Day</div>
+      </div>
+      <div class="metric-box">
+        <div class="metric-value">151</div>
+        <div class="metric-label">WhatsApp Groups (shared)</div>
+      </div>
+      <div class="metric-box">
+        <div class="metric-value">~1%</div>
+        <div class="metric-label">Investor Relations Load</div>
+      </div>
+      <div class="metric-box">
+        <div class="metric-value">10 PM+</div>
+        <div class="metric-label">Decision Capture Gap</div>
+      </div>
+    </div>
+
+    <h3>Time & Effort Allocation</h3>
+    <table>
+      <tr><th>Activity</th><th>Effort Share</th></tr>
+      <tr><td>Communication & Operational Triage</td><td>~45%</td></tr>
+      <tr><td>Retail Sales & Ground Compliance Oversight</td><td>~20%</td></tr>
+      <tr><td>Board, Investor & BOD Reporting Prep</td><td>~15%</td></tr>
+      <tr><td>Approvals & Administrative Processing</td><td>~10%</td></tr>
+      <tr><td>Marketing Projections & Budgeting</td><td>~10%</td></tr>
+    </table>
+
+    <h3>Tool Stack</h3>
+    <div class="kpi-row">
+      <span class="kpi-tag">Mobile Field Force App (geolocation)</span>
+      <span class="kpi-tag">Google Sheets</span>
+      <span class="kpi-tag">Email</span>
+      <span class="kpi-tag">WhatsApp</span>
+      <span class="kpi-tag">Slack</span>
+      <span class="kpi-tag">Zoho Suite (Books, Expense, Payroll, People)</span>
+    </div>
+
+    <h3>Vertical Oversight</h3>
+    <table>
+      <tr><th>Area</th><th>Status</th><th>Key Issue</th></tr>
+      <tr><td>Marketing</td><td>No dedicated manager</td><td>Execution lag; no ROI tracking</td></tr>
+      <tr><td>Retail Sales Field Team</td><td>Active — RSMs + field reps</td><td>Manual geo-tracking; compliance gaps</td></tr>
+      <tr><td>MENA BD</td><td>Neha Pathak + 1 vacant</td><td>Single-point logistics constraint</td></tr>
+      <tr><td>Finance & Accounts</td><td>Shobha Shekhawat — 3 FTE</td><td>COGS volatility; manual reconciliation</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- WORKFLOWS -->
+<div class="page">
+  <div class="section">
+    <div class="section-num">Section 02</div>
+    <h2>Existing Workflows</h2>
+
+    <h3>Workflow 1: Executive Communication & Triage</h3>
+    <p>The COO manages <strong>50–80 emails/day</strong> using "unread" markers as a prioritization filter. Read items are deprioritized, exposing the workflow to missed follow-ups. WhatsApp saturation reaches <strong>151 shared groups</strong> with a single colleague.</p>
+    <div class="flow-container">
+      <div class="flow-step">Emails arrive (50–80/day)</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step problem">"Unread" filter used as triage</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">WhatsApp groups (151+) for rapid follow-ups</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step problem">Post-10 PM ideas have no capture mechanism</div>
+    </div>
+
+    <h3>Workflow 2: Marketing Budget & Campaign Cycle</h3>
+    <p>Projections and campaign budgets are defined by the COO with thresholds of <strong>25%, 30%, or 50%</strong> of projected revenue. No dedicated marketing manager exists — execution falls to a BD Executive as an auxiliary task.</p>
+    <div class="flow-container">
+      <div class="flow-step">COO defines budget (25–50% of revenue)</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step problem">No dedicated marketing owner</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">Gaurav (BD) executes as secondary duty</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step problem">No ROI tracking on campaigns</div>
+    </div>
+
+    <h3>Workflow 3: Retail Sales & Field Compliance</h3>
+    <div class="flow-container">
+      <div class="flow-step">Field reps tracked via mobile app</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step problem">App fails in low-network regions</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">WhatsApp text templates for data</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step problem">No distributor pipeline status</div>
+    </div>
+
+    <h3>Workflow 4: Board & Investor Reporting</h3>
+    <div class="flow-container">
+      <div class="flow-step">COO designs report structure</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">Recurring reports delegated to ops team</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">Team collects department data</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">Finance compiles P&L</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step problem">Decks from verbal updates (not data)</div>
+    </div>
+
+    <h3>Workflow 5: MENA International Pipeline</h3>
+    <div class="flow-container">
+      <div class="flow-step">Corporate warm introduction</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">Initial video presentation</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">Trial authorization & crop spec</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">Product dispatch & trial</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">Report & contract negotiation</div>
+    </div>
+  </div>
+</div>
+
+<!-- CHALLENGES -->
+<div class="page">
+  <div class="section">
+    <div class="section-num">Section 03</div>
+    <h2>Challenges, Risks & Red Flags</h2>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">1. Executive Communication Saturation</span>
+        <span class="badge badge-critical">CRITICAL</span>
+      </div>
+      <p>Managing <strong>50–80 emails/day</strong> using "unread" filters, combined with <strong>151 shared WhatsApp groups</strong>, creates a high bottleneck risk for executive approvals and follow-ups.</p>
+      <table>
+        <tr><th>Metric</th><th>Detail</th></tr>
+        <tr><td>Time Waste</td><td>~45% of COO effort spent on communication triage</td></tr>
+        <tr><td>Investment Required</td><td>Medium — structured approval workflows + communication consolidation</td></tr>
+        <tr><td>ROI Potential</td><td><strong>Very High</strong> — recovering even 20% of triage time = ~1 full workday/week</td></tr>
+        <tr><td>Cross-Department</td><td>All departments (everyone routes through COO)</td></tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">2. Field Tracking & Compliance Leakage</span>
+        <span class="badge badge-medium">MEDIUM</span>
+      </div>
+      <p>Field force app failure in low-network regions, coupled with distributor pipeline status omissions, leaves the retail channel without data integrity.</p>
+      <table>
+        <tr><th>Metric</th><th>Detail</th></tr>
+        <tr><td>Time Waste</td><td>~6–8 hrs/day of manual WhatsApp-based geo-tracking (Marketing team)</td></tr>
+        <tr><td>Investment Required</td><td>Medium — offline-capable field tracking tool (e.g., Zoho FSM)</td></tr>
+        <tr><td>ROI Potential</td><td><strong>High</strong> — recovers significant staff time; improves sales compliance data</td></tr>
+        <tr><td>Cross-Department</td><td>Marketing & Retail Sales, COO Office</td></tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">3. Marketing Accountability Gap</span>
+        <span class="badge badge-medium">MEDIUM</span>
+      </div>
+      <p>Operating without a dedicated marketing owner or ROI analytics leads to execution delays and unmeasured advertising expenses.</p>
+      <table>
+        <tr><th>Metric</th><th>Detail</th></tr>
+        <tr><td>Time Waste</td><td>Significant lag between budget approval and campaign launch</td></tr>
+        <tr><td>Investment Required</td><td>Medium — hiring a marketing manager + basic analytics setup</td></tr>
+        <tr><td>ROI Potential</td><td><strong>High</strong> — unmeasured ad spend means money burned with zero accountability</td></tr>
+        <tr><td>Cross-Department</td><td>Marketing, BD (Gaurav handles marketing as secondary duty)</td></tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">4. Lost Off-Hours Decision Opportunities</span>
+        <span class="badge badge-low">LOW</span>
+      </div>
+      <p>Decisions conceived outside standard hours (post-10 PM) lack a capture mechanism and are prone to being forgotten.</p>
+      <table>
+        <tr><th>Metric</th><th>Detail</th></tr>
+        <tr><td>Time Waste</td><td>Indirect — lost strategic ideas and follow-through</td></tr>
+        <tr><td>Investment Required</td><td>Minimal — Slack/voice-to-text capture mechanism</td></tr>
+        <tr><td>ROI Potential</td><td><strong>Low but zero cost</strong> — simple behavioral fix</td></tr>
+        <tr><td>Cross-Department</td><td>CEO Office (shared problem)</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- INFO GAPS -->
+<div class="page">
+  <div class="section">
+    <div class="section-num">Section 04</div>
+    <h2>Information Gaps & Cross-Department Leaks</h2>
+
+    <div class="gap-item">
+      <div class="gap-icon">⚠</div>
+      <div>
+        <h4>COO ↔ Marketing (ROI Accountability)</h4>
+        <p>Marketing budget is approved at 25–50% of projected revenue, but there is zero ROI tracking on social media or advertising campaigns. The COO has no data to evaluate which spend is working.</p>
+      </div>
+    </div>
+    <div class="gap-item">
+      <div class="gap-icon">⚠</div>
+      <div>
+        <h4>COO ↔ Field Sales (Compliance Data)</h4>
+        <p>Field force compliance data is unreliable due to app failures in low-network regions. Distributor onboarding and pipeline status remain undocumented — no system of record exists.</p>
+      </div>
+    </div>
+    <div class="gap-item">
+      <div class="gap-icon">⚠</div>
+      <div>
+        <h4>COO ↔ All Departments (Communication Overload)</h4>
+        <p>The COO is a routing bottleneck. 151 WhatsApp groups + 50–80 emails/day means critical approvals compete with routine communications for attention. No priority routing exists.</p>
+      </div>
+    </div>
+    <div class="gap-item">
+      <div class="gap-icon">⚠</div>
+      <div>
+        <h4>COO ↔ Finance (Ground-Level Farmer Feedback)</h4>
+        <p>Qualitative field data (product complaints, farmer feedback) is not systematically logged. The COO lacks structured feedback to inform product development priorities.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MATURITY -->
+<div class="page">
+  <div class="section">
+    <div class="section-num">Section 05</div>
+    <h2>Department Maturity Score</h2>
+
+    <div class="chart-container">
+      <svg viewBox="0 0 400 380" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:400px;">
+        <g transform="translate(200,180)">
+          <polygon points="0,-120 114,-37 70,97 -70,97 -114,-37" fill="none" stroke="#e2e8f0" stroke-width="0.5"/>
+          <polygon points="0,-96 91,-30 56,78 -56,78 -91,-30" fill="none" stroke="#e2e8f0" stroke-width="0.5"/>
+          <polygon points="0,-72 68,-22 42,58 -42,58 -68,-22" fill="none" stroke="#e2e8f0" stroke-width="0.5"/>
+          <polygon points="0,-48 46,-15 28,39 -28,39 -46,-15" fill="none" stroke="#e2e8f0" stroke-width="0.5"/>
+          <polygon points="0,-24 23,-7 14,19 -14,19 -23,-7" fill="none" stroke="#e2e8f0" stroke-width="0.5"/>
+          <line x1="0" y1="0" x2="0" y2="-120" stroke="#e2e8f0" stroke-width="0.5"/>
+          <line x1="0" y1="0" x2="114" y2="-37" stroke="#e2e8f0" stroke-width="0.5"/>
+          <line x1="0" y1="0" x2="70" y2="97" stroke="#e2e8f0" stroke-width="0.5"/>
+          <line x1="0" y1="0" x2="-70" y2="97" stroke="#e2e8f0" stroke-width="0.5"/>
+          <line x1="0" y1="0" x2="-114" y2="-37" stroke="#e2e8f0" stroke-width="0.5"/>
+          <!-- Process=2.0, Tech=2.0, Data=1.5, Docs=2.0, KM=2.0 -->
+          <polygon points="0,-48 45.6,-14.8 21,29.1 -28,38.8 -45.6,-14.8" fill="rgba(15,118,110,0.2)" stroke="#0F766E" stroke-width="2"/>
+          <polygon points="0,-84 79.8,-25.9 49,67.9 -49,67.9 -79.8,-25.9" fill="none" stroke="#dc2626" stroke-width="1" stroke-dasharray="6,3"/>
+          <circle cx="0" cy="-48" r="4" fill="#0F766E"/>
+          <circle cx="45.6" cy="-14.8" r="4" fill="#0F766E"/>
+          <circle cx="21" cy="29.1" r="4" fill="#0F766E"/>
+          <circle cx="-28" cy="38.8" r="4" fill="#0F766E"/>
+          <circle cx="-45.6" cy="-14.8" r="4" fill="#0F766E"/>
+          <text x="0" y="-132" text-anchor="middle" font-size="9" fill="#1B2A4A" font-weight="600">Process (2.0)</text>
+          <text x="128" y="-35" text-anchor="start" font-size="9" fill="#1B2A4A" font-weight="600">Technology (2.0)</text>
+          <text x="78" y="110" text-anchor="start" font-size="9" fill="#1B2A4A" font-weight="600">Data Quality (1.5)</text>
+          <text x="-78" y="110" text-anchor="end" font-size="9" fill="#1B2A4A" font-weight="600">Documentation (2.0)</text>
+          <text x="-128" y="-35" text-anchor="end" font-size="9" fill="#1B2A4A" font-weight="600">Knowledge Mgmt (2.0)</text>
+        </g>
+        <rect x="120" y="340" width="12" height="12" fill="rgba(15,118,110,0.2)" stroke="#0F766E"/>
+        <text x="138" y="350" font-size="9" fill="#1B2A4A">Current Score</text>
+        <line x1="220" y1="346" x2="240" y2="346" stroke="#dc2626" stroke-dasharray="6,3"/>
+        <text x="246" y="350" font-size="9" fill="#1B2A4A">12-Month Target</text>
+      </svg>
+    </div>
+
+    <table>
+      <tr><th>Dimension</th><th>Current</th><th>Target (12-mo)</th><th>Gap</th></tr>
+      <tr><td>Process Standardization</td><td>2.0</td><td>3.5</td><td>1.5</td></tr>
+      <tr><td>Technology Utilization</td><td>2.0</td><td>3.5</td><td>1.5</td></tr>
+      <tr><td>Data Quality & Accessibility</td><td>1.5</td><td>3.0</td><td>1.5</td></tr>
+      <tr><td>Documentation</td><td>2.0</td><td>3.0</td><td>1.0</td></tr>
+      <tr><td>Knowledge Management</td><td>2.0</td><td>3.0</td><td>1.0</td></tr>
+      <tr><th>Overall Maturity</th><th>2.0</th><th>3.2</th><th>1.2</th></tr>
+    </table>
+  </div>
+</div>
+
+<!-- SOLUTIONS -->
+<div class="page">
+  <div class="section">
+    <div class="section-num">Section 06</div>
+    <h2>Proposed Solutions</h2>
+
+    <div class="solution-card">
+      <h4>Solution for: Executive Communication Saturation</h4>
+      <p><strong>Approach:</strong> Implement structured approval workflows in Zoho/Slack that auto-route requests by type (expense, hiring, travel) with auto-escalation. Consolidate WhatsApp groups — create topic-specific channels with clear ownership. Train teams to use Slack for internal, WhatsApp only for external.</p>
+      <table>
+        <tr><th>Priority</th><th>Effort</th><th>Approach</th><th>Expected Savings</th></tr>
+        <tr><td><span class="badge badge-critical">P1</span></td><td>Medium</td><td>Workflow rules in existing tools; communication policy change</td><td>~8–10 hrs/week of COO time recovered from communication triage</td></tr>
+      </table>
+    </div>
+
+    <div class="solution-card">
+      <h4>Solution for: Field Tracking & Compliance Leakage</h4>
+      <p><strong>Approach:</strong> Deploy an offline-capable field tracking solution (Zoho FSM or equivalent) that captures geo-data even in low-network areas and syncs when connectivity resumes. Replace WhatsApp-based location sharing entirely.</p>
+      <table>
+        <tr><th>Priority</th><th>Effort</th><th>Approach</th><th>Expected Savings</th></tr>
+        <tr><td><span class="badge badge-critical">P1</span></td><td>Medium</td><td>Replace failing app; Zoho FSM within existing ecosystem</td><td>6–8 hrs/day of manual tracking recovered; reliable compliance data</td></tr>
+      </table>
+    </div>
+
+    <div class="solution-card">
+      <h4>Solution for: Marketing Accountability Gap</h4>
+      <p><strong>Approach:</strong> (1) Prioritize hiring a dedicated Marketing Manager. (2) Implement basic UTM tracking + Zoho Analytics for campaign ROI measurement. (3) Define quarterly ROI review cadence with the COO.</p>
+      <table>
+        <tr><th>Priority</th><th>Effort</th><th>Approach</th><th>Expected Savings</th></tr>
+        <tr><td><span class="badge badge-high">P2</span></td><td>Medium–High</td><td>Hiring + analytics setup</td><td>Accountable marketing spend; measurable ROI on 25–50% revenue allocation</td></tr>
+      </table>
+    </div>
+
+    <div class="solution-card">
+      <h4>Solution for: Lost Decision Opportunities</h4>
+      <p><strong>Approach:</strong> Set up a simple voice-to-text capture workflow — COO records a Slack voice memo or uses a reminder bot. These auto-populate a "Decision Inbox" reviewed each morning.</p>
+      <table>
+        <tr><th>Priority</th><th>Effort</th><th>Approach</th><th>Expected Savings</th></tr>
+        <tr><td><span class="badge badge-low">P3</span></td><td>Minimal</td><td>Behavioral change + Slack bot; zero new cost</td><td>Prevents lost strategic ideas; simple habit formation</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ADDITIONAL SUGGESTIONS -->
+<div class="page">
+  <div class="section">
+    <div class="section-num">Section 07</div>
+    <h2>Additional Optimization Suggestions</h2>
+
+    <div class="solution-card suggestion">
+      <h4>💡 CRM Requirement for MENA Pipeline (HubSpot-Style)</h4>
+      <p>The COO has explicitly identified the need for a CRM with parent "Company" records and nested "Deal/Crop Accounts" for MENA. This should be addressed through the enterprise-wide Zoho CRM implementation recommended across all BD verticals, with MENA-specific custom fields.</p>
+      <div class="kpi-row">
+        <span class="kpi-tag">Priority: P1 (part of enterprise CRM)</span>
+        <span class="kpi-tag">Effort: Included in CRM rollout</span>
+        <span class="kpi-tag">Impact: Full MENA pipeline visibility</span>
+      </div>
+    </div>
+
+    <div class="solution-card suggestion">
+      <h4>💡 Delegation Framework for Operational Insulation</h4>
+      <p>The COO currently insulates operational personnel from administrative tasks (e.g., drafting investor decks from verbal updates). Formalizing this as a delegation matrix — defining which decisions need COO approval vs. department autonomy — would reduce the routing bottleneck.</p>
+      <div class="kpi-row">
+        <span class="kpi-tag">Priority: P2</span>
+        <span class="kpi-tag">Effort: Low — policy document</span>
+        <span class="kpi-tag">Impact: Reduces COO as single approval point</span>
+      </div>
+    </div>
+
+    <div class="solution-card suggestion">
+      <h4>💡 Distributor Onboarding System of Record</h4>
+      <p>No centralized system tracks distributor onboarding status or pipeline stage. Creating a simple tracker within the CRM would give the COO immediate visibility into channel development progress.</p>
+      <div class="kpi-row">
+        <span class="kpi-tag">Priority: P2</span>
+        <span class="kpi-tag">Effort: Low — CRM custom module</span>
+        <span class="kpi-tag">Impact: Channel development visibility</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ROADMAP -->
+<div class="page">
+  <div class="section">
+    <div class="section-num">Section 08</div>
+    <h2>Phased Roadmap</h2>
+
+    <div style="margin: 30px 0;">
+      <div class="roadmap-phase">
+        <div class="phase-label">Phase 1 — Quick Wins (Immediate Impact)</div>
+        <h4>Structured Approval Workflows</h4>
+        <p>Configure Zoho/Slack approval routing by request type. Auto-escalation for pending items. <strong>Recovers ~8–10 hrs/week of COO triage time.</strong></p>
+        <h4>Communication Channel Consolidation</h4>
+        <p>Reduce WhatsApp group sprawl. Define clear channel ownership — Slack for internal, WhatsApp for external only.</p>
+        <h4>Voice-to-Text Decision Capture</h4>
+        <p>Deploy a Slack reminder bot for post-10 PM idea capture. <strong>Zero cost.</strong></p>
+        <div style="background:#f0fdfa;padding:12px;border-radius:6px;margin-top:12px;">
+          <strong>Where this places us:</strong> COO approval bottleneck is reduced by 40–50%. Communication channels are organized. Decision ideas are no longer lost.
+        </div>
+      </div>
+
+      <div class="roadmap-phase phase-2">
+        <div class="phase-label p2">Phase 2 — Operational Foundation</div>
+        <h4>Deploy Offline-Capable Field Tracking</h4>
+        <p>Replace failing field force app with Zoho FSM or equivalent. <strong>Recovers 6–8 hrs/day of manual geo-tracking.</strong></p>
+        <h4>Marketing Manager Hiring + ROI Analytics</h4>
+        <p>Hire a dedicated marketing owner. Set up UTM tracking and campaign ROI dashboards. <strong>Makes 25–50% revenue allocation accountable.</strong></p>
+        <h4>Delegation Framework Document</h4>
+        <p>Define approval tiers — what needs COO vs. department autonomy. <strong>Further reduces routing bottleneck.</strong></p>
+        <div style="background:#eff6ff;padding:12px;border-radius:6px;margin-top:12px;">
+          <strong>Where this places us:</strong> Field compliance is automated and reliable. Marketing has an accountable owner with measurable ROI. COO time is freed for strategic work rather than operational triage.
+        </div>
+      </div>
+
+      <div class="roadmap-phase phase-3">
+        <div class="phase-label p3">Phase 3 — Advanced Optimization</div>
+        <h4>MENA CRM Module (Part of Enterprise CRM)</h4>
+        <p>Custom fields for parent Company → nested Deal/Crop Accounts within Zoho CRM. <strong>Full MENA pipeline visibility.</strong></p>
+        <h4>Automated Board Reporting from Dashboards</h4>
+        <p>Board and investor decks auto-populated from Zoho Analytics rather than verbal updates.</p>
+        <div style="background:#f5f3ff;padding:12px;border-radius:6px;margin-top:12px;">
+          <strong>Where this places us:</strong> COO Office operates at Level 3+ maturity. Executive reporting is data-driven. MENA pipeline is tracked in real-time. The COO's time shifts from operational fire-fighting to strategic leadership.
+        </div>
+      </div>
+    </div>
+
+    <h3>Cumulative Expected Gains</h3>
+    <table>
+      <tr><th>Phase</th><th>Key Deliverable</th><th>Time Recovered</th><th>Strategic Impact</th></tr>
+      <tr><td>Phase 1</td><td>Approval workflows + channel consolidation</td><td>~8–10 hrs/week</td><td>Bottleneck reduction; organized comms</td></tr>
+      <tr><td>Phase 2</td><td>Field tracking + marketing accountability</td><td>~6–8 hrs/day (team)</td><td>Reliable compliance data; measurable marketing ROI</td></tr>
+      <tr><td>Phase 3</td><td>MENA CRM + automated reporting</td><td>~4–6 hrs/month</td><td>Data-driven governance; international visibility</td></tr>
+    </table>
+  </div>
+</div>
+
+</body>
+</html>

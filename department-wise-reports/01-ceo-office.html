@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CEO Office — Department Audit Report | EF Polymers</title>
+<style>
+  @page { size: A4; margin: 20mm 18mm; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: #1e293b; line-height: 1.6; background: #fff; font-size: 11pt; }
+  
+  .page { page-break-after: always; padding: 0; min-height: 100vh; }
+  .page:last-child { page-break-after: avoid; }
+  
+  /* Cover Page */
+  .cover { display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 100vh; background: linear-gradient(135deg, #1B2A4A 0%, #0F766E 100%); color: #fff; text-align: center; padding: 60px 40px; }
+  .cover-badge { font-size: 10pt; letter-spacing: 3px; text-transform: uppercase; opacity: 0.8; margin-bottom: 16px; border: 1px solid rgba(255,255,255,0.3); padding: 6px 20px; border-radius: 20px; }
+  .cover h1 { font-size: 32pt; font-weight: 700; margin: 20px 0 10px; }
+  .cover h2 { font-size: 16pt; font-weight: 300; opacity: 0.9; margin-bottom: 40px; }
+  .cover-meta { font-size: 10pt; opacity: 0.7; line-height: 2; }
+  .cover-line { width: 80px; height: 3px; background: rgba(255,255,255,0.5); margin: 30px auto; }
+
+  /* Section Styles */
+  .section { padding: 40px 0; }
+  .section-num { font-size: 9pt; color: #0F766E; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 4px; }
+  h2 { font-size: 18pt; color: #1B2A4A; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #e2e8f0; }
+  h3 { font-size: 13pt; color: #1B2A4A; margin: 24px 0 12px; }
+  h4 { font-size: 11pt; color: #334155; margin: 16px 0 8px; }
+  p { margin-bottom: 12px; }
+  
+  /* Tables */
+  table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 10pt; }
+  th { background: #1B2A4A; color: #fff; padding: 10px 12px; text-align: left; font-weight: 600; }
+  td { padding: 9px 12px; border-bottom: 1px solid #e2e8f0; }
+  tr:nth-child(even) { background: #f8fafc; }
+  
+  /* Cards */
+  .card { border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px; margin: 16px 0; background: #fff; }
+  .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+  .card-title { font-weight: 700; font-size: 11pt; color: #1B2A4A; }
+  
+  /* Priority Badges */
+  .badge { display: inline-block; padding: 3px 12px; border-radius: 12px; font-size: 8.5pt; font-weight: 600; }
+  .badge-critical { background: #fef2f2; color: #dc2626; border: 1px solid #fecaca; }
+  .badge-high { background: #fff7ed; color: #ea580c; border: 1px solid #fed7aa; }
+  .badge-medium { background: #fffbeb; color: #d97706; border: 1px solid #fde68a; }
+  .badge-low { background: #f0fdf4; color: #16a34a; border: 1px solid #bbf7d0; }
+  
+  /* Metric Grid */
+  .metrics-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 16px 0; }
+  .metric-box { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px; text-align: center; }
+  .metric-value { font-size: 18pt; font-weight: 700; color: #0F766E; }
+  .metric-label { font-size: 8pt; color: #64748b; text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
+  
+  /* Flow Chart */
+  .flow-container { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin: 20px 0; justify-content: center; }
+  .flow-step { background: #f0fdfa; border: 2px solid #0F766E; border-radius: 8px; padding: 12px 18px; font-size: 9.5pt; font-weight: 500; text-align: center; min-width: 140px; max-width: 200px; }
+  .flow-step.problem { border-color: #dc2626; background: #fef2f2; }
+  .flow-arrow { color: #94a3b8; font-size: 18pt; }
+  
+  /* Solution Card */
+  .solution-card { border-left: 4px solid #0F766E; background: #f0fdfa; border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 12px 0; }
+  .solution-card.suggestion { border-left-color: #6366f1; background: #eef2ff; }
+  
+  /* Roadmap */
+  .roadmap-phase { border-left: 3px solid #0F766E; padding: 16px 0 16px 24px; margin-left: 12px; position: relative; }
+  .roadmap-phase::before { content: ''; width: 12px; height: 12px; background: #0F766E; border-radius: 50%; position: absolute; left: -7.5px; top: 20px; }
+  .roadmap-phase.phase-2 { border-left-color: #2563eb; }
+  .roadmap-phase.phase-2::before { background: #2563eb; }
+  .roadmap-phase.phase-3 { border-left-color: #7c3aed; }
+  .roadmap-phase.phase-3::before { background: #7c3aed; }
+  .phase-label { font-size: 9pt; font-weight: 700; color: #0F766E; letter-spacing: 1px; text-transform: uppercase; }
+  .phase-label.p2 { color: #2563eb; }
+  .phase-label.p3 { color: #7c3aed; }
+  
+  /* Info Gap */
+  .gap-item { display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid #f1f5f9; }
+  .gap-icon { width: 32px; height: 32px; background: #fef3c7; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14pt; flex-shrink: 0; }
+  
+  /* Maturity Radar placeholder */
+  .chart-container { display: flex; justify-content: center; margin: 24px 0; }
+
+  /* Print */
+  @media print {
+    body { font-size: 10pt; }
+    .page { min-height: auto; }
+    .cover { min-height: 100vh; }
+    .no-print { display: none; }
+  }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .kpi-row { display: flex; gap: 8px; flex-wrap: wrap; margin: 8px 0; }
+  .kpi-tag { background: #f1f5f9; border-radius: 6px; padding: 4px 10px; font-size: 9pt; color: #475569; }
+</style>
+</head>
+<body>
+
+<!-- ============ COVER PAGE ============ -->
+<div class="page cover">
+  <div class="cover-badge">Department Audit Report</div>
+  <h1>CEO Office</h1>
+  <h2>Narayan Lal Gurjar — Founder & Chief Executive Officer</h2>
+  <div class="cover-line"></div>
+  <div class="cover-meta">
+    EF Polymers Private Limited<br>
+    Prepared by Creative Upaay Consulting<br>
+    July 2026 · Version 1.0<br>
+    Confidential — Executive Leadership Only
+  </div>
+</div>
+
+<!-- ============ DEPARTMENT OVERVIEW ============ -->
+<div class="page">
+  <div class="section">
+    <div class="section-num">Section 01</div>
+    <h2>Department Overview</h2>
+    
+    <p>The CEO Office oversees the strategic corporate vision, policy creation, high-level corporate alignment, international subsidiary compliance (US, EU, Japan), public relations, and final governance approvals. Narayan Lal Gurjar maintains oversight over all core operations, delegating daily execution to department heads while holding final approval rights over strategic policies, financial budgets, and manager-level hires.</p>
+
+    <div class="metrics-grid">
+      <div class="metric-box">
+        <div class="metric-value">3–4 mo</div>
+        <div class="metric-label">Forecast Visibility</div>
+      </div>
+      <div class="metric-box">
+        <div class="metric-value">4+2</div>
+        <div class="metric-label">Reporting Segments</div>
+      </div>
+      <div class="metric-box">
+        <div class="metric-value">Mgr+</div>
+        <div class="metric-label">Hiring Approval Tier</div>
+      </div>
+      <div class="metric-box">
+        <div class="metric-value">Slack</div>
+        <div class="metric-label">Primary Channel</div>
+      </div>
+    </div>
+
+    <h3>Time & Effort Allocation</h3>
+    <table>
+      <tr><th>Activity</th><th>Effort Share</th></tr>
+      <tr><td>Strategic Planning & Policy Formulation</td><td>~30%</td></tr>
+      <tr><td>Financial Oversight & Performance Reviews</td><td>~25%</td></tr>
+      <tr><td>Internal Coordination & Issue Resolution</td><td>~20%</td></tr>
+      <tr><td>International Expansion & Subsidiary Reporting</td><td>~15%</td></tr>
+      <tr><td>High-Level Talent Approvals</td><td>~10%</td></tr>
+    </table>
+
+    <h3>Tool Stack</h3>
+    <div class="kpi-row">
+      <span class="kpi-tag">Slack (with integrated apps)</span>
+      <span class="kpi-tag">WhatsApp</span>
+      <span class="kpi-tag">Gmail</span>
+      <span class="kpi-tag">Google Sheets (ad-hoc)</span>
+    </div>
+
+    <h3>Reporting Structure</h3>
+    <div style="margin: 20px 0;">
+      <svg viewBox="0 0 700 320" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:700px;display:block;margin:0 auto;">
+        <!-- CEO Node -->
+        <rect x="260" y="10" width="180" height="50" rx="8" fill="#1B2A4A"/>
+        <text x="350" y="32" text-anchor="middle" fill="#fff" font-size="10" font-weight="700">Narayan Lal Gurjar</text>
+        <text x="350" y="48" text-anchor="middle" fill="#94a3b8" font-size="9">Founder & CEO</text>
+        
+        <!-- Domestic Reports -->
+        <rect x="20" y="120" width="140" height="40" rx="6" fill="#f0fdfa" stroke="#0F766E" stroke-width="1.5"/>
+        <text x="90" y="144" text-anchor="middle" fill="#1B2A4A" font-size="8.5">Puran Singh Rajput</text>
+        <text x="90" y="155" text-anchor="middle" fill="#64748b" font-size="7">MENA & India Ops</text>
+        
+        <rect x="180" y="120" width="110" height="40" rx="6" fill="#f0fdfa" stroke="#0F766E" stroke-width="1.5"/>
+        <text x="235" y="144" text-anchor="middle" fill="#1B2A4A" font-size="8.5">Rishabh Doshi</text>
+        <text x="235" y="155" text-anchor="middle" fill="#64748b" font-size="7">Production</text>
+        
+        <rect x="310" y="120" width="100" height="40" rx="6" fill="#f0fdfa" stroke="#0F766E" stroke-width="1.5"/>
+        <text x="360" y="144" text-anchor="middle" fill="#1B2A4A" font-size="8.5">Ritu Panwar</text>
+        <text x="360" y="155" text-anchor="middle" fill="#64748b" font-size="7">R&D</text>
+        
+        <rect x="430" y="120" width="100" height="40" rx="6" fill="#f0fdfa" stroke="#0F766E" stroke-width="1.5"/>
+        <text x="480" y="144" text-anchor="middle" fill="#1B2A4A" font-size="8.5">Ankit Jain</text>
+        <text x="480" y="155" text-anchor="middle" fill="#64748b" font-size="7">CBDO - B2B/BD</text>
+
+        <!-- International Reports -->
+        <rect x="20" y="220" width="140" height="40" rx="6" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+        <text x="90" y="244" text-anchor="middle" fill="#1B2A4A" font-size="8.5">EU & US Directors</text>
+        <text x="90" y="255" text-anchor="middle" fill="#64748b" font-size="7">International</text>
+        
+        <rect x="180" y="220" width="110" height="40" rx="6" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+        <text x="235" y="244" text-anchor="middle" fill="#1B2A4A" font-size="8.5">Japan COO</text>
+        <text x="235" y="255" text-anchor="middle" fill="#64748b" font-size="7">International</text>
+        
+        <!-- Admin -->
+        <rect x="430" y="220" width="140" height="40" rx="6" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+        <text x="500" y="244" text-anchor="middle" fill="#1B2A4A" font-size="8.5">HR & Admin / PR</text>
+        <text x="500" y="255" text-anchor="middle" fill="#64748b" font-size="7">Complaints & Solutions</text>
+
+        <!-- Lines -->
+        <line x1="350" y1="60" x2="90" y2="120" stroke="#cbd5e1" stroke-width="1.5"/>
+        <line x1="350" y1="60" x2="235" y2="120" stroke="#cbd5e1" stroke-width="1.5"/>
+        <line x1="350" y1="60" x2="360" y2="120" stroke="#cbd5e1" stroke-width="1.5"/>
+        <line x1="350" y1="60" x2="480" y2="120" stroke="#cbd5e1" stroke-width="1.5"/>
+        <line x1="350" y1="60" x2="90" y2="220" stroke="#c7d2fe" stroke-width="1.5" stroke-dasharray="6,3"/>
+        <line x1="350" y1="60" x2="235" y2="220" stroke="#c7d2fe" stroke-width="1.5" stroke-dasharray="6,3"/>
+        <line x1="350" y1="60" x2="500" y2="220" stroke="#fde68a" stroke-width="1.5" stroke-dasharray="6,3"/>
+        
+        <text x="50" y="100" fill="#0F766E" font-size="8" font-weight="600">DOMESTIC REPORTS</text>
+        <text x="50" y="205" fill="#6366f1" font-size="8" font-weight="600">INTERNATIONAL REPORTS</text>
+        <text x="460" y="205" fill="#d97706" font-size="8" font-weight="600">ADMIN</text>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<!-- ============ EXISTING WORKFLOWS ============ -->
+<div class="page">
+  <div class="section">
+    <div class="section-num">Section 02</div>
+    <h2>Existing Workflows</h2>
+
+    <h3>Workflow 1: Strategic Planning & Financial Oversight Cycle</h3>
+    <p>The CEO monitors three critical areas — region-wise revenue, key client P&Ls, and departmental expense compliance — through manual verbal briefings and ad-hoc Google Sheets shared by department heads.</p>
+    
+    <div class="flow-container">
+      <div class="flow-step">Department Heads submit ad-hoc updates (Sheets/verbal)</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">CEO reviews region-wise revenue & client P&L</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">CEO validates expense compliance against budgets</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">Policy decisions communicated via Slack/WhatsApp</div>
+    </div>
+    <p style="font-size:9.5pt;color:#64748b;">⚠ No consolidated dashboard exists. Revenue, P&L, and expense data are checked manually across disparate sheets.</p>
+
+    <h3>Workflow 2: High-Level Talent Approval Process</h3>
+    <p>All recruitment for positions at Manager level and above requires explicit CEO review and approval. Standard hiring is delegated to HR (Dolly Mehta) and reporting managers.</p>
+    
+    <div class="flow-container">
+      <div class="flow-step">HR / Department Head identifies Manager+ vacancy</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">Candidate pipeline shortlisted by HR</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">CEO reviews candidate profile & interview feedback</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">CEO grants / denies final approval</div>
+    </div>
+
+    <h3>Workflow 3: International Subsidiary Oversight</h3>
+    <p>The CEO reviews operational reports from the Japan COO and coordinates expansion strategies with EU and US Directors. The Japan subsidiary has automated approval workflows using free Slack apps — but this has not been adopted domestically.</p>
+    
+    <div class="flow-container">
+      <div class="flow-step">Japan COO submits operational report</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">EU/US Directors provide regional updates</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">CEO reviews & aligns expansion strategy</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step problem">Domestic teams lack same automation</div>
+    </div>
+
+    <h3>Workflow 4: Policy Making & Approval Protocol</h3>
+    <div class="flow-container">
+      <div class="flow-step">Corporate policies co-created with Dept Heads</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">Draft reviewed for compliance</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">CEO final sign-off required</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">Communication via Slack / Email</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ CHALLENGES & RED FLAGS ============ -->
+<div class="page">
+  <div class="section">
+    <div class="section-num">Section 03</div>
+    <h2>Challenges, Risks & Red Flags</h2>
+
+    <!-- Challenge 1 -->
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">1. Short-Term Forecast Visibility</span>
+        <span class="badge badge-critical">CRITICAL</span>
+      </div>
+      <p>Projections and demand forecasting are constrained to a <strong>3–4 month</strong> runway. This short visibility creates operational and inventory planning risks for manufacturing and sales execution.</p>
+      <table>
+        <tr><th>Metric</th><th>Detail</th></tr>
+        <tr><td>Time Waste</td><td>Strategic planning cycles are reactive rather than proactive — quarterly fire-fighting</td></tr>
+        <tr><td>Investment Required</td><td>Medium — requires connecting Sales and Production forecasting models</td></tr>
+        <tr><td>ROI Potential</td><td><strong>High</strong> — extending to 6–12 month visibility reduces emergency procurement, prevents stockouts, enables better cash flow management</td></tr>
+        <tr><td>Cross-Department</td><td>Production, Sales, BD (all verticals), Finance</td></tr>
+      </table>
+    </div>
+
+    <!-- Challenge 2 -->
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">2. No Real-Time Consolidated Dashboard</span>
+        <span class="badge badge-critical">CRITICAL</span>
+      </div>
+      <p>The lack of real-time data integration forces manual checks across divisions. The CEO lacks a single consolidated dashboard for region-wise revenue, client P&L, and expense compliance.</p>
+      <table>
+        <tr><th>Metric</th><th>Detail</th></tr>
+        <tr><td>Time Waste</td><td>~3–5 hours/week of CEO time spent gathering updates manually from dept heads</td></tr>
+        <tr><td>Investment Required</td><td>Medium — Zoho Analytics or equivalent BI layer connected to Zoho Books</td></tr>
+        <tr><td>ROI Potential</td><td><strong>High</strong> — real-time visibility enables faster strategic decisions, catches revenue leaks early</td></tr>
+        <tr><td>Cross-Department</td><td>All departments contribute data; Finance, Production, Sales primary feeds</td></tr>
+      </table>
+    </div>
+
+    <!-- Challenge 3 -->
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">3. Fragmented Travel & Expense Approvals</span>
+        <span class="badge badge-medium">MEDIUM</span>
+      </div>
+      <p>Travel and expense approvals are handled manually across unstructured email threads and Slack. This method lacks database visibility and creates approval bottlenecks.</p>
+      <table>
+        <tr><th>Metric</th><th>Detail</th></tr>
+        <tr><td>Time Waste</td><td>~1–2 hours/week on manual approval routing</td></tr>
+        <tr><td>Investment Required</td><td>Low — Zoho Expense is already in use; needs workflow automation within existing tool</td></tr>
+        <tr><td>ROI Potential</td><td><strong>Medium</strong> — reduces CEO interruptions, creates audit trail</td></tr>
+        <tr><td>Cross-Department</td><td>All departments (expense submitters)</td></tr>
+      </table>
+    </div>
+
+    <!-- Challenge 4 -->
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">4. Siloed Ground-Level Farmer Feedback</span>
+        <span class="badge badge-medium">MEDIUM</span>
+      </div>
+      <p>Agricultural usecase and feedback data from ground-level farming operations are not systematically aggregated, hindering R&D improvements and strategic marketing decisions.</p>
+      <table>
+        <tr><th>Metric</th><th>Detail</th></tr>
+        <tr><td>Time Waste</td><td>Indirect — lost innovation opportunities, delayed product iteration cycles</td></tr>
+        <tr><td>Investment Required</td><td>Low–Medium — structured feedback forms + routing to R&D and Marketing</td></tr>
+        <tr><td>ROI Potential</td><td><strong>Medium</strong> — direct product improvement insights, stronger marketing claims</td></tr>
+        <tr><td>Cross-Department</td><td>R&D, Marketing, Field Sales, BD</td></tr>
+      </table>
+    </div>
+
+    <!-- Challenge 5 -->
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">5. Japan Workflow Automation Not Deployed Domestically</span>
+        <span class="badge badge-low">LOW</span>
+      </div>
+      <p>The Japan subsidiary uses free Slack-based approval and workflow apps successfully. This process automation has not been replicated across India or MENA operations.</p>
+      <table>
+        <tr><th>Metric</th><th>Detail</th></tr>
+        <tr><td>Time Waste</td><td>Ongoing manual approvals across India/MENA that Japan has already automated</td></tr>
+        <tr><td>Investment Required</td><td>Low — free Slack apps already proven; requires deployment and training</td></tr>
+        <tr><td>ROI Potential</td><td><strong>High relative to cost</strong> — near-zero cost with proven internal model</td></tr>
+        <tr><td>Cross-Department</td><td>All domestic and MENA teams</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ============ INFO GAPS ============ -->
+<div class="page">
+  <div class="section">
+    <div class="section-num">Section 04</div>
+    <h2>Information Gaps & Cross-Department Leaks</h2>
+    
+    <div class="gap-item">
+      <div class="gap-icon">⚠</div>
+      <div>
+        <h4>CEO ↔ Sales/BD Pipeline Visibility</h4>
+        <p>The CEO has no real-time access to active sales pipelines across any BD vertical. Pipeline status, deal stages, and lead ownership are invisible at the executive level, requiring manual one-to-one meetings with the CBDO.</p>
+      </div>
+    </div>
+    
+    <div class="gap-item">
+      <div class="gap-icon">⚠</div>
+      <div>
+        <h4>CEO ↔ Production (Inventory & COGS)</h4>
+        <p>Financial reporting is undermined by COGS margin volatility (50%–77%) caused by absent WIP valuation in the Production/Finance chain. The CEO receives unreliable cost data for strategic decisions.</p>
+      </div>
+    </div>
+    
+    <div class="gap-item">
+      <div class="gap-icon">⚠</div>
+      <div>
+        <h4>CEO ↔ Field Operations (Ground Feedback)</h4>
+        <p>Agricultural usecase data from ground-level farming operations does not systematically flow up to the CEO or to R&D. Feedback is trapped in WhatsApp threads of field teams.</p>
+      </div>
+    </div>
+    
+    <div class="gap-item">
+      <div class="gap-icon">⚠</div>
+      <div>
+        <h4>CEO ↔ International Subsidiaries (Process Parity)</h4>
+        <p>Japan subsidiary runs automated workflows through Slack apps, but these learnings and tools have not been replicated domestically. The CEO is aware of this disparity but lacks a deployment mechanism.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ MATURITY SCORE ============ -->
+<div class="page">
+  <div class="section">
+    <div class="section-num">Section 05</div>
+    <h2>Department Maturity Score</h2>
+    
+    <div class="chart-container">
+      <svg viewBox="0 0 400 380" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:400px;">
+        <!-- Radar Chart -->
+        <g transform="translate(200,180)">
+          <!-- Grid rings -->
+          <polygon points="0,-120 114,-37 70,97 -70,97 -114,-37" fill="none" stroke="#e2e8f0" stroke-width="0.5"/>
+          <polygon points="0,-96 91,-30 56,78 -56,78 -91,-30" fill="none" stroke="#e2e8f0" stroke-width="0.5"/>
+          <polygon points="0,-72 68,-22 42,58 -42,58 -68,-22" fill="none" stroke="#e2e8f0" stroke-width="0.5"/>
+          <polygon points="0,-48 46,-15 28,39 -28,39 -46,-15" fill="none" stroke="#e2e8f0" stroke-width="0.5"/>
+          <polygon points="0,-24 23,-7 14,19 -14,19 -23,-7" fill="none" stroke="#e2e8f0" stroke-width="0.5"/>
+          
+          <!-- Axis lines -->
+          <line x1="0" y1="0" x2="0" y2="-120" stroke="#e2e8f0" stroke-width="0.5"/>
+          <line x1="0" y1="0" x2="114" y2="-37" stroke="#e2e8f0" stroke-width="0.5"/>
+          <line x1="0" y1="0" x2="70" y2="97" stroke="#e2e8f0" stroke-width="0.5"/>
+          <line x1="0" y1="0" x2="-70" y2="97" stroke="#e2e8f0" stroke-width="0.5"/>
+          <line x1="0" y1="0" x2="-114" y2="-37" stroke="#e2e8f0" stroke-width="0.5"/>
+          
+          <!-- Data polygon (scores: Process=2.5, Tech=2.0, Data=1.5, Docs=2.0, KM=2.0) -->
+          <!-- Normalized: 2.5/5=0.5, 2.0/5=0.4, 1.5/5=0.3, 2.0/5=0.4, 2.0/5=0.4 -->
+          <polygon points="0,-60 45.6,-14.8 21,29.1 -28,38.8 -45.6,-14.8" fill="rgba(15,118,110,0.2)" stroke="#0F766E" stroke-width="2"/>
+          
+          <!-- Target polygon (all 3.5/5 = 0.7) -->
+          <polygon points="0,-84 79.8,-25.9 49,67.9 -49,67.9 -79.8,-25.9" fill="none" stroke="#dc2626" stroke-width="1" stroke-dasharray="6,3"/>
+          
+          <!-- Data points -->
+          <circle cx="0" cy="-60" r="4" fill="#0F766E"/>
+          <circle cx="45.6" cy="-14.8" r="4" fill="#0F766E"/>
+          <circle cx="21" cy="29.1" r="4" fill="#0F766E"/>
+          <circle cx="-28" cy="38.8" r="4" fill="#0F766E"/>
+          <circle cx="-45.6" cy="-14.8" r="4" fill="#0F766E"/>
+          
+          <!-- Labels -->
+          <text x="0" y="-132" text-anchor="middle" font-size="9" fill="#1B2A4A" font-weight="600">Process (2.5)</text>
+          <text x="128" y="-35" text-anchor="start" font-size="9" fill="#1B2A4A" font-weight="600">Technology (2.0)</text>
+          <text x="78" y="110" text-anchor="start" font-size="9" fill="#1B2A4A" font-weight="600">Data Quality (1.5)</text>
+          <text x="-78" y="110" text-anchor="end" font-size="9" fill="#1B2A4A" font-weight="600">Documentation (2.0)</text>
+          <text x="-128" y="-35" text-anchor="end" font-size="9" fill="#1B2A4A" font-weight="600">Knowledge Mgmt (2.0)</text>
+          
+          <!-- Scale labels -->
+          <text x="8" y="-22" font-size="7" fill="#94a3b8">1</text>
+          <text x="8" y="-46" font-size="7" fill="#94a3b8">2</text>
+          <text x="8" y="-70" font-size="7" fill="#94a3b8">3</text>
+          <text x="8" y="-94" font-size="7" fill="#94a3b8">4</text>
+          <text x="8" y="-118" font-size="7" fill="#94a3b8">5</text>
+        </g>
+        
+        <!-- Legend -->
+        <rect x="120" y="340" width="12" height="12" fill="rgba(15,118,110,0.2)" stroke="#0F766E"/>
+        <text x="138" y="350" font-size="9" fill="#1B2A4A">Current Score</text>
+        <line x1="220" y1="346" x2="240" y2="346" stroke="#dc2626" stroke-dasharray="6,3"/>
+        <text x="246" y="350" font-size="9" fill="#1B2A4A">12-Month Target</text>
+      </svg>
+    </div>
+
+    <table>
+      <tr><th>Dimension</th><th>Current</th><th>Target (12-mo)</th><th>Gap</th></tr>
+      <tr><td>Process Standardization</td><td>2.5</td><td>3.5</td><td>1.0</td></tr>
+      <tr><td>Technology Utilization</td><td>2.0</td><td>3.5</td><td>1.5</td></tr>
+      <tr><td>Data Quality & Accessibility</td><td>1.5</td><td>3.0</td><td>1.5</td></tr>
+      <tr><td>Documentation</td><td>2.0</td><td>3.0</td><td>1.0</td></tr>
+      <tr><td>Knowledge Management</td><td>2.0</td><td>3.0</td><td>1.0</td></tr>
+      <tr><th>Overall Maturity</th><th>2.0</th><th>3.2</th><th>1.2</th></tr>
+    </table>
+    <p style="font-size:9.5pt;color:#64748b;">Scale: 1 = Initial (reactive, undocumented) → 5 = Optimized (automated, data-driven). Industry mid-maturity benchmark: 3.0.</p>
+  </div>
+</div>
+
+<!-- ============ PROPOSED SOLUTIONS ============ -->
+<div class="page">
+  <div class="section">
+    <div class="section-num">Section 06</div>
+    <h2>Proposed Solutions</h2>
+
+    <div class="solution-card">
+      <h4>Solution for: Short-Term Forecast Visibility</h4>
+      <p><strong>Approach:</strong> Connect Sales pipeline data (once CRM is implemented in BD) and Production demand signals into a shared forecasting sheet/dashboard. Extend visibility from 3–4 months to 6–12 months using trailing order data + seasonal patterns.</p>
+      <table>
+        <tr><th>Priority</th><th>Effort</th><th>Approach</th><th>Expected Savings</th></tr>
+        <tr><td><span class="badge badge-critical">P1</span></td><td>Medium</td><td>Optimize existing data flows — no new build; connects CRM + Zoho Books</td><td>Reduced emergency procurement costs; better cash flow planning; estimated 10–15% reduction in idle inventory</td></tr>
+      </table>
+    </div>
+
+    <div class="solution-card">
+      <h4>Solution for: No Real-Time Consolidated Dashboard</h4>
+      <p><strong>Approach:</strong> Deploy Zoho Analytics (already within the Zoho ecosystem) connected to Zoho Books, Zoho CRM, and Zoho Inventory to auto-generate CEO-level dashboards — region-wise revenue, client P&L, expense compliance.</p>
+      <table>
+        <tr><th>Priority</th><th>Effort</th><th>Approach</th><th>Expected Savings</th></tr>
+        <tr><td><span class="badge badge-critical">P1</span></td><td>Medium</td><td>Leverage existing Zoho stack; no new vendor; configuration-only</td><td>~3–5 hours/week of CEO time recovered; faster strategic decisions; real-time anomaly detection</td></tr>
+      </table>
+    </div>
+
+    <div class="solution-card">
+      <h4>Solution for: Fragmented Travel & Expense Approvals</h4>
+      <p><strong>Approach:</strong> Standardize all travel/expense approvals through Zoho Expense's existing approval workflow engine. Configure multi-level approval chains with automatic routing. Eliminate email/Slack-based approvals entirely.</p>
+      <table>
+        <tr><th>Priority</th><th>Effort</th><th>Approach</th><th>Expected Savings</th></tr>
+        <tr><td><span class="badge badge-medium">P2</span></td><td>Low</td><td>Optimize existing Zoho Expense — workflow configuration only</td><td>~1–2 hours/week; complete audit trail; CEO interruptions reduced</td></tr>
+      </table>
+    </div>
+
+    <div class="solution-card">
+      <h4>Solution for: Siloed Ground-Level Feedback</h4>
+      <p><strong>Approach:</strong> Create a structured digital feedback form (Zoho Forms or Google Forms) that field teams fill during farm visits. Submissions auto-route to R&D and Marketing teams. Monthly aggregation report shared with CEO.</p>
+      <table>
+        <tr><th>Priority</th><th>Effort</th><th>Approach</th><th>Expected Savings</th></tr>
+        <tr><td><span class="badge badge-medium">P2</span></td><td>Low</td><td>New lightweight form; no system build needed</td><td>Closes feedback loop; improves product development cycle; marketing evidence-backed claims</td></tr>
+      </table>
+    </div>
+
+    <div class="solution-card">
+      <h4>Solution for: Japan Workflow Automation Gap</h4>
+      <p><strong>Approach:</strong> Document the Slack-based workflow apps used by the Japan subsidiary. Pilot deployment in one domestic department (e.g., HR approvals). If successful, roll out across India and MENA teams.</p>
+      <table>
+        <tr><th>Priority</th><th>Effort</th><th>Approach</th><th>Expected Savings</th></tr>
+        <tr><td><span class="badge badge-low">P3</span></td><td>Low</td><td>Replicate proven internal model — near-zero cost</td><td>Automates routine approvals; already proven in Japan; reduces manual email routing</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ============ ADDITIONAL SUGGESTIONS ============ -->
+<div class="page">
+  <div class="section">
+    <div class="section-num">Section 07</div>
+    <h2>Additional Optimization Suggestions</h2>
+    <p>The following are not tied to specific listed problems but represent improvements that would enhance overall CEO Office effectiveness.</p>
+
+    <div class="solution-card suggestion">
+      <h4>💡 Structured Board & Investor Reporting Pipeline</h4>
+      <p>Currently, board/investor decks are compiled from verbal updates by the COO. Establishing a monthly data submission template per department (auto-populated from Zoho dashboards) would reduce deck preparation time and improve data accuracy.</p>
+      <div class="kpi-row">
+        <span class="kpi-tag">Priority: P2</span>
+        <span class="kpi-tag">Effort: Low</span>
+        <span class="kpi-tag">Impact: Saves 4–6 hrs/month on board prep</span>
+      </div>
+    </div>
+
+    <div class="solution-card suggestion">
+      <h4>💡 Decision Capture Mechanism for Off-Hours</h4>
+      <p>The COO reported that decisions conceived after 10 PM lack a capture channel and are prone to being forgotten. A simple voice-to-text memo workflow (Slack reminder or voice note → action item) could solve this for both CEO and COO.</p>
+      <div class="kpi-row">
+        <span class="kpi-tag">Priority: P3</span>
+        <span class="kpi-tag">Effort: Minimal</span>
+        <span class="kpi-tag">Impact: Prevents lost strategic ideas</span>
+      </div>
+    </div>
+
+    <div class="solution-card suggestion">
+      <h4>💡 Quarterly Cross-Subsidiary Knowledge Exchange</h4>
+      <p>The Japan subsidiary's automation success indicates a culture of process improvement. Establishing a quarterly cross-subsidiary video call focused on operational best practices would help diffuse innovation across geographies.</p>
+      <div class="kpi-row">
+        <span class="kpi-tag">Priority: P3</span>
+        <span class="kpi-tag">Effort: Minimal</span>
+        <span class="kpi-tag">Impact: Organizational learning; process standardization</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ PHASED ROADMAP ============ -->
+<div class="page">
+  <div class="section">
+    <div class="section-num">Section 08</div>
+    <h2>Phased Roadmap</h2>
+    <p>The roadmap is structured by ROI impact — highest-return initiatives first. Each phase builds on the previous, progressively improving the CEO's strategic visibility and decision quality.</p>
+
+    <div style="margin: 30px 0;">
+      <div class="roadmap-phase">
+        <div class="phase-label">Phase 1 — Quick Wins (Immediate Impact)</div>
+        <h4>Standardize Expense Approvals via Zoho Expense</h4>
+        <p>Configure existing Zoho Expense for multi-level approval routing. Eliminate email/Slack-based approvals. <strong>Immediate time savings: ~1–2 hrs/week.</strong></p>
+        <h4>Deploy Japan Slack Workflow as Pilot</h4>
+        <p>Document and replicate Japan's Slack-based approval apps in one domestic department. <strong>Zero cost, proven model.</strong></p>
+        <h4>Create Ground-Level Feedback Form</h4>
+        <p>Deploy a digital feedback form for field teams to submit usecase data directly to R&D/Marketing. <strong>Closes a strategic information gap.</strong></p>
+        <div style="background:#f0fdfa;padding:12px;border-radius:6px;margin-top:12px;">
+          <strong>Where this places us:</strong> Routine approvals are automated. Ground-level agricultural feedback starts flowing to leadership. Japan's automation playbook begins domestic deployment.
+        </div>
+      </div>
+
+      <div class="roadmap-phase phase-2">
+        <div class="phase-label p2">Phase 2 — Operational Foundation (Strategic Visibility)</div>
+        <h4>Deploy Zoho Analytics CEO Dashboard</h4>
+        <p>Connect Zoho Books + CRM + Inventory into a unified analytics layer. CEO gets real-time region-wise revenue, client P&L, and expense compliance. <strong>Saves 3–5 hrs/week; enables proactive strategy.</strong></p>
+        <h4>Extend Forecast Visibility to 6–12 Months</h4>
+        <p>Link CRM pipeline data and Production demand signals to build a rolling demand forecast. <strong>Reduces emergency procurement; better cash flow management.</strong></p>
+        <div style="background:#eff6ff;padding:12px;border-radius:6px;margin-top:12px;">
+          <strong>Where this places us:</strong> CEO has real-time visibility across all departments. Strategic decisions shift from reactive quarterly cycles to proactive data-driven management. Forecast window doubles from 3–4 months to 6–12 months.
+        </div>
+      </div>
+
+      <div class="roadmap-phase phase-3">
+        <div class="phase-label p3">Phase 3 — Advanced Optimization</div>
+        <h4>Automated Board Reporting Pipeline</h4>
+        <p>Establish department-level data submission templates auto-populated from Zoho dashboards. Board decks compiled from live data rather than verbal updates. <strong>Saves 4–6 hrs/month on board prep.</strong></p>
+        <h4>Cross-Subsidiary Knowledge Exchange Program</h4>
+        <p>Quarterly video calls focused on operational best practices across Japan, EU, US, and India teams. <strong>Diffuses innovation; builds organizational learning culture.</strong></p>
+        <div style="background:#f5f3ff;padding:12px;border-radius:6px;margin-top:12px;">
+          <strong>Where this places us:</strong> CEO Office operates at Level 3+ maturity. Strategic reporting is data-driven and largely automated. Organizational knowledge flows across geographies. The CEO's time is freed from operational data-gathering to focus on vision and growth.
+        </div>
+      </div>
+    </div>
+
+    <!-- Summary Savings -->
+    <h3>Cumulative Expected Gains</h3>
+    <table>
+      <tr><th>Phase</th><th>Key Deliverable</th><th>Time Recovered</th><th>Strategic Impact</th></tr>
+      <tr><td>Phase 1</td><td>Approvals automated, feedback loop created</td><td>~2–3 hrs/week</td><td>Process automation; ground data capture</td></tr>
+      <tr><td>Phase 2</td><td>Real-time dashboard + extended forecast</td><td>~3–5 hrs/week</td><td>Proactive strategy; reduced fire-fighting</td></tr>
+      <tr><td>Phase 3</td><td>Automated board reports + knowledge exchange</td><td>~4–6 hrs/month</td><td>Data-driven governance; organizational learning</td></tr>
+    </table>
+  </div>
+</div>
+
+</body>
+</html>
