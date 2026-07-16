@@ -109,6 +109,40 @@ td.num{ text-align:center; white-space:nowrap; }
 /* ---- flow notes ---- */
 .flow-note{ font-size:8.6pt; color:var(--muted); margin:4px 0 18px; padding-left:2px; }
 
+/* ---- maturity exhibit ---- */
+.exhibit{ display:flex; gap:26px; align-items:center; margin:14px 0 6px; }
+.exhibit-chart{ flex:0 0 220px; }
+.exhibit-note{ flex:1; font-size:9.2pt; color:var(--slate); }
+.exhibit-note b{ color:var(--ink); }
+
+/* ---- roadmap table ---- */
+.tl-table td.phase-mark{ text-align:center; font-weight:700; }
+.tl-table td.phase-mark.p1{ color:var(--accent); }
+.tl-table td.phase-mark.p2{ color:#2563eb; }
+.tl-table td.phase-mark.p3{ color:#7c3aed; }
+
+/* ---- phase blocks ---- */
+.phase-block{ border:1px solid var(--line); margin:14px 0; overflow:hidden; }
+.phase-hd{ display:flex; justify-content:space-between; align-items:center; padding:10px 14px; border-bottom:1px solid var(--line); background:var(--paper-alt); gap:16px; }
+.phase-hd-left{ display:flex; flex-direction:column; gap:2px; }
+.phase-hd-title{ font-family:Georgia,serif; font-size:11pt; font-weight:700; color:var(--ink); }
+.phase-hd-timeline{ font-size:7.8pt; color:var(--muted); }
+.phase-maturity{ font-size:8.5pt; font-weight:700; color:var(--accent); border:1px solid var(--accent); border-radius:3px; padding:3px 10px; white-space:nowrap; flex-shrink:0; }
+.phase-maturity.p2{ color:#2563eb; border-color:#2563eb; }
+.phase-maturity.p3{ color:#7c3aed; border-color:#7c3aed; }
+.phase-sow{ padding:11px 14px 14px; }
+.col-label{ font-size:7.4pt; color:var(--muted); text-transform:uppercase; letter-spacing:0.8px; margin-bottom:8px; font-weight:700; }
+.sow-item{ display:flex; gap:8px; margin-bottom:5px; font-size:8.5pt; color:var(--slate); line-height:1.4; }
+.sow-dot{ width:4px; height:4px; background:var(--accent); border-radius:50%; margin-top:5px; flex-shrink:0; }
+.sow-dot.p2{ background:#2563eb; }
+.sow-dot.p3{ background:#7c3aed; }
+.phase-roi{ display:flex; border-top:1px solid var(--line); background:var(--paper-alt); }
+.roi-card{ flex:1; padding:10px 12px; border-right:1px solid var(--line); text-align:center; }
+.roi-card:last-child{ border-right:none; }
+.roi-card-num{ font-family:Georgia,serif; font-size:13pt; font-weight:700; color:var(--ink); line-height:1.1; margin-bottom:3px; }
+.roi-card-label{ font-size:7.5pt; color:var(--ink); font-weight:700; text-transform:uppercase; letter-spacing:0.3px; margin-bottom:3px; }
+.roi-card-desc{ font-size:7pt; color:var(--muted); line-height:1.35; }
+
 @media print{
   body{ background:#fff; }
   .page{ box-shadow:none; margin:0; }
