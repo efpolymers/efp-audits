@@ -5,294 +5,674 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Marketing & Retail Sales — Department Audit Report | EF Polymers</title>
 <style>
-  @page{size:A4;margin:20mm 18mm}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:#1e293b;line-height:1.6;background:#fff;font-size:11pt}.page{page-break-after:always;min-height:100vh}.page:last-child{page-break-after:avoid}.cover{display:flex;flex-direction:column;justify-content:center;align-items:center;min-height:100vh;background:linear-gradient(135deg,#1B2A4A 0%,#0F766E 100%);color:#fff;text-align:center;padding:60px 40px}.cover-badge{font-size:10pt;letter-spacing:3px;text-transform:uppercase;opacity:.8;margin-bottom:16px;border:1px solid rgba(255,255,255,.3);padding:6px 20px;border-radius:20px}.cover h1{font-size:32pt;font-weight:700;margin:20px 0 10px}.cover h2{font-size:16pt;font-weight:300;opacity:.9;margin-bottom:40px}.cover-meta{font-size:10pt;opacity:.7;line-height:2}.cover-line{width:80px;height:3px;background:rgba(255,255,255,.5);margin:30px auto}.section{padding:40px 0}.section-num{font-size:9pt;color:#0F766E;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:4px}h2{font-size:18pt;color:#1B2A4A;margin-bottom:20px;padding-bottom:10px;border-bottom:2px solid #e2e8f0}h3{font-size:13pt;color:#1B2A4A;margin:24px 0 12px}h4{font-size:11pt;color:#334155;margin:16px 0 8px}p{margin-bottom:12px}table{width:100%;border-collapse:collapse;margin:16px 0 24px;font-size:10pt}th{background:#1B2A4A;color:#fff;padding:10px 12px;text-align:left;font-weight:600}td{padding:9px 12px;border-bottom:1px solid #e2e8f0}tr:nth-child(even){background:#f8fafc}.card{border:1px solid #e2e8f0;border-radius:8px;padding:20px;margin:16px 0}.card-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}.card-title{font-weight:700;font-size:11pt;color:#1B2A4A}.badge{display:inline-block;padding:3px 12px;border-radius:12px;font-size:8.5pt;font-weight:600}.badge-critical{background:#fef2f2;color:#dc2626;border:1px solid #fecaca}.badge-high{background:#fff7ed;color:#ea580c;border:1px solid #fed7aa}.badge-medium{background:#fffbeb;color:#d97706;border:1px solid #fde68a}.badge-low{background:#f0fdf4;color:#16a34a;border:1px solid #bbf7d0}.metrics-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:16px 0}.metric-box{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:14px;text-align:center}.metric-value{font-size:18pt;font-weight:700;color:#0F766E}.metric-label{font-size:8pt;color:#64748b;text-transform:uppercase;letter-spacing:1px;margin-top:4px}.flow-container{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:20px 0;justify-content:center}.flow-step{background:#f0fdfa;border:2px solid #0F766E;border-radius:8px;padding:12px 16px;font-size:9pt;font-weight:500;text-align:center;min-width:120px;max-width:180px}.flow-step.problem{border-color:#dc2626;background:#fef2f2}.flow-arrow{color:#94a3b8;font-size:18pt}.solution-card{border-left:4px solid #0F766E;background:#f0fdfa;border-radius:0 8px 8px 0;padding:16px 20px;margin:12px 0}.solution-card.suggestion{border-left-color:#6366f1;background:#eef2ff}.gap-item{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid #f1f5f9}.gap-icon{width:32px;height:32px;background:#fef3c7;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14pt;flex-shrink:0}.chart-container{display:flex;justify-content:center;margin:24px 0}.roadmap-phase{border-left:3px solid #0F766E;padding:16px 0 16px 24px;margin-left:12px;position:relative}.roadmap-phase::before{content:'';width:12px;height:12px;background:#0F766E;border-radius:50%;position:absolute;left:-7.5px;top:20px}.roadmap-phase.phase-2{border-left-color:#2563eb}.roadmap-phase.phase-2::before{background:#2563eb}.roadmap-phase.phase-3{border-left-color:#7c3aed}.roadmap-phase.phase-3::before{background:#7c3aed}.phase-label{font-size:9pt;font-weight:700;color:#0F766E;letter-spacing:1px;text-transform:uppercase}.phase-label.p2{color:#2563eb}.phase-label.p3{color:#7c3aed}.kpi-row{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}.kpi-tag{background:#f1f5f9;border-radius:6px;padding:4px 10px;font-size:9pt;color:#475569}@media print{body{font-size:10pt}.page{min-height:auto}.cover{min-height:100vh}}
-  /* True Flowchart Branching Styles */
-  .flow-step-wrapper { display: flex; flex-direction: column; align-items: center; gap: 6px; }
-  .branch-arrow { display: flex; flex-direction: column; align-items: center; margin: 4px 0; position: relative; width: 100%; }
-  .branch-arrow-line { width: 2px; height: 16px; background: #cbd5e1; position: relative; }
-  .branch-arrow-line::after { content: ''; position: absolute; bottom: -3px; left: -2px; width: 0; height: 0; border-left: 3px solid transparent; border-right: 3px solid transparent; border-top: 4px solid #cbd5e1; }
-  .branch-label { background: #fff; padding: 0 6px; font-size: 7.5pt; color: #64748b; font-weight: 600; margin-top: -10px; margin-bottom: 2px; z-index: 1; white-space: nowrap; }
-  .branch-step { border: 2px dashed #cbd5e1; border-radius: 8px; padding: 8px 12px; font-size: 8.5pt; font-weight: 600; text-align: center; min-width: 130px; max-width: 180px; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
-  .branch-step.accounts { border-color: #3b82f6; background: #eff6ff; color: #1d4ed8; }
-  .branch-step.logistics { border-color: #f59e0b; background: #fffbeb; color: #b45309; }
-  .branch-step.production { border-color: #10b981; background: #ecfdf5; color: #047857; }
-  .branch-step.rd { border-color: #8b5cf6; background: #f5f3ff; color: #6d28d9; }
-  /* Color coding for standard steps crossing departments */
-  .flow-step.accounts { border-color: #3b82f6; background: #eff6ff; color: #1d4ed8; }
-  .flow-step.logistics { border-color: #f59e0b; background: #fffbeb; color: #b45309; }
-  .flow-step.production { border-color: #10b981; background: #ecfdf5; color: #047857; }
-  .flow-step.rd { border-color: #8b5cf6; background: #f5f3ff; color: #6d28d9; }
+:root{
+  --ink:#1B2A4A;
+  --slate:#3F4B5C;
+  --muted:#6B7785;
+  --line:#D8DEE5;
+  --line-soft:#E9EDF1;
+  --paper:#FFFFFF;
+  --paper-alt:#F6F7F9;
+  --accent:#0F6B62;
+  --accent-soft:#EAF3F1;
+  --risk-crit-bg:#FCEBEA; --risk-crit-fg:#A32E24;
+  --risk-med-bg:#FBF1DF;  --risk-med-fg:#8A5A10;
+  --risk-low-bg:#E9F4EC;  --risk-low-fg:#276B3E;
+}
+@page{ size:A4; margin:22mm 18mm 20mm 18mm; }
+*{ margin:0; padding:0; box-sizing:border-box; }
+body{
+  font-family:'Segoe UI',system-ui,-apple-system,sans-serif;
+  color:var(--slate);
+  line-height:1.55;
+  background:#EDEFF1;
+  font-size:10.3pt;
+}
+.page{
+  background:var(--paper);
+  max-width:840px;
+  margin:0 auto 14px auto;
+  padding:26mm 20mm 20mm 20mm;
+  position:relative;
+  page-break-after:always;
+  min-height:1120px;
+}
+.page:last-child{ page-break-after:avoid; }
+
+/* ---- running header / footer ---- */
+.doc-header{
+  display:flex; justify-content:space-between; align-items:baseline;
+  font-size:7.8pt; letter-spacing:0.4px; text-transform:uppercase; color:var(--muted);
+  border-bottom:1px solid var(--line); padding-bottom:8px; margin-bottom:22px;
+}
+.doc-header b{ color:var(--ink); }
+.doc-footer{
+  position:absolute; bottom:10mm; left:20mm; right:20mm;
+  display:flex; justify-content:space-between;
+  font-size:7.5pt; color:var(--muted);
+  border-top:1px solid var(--line-soft); padding-top:6px;
+}
+
+/* ---- cover ---- */
+.cover{ display:flex; flex-direction:column; min-height:1080px; }
+.cover-top{ display:flex; justify-content:space-between; align-items:flex-start; }
+.cover-mark{ font-size:9pt; font-weight:700; letter-spacing:2px; color:var(--ink); }
+.cover-mark span{ color:var(--accent); }
+.cover-class{ font-size:7.8pt; text-transform:uppercase; letter-spacing:1.5px; color:var(--muted); border:1px solid var(--line); padding:4px 10px; }
+.cover-body{ flex:1; display:flex; flex-direction:column; justify-content:center; padding:60px 0; }
+.cover-eyebrow{ font-family:Georgia,'Times New Roman',serif; font-style:italic; font-size:11pt; color:var(--accent); margin-bottom:14px; }
+.cover-title{ font-family:Georgia,'Times New Roman',serif; font-size:34pt; color:var(--ink); font-weight:600; line-height:1.15; margin-bottom:10px; }
+.cover-sub{ font-size:13pt; color:var(--slate); font-weight:400; }
+.cover-rule{ width:52px; height:2px; background:var(--accent); margin:26px 0; }
+.cover-ctrl{ border:1px solid var(--line); }
+.cover-ctrl table{ width:100%; border-collapse:collapse; margin:0; }
+.cover-ctrl td{ padding:9px 14px; font-size:9pt; border-bottom:1px solid var(--line-soft); }
+.cover-ctrl tr:last-child td{ border-bottom:none; }
+.cover-ctrl td.label{ color:var(--muted); width:38%; text-transform:uppercase; font-size:7.8pt; letter-spacing:0.5px; }
+.cover-ctrl td.val{ color:var(--ink); font-weight:600; }
+
+/* ---- section furniture ---- */
+.eyebrow{ font-size:8pt; color:var(--accent); font-weight:700; letter-spacing:1.6px; text-transform:uppercase; margin-bottom:6px; }
+h2{ font-family:Georgia,'Times New Roman',serif; font-size:17pt; color:var(--ink); font-weight:600; margin-bottom:4px; }
+h2 + .section-dek{ color:var(--muted); font-size:9.3pt; margin-bottom:18px; padding-bottom:14px; border-bottom:1px solid var(--line); }
+h3{ font-family:Georgia,'Times New Roman',serif; font-size:12.5pt; color:var(--ink); font-weight:600; margin:22px 0 8px; }
+h4{ font-size:10pt; color:var(--ink); font-weight:700; margin:14px 0 4px; }
+p{ margin-bottom:10px; }
+.lede{ font-size:10.6pt; color:var(--slate); max-width:95%; }
+
+/* ---- tables ---- */
+table{ width:100%; border-collapse:collapse; margin:10px 0 20px; font-size:9pt; }
+th{ background:var(--ink); color:#fff; padding:8px 10px; text-align:left; font-weight:600; font-size:8.3pt; letter-spacing:0.3px; text-transform:uppercase; }
+td{ padding:8px 10px; border-bottom:1px solid var(--line-soft); vertical-align:top; }
+tr:nth-child(even) td{ background:var(--paper-alt); }
+td.id, th.id{ font-family:Georgia,serif; font-weight:700; color:var(--ink); white-space:nowrap; width:44px; }
+td.num{ text-align:center; white-space:nowrap; }
+
+/* ---- chips ---- */
+.chip{ display:inline-block; padding:2px 9px; border-radius:3px; font-size:7.8pt; font-weight:700; letter-spacing:0.3px; text-transform:uppercase; white-space:nowrap; }
+.chip-crit{ background:var(--risk-crit-bg); color:var(--risk-crit-fg); }
+.chip-med{  background:var(--risk-med-bg);  color:var(--risk-med-fg); }
+.chip-low{  background:var(--risk-low-bg);  color:var(--risk-low-fg); }
+.chip-ref{ display:inline-block; background:var(--accent-soft); color:var(--accent); font-family:Georgia,serif; font-weight:700; font-size:8pt; padding:1px 6px; border-radius:3px; margin:1px 2px 1px 0; }
+
+/* ---- KPI strip ---- */
+.kpi-strip{ display:flex; border:1px solid var(--line); margin:16px 0 22px; }
+.kpi-cell{ flex:1; padding:12px 14px; border-right:1px solid var(--line); }
+.kpi-cell:last-child{ border-right:none; }
+.kpi-num{ font-family:Georgia,serif; font-size:15pt; color:var(--ink); font-weight:700; }
+.kpi-lbl{ font-size:7.6pt; color:var(--muted); text-transform:uppercase; letter-spacing:0.5px; margin-top:2px; }
+
+/* ---- callout ---- */
+.callout{ border-left:3px solid var(--accent); background:var(--accent-soft); padding:10px 14px; font-size:9pt; color:var(--ink); margin:10px 0 20px; }
+
+/* ---- flow notes ---- */
+.flow-note{ font-size:8.6pt; color:var(--muted); margin:4px 0 18px; padding-left:2px; }
+.flow-note b{ color:var(--risk-crit-fg); }
+
+/* ---- maturity exhibit ---- */
+.exhibit{ display:flex; gap:26px; align-items:center; margin:14px 0 6px; }
+.exhibit-chart{ flex:0 0 220px; }
+.exhibit-note{ flex:1; font-size:9.2pt; color:var(--slate); }
+.exhibit-note b{ color:var(--ink); }
+
+/* ---- roadmap table ---- */
+.tl-table td.phase-mark{ text-align:center; font-weight:700; }
+.tl-table td.phase-mark.p1{ color:var(--accent); }
+.tl-table td.phase-mark.p2{ color:#2563eb; }
+.tl-table td.phase-mark.p3{ color:#7c3aed; }
+
+/* ---- phase blocks ---- */
+.phase-block{ border:1px solid var(--line); margin:14px 0; overflow:hidden; }
+.phase-hd{ display:flex; justify-content:space-between; align-items:center; padding:10px 14px; border-bottom:1px solid var(--line); background:var(--paper-alt); gap:16px; }
+.phase-hd-left{ display:flex; flex-direction:column; gap:2px; }
+.phase-hd-title{ font-family:Georgia,serif; font-size:11pt; font-weight:700; color:var(--ink); }
+.phase-hd-timeline{ font-size:7.8pt; color:var(--muted); }
+.phase-maturity{ font-size:8.5pt; font-weight:700; color:var(--accent); border:1px solid var(--accent); border-radius:3px; padding:3px 10px; white-space:nowrap; flex-shrink:0; }
+.phase-maturity.p2{ color:#2563eb; border-color:#2563eb; }
+.phase-maturity.p3{ color:#7c3aed; border-color:#7c3aed; }
+.phase-sow{ padding:11px 14px 14px; }
+.col-label{ font-size:7.4pt; color:var(--muted); text-transform:uppercase; letter-spacing:0.8px; margin-bottom:8px; font-weight:700; }
+.sow-item{ display:flex; gap:8px; margin-bottom:5px; font-size:8.5pt; color:var(--slate); line-height:1.4; }
+.sow-dot{ width:4px; height:4px; background:var(--accent); border-radius:50%; margin-top:5px; flex-shrink:0; }
+.sow-dot.p2{ background:#2563eb; }
+.sow-dot.p3{ background:#7c3aed; }
+.phase-roi{ display:flex; border-top:1px solid var(--line); background:var(--paper-alt); }
+.roi-card{ flex:1; padding:10px 12px; border-right:1px solid var(--line); text-align:center; }
+.roi-card:last-child{ border-right:none; }
+.roi-card-num{ font-family:Georgia,serif; font-size:13pt; font-weight:700; color:var(--ink); line-height:1.1; margin-bottom:3px; }
+.roi-card-label{ font-size:7.5pt; color:var(--ink); font-weight:700; text-transform:uppercase; letter-spacing:0.3px; margin-bottom:3px; }
+.roi-card-desc{ font-size:7pt; color:var(--muted); line-height:1.35; }
+
+@media print{
+  body{ background:#fff; }
+  .page{ box-shadow:none; margin:0; }
+}
 </style>
 </head>
 <body>
 
+<!-- ============ COVER ============ -->
 <div class="page cover">
-  <div class="cover-badge">Department Audit Report</div>
-  <h1>Marketing & Retail Sales</h1>
-  <h2>Gaurav Jain — Department Lead</h2>
-  <div class="cover-line"></div>
-  <div class="cover-meta">EF Polymers Private Limited<br>Prepared by Creative Upaay Consulting<br>July 2026 · Version 1.0<br>Confidential — Executive Leadership Only</div>
-</div>
-
-<div class="page">
-  <div class="section">
-    <div class="section-num">Section 01</div>
-    <h2>Department Overview</h2>
-    <p>Marketing & Retail Sales manages the multi-tier dealer distribution channel, field sales force compliance, territory management, and marketing operations for EF Polymers' direct-to-dealer retail business. The department operates both office-based (Udaipur HQ) and field-based (Regional Sales Managers across India) teams.</p>
-
-    <div class="metrics-grid">
-      <div class="metric-box"><div class="metric-value">6–8 hrs</div><div class="metric-label">Daily Manual Tracking</div></div>
-      <div class="metric-box"><div class="metric-value">0</div><div class="metric-label">ROI Tracked Campaigns</div></div>
-      <div class="metric-box"><div class="metric-value">3+RSMs</div><div class="metric-label">Team Size</div></div>
-      <div class="metric-box"><div class="metric-value">Paper</div><div class="metric-label">PO Format (Field)</div></div>
-    </div>
-
-    <h3>Channel Structure</h3>
+  <div class="cover-top">
+    <div class="cover-mark">EF<span>·</span>POLYMERS</div>
+    <div class="cover-class">Confidential — Executive Leadership Only</div>
+  </div>
+  <div class="cover-body">
+    <div class="cover-eyebrow">Department Audit Report</div>
+    <div class="cover-title">Marketing &amp; Retail Sales</div>
+    <div class="cover-sub">Field Force Tracking &amp; MIS Plans — Gaurav Jain</div>
+    <div class="cover-rule"></div>
+    <p style="max-width:70%;color:var(--muted);font-size:9.3pt;">
+      An independent operational review of the Retail Sales department, evaluating field force compliance tracking, sales planning execution, and cross-platform reporting friction, prepared as part of the EF Polymers organization-wide operational audit.
+    </p>
+  </div>
+  <div class="cover-ctrl">
     <table>
-      <tr><th>Tier</th><th>Description</th><th>Status</th></tr>
-      <tr><td>Company → RSMs</td><td>Regional Sales Managers across territories</td><td>Active</td></tr>
-      <tr><td>RSMs → Dealers</td><td>Dealer onboarding and management</td><td>Active but unstructured</td></tr>
-      <tr><td>Dealers → Farmers</td><td>End-user education and last-mile sales</td><td>Limited visibility</td></tr>
+      <tr><td class="label">Client</td><td class="val">EF Polymers Private Limited</td></tr>
+      <tr><td class="label">Prepared by</td><td class="val">Creative Upaay Consulting</td></tr>
+      <tr><td class="label">Document version</td><td class="val">1.0</td></tr>
+      <tr><td class="label">Date issued</td><td class="val">July 2026</td></tr>
+      <tr><td class="label">Review scope</td><td class="val">Marketing &amp; Retail Sales Operations</td></tr>
+      <tr><td class="label">Distribution</td><td class="val">CEO, COO, Marketing Head</td></tr>
     </table>
-
-    <h3>Tool Stack</h3>
-    <div class="kpi-row">
-      <span class="kpi-tag">WhatsApp (primary field comms)</span>
-      <span class="kpi-tag">Google Sheets (target tracking)</span>
-      <span class="kpi-tag">Field Tracking App (geolocation — unreliable)</span>
-      <span class="kpi-tag">Paper PO books (field orders)</span>
-      <span class="kpi-tag">Zoho Books (invoice routing)</span>
-    </div>
   </div>
 </div>
 
+<!-- ============ 01 EXECUTIVE SUMMARY ============ -->
 <div class="page">
-  <div class="section">
-    <div class="section-num">Section 02</div>
-    <h2>Existing Workflows</h2>
+  <div class="doc-header"><span><b>EF Polymers</b> — Marketing Audit</span><span>Confidential</span></div>
 
-    <h3>Workflow 1: Field Force Geolocation Compliance</h3>
-    <div class="flow-container">
-      <div class="flow-step-wrapper">
-        <div class="flow-step">RSMs share WhatsApp location 3×/day</div>
-        <div class="branch-arrow">
-          <div class="branch-arrow-line"></div>
-          <div class="branch-label">Tour plan expense</div>
-        </div>
-        <div class="branch-step accounts">Accounts: Audit distance claims</div>
-      </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step problem">Office manually cross-checks with addresses</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step problem">6–8 hours/day consumed by manual tracking</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step problem">App fails in low-network rural areas</div>
-    </div>
+  <div class="eyebrow">Section 01 — Executive Summary</div>
+  <h2>Department Overview</h2>
+  <div class="section-dek">Scope, current state, and headline findings</div>
 
-    <h3>Workflow 2: Retail PO → Invoice → Dispatch</h3>
-    <div class="flow-container">
-      <div class="flow-step problem">RSM writes paper PO in field</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step problem">Photos PO via WhatsApp</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">Office enters into system manually</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step accounts">Accounts generates invoice</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step logistics">Logistics dispatches</div>
-    </div>
-    <p style="font-size:9.5pt;color:#64748b;">15–20 min wasted per PO from paper → photo → manual entry. Multiple POs per day across multiple RSMs compounds this significantly.</p>
+  <p class="lede">The Marketing &amp; Retail Sales department is fundamentally a field execution and tracking unit. Led by Gaurav Jain, the team builds monthly MIS Sales Plans and orchestrates a distributed field force to execute dealer and farmer visits.</p>
 
-    <h3>Workflow 3: Target vs. Actual Reconciliation</h3>
-    <div class="flow-container">
-      <div class="flow-step">COO sets monthly targets</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">RSMs report actuals via WhatsApp</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step problem">Manual target-vs-actual matching in Sheets</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step problem">Zoho Books lacks quantity views (only value)</div>
-    </div>
-    <p style="font-size:9.5pt;color:#64748b;">3–4 hours/week wasted on manual reconciliation because Zoho Books doesn't support quantity-level target tracking.</p>
+  <p>The core bottleneck is the department's heavy reliance on WhatsApp and manual data-entry layers for critical operations. Field force geolocation tracking, Purchase Orders (POs), and payment confirmations all flow through unstructured WhatsApp messages. The headquarters team spends upwards of 6–8 hours daily manually verifying salesman locations and transcribing PO data, creating a fragile and unscalable operational ceiling.</p>
 
-    <h3>Workflow 4: Dealer Management & Collateral</h3>
-    <div class="flow-container">
-      <div class="flow-step">RSM visits dealer</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step-wrapper">
-        <div class="flow-step">Captures stock, display, placement</div>
-        <div class="branch-arrow">
-          <div class="branch-arrow-line"></div>
-          <div class="branch-label">Dealer sales</div>
-        </div>
-        <div class="branch-step accounts">Accounts: Reconcile dealer payments</div>
-      </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step problem">WhatsApp photo + text description</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step problem">No structured retail audit format</div>
-    </div>
+  <div class="kpi-strip">
+    <div class="kpi-cell"><div class="kpi-num">3x / Day</div><div class="kpi-lbl">Location Check Cadence</div></div>
+    <div class="kpi-cell"><div class="kpi-num">Monthly</div><div class="kpi-lbl">MIS Plan Window</div></div>
+    <div class="kpi-cell"><div class="kpi-num">~90%</div><div class="kpi-lbl">WhatsApp Data Share</div></div>
+    <div class="kpi-cell"><div class="kpi-num">1.2 / 5.0</div><div class="kpi-lbl">Overall Maturity Score</div></div>
   </div>
+
+  <h3>Time &amp; Effort Allocation</h3>
+  <table>
+    <tr><th>Activity</th><th class="num" style="text-align:right">Share of Team Time</th></tr>
+    <tr><td>Field Force Location &amp; Activity Tracking</td><td class="num">~30%</td></tr>
+    <tr><td>On-Ground Verification &amp; Customer Calling</td><td class="num">~25%</td></tr>
+    <tr><td>Sales Targets &amp; Zoho Actuals Reconciliation</td><td class="num">~20%</td></tr>
+    <tr><td>Data Entry &amp; Media Sorting</td><td class="num">~15%</td></tr>
+    <tr><td>Marketing Collateral &amp; Social Media Planning</td><td class="num">~10%</td></tr>
+  </table>
+
+  <h3>Tools in Use</h3>
+  <table>
+    <tr><th>Tool</th><th>Role</th></tr>
+    <tr><td>Google Sheets</td><td>Hosts the MIS Sales Plan and Marketing Master Sheet</td></tr>
+    <tr><td>WhatsApp (Primary)</td><td>Location sharing, hand-written POs, and payment receipts</td></tr>
+    <tr><td>Zoho Books</td><td>Used only to extract backwards-looking invoice data</td></tr>
+  </table>
+
+  <div class="doc-footer"><span>Marketing Audit Report · v1.0</span><span>Page 2</span></div>
 </div>
 
+<!-- ============ 02 FINDINGS REGISTER ============ -->
 <div class="page">
-  <div class="section">
-    <div class="section-num">Section 03</div>
-    <h2>Challenges, Risks & Red Flags</h2>
+  <div class="doc-header"><span><b>EF Polymers</b> — Marketing Audit</span><span>Confidential</span></div>
 
-    <div class="card">
-      <div class="card-header"><span class="card-title">1. Manual Field Geolocation Tracking</span><span class="badge badge-critical">CRITICAL</span></div>
-      <p><strong>6–8 hours/day</strong> of staff time consumed by manual WhatsApp-based location verification. This is the department's single largest operational burden.</p>
-      <table>
-        <tr><th>Metric</th><th>Detail</th></tr>
-        <tr><td>Time Waste</td><td>6–8 hrs/day (entire person's day consumed)</td></tr>
-        <tr><td>Investment</td><td>Medium — automated field tracking tool with offline capability</td></tr>
-        <tr><td>ROI</td><td><strong>Very High</strong> — recovers nearly one full FTE equivalent of time daily</td></tr>
-      </table>
-    </div>
+  <div class="eyebrow">Section 02 — Risk &amp; Control Findings</div>
+  <h2>Findings Register</h2>
+  <div class="section-dek">Ranked by risk rating. Each finding is cross-referenced to its recommendation in Section 04.</div>
 
-    <div class="card">
-      <div class="card-header"><span class="card-title">2. Paper PO → Manual Entry Workflow</span><span class="badge badge-high">HIGH</span></div>
-      <p>Field RSMs write paper purchase orders, photograph them, and WhatsApp to the office for manual data entry — wasting <strong>15–20 minutes per PO</strong>.</p>
-      <table>
-        <tr><th>Metric</th><th>Detail</th></tr>
-        <tr><td>Time Waste</td><td>15–20 min × multiple POs/day = hours of wasted effort</td></tr>
-        <tr><td>Investment</td><td>Low — digital mobile PO form</td></tr>
-        <tr><td>ROI</td><td><strong>High</strong> — eliminates transcription errors; immediate PO capture</td></tr>
-      </table>
-    </div>
+  <table>
+    <tr>
+      <th class="id">ID</th><th>Finding</th><th>Risk</th><th>Evidence / Impact</th><th>Linked Rec.</th>
+    </tr>
+    <tr>
+      <td class="id">F-01</td>
+      <td><b>Manual Field Geolocation Tracking.</b> HQ team must manually cross-reference WhatsApp live locations against home addresses three times a day.</td>
+      <td><span class="chip chip-crit">Critical</span></td>
+      <td>Burns 6-8 hours/day of executive time on basic compliance rather than sales enablement.</td>
+      <td><span class="chip-ref">R-01</span></td>
+    </tr>
+    <tr>
+      <td class="id">F-02</td>
+      <td><b>Inefficient Sales Actuals Extraction.</b> Tracking targets against actuals requires manually pulling customer-wise reports from Zoho Books.</td>
+      <td><span class="chip chip-crit">Critical</span></td>
+      <td>Lag in pipeline visibility; MIS plans are always backward-looking.</td>
+      <td><span class="chip-ref">R-02</span></td>
+    </tr>
+    <tr>
+      <td class="id">F-03</td>
+      <td><b>Analog PO and Quotation Verification.</b> Field reps write POs on paper and send WhatsApp photos, requiring HQ to re-type data.</td>
+      <td><span class="chip chip-med">Medium</span></td>
+      <td>High risk of transcription error; slows down order-to-dispatch timeline.</td>
+      <td><span class="chip-ref">R-03</span></td>
+    </tr>
+    <tr>
+      <td class="id">F-04</td>
+      <td><b>Friction-Prone Payment Confirmations.</b> Payment screenshots sent via WhatsApp must be manually coordinated with Accounts.</td>
+      <td><span class="chip chip-med">Medium</span></td>
+      <td>Delays shipment release authorizations while waiting on cross-department checks.</td>
+      <td><span class="chip-ref">R-05</span></td>
+    </tr>
+    <tr>
+      <td class="id">F-05</td>
+      <td><b>Siloed Marketing Collateral Audits.</b> Printed stock is managed in isolated sheets without automated minimum levels.</td>
+      <td><span class="chip chip-low">Low</span></td>
+      <td>Risk of collateral stockouts during critical regional campaigns.</td>
+      <td><span class="chip-ref">R-04</span></td>
+    </tr>
+  </table>
 
-    <div class="card">
-      <div class="card-header"><span class="card-title">3. Zero Marketing ROI Tracking</span><span class="badge badge-medium">MEDIUM</span></div>
-      <p>No campaign has measurable ROI. Budget approved at 25–50% of revenue without conversion metrics. No UTM tracking, no attribution model, no analytics.</p>
-      <table>
-        <tr><th>Metric</th><th>Detail</th></tr>
-        <tr><td>Time Waste</td><td>Indirect — unmeasured spend means unknown waste</td></tr>
-        <tr><td>Investment</td><td>Low — UTM tracking + basic analytics dashboard</td></tr>
-        <tr><td>ROI</td><td><strong>High</strong> — makes marketing spend accountable</td></tr>
-      </table>
-    </div>
+  <div class="callout">The two Critical findings expose how analog tracking creates an unscalable operational ceiling. F-01 (Manual Geolocation) forces the HQ team to act as surveillance monitors rather than sales strategists, burning 6-8 hours daily. F-02 (Actuals Extraction) means MIS plans are perpetually backward-looking. Phase 1 targets the structural tracking gap by deploying an automated field force app and syncing actuals via API, instantly recovering massive HQ capacity.</div>
 
-    <div class="card">
-      <div class="card-header"><span class="card-title">4. Manual Target vs. Actual Reconciliation</span><span class="badge badge-medium">MEDIUM</span></div>
-      <p>Zoho Books only shows value-level data, not quantities. <strong>3–4 hours/week</strong> wasted on manual matching of targets against actuals in spreadsheets.</p>
-      <table>
-        <tr><th>Metric</th><th>Detail</th></tr>
-        <tr><td>Time Waste</td><td>3–4 hrs/week on manual reconciliation</td></tr>
-        <tr><td>Investment</td><td>Low — Zoho CRM or Analytics with quantity-level views</td></tr>
-        <tr><td>ROI</td><td><strong>Medium</strong> — frees up time; accurate target tracking</td></tr>
-      </table>
-    </div>
-  </div>
+  <div class="doc-footer"><span>Marketing Audit Report · v1.0</span><span>Page 3</span></div>
 </div>
 
+<!-- ============ 03 WORKFLOWS ============ -->
 <div class="page">
-  <div class="section">
-    <div class="section-num">Section 04</div>
-    <h2>Information Gaps & Cross-Department Leaks</h2>
-    <div class="gap-item"><div class="gap-icon">⚠</div><div><h4>Marketing ↔ Accounts (Payment Verification)</h4><p>Payment confirmations rely on WhatsApp screenshots sent to Accounts for manual verification. No automated payment alert system exists.</p></div></div>
-    <div class="gap-item"><div class="gap-icon">⚠</div><div><h4>Marketing ↔ Production (Stock Visibility)</h4><p>Retail sales team has no visibility into production stock levels. Must check with Accounts who in turn call Production — creating a 2-hop information delay.</p></div></div>
-    <div class="gap-item"><div class="gap-icon">⚠</div><div><h4>Field ↔ R&D (Farmer Feedback)</h4><p>Ground-level farmer feedback and product performance data from field visits does not systematically flow to R&D for product improvement.</p></div></div>
-  </div>
+  <div class="doc-header"><span><b>EF Polymers</b> — Marketing Audit</span><span>Confidential</span></div>
 
-  <div class="section">
-    <div class="section-num">Section 05</div>
-    <h2>Department Maturity Score</h2>
-    <div class="chart-container">
-      <svg viewBox="0 0 400 350" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:400px;">
+  <div class="eyebrow">Section 03 — Process Detail</div>
+  <h2>Current Workflows</h2>
+  <div class="section-dek">Where each finding sits inside the operational process</div>
+
+  <!-- WORKFLOW 1 -->
+  <h3>Field Force Geolocation &amp; Compliance</h3>
+  <svg viewBox="0 0 740 92" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:10px 0 4px;">
+    <defs>
+      <marker id="a1" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+        <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5"/>
+      </marker>
+    </defs>
+    <!-- 5 steps -->
+    <rect x="10"  y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="70"  y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Rep Shares Loc</text>
+    <text x="70"  y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">via WhatsApp</text>
+    <line x1="130" y1="46" x2="150" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)"/>
+
+    <rect x="150" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="210" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Log Tour Plan</text>
+    <text x="210" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">to G-Sheet</text>
+    <line x1="270" y1="46" x2="290" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)"/>
+
+    <rect x="290" y="22" width="120" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5"/>
+    <text x="350" y="43" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">Manual HQ Verify</text>
+    <text x="350" y="55" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">(3x Daily per Rep)</text>
+    <line x1="410" y1="46" x2="430" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)"/>
+
+    <rect x="430" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="490" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Extract Contacts</text>
+    <text x="490" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">from Chat</text>
+    <line x1="550" y1="46" x2="570" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)"/>
+
+    <rect x="570" y="22" width="120" height="48" rx="3" fill="#FBF1DF" stroke="#E8C97A" stroke-width="1.5"/>
+    <text x="630" y="43" text-anchor="middle" font-size="7.6" fill="#8A5A10" font-family="Segoe UI,sans-serif">Random Audit Call</text>
+    <text x="630" y="55" text-anchor="middle" font-size="7.6" fill="#8A5A10" font-family="Segoe UI,sans-serif">to Farmer</text>
+  </svg>
+  <p class="flow-note">Compliance is entirely analog. Because location tracking lacks automation (<span class="chip-ref">F-01</span>), the HQ team operates more as surveillance monitors than as sales strategists.</p>
+
+  <!-- WORKFLOW 2: Sales Target & Reconciliation -->
+  <h3>Sales Target &amp; Actuals Reconciliation — <span class="chip-ref">F-02</span> <span class="chip-ref">F-04</span></h3>
+  <svg viewBox="0 0 740 92" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:10px 0 4px;">
+    <defs>
+      <marker id="a2" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+        <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5"/>
+      </marker>
+    </defs>
+    
+    <rect x="10" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="70" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Monthly Target</text>
+    <text x="70" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Set (MIS Plan)</text>
+    <line x1="130" y1="46" x2="150" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)"/>
+    
+    <rect x="150" y="22" width="120" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5"/>
+    <text x="210" y="43" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">Manual Zoho</text>
+    <text x="210" y="55" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">Invoice Extraction</text>
+    <line x1="270" y1="46" x2="290" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)"/>
+    
+    <rect x="290" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="350" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Target vs. Actual</text>
+    <text x="350" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Matched (Sheets)</text>
+    <line x1="410" y1="46" x2="430" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)"/>
+    
+    <rect x="430" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="490" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Payment Receipts</text>
+    <text x="490" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">via WhatsApp</text>
+    <line x1="550" y1="46" x2="570" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)"/>
+    
+    <rect x="570" y="22" width="120" height="48" rx="3" fill="#FBF1DF" stroke="#E8C97A" stroke-width="1.5"/>
+    <text x="630" y="43" text-anchor="middle" font-size="7.6" fill="#8A5A10" font-family="Segoe UI,sans-serif">Accounts Confirms</text>
+    <text x="630" y="55" text-anchor="middle" font-size="7.6" fill="#8A5A10" font-family="Segoe UI,sans-serif">Bank Clearance</text>
+  </svg>
+  <p class="flow-note">Reconciliation relies heavily on offline spreadsheet operations and WhatsApp coordination, delaying actual pipeline visibility.</p>
+
+  <!-- WORKFLOW 3: Marketing Collateral -->
+  <h3>Marketing Collateral &amp; Social Planning — <span class="chip-ref">F-05</span></h3>
+  <svg viewBox="0 0 740 92" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:10px 0 4px;">
+    <defs>
+      <marker id="a3" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+        <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5"/>
+      </marker>
+    </defs>
+    
+    <rect x="10" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="70" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Social Planner</text>
+    <text x="70" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">(LinkedIn/FB/Insta)</text>
+    <line x1="130" y1="46" x2="150" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a3)"/>
+    
+    <rect x="150" y="22" width="120" height="48" rx="3" fill="#FBF1DF" stroke="#E8C97A" stroke-width="1.5"/>
+    <text x="210" y="43" text-anchor="middle" font-size="7.6" fill="#8A5A10" font-family="Segoe UI,sans-serif">Master Sheet Tracks</text>
+    <text x="210" y="55" text-anchor="middle" font-size="7.6" fill="#8A5A10" font-family="Segoe UI,sans-serif">Collateral Stock</text>
+    <line x1="270" y1="46" x2="290" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a3)"/>
+    
+    <rect x="290" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="350" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Field Rep Requests</text>
+    <text x="350" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Brochures</text>
+    <line x1="410" y1="46" x2="430" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a3)"/>
+    
+    <rect x="430" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="490" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Stock Checked &amp;</text>
+    <text x="490" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Dispatched</text>
+  </svg>
+  <p class="flow-note">Marketing inventory is managed without automated low-stock triggers, leading to potential field campaign delays.</p>
+
+  <div class="doc-footer"><span>Marketing Audit Report · v1.0</span><span>Page 4</span></div>
+</div>
+
+<!-- ============ 04 RECOMMENDATIONS ============ -->
+<div class="page">
+  <div class="doc-header"><span><b>EF Polymers</b> — Marketing Audit</span><span>Confidential</span></div>
+
+  <div class="eyebrow">Section 04 — Corrective Action Plan</div>
+  <h2>Recommendations Register</h2>
+  <div class="section-dek">Ordered by priority. Effort and impact are directional estimates for planning purposes.</div>
+
+  <table>
+    <tr><th class="id">ID</th><th>Recommendation</th><th>Finding</th><th>Priority</th><th>Effort</th><th>Expected Impact</th></tr>
+    <tr>
+      <td class="id">R-01</td>
+      <td>Automated Field Tracking App — Procure a SaaS tool (e.g., Locus, FieldAssist) to geo-fence attendance, completely replacing the WhatsApp 3x-daily manual check.</td>
+      <td><span class="chip-ref">F-01</span></td>
+      <td><span class="chip chip-crit">P1</span></td>
+      <td>High</td>
+      <td>Frees up 6-8 hours daily for the HQ team, redirecting effort to sales analysis.</td>
+    </tr>
+    <tr>
+      <td class="id">R-02</td>
+      <td>Zoho API Sync to MIS — Utilize API connections to push actual invoiced metrics from Zoho Books directly into the MIS Google Sheet automatically.</td>
+      <td><span class="chip-ref">F-02</span></td>
+      <td><span class="chip chip-crit">P1</span></td>
+      <td>Medium</td>
+      <td>Provides real-time visibility into target completion without manual data dumps.</td>
+    </tr>
+    <tr>
+      <td class="id">R-03</td>
+      <td>Mobile Intake Forms — Transition field reps from hand-written paper POs to digital intake forms (via smartphone) that feed directly into the central sheet.</td>
+      <td><span class="chip-ref">F-03</span></td>
+      <td><span class="chip chip-med">P2</span></td>
+      <td>Medium</td>
+      <td>Cuts out manual transcription and prevents order details from getting lost in WhatsApp.</td>
+    </tr>
+    <tr>
+      <td class="id">R-04</td>
+      <td>Centralized Payment Clearing — Integrate a read-only payment clearance view from Accounts directly into the MIS tracker.</td>
+      <td><span class="chip-ref">F-04</span></td>
+      <td><span class="chip chip-med">P2</span></td>
+      <td>Medium</td>
+      <td>Speeds up shipment authorizations by removing cross-department chat pinging.</td>
+    </tr>
+    <tr>
+      <td class="id">R-05</td>
+      <td>Automated Collateral Alerts — Set conditional formatting/triggers on the Marketing Master Sheet to flag when inventory dips below minimum MOQ levels.</td>
+      <td><span class="chip-ref">F-05</span></td>
+      <td><span class="chip chip-low">P3</span></td>
+      <td>Low</td>
+      <td>Prevents campaign delays due to stockouts of printed materials.</td>
+    </tr>
+  </table>
+
+  <div class="doc-footer"><span>Marketing Audit Report · v1.0</span><span>Page 5</span></div>
+</div>
+
+<!-- ============ 05 MATURITY ============ -->
+<div class="page">
+  <div class="doc-header"><span><b>EF Polymers</b> — Marketing Audit</span><span>Confidential</span></div>
+
+  <div class="eyebrow">Section 05 — Benchmarking</div>
+  <h2>Department Maturity Assessment</h2>
+  <div class="section-dek">Scored 1 (ad hoc) to 5 (optimized) against five capability dimensions</div>
+
+  <div class="exhibit">
+    <div class="exhibit-chart">
+      <svg viewBox="0 0 400 350" xmlns="http://www.w3.org/2000/svg" style="width:100%;">
         <g transform="translate(200,170)">
-          <polygon points="0,-120 114,-37 70,97 -70,97 -114,-37" fill="none" stroke="#e2e8f0" stroke-width="0.5"/>
-          <polygon points="0,-96 91,-30 56,78 -56,78 -91,-30" fill="none" stroke="#e2e8f0" stroke-width="0.5"/>
-          <polygon points="0,-72 68,-22 42,58 -42,58 -68,-22" fill="none" stroke="#e2e8f0" stroke-width="0.5"/>
-          <polygon points="0,-48 46,-15 28,39 -28,39 -46,-15" fill="none" stroke="#e2e8f0" stroke-width="0.5"/>
-          <polygon points="0,-24 23,-7 14,19 -14,19 -23,-7" fill="none" stroke="#e2e8f0" stroke-width="0.5"/>
-          <line x1="0" y1="0" x2="0" y2="-120" stroke="#e2e8f0" stroke-width="0.5"/><line x1="0" y1="0" x2="114" y2="-37" stroke="#e2e8f0" stroke-width="0.5"/><line x1="0" y1="0" x2="70" y2="97" stroke="#e2e8f0" stroke-width="0.5"/><line x1="0" y1="0" x2="-70" y2="97" stroke="#e2e8f0" stroke-width="0.5"/><line x1="0" y1="0" x2="-114" y2="-37" stroke="#e2e8f0" stroke-width="0.5"/>
-          <!-- Process=1.5, Tech=1.0, Data=1.0, Docs=1.5, KM=1.0 -->
-          <polygon points="0,-36 22.8,-7.4 14,19.4 -21,29.1 -22.8,-7.4" fill="rgba(220,38,38,0.15)" stroke="#dc2626" stroke-width="2"/>
-          <polygon points="0,-84 79.8,-25.9 49,67.9 -49,67.9 -79.8,-25.9" fill="none" stroke="#0F766E" stroke-width="1" stroke-dasharray="6,3"/>
-          <circle cx="0" cy="-36" r="4" fill="#dc2626"/><circle cx="22.8" cy="-7.4" r="4" fill="#dc2626"/><circle cx="14" cy="19.4" r="4" fill="#dc2626"/><circle cx="-21" cy="29.1" r="4" fill="#dc2626"/><circle cx="-22.8" cy="-7.4" r="4" fill="#dc2626"/>
-          <text x="0" y="-132" text-anchor="middle" font-size="9" fill="#1B2A4A" font-weight="600">Process (1.5)</text>
-          <text x="128" y="-5" text-anchor="start" font-size="9" fill="#1B2A4A" font-weight="600">Technology (1.0)</text>
-          <text x="78" y="100" text-anchor="start" font-size="9" fill="#1B2A4A" font-weight="600">Data Quality (1.0)</text>
-          <text x="-78" y="100" text-anchor="end" font-size="9" fill="#1B2A4A" font-weight="600">Documentation (1.5)</text>
-          <text x="-128" y="-5" text-anchor="end" font-size="9" fill="#1B2A4A" font-weight="600">Knowledge Mgmt (1.0)</text>
+          <polygon points="0,-120 114,-37 70,97 -70,97 -114,-37" fill="none" stroke="#E2E8F0" stroke-width="0.75"/>
+          <polygon points="0,-96 91,-30 56,78 -56,78 -91,-30"    fill="none" stroke="#E2E8F0" stroke-width="0.75"/>
+          <polygon points="0,-72 68,-22 42,58 -42,58 -68,-22"    fill="none" stroke="#E2E8F0" stroke-width="0.75"/>
+          <polygon points="0,-48 46,-15 28,39 -28,39 -46,-15"    fill="none" stroke="#E2E8F0" stroke-width="0.75"/>
+          <polygon points="0,-24 23,-7 14,19 -14,19 -23,-7"      fill="none" stroke="#E2E8F0" stroke-width="0.75"/>
+          <line x1="0" y1="0" x2="0"    y2="-120" stroke="#E2E8F0" stroke-width="0.75"/>
+          <line x1="0" y1="0" x2="114"  y2="-37"  stroke="#E2E8F0" stroke-width="0.75"/>
+          <line x1="0" y1="0" x2="70"   y2="97"   stroke="#E2E8F0" stroke-width="0.75"/>
+          <line x1="0" y1="0" x2="-70"  y2="97"   stroke="#E2E8F0" stroke-width="0.75"/>
+          <line x1="0" y1="0" x2="-114" y2="-37"  stroke="#E2E8F0" stroke-width="0.75"/>
+          
+          <!-- Target dashed: Process 3.0, Tech 3.5, Data 3.5, Docs 3.0, KM 2.5 -->
+          <polygon points="0,-72 79.8,-25.9 68.6,95 -42,58.2 -57,-18.5" fill="none" stroke="#B8C0C9" stroke-width="1" stroke-dasharray="5,3"/>
+          
+          <!-- Current: Process 1.5, Tech 1.0, Data 1.0, Docs 1.5, KM 1.0 -->
+          <polygon points="0,-36 22.8,-7.4 14,19.4 -21,29.1 -22.8,-7.4" fill="rgba(15,107,98,0.14)" stroke="#0F6B62" stroke-width="1.75"/>
+          <circle cx="0" cy="-36" r="3.2" fill="#0F6B62"/>
+          <circle cx="22.8" cy="-7.4" r="3.2" fill="#0F6B62"/>
+          <circle cx="14" cy="19.4" r="3.2" fill="#0F6B62"/>
+          <circle cx="-21" cy="29.1" r="3.2" fill="#0F6B62"/>
+          <circle cx="-22.8" cy="-7.4" r="3.2" fill="#0F6B62"/>
+          
+          <text x="0"    y="-132" text-anchor="middle" font-size="9" fill="#1B2A4A" font-weight="600">Process</text>
+          <text x="128"  y="-20"  text-anchor="start"  font-size="9" fill="#1B2A4A" font-weight="600">Technology</text>
+          <text x="78"   y="110"  text-anchor="start"  font-size="9" fill="#1B2A4A" font-weight="600">Data Quality</text>
+          <text x="-78"  y="110"  text-anchor="end"    font-size="9" fill="#1B2A4A" font-weight="600">Documentation</text>
+          <text x="-128" y="-16"  text-anchor="end"    font-size="9" fill="#1B2A4A" font-weight="600">Knowledge Mgmt.</text>
         </g>
       </svg>
     </div>
-    <table>
-      <tr><th>Dimension</th><th>Current</th><th>Target</th><th>Gap</th></tr>
-      <tr><td>Process</td><td>1.5</td><td>3.0</td><td>1.5</td></tr>
-      <tr><td>Technology</td><td>1.0</td><td>3.0</td><td>2.0</td></tr>
-      <tr><td>Data Quality</td><td>1.0</td><td>3.0</td><td>2.0</td></tr>
-      <tr><td>Documentation</td><td>1.5</td><td>3.0</td><td>1.5</td></tr>
-      <tr><td>Knowledge Management</td><td>1.0</td><td>2.5</td><td>1.5</td></tr>
-      <tr><th>Overall</th><th>1.0</th><th>2.9</th><th>1.9</th></tr>
-    </table>
-    <p style="font-size:9.5pt;color:#dc2626;font-weight:600;">⚠ Marketing & Retail Sales scores at Level 1.0 overall — tied for lowest in the organization alongside BD-Seed and BD-NGO/CSR.</p>
+    <div class="exhibit-note">
+      Solid line: current state. Dashed line: target state (post-roadmap).<br><br>
+      <b>Retail Sales scores 1.2 overall</b> — The department is held back by extreme analog overhead. While Process scores at 1.5 due to the existence of structured MIS planning, Data Quality and Technology are essentially 1.0 due to the complete reliance on unstructured WhatsApp messages and hand-written POs.<br><br>
+      Automating field tracking (Phase 1) will drastically enhance Data Quality and free up massive HQ capacity.
+    </div>
   </div>
+
+  <table>
+    <tr><th>Dimension</th><th class="num">Current</th><th class="num">Target</th><th class="num">Gap</th></tr>
+    <tr><td>Process Standardization</td><td class="num">1.5</td><td class="num">3.0</td><td class="num">1.5</td></tr>
+    <tr><td>Technology Utilization</td><td class="num">1.0</td><td class="num">3.5</td><td class="num">2.5</td></tr>
+    <tr><td>Data Quality &amp; Accessibility</td><td class="num">1.0</td><td class="num">3.5</td><td class="num">2.5</td></tr>
+    <tr><td>Documentation</td><td class="num">1.5</td><td class="num">3.0</td><td class="num">1.5</td></tr>
+    <tr><td>Knowledge Management</td><td class="num">1.0</td><td class="num">2.5</td><td class="num">1.5</td></tr>
+    <tr style="font-weight:700;"><td>Overall</td><td class="num">1.2</td><td class="num">3.1</td><td class="num">1.9</td></tr>
+  </table>
+
+  <div class="doc-footer"><span>Marketing Audit Report · v1.0</span><span>Page 6</span></div>
 </div>
 
+<!-- ============ 06 ROADMAP ============ -->
 <div class="page">
-  <div class="section">
-    <div class="section-num">Section 06</div>
-    <h2>Proposed Solutions</h2>
-    <div class="solution-card">
-      <h4>Solution: Automated Field Force Tracking (Offline-Capable)</h4>
-      <p>Deploy Zoho FSM or equivalent with offline GPS capture. Auto-syncs when connectivity returns. Completely eliminates manual WhatsApp-based tracking.</p>
-      <table><tr><th>Priority</th><th>Effort</th><th>Expected Impact</th></tr>
-      <tr><td><span class="badge badge-critical">P1</span></td><td>Medium</td><td>Recovers 6–8 hrs/day; nearly one FTE equivalent freed</td></tr></table>
+  <div class="doc-header"><span><b>EF Polymers</b> — Marketing Audit</span><span>Confidential</span></div>
+
+  <div class="eyebrow">Section 06 — Implementation Plan</div>
+  <h2>Phased Roadmap</h2>
+  <div class="section-dek">Initiatives sequenced across three phases, with quantified ROI and scope of work</div>
+
+  <table class="tl-table">
+    <tr>
+      <th>Initiative</th><th class="id">Rec.</th>
+      <th class="num">Phase 1<br><span style="font-weight:400">Mo. 1–2</span></th>
+      <th class="num">Phase 2<br><span style="font-weight:400">Mo. 3–5</span></th>
+      <th class="num">Phase 3<br><span style="font-weight:400">Mo. 6+</span></th>
+    </tr>
+    <tr><td>Automated Field Tracking App</td><td class="id">R-01</td><td class="phase-mark p1">●</td><td></td><td></td></tr>
+    <tr><td>Zoho API Sync to MIS</td><td class="id">R-02</td><td class="phase-mark p1">●</td><td></td><td></td></tr>
+    <tr><td>Mobile Intake Forms (PO)</td><td class="id">R-03</td><td></td><td class="phase-mark p2">●</td><td></td></tr>
+    <tr><td>Centralized Payment Clearing</td><td class="id">R-04</td><td></td><td class="phase-mark p2">●</td><td></td></tr>
+    <tr><td>Automated Collateral Alerts</td><td class="id">R-05</td><td></td><td></td><td class="phase-mark p3">●</td></tr>
+  </table>
+
+  <!-- PHASE 1 -->
+  <div class="phase-block">
+    <div class="phase-hd">
+      <div class="phase-hd-left">
+        <span class="phase-hd-title">Phase 1 &mdash; Quick Wins (Highest ROI)</span>
+        <span class="phase-hd-timeline">Months 1&ndash;2 &middot; Digital Rep Tracking</span>
+      </div>
+      <span class="phase-maturity">Maturity 1.2 &rarr; 2.0</span>
     </div>
-    <div class="solution-card">
-      <h4>Solution: Digital Mobile PO Forms</h4>
-      <p>Replace paper PO books with a mobile form (Zoho Forms or custom). RSMs fill in structured fields on their phone — data flows directly to Accounts for invoicing.</p>
-      <table><tr><th>Priority</th><th>Effort</th><th>Expected Impact</th></tr>
-      <tr><td><span class="badge badge-critical">P1</span></td><td>Low</td><td>Saves 15–20 min/PO; eliminates transcription errors</td></tr></table>
+    <div class="phase-sow">
+      <div class="col-label">Scope of Work</div>
+      <div class="sow-item"><span class="sow-dot"></span><span>Procure and deploy a SaaS field tracking app (e.g. Locus, FieldAssist) to geo-fence attendance</span></div>
+      <div class="sow-item"><span class="sow-dot"></span><span>Utilize API connections to push invoiced metrics from Zoho Books directly to the MIS Google Sheet</span></div>
+      <div class="sow-item"><span class="sow-dot"></span><span>Retire the 3x-daily WhatsApp location checking and home-address cross-referencing process</span></div>
+      <div class="sow-item"><span class="sow-dot"></span><span>Transition 25% of HQ team's recovered time into proactive random audit calls to farmers</span></div>
     </div>
-    <div class="solution-card">
-      <h4>Solution: UTM Tracking + Marketing Analytics</h4>
-      <p>Implement UTM parameters on all ad campaigns. Connect to Zoho Analytics for conversion tracking. Monthly ROI review with COO.</p>
-      <table><tr><th>Priority</th><th>Effort</th><th>Expected Impact</th></tr>
-      <tr><td><span class="badge badge-high">P2</span></td><td>Low</td><td>Makes marketing spend accountable; identifies what works</td></tr></table>
-    </div>
-    <div class="solution-card">
-      <h4>Solution: CRM-Based Target Tracking</h4>
-      <p>Use Zoho CRM's target module for quantity-level target vs. actual tracking. Replaces manual Sheet reconciliation.</p>
-      <table><tr><th>Priority</th><th>Effort</th><th>Expected Impact</th></tr>
-      <tr><td><span class="badge badge-medium">P2</span></td><td>Low (part of CRM rollout)</td><td>Saves 3–4 hrs/week; real-time target tracking</td></tr></table>
+    <div class="phase-roi">
+      <div class="roi-card">
+        <div class="roi-card-num">6-8 hrs</div>
+        <div class="roi-card-label">daily saved</div>
+        <div class="roi-card-desc">HQ team freed from manual geolocation surveillance</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-card-num">Live</div>
+        <div class="roi-card-label">target tracking</div>
+        <div class="roi-card-desc">Zoho API syncs actuals directly to the MIS plan</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-card-num">&darr; 100%</div>
+        <div class="roi-card-label">location spoofing</div>
+        <div class="roi-card-desc">Geo-fenced check-ins replace easily manipulated WhatsApp pins</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-card-num">&uarr; 30%</div>
+        <div class="roi-card-label">strategic focus</div>
+        <div class="roi-card-desc">HQ capacity shifted to sales enablement and coaching</div>
+      </div>
     </div>
   </div>
 
-  <div class="section">
-    <div class="section-num">Section 08</div>
-    <h2>Phased Roadmap</h2>
-    <div style="margin:30px 0;">
-      <div class="roadmap-phase">
-        <div class="phase-label">Phase 1 — Quick Wins</div>
-        <h4>Digital Mobile PO Forms</h4><p>Replace paper POs. <strong>Immediate accuracy + time savings.</strong></p>
-        <h4>Automated Field Tracking</h4><p>Offline-capable GPS app. <strong>Recovers 6–8 hrs/day.</strong></p>
-        <div style="background:#f0fdfa;padding:12px;border-radius:6px;margin-top:12px;"><strong>Where this places us:</strong> Field operations digitized. Manual tracking burden eliminated. PO accuracy improved.</div>
+  <!-- PHASE 2 -->
+  <div class="phase-block">
+    <div class="phase-hd">
+      <div class="phase-hd-left">
+        <span class="phase-hd-title">Phase 2 &mdash; Operational Foundation</span>
+        <span class="phase-hd-timeline">Months 3&ndash;5 &middot; Eradicating Paper</span>
       </div>
-      <div class="roadmap-phase phase-2">
-        <div class="phase-label p2">Phase 2 — Operational Foundation</div>
-        <h4>Marketing Analytics + UTM Tracking</h4><p>Measurable campaign ROI. <strong>Makes marketing spend accountable.</strong></p>
-        <h4>CRM Target Tracking Module</h4><p>Quantity-level actuals vs targets. <strong>Saves 3–4 hrs/week.</strong></p>
-        <div style="background:#eff6ff;padding:12px;border-radius:6px;margin-top:12px;"><strong>Where this places us:</strong> Marketing spend is measurable. Sales targets are tracked in real-time. Department maturity jumps from 1.0 to ~2.0.</div>
+      <span class="phase-maturity p2">Maturity 2.0 &rarr; 2.6</span>
+    </div>
+    <div class="phase-sow">
+      <div class="col-label">Scope of Work</div>
+      <div class="sow-item"><span class="sow-dot p2"></span><span>Transition field reps from hand-written paper POs to digital intake forms via smartphone</span></div>
+      <div class="sow-item"><span class="sow-dot p2"></span><span>Integrate a read-only payment clearance view from Accounts directly into the MIS tracker</span></div>
+      <div class="sow-item"><span class="sow-dot p2"></span><span>Implement automated WhatsApp parsing tools to extract farmer contact data without copy-pasting</span></div>
+      <div class="sow-item"><span class="sow-dot p2"></span><span>Train all field staff on the new digital intake workflow, completely replacing photo-based POs</span></div>
+    </div>
+    <div class="phase-roi">
+      <div class="roi-card">
+        <div class="roi-card-num">0</div>
+        <div class="roi-card-label">transcription errors</div>
+        <div class="roi-card-desc">Digital PO intake feeds directly to HQ without re-typing</div>
       </div>
-      <div class="roadmap-phase phase-3">
-        <div class="phase-label p3">Phase 3 — Advanced Optimization</div>
-        <h4>Structured Retail Audit Format</h4><p>Digital dealer audit forms replacing WhatsApp photos. <strong>Standardized dealer management.</strong></p>
-        <h4>Automated Payment Alerts</h4><p>Replace WhatsApp payment screenshots with bank notification integration.</p>
-        <div style="background:#f5f3ff;padding:12px;border-radius:6px;margin-top:12px;"><strong>Where this places us:</strong> Marketing operates at Level 2.5+ maturity. Field operations are digital. Campaign ROI is measurable. Dealer management is standardized.</div>
+      <div class="roi-card">
+        <div class="roi-card-num">&darr; 50%</div>
+        <div class="roi-card-label">clearance lag</div>
+        <div class="roi-card-desc">Shared view replaces cross-department WhatsApp pinging</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-card-num">&uarr; 2x</div>
+        <div class="roi-card-label">data entry speed</div>
+        <div class="roi-card-desc">Automated parsing builds the farmer database instantly</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-card-num">100%</div>
+        <div class="roi-card-label">dispatch readiness</div>
+        <div class="roi-card-desc">Clear digital trail from PO to payment accelerates shipping</div>
       </div>
     </div>
-    <h3>Cumulative Expected Gains</h3>
-    <table>
-      <tr><th>Phase</th><th>Deliverable</th><th>Time Recovered</th><th>Impact</th></tr>
-      <tr><td>Phase 1</td><td>Digital POs + field tracking</td><td>~6–8 hrs/day + 15–20 min/PO</td><td>Operational liberation</td></tr>
-      <tr><td>Phase 2</td><td>Analytics + CRM targets</td><td>~3–4 hrs/week</td><td>Measurable marketing; real-time targets</td></tr>
-      <tr><td>Phase 3</td><td>Dealer audits + payment alerts</td><td>Additional incremental</td><td>Standardized channel management</td></tr>
-    </table>
   </div>
+
+  <!-- PHASE 3 -->
+  <div class="phase-block">
+    <div class="phase-hd">
+      <div class="phase-hd-left">
+        <span class="phase-hd-title">Phase 3 &mdash; Strategic Scaling</span>
+        <span class="phase-hd-timeline">Month 6 onward &middot; Low effort</span>
+      </div>
+      <span class="phase-maturity p3">Maturity 2.6 &rarr; 3.1</span>
+    </div>
+    <div class="phase-sow">
+      <div class="col-label">Scope of Work</div>
+      <div class="sow-item"><span class="sow-dot p3"></span><span>Set conditional formatting and triggers on Marketing Master Sheet to flag low collateral inventory</span></div>
+      <div class="sow-item"><span class="sow-dot p3"></span><span>Establish minimum MOQ automated alerts for brochures, flyers, and banners sent directly to print vendors</span></div>
+      <div class="sow-item"><span class="sow-dot p3"></span><span>Implement a structured digital request queue for field reps to order promotional items</span></div>
+      <div class="sow-item"><span class="sow-dot p3"></span><span>Sync custom branding packaging prints with Production schedules for major regional campaigns</span></div>
+    </div>
+    <div class="phase-roi">
+      <div class="roi-card">
+        <div class="roi-card-num">0</div>
+        <div class="roi-card-label">collateral stockouts</div>
+        <div class="roi-card-desc">Automated alerts secure supply for field campaigns</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-card-num">Structured</div>
+        <div class="roi-card-label">field requests</div>
+        <div class="roi-card-desc">Replacing ad-hoc WhatsApp demands for brochures</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-card-num">Aligned</div>
+        <div class="roi-card-label">production sync</div>
+        <div class="roi-card-desc">Custom packaging matches marketing timelines seamlessly</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-card-num">3.1</div>
+        <div class="roi-card-label">maturity level</div>
+        <div class="roi-card-desc">Managed and optimized Retail Sales operations</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="doc-footer"><span>Marketing Audit Report · v1.0</span><span>Page 7</span></div>
+</div>
+
+<!-- ============ APPENDIX ============ -->
+<div class="page">
+  <div class="doc-header"><span><b>EF Polymers</b> — Marketing Audit</span><span>Confidential</span></div>
+
+  <div class="eyebrow">Appendix</div>
+  <h2>Cross-Department Dependencies</h2>
+  <div class="section-dek">Findings and recommendations that require action outside the Retail Sales Office to resolve</div>
+
+  <table>
+    <tr><th>Finding / Rec.</th><th>Counterpart Department</th><th>Dependency</th></tr>
+    <tr>
+      <td><span class="chip-ref">R-02</span> API Sheet Sync</td>
+      <td>Finance &amp; Accounts</td>
+      <td>Accounts must authorize API read-access for the MIS Google Sheet to pull live invoice data from Zoho Books.</td>
+    </tr>
+    <tr>
+      <td><span class="chip-ref">R-04</span> Centralized Payments</td>
+      <td>Finance &amp; Accounts</td>
+      <td>Accounts needs to maintain a real-time ledger of inbound dealer payments to feed the dashboard, halting WhatsApp coordination.</td>
+    </tr>
+    <tr>
+      <td><span class="chip-ref">Operational</span> Dispatch Triggers</td>
+      <td>Logistics</td>
+      <td>Logistics relies entirely on Retail Sales to communicate the 'green light' on PO correctness and Payment clearance before moving cargo.</td>
+    </tr>
+  </table>
+
+  <div class="doc-footer"><span>Marketing Audit Report · v1.0</span><span>Page 8</span></div>
 </div>
 
 </body>

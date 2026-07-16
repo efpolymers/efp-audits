@@ -5,327 +5,666 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Finance & Accounts — Department Audit Report | EF Polymers</title>
 <style>
-  @page{size:A4;margin:20mm 18mm}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:#1e293b;line-height:1.6;background:#fff;font-size:11pt}.page{page-break-after:always;min-height:100vh}.page:last-child{page-break-after:avoid}.cover{display:flex;flex-direction:column;justify-content:center;align-items:center;min-height:100vh;background:linear-gradient(135deg,#1B2A4A 0%,#0F766E 100%);color:#fff;text-align:center;padding:60px 40px}.cover-badge{font-size:10pt;letter-spacing:3px;text-transform:uppercase;opacity:.8;margin-bottom:16px;border:1px solid rgba(255,255,255,.3);padding:6px 20px;border-radius:20px}.cover h1{font-size:32pt;font-weight:700;margin:20px 0 10px}.cover h2{font-size:16pt;font-weight:300;opacity:.9;margin-bottom:40px}.cover-meta{font-size:10pt;opacity:.7;line-height:2}.cover-line{width:80px;height:3px;background:rgba(255,255,255,.5);margin:30px auto}.section{padding:40px 0}.section-num{font-size:9pt;color:#0F766E;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:4px}h2{font-size:18pt;color:#1B2A4A;margin-bottom:20px;padding-bottom:10px;border-bottom:2px solid #e2e8f0}h3{font-size:13pt;color:#1B2A4A;margin:24px 0 12px}h4{font-size:11pt;color:#334155;margin:16px 0 8px}p{margin-bottom:12px}table{width:100%;border-collapse:collapse;margin:16px 0 24px;font-size:10pt}th{background:#1B2A4A;color:#fff;padding:10px 12px;text-align:left;font-weight:600}td{padding:9px 12px;border-bottom:1px solid #e2e8f0}tr:nth-child(even){background:#f8fafc}.card{border:1px solid #e2e8f0;border-radius:8px;padding:20px;margin:16px 0}.card-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}.card-title{font-weight:700;font-size:11pt;color:#1B2A4A}.badge{display:inline-block;padding:3px 12px;border-radius:12px;font-size:8.5pt;font-weight:600}.badge-critical{background:#fef2f2;color:#dc2626;border:1px solid #fecaca}.badge-high{background:#fff7ed;color:#ea580c;border:1px solid #fed7aa}.badge-medium{background:#fffbeb;color:#d97706;border:1px solid #fde68a}.badge-low{background:#f0fdf4;color:#16a34a;border:1px solid #bbf7d0}.metrics-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:16px 0}.metric-box{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:14px;text-align:center}.metric-value{font-size:18pt;font-weight:700;color:#0F766E}.metric-label{font-size:8pt;color:#64748b;text-transform:uppercase;letter-spacing:1px;margin-top:4px}.flow-container{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:20px 0;justify-content:center}.flow-step{background:#f0fdfa;border:2px solid #0F766E;border-radius:8px;padding:12px 16px;font-size:9pt;font-weight:500;text-align:center;min-width:120px;max-width:180px}.flow-step.problem{border-color:#dc2626;background:#fef2f2}.flow-arrow{color:#94a3b8;font-size:18pt}.solution-card{border-left:4px solid #0F766E;background:#f0fdfa;border-radius:0 8px 8px 0;padding:16px 20px;margin:12px 0}.solution-card.suggestion{border-left-color:#6366f1;background:#eef2ff}.gap-item{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid #f1f5f9}.gap-icon{width:32px;height:32px;background:#fef3c7;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14pt;flex-shrink:0}.chart-container{display:flex;justify-content:center;margin:24px 0}.roadmap-phase{border-left:3px solid #0F766E;padding:16px 0 16px 24px;margin-left:12px;position:relative}.roadmap-phase::before{content:'';width:12px;height:12px;background:#0F766E;border-radius:50%;position:absolute;left:-7.5px;top:20px}.roadmap-phase.phase-2{border-left-color:#2563eb}.roadmap-phase.phase-2::before{background:#2563eb}.roadmap-phase.phase-3{border-left-color:#7c3aed}.roadmap-phase.phase-3::before{background:#7c3aed}.phase-label{font-size:9pt;font-weight:700;color:#0F766E;letter-spacing:1px;text-transform:uppercase}.phase-label.p2{color:#2563eb}.phase-label.p3{color:#7c3aed}.kpi-row{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}.kpi-tag{background:#f1f5f9;border-radius:6px;padding:4px 10px;font-size:9pt;color:#475569}@media print{body{font-size:10pt}.page{min-height:auto}.cover{min-height:100vh}}
+:root{
+  --ink:#1B2A4A;
+  --slate:#3F4B5C;
+  --muted:#6B7785;
+  --line:#D8DEE5;
+  --line-soft:#E9EDF1;
+  --paper:#FFFFFF;
+  --paper-alt:#F6F7F9;
+  --accent:#0F6B62;
+  --accent-soft:#EAF3F1;
+  --risk-crit-bg:#FCEBEA; --risk-crit-fg:#A32E24;
+  --risk-med-bg:#FBF1DF;  --risk-med-fg:#8A5A10;
+  --risk-low-bg:#E9F4EC;  --risk-low-fg:#276B3E;
+}
+@page{ size:A4; margin:22mm 18mm 20mm 18mm; }
+*{ margin:0; padding:0; box-sizing:border-box; }
+body{
+  font-family:'Segoe UI',system-ui,-apple-system,sans-serif;
+  color:var(--slate);
+  line-height:1.55;
+  background:#EDEFF1;
+  font-size:10.3pt;
+}
+.page{
+  background:var(--paper);
+  max-width:840px;
+  margin:0 auto 14px auto;
+  padding:26mm 20mm 20mm 20mm;
+  position:relative;
+  page-break-after:always;
+  min-height:1120px;
+}
+.page:last-child{ page-break-after:avoid; }
+
+/* ---- running header / footer ---- */
+.doc-header{
+  display:flex; justify-content:space-between; align-items:baseline;
+  font-size:7.8pt; letter-spacing:0.4px; text-transform:uppercase; color:var(--muted);
+  border-bottom:1px solid var(--line); padding-bottom:8px; margin-bottom:22px;
+}
+.doc-header b{ color:var(--ink); }
+.doc-footer{
+  position:absolute; bottom:10mm; left:20mm; right:20mm;
+  display:flex; justify-content:space-between;
+  font-size:7.5pt; color:var(--muted);
+  border-top:1px solid var(--line-soft); padding-top:6px;
+}
+
+/* ---- cover ---- */
+.cover{ display:flex; flex-direction:column; min-height:1080px; }
+.cover-top{ display:flex; justify-content:space-between; align-items:flex-start; }
+.cover-mark{ font-size:9pt; font-weight:700; letter-spacing:2px; color:var(--ink); }
+.cover-mark span{ color:var(--accent); }
+.cover-class{ font-size:7.8pt; text-transform:uppercase; letter-spacing:1.5px; color:var(--muted); border:1px solid var(--line); padding:4px 10px; }
+.cover-body{ flex:1; display:flex; flex-direction:column; justify-content:center; padding:60px 0; }
+.cover-eyebrow{ font-family:Georgia,'Times New Roman',serif; font-style:italic; font-size:11pt; color:var(--accent); margin-bottom:14px; }
+.cover-title{ font-family:Georgia,'Times New Roman',serif; font-size:34pt; color:var(--ink); font-weight:600; line-height:1.15; margin-bottom:10px; }
+.cover-sub{ font-size:13pt; color:var(--slate); font-weight:400; }
+.cover-rule{ width:52px; height:2px; background:var(--accent); margin:26px 0; }
+.cover-ctrl{ border:1px solid var(--line); }
+.cover-ctrl table{ width:100%; border-collapse:collapse; margin:0; }
+.cover-ctrl td{ padding:9px 14px; font-size:9pt; border-bottom:1px solid var(--line-soft); }
+.cover-ctrl tr:last-child td{ border-bottom:none; }
+.cover-ctrl td.label{ color:var(--muted); width:38%; text-transform:uppercase; font-size:7.8pt; letter-spacing:0.5px; }
+.cover-ctrl td.val{ color:var(--ink); font-weight:600; }
+
+/* ---- section furniture ---- */
+.eyebrow{ font-size:8pt; color:var(--accent); font-weight:700; letter-spacing:1.6px; text-transform:uppercase; margin-bottom:6px; }
+h2{ font-family:Georgia,'Times New Roman',serif; font-size:17pt; color:var(--ink); font-weight:600; margin-bottom:4px; }
+h2 + .section-dek{ color:var(--muted); font-size:9.3pt; margin-bottom:18px; padding-bottom:14px; border-bottom:1px solid var(--line); }
+h3{ font-family:Georgia,'Times New Roman',serif; font-size:12.5pt; color:var(--ink); font-weight:600; margin:22px 0 8px; }
+h4{ font-size:10pt; color:var(--ink); font-weight:700; margin:14px 0 4px; }
+p{ margin-bottom:10px; }
+.lede{ font-size:10.6pt; color:var(--slate); max-width:95%; }
+
+/* ---- tables ---- */
+table{ width:100%; border-collapse:collapse; margin:10px 0 20px; font-size:9pt; }
+th{ background:var(--ink); color:#fff; padding:8px 10px; text-align:left; font-weight:600; font-size:8.3pt; letter-spacing:0.3px; text-transform:uppercase; }
+td{ padding:8px 10px; border-bottom:1px solid var(--line-soft); vertical-align:top; }
+tr:nth-child(even) td{ background:var(--paper-alt); }
+td.id, th.id{ font-family:Georgia,serif; font-weight:700; color:var(--ink); white-space:nowrap; width:44px; }
+td.num{ text-align:center; white-space:nowrap; }
+
+/* ---- chips ---- */
+.chip{ display:inline-block; padding:2px 9px; border-radius:3px; font-size:7.8pt; font-weight:700; letter-spacing:0.3px; text-transform:uppercase; white-space:nowrap; }
+.chip-crit{ background:var(--risk-crit-bg); color:var(--risk-crit-fg); }
+.chip-med{  background:var(--risk-med-bg);  color:var(--risk-med-fg); }
+.chip-low{  background:var(--risk-low-bg);  color:var(--risk-low-fg); }
+.chip-ref{ display:inline-block; background:var(--accent-soft); color:var(--accent); font-family:Georgia,serif; font-weight:700; font-size:8pt; padding:1px 6px; border-radius:3px; margin:1px 2px 1px 0; }
+
+/* ---- KPI strip ---- */
+.kpi-strip{ display:flex; border:1px solid var(--line); margin:16px 0 22px; }
+.kpi-cell{ flex:1; padding:12px 14px; border-right:1px solid var(--line); }
+.kpi-cell:last-child{ border-right:none; }
+.kpi-num{ font-family:Georgia,serif; font-size:15pt; color:var(--ink); font-weight:700; }
+.kpi-lbl{ font-size:7.6pt; color:var(--muted); text-transform:uppercase; letter-spacing:0.5px; margin-top:2px; }
+
+/* ---- callout ---- */
+.callout{ border-left:3px solid var(--accent); background:var(--accent-soft); padding:10px 14px; font-size:9pt; color:var(--ink); margin:10px 0 20px; }
+
+/* ---- flow notes ---- */
+.flow-note{ font-size:8.6pt; color:var(--muted); margin:4px 0 18px; padding-left:2px; }
+.flow-note b{ color:var(--risk-crit-fg); }
+
+/* ---- maturity exhibit ---- */
+.exhibit{ display:flex; gap:26px; align-items:center; margin:14px 0 6px; }
+.exhibit-chart{ flex:0 0 220px; }
+.exhibit-note{ flex:1; font-size:9.2pt; color:var(--slate); }
+.exhibit-note b{ color:var(--ink); }
+
+/* ---- roadmap table ---- */
+.tl-table td.phase-mark{ text-align:center; font-weight:700; }
+.tl-table td.phase-mark.p1{ color:var(--accent); }
+.tl-table td.phase-mark.p2{ color:#2563eb; }
+.tl-table td.phase-mark.p3{ color:#7c3aed; }
+
+/* ---- phase blocks ---- */
+.phase-block{ border:1px solid var(--line); margin:14px 0; overflow:hidden; }
+.phase-hd{ display:flex; justify-content:space-between; align-items:center; padding:10px 14px; border-bottom:1px solid var(--line); background:var(--paper-alt); gap:16px; }
+.phase-hd-left{ display:flex; flex-direction:column; gap:2px; }
+.phase-hd-title{ font-family:Georgia,serif; font-size:11pt; font-weight:700; color:var(--ink); }
+.phase-hd-timeline{ font-size:7.8pt; color:var(--muted); }
+.phase-maturity{ font-size:8.5pt; font-weight:700; color:var(--accent); border:1px solid var(--accent); border-radius:3px; padding:3px 10px; white-space:nowrap; flex-shrink:0; }
+.phase-maturity.p2{ color:#2563eb; border-color:#2563eb; }
+.phase-maturity.p3{ color:#7c3aed; border-color:#7c3aed; }
+.phase-sow{ padding:11px 14px 14px; }
+.col-label{ font-size:7.4pt; color:var(--muted); text-transform:uppercase; letter-spacing:0.8px; margin-bottom:8px; font-weight:700; }
+.sow-item{ display:flex; gap:8px; margin-bottom:5px; font-size:8.5pt; color:var(--slate); line-height:1.4; }
+.sow-dot{ width:4px; height:4px; background:var(--accent); border-radius:50%; margin-top:5px; flex-shrink:0; }
+.sow-dot.p2{ background:#2563eb; }
+.sow-dot.p3{ background:#7c3aed; }
+.phase-roi{ display:flex; border-top:1px solid var(--line); background:var(--paper-alt); }
+.roi-card{ flex:1; padding:10px 12px; border-right:1px solid var(--line); text-align:center; }
+.roi-card:last-child{ border-right:none; }
+.roi-card-num{ font-family:Georgia,serif; font-size:13pt; font-weight:700; color:var(--ink); line-height:1.1; margin-bottom:3px; }
+.roi-card-label{ font-size:7.5pt; color:var(--ink); font-weight:700; text-transform:uppercase; letter-spacing:0.3px; margin-bottom:3px; }
+.roi-card-desc{ font-size:7pt; color:var(--muted); line-height:1.35; }
+
+@media print{
+  body{ background:#fff; }
+  .page{ box-shadow:none; margin:0; }
+}
 </style>
 </head>
 <body>
 
+<!-- ============ COVER ============ -->
 <div class="page cover">
-  <div class="cover-badge">Department Audit Report</div>
-  <h1>Finance & Accounts</h1>
-  <h2>Shobha Shekhawat — Finance Head</h2>
-  <div class="cover-line"></div>
-  <div class="cover-meta">EF Polymers Private Limited<br>Prepared by Creative Upaay Consulting<br>July 2026 · Version 1.0<br>Confidential — Executive Leadership Only</div>
-</div>
-
-<div class="page">
-  <div class="section">
-    <div class="section-num">Section 01</div>
-    <h2>Department Overview</h2>
-    <p>Finance & Accounts is the operational backbone of EF Polymers — every revenue-generating activity across all BD verticals, retail, and international sales routes through this department for invoicing, payment verification, and compliance. The team manages Zoho Books, Zoho Inventory, Zoho Expense, Zoho Payroll, and GST/TDS compliance, making it the most technologically integrated department in the organization.</p>
-
-    <div class="metrics-grid">
-      <div class="metric-box"><div class="metric-value">50–77%</div><div class="metric-label">COGS Margin Swing</div></div>
-      <div class="metric-box"><div class="metric-value">1–2 wk</div><div class="metric-label">GST Reconciliation</div></div>
-      <div class="metric-box"><div class="metric-value">3 FTE</div><div class="metric-label">Team Size</div></div>
-      <div class="metric-box"><div class="metric-value">3-Level</div><div class="metric-label">Expense Approval</div></div>
-    </div>
-
-    <h3>Time & Effort Allocation</h3>
+  <div class="cover-top">
+    <div class="cover-mark">EF<span>·</span>POLYMERS</div>
+    <div class="cover-class">Confidential — Executive Leadership Only</div>
+  </div>
+  <div class="cover-body">
+    <div class="cover-eyebrow">Department Audit Report</div>
+    <div class="cover-title">Finance &amp; Accounts</div>
+    <div class="cover-sub">Costing, Compliance &amp; Payables — Shobha Shekhawat</div>
+    <div class="cover-rule"></div>
+    <p style="max-width:70%;color:var(--muted);font-size:9.3pt;">
+      An independent operational review of the Finance department, evaluating COGS volatility, GST reconciliation workloads, and Zoho integration friction, prepared as part of the EF Polymers organization-wide operational audit.
+    </p>
+  </div>
+  <div class="cover-ctrl">
     <table>
-      <tr><th>Activity</th><th>Share</th></tr>
-      <tr><td>Invoice Generation & Payment Processing</td><td>~30%</td></tr>
-      <tr><td>GST/TDS Filing & Tax Compliance</td><td>~25%</td></tr>
-      <tr><td>Vendor Payments & Bank Reconciliation</td><td>~20%</td></tr>
-      <tr><td>Expense Processing (Zoho Expense)</td><td>~15%</td></tr>
-      <tr><td>Payroll & HR-Finance Coordination</td><td>~10%</td></tr>
+      <tr><td class="label">Client</td><td class="val">EF Polymers Private Limited</td></tr>
+      <tr><td class="label">Prepared by</td><td class="val">Creative Upaay Consulting</td></tr>
+      <tr><td class="label">Document version</td><td class="val">1.0</td></tr>
+      <tr><td class="label">Date issued</td><td class="val">July 2026</td></tr>
+      <tr><td class="label">Review scope</td><td class="val">Finance &amp; Accounts Operations</td></tr>
+      <tr><td class="label">Distribution</td><td class="val">CEO, COO, Finance Head</td></tr>
     </table>
-
-    <h3>Tool Stack</h3>
-    <div class="kpi-row">
-      <span class="kpi-tag">Zoho Books (primary ERP)</span>
-      <span class="kpi-tag">Zoho Inventory</span>
-      <span class="kpi-tag">Zoho Expense (3-level approval)</span>
-      <span class="kpi-tag">Zoho Payroll</span>
-      <span class="kpi-tag">GST Portal (manual)</span>
-      <span class="kpi-tag">Google Sheets (reconciliation)</span>
-    </div>
   </div>
 </div>
 
+<!-- ============ 01 EXECUTIVE SUMMARY ============ -->
 <div class="page">
-  <div class="section">
-    <div class="section-num">Section 02</div>
-    <h2>Existing Workflows</h2>
+  <div class="doc-header"><span><b>EF Polymers</b> — Finance Audit</span><span>Confidential</span></div>
 
-    <h3>Workflow 1: Invoice Generation (Order-to-Cash)</h3>
-    <div class="flow-container">
-      <div class="flow-step">BD/Sales posts order (WhatsApp)</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step problem">Accounts verifies stock (phone call to Production)</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step problem">Customer data lookup (GSTIN, address)</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">Generate Zoho Books invoice</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">Route invoice to Logistics</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">E-Way Bill generation</div>
-    </div>
-    <p style="font-size:9.5pt;color:#64748b;">⚠ Per-invoice time waste: 10–15 min on stock phone calls + 5–10 min on customer data lookup = 15–25 min waste per invoice.</p>
+  <div class="eyebrow">Section 01 — Executive Summary</div>
+  <h2>Department Overview</h2>
+  <div class="section-dek">Scope, current state, and headline findings</div>
 
-    <h3>Workflow 2: GST/TDS Reconciliation Cycle</h3>
-    <div class="flow-container">
-      <div class="flow-step">Download GST portal data</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step problem">Manual matching with Zoho Books entries</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step problem">Resolve mismatches (1–2 weeks)</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">File return</div>
-    </div>
-    <p style="font-size:9.5pt;color:#64748b;">⚠ 30–40 hours/month consumed by manual portal-to-Books matching. This is the department's largest time sink.</p>
+  <p class="lede">The Finance &amp; Accounts team manages corporate bookkeeping, regulatory tax filing, cost accounting, and employee expense auditing. The core 3-person team relies heavily on the Zoho Suite, but encounters massive friction in cross-system data transfer.</p>
 
-    <h3>Workflow 3: Expense Approval Flow</h3>
-    <div class="flow-container">
-      <div class="flow-step">Employee submits via Zoho Expense</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">Level 1: Manager approval</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">Level 2: Finance Head approval</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">Level 3: COO/CEO (if threshold)</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">Reimbursement processed</div>
-    </div>
-    <p style="font-size:9.5pt;color:#64748b;">✅ This is one of the better-structured workflows in the organization — 3-level approval is active and digital.</p>
+  <p>The audit revealed a severe structural issue in cost accounting: COGS margins fluctuate wildly between 50% and 77% month-to-month due to the absence of grade-based Work-in-Progress (WIP) valuation in Zoho Inventory. Furthermore, Accounts lacks real-time stock visibility for invoicing, requiring manual phone calls to Production for every dispatch, and must spend 1–2 weeks manually reconciling GST ledgers.</p>
 
-    <h3>Workflow 4: COGS Calculation (Current Method)</h3>
-    <div class="flow-container">
-      <div class="flow-step">Production provides output data</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step problem">No WIP valuation captured</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step problem">No grade-based (A/B/C) costing</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step problem">Packaging/depreciation not allocated</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step problem">Manual averaging → COGS wildly volatile</div>
-    </div>
+  <div class="kpi-strip">
+    <div class="kpi-cell"><div class="kpi-num">50–77%</div><div class="kpi-lbl">COGS Margin Swing</div></div>
+    <div class="kpi-cell"><div class="kpi-num">1–2 wks</div><div class="kpi-lbl">Tax Recon Cycle</div></div>
+    <div class="kpi-cell"><div class="kpi-num">3</div><div class="kpi-lbl">Team Members</div></div>
+    <div class="kpi-cell"><div class="kpi-num">2.2 / 5.0</div><div class="kpi-lbl">Overall Maturity Score</div></div>
   </div>
+
+  <h3>Time &amp; Effort Allocation</h3>
+  <table>
+    <tr><th>Activity</th><th class="num" style="text-align:right">Share of Team Time</th></tr>
+    <tr><td>GST/TDS Regulatory Reconciliation</td><td class="num">~35%</td></tr>
+    <tr><td>Bank Reconciliation &amp; Inbound Matching</td><td class="num">~25%</td></tr>
+    <tr><td>Invoicing, PO Checks &amp; Master Data Validation</td><td class="num">~20%</td></tr>
+    <tr><td>COGS Valuation &amp; Manual Reporting</td><td class="num">~15%</td></tr>
+    <tr><td>Travel Expense Auditing &amp; Processing</td><td class="num">~5%</td></tr>
+  </table>
+
+  <h3>Tools in Use</h3>
+  <table>
+    <tr><th>Tool</th><th>Role</th></tr>
+    <tr><td>Zoho Books</td><td>Core ledger, but missing automated matching rules</td></tr>
+    <tr><td>Zoho Inventory</td><td>Lacks WIP valuation; cannot assign cost per product grade</td></tr>
+    <tr><td>Zoho Expense</td><td>Used heavily, but external field staff fall back to WhatsApp</td></tr>
+  </table>
+
+  <div class="doc-footer"><span>Finance Audit Report · v1.0</span><span>Page 2</span></div>
 </div>
 
+<!-- ============ 02 FINDINGS REGISTER ============ -->
 <div class="page">
-  <div class="section">
-    <div class="section-num">Section 03</div>
-    <h2>Challenges, Risks & Red Flags</h2>
+  <div class="doc-header"><span><b>EF Polymers</b> — Finance Audit</span><span>Confidential</span></div>
 
-    <div class="card">
-      <div class="card-header"><span class="card-title">1. COGS Margin Volatility (50%–77%)</span><span class="badge badge-critical">CRITICAL</span></div>
-      <p>Monthly gross margin swings from <strong>50% to 77%</strong> due to absent WIP valuation, no grade-based costing, and unallocated packaging and depreciation costs. This makes financial reporting unreliable for investors and strategic planning.</p>
-      <table>
-        <tr><th>Metric</th><th>Detail</th></tr>
-        <tr><td>Time Waste</td><td>Entire costing methodology is unreliable — strategic decisions based on wrong data</td></tr>
-        <tr><td>Investment</td><td>Medium — accounting methodology redesign + Zoho configuration</td></tr>
-        <tr><td>ROI</td><td><strong>Very High</strong> — reliable margins = accurate pricing, investor confidence, cash flow management</td></tr>
-        <tr><td>Cross-Department</td><td>Production (WIP data), CEO/COO (strategic decisions)</td></tr>
-      </table>
-    </div>
+  <div class="eyebrow">Section 02 — Risk &amp; Control Findings</div>
+  <h2>Findings Register</h2>
+  <div class="section-dek">Ranked by risk rating. Each finding is cross-referenced to its recommendation in Section 04.</div>
 
-    <div class="card">
-      <div class="card-header"><span class="card-title">2. Manual GST/TDS Reconciliation</span><span class="badge badge-critical">CRITICAL</span></div>
-      <p><strong>30–40 hours/month</strong> consumed by manual matching of GST portal data against Zoho Books entries. Represents the department's single largest time sink.</p>
-      <table>
-        <tr><th>Metric</th><th>Detail</th></tr>
-        <tr><td>Time Waste</td><td>30–40 hrs/month → ~1.5 weeks of a person's time per tax cycle</td></tr>
-        <tr><td>Investment</td><td>Low–Medium — GST reconciliation automation tool or Zoho add-on</td></tr>
-        <tr><td>ROI</td><td><strong>Very High</strong> — reduces 2-week process to 2–3 days</td></tr>
-      </table>
-    </div>
+  <table>
+    <tr>
+      <th class="id">ID</th><th>Finding</th><th>Risk</th><th>Evidence / Impact</th><th>Linked Rec.</th>
+    </tr>
+    <tr>
+      <td class="id">F-01</td>
+      <td><b>Untraceable COGS Margin Volatility.</b> COGS margins swing 50%–77% monthly because Zoho Inventory cannot value Work-in-Progress (WIP) or grade-based costs.</td>
+      <td><span class="chip chip-crit">Critical</span></td>
+      <td>Executive leadership cannot rely on the P&amp;L margin logic; distorts profitability.</td>
+      <td><span class="chip-ref">R-01</span></td>
+    </tr>
+    <tr>
+      <td class="id">F-02</td>
+      <td><b>Manual Tax Compliance Load.</b> Reconciling government GST portals against Zoho Books takes 1–2 weeks of manual labor every month.</td>
+      <td><span class="chip chip-crit">Critical</span></td>
+      <td>Burns 35% of the team's monthly capacity on non-strategic data entry.</td>
+      <td><span class="chip-ref">R-02</span></td>
+    </tr>
+    <tr>
+      <td class="id">F-03</td>
+      <td><b>Lack of Real-time Stock Visibility.</b> Accounts cannot check stock levels before invoicing, requiring manual phone calls to Production.</td>
+      <td><span class="chip chip-med">Medium</span></td>
+      <td>Creates an invoicing bottleneck; prevents seamless order dispatch.</td>
+      <td><span class="chip-ref">R-03</span></td>
+    </tr>
+    <tr>
+      <td class="id">F-04</td>
+      <td><b>Manual Sales Quantity Compilation.</b> Zoho Books reports sales by value, not by tonnage/SKUs.</td>
+      <td><span class="chip chip-med">Medium</span></td>
+      <td>Accounts must download and manually compile volume metrics in Excel.</td>
+      <td><span class="chip-ref">R-04</span></td>
+    </tr>
+  </table>
 
-    <div class="card">
-      <div class="card-header"><span class="card-title">3. No Real-Time Stock Visibility</span><span class="badge badge-critical">CRITICAL</span></div>
-      <p>Accounts cannot check inventory before invoicing. Each invoice requires a <strong>manual phone call</strong> to the Production Manager to confirm stock availability — 10–15 minutes wasted per invoice.</p>
-      <table>
-        <tr><th>Metric</th><th>Detail</th></tr>
-        <tr><td>Time Waste</td><td>10–15 min × 10–15 invoices/day = ~2.5 hrs/day wasted</td></tr>
-        <tr><td>Investment</td><td>Low — Zoho Inventory API visibility to Accounts team</td></tr>
-        <tr><td>ROI</td><td><strong>Very High</strong> — immediate time savings; eliminates manual verification calls</td></tr>
-        <tr><td>Cross-Department</td><td>Production (stock data source)</td></tr>
-      </table>
-    </div>
+  <div class="callout">Two findings are rated Critical and both severely impact corporate decision-making and compliance. F-01 (COGS Volatility) distorts the fundamental profitability metrics used by executive leadership, as swings of 50–77% make margin analysis impossible. F-02 (Tax Compliance) is a massive resource drain, consuming 35% of the team's capacity on tasks that modern ERPs should automate. Phase 1 targets the immediate manual bottlenecks (tax reconciliation and stock checking) before addressing the more complex WIP costing architecture in Phase 2.</div>
 
-    <div class="card">
-      <div class="card-header"><span class="card-title">4. Disconnected Zoho WMS ↔ Books</span><span class="badge badge-critical">CRITICAL</span></div>
-      <p>The custom Zoho WMS built by Production is <strong>not connected</strong> to Zoho Books. This creates manual reconciliation requirements for production costs, inventory movements, and cost auditing.</p>
-      <table>
-        <tr><th>Metric</th><th>Detail</th></tr>
-        <tr><td>Time Waste</td><td>Ongoing manual reconciliation between two systems</td></tr>
-        <tr><td>Investment</td><td>Medium — API integration or rebuild within Zoho ecosystem</td></tr>
-        <tr><td>ROI</td><td><strong>High</strong> — automated cost flow; accurate production costing</td></tr>
-        <tr><td>Cross-Department</td><td>Production (WMS owner)</td></tr>
-      </table>
-    </div>
-
-    <div class="card">
-      <div class="card-header"><span class="card-title">5. No Asset Register (Depreciation)</span><span class="badge badge-medium">MEDIUM</span></div>
-      <p>Factory assets (machinery, equipment) are not tracked in a fixed asset register. Depreciation costs are not allocated to product costing, contributing to COGS inaccuracy.</p>
-      <table>
-        <tr><th>Metric</th><th>Detail</th></tr>
-        <tr><td>Investment</td><td>Low — Zoho asset register activation</td></tr>
-        <tr><td>ROI</td><td><strong>Medium</strong> — completes the COGS picture; compliance readiness</td></tr>
-      </table>
-    </div>
-  </div>
+  <div class="doc-footer"><span>Finance Audit Report · v1.0</span><span>Page 3</span></div>
 </div>
 
+<!-- ============ 03 WORKFLOWS ============ -->
 <div class="page">
-  <div class="section">
-    <div class="section-num">Section 04</div>
-    <h2>Information Gaps & Cross-Department Leaks</h2>
-    <div class="gap-item"><div class="gap-icon">⚠</div><div><h4>Accounts ↔ Production (Stock Visibility)</h4><p>Zoho Inventory does not expose live stock data to Accounts. Every invoice requires a manual phone call to confirm stock availability. This is the most frequent cross-department friction point.</p></div></div>
-    <div class="gap-item"><div class="gap-icon">⚠</div><div><h4>Accounts ↔ Production (WMS Disconnect)</h4><p>Custom Zoho WMS operates independently of Zoho Books. Production costs, stock movements, and WIP data do not flow automatically to Finance.</p></div></div>
-    <div class="gap-item"><div class="gap-icon">⚠</div><div><h4>Accounts ↔ All BD (Customer Data)</h4><p>Each BD vertical maintains separate customer records. Accounts must chase BD teams for GSTIN, shipping addresses, and contact details for new customers — wasting 5–10 minutes per new invoice.</p></div></div>
-    <div class="gap-item"><div class="gap-icon">⚠</div><div><h4>Accounts ↔ Marketing (Payment Verification)</h4><p>Marketing/Retail Sales sends WhatsApp screenshots of payment receipts. Accounts must manually verify each against bank statements before dispatching.</p></div></div>
-  </div>
+  <div class="doc-header"><span><b>EF Polymers</b> — Finance Audit</span><span>Confidential</span></div>
+
+  <div class="eyebrow">Section 03 — Process Detail</div>
+  <h2>Current Workflows</h2>
+  <div class="section-dek">Where each finding sits inside the operational process</div>
+
+  <!-- WORKFLOW 1 -->
+  <h3>Order Billing &amp; Dispatch Invoicing</h3>
+  <svg viewBox="0 0 740 92" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:10px 0 4px;">
+    <defs>
+      <marker id="a1" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+        <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5"/>
+      </marker>
+    </defs>
+    <!-- 5 steps -->
+    <rect x="10"  y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="70"  y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Sales Submits PO</text>
+    <line x1="130" y1="46" x2="150" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)"/>
+
+    <rect x="150" y="22" width="120" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5"/>
+    <text x="210" y="43" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">Call Prod Manager</text>
+    <text x="210" y="55" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">to check stock</text>
+    <line x1="270" y1="46" x2="290" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)"/>
+
+    <rect x="290" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="350" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Verify Customer</text>
+    <text x="350" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">GST Details</text>
+    <line x1="410" y1="46" x2="430" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)"/>
+
+    <rect x="430" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="490" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Generate Zoho</text>
+    <text x="490" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Invoice</text>
+    <line x1="550" y1="46" x2="570" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)"/>
+
+    <rect x="570" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="630" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Forward Invoice</text>
+    <text x="630" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">to Logistics</text>
+  </svg>
+  <p class="flow-note">A blind spot in Zoho Inventory (<span class="chip-ref">F-03</span>) breaks the digital flow, forcing Accounts back to phone calls to ensure physical stock is available before raising the invoice.</p>
+
+  <!-- WORKFLOW 2: COGS Valuation -->
+  <h3>Inventory Valuation &amp; Costing — <span class="chip-ref">F-01</span></h3>
+  <svg viewBox="0 0 740 92" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:10px 0 4px;">
+    <defs>
+      <marker id="a2" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+        <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5"/>
+      </marker>
+    </defs>
+    
+    <rect x="10" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="70" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Raw Material Intake</text>
+    <text x="70" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">(Zoho Inventory)</text>
+    <line x1="130" y1="46" x2="150" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)"/>
+    
+    <rect x="150" y="22" width="120" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5"/>
+    <text x="210" y="43" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">Factory Prod.</text>
+    <text x="210" y="55" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">(No WIP Visibility)</text>
+    <line x1="270" y1="46" x2="290" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)"/>
+    
+    <rect x="290" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="350" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Manual Averaging</text>
+    <text x="350" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">in Spreadsheet</text>
+    <line x1="410" y1="46" x2="430" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)"/>
+    
+    <rect x="430" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="490" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Packaging Material</text>
+    <text x="490" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Expensed in Bulk</text>
+    <line x1="550" y1="46" x2="570" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)"/>
+    
+    <rect x="570" y="22" width="120" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5"/>
+    <text x="630" y="43" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">Volatile COGS Margin</text>
+    <text x="630" y="55" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">(50-77% Swing)</text>
+  </svg>
+  <p class="flow-note">Due to a lack of grade-based tracking and unamortized packaging expenses, the final recorded COGS swings violently, preventing accurate P&amp;L forecasting.</p>
+
+  <!-- WORKFLOW 3: Expense Reimbursement -->
+  <h3>Expense Reimbursement Processing</h3>
+  <svg viewBox="0 0 740 92" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:10px 0 4px;">
+    <defs>
+      <marker id="a3" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+        <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5"/>
+      </marker>
+    </defs>
+    
+    <rect x="10" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="70" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Employee Submits</text>
+    <text x="70" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Claim</text>
+    <line x1="130" y1="46" x2="150" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a3)"/>
+    
+    <rect x="150" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="210" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Manager Verifies</text>
+    <text x="210" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Business Purpose</text>
+    <line x1="270" y1="46" x2="290" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a3)"/>
+    
+    <rect x="290" y="22" width="120" height="48" rx="3" fill="#FBF1DF" stroke="#E8C97A" stroke-width="1.5"/>
+    <text x="350" y="43" text-anchor="middle" font-size="7.6" fill="#8A5A10" font-family="Segoe UI,sans-serif">Manual Mileage Check</text>
+    <text x="350" y="55" text-anchor="middle" font-size="7.6" fill="#8A5A10" font-family="Segoe UI,sans-serif">(Google Maps)</text>
+    <line x1="410" y1="46" x2="430" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a3)"/>
+    
+    <rect x="430" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="490" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Approved Claim</text>
+    <text x="490" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Processed</text>
+  </svg>
+  <p class="flow-note">Without system access for field workers, claims flow through WhatsApp, forcing managers into manual distance-checks before routing to Accounts.</p>
+
+  <div class="doc-footer"><span>Finance Audit Report · v1.0</span><span>Page 4</span></div>
 </div>
 
+<!-- ============ 04 RECOMMENDATIONS ============ -->
 <div class="page">
-  <div class="section">
-    <div class="section-num">Section 05</div>
-    <h2>Department Maturity Score</h2>
-    <div class="chart-container">
-      <svg viewBox="0 0 400 350" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:400px;">
+  <div class="doc-header"><span><b>EF Polymers</b> — Finance Audit</span><span>Confidential</span></div>
+
+  <div class="eyebrow">Section 04 — Corrective Action Plan</div>
+  <h2>Recommendations Register</h2>
+  <div class="section-dek">Ordered by priority. Effort and impact are directional estimates for planning purposes.</div>
+
+  <table>
+    <tr><th class="id">ID</th><th>Recommendation</th><th>Finding</th><th>Priority</th><th>Effort</th><th>Expected Impact</th></tr>
+    <tr>
+      <td class="id">R-01</td>
+      <td>Zoho Inventory WIP Costing — Implement grade-based costing and WIP tracking layers within Zoho Inventory to capture exact COGS per production batch.</td>
+      <td><span class="chip-ref">F-01</span></td>
+      <td><span class="chip chip-crit">P1</span></td>
+      <td>High</td>
+      <td>Eliminates 50-77% margin variance; allows leadership to trust the P&amp;L.</td>
+    </tr>
+    <tr>
+      <td class="id">R-02</td>
+      <td>Automated Bank &amp; GST Reconciliation Rules — Configure Zoho Books custom rules and bank feeds to auto-match invoices against incoming bank settlements and GST portals.</td>
+      <td><span class="chip-ref">F-02</span></td>
+      <td><span class="chip chip-crit">P1</span></td>
+      <td>Medium</td>
+      <td>Saves 1–2 weeks of manual labor; reduces tax audit risk.</td>
+    </tr>
+    <tr>
+      <td class="id">R-03</td>
+      <td>Real-time Stock Visibility — Enable Accounts to view live stock availability natively within Zoho before drafting invoices.</td>
+      <td><span class="chip-ref">F-03</span></td>
+      <td><span class="chip chip-med">P2</span></td>
+      <td>Low</td>
+      <td>Removes phone-call bottleneck, accelerating order-to-invoice time.</td>
+    </tr>
+    <tr>
+      <td class="id">R-04</td>
+      <td>Zoho Books Tonnage Reporting — Develop custom views in Zoho Analytics/Books to export sales volumes by metric tons (MT), bypassing value-only limits.</td>
+      <td><span class="chip-ref">F-04</span></td>
+      <td><span class="chip chip-med">P2</span></td>
+      <td>Medium</td>
+      <td>Eliminates manual excel data compilation for operational reporting.</td>
+    </tr>
+    <tr>
+      <td class="id">R-05</td>
+      <td>Shared Master Database — Establish a central Customer/Vendor MDM ensuring Logistics, Sales, and Accounts share synchronized GST and address data.</td>
+      <td><span class="chip-ref">Data Silo</span></td>
+      <td><span class="chip chip-low">P3</span></td>
+      <td>High</td>
+      <td>Prevents repetitive master data checking when raising invoices.</td>
+    </tr>
+  </table>
+
+  <div class="doc-footer"><span>Finance Audit Report · v1.0</span><span>Page 5</span></div>
+</div>
+
+<!-- ============ 05 MATURITY ============ -->
+<div class="page">
+  <div class="doc-header"><span><b>EF Polymers</b> — Finance Audit</span><span>Confidential</span></div>
+
+  <div class="eyebrow">Section 05 — Benchmarking</div>
+  <h2>Department Maturity Assessment</h2>
+  <div class="section-dek">Scored 1 (ad hoc) to 5 (optimized) against five capability dimensions</div>
+
+  <div class="exhibit">
+    <div class="exhibit-chart">
+      <svg viewBox="0 0 400 350" xmlns="http://www.w3.org/2000/svg" style="width:100%;">
         <g transform="translate(200,170)">
-          <polygon points="0,-120 114,-37 70,97 -70,97 -114,-37" fill="none" stroke="#e2e8f0" stroke-width="0.5"/>
-          <polygon points="0,-96 91,-30 56,78 -56,78 -91,-30" fill="none" stroke="#e2e8f0" stroke-width="0.5"/>
-          <polygon points="0,-72 68,-22 42,58 -42,58 -68,-22" fill="none" stroke="#e2e8f0" stroke-width="0.5"/>
-          <polygon points="0,-48 46,-15 28,39 -28,39 -46,-15" fill="none" stroke="#e2e8f0" stroke-width="0.5"/>
-          <polygon points="0,-24 23,-7 14,19 -14,19 -23,-7" fill="none" stroke="#e2e8f0" stroke-width="0.5"/>
-          <line x1="0" y1="0" x2="0" y2="-120" stroke="#e2e8f0" stroke-width="0.5"/><line x1="0" y1="0" x2="114" y2="-37" stroke="#e2e8f0" stroke-width="0.5"/><line x1="0" y1="0" x2="70" y2="97" stroke="#e2e8f0" stroke-width="0.5"/><line x1="0" y1="0" x2="-70" y2="97" stroke="#e2e8f0" stroke-width="0.5"/><line x1="0" y1="0" x2="-114" y2="-37" stroke="#e2e8f0" stroke-width="0.5"/>
-          <!-- Process=2.5, Tech=3.0, Data=2.0, Docs=2.0, KM=2.5 -->
-          <polygon points="0,-60 68.4,-22.2 28,38.8 -28,38.8 -57,-18.5" fill="rgba(15,118,110,0.2)" stroke="#0F766E" stroke-width="2"/>
-          <polygon points="0,-84 79.8,-25.9 49,67.9 -49,67.9 -79.8,-25.9" fill="none" stroke="#dc2626" stroke-width="1" stroke-dasharray="6,3"/>
-          <circle cx="0" cy="-60" r="4" fill="#0F766E"/><circle cx="68.4" cy="-22.2" r="4" fill="#0F766E"/><circle cx="28" cy="38.8" r="4" fill="#0F766E"/><circle cx="-28" cy="38.8" r="4" fill="#0F766E"/><circle cx="-57" cy="-18.5" r="4" fill="#0F766E"/>
-          <text x="0" y="-132" text-anchor="middle" font-size="9" fill="#1B2A4A" font-weight="600">Process (2.5)</text>
-          <text x="128" y="-20" text-anchor="start" font-size="9" fill="#1B2A4A" font-weight="600">Technology (3.0)</text>
-          <text x="78" y="100" text-anchor="start" font-size="9" fill="#1B2A4A" font-weight="600">Data Quality (2.0)</text>
-          <text x="-78" y="100" text-anchor="end" font-size="9" fill="#1B2A4A" font-weight="600">Documentation (2.0)</text>
-          <text x="-128" y="-16" text-anchor="end" font-size="9" fill="#1B2A4A" font-weight="600">Knowledge Mgmt (2.5)</text>
+          <polygon points="0,-120 114,-37 70,97 -70,97 -114,-37" fill="none" stroke="#E2E8F0" stroke-width="0.75"/>
+          <polygon points="0,-96 91,-30 56,78 -56,78 -91,-30"    fill="none" stroke="#E2E8F0" stroke-width="0.75"/>
+          <polygon points="0,-72 68,-22 42,58 -42,58 -68,-22"    fill="none" stroke="#E2E8F0" stroke-width="0.75"/>
+          <polygon points="0,-48 46,-15 28,39 -28,39 -46,-15"    fill="none" stroke="#E2E8F0" stroke-width="0.75"/>
+          <polygon points="0,-24 23,-7 14,19 -14,19 -23,-7"      fill="none" stroke="#E2E8F0" stroke-width="0.75"/>
+          <line x1="0" y1="0" x2="0"    y2="-120" stroke="#E2E8F0" stroke-width="0.75"/>
+          <line x1="0" y1="0" x2="114"  y2="-37"  stroke="#E2E8F0" stroke-width="0.75"/>
+          <line x1="0" y1="0" x2="70"   y2="97"   stroke="#E2E8F0" stroke-width="0.75"/>
+          <line x1="0" y1="0" x2="-70"  y2="97"   stroke="#E2E8F0" stroke-width="0.75"/>
+          <line x1="0" y1="0" x2="-114" y2="-37"  stroke="#E2E8F0" stroke-width="0.75"/>
+          
+          <!-- Target dashed: Process 3.5, Tech 3.5, Data 3.5, Docs 3.5, KM 2.5 -->
+          <polygon points="0,-84 79.8,-25.9 68.6,95 -68.6,95 -79.8,-25.9" fill="none" stroke="#B8C0C9" stroke-width="1" stroke-dasharray="5,3"/>
+          
+          <!-- Current: Process 2.5, Tech 2.5, Data 1.5, Docs 2.5, KM 2.0 -->
+          <polygon points="0,-60 57,-18.5 21,29.1 -50,69 -45.6,-14.8" fill="rgba(15,107,98,0.14)" stroke="#0F6B62" stroke-width="1.75"/>
+          <circle cx="0" cy="-60" r="3.2" fill="#0F6B62"/>
+          <circle cx="57" cy="-18.5" r="3.2" fill="#0F6B62"/>
+          <circle cx="21" cy="29.1" r="3.2" fill="#0F6B62"/>
+          <circle cx="-50" cy="69" r="3.2" fill="#0F6B62"/>
+          <circle cx="-45.6" cy="-14.8" r="3.2" fill="#0F6B62"/>
+          
+          <text x="0"    y="-132" text-anchor="middle" font-size="9" fill="#1B2A4A" font-weight="600">Process</text>
+          <text x="128"  y="-20"  text-anchor="start"  font-size="9" fill="#1B2A4A" font-weight="600">Technology</text>
+          <text x="78"   y="110"  text-anchor="start"  font-size="9" fill="#1B2A4A" font-weight="600">Data Quality</text>
+          <text x="-78"  y="110"  text-anchor="end"    font-size="9" fill="#1B2A4A" font-weight="600">Documentation</text>
+          <text x="-128" y="-16"  text-anchor="end"    font-size="9" fill="#1B2A4A" font-weight="600">Knowledge Mgmt.</text>
         </g>
       </svg>
     </div>
-    <table>
-      <tr><th>Dimension</th><th>Current</th><th>Target</th><th>Gap</th></tr>
-      <tr><td>Process</td><td>2.5</td><td>4.0</td><td>1.5</td></tr>
-      <tr><td>Technology</td><td>3.0</td><td>4.0</td><td>1.0</td></tr>
-      <tr><td>Data Quality</td><td>2.0</td><td>3.5</td><td>1.5</td></tr>
-      <tr><td>Documentation</td><td>2.0</td><td>3.0</td><td>1.0</td></tr>
-      <tr><td>Knowledge Management</td><td>2.5</td><td>3.5</td><td>1.0</td></tr>
-      <tr><th>Overall</th><th>2.5</th><th>3.6</th><th>1.1</th></tr>
-    </table>
-    <p style="font-size:9.5pt;color:#0F766E;font-weight:600;">Finance & Accounts has the highest maturity score (2.5) in the organization, driven by Zoho adoption. However, COGS volatility and manual reconciliation prevent advancement beyond Level 2.5.</p>
+    <div class="exhibit-note">
+      Solid line: current state. Dashed line: target state (post-roadmap).<br><br>
+      <b>Finance &amp; Accounts scores 2.2 overall</b> — Highly standardized processes and tooling are severely degraded by poor Data Quality (Score: 1.5). The manual interventions required for COGS calculations and GST reconciliation negate the value of the Zoho platform.<br><br>
+      Automating matching rules and implementing WIP logic will rapidly pull the department past the 3.0 target threshold.
+    </div>
   </div>
+
+  <table>
+    <tr><th>Dimension</th><th class="num">Current</th><th class="num">Target</th><th class="num">Gap</th></tr>
+    <tr><td>Process Standardization</td><td class="num">2.5</td><td class="num">3.5</td><td class="num">1.0</td></tr>
+    <tr><td>Technology Utilization</td><td class="num">2.5</td><td class="num">3.5</td><td class="num">1.0</td></tr>
+    <tr><td>Data Quality &amp; Accessibility</td><td class="num">1.5</td><td class="num">3.5</td><td class="num">2.0</td></tr>
+    <tr><td>Documentation</td><td class="num">2.5</td><td class="num">3.5</td><td class="num">1.0</td></tr>
+    <tr><td>Knowledge Management</td><td class="num">2.0</td><td class="num">2.5</td><td class="num">0.5</td></tr>
+    <tr style="font-weight:700;"><td>Overall</td><td class="num">2.2</td><td class="num">3.3</td><td class="num">1.1</td></tr>
+  </table>
+
+  <div class="doc-footer"><span>Finance Audit Report · v1.0</span><span>Page 6</span></div>
 </div>
 
+<!-- ============ 06 ROADMAP ============ -->
 <div class="page">
-  <div class="section">
-    <div class="section-num">Section 06</div>
-    <h2>Proposed Solutions</h2>
+  <div class="doc-header"><span><b>EF Polymers</b> — Finance Audit</span><span>Confidential</span></div>
 
-    <div class="solution-card">
-      <h4>Solution: Grade-Based WIP Costing Methodology</h4>
-      <p>Redesign the costing framework to include: (1) Grade-based (A/B/C) production costs, (2) WIP valuation at each production stage, (3) Packaging cost allocation per SKU, (4) Depreciation allocation from asset register. Implement in Zoho Inventory + Books.</p>
-      <table><tr><th>Priority</th><th>Effort</th><th>Expected Impact</th></tr>
-      <tr><td><span class="badge badge-critical">P1</span></td><td>Medium–High</td><td>Resolves COGS volatility (50–77% → ±5%); reliable margins; investor confidence</td></tr></table>
+  <div class="eyebrow">Section 06 — Implementation Plan</div>
+  <h2>Phased Roadmap</h2>
+  <div class="section-dek">Initiatives sequenced across three phases, with quantified ROI and scope of work</div>
+
+  <table class="tl-table">
+    <tr>
+      <th>Initiative</th><th class="id">Rec.</th>
+      <th class="num">Phase 1<br><span style="font-weight:400">Mo. 1–2</span></th>
+      <th class="num">Phase 2<br><span style="font-weight:400">Mo. 3–5</span></th>
+      <th class="num">Phase 3<br><span style="font-weight:400">Mo. 6+</span></th>
+    </tr>
+    <tr><td>Automated GST/Bank Reconciliation</td><td class="id">R-02</td><td class="phase-mark p1">●</td><td></td><td></td></tr>
+    <tr><td>Real-time Stock Visibility</td><td class="id">R-03</td><td class="phase-mark p1">●</td><td></td><td></td></tr>
+    <tr><td>Zoho Inventory WIP Costing</td><td class="id">R-01</td><td></td><td class="phase-mark p2">●</td><td></td></tr>
+    <tr><td>Zoho Books Tonnage Reporting</td><td class="id">R-04</td><td></td><td class="phase-mark p2">●</td><td></td></tr>
+    <tr><td>Shared Master Database</td><td class="id">R-05</td><td></td><td></td><td class="phase-mark p3">●</td></tr>
+  </table>
+
+  <!-- PHASE 1 -->
+  <div class="phase-block">
+    <div class="phase-hd">
+      <div class="phase-hd-left">
+        <span class="phase-hd-title">Phase 1 &mdash; Quick Wins (Highest ROI)</span>
+        <span class="phase-hd-timeline">Months 1&ndash;2 &middot; Eliminate Core Time Sinks</span>
+      </div>
+      <span class="phase-maturity">Maturity 2.2 &rarr; 2.5</span>
     </div>
-
-    <div class="solution-card">
-      <h4>Solution: Zoho Inventory Real-Time Visibility</h4>
-      <p>Enable Zoho Inventory API access for the Accounts team so stock levels are checked digitally before invoicing. Eliminates manual phone calls.</p>
-      <table><tr><th>Priority</th><th>Effort</th><th>Expected Impact</th></tr>
-      <tr><td><span class="badge badge-critical">P1</span></td><td>Low</td><td>Saves ~2.5 hrs/day; eliminates 10–15 daily phone calls</td></tr></table>
+    <div class="phase-sow">
+      <div class="col-label">Scope of Work</div>
+      <div class="sow-item"><span class="sow-dot"></span><span>Enable API stock visibility for the Accounts team to natively check levels in Zoho before invoicing</span></div>
+      <div class="sow-item"><span class="sow-dot"></span><span>Deploy automated matching rules in Zoho Books to sync bank feeds with invoice settlements</span></div>
+      <div class="sow-item"><span class="sow-dot"></span><span>Integrate GST portal data directly into Zoho Books to automate monthly compliance reconciliation</span></div>
+      <div class="sow-item"><span class="sow-dot"></span><span>Mandate Zoho Expense app adoption for all field workers, eliminating WhatsApp receipt submissions</span></div>
     </div>
-
-    <div class="solution-card">
-      <h4>Solution: Automated GST Reconciliation</h4>
-      <p>Deploy a GST reconciliation automation tool (Zoho Books add-on or third-party like ClearTax/TallyPrime GST) that auto-matches GST portal data with Books entries, flagging only mismatches for manual review.</p>
-      <table><tr><th>Priority</th><th>Effort</th><th>Expected Impact</th></tr>
-      <tr><td><span class="badge badge-critical">P1</span></td><td>Low–Medium</td><td>Reduces 30–40 hrs/month to 8–10 hrs/month; 2-week → 2–3 days</td></tr></table>
-    </div>
-
-    <div class="solution-card">
-      <h4>Solution: Zoho WMS ↔ Books API Integration</h4>
-      <p>Connect the custom Zoho WMS with Zoho Books via API so production costs, stock movements, and WIP data flow automatically. Eliminates manual reconciliation between the two systems.</p>
-      <table><tr><th>Priority</th><th>Effort</th><th>Expected Impact</th></tr>
-      <tr><td><span class="badge badge-critical">P1</span></td><td>Medium</td><td>Automated cost flow; accurate production costing; audit-ready data</td></tr></table>
-    </div>
-
-    <div class="solution-card">
-      <h4>Solution: Asset Register Activation</h4>
-      <p>Activate Zoho's fixed asset tracking module to register all factory machinery and equipment. Configure auto-depreciation calculations for inclusion in product costing.</p>
-      <table><tr><th>Priority</th><th>Effort</th><th>Expected Impact</th></tr>
-      <tr><td><span class="badge badge-high">P2</span></td><td>Low</td><td>Completes the COGS picture; compliance-ready depreciation tracking</td></tr></table>
+    <div class="phase-roi">
+      <div class="roi-card">
+        <div class="roi-card-num">~2.5 hrs</div>
+        <div class="roi-card-label">daily saved</div>
+        <div class="roi-card-desc">Eliminating manual stock calls to Production</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-card-num">1&ndash;2 wks</div>
+        <div class="roi-card-label">monthly saved</div>
+        <div class="roi-card-desc">Through automated GST and bank matching</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-card-num">0</div>
+        <div class="roi-card-label">lost receipts</div>
+        <div class="roi-card-desc">Field staff submit expenses directly via mobile app</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-card-num">&darr; 80%</div>
+        <div class="roi-card-label">invoice delays</div>
+        <div class="roi-card-desc">Real-time stock visibility accelerates billing</div>
+      </div>
     </div>
   </div>
+
+  <!-- PHASE 2 -->
+  <div class="phase-block">
+    <div class="phase-hd">
+      <div class="phase-hd-left">
+        <span class="phase-hd-title">Phase 2 &mdash; Operational Foundation</span>
+        <span class="phase-hd-timeline">Months 3&ndash;5 &middot; Reliable Costing &amp; Analytics</span>
+      </div>
+      <span class="phase-maturity p2">Maturity 2.5 &rarr; 2.9</span>
+    </div>
+    <div class="phase-sow">
+      <div class="col-label">Scope of Work</div>
+      <div class="sow-item"><span class="sow-dot p2"></span><span>Implement grade-based WIP costing in Zoho Inventory to value partially processed materials</span></div>
+      <div class="sow-item"><span class="sow-dot p2"></span><span>Configure rules to amortize bulk packaging material purchases against actual production line usage</span></div>
+      <div class="sow-item"><span class="sow-dot p2"></span><span>Export sales quantity APIs into Zoho Analytics to decouple volume reporting from value metrics</span></div>
+      <div class="sow-item"><span class="sow-dot p2"></span><span>Activate Zoho Asset Register to track and allocate factory depreciation and maintenance to COGS</span></div>
+    </div>
+    <div class="phase-roi">
+      <div class="roi-card">
+        <div class="roi-card-num">&plusmn;5%</div>
+        <div class="roi-card-label">COGS variance</div>
+        <div class="roi-card-desc">Stabilizing the previous 50-77% monthly volatility</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-card-num">100%</div>
+        <div class="roi-card-label">WIP visibility</div>
+        <div class="roi-card-desc">Grade-based costing accurately reflects production reality</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-card-num">Automated</div>
+        <div class="roi-card-label">tonnage reports</div>
+        <div class="roi-card-desc">Eliminating manual Excel compilations for volume metrics</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-card-num">Accurate</div>
+        <div class="roi-card-label">overhead split</div>
+        <div class="roi-card-desc">Factory assets correctly depreciated into product cost</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHASE 3 -->
+  <div class="phase-block">
+    <div class="phase-hd">
+      <div class="phase-hd-left">
+        <span class="phase-hd-title">Phase 3 &mdash; Strategic Scaling</span>
+        <span class="phase-hd-timeline">Month 6 onward &middot; High effort</span>
+      </div>
+      <span class="phase-maturity p3">Maturity 2.9 &rarr; 3.3</span>
+    </div>
+    <div class="phase-sow">
+      <div class="col-label">Scope of Work</div>
+      <div class="sow-item"><span class="sow-dot p3"></span><span>Deploy a shared Customer/Vendor Master Data hub connecting Sales, Accounts, and Logistics</span></div>
+      <div class="sow-item"><span class="sow-dot p3"></span><span>Enforce mandatory data completeness gates (GSTIN, Address) before Sales can request an invoice</span></div>
+      <div class="sow-item"><span class="sow-dot p3"></span><span>Integrate domestic and international logistics vendor databases to automate shipment reconciliation</span></div>
+      <div class="sow-item"><span class="sow-dot p3"></span><span>Establish automated real-time P&amp;L dashboard for executive leadership with live COGS data</span></div>
+    </div>
+    <div class="phase-roi">
+      <div class="roi-card">
+        <div class="roi-card-num">100%</div>
+        <div class="roi-card-label">data fidelity</div>
+        <div class="roi-card-desc">No repeat GST or address verification loops with Sales</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-card-num">Single</div>
+        <div class="roi-card-label">source of truth</div>
+        <div class="roi-card-desc">Master Data hub aligns all 3 operational departments</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-card-num">Live</div>
+        <div class="roi-card-label">P&amp;L trust</div>
+        <div class="roi-card-desc">Leadership relies on automated, accurate financial reporting</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-card-num">3.3</div>
+        <div class="roi-card-label">maturity level</div>
+        <div class="roi-card-desc">Optimized &mdash; fully automated financial operations</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="doc-footer"><span>Finance Audit Report · v1.0</span><span>Page 7</span></div>
 </div>
 
+<!-- ============ APPENDIX ============ -->
 <div class="page">
-  <div class="section">
-    <div class="section-num">Section 07</div>
-    <h2>Additional Optimization Suggestions</h2>
+  <div class="doc-header"><span><b>EF Polymers</b> — Finance Audit</span><span>Confidential</span></div>
 
-    <div class="solution-card suggestion">
-      <h4>💡 Automated Bank Reconciliation Rules</h4>
-      <p>Configure Zoho Books to auto-categorize recurring bank transactions using rule-based matching. Reduces manual categorization effort and improves reconciliation speed.</p>
-      <div class="kpi-row"><span class="kpi-tag">Priority: P2</span><span class="kpi-tag">Effort: Low</span><span class="kpi-tag">Impact: Saves ~4–6 hrs/month</span></div>
-    </div>
+  <div class="eyebrow">Appendix</div>
+  <h2>Cross-Department Dependencies</h2>
+  <div class="section-dek">Findings and recommendations that require action outside the Finance Office to resolve</div>
 
-    <div class="solution-card suggestion">
-      <h4>💡 Automated Payment Confirmation Alerts</h4>
-      <p>Replace WhatsApp screenshot-based payment verification with automated bank notification triggers in Zoho Books. When payment is detected, Accounts and Logistics are auto-alerted.</p>
-      <div class="kpi-row"><span class="kpi-tag">Priority: P2</span><span class="kpi-tag">Effort: Low</span><span class="kpi-tag">Impact: Eliminates manual payment verification calls</span></div>
-    </div>
+  <table>
+    <tr><th>Finding / Rec.</th><th>Counterpart Department</th><th>Dependency</th></tr>
+    <tr>
+      <td><span class="chip-ref">R-01</span> WIP Costing</td>
+      <td>Production (Rishabh Doshi)</td>
+      <td>Production must maintain rigorous grade-tracking and exact raw material input logs per batch to feed the new Zoho WIP model.</td>
+    </tr>
+    <tr>
+      <td><span class="chip-ref">R-03</span> Live Stock Visibility</td>
+      <td>Production / Operations</td>
+      <td>If physical stock is held in a custom WMS app outside Zoho, Operations must build API bridges to ensure Accounts sees live data.</td>
+    </tr>
+    <tr>
+      <td><span class="chip-ref">R-05</span> Master Database</td>
+      <td>Sales &amp; Logistics</td>
+      <td>Sales must mandate that new clients submit full GST/Address documentation *before* an invoice is requested, saving Accounts from manual data chasing.</td>
+    </tr>
+  </table>
 
-    <div class="solution-card suggestion">
-      <h4>💡 COGS Anomaly Detection (Future AI)</h4>
-      <p>Once clean COGS data is established (Phase 2+), implement automated anomaly detection to flag unusual cost fluctuations — providing early warning on margin erosion.</p>
-      <div class="kpi-row"><span class="kpi-tag">Priority: P3</span><span class="kpi-tag">Effort: Medium</span><span class="kpi-tag">Impact: Proactive cost management</span></div>
-    </div>
-  </div>
-
-  <div class="section">
-    <div class="section-num">Section 08</div>
-    <h2>Phased Roadmap</h2>
-    <div style="margin:30px 0;">
-      <div class="roadmap-phase">
-        <div class="phase-label">Phase 1 — Quick Wins</div>
-        <h4>Zoho Inventory Real-Time Access</h4><p>Enable API stock visibility. <strong>Saves ~2.5 hrs/day immediately.</strong></p>
-        <h4>GST Reconciliation Automation</h4><p>Auto-matching tool deployment. <strong>30–40 hrs/month → 8–10 hrs/month.</strong></p>
-        <div style="background:#f0fdfa;padding:12px;border-radius:6px;margin-top:12px;"><strong>Where this places us:</strong> Two biggest time sinks eliminated. Accounts team capacity freed for higher-value work.</div>
-      </div>
-      <div class="roadmap-phase phase-2">
-        <div class="phase-label p2">Phase 2 — Operational Foundation</div>
-        <h4>WIP Costing Methodology</h4><p>Grade-based costing with WIP valuation. <strong>COGS volatility from ±27% to ±5%.</strong></p>
-        <h4>WMS ↔ Books Integration</h4><p>API connection for automated cost flow. <strong>Eliminates manual system reconciliation.</strong></p>
-        <h4>Asset Register + Depreciation</h4><p>Factory asset tracking. <strong>Completes the COGS picture.</strong></p>
-        <div style="background:#eff6ff;padding:12px;border-radius:6px;margin-top:12px;"><strong>Where this places us:</strong> COGS is reliable and auditable. Financial reporting gains investor-grade accuracy. Systems are integrated end-to-end.</div>
-      </div>
-      <div class="roadmap-phase phase-3">
-        <div class="phase-label p3">Phase 3 — Advanced Optimization</div>
-        <h4>Automated Payment Alerts + Bank Reconciliation Rules</h4><p>Auto-categorization and payment detection. <strong>Further time savings.</strong></p>
-        <h4>COGS Anomaly Detection (AI)</h4><p>Early warning system for margin erosion. <strong>Proactive cost management.</strong></p>
-        <div style="background:#f5f3ff;padding:12px;border-radius:6px;margin-top:12px;"><strong>Where this places us:</strong> Finance operates at Level 4 maturity — managed, measured, and proactively monitored.</div>
-      </div>
-    </div>
-    <h3>Cumulative Expected Gains</h3>
-    <table>
-      <tr><th>Phase</th><th>Key Deliverable</th><th>Time Recovered</th><th>Strategic Impact</th></tr>
-      <tr><td>Phase 1</td><td>Stock visibility + GST automation</td><td>~2.5 hrs/day + 20–30 hrs/month</td><td>Capacity freed; compliance faster</td></tr>
-      <tr><td>Phase 2</td><td>WIP costing + WMS integration</td><td>Ongoing reconciliation eliminated</td><td>Reliable COGS; investor confidence</td></tr>
-      <tr><td>Phase 3</td><td>Payment automation + anomaly detection</td><td>~4–6 hrs/month additional</td><td>Proactive cost management</td></tr>
-    </table>
-  </div>
+  <div class="doc-footer"><span>Finance Audit Report · v1.0</span><span>Page 8</span></div>
 </div>
 
 </body>

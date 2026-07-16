@@ -1,547 +1,594 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Business Development — Department Audit Report | EF Polymers</title>
 <style>
-  @page{size:A4;margin:20mm 18mm}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:#1e293b;line-height:1.6;background:#fff;font-size:11pt}.page{page-break-after:always;padding:0;min-height:100vh}.page:last-child{page-break-after:avoid}.cover{display:flex;flex-direction:column;justify-content:center;align-items:center;min-height:100vh;background:linear-gradient(135deg,#1B2A4A 0%,#0F766E 100%);color:#fff;text-align:center;padding:60px 40px}.cover-badge{font-size:10pt;letter-spacing:3px;text-transform:uppercase;opacity:.8;margin-bottom:16px;border:1px solid rgba(255,255,255,.3);padding:6px 20px;border-radius:20px}.cover h1{font-size:28pt;font-weight:700;margin:20px 0 10px}.cover h2{font-size:14pt;font-weight:300;opacity:.9;margin-bottom:40px}.cover-meta{font-size:10pt;opacity:.7;line-height:2}.cover-line{width:80px;height:3px;background:rgba(255,255,255,.5);margin:30px auto}.section{padding:40px 0}.section-num{font-size:9pt;color:#0F766E;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:4px}h2{font-size:18pt;color:#1B2A4A;margin-bottom:20px;padding-bottom:10px;border-bottom:2px solid #e2e8f0}h3{font-size:13pt;color:#1B2A4A;margin:24px 0 12px}h4{font-size:11pt;color:#334155;margin:16px 0 8px}p{margin-bottom:12px}table{width:100%;border-collapse:collapse;margin:16px 0 24px;font-size:10pt}th{background:#1B2A4A;color:#fff;padding:10px 12px;text-align:left;font-weight:600}td{padding:9px 12px;border-bottom:1px solid #e2e8f0}tr:nth-child(even){background:#f8fafc}.card{border:1px solid #e2e8f0;border-radius:8px;padding:20px;margin:16px 0;background:#fff}.card-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}.card-title{font-weight:700;font-size:11pt;color:#1B2A4A}.badge{display:inline-block;padding:3px 12px;border-radius:12px;font-size:8.5pt;font-weight:600}.badge-critical{background:#fef2f2;color:#dc2626;border:1px solid #fecaca}.badge-high{background:#fff7ed;color:#ea580c;border:1px solid #fed7aa}.badge-medium{background:#fffbeb;color:#d97706;border:1px solid #fde68a}.badge-low{background:#f0fdf4;color:#16a34a;border:1px solid #bbf7d0}.metrics-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:16px 0}.metric-box{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:14px;text-align:center}.metric-value{font-size:16pt;font-weight:700;color:#0F766E}.metric-label{font-size:8pt;color:#64748b;text-transform:uppercase;letter-spacing:1px;margin-top:4px}.flow-container{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:20px 0;justify-content:center}.flow-step{background:#f0fdfa;border:2px solid #0F766E;border-radius:8px;padding:12px 16px;font-size:9pt;font-weight:500;text-align:center;min-width:120px;max-width:180px}.flow-step.problem{border-color:#dc2626;background:#fef2f2}.flow-arrow{color:#94a3b8;font-size:18pt}.solution-card{border-left:4px solid #0F766E;background:#f0fdfa;border-radius:0 8px 8px 0;padding:16px 20px;margin:12px 0}.solution-card.suggestion{border-left-color:#6366f1;background:#eef2ff}.gap-item{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid #f1f5f9}.gap-icon{width:32px;height:32px;background:#fef3c7;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14pt;flex-shrink:0}.chart-container{display:flex;justify-content:center;margin:24px 0}.roadmap-phase{border-left:3px solid #0F766E;padding:16px 0 16px 24px;margin-left:12px;position:relative}.roadmap-phase::before{content:'';width:12px;height:12px;background:#0F766E;border-radius:50%;position:absolute;left:-7.5px;top:20px}.roadmap-phase.phase-2{border-left-color:#2563eb}.roadmap-phase.phase-2::before{background:#2563eb}.roadmap-phase.phase-3{border-left-color:#7c3aed}.roadmap-phase.phase-3::before{background:#7c3aed}.phase-label{font-size:9pt;font-weight:700;color:#0F766E;letter-spacing:1px;text-transform:uppercase}.phase-label.p2{color:#2563eb}.phase-label.p3{color:#7c3aed}.kpi-row{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}.kpi-tag{background:#f1f5f9;border-radius:6px;padding:4px 10px;font-size:9pt;color:#475569}.vertical-tag{display:inline-block;padding:2px 10px;border-radius:10px;font-size:8pt;font-weight:600;margin-right:4px}.vt-seed{background:#fef3c7;color:#92400e}.vt-ngo{background:#dbeafe;color:#1e40af}.vt-b2b{background:#d1fae5;color:#065f46}.vt-govt{background:#ede9fe;color:#5b21b6}.vt-coco{background:#fce7f3;color:#9d174d}@media print{body{font-size:10pt}.page{min-height:auto}.cover{min-height:100vh}}
-  /* True Flowchart Branching Styles */
-  .flow-step-wrapper { display: flex; flex-direction: column; align-items: center; gap: 6px; }
-  .branch-arrow { display: flex; flex-direction: column; align-items: center; margin: 4px 0; position: relative; width: 100%; }
-  .branch-arrow-line { width: 2px; height: 16px; background: #cbd5e1; position: relative; }
-  .branch-arrow-line::after { content: ''; position: absolute; bottom: -3px; left: -2px; width: 0; height: 0; border-left: 3px solid transparent; border-right: 3px solid transparent; border-top: 4px solid #cbd5e1; }
-  .branch-label { background: #fff; padding: 0 6px; font-size: 7.5pt; color: #64748b; font-weight: 600; margin-top: -10px; margin-bottom: 2px; z-index: 1; white-space: nowrap; }
-  .branch-step { border: 2px dashed #cbd5e1; border-radius: 8px; padding: 8px 12px; font-size: 8.5pt; font-weight: 600; text-align: center; min-width: 130px; max-width: 180px; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
-  .branch-step.accounts { border-color: #3b82f6; background: #eff6ff; color: #1d4ed8; }
-  .branch-step.logistics { border-color: #f59e0b; background: #fffbeb; color: #b45309; }
-  .branch-step.production { border-color: #10b981; background: #ecfdf5; color: #047857; }
-  .branch-step.rd { border-color: #8b5cf6; background: #f5f3ff; color: #6d28d9; }
-  /* Color coding for standard steps crossing departments */
-  .flow-step.accounts { border-color: #3b82f6; background: #eff6ff; color: #1d4ed8; }
-  .flow-step.logistics { border-color: #f59e0b; background: #fffbeb; color: #b45309; }
-  .flow-step.production { border-color: #10b981; background: #ecfdf5; color: #047857; }
-  .flow-step.rd { border-color: #8b5cf6; background: #f5f3ff; color: #6d28d9; }
+:root{
+  --ink:#1B2A4A;
+  --slate:#3F4B5C;
+  --muted:#6B7785;
+  --line:#D8DEE5;
+  --line-soft:#E9EDF1;
+  --paper:#FFFFFF;
+  --paper-alt:#F6F7F9;
+  --accent:#0F6B62;
+  --accent-soft:#EAF3F1;
+  --risk-crit-bg:#FCEBEA; --risk-crit-fg:#A32E24;
+  --risk-med-bg:#FBF1DF;  --risk-med-fg:#8A5A10;
+  --risk-low-bg:#E9F4EC;  --risk-low-fg:#276B3E;
+}
+@page{ size:A4; margin:22mm 18mm 20mm 18mm; }
+*{ margin:0; padding:0; box-sizing:border-box; }
+body{
+  font-family:'Segoe UI',system-ui,-apple-system,sans-serif;
+  color:var(--slate);
+  line-height:1.55;
+  background:#EDEFF1;
+  font-size:10.3pt;
+}
+.page{
+  background:var(--paper);
+  max-width:840px;
+  margin:0 auto 14px auto;
+  padding:26mm 20mm 20mm 20mm;
+  position:relative;
+  page-break-after:always;
+  min-height:1120px;
+}
+.page:last-child{ page-break-after:avoid; }
+
+/* ---- running header / footer ---- */
+.doc-header{
+  display:flex; justify-content:space-between; align-items:baseline;
+  font-size:7.8pt; letter-spacing:0.4px; text-transform:uppercase; color:var(--muted);
+  border-bottom:1px solid var(--line); padding-bottom:8px; margin-bottom:22px;
+}
+.doc-header b{ color:var(--ink); }
+.doc-footer{
+  position:absolute; bottom:10mm; left:20mm; right:20mm;
+  display:flex; justify-content:space-between;
+  font-size:7.5pt; color:var(--muted);
+  border-top:1px solid var(--line-soft); padding-top:6px;
+}
+
+/* ---- cover ---- */
+.cover{ display:flex; flex-direction:column; min-height:1080px; }
+.cover-top{ display:flex; justify-content:space-between; align-items:flex-start; }
+.cover-mark{ font-size:9pt; font-weight:700; letter-spacing:2px; color:var(--ink); }
+.cover-mark span{ color:var(--accent); }
+.cover-class{ font-size:7.8pt; text-transform:uppercase; letter-spacing:1.5px; color:var(--muted); border:1px solid var(--line); padding:4px 10px; }
+.cover-body{ flex:1; display:flex; flex-direction:column; justify-content:center; padding:60px 0; }
+.cover-eyebrow{ font-family:Georgia,'Times New Roman',serif; font-style:italic; font-size:11pt; color:var(--accent); margin-bottom:14px; }
+.cover-title{ font-family:Georgia,'Times New Roman',serif; font-size:34pt; color:var(--ink); font-weight:600; line-height:1.15; margin-bottom:10px; }
+.cover-sub{ font-size:13pt; color:var(--slate); font-weight:400; }
+.cover-rule{ width:52px; height:2px; background:var(--accent); margin:26px 0; }
+.cover-ctrl{ border:1px solid var(--line); }
+.cover-ctrl table{ width:100%; border-collapse:collapse; margin:0; }
+.cover-ctrl td{ padding:9px 14px; font-size:9pt; border-bottom:1px solid var(--line-soft); }
+.cover-ctrl tr:last-child td{ border-bottom:none; }
+.cover-ctrl td.label{ color:var(--muted); width:38%; text-transform:uppercase; font-size:7.8pt; letter-spacing:0.5px; }
+.cover-ctrl td.val{ color:var(--ink); font-weight:600; }
+
+/* ---- section furniture ---- */
+.eyebrow{ font-size:8pt; color:var(--accent); font-weight:700; letter-spacing:1.6px; text-transform:uppercase; margin-bottom:6px; }
+h2{ font-family:Georgia,'Times New Roman',serif; font-size:17pt; color:var(--ink); font-weight:600; margin-bottom:4px; }
+h2 + .section-dek{ color:var(--muted); font-size:9.3pt; margin-bottom:18px; padding-bottom:14px; border-bottom:1px solid var(--line); }
+h3{ font-family:Georgia,'Times New Roman',serif; font-size:12.5pt; color:var(--ink); font-weight:600; margin:22px 0 8px; }
+h4{ font-size:10pt; color:var(--ink); font-weight:700; margin:14px 0 4px; }
+p{ margin-bottom:10px; }
+.lede{ font-size:10.6pt; color:var(--slate); max-width:95%; }
+
+/* ---- tables ---- */
+table{ width:100%; border-collapse:collapse; margin:10px 0 20px; font-size:9pt; }
+th{ background:var(--ink); color:#fff; padding:8px 10px; text-align:left; font-weight:600; font-size:8.3pt; letter-spacing:0.3px; text-transform:uppercase; }
+td{ padding:8px 10px; border-bottom:1px solid var(--line-soft); vertical-align:top; }
+tr:nth-child(even) td{ background:var(--paper-alt); }
+td.id, th.id{ font-family:Georgia,serif; font-weight:700; color:var(--ink); white-space:nowrap; width:44px; }
+td.num{ text-align:center; white-space:nowrap; }
+
+/* ---- chips ---- */
+.chip{ display:inline-block; padding:2px 9px; border-radius:3px; font-size:7.8pt; font-weight:700; letter-spacing:0.3px; text-transform:uppercase; white-space:nowrap; }
+.chip-crit{ background:var(--risk-crit-bg); color:var(--risk-crit-fg); }
+.chip-med{  background:var(--risk-med-bg);  color:var(--risk-med-fg); }
+.chip-low{  background:var(--risk-low-bg);  color:var(--risk-low-fg); }
+.chip-ref{ display:inline-block; background:var(--accent-soft); color:var(--accent); font-family:Georgia,serif; font-weight:700; font-size:8pt; padding:1px 6px; border-radius:3px; margin:1px 2px 1px 0; }
+
+.vertical-tag{display:inline-block;padding:2px 10px;border-radius:10px;font-size:8pt;font-weight:600;margin-right:4px}
+.vt-seed{background:#fef3c7;color:#92400e}
+.vt-ngo{background:#dbeafe;color:#1e40af}
+.vt-b2b{background:#d1fae5;color:#065f46}
+.vt-govt{background:#ede9fe;color:#5b21b6}
+.vt-coco{background:#fce7f3;color:#9d174d}
+
+/* ---- KPI strip ---- */
+.kpi-strip{ display:flex; border:1px solid var(--line); margin:16px 0 22px; }
+.kpi-cell{ flex:1; padding:12px 14px; border-right:1px solid var(--line); }
+.kpi-cell:last-child{ border-right:none; }
+.kpi-num{ font-family:Georgia,serif; font-size:15pt; color:var(--ink); font-weight:700; }
+.kpi-lbl{ font-size:7.6pt; color:var(--muted); text-transform:uppercase; letter-spacing:0.5px; margin-top:2px; }
+
+/* ---- callout ---- */
+.callout{ border-left:3px solid var(--accent); background:var(--accent-soft); padding:10px 14px; font-size:9pt; color:var(--ink); margin:10px 0 20px; }
+
+/* ---- flow notes ---- */
+.flow-note{ font-size:8.6pt; color:var(--muted); margin:4px 0 18px; padding-left:2px; }
+.flow-note b{ color:var(--risk-crit-fg); }
+.flow-ok{   font-size:8.6pt; color:var(--accent); margin:4px 0 18px; }
+.flow-container { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin: 16px 0; justify-content: center; }
+.flow-step { background: var(--paper-alt); border: 1px solid var(--line); border-radius: 4px; padding: 10px 14px; font-size: 9pt; color: var(--ink); text-align: center; }
+.flow-step.problem { border-color: var(--risk-crit-fg); background: var(--risk-crit-bg); color: var(--risk-crit-fg); }
+.flow-arrow { color: var(--muted); font-size: 14pt; }
+.flow-step-wrapper { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.branch-arrow { display: flex; flex-direction: column; align-items: center; margin: 4px 0; position: relative; width: 100%; }
+.branch-arrow-line { width: 2px; height: 16px; background: var(--line); position: relative; }
+.branch-arrow-line::after { content: ''; position: absolute; bottom: -3px; left: -2px; width: 0; height: 0; border-left: 3px solid transparent; border-right: 3px solid transparent; border-top: 4px solid var(--line); }
+.branch-label { background: var(--paper); padding: 0 6px; font-size: 7.5pt; color: var(--muted); font-weight: 600; margin-top: -10px; margin-bottom: 2px; z-index: 1; white-space: nowrap; }
+.branch-step { border: 1px dashed var(--line); border-radius: 4px; padding: 8px 12px; font-size: 8.5pt; font-weight: 600; text-align: center; min-width: 130px; max-width: 180px; }
+
+
+
+
+
+
+
+
+
+/* ---- maturity exhibit ---- */
+.exhibit{ display:flex; gap:26px; align-items:center; margin:14px 0 6px; }
+.exhibit-chart{ flex:0 0 220px; }
+.exhibit-note{ flex:1; font-size:9.2pt; color:var(--slate); }
+.exhibit-note b{ color:var(--ink); }
+.chart-container{display:flex;justify-content:center;margin:24px 0}
+
+/* ---- roadmap table ---- */
+.tl-table td.phase-mark{ text-align:center; font-weight:700; }
+.tl-table td.phase-mark.p1{ color:var(--accent); }
+.tl-table td.phase-mark.p2{ color:#2563eb; }
+.tl-table td.phase-mark.p3{ color:#7c3aed; }
+
+/* ---- phase blocks ---- */
+.phase-block{ border:1px solid var(--line); margin:14px 0; overflow:hidden; }
+.phase-hd{ display:flex; justify-content:space-between; align-items:center; padding:10px 14px; border-bottom:1px solid var(--line); background:var(--paper-alt); gap:16px; }
+.phase-hd-left{ display:flex; flex-direction:column; gap:2px; }
+.phase-hd-title{ font-family:Georgia,serif; font-size:11pt; font-weight:700; color:var(--ink); }
+.phase-hd-timeline{ font-size:7.8pt; color:var(--muted); }
+.phase-maturity{ font-size:8.5pt; font-weight:700; color:var(--accent); border:1px solid var(--accent); border-radius:3px; padding:3px 10px; white-space:nowrap; flex-shrink:0; }
+.phase-maturity.p2{ color:#2563eb; border-color:#2563eb; }
+.phase-maturity.p3{ color:#7c3aed; border-color:#7c3aed; }
+.phase-sow{ padding:11px 14px 14px; }
+.col-label{ font-size:7.4pt; color:var(--muted); text-transform:uppercase; letter-spacing:0.8px; margin-bottom:8px; font-weight:700; }
+.sow-item{ display:flex; gap:8px; margin-bottom:5px; font-size:8.5pt; color:var(--slate); line-height:1.4; }
+.sow-dot{ width:4px; height:4px; background:var(--accent); border-radius:50%; margin-top:5px; flex-shrink:0; }
+.sow-dot.p2{ background:#2563eb; }
+.sow-dot.p3{ background:#7c3aed; }
+.phase-roi{ display:flex; border-top:1px solid var(--line); background:var(--paper-alt); }
+.roi-card{ flex:1; padding:10px 12px; border-right:1px solid var(--line); text-align:center; }
+.roi-card:last-child{ border-right:none; }
+.roi-card-num{ font-family:Georgia,serif; font-size:13pt; font-weight:700; color:var(--ink); line-height:1.1; margin-bottom:3px; }
+.roi-card-label{ font-size:7.5pt; color:var(--ink); font-weight:700; text-transform:uppercase; letter-spacing:0.3px; margin-bottom:3px; }
+.roi-card-desc{ font-size:7pt; color:var(--muted); line-height:1.35; }
+
+@media print{
+  body{ background:#fff; }
+  .page{ box-shadow:none; margin:0; }
+}
 </style>
+
 </head>
 <body>
-
 <div class="page cover">
-  <div class="cover-badge">Department Audit Report</div>
-  <h1>Business Development</h1>
-  <h2>All Verticals — Seed · B2B/RCM · NGO/CSR · Government · Cocopeat</h2>
-  <div class="cover-line"></div>
-  <div class="cover-meta">EF Polymers Private Limited<br>Prepared by Creative Upaay Consulting<br>July 2026 · Version 1.0<br>Confidential — Executive Leadership Only</div>
+<div class="cover-top">
+<div class="cover-mark">EF<span>·</span>POLYMERS</div>
+<div class="cover-class">Confidential — Executive Leadership Only</div>
 </div>
-
-<!-- OVERVIEW -->
-<div class="page">
-  <div class="section">
-    <div class="section-num">Section 01</div>
-    <h2>Department Overview — All BD Verticals</h2>
-    <p>Business Development at EF Polymers comprises 5 specialized verticals — each targeting a distinct market segment with tailored sourcing, sales, and fulfillment workflows. All verticals report to the CBDO (Ankit Jain), with the Seed vertical having a dual-report to the COO.</p>
-
-    <table>
-      <tr><th>Vertical</th><th>Lead</th><th>Team Size</th><th>Annual Target</th><th>Sales Model</th></tr>
-      <tr><td><span class="vertical-tag vt-seed">SEED</span></td><td>Sameer Mahiskar</td><td>1 active + 1 hiring</td><td>90 MT</td><td>Demo-led institutional</td></tr>
-      <tr><td><span class="vertical-tag vt-b2b">B2B/RCM</span></td><td>Jatin Jain</td><td>7 → 10</td><td>40 MT (3 states)</td><td>White-label + training</td></tr>
-      <tr><td><span class="vertical-tag vt-ngo">NGO/CSR</span></td><td>Vikash Mehta / Gaurav Dwivedi</td><td>4 + 1 vacant</td><td>100 MT</td><td>Proposal-led bulk contracts</td></tr>
-      <tr><td><span class="vertical-tag vt-govt">GOVERNMENT</span></td><td>Shailendra Singh</td><td>1</td><td>Govt trial projects</td><td>Trial + billing</td></tr>
-      <tr><td><span class="vertical-tag vt-coco">COCOPEAT</span></td><td>Mohit Kumar Gupta</td><td>4</td><td>Container exports</td><td>Export B2B + D2C (Japan)</td></tr>
-    </table>
-
-    <h3>Cross-Vertical Key Metrics</h3>
-    <div class="metrics-grid">
-      <div class="metric-box"><div class="metric-value">0</div><div class="metric-label">CRM Systems</div></div>
-      <div class="metric-box"><div class="metric-value">5+</div><div class="metric-label">Separate Spreadsheets</div></div>
-      <div class="metric-box"><div class="metric-value">~90%</div><div class="metric-label">WhatsApp Comms</div></div>
-      <div class="metric-box"><div class="metric-value">~230 MT</div><div class="metric-label">Combined Target</div></div>
-    </div>
-  </div>
+<div class="cover-body">
+<div class="cover-eyebrow">Department Audit Report</div>
+<div class="cover-title">Business Development</div>
+<div class="cover-sub">All Verticals — Seed · B2B/RCM · NGO/CSR · Government · Cocopeat</div>
+<div class="cover-rule"></div>
+<p style="max-width:70%;color:var(--muted);font-size:9.3pt;">
+      An independent operational review of the Business Development department, assessing sourcing, sales, and fulfillment workflows across all 5 active verticals, prepared as part of the EF Polymers organization-wide operational audit.
+    </p>
 </div>
-
-<!-- WORKFLOWS -->
+<div class="cover-ctrl">
+<table>
+<tr><td class="label">Client</td><td class="val">EF Polymers Private Limited</td></tr>
+<tr><td class="label">Prepared by</td><td class="val">Creative Upaay Consulting</td></tr>
+<tr><td class="label">Document version</td><td class="val">1.0</td></tr>
+<tr><td class="label">Date issued</td><td class="val">July 2026</td></tr>
+<tr><td class="label">Review scope</td><td class="val">Business Development</td></tr>
+<tr><td class="label">Distribution</td><td class="val">Executive Leadership Only</td></tr>
+</table>
+</div>
+</div>
 <div class="page">
-  <div class="section">
-    <div class="section-num">Section 02</div>
-    <h2>Existing Workflows by Vertical</h2>
-
-    <h3><span class="vertical-tag vt-seed">SEED</span> Sales Pipeline & Demo Lifecycle</h3>
-    <div class="flow-container">
-      <div class="flow-step">Warm intro / personal network</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">Soft pitch ("how it works")</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step-wrapper">
-        <div class="flow-step">In-person demo (15-20 days/mo travel)</div>
-        <div class="branch-arrow">
-          <div class="branch-arrow-line"></div>
-          <div class="branch-label">Expense claims</div>
-        </div>
-        <div class="branch-step accounts">Accounts: Verify mileage & reimburse</div>
-      </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step-wrapper">
-        <div class="flow-step">Email follow-up + sample</div>
-        <div class="branch-arrow">
-          <div class="branch-arrow-line"></div>
-          <div class="branch-label">Sample request</div>
-        </div>
-        <div class="branch-step logistics">Logistics: Ship trial samples</div>
-      </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">Sowing timeline alignment</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step problem">Collections (untested)</div>
-    </div>
-    <p style="font-size:9.5pt;color:#64748b;">Single BD Manager runs entire pan-India 90 MT target. No CRM, no structured follow-up. 15–20% conversion rate from 25–30 active leads.</p>
-
-    <h3><span class="vertical-tag vt-ngo">NGO/CSR</span> Sales & Deployment Lifecycle</h3>
-    <div class="flow-container">
-      <div class="flow-step">LinkedIn sourcing (9,500 connections)</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">Cold email outreach</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">Google Meet initial meeting</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">Custom Canva proposal</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step-wrapper">
-        <div class="flow-step">On-ground pilot & demo</div>
-        <div class="branch-arrow">
-          <div class="branch-arrow-line"></div>
-          <div class="branch-label">Travel claims</div>
-        </div>
-        <div class="branch-step accounts">Accounts: Audit & process expenses</div>
-      </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step-wrapper">
-        <div class="flow-step problem">Collections: 60–70 days</div>
-        <div class="branch-arrow">
-          <div class="branch-arrow-line"></div>
-          <div class="branch-label">Clearance check</div>
-        </div>
-        <div class="branch-step accounts">Accounts: Reconcile bank clearings</div>
-      </div>
-    </div>
-    <p style="font-size:9.5pt;color:#64748b;">Follow-ups every 4–5 days from spreadsheets, relying on memory. 40–50 leads tracked in 4-tab Google Sheet.</p>
-
-    <h3><span class="vertical-tag vt-b2b">B2B/RCM</span> Order & Distribution Workflow</h3>
-    <div class="flow-container">
-      <div class="flow-step">RCM issues PO</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step production">Production confirms raw material</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step accounts">Accounts generates invoice</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step logistics">Logistics dispatches to warehouse</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step problem">RCM distributes — EFP has zero retail visibility</div>
-    </div>
-    <p style="font-size:9.5pt;color:#64748b;">EFP supplies raw components to RCM (20 MT standing commitment). RCM blends, packages, sells through ~10,000 retail stores — EFP has no data below depot tier.</p>
-  </div>
+<div class="doc-header"><span><b>EF Polymers</b> — BD Audit</span><span>Confidential</span></div>
+<div class="eyebrow">Section 01 — Executive Summary</div>
+<h2>Department Overview — All BD Verticals</h2>
+<div class="section-dek">Scope, current state, and headline findings</div>
+<p class="lede">Business Development at EF Polymers comprises 5 specialized verticals — each targeting a distinct market segment with tailored sourcing, sales, and fulfillment workflows. All verticals report to the CBDO (Ankit Jain), with the Seed vertical having a dual-report to the COO.</p>
+<p>The review identified that despite managing a combined target of ~230 MT, the department operates entirely without a CRM system, relying on 5+ separate spreadsheets and WhatsApp. This results in extreme data fragmentation and knowledge loss risk.</p>
+<div class="kpi-strip">
+<div class="kpi-cell"><div class="kpi-num">0</div><div class="kpi-lbl">CRM Systems</div></div>
+<div class="kpi-cell"><div class="kpi-num">5+</div><div class="kpi-lbl">Separate Spreadsheets</div></div>
+<div class="kpi-cell"><div class="kpi-num">~90%</div><div class="kpi-lbl">WhatsApp Comms</div></div>
+<div class="kpi-cell"><div class="kpi-num">~230 MT</div><div class="kpi-lbl">Combined Target</div></div>
+</div>
+<h3>Vertical Ownership Structure</h3>
+<table>
+<tr><th>Vertical</th><th>Lead</th><th>Team Size</th><th>Annual Target</th><th>Sales Model</th></tr>
+<tr><td><span class="vertical-tag vt-seed">SEED</span></td><td>Sameer Mahiskar</td><td>1 active + 1 hiring</td><td>90 MT</td><td>Demo-led institutional</td></tr>
+<tr><td><span class="vertical-tag vt-b2b">B2B/RCM</span></td><td>Jatin Jain</td><td>7 → 10</td><td>40 MT (3 states)</td><td>White-label + training</td></tr>
+<tr><td><span class="vertical-tag vt-ngo">NGO/CSR</span></td><td>Vikash Mehta / Gaurav Dwivedi</td><td>4 + 1 vacant</td><td>100 MT</td><td>Proposal-led bulk contracts</td></tr>
+<tr><td><span class="vertical-tag vt-govt">GOVERNMENT</span></td><td>Shailendra Singh</td><td>1</td><td>Govt trial projects</td><td>Trial + billing</td></tr>
+<tr><td><span class="vertical-tag vt-coco">COCOPEAT</span></td><td>Mohit Kumar Gupta</td><td>4</td><td>Container exports</td><td>Export B2B + D2C (Japan)</td></tr>
+</table>
+<div class="doc-footer"><span>BD Audit Report · v1.0</span><span>Page 2</span></div>
 </div>
 
 <div class="page">
-  <div class="section">
-    <h3><span class="vertical-tag vt-govt">GOVERNMENT</span> Trial & Data Collection Workflow</h3>
-    <div class="flow-container">
-      <div class="flow-step">Ground staff take field photos</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step problem">Share via WhatsApp</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step problem">Manual download by lead</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">Upload to Google Drive</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">Update farmer database (Sheets)</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step-wrapper">
-        <div class="flow-step">Submit invoices to Accounts</div>
-        <div class="branch-arrow">
-          <div class="branch-arrow-line"></div>
-          <div class="branch-label">Milestone billing</div>
-        </div>
-        <div class="branch-step accounts">Accounts: Verify & release payout</div>
-      </div>
-    </div>
-    <p style="font-size:9.5pt;color:#64748b;">Daily to-dos managed entirely via WhatsApp by CBDO. Custom trial tools maintained by external developer (Mirza) on GitHub/Vercel.</p>
-
-    <h3><span class="vertical-tag vt-coco">COCOPEAT</span> Export Lifecycle</h3>
-    <div class="flow-container">
-      <div class="flow-step">Manual sourcing (Google, exhibitions)</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">Cold email (20-25/day)</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step-wrapper">
-        <div class="flow-step">Sample dispatch & testing</div>
-        <div class="branch-arrow">
-          <div class="branch-arrow-line"></div>
-          <div class="branch-label">Export samples</div>
-        </div>
-        <div class="branch-step logistics">Logistics: Dispatch custom samples</div>
-      </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">Negotiation (1–2 months)</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">PO & production</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step-wrapper">
-        <div class="flow-step problem">CargoX upload (gated by Accounts)</div>
-        <div class="branch-arrow">
-          <div class="branch-arrow-line"></div>
-          <div class="branch-label">Payment check</div>
-        </div>
-        <div class="branch-step accounts">Accounts: Verify container payment</div>
-      </div>
-    </div>
-    <p style="font-size:9.5pt;color:#64748b;">5% outreach response rate. No CRM — leads tracked in 7-day old Excel dashboard. CargoX export docs must be uploaded within 10 days of arrival but are gated behind Accounts payment clearance.</p>
-
-    <h3><span class="vertical-tag vt-govt">GOVERNMENT</span> Custom Tool Development Loop</h3>
-    <div class="flow-container">
-      <div class="flow-step">Requirements defined (dev.x)</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">Developer Mirza codes</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">GitHub → Vercel deploy</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">Client/ACCA testing</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step problem">No in-house product owner</div>
-    </div>
-  </div>
+  <div class="doc-header"><span><b>EF Polymers</b> — BD Audit</span><span>Confidential</span></div>
+  <div class="eyebrow">Section 02 — Risk &amp; Control Findings</div>
+  <h2>Findings Register</h2>
+  <div class="section-dek">Ranked by risk rating. Each finding is cross-referenced to its recommendation in Section 04.</div>
+  <table>
+    <tr><th class="id">ID</th><th>Finding</th><th>Risk</th><th>Evidence / Impact</th><th>Linked Rec.</th></tr>
+    <tr><td class="id">F-01</td><td><b>No CRM Across Any Vertical.</b> All 5 BD verticals operate on disconnected spreadsheets and WhatsApp.</td><td><span class="chip chip-crit">High</span></td><td>Extreme data fragmentation; prevents pipeline visibility and scale.</td><td><span class="chip-ref">R-01</span></td></tr>
+    <tr><td class="id">F-02</td><td><b>Extended Receivables (NGO).</b> The NGO/CSR vertical suffers from a 60–70 day collection cycle.</td><td><span class="chip chip-crit">High</span></td><td>Requires manual chasing by leadership and locks up cash flow.</td><td><span class="chip-ref">R-06</span></td></tr>
+    <tr><td class="id">F-03</td><td><b>CargoX Gating Bottleneck (Cocopeat).</b> Export docs gated behind Accounts payment clearance.</td><td><span class="chip chip-crit">High</span></td><td>Risks heavy demurrage fees if 10-day window is missed.</td><td><span class="chip-ref">R-02</span></td></tr>
+    <tr><td class="id">F-04</td><td><b>Tertiary Sales Invisibility (B2B/RCM).</b> Zero data visibility below the depot tier into RCM's ~10,000 retail stores.</td><td><span class="chip chip-crit">High</span></td><td>Creates a massive demand planning and forecasting blind spot.</td><td><span class="chip-ref">R-07</span></td></tr>
+    <tr><td class="id">F-05</td><td><b>Data Security &amp; Contact Continuity Risk.</b> ~90% of communications run on personal WhatsApp numbers.</td><td><span class="chip chip-med">Medium</span></td><td>Employee turnover directly risks loss of contact history.</td><td><span class="chip-ref">R-04</span></td></tr>
+    <tr><td class="id">F-06</td><td><b>Single-Point Solo Operation (Seed).</b> The entire pan-India Seed vertical is run by a single BD Manager.</td><td><span class="chip chip-med">Medium</span></td><td>Severe capacity limits and single point of failure.</td><td><span class="chip-ref">R-05</span></td></tr>
+    <tr><td class="id">F-07</td><td><b>Email Deliverability Risk (Cocopeat).</b> Cold outbound shares the same primary domain as client replies.</td><td><span class="chip chip-med">Medium</span></td><td>High risk of main domain blacklisting.</td><td><span class="chip-ref">R-03</span></td></tr>
+  </table>
+  <div class="callout">Four of the seven findings are rated Critical, and they expose the department's core systemic weakness: a total lack of structural visibility. F-01 (No CRM) is the root cause of extreme data fragmentation across all 5 verticals. The remaining three criticals are operational bottlenecks unique to specific verticals: NGO receivables (F-02), Cocopeat export documentation (F-03), and B2B tertiary visibility (F-04). Phase 1 targets the immediate systemic gaps by migrating all units to Zoho CRM and decoupling the CargoX bottleneck.</div>
+  <div class="doc-footer"><span>BD Audit Report · v1.0</span><span>Page 3</span></div>
 </div>
 
-<!-- CHALLENGES -->
 <div class="page">
-  <div class="section">
-    <div class="section-num">Section 03</div>
-    <h2>Challenges, Risks & Red Flags</h2>
+<div class="doc-header"><span><b>EF Polymers</b> — BD Audit</span><span>Confidential</span></div>
+<div class="eyebrow">Section 03 — Process Detail</div>
+<h2>Current Workflows</h2>
+<div class="section-dek">Analysis of current operational sequences</div>
+  <h3><span class="vertical-tag vt-seed">SEED</span> Sales Pipeline &amp; Demo Lifecycle</h3>
+  <svg viewBox="0 0 740 92" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:10px 0 4px;">
+    <defs>
+      <marker id="a1" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+        <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5"/>
+      </marker>
+    </defs>
+    
+    <rect x="10" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="70" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Warm Intro &amp;</text>
+    <text x="70" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Soft Pitch</text>
+    <line x1="130" y1="46" x2="150" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)"/>
+    
+    <rect x="150" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="210" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">In-Person Demo</text>
+    <text x="210" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">(15-20 days travel)</text>
+    <line x1="270" y1="46" x2="290" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)"/>
+    
+    <rect x="290" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="350" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Trial Logistics &amp;</text>
+    <text x="350" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Sample Dispatch</text>
+    <line x1="410" y1="46" x2="430" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)"/>
+    
+    <rect x="430" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="490" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Sowing Timeline</text>
+    <text x="490" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Alignment</text>
+    <line x1="550" y1="46" x2="570" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)"/>
+    
+    <rect x="570" y="22" width="120" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5"/>
+    <text x="630" y="43" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">Untested Collections</text>
+    <text x="630" y="55" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">Process</text>
+  </svg>
+  <p class="flow-note">Single BD Manager runs entire pan-India 90 MT target. No CRM, no structured follow-up. 15–20% conversion rate from 25–30 active leads.</p>
 
-    <div class="card">
-      <div class="card-header"><span class="card-title">1. No CRM Across Any Vertical</span><span class="badge badge-critical">CRITICAL</span></div>
-      <p>All 5 BD verticals operate on disconnected spreadsheets, WhatsApp, and personal memory. This is the single largest operational risk across the entire organization.</p>
-      <table>
-        <tr><th>Metric</th><th>Detail</th></tr>
-        <tr><td>Affected</td><td><span class="vertical-tag vt-seed">SEED</span><span class="vertical-tag vt-ngo">NGO</span><span class="vertical-tag vt-b2b">B2B</span><span class="vertical-tag vt-govt">GOVT</span><span class="vertical-tag vt-coco">COCO</span></td></tr>
-        <tr><td>Time Waste</td><td>Memory-based follow-ups; manual pipeline reviews; unknown lead leakage</td></tr>
-        <tr><td>Investment</td><td>Medium — Zoho CRM within existing ecosystem</td></tr>
-        <tr><td>ROI</td><td><strong>Very High</strong> — prevents revenue leakage; enables proactive management</td></tr>
-      </table>
-    </div>
+  <h3><span class="vertical-tag vt-ngo">NGO/CSR</span> Sales &amp; Deployment Lifecycle — <span class="chip-ref">F-02</span></h3>
+  <svg viewBox="0 0 740 92" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:10px 0 4px;">
+    <defs>
+      <marker id="a2" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+        <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5"/>
+      </marker>
+    </defs>
+    
+    <rect x="10" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="70" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">LinkedIn Sourcing</text>
+    <line x1="130" y1="46" x2="150" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)"/>
+    
+    <rect x="150" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="210" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Cold Outreach &amp;</text>
+    <text x="210" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Virtual Meeting</text>
+    <line x1="270" y1="46" x2="290" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)"/>
+    
+    <rect x="290" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="350" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Custom Canva</text>
+    <text x="350" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Proposal Sent</text>
+    <line x1="410" y1="46" x2="430" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)"/>
+    
+    <rect x="430" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="490" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">On-ground Pilot</text>
+    <text x="490" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">&amp; Demo Execution</text>
+    <line x1="550" y1="46" x2="570" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)"/>
+    
+    <rect x="570" y="22" width="120" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5"/>
+    <text x="630" y="43" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">Delayed Collections</text>
+    <text x="630" y="55" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">(60-70 Days)</text>
+  </svg>
+  <p class="flow-note">Follow-ups every 4–5 days from spreadsheets, relying on memory. 40–50 leads tracked in 4-tab Google Sheet.</p>
 
-    <div class="card">
-      <div class="card-header"><span class="card-title">2. Extended Receivables (NGO: 60–70 Days)</span><span class="badge badge-critical">CRITICAL</span></div>
-      <p>The NGO/CSR vertical suffers from a <strong>60–70 day</strong> collection cycle, requiring manual chasing by leadership and locking up cash flow.</p>
-      <table>
-        <tr><th>Metric</th><th>Detail</th></tr>
-        <tr><td>Affected</td><td><span class="vertical-tag vt-ngo">NGO/CSR</span></td></tr>
-        <tr><td>Time Waste</td><td>~15–20% of AM-BD Lead's time on manual collections chasing</td></tr>
-        <tr><td>Investment</td><td>Low — automated payment reminders + structured billing terms</td></tr>
-        <tr><td>ROI</td><td><strong>High</strong> — improved cash flow; reduced collections overhead</td></tr>
-      </table>
-    </div>
-
-    <div class="card">
-      <div class="card-header"><span class="card-title">3. CargoX Gating Bottleneck (Cocopeat)</span><span class="badge badge-critical">CRITICAL</span></div>
-      <p>Export document uploads to CargoX must occur within <strong>10 days</strong> of container arrival but are strictly gated behind Accounts payment clearance, risking demurrage fees.</p>
-      <table>
-        <tr><th>Metric</th><th>Detail</th></tr>
-        <tr><td>Affected</td><td><span class="vertical-tag vt-coco">COCOPEAT</span></td></tr>
-        <tr><td>Investment</td><td>Low — process re-engineering; parallel approval workflow</td></tr>
-        <tr><td>ROI</td><td><strong>High</strong> — prevents demurrage fees ($500–2000/incident); protects customer relationships</td></tr>
-      </table>
-    </div>
-
-    <div class="card">
-      <div class="card-header"><span class="card-title">4. Tertiary Sales Invisibility (B2B/RCM)</span><span class="badge badge-critical">CRITICAL</span></div>
-      <p>EFP has zero data visibility below the depot tier into RCM's <strong>~10,000 retail stores</strong>. This creates a demand planning blind spot.</p>
-      <table>
-        <tr><th>Metric</th><th>Detail</th></tr>
-        <tr><td>Affected</td><td><span class="vertical-tag vt-b2b">B2B/RCM</span></td></tr>
-        <tr><td>Investment</td><td>Medium — API integration or structured file sharing with RCM</td></tr>
-        <tr><td>ROI</td><td><strong>High</strong> — accurate demand forecasting; inventory optimization</td></tr>
-      </table>
-    </div>
-
-    <div class="card">
-      <div class="card-header"><span class="card-title">5. Data Security & Contact Continuity Risk</span><span class="badge badge-medium">MEDIUM</span></div>
-      <p><strong>~90%</strong> of communications run on personal WhatsApp numbers. Employee turnover directly risks loss of contact history and customer relationships.</p>
-      <table>
-        <tr><th>Metric</th><th>Detail</th></tr>
-        <tr><td>Affected</td><td><span class="vertical-tag vt-b2b">B2B</span><span class="vertical-tag vt-coco">COCO</span><span class="vertical-tag vt-govt">GOVT</span></td></tr>
-        <tr><td>Investment</td><td>Low — device/SIM ownership policy</td></tr>
-        <tr><td>ROI</td><td><strong>High</strong> — customer relationship protection at minimal cost</td></tr>
-      </table>
-    </div>
-
-    <div class="card">
-      <div class="card-header"><span class="card-title">6. Single-Point Solo Operation (Seed)</span><span class="badge badge-medium">MEDIUM</span></div>
-      <p>The entire pan-India Seed vertical (90 MT target) is run by a single BD Manager with no backup. Previous internships have ended.</p>
-      <table>
-        <tr><th>Metric</th><th>Detail</th></tr>
-        <tr><td>Affected</td><td><span class="vertical-tag vt-seed">SEED</span></td></tr>
-        <tr><td>Investment</td><td>Medium — hiring a full-time BD Executive</td></tr>
-        <tr><td>ROI</td><td><strong>High</strong> — capacity risk; single-point failure on 90 MT target</td></tr>
-      </table>
-    </div>
-
-    <div class="card">
-      <div class="card-header"><span class="card-title">7. Email Deliverability Risk (Cocopeat)</span><span class="badge badge-medium">MEDIUM</span></div>
-      <p>Cold outbound (20–25 emails/day per mailbox) shares the same primary domain as client replies, creating domain blacklisting risk.</p>
-      <table>
-        <tr><th>Metric</th><th>Detail</th></tr>
-        <tr><td>Affected</td><td><span class="vertical-tag vt-coco">COCOPEAT</span></td></tr>
-        <tr><td>Investment</td><td>Low — separate outreach domain + warm-up tool</td></tr>
-        <tr><td>ROI</td><td><strong>High</strong> — protects primary email reputation at minimal cost</td></tr>
-      </table>
-    </div>
-
-    <div class="card">
-      <div class="card-header"><span class="card-title">8. Unstructured Task Management (Government)</span><span class="badge badge-high">HIGH</span></div>
-      <p>Daily tasks managed entirely via WhatsApp, relying on the CBDO to manually assign and track. No project board or task tracker exists.</p>
-      <table>
-        <tr><th>Metric</th><th>Detail</th></tr>
-        <tr><td>Affected</td><td><span class="vertical-tag vt-govt">GOVERNMENT</span></td></tr>
-        <tr><td>Investment</td><td>Low — Zoho Projects or simple Kanban board</td></tr>
-        <tr><td>ROI</td><td><strong>Medium</strong> — better visibility; reduced CBDO overhead</td></tr>
-      </table>
-    </div>
-
-    <div class="card">
-      <div class="card-header"><span class="card-title">9. Manual Ground Media Sync (Government)</span><span class="badge badge-low">LOW</span></div>
-      <p>Field photos sent via WhatsApp → manually downloaded → re-uploaded to Google Drive. This manual loop wastes time and risks data loss.</p>
-      <table>
-        <tr><th>Metric</th><th>Detail</th></tr>
-        <tr><td>Affected</td><td><span class="vertical-tag vt-govt">GOVERNMENT</span></td></tr>
-        <tr><td>Investment</td><td>Low — mobile form (Zoho Forms or custom API) for direct uploads</td></tr>
-        <tr><td>ROI</td><td><strong>Medium</strong> — eliminates manual download/upload cycle</td></tr>
-      </table>
-    </div>
-  </div>
+  <h3><span class="vertical-tag vt-b2b">B2B/RCM</span> Order &amp; Distribution Workflow — <span class="chip-ref">F-04</span></h3>
+  <svg viewBox="0 0 740 92" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:10px 0 4px;">
+    <defs>
+      <marker id="a3" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+        <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5"/>
+      </marker>
+    </defs>
+    
+    <rect x="10" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="70" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">RCM Issues PO</text>
+    <line x1="130" y1="46" x2="150" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a3)"/>
+    
+    <rect x="150" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="210" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Production Confirms</text>
+    <text x="210" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Raw Materials</text>
+    <line x1="270" y1="46" x2="290" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a3)"/>
+    
+    <rect x="290" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="350" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Accounts Generates</text>
+    <text x="350" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Invoice</text>
+    <line x1="410" y1="46" x2="430" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a3)"/>
+    
+    <rect x="430" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="490" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Logistics Dispatch</text>
+    <line x1="550" y1="46" x2="570" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a3)"/>
+    
+    <rect x="570" y="22" width="120" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5"/>
+    <text x="630" y="39" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">RCM Distribution</text>
+    <text x="630" y="50" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">(Zero visibility into</text>
+    <text x="630" y="61" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">~10,000 stores)</text>
+  </svg>
+  <p class="flow-note">EFP supplies raw components to RCM (20 MT standing commitment). RCM blends, packages, sells through ~10,000 retail stores.</p>
+<div class="doc-footer"><span>BD Audit Report · v1.0</span><span>Page 4</span></div>
 </div>
 
-<!-- INFO GAPS -->
 <div class="page">
-  <div class="section">
-    <div class="section-num">Section 04</div>
-    <h2>Information Gaps & Cross-Department Leaks</h2>
-    <div class="gap-item"><div class="gap-icon">⚠</div><div><h4>BD ↔ Accounts (Payment & Collections)</h4><p>NGO receivables at 60–70 days and Cocopeat CargoX gating both stem from weak coordination between BD and Accounts. No automated payment alerts or parallel approval workflows exist.</p></div></div>
-    <div class="gap-item"><div class="gap-icon">⚠</div><div><h4>BD ↔ Logistics (Order Data Quality)</h4><p>Incomplete WhatsApp order posts from BD to Logistics cause 15–30 min delays per order. No structured order intake form exists.</p></div></div>
-    <div class="gap-item"><div class="gap-icon">⚠</div><div><h4>BD ↔ R&D (Trial Data)</h4><p>BD accesses R&D trial data from a shared Google Drive but has no structured request mechanism. Custom trial parameters require manual R&D consultation each time.</p></div></div>
-    <div class="gap-item"><div class="gap-icon">⚠</div><div><h4>Cross-Vertical (Customer Data)</h4><p>Customer records are fragmented across 5+ spreadsheets. A customer that interacts with multiple verticals may have duplicate records with conflicting data.</p></div></div>
-    <div class="gap-item"><div class="gap-icon">⚠</div><div><h4>B2B/RCM ↔ Retail (Tertiary Data)</h4><p>EFP has zero visibility into RCM's 10,000 retail stores. Demand signals from the field don't flow back to EFP for production planning.</p></div></div>
-  </div>
+  <div class="doc-header"><span><b>EF Polymers</b> — BD Audit</span><span>Confidential</span></div>
+  <div class="eyebrow">Section 04 — Corrective Action Plan</div>
+  <h2>Recommendations Register</h2>
+  <div class="section-dek">Ordered by priority. Effort and impact are directional estimates for planning purposes.</div>
+  <table>
+    <tr><th class="id">ID</th><th>Recommendation</th><th>Finding</th><th>Priority</th><th>Effort</th><th>Expected Impact</th></tr>
+    <tr><td class="id">R-01</td><td>Zoho CRM Phase 1 Rollout — Migrate all verticals to Zoho to log deal stages and pipelines.</td><td><span class="chip-ref">F-01</span></td><td><span class="chip chip-crit">P1</span></td><td>High</td><td>Secures ownership of pipeline visibility.</td></tr>
+    <tr><td class="id">R-02</td><td>CargoX Parallel Approval — Decouple export document prep from the Accounts payment gating.</td><td><span class="chip-ref">F-03</span></td><td><span class="chip chip-crit">P1</span></td><td>Low</td><td>Eliminates demurrage risks.</td></tr>
+    <tr><td class="id">R-03</td><td>Separate Cold Outreach Domain — Acquire secondary domains for Cocopeat cold outbound emails.</td><td><span class="chip-ref">F-07</span></td><td><span class="chip chip-crit">P1</span></td><td>Low</td><td>Protects main domain deliverability.</td></tr>
+    <tr><td class="id">R-04</td><td>Device/SIM Ownership Policy — Mandate company-owned SIMs/devices for customer-facing communication.</td><td><span class="chip-ref">F-05</span></td><td><span class="chip chip-med">P2</span></td><td>Medium</td><td>Preserves client contact history.</td></tr>
+    <tr><td class="id">R-05</td><td>Automated Follow-ups &amp; Templates — Deploy CRM-based auto reminders to reduce manual load on solo managers.</td><td><span class="chip-ref">F-06</span></td><td><span class="chip chip-med">P2</span></td><td>Low</td><td>Scales outreach capacity.</td></tr>
+    <tr><td class="id">R-06</td><td>Automated Collections — Set up 30/45/60 day payment reminder sequences for NGO clients.</td><td><span class="chip-ref">F-02</span></td><td><span class="chip chip-med">P2</span></td><td>Low</td><td>Accelerates cash flow recovery.</td></tr>
+    <tr><td class="id">R-07</td><td>RCM Data Sharing Integration — Integrate systems or set up API pipelines to pull depot-level demand data.</td><td><span class="chip-ref">F-04</span></td><td><span class="chip chip-low">P3</span></td><td>High</td><td>Enables accurate production forecasting.</td></tr>
+  </table>
+  <div class="doc-footer"><span>BD Audit Report · v1.0</span><span>Page 5</span></div>
 </div>
 
-<!-- MATURITY -->
+
 <div class="page">
-  <div class="section">
-    <div class="section-num">Section 05</div>
-    <h2>Department Maturity Score — By Vertical</h2>
+<div class="doc-header"><span><b>EF Polymers</b> — BD Audit</span><span>Confidential</span></div>
+<div class="eyebrow">Section 05 — Benchmarking</div>
+<h2>Department Maturity Assessment</h2>
+<div class="section-dek">Scored 1 (ad hoc) to 5 (optimized) against five capability dimensions</div>
 
-    <table>
-      <tr><th>Vertical</th><th>Process</th><th>Technology</th><th>Data Quality</th><th>Documentation</th><th>Knowledge Mgmt</th><th>Overall</th></tr>
-      <tr><td><span class="vertical-tag vt-seed">SEED</span></td><td>1.0</td><td>1.0</td><td>1.0</td><td>1.0</td><td>1.0</td><td><strong>1.0</strong></td></tr>
-      <tr><td><span class="vertical-tag vt-ngo">NGO/CSR</span></td><td>1.5</td><td>1.0</td><td>1.0</td><td>1.5</td><td>1.0</td><td><strong>1.0</strong></td></tr>
-      <tr><td><span class="vertical-tag vt-b2b">B2B/RCM</span></td><td>2.0</td><td>1.5</td><td>1.5</td><td>1.5</td><td>1.5</td><td><strong>1.5</strong></td></tr>
-      <tr><td><span class="vertical-tag vt-govt">GOVERNMENT</span></td><td>1.5</td><td>1.5</td><td>1.5</td><td>1.5</td><td>1.0</td><td><strong>1.5</strong></td></tr>
-      <tr><td><span class="vertical-tag vt-coco">COCOPEAT</span></td><td>2.0</td><td>1.5</td><td>1.5</td><td>2.0</td><td>1.5</td><td><strong>1.5</strong></td></tr>
-      <tr style="background:#fef2f2;"><th>BD Average</th><th>1.6</th><th>1.3</th><th>1.3</th><th>1.5</th><th>1.2</th><th>1.3</th></tr>
-    </table>
-    <p style="font-size:9.5pt;color:#dc2626;font-weight:600;">⚠ Business Development has the lowest average maturity (1.3) across the organization. The Seed and NGO verticals score at Level 1.0 — the floor of the maturity scale.</p>
-
-    <div class="chart-container">
-      <svg viewBox="0 0 600 220" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:600px;">
-        <!-- Horizontal bar chart -->
-        <text x="95" y="30" text-anchor="end" font-size="9" fill="#1B2A4A">Seed</text>
-        <rect x="100" y="18" width="48" height="20" rx="3" fill="#dc2626"/>
-        <text x="155" y="32" font-size="8" fill="#fff" font-weight="600">1.0</text>
-        
-        <text x="95" y="60" text-anchor="end" font-size="9" fill="#1B2A4A">NGO/CSR</text>
-        <rect x="100" y="48" width="48" height="20" rx="3" fill="#dc2626"/>
-        <text x="155" y="62" font-size="8" fill="#fff" font-weight="600">1.0</text>
-        
-        <text x="95" y="90" text-anchor="end" font-size="9" fill="#1B2A4A">B2B/RCM</text>
-        <rect x="100" y="78" width="72" height="20" rx="3" fill="#f59e0b"/>
-        <text x="179" y="92" font-size="8" fill="#fff" font-weight="600">1.5</text>
-        
-        <text x="95" y="120" text-anchor="end" font-size="9" fill="#1B2A4A">Government</text>
-        <rect x="100" y="108" width="72" height="20" rx="3" fill="#f59e0b"/>
-        <text x="179" y="122" font-size="8" fill="#fff" font-weight="600">1.5</text>
-        
-        <text x="95" y="150" text-anchor="end" font-size="9" fill="#1B2A4A">Cocopeat</text>
-        <rect x="100" y="138" width="72" height="20" rx="3" fill="#f59e0b"/>
-        <text x="179" y="152" font-size="8" fill="#fff" font-weight="600">1.5</text>
-        
-        <!-- Scale -->
-        <line x1="100" y1="170" x2="340" y2="170" stroke="#e2e8f0" stroke-width="1"/>
-        <text x="100" y="185" font-size="7" fill="#94a3b8">1</text>
-        <text x="148" y="185" font-size="7" fill="#94a3b8">2</text>
-        <text x="196" y="185" font-size="7" fill="#94a3b8">3</text>
-        <text x="244" y="185" font-size="7" fill="#94a3b8">4</text>
-        <text x="292" y="185" font-size="7" fill="#94a3b8">5</text>
-        <!-- Target line -->
-        <line x1="244" y1="14" x2="244" y2="165" stroke="#0F766E" stroke-width="1.5" stroke-dasharray="6,3"/>
-        <text x="248" y="200" font-size="8" fill="#0F766E" font-weight="600">Target: 3.0</text>
+  <div class="exhibit">
+    <div class="exhibit-chart">
+      <svg viewBox="0 0 400 350" xmlns="http://www.w3.org/2000/svg" style="width:100%;">
+        <g transform="translate(200,170)">
+          <polygon points="0,-120 114,-37 70,97 -70,97 -114,-37" fill="none" stroke="#E2E8F0" stroke-width="0.75"/>
+          <polygon points="0,-96 91,-30 56,78 -56,78 -91,-30"    fill="none" stroke="#E2E8F0" stroke-width="0.75"/>
+          <polygon points="0,-72 68,-22 42,58 -42,58 -68,-22"    fill="none" stroke="#E2E8F0" stroke-width="0.75"/>
+          <polygon points="0,-48 46,-15 28,39 -28,39 -46,-15"    fill="none" stroke="#E2E8F0" stroke-width="0.75"/>
+          <polygon points="0,-24 23,-7 14,19 -14,19 -23,-7"      fill="none" stroke="#E2E8F0" stroke-width="0.75"/>
+          <line x1="0" y1="0" x2="0"    y2="-120" stroke="#E2E8F0" stroke-width="0.75"/>
+          <line x1="0" y1="0" x2="114"  y2="-37"  stroke="#E2E8F0" stroke-width="0.75"/>
+          <line x1="0" y1="0" x2="70"   y2="97"   stroke="#E2E8F0" stroke-width="0.75"/>
+          <line x1="0" y1="0" x2="-70"  y2="97"   stroke="#E2E8F0" stroke-width="0.75"/>
+          <line x1="0" y1="0" x2="-114" y2="-37"  stroke="#E2E8F0" stroke-width="0.75"/>
+          
+          <!-- Target dashed: Process 3.0, Tech 3.0, Data 3.5, Docs 3.0, KM 2.5 -->
+          <polygon points="0,-72 68.4,-22.2 49,67.9 -42,58.2 -57,-18.5" fill="none" stroke="#B8C0C9" stroke-width="1" stroke-dasharray="5,3"/>
+          
+          <!-- Current: Process 1.6, Tech 1.3, Data 1.3, Docs 1.5, KM 1.2 -->
+          <polygon points="0,-38.4 29.6,-9.6 18.2,25.2 -21,29.1 -27.4,-8.9" fill="rgba(15,107,98,0.14)" stroke="#0F6B62" stroke-width="1.75"/>
+          <circle cx="0" cy="-38.4" r="3.2" fill="#0F6B62"/>
+          <circle cx="29.6" cy="-9.6" r="3.2" fill="#0F6B62"/>
+          <circle cx="18.2" cy="25.2" r="3.2" fill="#0F6B62"/>
+          <circle cx="-21" cy="29.1" r="3.2" fill="#0F6B62"/>
+          <circle cx="-27.4" cy="-8.9" r="3.2" fill="#0F6B62"/>
+          
+          <text x="0"    y="-132" text-anchor="middle" font-size="9" fill="#1B2A4A" font-weight="600">Process</text>
+          <text x="128"  y="-20"  text-anchor="start"  font-size="9" fill="#1B2A4A" font-weight="600">Technology</text>
+          <text x="78"   y="110"  text-anchor="start"  font-size="9" fill="#1B2A4A" font-weight="600">Data Quality</text>
+          <text x="-78"  y="110"  text-anchor="end"    font-size="9" fill="#1B2A4A" font-weight="600">Documentation</text>
+          <text x="-128" y="-16"  text-anchor="end"    font-size="9" fill="#1B2A4A" font-weight="600">Knowledge Mgmt.</text>
+        </g>
       </svg>
     </div>
+    <div class="exhibit-note">
+      Solid line: current state. Dashed line: target state (post-roadmap).<br><br>
+      <b>Business Development scores 1.3 overall</b> — The lowest average maturity across the organization, driven by the complete absence of a CRM system and reliance on un-auditable WhatsApp threads. Migrating all 5 verticals to Zoho CRM (Phase 1) will trigger a massive structural uplift in Data Quality and Technology utilization.
+    </div>
   </div>
+
+<table>
+  <tr><th>Dimension</th><th class="num">Current</th><th class="num">Target</th><th class="num">Gap</th></tr>
+  <tr><td>Process Standardization</td><td class="num">1.6</td><td class="num">3.0</td><td class="num">1.4</td></tr>
+  <tr><td>Technology Utilization</td><td class="num">1.3</td><td class="num">3.0</td><td class="num">1.7</td></tr>
+  <tr><td>Data Quality &amp; Accessibility</td><td class="num">1.3</td><td class="num">3.5</td><td class="num">2.2</td></tr>
+  <tr><td>Documentation</td><td class="num">1.5</td><td class="num">3.0</td><td class="num">1.5</td></tr>
+  <tr><td>Knowledge Management</td><td class="num">1.2</td><td class="num">2.5</td><td class="num">1.3</td></tr>
+  <tr style="font-weight:700;"><td>Overall</td><td class="num">1.3</td><td class="num">2.9</td><td class="num">1.6</td></tr>
+</table>
+<div class="doc-footer"><span>BD Audit Report · v1.0</span><span>Page 6</span></div>
 </div>
 
-<!-- SOLUTIONS -->
+<!-- ============ 06 ROADMAP ============ -->
 <div class="page">
-  <div class="section">
-    <div class="section-num">Section 06</div>
-    <h2>Proposed Solutions</h2>
+  <div class="doc-header"><span><b>EF Polymers</b> — BD Audit</span><span>Confidential</span></div>
 
-    <div class="solution-card">
-      <h4>Solution: Zoho CRM Implementation (All Verticals)</h4>
-      <p>Deploy Zoho CRM across all 5 BD verticals with vertical-specific deal stages. Phase 1: Lead database + deal tracking. Phase 2: Automated follow-up cadences + templates. Eliminates the #1 enterprise risk.</p>
-      <table>
-        <tr><th>Priority</th><th>Effort</th><th>Approach</th><th>Verticals</th></tr>
-        <tr><td><span class="badge badge-critical">P1</span></td><td>Medium</td><td>Zoho CRM — within existing ecosystem</td><td><span class="vertical-tag vt-seed">ALL</span></td></tr>
-      </table>
+  <div class="eyebrow">Section 06 — Implementation Plan</div>
+  <h2>Phased Roadmap</h2>
+  <div class="section-dek">Initiatives sequenced across three phases, with quantified ROI and scope of work per phase</div>
+
+  <table class="tl-table">
+    <tr>
+      <th>Initiative</th><th class="id">Rec.</th>
+      <th class="num">Phase 1<br><span style="font-weight:400">Mo. 1–2</span></th>
+      <th class="num">Phase 2<br><span style="font-weight:400">Mo. 3–5</span></th>
+      <th class="num">Phase 3<br><span style="font-weight:400">Mo. 6+</span></th>
+    </tr>
+    <tr><td>Zoho CRM Rollout</td><td class="id">R-01</td><td class="phase-mark p1">●</td><td></td><td></td></tr>
+    <tr><td>CargoX Decoupling</td><td class="id">R-02</td><td class="phase-mark p1">●</td><td></td><td></td></tr>
+    <tr><td>Device/SIM Policy</td><td class="id">R-04</td><td></td><td class="phase-mark p2">●</td><td></td></tr>
+    <tr><td>Automated Collections</td><td class="id">R-06</td><td></td><td class="phase-mark p2">●</td><td></td></tr>
+    <tr><td>RCM API Integration</td><td class="id">R-07</td><td></td><td></td><td class="phase-mark p3">●</td></tr>
+  </table>
+
+  <!-- PHASE 1 -->
+  <div class="phase-block">
+    <div class="phase-hd">
+      <div class="phase-hd-left">
+        <span class="phase-hd-title">Phase 1 &mdash; Visibility &amp; Safety</span>
+        <span class="phase-hd-timeline">Months 1&ndash;2 &middot; High priority</span>
+      </div>
+      <span class="phase-maturity">Maturity 1.3 &rarr; 1.8</span>
     </div>
-
-    <div class="solution-card">
-      <h4>Solution: Automated Collections Workflow (NGO)</h4>
-      <p>Configure automated payment reminder sequences at 30, 45, and 60 day marks. Structure billing terms with early-payment incentives. Escalation alerts to AM-BD Lead automatically.</p>
-      <table>
-        <tr><th>Priority</th><th>Effort</th><th>Approach</th><th>Expected Impact</th></tr>
-        <tr><td><span class="badge badge-critical">P1</span></td><td>Low</td><td>CRM + Zoho Books payment tracking</td><td>Reduce collection cycle from 60–70 days to 40–50 days</td></tr>
-      </table>
+    <div class="phase-sow">
+      <div class="col-label">Scope of Work</div>
+      <div class="sow-item"><span class="sow-dot"></span><span>Migrate all 5 verticals into Zoho CRM to establish standard deal stages</span></div>
+      <div class="sow-item"><span class="sow-dot"></span><span>Decouple CargoX upload from Accounts clearance to prevent demurrage</span></div>
+      <div class="sow-item"><span class="sow-dot"></span><span>Acquire secondary domains for Cocopeat cold outbound emails to protect primary domain</span></div>
+      <div class="sow-item"><span class="sow-dot"></span><span>Establish daily CRM discipline for Govt trial photo uploads, replacing WhatsApp</span></div>
     </div>
-
-    <div class="solution-card">
-      <h4>Solution: Parallel CargoX Approval (Cocopeat)</h4>
-      <p>Re-engineer the approval workflow so CargoX document preparation happens in parallel with payment clearance, rather than sequentially. Accounts confirms payment before final submission, but prep work isn't gated.</p>
-      <table>
-        <tr><th>Priority</th><th>Effort</th><th>Approach</th><th>Expected Impact</th></tr>
-        <tr><td><span class="badge badge-critical">P1</span></td><td>Low</td><td>Process change — no new tools needed</td><td>Eliminates demurrage fee risk; faster export turnaround</td></tr>
-      </table>
-    </div>
-
-    <div class="solution-card">
-      <h4>Solution: Separate Email Domain for Cold Outreach (Cocopeat)</h4>
-      <p>Set up a secondary domain for cold outbound emails with proper warm-up protocols. Primary domain reserved for client replies and internal use.</p>
-      <table>
-        <tr><th>Priority</th><th>Effort</th><th>Approach</th><th>Expected Impact</th></tr>
-        <tr><td><span class="badge badge-high">P2</span></td><td>Low</td><td>Domain setup + email automation tool</td><td>Protects primary domain reputation; safer at scale</td></tr>
-      </table>
-    </div>
-
-    <div class="solution-card">
-      <h4>Solution: Centralized Task Board (Government)</h4>
-      <p>Transition daily tasks from WhatsApp threads to Zoho Projects or a simple Kanban board. CBDO assigns tasks via the board, Government BD updates status directly.</p>
-      <table>
-        <tr><th>Priority</th><th>Effort</th><th>Approach</th><th>Expected Impact</th></tr>
-        <tr><td><span class="badge badge-high">P2</span></td><td>Low</td><td>Zoho Projects — within existing ecosystem</td><td>Task visibility; CBDO freed from manual WhatsApp tracking</td></tr>
-      </table>
-    </div>
-
-    <div class="solution-card">
-      <h4>Solution: Mobile Form for Ground Photo Sync (Government)</h4>
-      <p>Deploy a mobile form (Zoho Forms or Google Forms linked to Drive) that field staff use to upload photos directly, eliminating the WhatsApp → manual download → re-upload cycle.</p>
-      <table>
-        <tr><th>Priority</th><th>Effort</th><th>Approach</th><th>Expected Impact</th></tr>
-        <tr><td><span class="badge badge-medium">P2</span></td><td>Low</td><td>Lightweight form — no app build needed</td><td>Eliminates manual photo sync loop; reduces data loss risk</td></tr>
-      </table>
+    <div class="phase-roi">
+      <div class="roi-card">
+        <div class="roi-card-num">100%</div>
+        <div class="roi-card-label">pipeline vis</div>
+        <div class="roi-card-desc">No lost deals across 230 MT target</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-card-num">0</div>
+        <div class="roi-card-label">demurrage risk</div>
+        <div class="roi-card-desc">Decoupled CargoX upload window</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-card-num">Secured</div>
+        <div class="roi-card-label">domain safety</div>
+        <div class="roi-card-desc">Protected from cold outbound blacklisting</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-card-num">&darr; 2 hrs</div>
+        <div class="roi-card-label">admin overhead</div>
+        <div class="roi-card-desc">Direct Govt trial photo uploads save daily sync time</div>
+      </div>
     </div>
   </div>
+
+  <!-- PHASE 2 -->
+  <div class="phase-block">
+    <div class="phase-hd">
+      <div class="phase-hd-left">
+        <span class="phase-hd-title">Phase 2 &mdash; Scale &amp; Automation</span>
+        <span class="phase-hd-timeline">Months 3&ndash;5 &middot; Operational discipline</span>
+      </div>
+      <span class="phase-maturity p2">Maturity 1.8 &rarr; 2.5</span>
+    </div>
+    <div class="phase-sow">
+      <div class="col-label">Scope of Work</div>
+      <div class="sow-item"><span class="sow-dot p2"></span><span>Provision company SIMs/devices to secure client contact history</span></div>
+      <div class="sow-item"><span class="sow-dot p2"></span><span>Implement CRM-based automated 30/45/60-day payment reminders for NGO accounts</span></div>
+      <div class="sow-item"><span class="sow-dot p2"></span><span>Deploy automated CRM follow-up templates for Seed vertical to support solo BD Manager</span></div>
+      <div class="sow-item"><span class="sow-dot p2"></span><span>Automate leave and travel tracking via Zoho People integration for Govt team</span></div>
+    </div>
+    <div class="phase-roi">
+      <div class="roi-card">
+        <div class="roi-card-num">&darr; 40%</div>
+        <div class="roi-card-label">receivables</div>
+        <div class="roi-card-desc">Faster collections for NGO vertical</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-card-num">100%</div>
+        <div class="roi-card-label">contact retention</div>
+        <div class="roi-card-desc">Company-owned devices protect against turnover</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-card-num">&uarr; 2x</div>
+        <div class="roi-card-label">follow-up capacity</div>
+        <div class="roi-card-desc">Templates scale the solo Seed BD output</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-card-num">Automated</div>
+        <div class="roi-card-label">travel tracking</div>
+        <div class="roi-card-desc">No manual calendar updates for 15-20 days/month travel</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHASE 3 -->
+  <div class="phase-block">
+    <div class="phase-hd">
+      <div class="phase-hd-left">
+        <span class="phase-hd-title">Phase 3 &mdash; Strategic Integration</span>
+        <span class="phase-hd-timeline">Month 6+ &middot; Heavy effort</span>
+      </div>
+      <span class="phase-maturity p3">Maturity 2.5 &rarr; 3.0</span>
+    </div>
+    <div class="phase-sow">
+      <div class="col-label">Scope of Work</div>
+      <div class="sow-item"><span class="sow-dot p3"></span><span>Integrate RCM's depot-level sales data with EFP via API for demand planning</span></div>
+      <div class="sow-item"><span class="sow-dot p3"></span><span>Establish cross-vertical pipeline health reviews led by CBDO</span></div>
+      <div class="sow-item"><span class="sow-dot p3"></span><span>Formalize developer-to-client release SOPs for custom Govt trial tools</span></div>
+      <div class="sow-item"><span class="sow-dot p3"></span><span>Establish baseline conversion rates from "Demo Deployed" to "Sample Dispatched" across Seed team</span></div>
+    </div>
+    <div class="phase-roi">
+      <div class="roi-card">
+        <div class="roi-card-num">Live</div>
+        <div class="roi-card-label">forecasting</div>
+        <div class="roi-card-desc">Visibility into tertiary sales for B2B/RCM</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-card-num">Unified</div>
+        <div class="roi-card-label">pipeline reviews</div>
+        <div class="roi-card-desc">Standardized evaluation across all 5 units</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-card-num">Stable</div>
+        <div class="roi-card-label">custom tools</div>
+        <div class="roi-card-desc">Structured QA loop for internal Govt trial apps</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-card-num">Measured</div>
+        <div class="roi-card-label">conversion rates</div>
+        <div class="roi-card-desc">Data-driven targeting for institutional sales</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="doc-footer"><span>BD Audit Report · v1.0</span><span>Page 7</span></div>
 </div>
 
-<!-- ADDITIONAL SUGGESTIONS -->
 <div class="page">
-  <div class="section">
-    <div class="section-num">Section 07</div>
-    <h2>Additional Optimization Suggestions</h2>
-
-    <div class="solution-card suggestion">
-      <h4>💡 WhatsApp Chatbot for B2B/RCM Community</h4>
-      <p>The team manages 2,000 WhatsApp academy contacts with 90% drop-off (only 200 active). A chatbot could automate FAQ handling, database logging, and QC feedback collection — turning passive contacts into engaged data sources.</p>
-      <div class="kpi-row"><span class="kpi-tag">Priority: P3</span><span class="kpi-tag">Effort: Medium</span><span class="kpi-tag">Impact: Community engagement from 10% → 30%+</span></div>
-    </div>
-
-    <div class="solution-card suggestion">
-      <h4>💡 Ad-to-Lead Response Time Reduction (Cocopeat)</h4>
-      <p>Inbound queries from paid ads experience a 6–10 hour response lag due to time zones. Auto-responders with pre-qualification forms could capture high-intent leads immediately.</p>
-      <div class="kpi-row"><span class="kpi-tag">Priority: P2</span><span class="kpi-tag">Effort: Low</span><span class="kpi-tag">Impact: Captures leads that currently bounce</span></div>
-    </div>
-
-    <div class="solution-card suggestion">
-      <h4>💡 RCM Store-Level Data Sharing Exploration</h4>
-      <p>Explore API integration or structured file sharing with RCM to gain visibility into the 10,000 retail stores. Even monthly aggregate data by region would dramatically improve demand planning.</p>
-      <div class="kpi-row"><span class="kpi-tag">Priority: P3</span><span class="kpi-tag">Effort: Medium (requires RCM cooperation)</span><span class="kpi-tag">Impact: Demand forecasting accuracy</span></div>
-    </div>
-
-    <div class="solution-card suggestion">
-      <h4>💡 Company-Owned SIM Policy for Field Staff</h4>
-      <p>Transition all customer-facing BD roles to company-owned SIMs. When an employee leaves, the SIM and contact history remain with the company.</p>
-      <div class="kpi-row"><span class="kpi-tag">Priority: P2</span><span class="kpi-tag">Effort: Low</span><span class="kpi-tag">Impact: Protects ~90% of customer communications</span></div>
-    </div>
-  </div>
-</div>
-
-<!-- ROADMAP -->
-<div class="page">
-  <div class="section">
-    <div class="section-num">Section 08</div>
-    <h2>Phased Roadmap</h2>
-
-    <div style="margin:30px 0;">
-      <div class="roadmap-phase">
-        <div class="phase-label">Phase 1 — Quick Wins (Highest ROI)</div>
-        <h4>Zoho CRM Phase 1 Rollout</h4>
-        <p>All 5 verticals migrated to Zoho CRM. Lead import, deal stages configured, basic dashboards live. <strong>100% pipeline visibility from day one.</strong></p>
-        <h4>CargoX Parallel Approval</h4>
-        <p>Process re-engineering to decouple document prep from payment gating. <strong>Zero cost; eliminates demurrage risk.</strong></p>
-        <h4>Separate Cold Outreach Domain</h4>
-        <p>Secondary email domain for cold outbound. <strong>Protects primary reputation.</strong></p>
-        <h4>Device/SIM Ownership Policy</h4>
-        <p>Company SIMs for customer-facing roles. <strong>Contact continuity protected.</strong></p>
-        <div style="background:#f0fdfa;padding:12px;border-radius:6px;margin-top:12px;">
-          <strong>Where this places us:</strong> Pipeline is visible for the first time. Export compliance risk eliminated. Email domain protected. Customer contacts secured. Maturity jumps from 1.3 to ~2.0.
-        </div>
-      </div>
-
-      <div class="roadmap-phase phase-2">
-        <div class="phase-label p2">Phase 2 — Operational Foundation</div>
-        <h4>CRM Phase 2: Automated Follow-ups + Templates</h4>
-        <p>Vertical-specific templates, auto reminders every 4–5 days (replacing memory-based follow-ups). <strong>No more missed follow-ups.</strong></p>
-        <h4>Automated Collections (NGO)</h4>
-        <p>Payment reminder sequences at 30/45/60 days. <strong>Reduces collection cycle by ~20 days.</strong></p>
-        <h4>Task Board + Photo Sync (Government)</h4>
-        <p>Zoho Projects for task management. Mobile forms for direct photo uploads. <strong>Eliminates WhatsApp-based task tracking.</strong></p>
-        <h4>Ad Auto-Responders (Cocopeat)</h4>
-        <p>Pre-qualification forms for inbound ad leads. <strong>Captures leads during time zone gaps.</strong></p>
-        <div style="background:#eff6ff;padding:12px;border-radius:6px;margin-top:12px;">
-          <strong>Where this places us:</strong> Follow-ups are automated. Collections cycle shortened. Government workflows digitized. Inbound leads captured 24/7. Maturity at ~2.5.
-        </div>
-      </div>
-
-      <div class="roadmap-phase phase-3">
-        <div class="phase-label p3">Phase 3 — Advanced Optimization</div>
-        <h4>WhatsApp Chatbot (B2B/RCM)</h4>
-        <p>Automated FAQ handling and QC feedback for 2,000+ academy contacts. <strong>Community engagement from 10% → 30%+.</strong></p>
-        <h4>RCM Data Sharing Integration</h4>
-        <p>API or structured file sharing for store-level visibility. <strong>Demand forecasting accuracy.</strong></p>
-        <h4>CRM Analytics & Cross-Vertical Benchmarking</h4>
-        <p>Conversion rate comparison across verticals. Revenue forecasting. <strong>Data-driven sales strategy.</strong></p>
-        <div style="background:#f5f3ff;padding:12px;border-radius:6px;margin-top:12px;">
-          <strong>Where this places us:</strong> BD operates at Level 3+ maturity. Community engagement scaled. Demand planning data-driven. Sales strategy based on evidence. Maturity at ~3.0.
-        </div>
-      </div>
-    </div>
-
-    <h3>Cumulative Expected Gains</h3>
-    <table>
-      <tr><th>Phase</th><th>Key Deliverable</th><th>Primary Impact</th><th>Maturity Lift</th></tr>
-      <tr><td>Phase 1</td><td>CRM + process fixes + policies</td><td>Pipeline visibility; risk elimination</td><td>1.3 → 2.0</td></tr>
-      <tr><td>Phase 2</td><td>Automation + task boards + collections</td><td>No missed follow-ups; faster collections</td><td>2.0 → 2.5</td></tr>
-      <tr><td>Phase 3</td><td>Chatbot + data integration + analytics</td><td>Community engagement; demand forecasting</td><td>2.5 → 3.0</td></tr>
-    </table>
-  </div>
+  <div class="doc-header"><span><b>EF Polymers</b> — BD Audit</span><span>Confidential</span></div>
+  <div class="eyebrow">Appendix</div>
+  <h2>Cross-Department Dependencies</h2>
+  <div class="section-dek">Findings and recommendations that require action outside the BD department to resolve</div>
+  <table>
+    <tr><th>Finding / Rec.</th><th>Counterpart Department</th><th>Dependency</th></tr>
+    <tr><td><span class="chip-ref">R-01</span> CRM Deployment</td><td>IT / Operations</td><td>Requires tech support for organization-wide Zoho integration.</td></tr>
+    <tr><td><span class="chip-ref">R-02</span> CargoX Export Gating</td><td>Finance &amp; Accounts</td><td>Accounts must authorize decoupling document upload from final payment clearance.</td></tr>
+    <tr><td><span class="chip-ref">R-04</span> Device Policy</td><td>HR &amp; Admin</td><td>HR must procure and allocate company phones/SIMs for the entire field team.</td></tr>
+  </table>
+  <div class="doc-footer"><span>BD Audit Report · v1.0</span><span>Page 8</span></div>
 </div>
 
 </body>

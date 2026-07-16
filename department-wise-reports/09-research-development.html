@@ -5,241 +5,638 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Research & Development — Department Audit Report | EF Polymers</title>
 <style>
-  @page{size:A4;margin:20mm 18mm}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:#1e293b;line-height:1.6;background:#fff;font-size:11pt}.page{page-break-after:always;min-height:100vh}.page:last-child{page-break-after:avoid}.cover{display:flex;flex-direction:column;justify-content:center;align-items:center;min-height:100vh;background:linear-gradient(135deg,#1B2A4A 0%,#0F766E 100%);color:#fff;text-align:center;padding:60px 40px}.cover-badge{font-size:10pt;letter-spacing:3px;text-transform:uppercase;opacity:.8;margin-bottom:16px;border:1px solid rgba(255,255,255,.3);padding:6px 20px;border-radius:20px}.cover h1{font-size:32pt;font-weight:700;margin:20px 0 10px}.cover h2{font-size:16pt;font-weight:300;opacity:.9;margin-bottom:40px}.cover-meta{font-size:10pt;opacity:.7;line-height:2}.cover-line{width:80px;height:3px;background:rgba(255,255,255,.5);margin:30px auto}.section{padding:40px 0}.section-num{font-size:9pt;color:#0F766E;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:4px}h2{font-size:18pt;color:#1B2A4A;margin-bottom:20px;padding-bottom:10px;border-bottom:2px solid #e2e8f0}h3{font-size:13pt;color:#1B2A4A;margin:24px 0 12px}h4{font-size:11pt;color:#334155;margin:16px 0 8px}p{margin-bottom:12px}table{width:100%;border-collapse:collapse;margin:16px 0 24px;font-size:10pt}th{background:#1B2A4A;color:#fff;padding:10px 12px;text-align:left;font-weight:600}td{padding:9px 12px;border-bottom:1px solid #e2e8f0}tr:nth-child(even){background:#f8fafc}.card{border:1px solid #e2e8f0;border-radius:8px;padding:20px;margin:16px 0}.card-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}.card-title{font-weight:700;font-size:11pt;color:#1B2A4A}.badge{display:inline-block;padding:3px 12px;border-radius:12px;font-size:8.5pt;font-weight:600}.badge-critical{background:#fef2f2;color:#dc2626;border:1px solid #fecaca}.badge-high{background:#fff7ed;color:#ea580c;border:1px solid #fed7aa}.badge-medium{background:#fffbeb;color:#d97706;border:1px solid #fde68a}.badge-low{background:#f0fdf4;color:#16a34a;border:1px solid #bbf7d0}.metrics-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:16px 0}.metric-box{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:14px;text-align:center}.metric-value{font-size:18pt;font-weight:700;color:#0F766E}.metric-label{font-size:8pt;color:#64748b;text-transform:uppercase;letter-spacing:1px;margin-top:4px}.flow-container{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:20px 0;justify-content:center}.flow-step{background:#f0fdfa;border:2px solid #0F766E;border-radius:8px;padding:12px 16px;font-size:9pt;font-weight:500;text-align:center;min-width:120px;max-width:180px}.flow-step.problem{border-color:#dc2626;background:#fef2f2}.flow-arrow{color:#94a3b8;font-size:18pt}.solution-card{border-left:4px solid #0F766E;background:#f0fdfa;border-radius:0 8px 8px 0;padding:16px 20px;margin:12px 0}.solution-card.suggestion{border-left-color:#6366f1;background:#eef2ff}.gap-item{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid #f1f5f9}.gap-icon{width:32px;height:32px;background:#fef3c7;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14pt;flex-shrink:0}.roadmap-phase{border-left:3px solid #0F766E;padding:16px 0 16px 24px;margin-left:12px;position:relative}.roadmap-phase::before{content:'';width:12px;height:12px;background:#0F766E;border-radius:50%;position:absolute;left:-7.5px;top:20px}.roadmap-phase.phase-2{border-left-color:#2563eb}.roadmap-phase.phase-2::before{background:#2563eb}.roadmap-phase.phase-3{border-left-color:#7c3aed}.roadmap-phase.phase-3::before{background:#7c3aed}.phase-label{font-size:9pt;font-weight:700;color:#0F766E;letter-spacing:1px;text-transform:uppercase}.phase-label.p2{color:#2563eb}.phase-label.p3{color:#7c3aed}.kpi-row{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}.kpi-tag{background:#f1f5f9;border-radius:6px;padding:4px 10px;font-size:9pt;color:#475569}@media print{body{font-size:10pt}.page{min-height:auto}.cover{min-height:100vh}}
+:root{
+  --ink:#1B2A4A;
+  --slate:#3F4B5C;
+  --muted:#6B7785;
+  --line:#D8DEE5;
+  --line-soft:#E9EDF1;
+  --paper:#FFFFFF;
+  --paper-alt:#F6F7F9;
+  --accent:#0F6B62;
+  --accent-soft:#EAF3F1;
+  --risk-crit-bg:#FCEBEA; --risk-crit-fg:#A32E24;
+  --risk-med-bg:#FBF1DF;  --risk-med-fg:#8A5A10;
+  --risk-low-bg:#E9F4EC;  --risk-low-fg:#276B3E;
+}
+@page{ size:A4; margin:22mm 18mm 20mm 18mm; }
+*{ margin:0; padding:0; box-sizing:border-box; }
+body{
+  font-family:'Segoe UI',system-ui,-apple-system,sans-serif;
+  color:var(--slate);
+  line-height:1.55;
+  background:#EDEFF1;
+  font-size:10.3pt;
+}
+.page{
+  background:var(--paper);
+  max-width:840px;
+  margin:0 auto 14px auto;
+  padding:26mm 20mm 20mm 20mm;
+  position:relative;
+  page-break-after:always;
+  min-height:1120px;
+}
+.page:last-child{ page-break-after:avoid; }
+
+/* ---- running header / footer ---- */
+.doc-header{
+  display:flex; justify-content:space-between; align-items:baseline;
+  font-size:7.8pt; letter-spacing:0.4px; text-transform:uppercase; color:var(--muted);
+  border-bottom:1px solid var(--line); padding-bottom:8px; margin-bottom:22px;
+}
+.doc-header b{ color:var(--ink); }
+.doc-footer{
+  position:absolute; bottom:10mm; left:20mm; right:20mm;
+  display:flex; justify-content:space-between;
+  font-size:7.5pt; color:var(--muted);
+  border-top:1px solid var(--line-soft); padding-top:6px;
+}
+
+/* ---- cover ---- */
+.cover{ display:flex; flex-direction:column; min-height:1080px; }
+.cover-top{ display:flex; justify-content:space-between; align-items:flex-start; }
+.cover-mark{ font-size:9pt; font-weight:700; letter-spacing:2px; color:var(--ink); }
+.cover-mark span{ color:var(--accent); }
+.cover-class{ font-size:7.8pt; text-transform:uppercase; letter-spacing:1.5px; color:var(--muted); border:1px solid var(--line); padding:4px 10px; }
+.cover-body{ flex:1; display:flex; flex-direction:column; justify-content:center; padding:60px 0; }
+.cover-eyebrow{ font-family:Georgia,'Times New Roman',serif; font-style:italic; font-size:11pt; color:var(--accent); margin-bottom:14px; }
+.cover-title{ font-family:Georgia,'Times New Roman',serif; font-size:34pt; color:var(--ink); font-weight:600; line-height:1.15; margin-bottom:10px; }
+.cover-sub{ font-size:13pt; color:var(--slate); font-weight:400; }
+.cover-rule{ width:52px; height:2px; background:var(--accent); margin:26px 0; }
+.cover-ctrl{ border:1px solid var(--line); }
+.cover-ctrl table{ width:100%; border-collapse:collapse; margin:0; }
+.cover-ctrl td{ padding:9px 14px; font-size:9pt; border-bottom:1px solid var(--line-soft); }
+.cover-ctrl tr:last-child td{ border-bottom:none; }
+.cover-ctrl td.label{ color:var(--muted); width:38%; text-transform:uppercase; font-size:7.8pt; letter-spacing:0.5px; }
+.cover-ctrl td.val{ color:var(--ink); font-weight:600; }
+
+/* ---- section furniture ---- */
+.eyebrow{ font-size:8pt; color:var(--accent); font-weight:700; letter-spacing:1.6px; text-transform:uppercase; margin-bottom:6px; }
+h2{ font-family:Georgia,'Times New Roman',serif; font-size:17pt; color:var(--ink); font-weight:600; margin-bottom:4px; }
+h2 + .section-dek{ color:var(--muted); font-size:9.3pt; margin-bottom:18px; padding-bottom:14px; border-bottom:1px solid var(--line); }
+h3{ font-family:Georgia,'Times New Roman',serif; font-size:12.5pt; color:var(--ink); font-weight:600; margin:22px 0 8px; }
+h4{ font-size:10pt; color:var(--ink); font-weight:700; margin:14px 0 4px; }
+p{ margin-bottom:10px; }
+.lede{ font-size:10.6pt; color:var(--slate); max-width:95%; }
+
+/* ---- tables ---- */
+table{ width:100%; border-collapse:collapse; margin:10px 0 20px; font-size:9pt; }
+th{ background:var(--ink); color:#fff; padding:8px 10px; text-align:left; font-weight:600; font-size:8.3pt; letter-spacing:0.3px; text-transform:uppercase; }
+td{ padding:8px 10px; border-bottom:1px solid var(--line-soft); vertical-align:top; }
+tr:nth-child(even) td{ background:var(--paper-alt); }
+td.id, th.id{ font-family:Georgia,serif; font-weight:700; color:var(--ink); white-space:nowrap; width:44px; }
+td.num{ text-align:center; white-space:nowrap; }
+
+/* ---- chips ---- */
+.chip{ display:inline-block; padding:2px 9px; border-radius:3px; font-size:7.8pt; font-weight:700; letter-spacing:0.3px; text-transform:uppercase; white-space:nowrap; }
+.chip-crit{ background:var(--risk-crit-bg); color:var(--risk-crit-fg); }
+.chip-med{  background:var(--risk-med-bg);  color:var(--risk-med-fg); }
+.chip-low{  background:var(--risk-low-bg);  color:var(--risk-low-fg); }
+.chip-ref{ display:inline-block; background:var(--accent-soft); color:var(--accent); font-family:Georgia,serif; font-weight:700; font-size:8pt; padding:1px 6px; border-radius:3px; margin:1px 2px 1px 0; }
+
+/* ---- KPI strip ---- */
+.kpi-strip{ display:flex; border:1px solid var(--line); margin:16px 0 22px; }
+.kpi-cell{ flex:1; padding:12px 14px; border-right:1px solid var(--line); }
+.kpi-cell:last-child{ border-right:none; }
+.kpi-num{ font-family:Georgia,serif; font-size:15pt; color:var(--ink); font-weight:700; }
+.kpi-lbl{ font-size:7.6pt; color:var(--muted); text-transform:uppercase; letter-spacing:0.5px; margin-top:2px; }
+
+/* ---- callout ---- */
+.callout{ border-left:3px solid var(--accent); background:var(--accent-soft); padding:10px 14px; font-size:9pt; color:var(--ink); margin:10px 0 20px; }
+
+/* ---- flow notes ---- */
+.flow-note{ font-size:8.6pt; color:var(--muted); margin:4px 0 18px; padding-left:2px; }
+.flow-note b{ color:var(--risk-crit-fg); }
+
+/* ---- maturity exhibit ---- */
+.exhibit{ display:flex; gap:26px; align-items:center; margin:14px 0 6px; }
+.exhibit-chart{ flex:0 0 220px; }
+.exhibit-note{ flex:1; font-size:9.2pt; color:var(--slate); }
+.exhibit-note b{ color:var(--ink); }
+
+/* ---- roadmap table ---- */
+.tl-table td.phase-mark{ text-align:center; font-weight:700; }
+.tl-table td.phase-mark.p1{ color:var(--accent); }
+.tl-table td.phase-mark.p2{ color:#2563eb; }
+.tl-table td.phase-mark.p3{ color:#7c3aed; }
+
+/* ---- phase blocks ---- */
+.phase-block{ border:1px solid var(--line); margin:14px 0; overflow:hidden; }
+.phase-hd{ display:flex; justify-content:space-between; align-items:center; padding:10px 14px; border-bottom:1px solid var(--line); background:var(--paper-alt); gap:16px; }
+.phase-hd-left{ display:flex; flex-direction:column; gap:2px; }
+.phase-hd-title{ font-family:Georgia,serif; font-size:11pt; font-weight:700; color:var(--ink); }
+.phase-hd-timeline{ font-size:7.8pt; color:var(--muted); }
+.phase-maturity{ font-size:8.5pt; font-weight:700; color:var(--accent); border:1px solid var(--accent); border-radius:3px; padding:3px 10px; white-space:nowrap; flex-shrink:0; }
+.phase-maturity.p2{ color:#2563eb; border-color:#2563eb; }
+.phase-maturity.p3{ color:#7c3aed; border-color:#7c3aed; }
+.phase-sow{ padding:11px 14px 14px; }
+.col-label{ font-size:7.4pt; color:var(--muted); text-transform:uppercase; letter-spacing:0.8px; margin-bottom:8px; font-weight:700; }
+.sow-item{ display:flex; gap:8px; margin-bottom:5px; font-size:8.5pt; color:var(--slate); line-height:1.4; }
+.sow-dot{ width:4px; height:4px; background:var(--accent); border-radius:50%; margin-top:5px; flex-shrink:0; }
+.sow-dot.p2{ background:#2563eb; }
+.sow-dot.p3{ background:#7c3aed; }
+.phase-roi{ display:flex; border-top:1px solid var(--line); background:var(--paper-alt); }
+.roi-card{ flex:1; padding:10px 12px; border-right:1px solid var(--line); text-align:center; }
+.roi-card:last-child{ border-right:none; }
+.roi-card-num{ font-family:Georgia,serif; font-size:13pt; font-weight:700; color:var(--ink); line-height:1.1; margin-bottom:3px; }
+.roi-card-label{ font-size:7.5pt; color:var(--ink); font-weight:700; text-transform:uppercase; letter-spacing:0.3px; margin-bottom:3px; }
+.roi-card-desc{ font-size:7pt; color:var(--muted); line-height:1.35; }
+
+@media print{
+  body{ background:#fff; }
+  .page{ box-shadow:none; margin:0; }
+}
 </style>
 </head>
 <body>
 
+<!-- ============ COVER ============ -->
 <div class="page cover">
-  <div class="cover-badge">Department Audit Report</div>
-  <h1>Research & Development</h1>
-  <h2>Ritu Panwar — Product Development Manager</h2>
-  <div class="cover-line"></div>
-  <div class="cover-meta">EF Polymers Private Limited<br>Prepared by Creative Upaay Consulting<br>July 2026 · Version 1.0<br>Confidential — Executive Leadership Only</div>
-</div>
-
-<div class="page">
-  <div class="section">
-    <div class="section-num">Section 01</div>
-    <h2>Department Overview</h2>
-    <p>R&D is the technical backbone of EF Polymers — responsible for product formulation, quality control co-management, technical documentation for multi-geography regulatory compliance (India, EU, US, Middle East), lab-to-commercial formulation handoffs, and technical support for all BD verticals' trial requirements. The PD Manager serves as the single qualified authority for protocol approvals and grant writing.</p>
-
-    <div class="metrics-grid">
-      <div class="metric-box"><div class="metric-value">8–10</div><div class="metric-label">Disconnected Spreadsheets</div></div>
-      <div class="metric-box"><div class="metric-value">4+2</div><div class="metric-label">Active + Incoming Staff</div></div>
-      <div class="metric-box"><div class="metric-value">Multi</div><div class="metric-label">Geography Compliance</div></div>
-      <div class="metric-box"><div class="metric-value">1</div><div class="metric-label">Qualified Authority</div></div>
-    </div>
-
-    <h3>Time & Effort Allocation</h3>
+  <div class="cover-top">
+    <div class="cover-mark">EF<span>·</span>POLYMERS</div>
+    <div class="cover-class">Confidential — Executive Leadership Only</div>
+  </div>
+  <div class="cover-body">
+    <div class="cover-eyebrow">Department Audit Report</div>
+    <div class="cover-title">Research &amp; Development</div>
+    <div class="cover-sub">Field Trials, Grants &amp; Technical Reporting — Ritu Panwar</div>
+    <div class="cover-rule"></div>
+    <p style="max-width:70%;color:var(--muted);font-size:9.3pt;">
+      An independent operational review of the R&amp;D department, evaluating trial data fragmentation, key-person bottlenecks, and technical documentation workflows, prepared as part of the EF Polymers organization-wide operational audit.
+    </p>
+  </div>
+  <div class="cover-ctrl">
     <table>
-      <tr><th>Activity</th><th>Share</th></tr>
-      <tr><td>Product Formulation & Testing</td><td>~30%</td></tr>
-      <tr><td>QC Co-Management (Daily Tracker)</td><td>~20%</td></tr>
-      <tr><td>Technical Documentation & Compliance</td><td>~20%</td></tr>
-      <tr><td>BD Support (Trial Design, Dosage Guidance)</td><td>~20%</td></tr>
-      <tr><td>Grant Writing & IP Management</td><td>~10%</td></tr>
+      <tr><td class="label">Client</td><td class="val">EF Polymers Private Limited</td></tr>
+      <tr><td class="label">Prepared by</td><td class="val">Creative Upaay Consulting</td></tr>
+      <tr><td class="label">Document version</td><td class="val">1.0</td></tr>
+      <tr><td class="label">Date issued</td><td class="val">July 2026</td></tr>
+      <tr><td class="label">Review scope</td><td class="val">R&amp;D &amp; Product Validation Operations</td></tr>
+      <tr><td class="label">Distribution</td><td class="val">CEO, COO, PD Manager</td></tr>
     </table>
-
-    <h3>Tool Stack</h3>
-    <div class="kpi-row">
-      <span class="kpi-tag">Google Sheets (8–10 disconnected files)</span>
-      <span class="kpi-tag">Google Drive (trial data, reports)</span>
-      <span class="kpi-tag">Power BI (onboarding — not yet connected)</span>
-      <span class="kpi-tag">Lab Equipment Software</span>
-    </div>
   </div>
 </div>
 
+<!-- ============ 01 EXECUTIVE SUMMARY ============ -->
 <div class="page">
-  <div class="section">
-    <div class="section-num">Section 02</div>
-    <h2>Existing Workflows</h2>
+  <div class="doc-header"><span><b>EF Polymers</b> — R&amp;D Audit</span><span>Confidential</span></div>
 
-    <h3>Workflow 1: Product Formulation Lifecycle</h3>
-    <div class="flow-container">
-      <div class="flow-step">Research hypothesis / client spec</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">Lab-scale formulation</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">Testing & iteration</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step problem">Data logged across 8–10 sheets</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">PD Manager protocol approval</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">Handoff to Production for commercial scale</div>
-    </div>
+  <div class="eyebrow">Section 01 — Executive Summary</div>
+  <h2>Department Overview</h2>
+  <div class="section-dek">Scope, current state, and headline findings</div>
 
-    <h3>Workflow 2: QC & Daily Quality Tracker</h3>
-    <div class="flow-container">
-      <div class="flow-step">Production provides batch samples</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">R&D runs QC tests</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">Results logged in Daily QC Tracker</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">Grade assignment (A/B/C)</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">Issues escalated to PD Manager</div>
-    </div>
+  <p class="lede">The R&amp;D team manages new product development, crop validation trials, regulatory registration, and international technical documentation. Operating across India, the US, EU, and Japan, the team forms the scientific backbone of EF Polymers.</p>
 
-    <h3>Workflow 3: Technical Support for BD (Trial Design)</h3>
-    <div class="flow-container">
-      <div class="flow-step">BD requests trial parameters</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step problem">Ad-hoc consultation (no form)</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">R&D designs custom trial protocol</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">Sample dispatch coordination</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">Trial monitoring & report compilation</div>
-    </div>
+  <p>The audit identified a severe key-person dependency on the Product Development Manager (Ritu Panwar), who single-handedly manages multi-stage protocol approvals and grant drafting for all regions. Additionally, research findings are fragmented across 8–10 independent Excel spreadsheets. This lack of a unified database leads to redundant testing and risks institutional knowledge loss.</p>
 
-    <h3>Workflow 4: Multi-Geography Compliance</h3>
-    <div class="flow-container">
-      <div class="flow-step">Identify target market regulatory needs</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step problem">PD Manager is sole compliance authority</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">Prepare technical documentation</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">Submit to regulatory bodies</div>
-    </div>
+  <div class="kpi-strip">
+    <div class="kpi-cell"><div class="kpi-num">18–20</div><div class="kpi-lbl">Peak Active Projects</div></div>
+    <div class="kpi-cell"><div class="kpi-num">8–10</div><div class="kpi-lbl">Excel Trackers</div></div>
+    <div class="kpi-cell"><div class="kpi-num">3</div><div class="kpi-lbl">Approval Stages</div></div>
+    <div class="kpi-cell"><div class="kpi-num">1.5 / 5.0</div><div class="kpi-lbl">Overall Maturity Score</div></div>
   </div>
+
+  <h3>Time &amp; Effort Allocation</h3>
+  <table>
+    <tr><th>Activity</th><th class="num" style="text-align:right">Share of Team Time</th></tr>
+    <tr><td>Technical &amp; Agronomical Report Documentation</td><td class="num">~35%</td></tr>
+    <tr><td>Excel Tracker Maintenance</td><td class="num">~25%</td></tr>
+    <tr><td>Grant &amp; B2B Proposal Drafting</td><td class="num">~20%</td></tr>
+    <tr><td>Protocol Auditing &amp; Approvals</td><td class="num">~15%</td></tr>
+    <tr><td>Board &amp; BOD Reporting Prep</td><td class="num">~5%</td></tr>
+  </table>
+
+  <h3>Tools in Use</h3>
+  <table>
+    <tr><th>Tool</th><th>Role</th></tr>
+    <tr><td>Excel &amp; Google Sheets</td><td>8-10 disjointed trackers holding critical scientific IP</td></tr>
+    <tr><td>Wisebase / AI</td><td>Topic synthesis and preliminary research compilation</td></tr>
+    <tr><td>Power BI</td><td>Active onboarding phase for centralized reporting</td></tr>
+  </table>
+
+  <div class="doc-footer"><span>R&amp;D Audit Report · v1.0</span><span>Page 2</span></div>
 </div>
 
+<!-- ============ 02 FINDINGS REGISTER ============ -->
 <div class="page">
-  <div class="section">
-    <div class="section-num">Section 03</div>
-    <h2>Challenges, Risks & Red Flags</h2>
+  <div class="doc-header"><span><b>EF Polymers</b> — R&amp;D Audit</span><span>Confidential</span></div>
 
-    <div class="card">
-      <div class="card-header"><span class="card-title">1. Key-Person Dependency: PD Manager</span><span class="badge badge-critical">CRITICAL</span></div>
-      <p>Protocol approvals, grant writing, technical sign-offs, and multi-geography compliance are <strong>all bottlenecked on a single individual</strong> (Ritu Panwar). Unavailability creates regulatory delays and trial backlogs across all BD verticals.</p>
-      <table>
-        <tr><th>Metric</th><th>Detail</th></tr>
-        <tr><td>Time Waste</td><td>Not a time waste but a critical continuity risk — if PD Manager is unavailable, entire R&D pipeline stalls</td></tr>
-        <tr><td>Investment</td><td>Medium — cross-training junior team members; documentation of protocols</td></tr>
-        <tr><td>ROI</td><td><strong>Very High</strong> — business continuity; prevents single-point failure on entire technical operation</td></tr>
-        <tr><td>Cross-Department</td><td>All BD verticals (trial support), Production (QC), International (compliance)</td></tr>
-      </table>
-    </div>
+  <div class="eyebrow">Section 02 — Risk &amp; Control Findings</div>
+  <h2>Findings Register</h2>
+  <div class="section-dek">Ranked by risk rating. Each finding is cross-referenced to its recommendation in Section 04.</div>
 
-    <div class="card">
-      <div class="card-header"><span class="card-title">2. Scattered R&D Data (8–10 Spreadsheets)</span><span class="badge badge-critical">CRITICAL</span></div>
-      <p>Research data is fragmented across <strong>8–10 disconnected Google Sheets and Excel files</strong>. No centralized research database exists. This leads to redundant testing, data loss risk, and repeat trial costs.</p>
-      <table>
-        <tr><th>Metric</th><th>Detail</th></tr>
-        <tr><td>Time Waste</td><td>~4–6 hrs/month aggregating data for board reports; redundant trials from undiscoverable past results</td></tr>
-        <tr><td>Investment</td><td>Medium — centralized R&D database with version control</td></tr>
-        <tr><td>ROI</td><td><strong>High</strong> — prevents redundant testing; preserves institutional knowledge; faster query resolution</td></tr>
-      </table>
-    </div>
+  <table>
+    <tr>
+      <th class="id">ID</th><th>Finding</th><th>Risk</th><th>Evidence / Impact</th><th>Linked Rec.</th>
+    </tr>
+    <tr>
+      <td class="id">F-01</td>
+      <td><b>Severe Key-Person Dependency.</b> Protocol approvals, grant writing, and technical sign-offs for all regions are bottlenecked on the PD Manager.</td>
+      <td><span class="chip chip-crit">Critical</span></td>
+      <td>Creates a massive processing bottleneck; 15% of total time spent just on manual sign-offs.</td>
+      <td><span class="chip-ref">R-01</span></td>
+    </tr>
+    <tr>
+      <td class="id">F-02</td>
+      <td><b>Scattered Scientific Data.</b> Research findings are fragmented across 8–10 disconnected spreadsheets.</td>
+      <td><span class="chip chip-crit">Critical</span></td>
+      <td>Causes redundant testing, data loss, and prevents cross-referencing past trials.</td>
+      <td><span class="chip-ref">R-02</span></td>
+    </tr>
+    <tr>
+      <td class="id">F-03</td>
+      <td><b>Aborted Project Management Tooling.</b> Project tracking reverted to manual sheets after PM tools (Asana) were abandoned.</td>
+      <td><span class="chip chip-med">Medium</span></td>
+      <td>Tasks fall through the cracks without automated reminders or clear ownership tracking.</td>
+      <td><span class="chip-ref">R-03</span></td>
+    </tr>
+    <tr>
+      <td class="id">F-04</td>
+      <td><b>Task Ambiguity and Overload.</b> Lack of formal load balancing for secondary support roles has led to task imbalances.</td>
+      <td><span class="chip chip-low">Low</span></td>
+      <td>Inefficient utilization of newly onboarded executives and interns.</td>
+      <td><span class="chip-ref">R-04</span></td>
+    </tr>
+  </table>
 
-    <div class="card">
-      <div class="card-header"><span class="card-title">3. Ad-Hoc BD Trial Requests</span><span class="badge badge-medium">MEDIUM</span></div>
-      <p>BD verticals request trial support through unstructured verbal consultations. No standardized request form captures crop type, region, climate, or target outcomes — creating back-and-forth and delays.</p>
-      <table>
-        <tr><th>Metric</th><th>Detail</th></tr>
-        <tr><td>Time Waste</td><td>~30 min per trial request in back-and-forth clarifications</td></tr>
-        <tr><td>Investment</td><td>Low — structured intake form</td></tr>
-        <tr><td>ROI</td><td><strong>Medium</strong> — faster trial setup; fewer iterations</td></tr>
-      </table>
-    </div>
+  <div class="callout">The two Critical findings jeopardize the company's core scientific IP and speed-to-market. F-01 (Key-Person Dependency) creates an unsustainable bottleneck where global approvals stall waiting for a single manager. F-02 (Scattered Data) is a major structural risk—legacy trial data across 8-10 Excel sheets leads to redundant re-testing and knowledge loss. Phase 1 targets both by enforcing an approval delegation matrix and migrating all disparate sheets into a unified Power BI relational database.</div>
 
-    <div class="card">
-      <div class="card-header"><span class="card-title">4. Power BI Onboarding Not Connected</span><span class="badge badge-low">LOW</span></div>
-      <p>Power BI is being onboarded but is not yet connected to any data source. Without integration, it will become another disconnected tool rather than a consolidation solution.</p>
-      <table>
-        <tr><th>Metric</th><th>Detail</th></tr>
-        <tr><td>Investment</td><td>Low — connect to centralized data sources once established</td></tr>
-        <tr><td>ROI</td><td><strong>Medium</strong> — visualization layer for R&D data; cross-timezone dashboard for board</td></tr>
-      </table>
-    </div>
-  </div>
+  <div class="doc-footer"><span>R&amp;D Audit Report · v1.0</span><span>Page 3</span></div>
 </div>
 
+<!-- ============ 03 WORKFLOWS ============ -->
 <div class="page">
-  <div class="section">
-    <div class="section-num">Section 04</div>
-    <h2>Information Gaps & Cross-Department Leaks</h2>
-    <div class="gap-item"><div class="gap-icon">⚠</div><div><h4>R&D ↔ All BD (Trial Data)</h4><p>BD teams access trial data from Google Drive but have no structured search mechanism. Finding relevant past trials for pitches requires manual R&D consultation.</p></div></div>
-    <div class="gap-item"><div class="gap-icon">⚠</div><div><h4>R&D ↔ Production (Lab-to-Commercial)</h4><p>Formulation handoffs lack a standardized protocol. Scaling lab formulations to commercial production is done ad-hoc, risking quality inconsistencies.</p></div></div>
-    <div class="gap-item"><div class="gap-icon">⚠</div><div><h4>R&D ↔ Field Teams (Farmer Feedback)</h4><p>Ground-level agricultural data from field operations doesn't flow back to R&D systematically. Product improvement insights are trapped in WhatsApp threads.</p></div></div>
-  </div>
+  <div class="doc-header"><span><b>EF Polymers</b> — R&amp;D Audit</span><span>Confidential</span></div>
 
-  <div class="section">
-    <div class="section-num">Section 05</div>
-    <h2>Department Maturity Score</h2>
-    <table>
-      <tr><th>Dimension</th><th>Current</th><th>Target</th><th>Gap</th></tr>
-      <tr><td>Process</td><td>2.0</td><td>3.5</td><td>1.5</td></tr>
-      <tr><td>Technology</td><td>2.0</td><td>3.5</td><td>1.5</td></tr>
-      <tr><td>Data Quality</td><td>1.5</td><td>3.0</td><td>1.5</td></tr>
-      <tr><td>Documentation</td><td>2.5</td><td>3.5</td><td>1.0</td></tr>
-      <tr><td>Knowledge Management</td><td>1.5</td><td>3.0</td><td>1.5</td></tr>
-      <tr><th>Overall</th><th>2.0</th><th>3.3</th><th>1.3</th></tr>
-    </table>
-    <p style="font-size:9.5pt;color:#64748b;">Documentation scores highest (2.5) due to regulatory compliance requirements. Data quality and knowledge management lag due to fragmented spreadsheets.</p>
-  </div>
+  <div class="eyebrow">Section 03 — Process Detail</div>
+  <h2>Current Workflows</h2>
+  <div class="section-dek">Where each finding sits inside the operational process</div>
+
+  <!-- WORKFLOW 1: Trial Lifecycle -->
+  <h3>Product Validation &amp; Trial Lifecycle</h3>
+  <svg viewBox="0 0 740 140" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:10px 0 4px;">
+    <defs>
+      <marker id="a1" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+        <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5"/>
+      </marker>
+    </defs>
+    <rect x="10"  y="20" width="106" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="63"  y="40" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Formulation</text>
+    <text x="63"  y="52" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Ready</text>
+    <line x1="116" y1="44" x2="130" y2="44" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)"/>
+
+    <rect x="134" y="20" width="106" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="187" y="40" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Assign Lot (Prod)</text>
+    <text x="187" y="52" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">&amp; Perform QC</text>
+    <line x1="240" y1="44" x2="254" y2="44" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)"/>
+
+    <rect x="258" y="20" width="106" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="311" y="40" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Log Data to</text>
+    <text x="311" y="52" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">R&amp;D Drive</text>
+    <line x1="364" y1="44" x2="378" y2="44" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)"/>
+
+    <rect x="382" y="20" width="106" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="435" y="40" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Design Regional</text>
+    <text x="435" y="52" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Protocols</text>
+    <line x1="488" y1="44" x2="502" y2="44" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)"/>
+
+    <rect x="506" y="20" width="106" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="559" y="40" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Deploy Trial</text>
+    <text x="559" y="52" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">(2-4 Mo.)</text>
+
+    <!-- split to success / failure -->
+    <line x1="559" y1="68" x2="559" y2="100" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)"/>
+    <rect x="506" y="100" width="106" height="40" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1"/>
+    <text x="559" y="117" text-anchor="middle" font-size="7.5" fill="#A32E24" font-family="Segoe UI,sans-serif">Re-run Trial</text>
+    <text x="559" y="129" text-anchor="middle" font-size="7.5" fill="#A32E24" font-family="Segoe UI,sans-serif">(Data Loss/Fail)</text>
+
+    <line x1="612" y1="44" x2="626" y2="44" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)"/>
+    <rect x="630" y="20" width="106" height="48" rx="3" fill="#E9F4EC" stroke="#92C7A3" stroke-width="1"/>
+    <text x="683" y="40" text-anchor="middle" font-size="7.6" fill="#276B3E" font-family="Segoe UI,sans-serif">Successful Trial</text>
+    <text x="683" y="52" text-anchor="middle" font-size="7.6" fill="#276B3E" font-family="Segoe UI,sans-serif">Final Report</text>
+  </svg>
+  <p class="flow-note">Validation is R&amp;D's largest cost center. Untracked findings (due to scattered spreadsheets) lead to repeated trials and inflated validation budgets.</p>
+
+  <!-- WORKFLOW 2: Proposal Development -->
+  <h3>B2B Proposal &amp; Protocol Drafting — <span class="chip-ref">F-01</span></h3>
+  <svg viewBox="0 0 740 92" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:10px 0 4px;">
+    <defs>
+      <marker id="a2" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+        <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5"/>
+      </marker>
+    </defs>
+    
+    <rect x="10" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="70" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Intake Novel</text>
+    <text x="70" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Use Case</text>
+    <line x1="130" y1="46" x2="150" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)"/>
+    
+    <rect x="150" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="210" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Case-by-case</text>
+    <text x="210" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Scientific Research</text>
+    <line x1="270" y1="46" x2="290" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)"/>
+    
+    <rect x="290" y="22" width="120" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5"/>
+    <text x="350" y="43" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">PD Manager Drafts</text>
+    <text x="350" y="55" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">B2B/Grant Proposal</text>
+    <line x1="410" y1="46" x2="430" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)"/>
+    
+    <rect x="430" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="490" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">3-Step Protocol</text>
+    <text x="490" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Auditing</text>
+    <line x1="550" y1="46" x2="570" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)"/>
+    
+    <rect x="570" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="630" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Multi-Round Review</text>
+    <text x="630" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">(Up to 20 days)</text>
+  </svg>
+  <p class="flow-note">All international proposals and scientific grants bottleneck at the PD Manager, causing delays for the BD team waiting on technical pitching materials.</p>
+
+  <div class="doc-footer"><span>R&amp;D Audit Report · v1.0</span><span>Page 4</span></div>
 </div>
 
+<!-- ============ 04 RECOMMENDATIONS ============ -->
 <div class="page">
-  <div class="section">
-    <div class="section-num">Section 06</div>
-    <h2>Proposed Solutions</h2>
-    <div class="solution-card">
-      <h4>Solution: Cross-Train Junior R&D Staff</h4>
-      <p>Document all protocol approval criteria, grant writing templates, and compliance checklists. Train 1–2 junior team members to handle routine approvals and compliance tasks. PD Manager retains final authority but is no longer the sole executor.</p>
-      <table><tr><th>Priority</th><th>Effort</th><th>Expected Impact</th></tr>
-      <tr><td><span class="badge badge-critical">P1</span></td><td>Medium (time investment)</td><td>Eliminates single-point failure; business continuity for entire technical operation</td></tr></table>
+  <div class="doc-header"><span><b>EF Polymers</b> — R&amp;D Audit</span><span>Confidential</span></div>
+
+  <div class="eyebrow">Section 04 — Corrective Action Plan</div>
+  <h2>Recommendations Register</h2>
+  <div class="section-dek">Ordered by priority. Effort and impact are directional estimates for planning purposes.</div>
+
+  <table>
+    <tr><th class="id">ID</th><th>Recommendation</th><th>Finding</th><th>Priority</th><th>Effort</th><th>Expected Impact</th></tr>
+    <tr>
+      <td class="id">R-01</td>
+      <td>Approval Delegation Framework — Draft clear rubrics allowing the PD Manager to delegate stage 1 &amp; 2 protocol approvals to senior executives, reserving her time for final sign-off.</td>
+      <td><span class="chip-ref">F-01</span></td>
+      <td><span class="chip chip-crit">P1</span></td>
+      <td>Medium</td>
+      <td>De-bottlenecks trial deployment and empowers mid-level scientific staff.</td>
+    </tr>
+    <tr>
+      <td class="id">R-02</td>
+      <td>Unified Master R&amp;D Database — Consolidate the 8-10 tracking sheets into a unified Power BI database or Zoho Creator app with relational search.</td>
+      <td><span class="chip-ref">F-02</span></td>
+      <td><span class="chip chip-crit">P1</span></td>
+      <td>High</td>
+      <td>Protects core scientific IP; prevents repeat trials due to lost legacy data.</td>
+    </tr>
+    <tr>
+      <td class="id">R-03</td>
+      <td>Low-Friction PM Tool Reboot — Reintroduce a simplified project management tool (e.g., Trello or Monday) for task assignment without heavy administrative bloat.</td>
+      <td><span class="chip-ref">F-03</span></td>
+      <td><span class="chip chip-med">P2</span></td>
+      <td>Low</td>
+      <td>Restores task accountability and automated deadline reminders.</td>
+    </tr>
+    <tr>
+      <td class="id">R-04</td>
+      <td>Role Standardization — Formally map out specific ownership domains for the new support hires to balance the reporting and tracking workload.</td>
+      <td><span class="chip-ref">F-04</span></td>
+      <td><span class="chip chip-med">P2</span></td>
+      <td>Low</td>
+      <td>Improves execution speed across the 18-20 peak active projects.</td>
+    </tr>
+  </table>
+
+  <div class="doc-footer"><span>R&amp;D Audit Report · v1.0</span><span>Page 5</span></div>
+</div>
+
+<!-- ============ 05 MATURITY ============ -->
+<div class="page">
+  <div class="doc-header"><span><b>EF Polymers</b> — R&amp;D Audit</span><span>Confidential</span></div>
+
+  <div class="eyebrow">Section 05 — Benchmarking</div>
+  <h2>Department Maturity Assessment</h2>
+  <div class="section-dek">Scored 1 (ad hoc) to 5 (optimized) against five capability dimensions</div>
+
+  <div class="exhibit">
+    <div class="exhibit-chart">
+      <svg viewBox="0 0 400 350" xmlns="http://www.w3.org/2000/svg" style="width:100%;">
+        <g transform="translate(200,170)">
+          <polygon points="0,-120 114,-37 70,97 -70,97 -114,-37" fill="none" stroke="#E2E8F0" stroke-width="0.75"/>
+          <polygon points="0,-96 91,-30 56,78 -56,78 -91,-30"    fill="none" stroke="#E2E8F0" stroke-width="0.75"/>
+          <polygon points="0,-72 68,-22 42,58 -42,58 -68,-22"    fill="none" stroke="#E2E8F0" stroke-width="0.75"/>
+          <polygon points="0,-48 46,-15 28,39 -28,39 -46,-15"    fill="none" stroke="#E2E8F0" stroke-width="0.75"/>
+          <polygon points="0,-24 23,-7 14,19 -14,19 -23,-7"      fill="none" stroke="#E2E8F0" stroke-width="0.75"/>
+          <line x1="0" y1="0" x2="0"    y2="-120" stroke="#E2E8F0" stroke-width="0.75"/>
+          <line x1="0" y1="0" x2="114"  y2="-37"  stroke="#E2E8F0" stroke-width="0.75"/>
+          <line x1="0" y1="0" x2="70"   y2="97"   stroke="#E2E8F0" stroke-width="0.75"/>
+          <line x1="0" y1="0" x2="-70"  y2="97"   stroke="#E2E8F0" stroke-width="0.75"/>
+          <line x1="0" y1="0" x2="-114" y2="-37"  stroke="#E2E8F0" stroke-width="0.75"/>
+          
+          <!-- Target dashed: Process 3.0, Tech 3.0, Data 3.5, Docs 3.5, KM 3.0 -->
+          <polygon points="0,-72 68.4,-22.2 68.6,95 -68.6,95 -68.4,-22.2" fill="none" stroke="#B8C0C9" stroke-width="1" stroke-dasharray="5,3"/>
+          
+          <!-- Current: Process 2.0, Tech 1.5, Data 1.0, Docs 2.0, KM 1.0 -->
+          <polygon points="0,-48 34.2,-11.1 14,19.4 -40,55.2 -22.8,-7.4" fill="rgba(15,107,98,0.14)" stroke="#0F6B62" stroke-width="1.75"/>
+          <circle cx="0" cy="-48" r="3.2" fill="#0F6B62"/>
+          <circle cx="34.2" cy="-11.1" r="3.2" fill="#0F6B62"/>
+          <circle cx="14" cy="19.4" r="3.2" fill="#0F6B62"/>
+          <circle cx="-40" cy="55.2" r="3.2" fill="#0F6B62"/>
+          <circle cx="-22.8" cy="-7.4" r="3.2" fill="#0F6B62"/>
+          
+          <text x="0"    y="-132" text-anchor="middle" font-size="9" fill="#1B2A4A" font-weight="600">Process</text>
+          <text x="128"  y="-20"  text-anchor="start"  font-size="9" fill="#1B2A4A" font-weight="600">Technology</text>
+          <text x="78"   y="110"  text-anchor="start"  font-size="9" fill="#1B2A4A" font-weight="600">Data Quality</text>
+          <text x="-78"  y="110"  text-anchor="end"    font-size="9" fill="#1B2A4A" font-weight="600">Documentation</text>
+          <text x="-128" y="-16"  text-anchor="end"    font-size="9" fill="#1B2A4A" font-weight="600">Knowledge Mgmt.</text>
+        </g>
+      </svg>
     </div>
-    <div class="solution-card">
-      <h4>Solution: Centralized R&D Knowledge Database</h4>
-      <p>Migrate 8–10 disconnected spreadsheets into a centralized, searchable database. Options: structured Google Sheets with a master index, Notion, or a custom Zoho Creator app. Include version control and search functionality.</p>
-      <table><tr><th>Priority</th><th>Effort</th><th>Expected Impact</th></tr>
-      <tr><td><span class="badge badge-critical">P1</span></td><td>Medium</td><td>Prevents redundant testing; preserves institutional knowledge; faster query resolution</td></tr></table>
-    </div>
-    <div class="solution-card">
-      <h4>Solution: Structured Trial Request Form</h4>
-      <p>Create a standardized form for BD teams to submit trial requests with required fields: crop type, region, climate, target outcomes, sample specs. Eliminates ad-hoc consultations.</p>
-      <table><tr><th>Priority</th><th>Effort</th><th>Expected Impact</th></tr>
-      <tr><td><span class="badge badge-high">P2</span></td><td>Low</td><td>Faster trial setup; fewer iterations; clear documentation</td></tr></table>
-    </div>
-    <div class="solution-card">
-      <h4>Solution: Connect Power BI to Centralized Data</h4>
-      <p>Once the R&D database is centralized, connect Power BI for visualization and cross-timezone board reporting. Eliminates 4–6 hrs/month of manual data aggregation.</p>
-      <table><tr><th>Priority</th><th>Effort</th><th>Expected Impact</th></tr>
-      <tr><td><span class="badge badge-medium">P3</span></td><td>Low–Medium</td><td>Automated R&D dashboards; real-time board visibility</td></tr></table>
+    <div class="exhibit-note">
+      Solid line: current state. Dashed line: target state (post-roadmap).<br><br>
+      <b>R&amp;D scores 1.5 overall</b> — The department is a critical knowledge center, yet scores only 1.0 in Knowledge Management and Data Quality due to over-reliance on individual memory and 8-10 disparate Excel trackers.<br><br>
+      Migrating to a unified database and formally delegating approvals will structurally stabilize the department and preserve institutional IP.
     </div>
   </div>
 
-  <div class="section">
-    <div class="section-num">Section 08</div>
-    <h2>Phased Roadmap</h2>
-    <div style="margin:30px 0;">
-      <div class="roadmap-phase">
-        <div class="phase-label">Phase 1 — Quick Wins</div>
-        <h4>Cross-Training Program (Begin Immediately)</h4><p>Document protocols. Start training 1–2 juniors. <strong>Reduces single-point risk.</strong></p>
-        <h4>Structured Trial Request Form</h4><p>Deploy form for BD teams. <strong>Eliminates ad-hoc consultations.</strong></p>
-        <div style="background:#f0fdfa;padding:12px;border-radius:6px;margin-top:12px;"><strong>Where this places us:</strong> Key-person risk mitigation started. BD-R&D interface streamlined.</div>
+  <table>
+    <tr><th>Dimension</th><th class="num">Current</th><th class="num">Target</th><th class="num">Gap</th></tr>
+    <tr><td>Process Standardization</td><td class="num">2.0</td><td class="num">3.0</td><td class="num">1.0</td></tr>
+    <tr><td>Technology Utilization</td><td class="num">1.5</td><td class="num">3.0</td><td class="num">1.5</td></tr>
+    <tr><td>Data Quality &amp; Accessibility</td><td class="num">1.0</td><td class="num">3.5</td><td class="num">2.5</td></tr>
+    <tr><td>Documentation</td><td class="num">2.0</td><td class="num">3.5</td><td class="num">1.5</td></tr>
+    <tr><td>Knowledge Management</td><td class="num">1.0</td><td class="num">3.0</td><td class="num">2.0</td></tr>
+    <tr style="font-weight:700;"><td>Overall</td><td class="num">1.5</td><td class="num">3.2</td><td class="num">1.7</td></tr>
+  </table>
+
+  <div class="doc-footer"><span>R&amp;D Audit Report · v1.0</span><span>Page 6</span></div>
+</div>
+
+<!-- ============ 06 ROADMAP ============ -->
+<div class="page">
+  <div class="doc-header"><span><b>EF Polymers</b> — R&amp;D Audit</span><span>Confidential</span></div>
+
+  <div class="eyebrow">Section 06 — Implementation Plan</div>
+  <h2>Phased Roadmap</h2>
+  <div class="section-dek">Initiatives sequenced across three phases, with quantified ROI and scope of work</div>
+
+  <table class="tl-table">
+    <tr>
+      <th>Initiative</th><th class="id">Rec.</th>
+      <th class="num">Phase 1<br><span style="font-weight:400">Mo. 1–2</span></th>
+      <th class="num">Phase 2<br><span style="font-weight:400">Mo. 3–5</span></th>
+      <th class="num">Phase 3<br><span style="font-weight:400">Mo. 6+</span></th>
+    </tr>
+    <tr><td>Approval Delegation Framework</td><td class="id">R-01</td><td class="phase-mark p1">●</td><td></td><td></td></tr>
+    <tr><td>Unified Master R&amp;D Database</td><td class="id">R-02</td><td class="phase-mark p1">●</td><td></td><td></td></tr>
+    <tr><td>Low-Friction PM Tool Reboot</td><td class="id">R-03</td><td></td><td class="phase-mark p2">●</td><td></td></tr>
+    <tr><td>Role Standardization</td><td class="id">R-04</td><td></td><td class="phase-mark p2">●</td><td></td></tr>
+  </table>
+
+  <!-- PHASE 1 -->
+  <div class="phase-block">
+    <div class="phase-hd">
+      <div class="phase-hd-left">
+        <span class="phase-hd-title">Phase 1 &mdash; Structural Stability</span>
+        <span class="phase-hd-timeline">Months 1&ndash;2 &middot; Eliminate Central Bottleneck</span>
       </div>
-      <div class="roadmap-phase phase-2">
-        <div class="phase-label p2">Phase 2 — Operational Foundation</div>
-        <h4>Centralized R&D Database</h4><p>Migrate 8–10 spreadsheets. Searchable, versioned. <strong>Institutional knowledge preserved.</strong></p>
-        <h4>Lab-to-Commercial Handoff Protocol</h4><p>Standardized document for formulation handoffs to Production. <strong>Consistent scaling.</strong></p>
-        <div style="background:#eff6ff;padding:12px;border-radius:6px;margin-top:12px;"><strong>Where this places us:</strong> R&D data is consolidated. Past trial results are discoverable. Handoff to Production is standardized.</div>
+      <span class="phase-maturity">Maturity 1.5 &rarr; 2.2</span>
+    </div>
+    <div class="phase-sow">
+      <div class="col-label">Scope of Work</div>
+      <div class="sow-item"><span class="sow-dot"></span><span>Map 3-stage protocol approvals and formally delegate Stage 1 &amp; 2 authority to senior executives</span></div>
+      <div class="sow-item"><span class="sow-dot"></span><span>Merge the 8-10 disparate Excel trackers into a unified, searchable Power BI relational database</span></div>
+      <div class="sow-item"><span class="sow-dot"></span><span>Implement strict version control for international trial data to prevent legacy data loss</span></div>
+      <div class="sow-item"><span class="sow-dot"></span><span>Train all regional coordinators to input crop trial findings directly into the new central hub</span></div>
+    </div>
+    <div class="phase-roi">
+      <div class="roi-card">
+        <div class="roi-card-num">-15%</div>
+        <div class="roi-card-label">admin load</div>
+        <div class="roi-card-desc">Freed up for the PD Manager by delegating approvals</div>
       </div>
-      <div class="roadmap-phase phase-3">
-        <div class="phase-label p3">Phase 3 — Advanced Optimization</div>
-        <h4>Power BI Dashboard Integration</h4><p>Connected to centralized database. <strong>Automated board reporting.</strong></p>
-        <h4>R&D Knowledge Assistant (AI — Future)</h4><p>RAG-based search across trial data, QC results, regulatory filings. <strong>25% faster query turnaround.</strong></p>
-        <div style="background:#f5f3ff;padding:12px;border-radius:6px;margin-top:12px;"><strong>Where this places us:</strong> R&D at Level 3+ maturity. Data-driven. AI-assisted. Board reporting automated. Key-person dependency mitigated.</div>
+      <div class="roi-card">
+        <div class="roi-card-num">Single</div>
+        <div class="roi-card-label">source of truth</div>
+        <div class="roi-card-desc">Unified database ends the 8-10 fragmented Excel sheets</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-card-num">Zero</div>
+        <div class="roi-card-label">redundant trials</div>
+        <div class="roi-card-desc">Searchable legacy data prevents repeating failed experiments</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-card-num">&uarr; 2x</div>
+        <div class="roi-card-label">approval speed</div>
+        <div class="roi-card-desc">Delegation removes the 15-20 day international bottleneck</div>
       </div>
     </div>
   </div>
+
+  <!-- PHASE 2 -->
+  <div class="phase-block">
+    <div class="phase-hd">
+      <div class="phase-hd-left">
+        <span class="phase-hd-title">Phase 2 &mdash; Task Governance</span>
+        <span class="phase-hd-timeline">Months 3&ndash;5 &middot; Scaling Execution</span>
+      </div>
+      <span class="phase-maturity p2">Maturity 2.2 &rarr; 3.2</span>
+    </div>
+    <div class="phase-sow">
+      <div class="col-label">Scope of Work</div>
+      <div class="sow-item"><span class="sow-dot p2"></span><span>Launch a lightweight project management tool (e.g., Trello) replacing heavy tools like Asana</span></div>
+      <div class="sow-item"><span class="sow-dot p2"></span><span>Formally map out specific ownership domains and KPIs for the two newly onboarded managers</span></div>
+      <div class="sow-item"><span class="sow-dot p2"></span><span>Set automated task reminders for cross-regional data submission deadlines</span></div>
+      <div class="sow-item"><span class="sow-dot p2"></span><span>Standardize the intake format for all B2B proposal requests submitted by the Sales team</span></div>
+    </div>
+    <div class="phase-roi">
+      <div class="roi-card">
+        <div class="roi-card-num">100%</div>
+        <div class="roi-card-label">accountability</div>
+        <div class="roi-card-desc">Clear task ownership prevents steps falling through the cracks</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-card-num">Balanced</div>
+        <div class="roi-card-label">team workload</div>
+        <div class="roi-card-desc">Role standardization optimizes the new support hires</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-card-num">Automated</div>
+        <div class="roi-card-label">task reminders</div>
+        <div class="roi-card-desc">Reduces manual follow-ups for international data gathering</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-card-num">Scalable</div>
+        <div class="roi-card-label">B2B intake</div>
+        <div class="roi-card-desc">Standardized requests speed up technical grant writing</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHASE 3 -->
+  <div class="phase-block">
+    <div class="phase-hd">
+      <div class="phase-hd-left">
+        <span class="phase-hd-title">Phase 3 &mdash; Strategic Scaling</span>
+        <span class="phase-hd-timeline">Month 6 onward &middot; Low effort</span>
+      </div>
+      <span class="phase-maturity p3">Maturity 3.2 &rarr; 3.5</span>
+    </div>
+    <div class="phase-sow">
+      <div class="col-label">Scope of Work</div>
+      <div class="sow-item"><span class="sow-dot p3"></span><span>Integrate GIS database analytics into the master R&amp;D hub for spatial crop trial tracking</span></div>
+      <div class="sow-item"><span class="sow-dot p3"></span><span>Deploy AI workflows to fully automate the preliminary research phase of grant drafting</span></div>
+      <div class="sow-item"><span class="sow-dot p3"></span><span>Establish direct data-sharing API connections with partner university agricultural departments</span></div>
+      <div class="sow-item"><span class="sow-dot p3"></span><span>Automate monthly Board of Directors reporting generation directly from the Power BI dashboard</span></div>
+    </div>
+    <div class="phase-roi">
+      <div class="roi-card">
+        <div class="roi-card-num">Spatial</div>
+        <div class="roi-card-label">data mapping</div>
+        <div class="roi-card-desc">GIS integration maps trial success against regional climates</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-card-num">&darr; 50%</div>
+        <div class="roi-card-label">research time</div>
+        <div class="roi-card-desc">AI tools accelerate initial topic synthesis for proposals</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-card-num">Live</div>
+        <div class="roi-card-label">university sync</div>
+        <div class="roi-card-desc">API connections streamline external partnership data</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-card-num">3.5</div>
+        <div class="roi-card-label">maturity level</div>
+        <div class="roi-card-desc">Fully optimized R&amp;D data and trial management</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="doc-footer"><span>R&amp;D Audit Report · v1.0</span><span>Page 7</span></div>
+</div>
+
+<!-- ============ APPENDIX ============ -->
+<div class="page">
+  <div class="doc-header"><span><b>EF Polymers</b> — R&amp;D Audit</span><span>Confidential</span></div>
+
+  <div class="eyebrow">Appendix</div>
+  <h2>Cross-Department Dependencies</h2>
+  <div class="section-dek">Findings and recommendations that require action outside the R&amp;D Office to resolve</div>
+
+  <table>
+    <tr><th>Finding / Rec.</th><th>Counterpart Department</th><th>Dependency</th></tr>
+    <tr>
+      <td><span class="chip-ref">R-02</span> Database Consolidation</td>
+      <td>IT / Operations</td>
+      <td>Requires IT support to architect the relational database backend and configure access permissions.</td>
+    </tr>
+    <tr>
+      <td><span class="chip-ref">R-04</span> Role Standardization</td>
+      <td>HR</td>
+      <td>HR must update Job Descriptions and align compensation metrics to the newly expanded responsibilities of delegated staff.</td>
+    </tr>
+    <tr>
+      <td><span class="chip-ref">Operational</span> Budget Approvals</td>
+      <td>Finance</td>
+      <td>Delays in Finance processing international trial payments directly stall R&amp;D fieldwork deployments.</td>
+    </tr>
+  </table>
+
+  <div class="doc-footer"><span>R&amp;D Audit Report · v1.0</span><span>Page 8</span></div>
 </div>
 
 </body>

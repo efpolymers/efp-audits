@@ -5,268 +5,622 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HR & Talent Management — Department Audit Report | EF Polymers</title>
 <style>
-  @page{size:A4;margin:20mm 18mm}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:#1e293b;line-height:1.6;background:#fff;font-size:11pt}.page{page-break-after:always;min-height:100vh}.page:last-child{page-break-after:avoid}.cover{display:flex;flex-direction:column;justify-content:center;align-items:center;min-height:100vh;background:linear-gradient(135deg,#1B2A4A 0%,#0F766E 100%);color:#fff;text-align:center;padding:60px 40px}.cover-badge{font-size:10pt;letter-spacing:3px;text-transform:uppercase;opacity:.8;margin-bottom:16px;border:1px solid rgba(255,255,255,.3);padding:6px 20px;border-radius:20px}.cover h1{font-size:32pt;font-weight:700;margin:20px 0 10px}.cover h2{font-size:16pt;font-weight:300;opacity:.9;margin-bottom:40px}.cover-meta{font-size:10pt;opacity:.7;line-height:2}.cover-line{width:80px;height:3px;background:rgba(255,255,255,.5);margin:30px auto}.section{padding:40px 0}.section-num{font-size:9pt;color:#0F766E;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:4px}h2{font-size:18pt;color:#1B2A4A;margin-bottom:20px;padding-bottom:10px;border-bottom:2px solid #e2e8f0}h3{font-size:13pt;color:#1B2A4A;margin:24px 0 12px}h4{font-size:11pt;color:#334155;margin:16px 0 8px}p{margin-bottom:12px}table{width:100%;border-collapse:collapse;margin:16px 0 24px;font-size:10pt}th{background:#1B2A4A;color:#fff;padding:10px 12px;text-align:left;font-weight:600}td{padding:9px 12px;border-bottom:1px solid #e2e8f0}tr:nth-child(even){background:#f8fafc}.card{border:1px solid #e2e8f0;border-radius:8px;padding:20px;margin:16px 0}.card-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}.card-title{font-weight:700;font-size:11pt;color:#1B2A4A}.badge{display:inline-block;padding:3px 12px;border-radius:12px;font-size:8.5pt;font-weight:600}.badge-critical{background:#fef2f2;color:#dc2626;border:1px solid #fecaca}.badge-high{background:#fff7ed;color:#ea580c;border:1px solid #fed7aa}.badge-medium{background:#fffbeb;color:#d97706;border:1px solid #fde68a}.badge-low{background:#f0fdf4;color:#16a34a;border:1px solid #bbf7d0}.metrics-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:16px 0}.metric-box{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:14px;text-align:center}.metric-value{font-size:18pt;font-weight:700;color:#0F766E}.metric-label{font-size:8pt;color:#64748b;text-transform:uppercase;letter-spacing:1px;margin-top:4px}.flow-container{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:20px 0;justify-content:center}.flow-step{background:#f0fdfa;border:2px solid #0F766E;border-radius:8px;padding:12px 16px;font-size:9pt;font-weight:500;text-align:center;min-width:120px;max-width:180px}.flow-step.problem{border-color:#dc2626;background:#fef2f2}.flow-arrow{color:#94a3b8;font-size:18pt}.solution-card{border-left:4px solid #0F766E;background:#f0fdfa;border-radius:0 8px 8px 0;padding:16px 20px;margin:12px 0}.solution-card.suggestion{border-left-color:#6366f1;background:#eef2ff}.gap-item{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid #f1f5f9}.gap-icon{width:32px;height:32px;background:#fef3c7;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14pt;flex-shrink:0}.chart-container{display:flex;justify-content:center;margin:24px 0}.roadmap-phase{border-left:3px solid #0F766E;padding:16px 0 16px 24px;margin-left:12px;position:relative}.roadmap-phase::before{content:'';width:12px;height:12px;background:#0F766E;border-radius:50%;position:absolute;left:-7.5px;top:20px}.roadmap-phase.phase-2{border-left-color:#2563eb}.roadmap-phase.phase-2::before{background:#2563eb}.roadmap-phase.phase-3{border-left-color:#7c3aed}.roadmap-phase.phase-3::before{background:#7c3aed}.phase-label{font-size:9pt;font-weight:700;color:#0F766E;letter-spacing:1px;text-transform:uppercase}.phase-label.p2{color:#2563eb}.phase-label.p3{color:#7c3aed}.kpi-row{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}.kpi-tag{background:#f1f5f9;border-radius:6px;padding:4px 10px;font-size:9pt;color:#475569}@media print{body{font-size:10pt}.page{min-height:auto}.cover{min-height:100vh}}
+:root{
+  --ink:#1B2A4A;
+  --slate:#3F4B5C;
+  --muted:#6B7785;
+  --line:#D8DEE5;
+  --line-soft:#E9EDF1;
+  --paper:#FFFFFF;
+  --paper-alt:#F6F7F9;
+  --accent:#0F6B62;
+  --accent-soft:#EAF3F1;
+  --risk-crit-bg:#FCEBEA; --risk-crit-fg:#A32E24;
+  --risk-med-bg:#FBF1DF;  --risk-med-fg:#8A5A10;
+  --risk-low-bg:#E9F4EC;  --risk-low-fg:#276B3E;
+}
+@page{ size:A4; margin:22mm 18mm 20mm 18mm; }
+*{ margin:0; padding:0; box-sizing:border-box; }
+body{
+  font-family:'Segoe UI',system-ui,-apple-system,sans-serif;
+  color:var(--slate);
+  line-height:1.55;
+  background:#EDEFF1;
+  font-size:10.3pt;
+}
+.page{
+  background:var(--paper);
+  max-width:840px;
+  margin:0 auto 14px auto;
+  padding:26mm 20mm 20mm 20mm;
+  position:relative;
+  page-break-after:always;
+  min-height:1120px;
+}
+.page:last-child{ page-break-after:avoid; }
+
+/* ---- running header / footer ---- */
+.doc-header{
+  display:flex; justify-content:space-between; align-items:baseline;
+  font-size:7.8pt; letter-spacing:0.4px; text-transform:uppercase; color:var(--muted);
+  border-bottom:1px solid var(--line); padding-bottom:8px; margin-bottom:22px;
+}
+.doc-header b{ color:var(--ink); }
+.doc-footer{
+  position:absolute; bottom:10mm; left:20mm; right:20mm;
+  display:flex; justify-content:space-between;
+  font-size:7.5pt; color:var(--muted);
+  border-top:1px solid var(--line-soft); padding-top:6px;
+}
+
+/* ---- cover ---- */
+.cover{ display:flex; flex-direction:column; min-height:1080px; }
+.cover-top{ display:flex; justify-content:space-between; align-items:flex-start; }
+.cover-mark{ font-size:9pt; font-weight:700; letter-spacing:2px; color:var(--ink); }
+.cover-mark span{ color:var(--accent); }
+.cover-class{ font-size:7.8pt; text-transform:uppercase; letter-spacing:1.5px; color:var(--muted); border:1px solid var(--line); padding:4px 10px; }
+.cover-body{ flex:1; display:flex; flex-direction:column; justify-content:center; padding:60px 0; }
+.cover-eyebrow{ font-family:Georgia,'Times New Roman',serif; font-style:italic; font-size:11pt; color:var(--accent); margin-bottom:14px; }
+.cover-title{ font-family:Georgia,'Times New Roman',serif; font-size:34pt; color:var(--ink); font-weight:600; line-height:1.15; margin-bottom:10px; }
+.cover-sub{ font-size:13pt; color:var(--slate); font-weight:400; }
+.cover-rule{ width:52px; height:2px; background:var(--accent); margin:26px 0; }
+.cover-ctrl{ border:1px solid var(--line); }
+.cover-ctrl table{ width:100%; border-collapse:collapse; margin:0; }
+.cover-ctrl td{ padding:9px 14px; font-size:9pt; border-bottom:1px solid var(--line-soft); }
+.cover-ctrl tr:last-child td{ border-bottom:none; }
+.cover-ctrl td.label{ color:var(--muted); width:38%; text-transform:uppercase; font-size:7.8pt; letter-spacing:0.5px; }
+.cover-ctrl td.val{ color:var(--ink); font-weight:600; }
+
+/* ---- section furniture ---- */
+.eyebrow{ font-size:8pt; color:var(--accent); font-weight:700; letter-spacing:1.6px; text-transform:uppercase; margin-bottom:6px; }
+h2{ font-family:Georgia,'Times New Roman',serif; font-size:17pt; color:var(--ink); font-weight:600; margin-bottom:4px; }
+h2 + .section-dek{ color:var(--muted); font-size:9.3pt; margin-bottom:18px; padding-bottom:14px; border-bottom:1px solid var(--line); }
+h3{ font-family:Georgia,'Times New Roman',serif; font-size:12.5pt; color:var(--ink); font-weight:600; margin:22px 0 8px; }
+h4{ font-size:10pt; color:var(--ink); font-weight:700; margin:14px 0 4px; }
+p{ margin-bottom:10px; }
+.lede{ font-size:10.6pt; color:var(--slate); max-width:95%; }
+
+/* ---- tables ---- */
+table{ width:100%; border-collapse:collapse; margin:10px 0 20px; font-size:9pt; }
+th{ background:var(--ink); color:#fff; padding:8px 10px; text-align:left; font-weight:600; font-size:8.3pt; letter-spacing:0.3px; text-transform:uppercase; }
+td{ padding:8px 10px; border-bottom:1px solid var(--line-soft); vertical-align:top; }
+tr:nth-child(even) td{ background:var(--paper-alt); }
+td.id, th.id{ font-family:Georgia,serif; font-weight:700; color:var(--ink); white-space:nowrap; width:44px; }
+td.num{ text-align:center; white-space:nowrap; }
+
+/* ---- chips ---- */
+.chip{ display:inline-block; padding:2px 9px; border-radius:3px; font-size:7.8pt; font-weight:700; letter-spacing:0.3px; text-transform:uppercase; white-space:nowrap; }
+.chip-crit{ background:var(--risk-crit-bg); color:var(--risk-crit-fg); }
+.chip-med{  background:var(--risk-med-bg);  color:var(--risk-med-fg); }
+.chip-low{  background:var(--risk-low-bg);  color:var(--risk-low-fg); }
+.chip-ref{ display:inline-block; background:var(--accent-soft); color:var(--accent); font-family:Georgia,serif; font-weight:700; font-size:8pt; padding:1px 6px; border-radius:3px; margin:1px 2px 1px 0; }
+
+/* ---- KPI strip ---- */
+.kpi-strip{ display:flex; border:1px solid var(--line); margin:16px 0 22px; }
+.kpi-cell{ flex:1; padding:12px 14px; border-right:1px solid var(--line); }
+.kpi-cell:last-child{ border-right:none; }
+.kpi-num{ font-family:Georgia,serif; font-size:15pt; color:var(--ink); font-weight:700; }
+.kpi-lbl{ font-size:7.6pt; color:var(--muted); text-transform:uppercase; letter-spacing:0.5px; margin-top:2px; }
+
+/* ---- callout ---- */
+.callout{ border-left:3px solid var(--accent); background:var(--accent-soft); padding:10px 14px; font-size:9pt; color:var(--ink); margin:10px 0 20px; }
+
+/* ---- flow notes ---- */
+.flow-note{ font-size:8.6pt; color:var(--muted); margin:4px 0 18px; padding-left:2px; }
+.flow-note b{ color:var(--risk-crit-fg); }
+
+/* ---- maturity exhibit ---- */
+.exhibit{ display:flex; gap:26px; align-items:center; margin:14px 0 6px; }
+.exhibit-chart{ flex:0 0 220px; }
+.exhibit-note{ flex:1; font-size:9.2pt; color:var(--slate); }
+.exhibit-note b{ color:var(--ink); }
+
+/* ---- roadmap table ---- */
+.tl-table td.phase-mark{ text-align:center; font-weight:700; }
+.tl-table td.phase-mark.p1{ color:var(--accent); }
+.tl-table td.phase-mark.p2{ color:#2563eb; }
+.tl-table td.phase-mark.p3{ color:#7c3aed; }
+
+/* ---- phase blocks ---- */
+.phase-block{ border:1px solid var(--line); margin:14px 0; overflow:hidden; }
+.phase-hd{ display:flex; justify-content:space-between; align-items:center; padding:10px 14px; border-bottom:1px solid var(--line); background:var(--paper-alt); gap:16px; }
+.phase-hd-left{ display:flex; flex-direction:column; gap:2px; }
+.phase-hd-title{ font-family:Georgia,serif; font-size:11pt; font-weight:700; color:var(--ink); }
+.phase-hd-timeline{ font-size:7.8pt; color:var(--muted); }
+.phase-maturity{ font-size:8.5pt; font-weight:700; color:var(--accent); border:1px solid var(--accent); border-radius:3px; padding:3px 10px; white-space:nowrap; flex-shrink:0; }
+.phase-maturity.p2{ color:#2563eb; border-color:#2563eb; }
+.phase-maturity.p3{ color:#7c3aed; border-color:#7c3aed; }
+.phase-sow{ padding:11px 14px 14px; }
+.col-label{ font-size:7.4pt; color:var(--muted); text-transform:uppercase; letter-spacing:0.8px; margin-bottom:8px; font-weight:700; }
+.sow-item{ display:flex; gap:8px; margin-bottom:5px; font-size:8.5pt; color:var(--slate); line-height:1.4; }
+.sow-dot{ width:4px; height:4px; background:var(--accent); border-radius:50%; margin-top:5px; flex-shrink:0; }
+.sow-dot.p2{ background:#2563eb; }
+.sow-dot.p3{ background:#7c3aed; }
+.phase-roi{ display:flex; border-top:1px solid var(--line); background:var(--paper-alt); }
+.roi-card{ flex:1; padding:10px 12px; border-right:1px solid var(--line); text-align:center; }
+.roi-card:last-child{ border-right:none; }
+.roi-card-num{ font-family:Georgia,serif; font-size:13pt; font-weight:700; color:var(--ink); line-height:1.1; margin-bottom:3px; }
+.roi-card-label{ font-size:7.5pt; color:var(--ink); font-weight:700; text-transform:uppercase; letter-spacing:0.3px; margin-bottom:3px; }
+.roi-card-desc{ font-size:7pt; color:var(--muted); line-height:1.35; }
+
+@media print{
+  body{ background:#fff; }
+  .page{ box-shadow:none; margin:0; }
+}
 </style>
 </head>
 <body>
 
+<!-- ============ COVER ============ -->
 <div class="page cover">
-  <div class="cover-badge">Department Audit Report</div>
-  <h1>HR & Talent Management</h1>
-  <h2>Dolly Mehta — HR Head</h2>
-  <div class="cover-line"></div>
-  <div class="cover-meta">EF Polymers Private Limited<br>Prepared by Creative Upaay Consulting<br>July 2026 · Version 1.0<br>Confidential — Executive Leadership Only</div>
-</div>
-
-<div class="page">
-  <div class="section">
-    <div class="section-num">Section 01</div>
-    <h2>Department Overview</h2>
-    <p>HR & Talent Management is responsible for executing the Q4 hiring cycle, performance appraisals, payroll compliance, and company policy enforcement. The department operates a hybrid technology stack: internal employee management is highly digitized through Zoho People, but recruitment, onboarding, and L&D remain manual and unstructured.</p>
-
-    <div class="metrics-grid">
-      <div class="metric-box"><div class="metric-value">18–20</div><div class="metric-label">Active Roles (Target)</div></div>
-      <div class="metric-box"><div class="metric-value">60–80</div><div class="metric-label">Interviews / Cycle</div></div>
-      <div class="metric-box"><div class="metric-value">Annual</div><div class="metric-label">Appraisal Frequency</div></div>
-      <div class="metric-box"><div class="metric-value">0</div><div class="metric-label">ATS / unified recruitment</div></div>
-    </div>
-
-    <h3>Time & Effort Allocation</h3>
+  <div class="cover-top">
+    <div class="cover-mark">EF<span>·</span>POLYMERS</div>
+    <div class="cover-class">Confidential — Executive Leadership Only</div>
+  </div>
+  <div class="cover-body">
+    <div class="cover-eyebrow">Department Audit Report</div>
+    <div class="cover-title">Human Resources</div>
+    <div class="cover-sub">Talent Management &amp; Employee Lifecycles — Dolly Mehta</div>
+    <div class="cover-rule"></div>
+    <p style="max-width:70%;color:var(--muted);font-size:9.3pt;">
+      An independent operational review of the HR department, evaluating recruitment pipelines, performance management systems (PMS), and onboarding automation, prepared as part of the EF Polymers organization-wide operational audit.
+    </p>
+  </div>
+  <div class="cover-ctrl">
     <table>
-      <tr><th>Activity</th><th>Share</th></tr>
-      <tr><td>Recruitment Sourcing & Screening</td><td>~40%</td></tr>
-      <tr><td>Performance Management (Appraisals)</td><td>~25%</td></tr>
-      <tr><td>Onboarding, Offboarding & Policies</td><td>~20%</td></tr>
-      <tr><td>L&D Operations</td><td>~15%</td></tr>
+      <tr><td class="label">Client</td><td class="val">EF Polymers Private Limited</td></tr>
+      <tr><td class="label">Prepared by</td><td class="val">Creative Upaay Consulting</td></tr>
+      <tr><td class="label">Document version</td><td class="val">1.0</td></tr>
+      <tr><td class="label">Date issued</td><td class="val">July 2026</td></tr>
+      <tr><td class="label">Review scope</td><td class="val">HR &amp; Talent Operations</td></tr>
+      <tr><td class="label">Distribution</td><td class="val">CEO, COO, HR Head</td></tr>
     </table>
-
-    <h3>Tool Stack</h3>
-    <div class="kpi-row">
-      <span class="kpi-tag">Zoho People (Core HR & Records)</span>
-      <span class="kpi-tag">Zoho Payroll</span>
-      <span class="kpi-tag">Google Sheets (Recruitment Tracking)</span>
-      <span class="kpi-tag">Google Forms (Candidate Intake)</span>
-      <span class="kpi-tag">Gmail (Offer Approvals & Comms)</span>
-    </div>
   </div>
 </div>
 
+<!-- ============ 01 EXECUTIVE SUMMARY ============ -->
 <div class="page">
-  <div class="section">
-    <div class="section-num">Section 02</div>
-    <h2>Existing Workflows</h2>
+  <div class="doc-header"><span><b>EF Polymers</b> — HR Audit</span><span>Confidential</span></div>
 
-    <h3>Workflow 1: Recruitment & Interview Funnel</h3>
-    <div class="flow-container">
-      <div class="flow-step">Q4 Budget & Strategy (COO)</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step problem">Manual "Person Required Form"</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">Sourcing & Screening (60–80 interviews)</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">Departmental Tech Interview</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">HR Cultural Fit</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">Final Leadership Interview</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step problem">Email-based Offer Approval</div>
-    </div>
-    <p style="font-size:9.5pt;color:#64748b;">The entire funnel runs on independent Google Sheets. Leadership has no dashboard visibility into pipeline progress.</p>
+  <div class="eyebrow">Section 01 — Executive Summary</div>
+  <h2>Department Overview</h2>
+  <div class="section-dek">Scope, current state, and headline findings</div>
 
-    <h3>Workflow 2: Onboarding Handoff</h3>
-    <div class="flow-container">
-      <div class="flow-step">Candidate Accepts Offer (Email)</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step problem">Manual Profile Creation in Zoho</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step problem">Manual Document Collection</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step problem">Manual L&D/KPI Assignment</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">3-Month Probation Review</div>
-    </div>
-    <p style="font-size:9.5pt;color:#64748b;">No automated handoff exists from the "Candidate" phase to the "Employee" phase.</p>
+  <p class="lede">The Human Resources department, led by Dolly Mehta, governs the entire employee lifecycle—from Q4 strategic hiring to performance appraisals, payroll, and eventual offboarding.</p>
 
-    <h3>Workflow 3: Performance Appraisals</h3>
-    <div class="flow-container">
-      <div class="flow-step">Annual Review Cycle Initiated</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step problem">Subjective Manager Discussions</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step problem">Not Linked to Live KPI Data</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">Increment Decisions</div>
-    </div>
-    <p style="font-size:9.5pt;color:#64748b;">Appraisals are infrequent (annual) and subjective, lacking integration with real-time operational data (like sales targets).</p>
+  <p>The audit revealed a heavily manual, disconnected ecosystem. Recruitment relies on isolated Google Sheets, creating a complete blind spot for leadership regarding pipeline health. Once hired, employees are not automatically provisioned across Zoho apps, forcing redundant data entry. Furthermore, performance appraisals remain tied to infrequent, subjective annual discussions rather than being linked to real-time, monthly KPI tracking.</p>
 
-    <h3>Workflow 4: Learning & Development (L&D)</h3>
-    <div class="flow-container">
-      <div class="flow-step problem">Ad-hoc Training Need Surfaces</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step problem">No Standard Request Portal</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">HR Researches Options</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step problem">No Post-Training Assessment</div>
-    </div>
+  <div class="kpi-strip">
+    <div class="kpi-cell"><div class="kpi-num">18&ndash;20</div><div class="kpi-lbl">Active Open Roles</div></div>
+    <div class="kpi-cell"><div class="kpi-num">60&ndash;80</div><div class="kpi-lbl">Interviews / Cycle</div></div>
+    <div class="kpi-cell"><div class="kpi-num">3 Mo.</div><div class="kpi-lbl">Probation SLA</div></div>
+    <div class="kpi-cell"><div class="kpi-num">1.5 / 5.0</div><div class="kpi-lbl">Overall Maturity Score</div></div>
   </div>
+
+  <h3>Time &amp; Effort Allocation</h3>
+  <table>
+    <tr><th>Activity</th><th class="num" style="text-align:right">Share of Team Time</th></tr>
+    <tr><td>Recruitment Sourcing &amp; Candidate Screening</td><td class="num">~40%</td></tr>
+    <tr><td>Performance Management (PMS) &amp; Appraisals</td><td class="num">~25%</td></tr>
+    <tr><td>Onboarding, Offboarding &amp; Policy Administration</td><td class="num">~20%</td></tr>
+    <tr><td>Learning &amp; Development (L&amp;D) Operations</td><td class="num">~15%</td></tr>
+  </table>
+
+  <h3>Tools in Use</h3>
+  <table>
+    <tr><th>Tool</th><th>Role</th></tr>
+    <tr><td>Zoho People &amp; Payroll</td><td>Core employee records and compliance management</td></tr>
+    <tr><td>Google Sheets &amp; Forms</td><td>Manual recruitment pipeline tracking (disconnected)</td></tr>
+    <tr><td>Email (Gmail)</td><td>Manual routing for offer approvals and policy exceptions</td></tr>
+  </table>
+
+  <div class="doc-footer"><span>HR Audit Report · v1.0</span><span>Page 2</span></div>
 </div>
 
+<!-- ============ 02 FINDINGS REGISTER ============ -->
 <div class="page">
-  <div class="section">
-    <div class="section-num">Section 03</div>
-    <h2>Challenges, Risks & Red Flags</h2>
+  <div class="doc-header"><span><b>EF Polymers</b> — HR Audit</span><span>Confidential</span></div>
 
-    <div class="card">
-      <div class="card-header"><span class="card-title">1. Lack of Applicant Tracking System (ATS)</span><span class="badge badge-critical">CRITICAL</span></div>
-      <p>The recruitment pipeline (managing 60–80 interviews for 18–20 roles) relies entirely on independent Google Sheets and Forms. There is no unified dashboard for leadership to view hiring velocity, bottleneck stages, or conversion rates.</p>
-      <table>
-        <tr><th>Metric</th><th>Detail</th></tr>
-        <tr><td>Time Waste</td><td>Manual tracking; scattered candidate communication; email-based approvals</td></tr>
-        <tr><td>Investment</td><td>Medium — Zoho Recruit (native integration with Zoho People)</td></tr>
-        <tr><td>ROI</td><td><strong>High</strong> — Leadership visibility; faster time-to-hire; zero dropped candidates</td></tr>
-      </table>
-    </div>
+  <div class="eyebrow">Section 02 — Risk &amp; Control Findings</div>
+  <h2>Findings Register</h2>
+  <div class="section-dek">Ranked by risk rating. Each finding is cross-referenced to its recommendation in Section 04.</div>
 
-    <div class="card">
-      <div class="card-header"><span class="card-title">2. Siloed Onboarding Process</span><span class="badge badge-high">HIGH</span></div>
-      <p>When a candidate is hired, their transition to an employee requires manual data entry across platforms. Profiles, NDAs, L&D tracks, and KPI assignments are not auto-provisioned.</p>
-      <table>
-        <tr><th>Metric</th><th>Detail</th></tr>
-        <tr><td>Time Waste</td><td>Hours of manual setup per new hire</td></tr>
-        <tr><td>Investment</td><td>Low — Zoho Recruit to Zoho People automated handoff configuration</td></tr>
-        <tr><td>ROI</td><td><strong>High</strong> — Error-free onboarding; seamless day-one employee experience</td></tr>
-      </table>
-    </div>
+  <table>
+    <tr>
+      <th class="id">ID</th><th>Finding</th><th>Risk</th><th>Evidence / Impact</th><th>Linked Rec.</th>
+    </tr>
+    <tr>
+      <td class="id">F-01</td>
+      <td><b>Lack of Unified Applicant Tracking (ATS).</b> The hiring pipeline relies entirely on disconnected Google Sheets and Forms.</td>
+      <td><span class="chip chip-crit">Critical</span></td>
+      <td>Creates a visibility gap for leadership; resumes and interview notes are easily lost.</td>
+      <td><span class="chip-ref">R-01</span></td>
+    </tr>
+    <tr>
+      <td class="id">F-02</td>
+      <td><b>Siloed Onboarding &amp; Process Automation.</b> New hires are not automatically provisioned across company platforms.</td>
+      <td><span class="chip chip-crit">Critical</span></td>
+      <td>Requires manual, error-prone data entry into Zoho People, L&amp;D modules, and payroll.</td>
+      <td><span class="chip-ref">R-02</span></td>
+    </tr>
+    <tr>
+      <td class="id">F-03</td>
+      <td><b>Manual Approval Bottlenecks.</b> Offer letter validations and resource requests are processed via unstructured email threads.</td>
+      <td><span class="chip chip-med">Medium</span></td>
+      <td>Causes delays in capturing top talent while waiting for inbox responses from the COO.</td>
+      <td><span class="chip-ref">R-04</span></td>
+    </tr>
+    <tr>
+      <td class="id">F-04</td>
+      <td><b>Subjective and Infrequent Appraisals.</b> Performance management is tied to annual discussions rather than live KPIs.</td>
+      <td><span class="chip chip-med">Medium</span></td>
+      <td>Fails to address underperformance quickly; disconnects sales realities from HR scoring.</td>
+      <td><span class="chip-ref">R-03</span></td>
+    </tr>
+    <tr>
+      <td class="id">F-05</td>
+      <td><b>Ad-hoc L&amp;D Infrastructure.</b> Training requests and skills tracking are handled without formal systems.</td>
+      <td><span class="chip chip-low">Low</span></td>
+      <td>The company lacks a unified "skills directory" to target development needs accurately.</td>
+      <td><span class="chip-ref">R-05</span></td>
+    </tr>
+  </table>
 
-    <div class="card">
-      <div class="card-header"><span class="card-title">3. Subjective & Infrequent Appraisals</span><span class="badge badge-medium">MEDIUM</span></div>
-      <p>Performance reviews occur annually and rely heavily on subjective manager discussions. They are disconnected from live operational KPIs (like Zoho CRM sales targets or Zoho Projects task completion).</p>
-      <table>
-        <tr><th>Metric</th><th>Detail</th></tr>
-        <tr><td>Time Waste</td><td>Lost performance tracking between annual cycles</td></tr>
-        <tr><td>Investment</td><td>Medium — Zoho People Performance module configuration (Monthly cadence)</td></tr>
-        <tr><td>ROI</td><td><strong>Medium</strong> — Data-driven increments; faster course-correction for underperformers</td></tr>
-      </table>
-    </div>
+  <div class="callout">The two Critical findings expose EF Polymers to systemic data loss and severe administrative bloat during periods of high growth. F-01 (No ATS) forces HR to track 60-80 candidates across fragile Google Sheets, creating a complete blind spot for leadership. F-02 (Manual Onboarding) means every new hire triggers a wave of redundant, manual profile creation across Zoho platforms. Phase 1 targets this by deploying Zoho Recruit to centralize applicant tracking and automating the onboarding handoff to Zoho People.</div>
 
-    <div class="card">
-      <div class="card-header"><span class="card-title">4. Ad-Hoc L&D Infrastructure</span><span class="badge badge-low">LOW</span></div>
-      <p>Training requests are unstructured. There is no central skills matrix ("who knows what") to match skillsets to project needs or identify systemic training gaps.</p>
-      <table>
-        <tr><th>Metric</th><th>Detail</th></tr>
-        <tr><td>Investment</td><td>Low — Skills matrix database; structured request portal</td></tr>
-        <tr><td>ROI</td><td><strong>Medium</strong> — Targeted training spend; better internal mobility</td></tr>
-      </table>
-    </div>
-  </div>
+  <div class="doc-footer"><span>HR Audit Report · v1.0</span><span>Page 3</span></div>
 </div>
 
+<!-- ============ 03 WORKFLOWS ============ -->
 <div class="page">
-  <div class="section">
-    <div class="section-num">Section 04</div>
-    <h2>Information Gaps & Cross-Department Leaks</h2>
-    <div class="gap-item"><div class="gap-icon">⚠</div><div><h4>HR ↔ COO (Hiring Visibility)</h4><p>The COO approves budgets and final hires but cannot see the mid-funnel pipeline progress because it lives in disjointed spreadsheets.</p></div></div>
-    <div class="gap-item"><div class="gap-icon">⚠</div><div><h4>HR ↔ Team Leads (Performance Data)</h4><p>Team Leads possess operational data (sales hit, project completion), but HR does not have automated access to this data for appraisal cycles, forcing manual compilation.</p></div></div>
-    <div class="gap-item"><div class="gap-icon">⚠</div><div><h4>HR ↔ Operations (Skills Allocation)</h4><p>Without a central skills inventory database, operational leaders cannot easily identify internal talent for new initiatives, leading to unnecessary external hiring requests.</p></div></div>
-  </div>
+  <div class="doc-header"><span><b>EF Polymers</b> — HR Audit</span><span>Confidential</span></div>
 
-  <div class="section">
-    <div class="section-num">Section 05</div>
-    <h2>Department Maturity Score</h2>
-    <div class="chart-container">
-      <svg viewBox="0 0 400 350" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:400px;">
+  <div class="eyebrow">Section 03 — Process Detail</div>
+  <h2>Current Workflows</h2>
+  <div class="section-dek">Where each finding sits inside the operational process</div>
+
+  <!-- WORKFLOW 1 -->
+  <h3>Yearly Recruitment Planning &amp; Interview Workflow</h3>
+  <svg viewBox="0 0 740 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:10px 0 4px;">
+    <defs>
+      <marker id="a1" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+        <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5"/>
+      </marker>
+    </defs>
+    <!-- Top row -->
+    <rect x="10"  y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="70"  y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Q4 Planning &amp;</text>
+    <text x="70"  y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Budget Approval</text>
+    <line x1="130" y1="46" x2="150" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)"/>
+
+    <rect x="150" y="22" width="120" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5"/>
+    <text x="210" y="43" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">TL Submits Form</text>
+    <text x="210" y="55" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">(Manual Email / Sheets)</text>
+    <line x1="270" y1="46" x2="290" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)"/>
+
+    <rect x="290" y="22" width="120" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5"/>
+    <text x="350" y="43" text-anchor="middle" font-size="7.6" fill="#A32E24" font-weight="700" font-family="Segoe UI,sans-serif">Sourcing &amp; Intake</text>
+    <text x="350" y="55" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">(Lost Visibility)</text>
+    <line x1="410" y1="46" x2="430" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)"/>
+
+    <rect x="430" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="490" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Dept Tech Interview</text>
+    <text x="490" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">&amp; HR Fit Check</text>
+    
+    <!-- Path down -->
+    <line x1="490" y1="70" x2="490" y2="90" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)"/>
+    
+    <!-- Bottom row -->
+    <rect x="430" y="90" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="490" y="111" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">COO Final Interview</text>
+    
+    <line x1="430" y1="114" x2="410" y2="114" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)"/>
+    
+    <rect x="290" y="90" width="120" height="48" rx="3" fill="#FBF1DF" stroke="#E8C97A" stroke-width="1.5"/>
+    <text x="350" y="111" text-anchor="middle" font-size="7.6" fill="#8A5A10" font-family="Segoe UI,sans-serif">Email Approval</text>
+    <text x="350" y="123" text-anchor="middle" font-size="7.6" fill="#8A5A10" font-family="Segoe UI,sans-serif">(Offer Letter Bottleneck)</text>
+
+    <line x1="290" y1="114" x2="270" y2="114" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)"/>
+    
+    <rect x="150" y="90" width="120" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5"/>
+    <text x="210" y="111" text-anchor="middle" font-size="7.6" fill="#A32E24" font-weight="700" font-family="Segoe UI,sans-serif">Manual Onboarding</text>
+    <text x="210" y="123" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">(Data Double-Entry)</text>
+  </svg>
+  <p class="flow-note">Because there is no ATS (<span class="chip-ref">F-01</span>), hiring data is fragmented across emails and sheets, obscuring the pipeline. Manual onboarding (<span class="chip-ref">F-02</span>) creates massive administrative overhead right as the employee joins.</p>
+
+  <div class="doc-footer"><span>HR Audit Report · v1.0</span><span>Page 4</span></div>
+</div>
+
+<!-- ============ 04 RECOMMENDATIONS ============ -->
+<div class="page">
+  <div class="doc-header"><span><b>EF Polymers</b> — HR Audit</span><span>Confidential</span></div>
+
+  <div class="eyebrow">Section 04 — Corrective Action Plan</div>
+  <h2>Recommendations Register</h2>
+  <div class="section-dek">Ordered by priority. Effort and impact are directional estimates for planning purposes.</div>
+
+  <table>
+    <tr><th class="id">ID</th><th>Recommendation</th><th>Finding</th><th>Priority</th><th>Effort</th><th>Expected Impact</th></tr>
+    <tr>
+      <td class="id">R-01</td>
+      <td>Zoho Recruit (ATS) Rollout — Implement an Applicant Tracking System to unify candidate sourcing, resume parsing, and pipeline dashboards for leadership.</td>
+      <td><span class="chip-ref">F-01</span></td>
+      <td><span class="chip chip-crit">P1</span></td>
+      <td>High</td>
+      <td>Provides total visibility into the 60-80 candidate pipeline and prevents data loss.</td>
+    </tr>
+    <tr>
+      <td class="id">R-02</td>
+      <td>Automated Onboarding Workflows — Configure Zoho People to automatically provision profiles, assign KPIs, and trigger document checks the moment an offer is accepted.</td>
+      <td><span class="chip-ref">F-02</span></td>
+      <td><span class="chip chip-crit">P1</span></td>
+      <td>Medium</td>
+      <td>Eliminates manual profile building and sets immediate expectations for new hires.</td>
+    </tr>
+    <tr>
+      <td class="id">R-03</td>
+      <td>Monthly KPI-Linked PMS — Transition from annual subjective reviews to a monthly Zoho PMS cadence mapped directly to operational and sales targets.</td>
+      <td><span class="chip-ref">F-04</span></td>
+      <td><span class="chip chip-med">P2</span></td>
+      <td>High</td>
+      <td>Aligns HR performance tracking with actual business realities and corrects behavior faster.</td>
+    </tr>
+    <tr>
+      <td class="id">R-04</td>
+      <td>Digital Approval Routing — Replace email-based offer and policy approvals with structured, one-click Zoho approval flows.</td>
+      <td><span class="chip-ref">F-03</span></td>
+      <td><span class="chip chip-med">P2</span></td>
+      <td>Low</td>
+      <td>Accelerates final hiring decisions and standardizes the audit trail.</td>
+    </tr>
+    <tr>
+      <td class="id">R-05</td>
+      <td>Skills Inventory Database — Build a master L&amp;D directory mapping "who knows what," allowing targeted training and cross-functional deployment.</td>
+      <td><span class="chip-ref">F-05</span></td>
+      <td><span class="chip chip-low">P3</span></td>
+      <td>Medium</td>
+      <td>Transforms L&amp;D from ad-hoc reaction to strategic talent development.</td>
+    </tr>
+  </table>
+
+  <div class="doc-footer"><span>HR Audit Report · v1.0</span><span>Page 5</span></div>
+</div>
+
+<!-- ============ 05 MATURITY ============ -->
+<div class="page">
+  <div class="doc-header"><span><b>EF Polymers</b> — HR Audit</span><span>Confidential</span></div>
+
+  <div class="eyebrow">Section 05 — Benchmarking</div>
+  <h2>Department Maturity Assessment</h2>
+  <div class="section-dek">Scored 1 (ad hoc) to 5 (optimized) against five capability dimensions</div>
+
+  <div class="exhibit">
+    <div class="exhibit-chart">
+      <svg viewBox="0 0 400 350" xmlns="http://www.w3.org/2000/svg" style="width:100%;">
         <g transform="translate(200,170)">
-          <polygon points="0,-120 114,-37 70,97 -70,97 -114,-37" fill="none" stroke="#e2e8f0" stroke-width="0.5"/>
-          <polygon points="0,-96 91,-30 56,78 -56,78 -91,-30" fill="none" stroke="#e2e8f0" stroke-width="0.5"/>
-          <polygon points="0,-72 68,-22 42,58 -42,58 -68,-22" fill="none" stroke="#e2e8f0" stroke-width="0.5"/>
-          <polygon points="0,-48 46,-15 28,39 -28,39 -46,-15" fill="none" stroke="#e2e8f0" stroke-width="0.5"/>
-          <polygon points="0,-24 23,-7 14,19 -14,19 -23,-7" fill="none" stroke="#e2e8f0" stroke-width="0.5"/>
-          <line x1="0" y1="0" x2="0" y2="-120" stroke="#e2e8f0" stroke-width="0.5"/><line x1="0" y1="0" x2="114" y2="-37" stroke="#e2e8f0" stroke-width="0.5"/><line x1="0" y1="0" x2="70" y2="97" stroke="#e2e8f0" stroke-width="0.5"/><line x1="0" y1="0" x2="-70" y2="97" stroke="#e2e8f0" stroke-width="0.5"/><line x1="0" y1="0" x2="-114" y2="-37" stroke="#e2e8f0" stroke-width="0.5"/>
-          <!-- Process=2.0, Tech=2.5, Data=2.0, Docs=1.5, KM=1.5 -->
-          <polygon points="0,-48 57,-18.5 28,38.8 -21,29.1 -34.2,-11.1" fill="rgba(15,118,110,0.2)" stroke="#0F766E" stroke-width="2"/>
-          <polygon points="0,-84 79.8,-25.9 49,67.9 -49,67.9 -79.8,-25.9" fill="none" stroke="#dc2626" stroke-width="1" stroke-dasharray="6,3"/>
-          <circle cx="0" cy="-48" r="4" fill="#0F766E"/><circle cx="57" cy="-18.5" r="4" fill="#0F766E"/><circle cx="28" cy="38.8" r="4" fill="#0F766E"/><circle cx="-21" cy="29.1" r="4" fill="#0F766E"/><circle cx="-34.2" cy="-11.1" r="4" fill="#0F766E"/>
-          <text x="0" y="-132" text-anchor="middle" font-size="9" fill="#1B2A4A" font-weight="600">Process (2.0)</text>
-          <text x="128" y="-10" text-anchor="start" font-size="9" fill="#1B2A4A" font-weight="600">Technology (2.5)</text>
-          <text x="78" y="100" text-anchor="start" font-size="9" fill="#1B2A4A" font-weight="600">Data Quality (2.0)</text>
-          <text x="-78" y="100" text-anchor="end" font-size="9" fill="#1B2A4A" font-weight="600">Documentation (1.5)</text>
-          <text x="-128" y="-10" text-anchor="end" font-size="9" fill="#1B2A4A" font-weight="600">Knowledge Mgmt (1.5)</text>
+          <polygon points="0,-120 114,-37 70,97 -70,97 -114,-37" fill="none" stroke="#E2E8F0" stroke-width="0.75"/>
+          <polygon points="0,-96 91,-30 56,78 -56,78 -91,-30"    fill="none" stroke="#E2E8F0" stroke-width="0.75"/>
+          <polygon points="0,-72 68,-22 42,58 -42,58 -68,-22"    fill="none" stroke="#E2E8F0" stroke-width="0.75"/>
+          <polygon points="0,-48 46,-15 28,39 -28,39 -46,-15"    fill="none" stroke="#E2E8F0" stroke-width="0.75"/>
+          <polygon points="0,-24 23,-7 14,19 -14,19 -23,-7"      fill="none" stroke="#E2E8F0" stroke-width="0.75"/>
+          <line x1="0" y1="0" x2="0"    y2="-120" stroke="#E2E8F0" stroke-width="0.75"/>
+          <line x1="0" y1="0" x2="114"  y2="-37"  stroke="#E2E8F0" stroke-width="0.75"/>
+          <line x1="0" y1="0" x2="70"   y2="97"   stroke="#E2E8F0" stroke-width="0.75"/>
+          <line x1="0" y1="0" x2="-70"  y2="97"   stroke="#E2E8F0" stroke-width="0.75"/>
+          <line x1="0" y1="0" x2="-114" y2="-37"  stroke="#E2E8F0" stroke-width="0.75"/>
+          
+          <!-- Target dashed: Process 3.0, Tech 3.5, Data 3.5, Docs 3.0, KM 3.0 -->
+          <polygon points="0,-72 79.8,-25.9 68.6,95 -60,82.8 -68.4,-22.2" fill="none" stroke="#B8C0C9" stroke-width="1" stroke-dasharray="5,3"/>
+          
+          <!-- Current: Process 2.0, Tech 1.5, Data 1.5, Docs 1.5, KM 1.0 -->
+          <polygon points="0,-48 34.2,-11.1 21,29.1 -20,27.6 -22.8,-7.4" fill="rgba(15,107,98,0.14)" stroke="#0F6B62" stroke-width="1.75"/>
+          <circle cx="0" cy="-48" r="3.2" fill="#0F6B62"/>
+          <circle cx="34.2" cy="-11.1" r="3.2" fill="#0F6B62"/>
+          <circle cx="21" cy="29.1" r="3.2" fill="#0F6B62"/>
+          <circle cx="-20" cy="27.6" r="3.2" fill="#0F6B62"/>
+          <circle cx="-22.8" cy="-7.4" r="3.2" fill="#0F6B62"/>
+          
+          <text x="0"    y="-132" text-anchor="middle" font-size="9" fill="#1B2A4A" font-weight="600">Process</text>
+          <text x="128"  y="-20"  text-anchor="start"  font-size="9" fill="#1B2A4A" font-weight="600">Technology</text>
+          <text x="78"   y="110"  text-anchor="start"  font-size="9" fill="#1B2A4A" font-weight="600">Data Quality</text>
+          <text x="-78"  y="110"  text-anchor="end"    font-size="9" fill="#1B2A4A" font-weight="600">Documentation</text>
+          <text x="-128" y="-16"  text-anchor="end"    font-size="9" fill="#1B2A4A" font-weight="600">Knowledge Mgmt.</text>
         </g>
       </svg>
     </div>
-    <table>
-      <tr><th>Dimension</th><th>Current</th><th>Target</th><th>Gap</th></tr>
-      <tr><td>Process</td><td>2.0</td><td>3.5</td><td>1.5</td></tr>
-      <tr><td>Technology</td><td>2.5</td><td>4.0</td><td>1.5</td></tr>
-      <tr><td>Data Quality</td><td>2.0</td><td>3.5</td><td>1.5</td></tr>
-      <tr><td>Documentation</td><td>1.5</td><td>3.0</td><td>1.5</td></tr>
-      <tr><td>Knowledge Management</td><td>1.5</td><td>3.0</td><td>1.5</td></tr>
-      <tr><th>Overall</th><th>1.9</th><th>3.4</th><th>1.5</th></tr>
-    </table>
-    <p style="font-size:9.5pt;color:#0F766E;">HR scores 1.9 overall. While core HR (Zoho People/Payroll) operates at Level 3, recruitment and L&D drag the average down to Level 1.5.</p>
+    <div class="exhibit-note">
+      Solid line: current state. Dashed line: target state (post-roadmap).<br><br>
+      <b>HR scores 1.5 overall</b> — The department relies too heavily on manual interventions, leading to poor scores in Technology, Data Quality, and Knowledge Management.<br><br>
+      Adopting Zoho Recruit (ATS) and configuring Zoho People for automatic onboarding will dramatically shift the department toward a mature, automated posture.
+    </div>
   </div>
+
+  <table>
+    <tr><th>Dimension</th><th class="num">Current</th><th class="num">Target</th><th class="num">Gap</th></tr>
+    <tr><td>Process Standardization</td><td class="num">2.0</td><td class="num">3.0</td><td class="num">1.0</td></tr>
+    <tr><td>Technology Utilization</td><td class="num">1.5</td><td class="num">3.5</td><td class="num">2.0</td></tr>
+    <tr><td>Data Quality &amp; Accessibility</td><td class="num">1.5</td><td class="num">3.5</td><td class="num">2.0</td></tr>
+    <tr><td>Documentation</td><td class="num">1.5</td><td class="num">3.0</td><td class="num">1.5</td></tr>
+    <tr><td>Knowledge Management</td><td class="num">1.0</td><td class="num">3.0</td><td class="num">2.0</td></tr>
+    <tr style="font-weight:700;"><td>Overall</td><td class="num">1.5</td><td class="num">3.2</td><td class="num">1.7</td></tr>
+  </table>
+
+  <div class="doc-footer"><span>HR Audit Report · v1.0</span><span>Page 6</span></div>
 </div>
 
+<!-- ============ 06 ROADMAP ============ -->
 <div class="page">
-  <div class="section">
-    <div class="section-num">Section 06</div>
-    <h2>Proposed Solutions</h2>
+  <div class="doc-header"><span><b>EF Polymers</b> — HR Audit</span><span>Confidential</span></div>
 
-    <div class="solution-card">
-      <h4>Solution: Implement Zoho Recruit (ATS)</h4>
-      <p>Deploy Zoho Recruit to centralize the hiring pipeline. This provides the COO with a live pipeline dashboard, replaces manual Google Sheets, and standardizes "Person Required" digital forms for Team Leads.</p>
-      <table><tr><th>Priority</th><th>Effort</th><th>Expected Impact</th></tr>
-      <tr><td><span class="badge badge-critical">P1</span></td><td>Medium</td><td>Leadership visibility; faster hiring cycles; no dropped candidates</td></tr></table>
+  <div class="eyebrow">Section 06 — Implementation Plan</div>
+  <h2>Phased Roadmap</h2>
+  <div class="section-dek">Initiatives sequenced across three phases, with quantified ROI and scope of work</div>
+
+  <table class="tl-table">
+    <tr>
+      <th>Initiative</th><th class="id">Rec.</th>
+      <th class="num">Phase 1<br><span style="font-weight:400">Mo. 1–2</span></th>
+      <th class="num">Phase 2<br><span style="font-weight:400">Mo. 3–5</span></th>
+      <th class="num">Phase 3<br><span style="font-weight:400">Mo. 6+</span></th>
+    </tr>
+    <tr><td>Zoho Recruit (ATS) Rollout</td><td class="id">R-01</td><td class="phase-mark p1">●</td><td></td><td></td></tr>
+    <tr><td>Automated Onboarding Workflows</td><td class="id">R-02</td><td class="phase-mark p1">●</td><td></td><td></td></tr>
+    <tr><td>Monthly KPI-Linked PMS</td><td class="id">R-03</td><td></td><td class="phase-mark p2">●</td><td></td></tr>
+    <tr><td>Digital Approval Routing</td><td class="id">R-04</td><td></td><td class="phase-mark p2">●</td><td></td></tr>
+    <tr><td>Skills Inventory Database</td><td class="id">R-05</td><td></td><td></td><td class="phase-mark p3">●</td></tr>
+  </table>
+
+  <!-- PHASE 1 -->
+  <div class="phase-block">
+    <div class="phase-hd">
+      <div class="phase-hd-left">
+        <span class="phase-hd-title">Phase 1 &mdash; Hiring Infrastructure</span>
+        <span class="phase-hd-timeline">Months 1&ndash;2 &middot; Eliminate Data Silos</span>
+      </div>
+      <span class="phase-maturity">Maturity 1.5 &rarr; 2.2</span>
     </div>
-
-    <div class="solution-card">
-      <h4>Solution: Automated Onboarding Handoff</h4>
-      <p>Configure the native integration between Zoho Recruit and Zoho People. When an offer is accepted, the system should automatically generate the employee profile, trigger NDA e-signing, and assign day-one checklists.</p>
-      <table><tr><th>Priority</th><th>Effort</th><th>Expected Impact</th></tr>
-      <tr><td><span class="badge badge-critical">P1</span></td><td>Low</td><td>Eliminates manual profile setup; seamless day-one experience</td></tr></table>
+    <div class="phase-sow">
+      <div class="col-label">Scope of Work</div>
+      <div class="sow-item"><span class="sow-dot"></span><span>Procure and configure Zoho Recruit to absorb all inbound resumes, permanently ending Google Forms intake</span></div>
+      <div class="sow-item"><span class="sow-dot"></span><span>Map API triggers so an accepted offer in the ATS auto-generates a new Zoho People employee profile</span></div>
+      <div class="sow-item"><span class="sow-dot"></span><span>Automate initial document collection (NDAs, tax forms) via secure Zoho Sign email workflows</span></div>
+      <div class="sow-item"><span class="sow-dot"></span><span>Build a real-time hiring dashboard giving the COO full pipeline visibility without needing status meetings</span></div>
     </div>
-
-    <div class="solution-card">
-      <h4>Solution: Monthly KPI-Driven Appraisals</h4>
-      <p>Shift from annual subjective reviews to a monthly cadence using Zoho People's Performance module. Integrate this module with operational data (e.g., Zoho CRM targets) so appraisals are data-backed.</p>
-      <table><tr><th>Priority</th><th>Effort</th><th>Expected Impact</th></tr>
-      <tr><td><span class="badge badge-high">P2</span></td><td>Medium</td><td>Data-driven increments; real-time performance tracking</td></tr></table>
-    </div>
-
-    <div class="solution-card">
-      <h4>Solution: Centralized Skills Inventory Database</h4>
-      <p>Design a central skills directory ("know who knows what") in Zoho People. Track employee certifications, project history, and capabilities to optimize internal resource allocation and target L&D programs.</p>
-      <table><tr><th>Priority</th><th>Effort</th><th>Expected Impact</th></tr>
-      <tr><td><span class="badge badge-medium">P3</span></td><td>Low</td><td>Targeted L&D spend; faster internal project staffing</td></tr></table>
+    <div class="phase-roi">
+      <div class="roi-card">
+        <div class="roi-card-num">100%</div>
+        <div class="roi-card-label">pipeline visibility</div>
+        <div class="roi-card-desc">COO monitors the 60-80 interview cycle from a single live dashboard</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-card-num">Zero</div>
+        <div class="roi-card-label">double entry</div>
+        <div class="roi-card-desc">Automated onboarding ends manual profile creation in Zoho People</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-card-num">Secured</div>
+        <div class="roi-card-label">candidate data</div>
+        <div class="roi-card-desc">Resumes and interview notes no longer lost in fragile spreadsheets</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-card-num">&darr; 40%</div>
+        <div class="roi-card-label">admin sourcing time</div>
+        <div class="roi-card-desc">ATS automatically parses resumes and schedules initial screenings</div>
+      </div>
     </div>
   </div>
 
-  <div class="section">
-    <div class="section-num">Section 08</div>
-    <h2>Phased Roadmap</h2>
-    <div style="margin:30px 0;">
-      <div class="roadmap-phase">
-        <div class="phase-label">Phase 1 — Quick Wins (Recruitment Digitization)</div>
-        <h4>Zoho Recruit Implementation</h4><p>Centralize 60–80 interviews. <strong>Provides leadership dashboard visibility.</strong></p>
-        <h4>Automated Onboarding Handoff</h4><p>Connect Recruit to People. <strong>Eliminates manual onboarding setup.</strong></p>
-        <div style="background:#f0fdfa;padding:12px;border-radius:6px;margin-top:12px;"><strong>Where this places us:</strong> The Q4 hiring cycle is entirely digital. Leadership has full visibility. Onboarding is seamless.</div>
+  <!-- PHASE 2 -->
+  <div class="phase-block">
+    <div class="phase-hd">
+      <div class="phase-hd-left">
+        <span class="phase-hd-title">Phase 2 &mdash; Performance Calibration</span>
+        <span class="phase-hd-timeline">Months 3&ndash;5 &middot; Continuous Evaluation</span>
       </div>
-      <div class="roadmap-phase phase-2">
-        <div class="phase-label p2">Phase 2 — Operational Foundation (Performance)</div>
-        <h4>Monthly PMS Configuration</h4><p>Set up monthly cadences in Zoho People. <strong>Shifts away from annual subjective reviews.</strong></p>
-        <h4>Digital L&D Request Portal</h4><p>Standardized forms for training requests. <strong>Eliminates ad-hoc training research.</strong></p>
-        <div style="background:#eff6ff;padding:12px;border-radius:6px;margin-top:12px;"><strong>Where this places us:</strong> Performance is tracked continuously. Training is structured and requested digitally.</div>
+      <span class="phase-maturity p2">Maturity 2.2 &rarr; 2.8</span>
+    </div>
+    <div class="phase-sow">
+      <div class="col-label">Scope of Work</div>
+      <div class="sow-item"><span class="sow-dot p2"></span><span>Redesign the appraisal rubric for 30-day cycles, replacing subjective annual reviews</span></div>
+      <div class="sow-item"><span class="sow-dot p2"></span><span>Link Zoho People PMS directly to live operational and sales targets for quantitative scoring</span></div>
+      <div class="sow-item"><span class="sow-dot p2"></span><span>Route all headcount requests and offer sign-offs through Zoho's one-click approval workflows</span></div>
+      <div class="sow-item"><span class="sow-dot p2"></span><span>Establish automated probation check-in triggers at the 3-month mark for all new hires</span></div>
+    </div>
+    <div class="phase-roi">
+      <div class="roi-card">
+        <div class="roi-card-num">Monthly</div>
+        <div class="roi-card-label">appraisals</div>
+        <div class="roi-card-desc">Continuous feedback loop replaces slow, subjective annual reviews</div>
       </div>
-      <div class="roadmap-phase phase-3">
-        <div class="phase-label p3">Phase 3 — Advanced Optimization (Data Integration)</div>
-        <h4>Skills Inventory Database</h4><p>Central profile registry. <strong>Optimizes internal talent mobility.</strong></p>
-        <h4>Operational Data Integration</h4><p>Link Zoho CRM/Projects to Performance appraisals. <strong>Data-driven promotions.</strong></p>
-        <div style="background:#f5f3ff;padding:12px;border-radius:6px;margin-top:12px;"><strong>Where this places us:</strong> HR operates at Level 3.5 maturity. Appraisals are objective. Talent is fully mapped.</div>
+      <div class="roi-card">
+        <div class="roi-card-num">Data-driven</div>
+        <div class="roi-card-label">scoring</div>
+        <div class="roi-card-desc">Live sales metrics prevent disconnects between HR scores and reality</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-card-num">Instant</div>
+        <div class="roi-card-label">approvals</div>
+        <div class="roi-card-desc">Zoho workflows end the delays of lost COO email threads</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-card-num">Standardized</div>
+        <div class="roi-card-label">probation</div>
+        <div class="roi-card-desc">Automated alerts ensure managers complete 3-month assessments on time</div>
       </div>
     </div>
   </div>
+
+  <!-- PHASE 3 -->
+  <div class="phase-block">
+    <div class="phase-hd">
+      <div class="phase-hd-left">
+        <span class="phase-hd-title">Phase 3 &mdash; Talent Development</span>
+        <span class="phase-hd-timeline">Month 6 onward &middot; Strategic HR</span>
+      </div>
+      <span class="phase-maturity p3">Maturity 2.8 &rarr; 3.2</span>
+    </div>
+    <div class="phase-sow">
+      <div class="col-label">Scope of Work</div>
+      <div class="sow-item"><span class="sow-dot p3"></span><span>Build a searchable, company-wide skills matrix mapping specific employee competencies</span></div>
+      <div class="sow-item"><span class="sow-dot p3"></span><span>Launch an internal L&amp;D portal for Team Leads to submit structured, trackable training requests</span></div>
+      <div class="sow-item"><span class="sow-dot p3"></span><span>Standardize post-training assessment forms to quantitatively measure program efficacy</span></div>
+      <div class="sow-item"><span class="sow-dot p3"></span><span>Integrate gamified learning modules to boost employee engagement in continuous development</span></div>
+    </div>
+    <div class="phase-roi">
+      <div class="roi-card">
+        <div class="roi-card-num">Targeted</div>
+        <div class="roi-card-label">L&amp;D</div>
+        <div class="roi-card-desc">Skills database accurately identifies gaps for focused training</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-card-num">Strategic</div>
+        <div class="roi-card-label">promotions</div>
+        <div class="roi-card-desc">HR easily cross-references talent readiness for leadership roles</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-card-num">Measured</div>
+        <div class="roi-card-label">ROI</div>
+        <div class="roi-card-desc">Standardized assessments prove the value of external training costs</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-card-num">3.2</div>
+        <div class="roi-card-label">maturity level</div>
+        <div class="roi-card-desc">Highly mature, automated talent lifecycle management</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="doc-footer"><span>HR Audit Report · v1.0</span><span>Page 7</span></div>
+</div>
+
+<!-- ============ APPENDIX ============ -->
+<div class="page">
+  <div class="doc-header"><span><b>EF Polymers</b> — HR Audit</span><span>Confidential</span></div>
+
+  <div class="eyebrow">Appendix</div>
+  <h2>Cross-Department Dependencies</h2>
+  <div class="section-dek">Findings and recommendations that require action outside the HR Office to resolve</div>
+
+  <table>
+    <tr><th>Finding / Rec.</th><th>Counterpart Department</th><th>Dependency</th></tr>
+    <tr>
+      <td><span class="chip-ref">R-01</span> ATS Rollout</td>
+      <td>COO Office</td>
+      <td>Leadership must approve the software budget for Zoho Recruit and mandate its use by all hiring managers.</td>
+    </tr>
+    <tr>
+      <td><span class="chip-ref">R-03</span> Monthly PMS</td>
+      <td>All Department Heads</td>
+      <td>Team Leads must commit to updating quantitative KPIs monthly to feed the appraisal engine, abandoning subjective annual reviews.</td>
+    </tr>
+    <tr>
+      <td><span class="chip-ref">R-02</span> Onboarding Config</td>
+      <td>IT</td>
+      <td>IT resources are required to architect the API handoffs between Zoho Recruit, Zoho People, and Zoho Payroll.</td>
+    </tr>
+  </table>
+
+  <div class="doc-footer"><span>HR Audit Report · v1.0</span><span>Page 8</span></div>
 </div>
 
 </body>

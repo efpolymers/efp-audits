@@ -3,313 +3,720 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MENA & International Sales — Department Audit Report | EF Polymers</title>
+<title>MENA &amp; International Sales — Department Audit Report | EF Polymers</title>
 <style>
-  @page{size:A4;margin:20mm 18mm}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:#1e293b;line-height:1.6;background:#fff;font-size:11pt}.page{page-break-after:always;min-height:100vh}.page:last-child{page-break-after:avoid}.cover{display:flex;flex-direction:column;justify-content:center;align-items:center;min-height:100vh;background:linear-gradient(135deg,#1B2A4A 0%,#0F766E 100%);color:#fff;text-align:center;padding:60px 40px}.cover-badge{font-size:10pt;letter-spacing:3px;text-transform:uppercase;opacity:.8;margin-bottom:16px;border:1px solid rgba(255,255,255,.3);padding:6px 20px;border-radius:20px}.cover h1{font-size:32pt;font-weight:700;margin:20px 0 10px}.cover h2{font-size:16pt;font-weight:300;opacity:.9;margin-bottom:40px}.cover-meta{font-size:10pt;opacity:.7;line-height:2}.cover-line{width:80px;height:3px;background:rgba(255,255,255,.5);margin:30px auto}.section{padding:40px 0}.section-num{font-size:9pt;color:#0F766E;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:4px}h2{font-size:18pt;color:#1B2A4A;margin-bottom:20px;padding-bottom:10px;border-bottom:2px solid #e2e8f0}h3{font-size:13pt;color:#1B2A4A;margin:24px 0 12px}h4{font-size:11pt;color:#334155;margin:16px 0 8px}p{margin-bottom:12px}table{width:100%;border-collapse:collapse;margin:16px 0 24px;font-size:10pt}th{background:#1B2A4A;color:#fff;padding:10px 12px;text-align:left;font-weight:600}td{padding:9px 12px;border-bottom:1px solid #e2e8f0}tr:nth-child(even){background:#f8fafc}.card{border:1px solid #e2e8f0;border-radius:8px;padding:20px;margin:16px 0}.card-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}.card-title{font-weight:700;font-size:11pt;color:#1B2A4A}.badge{display:inline-block;padding:3px 12px;border-radius:12px;font-size:8.5pt;font-weight:600}.badge-critical{background:#fef2f2;color:#dc2626;border:1px solid #fecaca}.badge-medium{background:#fffbeb;color:#d97706;border:1px solid #fde68a}.badge-low{background:#f0fdf4;color:#16a34a;border:1px solid #bbf7d0}.metrics-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:16px 0}.metric-box{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:14px;text-align:center}.metric-value{font-size:18pt;font-weight:700;color:#0F766E}.metric-label{font-size:8pt;color:#64748b;text-transform:uppercase;letter-spacing:1px;margin-top:4px}.flow-container{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:20px 0;justify-content:center}.flow-step{background:#f0fdfa;border:2px solid #0F766E;border-radius:8px;padding:12px 16px;font-size:9pt;font-weight:500;text-align:center;min-width:120px;max-width:180px}.flow-step.problem{border-color:#dc2626;background:#fef2f2}.flow-arrow{color:#94a3b8;font-size:18pt}.solution-card{border-left:4px solid #0F766E;background:#f0fdfa;border-radius:0 8px 8px 0;padding:16px 20px;margin:12px 0}.solution-card.suggestion{border-left-color:#6366f1;background:#eef2ff}.gap-item{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid #f1f5f9}.gap-icon{width:32px;height:32px;background:#fef3c7;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14pt;flex-shrink:0}.chart-container{display:flex;justify-content:center;margin:24px 0}.roadmap-phase{border-left:3px solid #0F766E;padding:16px 0 16px 24px;margin-left:12px;position:relative}.roadmap-phase::before{content:'';width:12px;height:12px;background:#0F766E;border-radius:50%;position:absolute;left:-7.5px;top:20px}.roadmap-phase.phase-2{border-left-color:#2563eb}.roadmap-phase.phase-2::before{background:#2563eb}.roadmap-phase.phase-3{border-left-color:#7c3aed}.roadmap-phase.phase-3::before{background:#7c3aed}.phase-label{font-size:9pt;font-weight:700;color:#0F766E;letter-spacing:1px;text-transform:uppercase}.phase-label.p2{color:#2563eb}.phase-label.p3{color:#7c3aed}.kpi-row{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}.kpi-tag{background:#f1f5f9;border-radius:6px;padding:4px 10px;font-size:9pt;color:#475569}@media print{body{font-size:10pt}.page{min-height:auto}.cover{min-height:100vh}}
-  /* True Flowchart Branching Styles */
-  .flow-step-wrapper { display: flex; flex-direction: column; align-items: center; gap: 6px; }
-  .branch-arrow { display: flex; flex-direction: column; align-items: center; margin: 4px 0; position: relative; width: 100%; }
-  .branch-arrow-line { width: 2px; height: 16px; background: #cbd5e1; position: relative; }
-  .branch-arrow-line::after { content: ''; position: absolute; bottom: -3px; left: -2px; width: 0; height: 0; border-left: 3px solid transparent; border-right: 3px solid transparent; border-top: 4px solid #cbd5e1; }
-  .branch-label { background: #fff; padding: 0 6px; font-size: 7.5pt; color: #64748b; font-weight: 600; margin-top: -10px; margin-bottom: 2px; z-index: 1; white-space: nowrap; }
-  .branch-step { border: 2px dashed #cbd5e1; border-radius: 8px; padding: 8px 12px; font-size: 8.5pt; font-weight: 600; text-align: center; min-width: 130px; max-width: 180px; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
-  .branch-step.accounts { border-color: #3b82f6; background: #eff6ff; color: #1d4ed8; }
-  .branch-step.logistics { border-color: #f59e0b; background: #fffbeb; color: #b45309; }
-  .branch-step.production { border-color: #10b981; background: #ecfdf5; color: #047857; }
-  .branch-step.rd { border-color: #8b5cf6; background: #f5f3ff; color: #6d28d9; }
-  /* Color coding for standard steps crossing departments */
-  .flow-step.accounts { border-color: #3b82f6; background: #eff6ff; color: #1d4ed8; }
-  .flow-step.logistics { border-color: #f59e0b; background: #fffbeb; color: #b45309; }
-  .flow-step.production { border-color: #10b981; background: #ecfdf5; color: #047857; }
-  .flow-step.rd { border-color: #8b5cf6; background: #f5f3ff; color: #6d28d9; }
+:root{
+  --ink:#1B2A4A;
+  --slate:#3F4B5C;
+  --muted:#6B7785;
+  --line:#D8DEE5;
+  --line-soft:#E9EDF1;
+  --paper:#FFFFFF;
+  --paper-alt:#F6F7F9;
+  --accent:#0F6B62;
+  --accent-soft:#EAF3F1;
+  --risk-crit-bg:#FCEBEA; --risk-crit-fg:#A32E24;
+  --risk-med-bg:#FBF1DF;  --risk-med-fg:#8A5A10;
+  --risk-low-bg:#E9F4EC;  --risk-low-fg:#276B3E;
+}
+@page{ size:A4; margin:22mm 18mm 20mm 18mm; }
+*{ margin:0; padding:0; box-sizing:border-box; }
+body{
+  font-family:'Segoe UI',system-ui,-apple-system,sans-serif;
+  color:var(--slate);
+  line-height:1.55;
+  background:#EDEFF1;
+  font-size:10.3pt;
+}
+.page{
+  background:var(--paper);
+  max-width:840px;
+  margin:0 auto 14px auto;
+  padding:26mm 20mm 20mm 20mm;
+  position:relative;
+  page-break-after:always;
+  min-height:1120px;
+}
+.page:last-child{ page-break-after:avoid; }
+
+/* ---- running header / footer ---- */
+.doc-header{
+  display:flex; justify-content:space-between; align-items:baseline;
+  font-size:7.8pt; letter-spacing:0.4px; text-transform:uppercase; color:var(--muted);
+  border-bottom:1px solid var(--line); padding-bottom:8px; margin-bottom:22px;
+}
+.doc-header b{ color:var(--ink); }
+.doc-footer{
+  position:absolute; bottom:10mm; left:20mm; right:20mm;
+  display:flex; justify-content:space-between;
+  font-size:7.5pt; color:var(--muted);
+  border-top:1px solid var(--line-soft); padding-top:6px;
+}
+
+/* ---- cover ---- */
+.cover{ display:flex; flex-direction:column; min-height:1080px; }
+.cover-top{ display:flex; justify-content:space-between; align-items:flex-start; }
+.cover-mark{ font-size:9pt; font-weight:700; letter-spacing:2px; color:var(--ink); }
+.cover-mark span{ color:var(--accent); }
+.cover-class{ font-size:7.8pt; text-transform:uppercase; letter-spacing:1.5px; color:var(--muted); border:1px solid var(--line); padding:4px 10px; }
+.cover-body{ flex:1; display:flex; flex-direction:column; justify-content:center; padding:60px 0; }
+.cover-eyebrow{ font-family:Georgia,'Times New Roman',serif; font-style:italic; font-size:11pt; color:var(--accent); margin-bottom:14px; }
+.cover-title{ font-family:Georgia,'Times New Roman',serif; font-size:34pt; color:var(--ink); font-weight:600; line-height:1.15; margin-bottom:10px; }
+.cover-sub{ font-size:13pt; color:var(--slate); font-weight:400; }
+.cover-rule{ width:52px; height:2px; background:var(--accent); margin:26px 0; }
+.cover-ctrl{ border:1px solid var(--line); }
+.cover-ctrl table{ width:100%; border-collapse:collapse; }
+.cover-ctrl td{ padding:9px 14px; font-size:9pt; border-bottom:1px solid var(--line-soft); }
+.cover-ctrl tr:last-child td{ border-bottom:none; }
+.cover-ctrl td.label{ color:var(--muted); width:38%; text-transform:uppercase; font-size:7.8pt; letter-spacing:0.5px; }
+.cover-ctrl td.val{ color:var(--ink); font-weight:600; }
+
+/* ---- section furniture ---- */
+.eyebrow{ font-size:8pt; color:var(--accent); font-weight:700; letter-spacing:1.6px; text-transform:uppercase; margin-bottom:6px; }
+h2{ font-family:Georgia,'Times New Roman',serif; font-size:17pt; color:var(--ink); font-weight:600; margin-bottom:4px; }
+h2 + .section-dek{ color:var(--muted); font-size:9.3pt; margin-bottom:18px; padding-bottom:14px; border-bottom:1px solid var(--line); }
+h3{ font-family:Georgia,'Times New Roman',serif; font-size:12.5pt; color:var(--ink); font-weight:600; margin:22px 0 8px; }
+h4{ font-size:10pt; color:var(--ink); font-weight:700; margin:14px 0 4px; }
+p{ margin-bottom:10px; }
+.lede{ font-size:10.6pt; color:var(--slate); max-width:95%; }
+
+/* ---- tables ---- */
+table{ width:100%; border-collapse:collapse; margin:10px 0 20px; font-size:9pt; }
+th{ background:var(--ink); color:#fff; padding:8px 10px; text-align:left; font-weight:600; font-size:8.3pt; letter-spacing:0.3px; text-transform:uppercase; }
+td{ padding:8px 10px; border-bottom:1px solid var(--line-soft); vertical-align:top; }
+tr:nth-child(even) td{ background:var(--paper-alt); }
+td.id, th.id{ font-family:Georgia,serif; font-weight:700; color:var(--ink); white-space:nowrap; width:44px; }
+td.num{ text-align:center; white-space:nowrap; }
+
+/* ---- chips ---- */
+.chip{ display:inline-block; padding:2px 9px; border-radius:3px; font-size:7.8pt; font-weight:700; letter-spacing:0.3px; text-transform:uppercase; white-space:nowrap; }
+.chip-crit{ background:var(--risk-crit-bg); color:var(--risk-crit-fg); }
+.chip-med{  background:var(--risk-med-bg);  color:var(--risk-med-fg); }
+.chip-low{  background:var(--risk-low-bg);  color:var(--risk-low-fg); }
+.chip-ref{ display:inline-block; background:var(--accent-soft); color:var(--accent); font-family:Georgia,serif; font-weight:700; font-size:8pt; padding:1px 6px; border-radius:3px; margin:1px 2px 1px 0; }
+
+/* ---- KPI strip ---- */
+.kpi-strip{ display:flex; border:1px solid var(--line); margin:16px 0 22px; }
+.kpi-cell{ flex:1; padding:12px 14px; border-right:1px solid var(--line); }
+.kpi-cell:last-child{ border-right:none; }
+.kpi-num{ font-family:Georgia,serif; font-size:15pt; color:var(--ink); font-weight:700; }
+.kpi-lbl{ font-size:7.6pt; color:var(--muted); text-transform:uppercase; letter-spacing:0.5px; margin-top:2px; }
+
+/* ---- callout ---- */
+.callout{ border-left:3px solid var(--accent); background:var(--accent-soft); padding:10px 14px; font-size:9pt; color:var(--ink); margin:10px 0 20px; }
+
+/* ---- flow notes ---- */
+.flow-note{ font-size:8.6pt; color:var(--muted); margin:4px 0 18px; padding-left:2px; }
+.flow-note b{ color:var(--risk-crit-fg); }
+.flow-ok{   font-size:8.6pt; color:var(--accent); margin:4px 0 18px; }
+
+/* ---- maturity exhibit ---- */
+.exhibit{ display:flex; gap:26px; align-items:center; margin:14px 0 6px; }
+.exhibit-chart{ flex:0 0 220px; }
+.exhibit-note{ flex:1; font-size:9.2pt; color:var(--slate); }
+.exhibit-note b{ color:var(--ink); }
+
+/* ---- roadmap table ---- */
+.tl-table td.phase-mark{ text-align:center; font-weight:700; }
+.tl-table td.phase-mark.p1{ color:var(--accent); }
+.tl-table td.phase-mark.p2{ color:#2563eb; }
+.tl-table td.phase-mark.p3{ color:#7c3aed; }
+
+/* ---- phase blocks ---- */
+.phase-block{ border:1px solid var(--line); margin:14px 0; overflow:hidden; }
+.phase-hd{ display:flex; justify-content:space-between; align-items:center; padding:10px 14px; border-bottom:1px solid var(--line); background:var(--paper-alt); gap:16px; }
+.phase-hd-left{ display:flex; flex-direction:column; gap:2px; }
+.phase-hd-title{ font-family:Georgia,serif; font-size:11pt; font-weight:700; color:var(--ink); }
+.phase-hd-timeline{ font-size:7.8pt; color:var(--muted); }
+.phase-maturity{ font-size:8.5pt; font-weight:700; color:var(--accent); border:1px solid var(--accent); border-radius:3px; padding:3px 10px; white-space:nowrap; flex-shrink:0; }
+.phase-maturity.p2{ color:#2563eb; border-color:#2563eb; }
+.phase-maturity.p3{ color:#7c3aed; border-color:#7c3aed; }
+.phase-sow{ padding:11px 14px 14px; }
+.col-label{ font-size:7.4pt; color:var(--muted); text-transform:uppercase; letter-spacing:0.8px; margin-bottom:8px; font-weight:700; }
+.sow-item{ display:flex; gap:8px; margin-bottom:5px; font-size:8.5pt; color:var(--slate); line-height:1.4; }
+.sow-dot{ width:4px; height:4px; background:var(--accent); border-radius:50%; margin-top:5px; flex-shrink:0; }
+.sow-dot.p2{ background:#2563eb; }
+.sow-dot.p3{ background:#7c3aed; }
+.phase-roi{ display:flex; border-top:1px solid var(--line); background:var(--paper-alt); }
+.roi-card{ flex:1; padding:10px 12px; border-right:1px solid var(--line); text-align:center; }
+.roi-card:last-child{ border-right:none; }
+.roi-card-num{ font-family:Georgia,serif; font-size:13pt; font-weight:700; color:var(--ink); line-height:1.1; margin-bottom:3px; }
+.roi-card-label{ font-size:7.5pt; color:var(--ink); font-weight:700; text-transform:uppercase; letter-spacing:0.3px; margin-bottom:3px; }
+.roi-card-desc{ font-size:7pt; color:var(--muted); line-height:1.35; }
+
+@media print{
+  body{ background:#fff; }
+  .page{ box-shadow:none; margin:0; }
+}
 </style>
 </head>
 <body>
 
+<!-- ============ COVER ============ -->
 <div class="page cover">
-  <div class="cover-badge">Department Audit Report</div>
-  <h1>MENA & International Sales</h1>
-  <h2>Neha Pathak — BD Manager, International Sales</h2>
-  <div class="cover-line"></div>
-  <div class="cover-meta">EF Polymers Private Limited<br>Prepared by Creative Upaay Consulting<br>July 2026 · Version 1.0<br>Confidential — Executive Leadership Only</div>
-</div>
-
-<div class="page">
-  <div class="section">
-    <div class="section-num">Section 01</div>
-    <h2>Department Overview</h2>
-    <p>MENA & International Sales is a distinct business unit focused on B2B international distributor management across Asia, Africa, and Australia. The department operates a distributor/importer-led model with direct B2B accounts in parallel. Neha Pathak reports directly to the COO (Puran Singh Rajput) and serves as the single point of contact (SPOC) for all international customers.</p>
-
-    <div class="metrics-grid">
-      <div class="metric-box"><div class="metric-value">2–4 mo</div><div class="metric-label">Trial Crop Cycle</div></div>
-      <div class="metric-box"><div class="metric-value">~90%</div><div class="metric-label">PO Data Completeness</div></div>
-      <div class="metric-box"><div class="metric-value">1 week</div><div class="metric-label">Min Dispatch Prep</div></div>
-      <div class="metric-box"><div class="metric-value">2</div><div class="metric-label">Team Size</div></div>
-    </div>
-
-    <h3>Time & Effort Allocation</h3>
+  <div class="cover-top">
+    <div class="cover-mark">EF<span>·</span>POLYMERS</div>
+    <div class="cover-class">Confidential — Executive Leadership Only</div>
+  </div>
+  <div class="cover-body">
+    <div class="cover-eyebrow">Department Audit Report</div>
+    <div class="cover-title">MENA &amp; International Sales</div>
+    <div class="cover-sub">Process, Coordination &amp; Pipeline Review — Neha Pathak, BD Manager</div>
+    <div class="cover-rule"></div>
+    <p style="max-width:70%;color:var(--muted);font-size:9.3pt;">
+      An independent review of international distributor workflows, cross-border payment coordination, and pipeline management within the MENA &amp; International Sales function, prepared as part of the EF Polymers organization-wide operational audit.
+    </p>
+  </div>
+  <div class="cover-ctrl">
     <table>
-      <tr><th>Activity</th><th>Share</th></tr>
-      <tr><td>Logistics & Export Execution Coordination</td><td>~30%</td></tr>
-      <tr><td>Lead Qualification & Inbound Follow-up</td><td>~25%</td></tr>
-      <tr><td>Trial Alignment & R&D Coordination</td><td>~20%</td></tr>
-      <tr><td>Contract Administration & Legal Routing</td><td>~15%</td></tr>
-      <tr><td>Pipeline Logging & Tracker Updates</td><td>~10%</td></tr>
+      <tr><td class="label">Client</td><td class="val">EF Polymers Private Limited</td></tr>
+      <tr><td class="label">Prepared by</td><td class="val">Creative Upaay Consulting</td></tr>
+      <tr><td class="label">Document version</td><td class="val">1.0</td></tr>
+      <tr><td class="label">Date issued</td><td class="val">July 2026</td></tr>
+      <tr><td class="label">Review scope</td><td class="val">MENA &amp; International Sales department only</td></tr>
+      <tr><td class="label">Distribution</td><td class="val">CEO, COO, Finance Head</td></tr>
     </table>
-
-    <h3>Tool Stack</h3>
-    <div class="kpi-row">
-      <span class="kpi-tag">Google Sheets (Logistics Tracker, Customer Stage Tracker)</span>
-      <span class="kpi-tag">Gmail</span>
-      <span class="kpi-tag">Slack (Middle East)</span>
-      <span class="kpi-tag">WeChat (China)</span>
-      <span class="kpi-tag">WhatsApp</span>
-      <span class="kpi-tag">Google Meet / MS Teams / Zoom</span>
-    </div>
   </div>
 </div>
 
+<!-- ============ 01 EXECUTIVE SUMMARY ============ -->
 <div class="page">
-  <div class="section">
-    <div class="section-num">Section 02</div>
-    <h2>Existing Workflows</h2>
+  <div class="doc-header"><span><b>EF Polymers</b> — MENA &amp; International Sales Audit</span><span>Confidential</span></div>
 
-    <h3>Workflow 1: Client Onboarding & Trial Lifecycle</h3>
-    <div class="flow-container">
-      <div class="flow-step">Inbound lead / inquiry</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">Execute MNDA</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">Consult R&D for custom questionnaire</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">Dispatch sample & initiate trial</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">Monitor crop cycle (2–4 months)</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">Compile trial report</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">Draft distributorship agreement</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">External legal review & signing</div>
-    </div>
-    <p style="font-size:9.5pt;color:#64748b;">Indian dosage calculators are NOT used for international trials. Each trial requires custom R&D-designed parameters.</p>
+  <div class="eyebrow">Section 01 — Executive Summary</div>
+  <h2>Department Overview</h2>
+  <div class="section-dek">Scope, current state, and headline findings</div>
 
-    <h3>Workflow 2: Commercial Order & Shipping</h3>
-    <div class="flow-container">
-      <div class="flow-step">PO received from distributor</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step-wrapper">
-        <div class="flow-step">Route to Accounts for invoicing</div>
-        <div class="branch-arrow">
-          <div class="branch-arrow-line"></div>
-          <div class="branch-label">Invoicing</div>
-        </div>
-        <div class="branch-step accounts">Accounts: Check advance & invoice</div>
-      </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step problem">~10% PO corrections needed</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">Logistics: factory → port (1 week min)</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">BD coordinates port-to-destination</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step problem">Single logistics manager (shared)</div>
-    </div>
+  <p class="lede">MENA &amp; International Sales manages B2B distributor relationships across Asia, Africa, and Australia, operating a distributor/importer-led model with direct B2B accounts in parallel. Neha Pathak reports directly to the COO and functions as the single point of contact (SPOC) for all international customers — a structure that maintains relationship quality but concentrates operational risk on one person.</p>
 
-    <h3>Workflow 3: SPOC Communication Model</h3>
-    <div class="flow-container">
-      <div class="flow-step">Customer contacts BD Manager only</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">BD routes internally (Production, Logistics, Accounts)</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">Internal teams respond to BD Manager</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">BD Manager communicates back to customer</div>
-    </div>
-    <p style="font-size:9.5pt;color:#64748b;">Production, Logistics, and Accounts do NOT contact customers directly — all routing through SPOC protects customer experience but creates a bottleneck.</p>
+  <p>The review identified <b>four findings</b>, of which <b>one is rated Critical</b>. The most material is a single-point logistics constraint that exposes international export SLAs to failure risk during peak periods. Four recommendations are set out in Section 04, sequenced across a three-phase roadmap in Section 06.</p>
+
+  <div class="kpi-strip">
+    <div class="kpi-cell"><div class="kpi-num">2–4 mo</div><div class="kpi-lbl">Trial crop cycle</div></div>
+    <div class="kpi-cell"><div class="kpi-num">~90%</div><div class="kpi-lbl">PO data completeness</div></div>
+    <div class="kpi-cell"><div class="kpi-num">1 week</div><div class="kpi-lbl">Min. dispatch prep</div></div>
+    <div class="kpi-cell"><div class="kpi-num">2.0 / 5.0</div><div class="kpi-lbl">Overall maturity score</div></div>
   </div>
+
+  <h3>Time &amp; Effort Allocation</h3>
+  <table>
+    <tr><th>Activity</th><th class="num" style="text-align:right">Share of Team Time</th></tr>
+    <tr><td>Logistics &amp; Export Execution Coordination</td><td class="num">~30%</td></tr>
+    <tr><td>Lead Qualification &amp; Inbound Follow-up</td><td class="num">~25%</td></tr>
+    <tr><td>Trial Alignment &amp; R&amp;D Coordination</td><td class="num">~20%</td></tr>
+    <tr><td>Contract Administration &amp; Legal Routing</td><td class="num">~15%</td></tr>
+    <tr><td>Pipeline Logging &amp; Tracker Updates</td><td class="num">~10%</td></tr>
+  </table>
+
+  <h3>Tools in Use</h3>
+  <table>
+    <tr><th>Tool</th><th>Role</th></tr>
+    <tr><td>Google Sheets (Logistics Tracker)</td><td>Manual export shipment coordination — no live status, updated reactively</td></tr>
+    <tr><td>Google Sheets (Customer Stage Tracker)</td><td>Pipeline stage tracking across distributors — no CRM equivalent (see F-02)</td></tr>
+    <tr><td>Gmail</td><td>Primary formal communication channel for distributor correspondence</td></tr>
+    <tr><td>Slack</td><td>Real-time coordination with Middle East distributors</td></tr>
+    <tr><td>WeChat</td><td>China distributor communications — maintained on personal phone (see F-04)</td></tr>
+    <tr><td>WhatsApp</td><td>General coordination; payment notifications sent manually to Accounts (see F-03)</td></tr>
+    <tr><td>Google Meet / MS Teams / Zoom</td><td>International trial review calls and distributor onboarding sessions</td></tr>
+  </table>
+
+  <div class="doc-footer"><span>MENA &amp; International Sales Audit Report · v1.0</span><span>Page 2</span></div>
 </div>
 
+<!-- ============ 02 FINDINGS REGISTER ============ -->
 <div class="page">
-  <div class="section">
-    <div class="section-num">Section 03</div>
-    <h2>Challenges, Risks & Red Flags</h2>
+  <div class="doc-header"><span><b>EF Polymers</b> — MENA &amp; International Sales Audit</span><span>Confidential</span></div>
 
-    <div class="card">
-      <div class="card-header"><span class="card-title">1. Single-Point Logistics Constraint</span><span class="badge badge-critical">CRITICAL</span></div>
-      <p>International dispatches depend entirely on a single Logistics Manager (Nihal) who is shared across domestic, B2B, and export segments. During peak export cycles, shipping delays are inevitable.</p>
-      <table>
-        <tr><th>Metric</th><th>Detail</th></tr>
-        <tr><td>Time Waste</td><td>International dispatch days consume 100% of Logistics Manager's time</td></tr>
-        <tr><td>Investment</td><td>Medium — additional logistics personnel or process streamlining</td></tr>
-        <tr><td>ROI</td><td><strong>Very High</strong> — prevents export SLA breaches; avoids demurrage fees</td></tr>
-        <tr><td>Cross-Department</td><td>Logistics, Production, All BD verticals</td></tr>
-      </table>
-    </div>
+  <div class="eyebrow">Section 02 — Risk &amp; Control Findings</div>
+  <h2>Findings Register</h2>
+  <div class="section-dek">Ranked by risk rating. Each finding is cross-referenced to its recommendation in Section 04.</div>
 
-    <div class="card">
-      <div class="card-header"><span class="card-title">2. Ineffective Outbound Sales Funnel</span><span class="badge badge-medium">MEDIUM</span></div>
-      <p>Cold outreach via email and LinkedIn has very low conversion rates. Global revenue is primarily reliant on inbound inquiries, creating a growth bottleneck.</p>
-      <table>
-        <tr><th>Metric</th><th>Detail</th></tr>
-        <tr><td>Time Waste</td><td>Hours spent on low-conversion outbound channels</td></tr>
-        <tr><td>Investment</td><td>Medium — targeted outbound strategy + email automation</td></tr>
-        <tr><td>ROI</td><td><strong>Medium</strong> — diversifies revenue sources beyond inbound dependency</td></tr>
-      </table>
-    </div>
+  <table>
+    <tr>
+      <th class="id">ID</th><th>Finding</th><th>Risk</th><th>Evidence / Impact</th><th>Linked Rec.</th>
+    </tr>
+    <tr>
+      <td class="id">F-01</td>
+      <td><b>Single-point logistics constraint.</b> All international dispatches share one Logistics Manager (Nihal) with domestic and B2B operations. No export priority routing exists.</td>
+      <td><span class="chip chip-crit">Critical</span></td>
+      <td>On international dispatch days, 100% of logistics capacity is consumed. Domestic orders delayed; demurrage and SLA breach risk during peak export cycles.</td>
+      <td><span class="chip-ref">R-01</span></td>
+    </tr>
+    <tr>
+      <td class="id">F-02</td>
+      <td><b>No CRM or structured pipeline tracking.</b> International distributor pipeline is managed entirely in Google Sheets with no stage-gating, no deal history, and no visibility for the COO.</td>
+      <td><span class="chip chip-med">Medium</span></td>
+      <td>Pipeline status is opaque above SPOC level; no basis for revenue forecasting or distributor performance review.</td>
+      <td><span class="chip-ref">R-04</span></td>
+    </tr>
+    <tr>
+      <td class="id">F-03</td>
+      <td><b>No automated cross-border remittance alerts.</b> International payments do not trigger notifications in Zoho Books; BD must manually warn Accounts before dispatch can proceed.</td>
+      <td><span class="chip chip-med">Medium</span></td>
+      <td>Manual advance warning required per shipment; preventable dispatch holds with low-effort automation.</td>
+      <td><span class="chip-ref">R-02</span></td>
+    </tr>
+    <tr>
+      <td class="id">F-04</td>
+      <td><b>International client relationships on personal phone.</b> Middle East and China accounts are maintained via a personal SIM and WeChat; employee exit risks full loss of account contacts.</td>
+      <td><span class="chip chip-low">Low</span></td>
+      <td>No company-owned record of international contact relationships. Full account contact list at personal risk on exit.</td>
+      <td><span class="chip-ref">R-03</span></td>
+    </tr>
+  </table>
 
-    <div class="card">
-      <div class="card-header"><span class="card-title">3. Delayed Cross-Border Remittance Alerts</span><span class="badge badge-medium">MEDIUM</span></div>
-      <p>Cross-border bank receipts do not trigger instant alerts in Zoho Books. BD must manually warn Accounts before dispatches can proceed — creating a preventable hold.</p>
-      <table>
-        <tr><th>Metric</th><th>Detail</th></tr>
-        <tr><td>Time Waste</td><td>Manual advance warnings per payment; dispatch holds</td></tr>
-        <tr><td>Investment</td><td>Low — bank API or Zoho Books notification configuration</td></tr>
-        <tr><td>ROI</td><td><strong>High</strong> — eliminates manual payment tracking; faster dispatch clearance</td></tr>
-      </table>
-    </div>
+  <div class="callout">One of four findings is Critical and is a shared-resource dependency — it cannot be resolved within MENA alone and requires formal agreement with Logistics. The two Medium findings (F-02, F-03) are self-contained quick wins. Phase 1 of the roadmap targets F-03 and F-04 as zero-build quick wins before the structural logistics and CRM work in Phase 2.</div>
 
-    <div class="card">
-      <div class="card-header"><span class="card-title">4. Personal Phone Dependency</span><span class="badge badge-low">LOW</span></div>
-      <p>International client relationships in the Middle East and China are maintained on a personal phone number. Employee exit risks loss of all account contacts.</p>
-      <table>
-        <tr><th>Metric</th><th>Detail</th></tr>
-        <tr><td>Investment</td><td>Minimal — company SIM or virtual business number</td></tr>
-        <tr><td>ROI</td><td><strong>High relative to cost</strong> — protects critical international relationships</td></tr>
-      </table>
-    </div>
-  </div>
+  <div class="doc-footer"><span>MENA &amp; International Sales Audit Report · v1.0</span><span>Page 3</span></div>
 </div>
 
+<!-- ============ 03 WORKFLOWS ============ -->
 <div class="page">
-  <div class="section">
-    <div class="section-num">Section 04</div>
-    <h2>Information Gaps & Cross-Department Leaks</h2>
-    <div class="gap-item"><div class="gap-icon">⚠</div><div><h4>MENA ↔ Logistics (Shared Resource Bottleneck)</h4><p>International dispatches share a single Logistics Manager with domestic and B2B operations. During peak export periods, domestic orders are delayed and vice versa. No priority routing exists.</p></div></div>
-    <div class="gap-item"><div class="gap-icon">⚠</div><div><h4>MENA ↔ Accounts (Payment Visibility)</h4><p>Cross-border payments don't trigger automatic alerts. BD must manually inform Accounts of incoming payments to prevent dispatch holds.</p></div></div>
-    <div class="gap-item"><div class="gap-icon">⚠</div><div><h4>MENA ↔ R&D (Trial Parameters)</h4><p>Each international trial requires custom R&D-designed parameters. No standardized request form exists — each request is a manual consultation.</p></div></div>
-  </div>
+  <div class="doc-header"><span><b>EF Polymers</b> — MENA &amp; International Sales Audit</span><span>Confidential</span></div>
 
-  <div class="section">
-    <div class="section-num">Section 05</div>
-    <h2>Department Maturity Score</h2>
-    <div class="chart-container">
-      <svg viewBox="0 0 400 350" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:400px;">
+  <div class="eyebrow">Section 03 — Process Detail</div>
+  <h2>Current Workflows</h2>
+  <div class="section-dek">Where each finding sits inside the operational process</div>
+
+  <!-- WORKFLOW 1: Trial Lifecycle -->
+  <h3>Client Onboarding &amp; Trial Lifecycle</h3>
+  <svg viewBox="0 0 740 92" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:10px 0 4px;">
+    <defs>
+      <marker id="a1" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+        <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5"/>
+      </marker>
+    </defs>
+    <!-- 8 steps: width=76, stride=94, start x=10 -->
+    <rect x="10"  y="22" width="76" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="48"  y="42" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Inbound lead</text>
+    <text x="48"  y="53" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">/ inquiry</text>
+    <line x1="86" y1="46" x2="103" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)"/>
+
+    <rect x="105" y="22" width="76" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="143" y="42" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Execute</text>
+    <text x="143" y="53" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">MNDA</text>
+    <line x1="181" y1="46" x2="198" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)"/>
+
+    <rect x="200" y="22" width="76" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="238" y="39" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">R&amp;D custom</text>
+    <text x="238" y="50" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">questionnaire</text>
+    <line x1="276" y1="46" x2="293" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)"/>
+
+    <rect x="295" y="22" width="76" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="333" y="42" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Dispatch</text>
+    <text x="333" y="53" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">sample</text>
+    <line x1="371" y1="46" x2="388" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)"/>
+
+    <rect x="390" y="22" width="76" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="428" y="39" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Monitor crop</text>
+    <text x="428" y="50" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">cycle (2–4 mo)</text>
+    <line x1="466" y1="46" x2="483" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)"/>
+
+    <rect x="485" y="22" width="76" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="523" y="42" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Compile</text>
+    <text x="523" y="53" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">trial report</text>
+    <line x1="561" y1="46" x2="578" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)"/>
+
+    <rect x="580" y="22" width="76" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="618" y="39" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Draft distrib.</text>
+    <text x="618" y="50" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">agreement</text>
+    <line x1="656" y1="46" x2="672" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)"/>
+
+    <rect x="674" y="22" width="58" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="703" y="39" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Legal</text>
+    <text x="703" y="50" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">review &amp;</text>
+    <text x="703" y="61" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">signing</text>
+  </svg>
+  <p class="flow-note">Indian dosage calculators are not used for international trials. Each trial requires custom R&amp;D-designed parameters — extending the onboarding cycle to 2–4 months per market.</p>
+
+  <!-- WORKFLOW 2: Commercial Order -->
+  <h3>Commercial Order &amp; Shipping — <span class="chip-ref">F-01</span> <span class="chip-ref">F-03</span></h3>
+  <svg viewBox="0 0 740 148" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:10px 0 4px;">
+    <defs>
+      <marker id="a2" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+        <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5"/>
+      </marker>
+    </defs>
+    <!-- 5 main steps, width=112, stride=130 -->
+    <rect x="10"  y="30" width="112" height="52" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="66"  y="52" text-anchor="middle" font-size="8" fill="#3F4B5C" font-family="Segoe UI,sans-serif">PO received</text>
+    <text x="66"  y="64" text-anchor="middle" font-size="8" fill="#3F4B5C" font-family="Segoe UI,sans-serif">from distributor</text>
+    <line x1="122" y1="56" x2="140" y2="56" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)"/>
+
+    <!-- Step 2: Route to Accounts — remittance gap annotated -->
+    <text x="198" y="22" text-anchor="middle" font-size="7" fill="#8A5A10" font-weight="700" font-family="Segoe UI,sans-serif" letter-spacing="0.4">REMITTANCE GAP</text>
+    <rect x="142" y="30" width="112" height="52" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="198" y="52" text-anchor="middle" font-size="8" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Route to Accounts</text>
+    <text x="198" y="64" text-anchor="middle" font-size="8" fill="#3F4B5C" font-family="Segoe UI,sans-serif">for invoicing</text>
+    <!-- branch drop: manual warning -->
+    <line x1="198" y1="82" x2="198" y2="100" stroke="#D8DEE5" stroke-width="1" stroke-dasharray="3,2"/>
+    <rect x="142" y="100" width="112" height="40" rx="3" fill="#FBF1DF" stroke="#E8C97A" stroke-width="1"/>
+    <text x="198" y="117" text-anchor="middle" font-size="7.5" fill="#8A5A10" font-family="Segoe UI,sans-serif">BD manually warns</text>
+    <text x="198" y="129" text-anchor="middle" font-size="7.5" fill="#8A5A10" font-family="Segoe UI,sans-serif">Accounts of payment</text>
+    <line x1="254" y1="56" x2="272" y2="56" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)"/>
+
+    <!-- Step 3: PO corrections -->
+    <text x="330" y="22" text-anchor="middle" font-size="7" fill="#A32E24" font-weight="700" font-family="Segoe UI,sans-serif" letter-spacing="0.4">~10% REWORK</text>
+    <rect x="274" y="30" width="112" height="52" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1"/>
+    <text x="330" y="52" text-anchor="middle" font-size="8" fill="#A32E24" font-family="Segoe UI,sans-serif">PO corrections</text>
+    <text x="330" y="64" text-anchor="middle" font-size="8" fill="#A32E24" font-family="Segoe UI,sans-serif">needed (~10%)</text>
+    <line x1="386" y1="56" x2="404" y2="56" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)"/>
+
+    <!-- Step 4: Logistics -->
+    <rect x="406" y="30" width="112" height="52" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="462" y="49" text-anchor="middle" font-size="8" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Logistics: factory</text>
+    <text x="462" y="61" text-anchor="middle" font-size="8" fill="#3F4B5C" font-family="Segoe UI,sans-serif">→ port (min 1 wk)</text>
+    <line x1="518" y1="56" x2="536" y2="56" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)"/>
+
+    <!-- Step 5: BOTTLENECK -->
+    <text x="594" y="22" text-anchor="middle" font-size="7" fill="#A32E24" font-weight="700" font-family="Segoe UI,sans-serif" letter-spacing="0.4">BOTTLENECK</text>
+    <rect x="538" y="30" width="112" height="52" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5"/>
+    <text x="594" y="49" text-anchor="middle" font-size="8" fill="#A32E24" font-family="Segoe UI,sans-serif">Single shared</text>
+    <text x="594" y="61" text-anchor="middle" font-size="8" fill="#A32E24" font-family="Segoe UI,sans-serif">logistics manager</text>
+  </svg>
+  <p class="flow-note"><b>Dual exposure:</b> ~10% PO error rate causes rework before dispatch; a single shared Logistics Manager creates capacity failure during concurrent domestic and export cycles.</p>
+
+  <!-- WORKFLOW 3: SPOC -->
+  <h3>SPOC Communication Model</h3>
+  <svg viewBox="0 0 740 92" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:10px 0 4px;">
+    <defs>
+      <marker id="a3" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+        <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5"/>
+      </marker>
+    </defs>
+    <rect x="10"  y="22" width="160" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="90"  y="43" text-anchor="middle" font-size="8" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Customer contacts</text>
+    <text x="90"  y="55" text-anchor="middle" font-size="8" fill="#3F4B5C" font-family="Segoe UI,sans-serif">BD Manager only</text>
+    <line x1="170" y1="46" x2="188" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a3)"/>
+
+    <rect x="190" y="22" width="182" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="281" y="40" text-anchor="middle" font-size="8" fill="#3F4B5C" font-family="Segoe UI,sans-serif">BD routes internally</text>
+    <text x="281" y="52" text-anchor="middle" font-size="7.8" fill="#3F4B5C" font-family="Segoe UI,sans-serif">(Production / Logistics / Accounts)</text>
+    <line x1="372" y1="46" x2="390" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a3)"/>
+
+    <rect x="392" y="22" width="160" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="472" y="43" text-anchor="middle" font-size="8" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Internal teams</text>
+    <text x="472" y="55" text-anchor="middle" font-size="8" fill="#3F4B5C" font-family="Segoe UI,sans-serif">respond to BD Mgr</text>
+    <line x1="552" y1="46" x2="570" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a3)"/>
+
+    <rect x="572" y="22" width="160" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="652" y="43" text-anchor="middle" font-size="8" fill="#3F4B5C" font-family="Segoe UI,sans-serif">BD Manager replies</text>
+    <text x="652" y="55" text-anchor="middle" font-size="8" fill="#3F4B5C" font-family="Segoe UI,sans-serif">to customer</text>
+  </svg>
+  <p class="flow-note">Production, Logistics, and Accounts do not contact customers directly — routing through SPOC maintains consistency but any absence creates a complete communication blackout for all active accounts.</p>
+
+  <div class="doc-footer"><span>MENA &amp; International Sales Audit Report · v1.0</span><span>Page 4</span></div>
+</div>
+
+<!-- ============ 04 RECOMMENDATIONS ============ -->
+<div class="page">
+  <div class="doc-header"><span><b>EF Polymers</b> — MENA &amp; International Sales Audit</span><span>Confidential</span></div>
+
+  <div class="eyebrow">Section 04 — Corrective Action Plan</div>
+  <h2>Recommendations Register</h2>
+  <div class="section-dek">Ordered by priority. Effort and impact are directional estimates for planning purposes.</div>
+
+  <table>
+    <tr><th class="id">ID</th><th>Recommendation</th><th>Finding</th><th>Priority</th><th>Effort</th><th>Expected Impact</th></tr>
+    <tr>
+      <td class="id">R-01</td>
+      <td>Logistics priority routing &amp; capacity planning — define pre-scheduled export dispatch windows; evaluate a dedicated export logistics resource or cross-training for peak periods.</td>
+      <td><span class="chip-ref">F-01</span></td>
+      <td><span class="chip chip-crit">P1</span></td>
+      <td>Medium</td>
+      <td>Eliminates SLA breach and demurrage risk; domestic orders no longer deprioritized during export cycles</td>
+    </tr>
+    <tr>
+      <td class="id">R-02</td>
+      <td>Automated cross-border payment alerts — configure Zoho Books notifications to trigger when international payments are received, alerting Accounts and Logistics automatically without BD intervention.</td>
+      <td><span class="chip-ref">F-03</span></td>
+      <td><span class="chip chip-crit">P1</span></td>
+      <td>Low</td>
+      <td>Eliminates dispatch holds from manual remittance notifications; saves ~30 min per shipment</td>
+    </tr>
+    <tr>
+      <td class="id">R-03</td>
+      <td>Company SIM for BD Manager — issue a company-owned SIM or virtual business number for Middle East and China client communications on WhatsApp and WeChat.</td>
+      <td><span class="chip-ref">F-04</span></td>
+      <td><span class="chip chip-med">P2</span></td>
+      <td>Minimal</td>
+      <td>Protects all international account relationships against employee exit risk at minimal cost</td>
+    </tr>
+    <tr>
+      <td class="id">R-04</td>
+      <td>CRM module for MENA pipeline — configure a Company → Deal / Crop Account hierarchy in Zoho CRM for parallel trial tracking across distributors. Scope as part of the enterprise CRM rollout, not a standalone implementation.</td>
+      <td><span class="chip-ref">F-02</span></td>
+      <td><span class="chip chip-med">P2</span></td>
+      <td>Low (config)</td>
+      <td>Full international pipeline visibility; COO-level reporting; replaces Google Sheets tracking</td>
+    </tr>
+    <tr>
+      <td class="id">R-05</td>
+      <td>Standardized R&amp;D trial request form — structured intake (crop type, region, climate parameters, target outcomes) replaces ad-hoc R&amp;D consultation for every new international trial.</td>
+      <td></td>
+      <td><span class="chip chip-med">P2</span></td>
+      <td>Low</td>
+      <td>Faster trial setup; reduces per-trial coordination time between MENA and R&amp;D</td>
+    </tr>
+    <tr>
+      <td class="id">R-06</td>
+      <td>Targeted outbound strategy redesign — replace generic cold outreach with exhibition-sourced contacts and trade body referrals; create region-specific technical case studies as collateral.</td>
+      <td><span class="chip-ref">F-02</span></td>
+      <td><span class="chip chip-low">P3</span></td>
+      <td>Medium</td>
+      <td>Reduces inbound dependency; improves outbound conversion rate; diversifies revenue sources</td>
+    </tr>
+  </table>
+
+  <div class="doc-footer"><span>MENA &amp; International Sales Audit Report · v1.0</span><span>Page 5</span></div>
+</div>
+
+<!-- ============ 05 MATURITY ============ -->
+<div class="page">
+  <div class="doc-header"><span><b>EF Polymers</b> — MENA &amp; International Sales Audit</span><span>Confidential</span></div>
+
+  <div class="eyebrow">Section 05 — Benchmarking</div>
+  <h2>Department Maturity Assessment</h2>
+  <div class="section-dek">Scored 1 (ad hoc) to 5 (optimized) against five capability dimensions</div>
+
+  <div class="exhibit">
+    <div class="exhibit-chart">
+      <svg viewBox="0 0 400 350" xmlns="http://www.w3.org/2000/svg" style="width:100%;">
         <g transform="translate(200,170)">
-          <polygon points="0,-120 114,-37 70,97 -70,97 -114,-37" fill="none" stroke="#e2e8f0" stroke-width="0.5"/>
-          <polygon points="0,-96 91,-30 56,78 -56,78 -91,-30" fill="none" stroke="#e2e8f0" stroke-width="0.5"/>
-          <polygon points="0,-72 68,-22 42,58 -42,58 -68,-22" fill="none" stroke="#e2e8f0" stroke-width="0.5"/>
-          <polygon points="0,-48 46,-15 28,39 -28,39 -46,-15" fill="none" stroke="#e2e8f0" stroke-width="0.5"/>
-          <polygon points="0,-24 23,-7 14,19 -14,19 -23,-7" fill="none" stroke="#e2e8f0" stroke-width="0.5"/>
-          <line x1="0" y1="0" x2="0" y2="-120" stroke="#e2e8f0" stroke-width="0.5"/><line x1="0" y1="0" x2="114" y2="-37" stroke="#e2e8f0" stroke-width="0.5"/><line x1="0" y1="0" x2="70" y2="97" stroke="#e2e8f0" stroke-width="0.5"/><line x1="0" y1="0" x2="-70" y2="97" stroke="#e2e8f0" stroke-width="0.5"/><line x1="0" y1="0" x2="-114" y2="-37" stroke="#e2e8f0" stroke-width="0.5"/>
-          <!-- Process=2.0, Tech=1.5, Data=2.0, Docs=2.0, KM=1.5 -->
-          <polygon points="0,-48 34.2,-11.1 28,38.8 -28,38.8 -34.2,-11.1" fill="rgba(15,118,110,0.2)" stroke="#0F766E" stroke-width="2"/>
-          <polygon points="0,-84 79.8,-25.9 49,67.9 -49,67.9 -79.8,-25.9" fill="none" stroke="#dc2626" stroke-width="1" stroke-dasharray="6,3"/>
-          <circle cx="0" cy="-48" r="4" fill="#0F766E"/><circle cx="34.2" cy="-11.1" r="4" fill="#0F766E"/><circle cx="28" cy="38.8" r="4" fill="#0F766E"/><circle cx="-28" cy="38.8" r="4" fill="#0F766E"/><circle cx="-34.2" cy="-11.1" r="4" fill="#0F766E"/>
-          <text x="0" y="-132" text-anchor="middle" font-size="9" fill="#1B2A4A" font-weight="600">Process (2.0)</text>
-          <text x="128" y="-10" text-anchor="start" font-size="9" fill="#1B2A4A" font-weight="600">Technology (1.5)</text>
-          <text x="78" y="100" text-anchor="start" font-size="9" fill="#1B2A4A" font-weight="600">Data Quality (2.0)</text>
-          <text x="-78" y="100" text-anchor="end" font-size="9" fill="#1B2A4A" font-weight="600">Documentation (2.0)</text>
-          <text x="-128" y="-10" text-anchor="end" font-size="9" fill="#1B2A4A" font-weight="600">Knowledge Mgmt (1.5)</text>
+          <polygon points="0,-120 114,-37 70,97 -70,97 -114,-37" fill="none" stroke="#E2E8F0" stroke-width="0.75"/>
+          <polygon points="0,-96 91,-30 56,78 -56,78 -91,-30"    fill="none" stroke="#E2E8F0" stroke-width="0.75"/>
+          <polygon points="0,-72 68,-22 42,58 -42,58 -68,-22"    fill="none" stroke="#E2E8F0" stroke-width="0.75"/>
+          <polygon points="0,-48 46,-15 28,39 -28,39 -46,-15"    fill="none" stroke="#E2E8F0" stroke-width="0.75"/>
+          <polygon points="0,-24 23,-7 14,19 -14,19 -23,-7"      fill="none" stroke="#E2E8F0" stroke-width="0.75"/>
+          <line x1="0" y1="0" x2="0"    y2="-120" stroke="#E2E8F0" stroke-width="0.75"/>
+          <line x1="0" y1="0" x2="114"  y2="-37"  stroke="#E2E8F0" stroke-width="0.75"/>
+          <line x1="0" y1="0" x2="70"   y2="97"   stroke="#E2E8F0" stroke-width="0.75"/>
+          <line x1="0" y1="0" x2="-70"  y2="97"   stroke="#E2E8F0" stroke-width="0.75"/>
+          <line x1="0" y1="0" x2="-114" y2="-37"  stroke="#E2E8F0" stroke-width="0.75"/>
+          <!-- Target dashed -->
+          <polygon points="0,-84 79.8,-25.9 49,67.9 -49,67.9 -79.8,-25.9" fill="none" stroke="#B8C0C9" stroke-width="1" stroke-dasharray="5,3"/>
+          <!-- Current: Process=2.0, Tech=1.5, Data=2.0, Docs=2.0, KM=1.5 -->
+          <polygon points="0,-48 34.2,-11.1 28,38.8 -28,38.8 -34.2,-11.1" fill="rgba(15,107,98,0.14)" stroke="#0F6B62" stroke-width="1.75"/>
+          <circle cx="0"     cy="-48"   r="3.2" fill="#0F6B62"/>
+          <circle cx="34.2"  cy="-11.1" r="3.2" fill="#0F6B62"/>
+          <circle cx="28"    cy="38.8"  r="3.2" fill="#0F6B62"/>
+          <circle cx="-28"   cy="38.8"  r="3.2" fill="#0F6B62"/>
+          <circle cx="-34.2" cy="-11.1" r="3.2" fill="#0F6B62"/>
+          <text x="0"    y="-132" text-anchor="middle" font-size="9" fill="#1B2A4A" font-weight="600">Process</text>
+          <text x="128"  y="-20"  text-anchor="start"  font-size="9" fill="#1B2A4A" font-weight="600">Technology</text>
+          <text x="78"   y="110"  text-anchor="start"  font-size="9" fill="#1B2A4A" font-weight="600">Data Quality</text>
+          <text x="-78"  y="110"  text-anchor="end"    font-size="9" fill="#1B2A4A" font-weight="600">Documentation</text>
+          <text x="-128" y="-16"  text-anchor="end"    font-size="9" fill="#1B2A4A" font-weight="600">Knowledge Mgmt.</text>
         </g>
       </svg>
     </div>
-    <table>
-      <tr><th>Dimension</th><th>Current</th><th>Target</th><th>Gap</th></tr>
-      <tr><td>Process</td><td>2.0</td><td>3.5</td><td>1.5</td></tr>
-      <tr><td>Technology</td><td>1.5</td><td>3.0</td><td>1.5</td></tr>
-      <tr><td>Data Quality</td><td>2.0</td><td>3.0</td><td>1.0</td></tr>
-      <tr><td>Documentation</td><td>2.0</td><td>3.0</td><td>1.0</td></tr>
-      <tr><td>Knowledge Management</td><td>1.5</td><td>3.0</td><td>1.5</td></tr>
-      <tr><th>Overall</th><th>2.0</th><th>3.1</th><th>1.1</th></tr>
-    </table>
+    <div class="exhibit-note">
+      Solid line: current state. Dashed line: target state (post-roadmap).<br><br>
+      <b>MENA &amp; International Sales scores 2.0 overall</b> — entirely Google Sheets-driven with no CRM, no pipeline automation, and no systematic tracking above SPOC level. The low Technology score (1.5) reflects near-total absence of purpose-built tooling for international BD.<br><br>
+      Advancement to Level 3+ is blocked not by tooling cost but by the absence of CRM adoption (F-02) and structured logistics coordination (F-01) — both addressable within Phases 1–2 of the roadmap.
+    </div>
   </div>
+
+  <table>
+    <tr><th>Dimension</th><th class="num">Current</th><th class="num">Target</th><th class="num">Gap</th></tr>
+    <tr><td>Process</td><td class="num">2.0</td><td class="num">3.5</td><td class="num">1.5</td></tr>
+    <tr><td>Technology</td><td class="num">1.5</td><td class="num">3.0</td><td class="num">1.5</td></tr>
+    <tr><td>Data Quality</td><td class="num">2.0</td><td class="num">3.0</td><td class="num">1.0</td></tr>
+    <tr><td>Documentation</td><td class="num">2.0</td><td class="num">3.0</td><td class="num">1.0</td></tr>
+    <tr><td>Knowledge Management</td><td class="num">1.5</td><td class="num">3.0</td><td class="num">1.5</td></tr>
+    <tr style="font-weight:700;"><td>Overall</td><td class="num">2.0</td><td class="num">3.1</td><td class="num">1.1</td></tr>
+  </table>
+
+  <div class="doc-footer"><span>MENA &amp; International Sales Audit Report · v1.0</span><span>Page 6</span></div>
 </div>
 
+<!-- ============ 06 ROADMAP ============ -->
 <div class="page">
-  <div class="section">
-    <div class="section-num">Section 06</div>
-    <h2>Proposed Solutions</h2>
+  <div class="doc-header"><span><b>EF Polymers</b> — MENA &amp; International Sales Audit</span><span>Confidential</span></div>
 
-    <div class="solution-card">
-      <h4>Solution: Logistics Priority Routing & Capacity Planning</h4>
-      <p>Define priority rules for logistics resource allocation during peak periods. International export dispatches should have pre-scheduled windows. Evaluate hiring an additional logistics resource or cross-training existing personnel.</p>
-      <table><tr><th>Priority</th><th>Effort</th><th>Approach</th><th>Expected Impact</th></tr>
-      <tr><td><span class="badge badge-critical">P1</span></td><td>Medium</td><td>Process rules + potential hiring</td><td>Eliminates shipping SLA breaches; prevents demurrage</td></tr></table>
+  <div class="eyebrow">Section 06 — Implementation Plan</div>
+  <h2>Phased Roadmap</h2>
+  <div class="section-dek">Six recommendations sequenced across three phases, with quantified ROI and scope of work per phase</div>
+
+  <table class="tl-table">
+    <tr>
+      <th>Initiative</th><th class="id">Rec.</th>
+      <th class="num">Phase 1<br><span style="font-weight:400">Mo. 1–2</span></th>
+      <th class="num">Phase 2<br><span style="font-weight:400">Mo. 3–5</span></th>
+      <th class="num">Phase 3<br><span style="font-weight:400">Mo. 6+</span></th>
+    </tr>
+    <tr><td>Automated cross-border payment alerts</td><td class="id">R-02</td><td class="phase-mark p1">●</td><td></td><td></td></tr>
+    <tr><td>Company SIM for BD Manager</td><td class="id">R-03</td><td class="phase-mark p1">●</td><td></td><td></td></tr>
+    <tr><td>Logistics priority routing &amp; capacity plan</td><td class="id">R-01</td><td></td><td class="phase-mark p2">●</td><td></td></tr>
+    <tr><td>CRM module for MENA pipeline (enterprise rollout)</td><td class="id">R-04</td><td></td><td class="phase-mark p2">●</td><td></td></tr>
+    <tr><td>Standardized R&amp;D trial request form</td><td class="id">R-05</td><td></td><td class="phase-mark p2">●</td><td></td></tr>
+    <tr><td>Targeted outbound strategy redesign</td><td class="id">R-06</td><td></td><td></td><td class="phase-mark p3">●</td></tr>
+  </table>
+
+  <!-- PHASE 1 -->
+  <div class="phase-block">
+    <div class="phase-hd">
+      <div class="phase-hd-left">
+        <span class="phase-hd-title">Phase 1 &mdash; Quick Wins</span>
+        <span class="phase-hd-timeline">Months 1&ndash;2 &middot; ~1&ndash;2 weeks effort &middot; Zero technology cost</span>
+      </div>
+      <span class="phase-maturity">Maturity 2.0 &rarr; 2.3</span>
     </div>
-
-    <div class="solution-card">
-      <h4>Solution: Automated Cross-Border Payment Alerts</h4>
-      <p>Configure Zoho Books to trigger automatic notifications when international payments are received. BD and Logistics are alerted instantly — no manual advance warnings needed.</p>
-      <table><tr><th>Priority</th><th>Effort</th><th>Approach</th><th>Expected Impact</th></tr>
-      <tr><td><span class="badge badge-critical">P1</span></td><td>Low</td><td>Zoho Books notification config or bank API</td><td>Eliminates dispatch holds from payment visibility gaps</td></tr></table>
+    <div class="phase-sow">
+      <div class="col-label">Scope of Work</div>
+      <div class="sow-item"><span class="sow-dot"></span><span>Configure Zoho Books cross-border payment notification rules for international receipts</span></div>
+      <div class="sow-item"><span class="sow-dot"></span><span>Validate with 2&ndash;3 live shipment scenarios before full rollout; update Accounts clearance SOP</span></div>
+      <div class="sow-item"><span class="sow-dot"></span><span>Procure company SIM or activate virtual business number for BD Manager</span></div>
+      <div class="sow-item"><span class="sow-dot"></span><span>Transfer active international WhatsApp and WeChat accounts to company number</span></div>
+      <div class="sow-item"><span class="sow-dot"></span><span>Document contact handoff protocol for employee exit &mdash; anchor in HR policy for all field-facing roles</span></div>
     </div>
-
-    <div class="solution-card">
-      <h4>Solution: Company SIM for International BD Manager</h4>
-      <p>Issue a company-owned SIM or virtual business number for international client communications. Separates personal and professional channels.</p>
-      <table><tr><th>Priority</th><th>Effort</th><th>Approach</th><th>Expected Impact</th></tr>
-      <tr><td><span class="badge badge-medium">P2</span></td><td>Minimal</td><td>SIM/virtual number setup</td><td>Protects international account relationships</td></tr></table>
-    </div>
-
-    <div class="solution-card">
-      <h4>Solution: Standardized R&D Trial Request Form</h4>
-      <p>Create a structured form for BD to submit trial requests to R&D, including crop type, region, climate parameters, and target outcomes. Reduces back-and-forth consultations.</p>
-      <table><tr><th>Priority</th><th>Effort</th><th>Approach</th><th>Expected Impact</th></tr>
-      <tr><td><span class="badge badge-medium">P2</span></td><td>Low</td><td>Form template — no system build needed</td><td>Faster trial setup; reduced R&D consultation time</td></tr></table>
+    <div class="phase-roi">
+      <div class="roi-card">
+        <div class="roi-card-num">~30 min</div>
+        <div class="roi-card-label">saved per shipment</div>
+        <div class="roi-card-desc">Manual payment warning to Accounts eliminated on every dispatch cycle</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-card-num">&curren;0</div>
+        <div class="roi-card-label">technology cost</div>
+        <div class="roi-card-desc">Configuration only &mdash; no new software or development required</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-card-num">100%</div>
+        <div class="roi-card-label">accounts protected</div>
+        <div class="roi-card-desc">Middle East &amp; China contacts secured against employee exit risk</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-card-num">0</div>
+        <div class="roi-card-label">dispatch holds</div>
+        <div class="roi-card-desc">Auto-alert clears dispatch; BD intervention no longer needed</div>
+      </div>
     </div>
   </div>
+
+  <!-- PHASE 2 -->
+  <div class="phase-block">
+    <div class="phase-hd">
+      <div class="phase-hd-left">
+        <span class="phase-hd-title">Phase 2 &mdash; Operational Foundation</span>
+        <span class="phase-hd-timeline">Months 3&ndash;5 &middot; Medium effort &middot; Shared with enterprise CRM rollout</span>
+      </div>
+      <span class="phase-maturity p2">Maturity 2.3 &rarr; 2.8</span>
+    </div>
+    <div class="phase-sow">
+      <div class="col-label">Scope of Work</div>
+      <div class="sow-item"><span class="sow-dot p2"></span><span>Negotiate and document export dispatch scheduling windows with Logistics Manager; present capacity plan to COO</span></div>
+      <div class="sow-item"><span class="sow-dot p2"></span><span>Configure Zoho CRM: Company &rarr; Deal / Crop Account hierarchy for MENA distributors; migrate pipeline data from Sheets</span></div>
+      <div class="sow-item"><span class="sow-dot p2"></span><span>Co-design R&amp;D trial request form with R&amp;D Head; pilot with next 2 trial initiations</span></div>
+      <div class="sow-item"><span class="sow-dot p2"></span><span>Establish monthly COO pipeline review cadence using CRM reports; retire Google Sheets tracker</span></div>
+    </div>
+    <div class="phase-roi">
+      <div class="roi-card">
+        <div class="roi-card-num">0</div>
+        <div class="roi-card-label">SLA breaches</div>
+        <div class="roi-card-desc">Priority windows prevent logistics conflicts during peak export cycles</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-card-num">&darr; Risk</div>
+        <div class="roi-card-label">demurrage exposure</div>
+        <div class="roi-card-desc">Missed port windows currently live risk; structured scheduling closes this</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-card-num">~40%</div>
+        <div class="roi-card-label">faster trial setup</div>
+        <div class="roi-card-desc">Structured R&amp;D form replaces 3&ndash;5 back-and-forth emails per trial</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-card-num">Full</div>
+        <div class="roi-card-label">pipeline visibility</div>
+        <div class="roi-card-desc">Sheets &rarr; real-time CRM; COO gains deal stage &amp; distributor status</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHASE 3 -->
+  <div class="phase-block">
+    <div class="phase-hd">
+      <div class="phase-hd-left">
+        <span class="phase-hd-title">Phase 3 &mdash; Advanced Optimization</span>
+        <span class="phase-hd-timeline">Month 6 onward &middot; Medium effort &middot; Executes on Phase 2 data foundation</span>
+      </div>
+      <span class="phase-maturity p3">Maturity 2.8 &rarr; 3.1</span>
+    </div>
+    <div class="phase-sow">
+      <div class="col-label">Scope of Work</div>
+      <div class="sow-item"><span class="sow-dot p3"></span><span>Build region-specific case studies for 2&ndash;3 target markets (Middle East, Africa, Australia)</span></div>
+      <div class="sow-item"><span class="sow-dot p3"></span><span>Identify 15&ndash;20 targeted contacts from past exhibitions and trade body networks; begin structured outreach</span></div>
+      <div class="sow-item"><span class="sow-dot p3"></span><span>Create technical one-pagers per crop type and climate zone as outreach collateral</span></div>
+      <div class="sow-item"><span class="sow-dot p3"></span><span>Configure CRM outbound tracking: response rate, trial conversion, time-to-PO per region; quarterly COO review</span></div>
+    </div>
+    <div class="phase-roi">
+      <div class="roi-card">
+        <div class="roi-card-num">&darr; Hours</div>
+        <div class="roi-card-label">low-ROI outreach</div>
+        <div class="roi-card-desc">Targeted contacts replace generic cold email; fewer efforts, higher relevance</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-card-num">First</div>
+        <div class="roi-card-label">outbound baseline</div>
+        <div class="roi-card-desc">CRM gives first ever quantified outbound funnel metric for MENA</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-card-num">&darr; Single</div>
+        <div class="roi-card-label">revenue dependency</div>
+        <div class="roi-card-desc">Active outbound reduces reliance on inbound; pipeline becomes predictable</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-card-num">3.1</div>
+        <div class="roi-card-label">maturity level</div>
+        <div class="roi-card-desc">Managed &amp; measured &mdash; documented processes, CRM data, quantified metrics</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="doc-footer"><span>MENA &amp; International Sales Audit Report · v1.0</span><span>Page 7</span></div>
 </div>
 
+<!-- ============ APPENDIX ============ -->
 <div class="page">
-  <div class="section">
-    <div class="section-num">Section 07</div>
-    <h2>Additional Optimization Suggestions</h2>
+  <div class="doc-header"><span><b>EF Polymers</b> — MENA &amp; International Sales Audit</span><span>Confidential</span></div>
 
-    <div class="solution-card suggestion">
-      <h4>💡 CRM Module for MENA (Part of Enterprise CRM)</h4>
-      <p>The department requires a CRM with parent "Company" records and nested "Deal/Crop Accounts" for parallel trial tracking. This should be configured as a custom module within the enterprise Zoho CRM rollout.</p>
-      <div class="kpi-row"><span class="kpi-tag">Priority: P1 (enterprise CRM)</span><span class="kpi-tag">Impact: Full international pipeline visibility</span></div>
-    </div>
+  <div class="eyebrow">Appendix</div>
+  <h2>Cross-Department Dependencies</h2>
+  <div class="section-dek">Findings and recommendations that require action outside MENA &amp; International Sales to resolve</div>
 
-    <div class="solution-card suggestion">
-      <h4>💡 Targeted Outbound Strategy Redesign</h4>
-      <p>Rather than generic cold outreach, focus outbound on exhibition-sourced contacts and trade body referrals. Create region-specific case studies and technical one-pagers as outreach collateral.</p>
-      <div class="kpi-row"><span class="kpi-tag">Priority: P3</span><span class="kpi-tag">Effort: Medium</span><span class="kpi-tag">Impact: Improves outbound conversion</span></div>
-    </div>
-  </div>
+  <table>
+    <tr><th>Finding / Rec.</th><th>Counterpart Department</th><th>Dependency</th></tr>
+    <tr>
+      <td><span class="chip-ref">F-01</span> Logistics constraint</td>
+      <td>Logistics</td>
+      <td>Logistics Manager owns export dispatch windows. Priority routing for international shipments requires formal scheduling agreement and cannot be implemented by MENA alone.</td>
+    </tr>
+    <tr>
+      <td><span class="chip-ref">F-03</span> Payment visibility</td>
+      <td>Finance &amp; Accounts</td>
+      <td>Zoho Books notification configuration for cross-border payments requires Finance access and Accounts team buy-in. Dispatch clearance process must be updated on the Accounts side simultaneously.</td>
+    </tr>
+    <tr>
+      <td><span class="chip-ref">R-04</span> CRM module</td>
+      <td>All BD verticals / COO</td>
+      <td>MENA's CRM requirements must be scoped within the enterprise Zoho CRM rollout. Standalone implementation would create data silos across BD verticals.</td>
+    </tr>
+    <tr>
+      <td><span class="chip-ref">R-05</span> R&amp;D trial form</td>
+      <td>R&amp;D</td>
+      <td>R&amp;D must co-design the trial request form to ensure the intake fields capture all parameters required for international trial design. Sign-off from R&amp;D Head needed before rollout.</td>
+    </tr>
+    <tr>
+      <td><span class="chip-ref">R-03</span> Company SIM</td>
+      <td>HR / CEO</td>
+      <td>SIM issuance and communication policy requires HR approval. Policy should clarify ownership of contact data on employee exit — relevant to all field-facing roles, not just MENA.</td>
+    </tr>
+  </table>
 
-  <div class="section">
-    <div class="section-num">Section 08</div>
-    <h2>Phased Roadmap</h2>
-    <div style="margin:30px 0;">
-      <div class="roadmap-phase">
-        <div class="phase-label">Phase 1 — Quick Wins</div>
-        <h4>Automated Payment Alerts</h4><p>Zoho Books notifications for international payments. <strong>Eliminates dispatch holds.</strong></p>
-        <h4>Company SIM for BD Manager</h4><p>Separates personal/professional channels. <strong>Protects international accounts.</strong></p>
-        <div style="background:#f0fdfa;padding:12px;border-radius:6px;margin-top:12px;"><strong>Where this places us:</strong> Payment visibility is instant. Contact continuity is protected. Dispatch holds from manual payment tracking are eliminated.</div>
-      </div>
-      <div class="roadmap-phase phase-2">
-        <div class="phase-label p2">Phase 2 — Operational Foundation</div>
-        <h4>CRM Module for MENA</h4><p>Company → Deal/Crop Accounts structure in Zoho CRM. <strong>Full pipeline tracking.</strong></p>
-        <h4>R&D Trial Request Form</h4><p>Structured submission process. <strong>Faster trial setup.</strong></p>
-        <h4>Logistics Priority Routing</h4><p>Defined scheduling windows for international dispatches. <strong>Prevents SLA breaches.</strong></p>
-        <div style="background:#eff6ff;padding:12px;border-radius:6px;margin-top:12px;"><strong>Where this places us:</strong> International pipeline is CRM-tracked. Trial onboarding is streamlined. Logistics bottleneck has defined mitigation.</div>
-      </div>
-      <div class="roadmap-phase phase-3">
-        <div class="phase-label p3">Phase 3 — Advanced Optimization</div>
-        <h4>Outbound Strategy Redesign</h4><p>Region-specific case studies. Targeted outreach via exhibitions. <strong>Higher outbound conversion.</strong></p>
-        <div style="background:#f5f3ff;padding:12px;border-radius:6px;margin-top:12px;"><strong>Where this places us:</strong> MENA operates at Level 3+ maturity. Pipeline is data-driven. Revenue sources are diversified beyond inbound.</div>
-      </div>
-    </div>
-    <h3>Cumulative Expected Gains</h3>
-    <table>
-      <tr><th>Phase</th><th>Key Deliverable</th><th>Impact</th></tr>
-      <tr><td>Phase 1</td><td>Payment alerts + SIM policy</td><td>Instant payment visibility; contact protection</td></tr>
-      <tr><td>Phase 2</td><td>CRM + trial forms + logistics routing</td><td>Full pipeline tracking; streamlined onboarding</td></tr>
-      <tr><td>Phase 3</td><td>Outbound strategy redesign</td><td>Diversified revenue; higher conversion</td></tr>
-    </table>
-  </div>
+  <div class="callout">Recommended next step: schedule a joint working session with the Logistics Manager and Finance to scope R-01 and R-02 together — both relate to international dispatch readiness and share overlapping resolution steps.</div>
+
+  <div class="doc-footer"><span>MENA &amp; International Sales Audit Report · v1.0</span><span>Page 8</span></div>
 </div>
 
 </body>
