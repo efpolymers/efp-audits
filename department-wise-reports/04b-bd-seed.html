@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BD (Seed) — Department Audit Report | EF Polymers</title>
 <style>
 :root{
@@ -40,7 +39,6 @@ body{
 }
 .page:last-child{ page-break-after:avoid; }
 
-/* ---- running header / footer ---- */
 .doc-header{
   display:flex; justify-content:space-between; align-items:baseline;
   font-size:7.8pt; letter-spacing:0.4px; text-transform:uppercase; color:var(--muted);
@@ -54,7 +52,6 @@ body{
   border-top:1px solid var(--line-soft); padding-top:6px;
 }
 
-/* ---- cover ---- */
 .cover{ display:flex; flex-direction:column; min-height:1080px; }
 .cover-top{ display:flex; justify-content:space-between; align-items:flex-start; }
 .cover-mark{ font-size:9pt; font-weight:700; letter-spacing:2px; color:var(--ink); }
@@ -72,16 +69,14 @@ body{
 .cover-ctrl td.label{ color:var(--muted); width:38%; text-transform:uppercase; font-size:7.8pt; letter-spacing:0.5px; }
 .cover-ctrl td.val{ color:var(--ink); font-weight:600; }
 
-/* ---- section furniture ---- */
 .eyebrow{ font-size:8pt; color:var(--accent); font-weight:700; letter-spacing:1.6px; text-transform:uppercase; margin-bottom:6px; }
 h2{ font-family:Georgia,'Times New Roman',serif; font-size:17pt; color:var(--ink); font-weight:600; margin-bottom:4px; }
-h2 + .section-dek{ color:var(--muted); font-size:9.3pt; margin-bottom:18px; padding-bottom:14px; border-bottom:1px solid var(--line); }
+h2+.section-dek{ color:var(--muted); font-size:9.3pt; margin-bottom:18px; padding-bottom:14px; border-bottom:1px solid var(--line); }
 h3{ font-family:Georgia,'Times New Roman',serif; font-size:12.5pt; color:var(--ink); font-weight:600; margin:22px 0 8px; }
 h4{ font-size:10pt; color:var(--ink); font-weight:700; margin:14px 0 4px; }
 p{ margin-bottom:10px; }
 .lede{ font-size:10.6pt; color:var(--slate); max-width:95%; }
 
-/* ---- tables ---- */
 table{ width:100%; border-collapse:collapse; margin:10px 0 20px; font-size:9pt; }
 th{ background:var(--ink); color:#fff; padding:8px 10px; text-align:left; font-weight:600; font-size:8.3pt; letter-spacing:0.3px; text-transform:uppercase; }
 td{ padding:8px 10px; border-bottom:1px solid var(--line-soft); vertical-align:top; }
@@ -89,39 +84,44 @@ tr:nth-child(even) td{ background:var(--paper-alt); }
 td.id, th.id{ font-family:Georgia,serif; font-weight:700; color:var(--ink); white-space:nowrap; width:44px; }
 td.num{ text-align:center; white-space:nowrap; }
 
-/* ---- chips ---- */
 .chip{ display:inline-block; padding:2px 9px; border-radius:3px; font-size:7.8pt; font-weight:700; letter-spacing:0.3px; text-transform:uppercase; white-space:nowrap; }
 .chip-crit{ background:var(--risk-crit-bg); color:var(--risk-crit-fg); }
 .chip-med{  background:var(--risk-med-bg);  color:var(--risk-med-fg); }
 .chip-low{  background:var(--risk-low-bg);  color:var(--risk-low-fg); }
 .chip-ref{ display:inline-block; background:var(--accent-soft); color:var(--accent); font-family:Georgia,serif; font-weight:700; font-size:8pt; padding:1px 6px; border-radius:3px; margin:1px 2px 1px 0; }
 
-/* ---- KPI strip ---- */
 .kpi-strip{ display:flex; border:1px solid var(--line); margin:16px 0 22px; }
 .kpi-cell{ flex:1; padding:12px 14px; border-right:1px solid var(--line); }
 .kpi-cell:last-child{ border-right:none; }
 .kpi-num{ font-family:Georgia,serif; font-size:15pt; color:var(--ink); font-weight:700; }
 .kpi-lbl{ font-size:7.6pt; color:var(--muted); text-transform:uppercase; letter-spacing:0.5px; margin-top:2px; }
 
-/* ---- callout ---- */
 .callout{ border-left:3px solid var(--accent); background:var(--accent-soft); padding:10px 14px; font-size:9pt; color:var(--ink); margin:10px 0 20px; }
 
-/* ---- flow notes ---- */
 .flow-note{ font-size:8.6pt; color:var(--muted); margin:4px 0 18px; padding-left:2px; }
+.flow-note b{ color:var(--risk-crit-fg); }
 
-/* ---- maturity exhibit ---- */
+.maturity-legend{ background:var(--paper-alt); border:1px solid var(--line); border-radius:4px; padding:10px 14px; margin:4px 0 0; font-size:8pt; }
+.maturity-legend-title{ font-weight:700; color:var(--ink); font-size:8pt; margin-bottom:6px; }
+.maturity-bar-wrap{ display:flex; align-items:center; gap:8px; margin-bottom:4px; }
+.maturity-bar-track{ flex:1; height:7px; background:var(--line); border-radius:4px; position:relative; overflow:visible; }
+.maturity-bar-fill{ position:absolute; left:0; top:0; height:100%; width:28%; background:var(--accent); border-radius:4px; }
+.maturity-bar-marker{ position:absolute; top:-3px; width:2px; height:13px; background:var(--ink); border-radius:1px; }
+.maturity-bar-marker.target{ left:60%; background:#2563eb; }
+.maturity-bar-lbl{ font-size:7pt; color:var(--muted); white-space:nowrap; }
+.maturity-legend-notes{ display:flex; gap:14px; margin-top:6px; font-size:7.2pt; color:var(--muted); }
+.maturity-legend-notes span b{ color:var(--ink); }
+
 .exhibit{ display:flex; gap:26px; align-items:center; margin:14px 0 6px; }
 .exhibit-chart{ flex:0 0 220px; }
 .exhibit-note{ flex:1; font-size:9.2pt; color:var(--slate); }
 .exhibit-note b{ color:var(--ink); }
 
-/* ---- roadmap table ---- */
 .tl-table td.phase-mark{ text-align:center; font-weight:700; }
 .tl-table td.phase-mark.p1{ color:var(--accent); }
 .tl-table td.phase-mark.p2{ color:#2563eb; }
 .tl-table td.phase-mark.p3{ color:#7c3aed; }
 
-/* ---- phase blocks ---- */
 .phase-block{ border:1px solid var(--line); margin:14px 0; overflow:hidden; }
 .phase-hd{ display:flex; justify-content:space-between; align-items:center; padding:10px 14px; border-bottom:1px solid var(--line); background:var(--paper-alt); gap:16px; }
 .phase-hd-left{ display:flex; flex-direction:column; gap:2px; }
@@ -143,24 +143,6 @@ td.num{ text-align:center; white-space:nowrap; }
 .roi-card-label{ font-size:7.5pt; color:var(--ink); font-weight:700; text-transform:uppercase; letter-spacing:0.3px; margin-bottom:3px; }
 .roi-card-desc{ font-size:7pt; color:var(--muted); line-height:1.35; }
 
-/* ---- maturity legend ---- */
-.maturity-legend{ background:var(--paper-alt); border:1px solid var(--line); border-radius:4px; padding:10px 14px; margin:4px 0 0; font-size:8pt; }
-.maturity-legend-title{ font-weight:700; color:var(--ink); font-size:8pt; margin-bottom:6px; }
-.maturity-bar-wrap{ display:flex; align-items:center; gap:8px; margin-bottom:4px; }
-.maturity-bar-track{ flex:1; height:7px; background:var(--line); border-radius:4px; position:relative; overflow:visible; }
-.maturity-bar-fill{ position:absolute; left:0; top:0; height:100%; background:var(--accent); border-radius:4px; }
-.maturity-bar-marker{ position:absolute; top:-3px; width:2px; height:13px; background:var(--ink); border-radius:1px; }
-.maturity-bar-marker.target{ background:#2563eb; }
-.maturity-bar-lbl{ font-size:7pt; color:var(--muted); white-space:nowrap; }
-.maturity-legend-notes{ display:flex; gap:14px; margin-top:6px; font-size:7.2pt; color:var(--muted); }
-.maturity-legend-notes span b{ color:var(--ink); }
-/* ---- tools grid ---- */
-.tools-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin:12px 0 20px; }
-.tool-card{ border:1px solid var(--line); border-radius:4px; padding:10px 12px; display:flex; gap:10px; align-items:flex-start; background:var(--paper); }
-.tool-icon{ font-size:18pt; line-height:1; flex-shrink:0; margin-top:1px; }
-.tool-name{ font-weight:700; color:var(--ink); font-size:8.5pt; margin-bottom:2px; }
-.tool-desc{ font-size:7.5pt; color:var(--muted); line-height:1.4; }
-/* ---- org chart ---- */
 .org-chart{ display:flex; flex-direction:column; align-items:center; gap:0; margin:14px 0; font-size:8.3pt; }
 .org-level{ display:flex; justify-content:center; align-items:flex-start; gap:14px; width:100%; position:relative; }
 .org-connector-top{ width:1px; height:18px; background:var(--line); margin:0 auto; }
@@ -173,8 +155,14 @@ td.num{ text-align:center; white-space:nowrap; }
 .org-tag{ display:inline-block; background:var(--accent-soft); color:var(--accent); font-size:6.5pt; font-weight:700; padding:1px 5px; border-radius:2px; margin-top:4px; text-transform:uppercase; }
 .org-tag.vacant-tag{ background:var(--risk-med-bg); color:var(--risk-med-fg); }
 .org-sub-branch{ display:flex; flex-direction:column; align-items:center; }
-/* ---- dep cards ---- */
-.dep-card{ border:1px solid var(--line); border-radius:8px; background:var(--paper); padding:16px; margin-bottom:16px; }
+
+.tools-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin:12px 0 20px; }
+.tool-card{ border:1px solid var(--line); border-radius:4px; padding:10px 12px; display:flex; gap:10px; align-items:flex-start; background:var(--paper); }
+.tool-icon{ font-size:18pt; line-height:1; flex-shrink:0; margin-top:1px; }
+.tool-name{ font-weight:700; color:var(--ink); font-size:8.5pt; margin-bottom:2px; }
+.tool-desc{ font-size:7.5pt; color:var(--muted); line-height:1.4; }
+
+.dep-card{ border:1px solid var(--line); border-radius:8px; background:var(--paper); padding:16px; margin-bottom:16px; box-shadow:0 1px 3px rgba(0,0,0,0.05); }
 .dep-header{ display:flex; align-items:center; justify-content:space-between; margin-bottom:12px; padding-bottom:8px; border-bottom:1px solid var(--line); }
 .dep-title{ font-weight:700; font-size:11pt; color:var(--ink); }
 .dep-badge{ font-size:7.5pt; font-weight:600; padding:3px 8px; border-radius:12px; background:#f1f5f9; color:#475569; text-transform:uppercase; }
@@ -187,6 +175,11 @@ td.num{ text-align:center; white-space:nowrap; }
 .data-sync .dep-section-title{ color:#0369a1; }
 .dep-section-content{ font-size:8.5pt; color:var(--ink); line-height:1.4; }
 .dep-person{ display:inline-block; background:#f1f5f9; padding:2px 6px; border-radius:4px; font-weight:600; font-size:8pt; margin-top:4px; border:1px solid #cbd5e1; }
+
+.chip-data{ background:#e0f2fe; color:#0284c7; border:1px solid #bae6fd; padding:2px 6px; border-radius:4px; font-size:7pt; font-weight:700; margin-left:6px; text-transform:none; letter-spacing:normal; }
+.chip-approval{ background:#fef08a; color:#a16207; border:1px solid #fde047; padding:2px 6px; border-radius:4px; font-size:7pt; font-weight:700; margin-left:6px; text-transform:none; letter-spacing:normal; }
+.chip-info{ background:#e0e7ff; color:#4338ca; border:1px solid #c7d2fe; padding:2px 6px; border-radius:4px; font-size:7pt; font-weight:700; margin-left:6px; text-transform:none; letter-spacing:normal; }
+
 @media print{
   body{ background:#fff; }
   .page{ box-shadow:none; margin:0; }
@@ -194,69 +187,146 @@ td.num{ text-align:center; white-space:nowrap; }
 </style>
 </head>
 <body>
+
+<!-- ============ COVER ============ -->
 <div class="page cover">
-<div class="cover-top">
-<div class="cover-mark">EF POLYMER PRIVATE LIMITED</div>
-<div class="cover-class">Confidential</div>
-</div>
-<div class="cover-body">
-<div class="cover-eyebrow">Department Wise Audit Report</div>
-<div class="cover-title">Business Development: Seed</div>
-<div class="cover-sub">Institutional Sales (Pan-India) — Sameer Vishnuji Mahiskar</div>
-<div class="cover-rule"></div>
-<p style="max-width:70%;color:var(--muted);font-size:9.3pt;">
+  <div class="cover-top">
+    <div class="cover-mark">EF POLYMER PRIVATE LIMITED</div>
+    <div class="cover-class">Confidential</div>
+  </div>
+  <div class="cover-body">
+    <div class="cover-eyebrow">Department Wise Audit Report</div>
+    <div class="cover-title">Business Development: Seed</div>
+    <div class="cover-sub">Institutional Sales (Pan-India) — Sameer Vishnuji Mahiskar</div>
+    <div class="cover-rule"></div>
+    <p style="max-width:70%;color:var(--muted);font-size:9.3pt;">
       An independent operational review of the Business Development (Seed) vertical, evaluating institutional lead sourcing workflows, demo-to-PO lifecycle bottlenecks, solo operator capacity risks, and cross-departmental R&amp;D data dependency, prepared as part of the EF Polymer Private Limited organization-wide operational audit by Creative Upaay (brand owned by Cinnovate Solutions (OPC) Private Limited).
     </p>
-</div>
-<div class="cover-ctrl">
-<table>
-<tr><td class="label">Client</td><td class="val">EF Polymer Private Limited</td></tr>
-<tr><td class="label">Prepared by</td><td class="val">Creative Upaay</td></tr>
-<tr><td class="label">Document version</td><td class="val">1.0</td></tr>
-<tr><td class="label">Date issued</td><td class="val">17th July 2026</td></tr>
-<tr><td class="label">Review scope</td><td class="val">BD — Seed (Institutional Pan-India Sales)</td></tr>
-<tr><td class="label">Distribution</td><td class="val">Executive Leadership Only</td></tr>
-</table>
-</div>
-</div>
-
-<div class="page">
-<div class="doc-header"><span><b>EF Polymer Private Limited</b> — BD (Seed) Audit</span><span>Confidential</span></div>
-<div class="eyebrow">Section 01 — Executive Summary</div>
-<h2>Vertical Overview — Seed</h2>
-<div class="section-dek">Scope, current state, and headline findings</div>
-<p class="lede">The Seed vertical is an institutional B2B sales division focused on pan-India delivery of polymer-based seed coatings and soil additives to seed companies, universities, and agricultural institutions. Sales are entirely demo-led — requiring on-ground trials before any PO can be raised.</p>
-<p>Run entirely by a single BD Manager (Sameer Vishnuji Mahiskar), the vertical operates under severe capacity constraints. Sameer spends 15–20 days a month on physical travel, leaving minimal time for lead generation, which currently relies on manual ChatGPT and Google News searches. With no CRM, follow-ups depend on memory and local ad-hoc spreadsheets.</p>
-<div class="kpi-strip">
-<div class="kpi-cell"><div class="kpi-num">90 MT</div><div class="kpi-lbl">Annual Sales Target</div></div>
-<div class="kpi-cell"><div class="kpi-num">15–20 Days</div><div class="kpi-lbl">Monthly Travel (Solo Manager)</div></div>
-<div class="kpi-cell"><div class="kpi-num">1–2.5 Days</div><div class="kpi-lbl">Proposal Turnaround Time</div></div>
-<div class="kpi-cell"><div class="kpi-num">25–30</div><div class="kpi-lbl">Active Leads (at audit date)</div></div>
-<div class="kpi-cell"><div class="kpi-num">1.4 / 5.0</div><div class="kpi-lbl">Overall Maturity Score</div></div>
-</div>
-<div class="maturity-legend">
-  <div class="maturity-legend-title">About the Maturity Score</div>
-  <div style="font-size:7.5pt;color:var(--muted);margin-bottom:8px;">A 1–5 scale measuring how systematised, documented, and independently operable the vertical is. Scored across five dimensions: Process, Technology, Data Quality, Documentation &amp; Knowledge Management.</div>
-  <div class="maturity-bar-wrap">
-    <span class="maturity-bar-lbl">1 — Ad hoc</span>
-    <div class="maturity-bar-track">
-      <div class="maturity-bar-fill" style="width:28%;"></div>
-      <div class="maturity-bar-marker target" style="left:60%;"></div>
-    </div>
-    <span class="maturity-bar-lbl">5 — Optimised</span>
   </div>
-  <div class="maturity-legend-notes">
-    <span>&#9632; <b>1.4</b> Current state</span>
-    <span style="color:#2563eb;">&#9646; <b>3.0</b> Post-roadmap target</span>
-    <span>&#9711; <b>5.0</b> Best-in-class benchmark</span>
+  <div class="cover-ctrl">
+    <table>
+      <tr><td class="label">Client</td><td class="val">EF Polymer Private Limited</td></tr>
+      <tr><td class="label">Prepared by</td><td class="val">Creative Upaay</td></tr>
+      <tr><td class="label">Document version</td><td class="val">1.0</td></tr>
+      <tr><td class="label">Date issued</td><td class="val">17th July 2026</td></tr>
+      <tr><td class="label">Review scope</td><td class="val">BD — Seed (Institutional Pan-India Sales)</td></tr>
+      <tr><td class="label">Distribution</td><td class="val">Executive Leadership Only</td></tr>
+    </table>
   </div>
 </div>
-<div class="doc-footer"><span>BD (Seed) Audit Report · v1.0</span><span>Page 2</span></div>
-</div>
 
-<!-- TEAM STRUCTURE & TOOLS -->
+
+<!-- ============ 01 EXECUTIVE SUMMARY ============ -->
 <div class="page">
   <div class="doc-header"><span><b>EF Polymer Private Limited</b> — BD (Seed) Audit</span><span>Confidential</span></div>
+
+  <div class="eyebrow">Section 01 — Executive Summary</div>
+  <h2>Vertical Overview — Seed</h2>
+  <div class="section-dek">Scope, current state, and headline findings</div>
+
+  <p class="lede">The Seed vertical is an institutional B2B sales division focused on pan-India delivery of polymer-based seed coatings and soil additives to seed companies, universities, and agricultural institutions. Sales are entirely demo-led — requiring on-ground trials before any PO can be raised.</p>
+
+  <p>Run entirely by a single BD Manager (Sameer Vishnuji Mahiskar), the vertical operates under severe capacity constraints. Sameer spends 15–20 days a month on physical travel, leaving minimal time for lead generation, which currently relies on manual ChatGPT and Google News searches. With no CRM, follow-ups depend on memory and local ad-hoc spreadsheets. Additionally, proposal creation is bottlenecked by an unstructured R&amp;D data dependency — each pitch requires Sameer to manually extract trial data from R&amp;D's shared Google Drive.</p>
+
+  <div class="kpi-strip">
+    <div class="kpi-cell"><div class="kpi-num">90 MT</div><div class="kpi-lbl">Annual Sales Target</div></div>
+    <div class="kpi-cell"><div class="kpi-num">15–20 Days</div><div class="kpi-lbl">Monthly Travel (Solo Manager)</div></div>
+    <div class="kpi-cell"><div class="kpi-num">1–2.5 Days</div><div class="kpi-lbl">Proposal Turnaround Time</div></div>
+    <div class="kpi-cell"><div class="kpi-num">25–30</div><div class="kpi-lbl">Active Leads (at audit date)</div></div>
+    <div class="kpi-cell"><div class="kpi-num">1.4 / 5.0</div><div class="kpi-lbl">Overall Maturity Score</div></div>
+  </div>
+
+  <div class="maturity-legend">
+    <div class="maturity-legend-title">About the Maturity Score</div>
+    <div style="font-size:7.5pt;color:var(--muted);margin-bottom:8px;">A 1–5 scale measuring how systematised, documented, and independently operable the vertical is. Scored across five dimensions: Process, Technology, Data Quality, Documentation &amp; Knowledge Management.</div>
+    <div class="maturity-bar-wrap">
+      <span class="maturity-bar-lbl">1 — Ad hoc</span>
+      <div class="maturity-bar-track">
+        <div class="maturity-bar-fill"></div>
+        <div class="maturity-bar-marker target"></div>
+      </div>
+      <span class="maturity-bar-lbl">5 — Optimised</span>
+    </div>
+    <div class="maturity-legend-notes">
+      <span>&#9632; <b>1.4</b> Current state</span>
+      <span style="color:#2563eb;">&#9646; <b>3.0</b> Post-roadmap target</span>
+      <span>&#9711; <b>5.0</b> Best-in-class benchmark</span>
+    </div>
+  </div>
+  <div class="doc-footer"><span>BD (Seed) Audit Report · v1.0</span><span>Page 2</span></div>
+</div>
+
+
+<!-- ============ 02 MATURITY ============ -->
+<div class="page">
+  <div class="doc-header"><span><b>EF Polymer Private Limited</b> — BD (Seed) Audit</span><span>Confidential</span></div>
+
+  <div class="eyebrow">Section 02 — Benchmarking</div>
+  <h2>Department Maturity Assessment</h2>
+  <div class="section-dek">Scored 1 (ad hoc) to 5 (optimized) against five capability dimensions</div>
+
+  <div class="exhibit">
+    <div class="exhibit-chart">
+      <svg viewBox="0 0 400 350" xmlns="http://www.w3.org/2000/svg" style="width:100%;">
+        <g transform="translate(200,170)">
+          <polygon points="0,-120 114,-37 70,97 -70,97 -114,-37" fill="none" stroke="#E2E8F0" stroke-width="0.75" />
+          <polygon points="0,-96 91,-30 56,78 -56,78 -91,-30" fill="none" stroke="#E2E8F0" stroke-width="0.75" />
+          <polygon points="0,-72 68,-22 42,58 -42,58 -68,-22" fill="none" stroke="#E2E8F0" stroke-width="0.75" />
+          <polygon points="0,-48 46,-15 28,39 -28,39 -46,-15" fill="none" stroke="#E2E8F0" stroke-width="0.75" />
+          <polygon points="0,-24 23,-7 14,19 -14,19 -23,-7" fill="none" stroke="#E2E8F0" stroke-width="0.75" />
+          <line x1="0" y1="0" x2="0" y2="-120" stroke="#E2E8F0" stroke-width="0.75" />
+          <line x1="0" y1="0" x2="114" y2="-37" stroke="#E2E8F0" stroke-width="0.75" />
+          <line x1="0" y1="0" x2="70" y2="97" stroke="#E2E8F0" stroke-width="0.75" />
+          <line x1="0" y1="0" x2="-70" y2="97" stroke="#E2E8F0" stroke-width="0.75" />
+          <line x1="0" y1="0" x2="-114" y2="-37" stroke="#E2E8F0" stroke-width="0.75" />
+
+          <!-- Target dashed: Process 3.0, Tech 3.0, Data 3.5, Docs 3.0, KM 2.5 -->
+          <polygon points="0,-72 68.4,-22.2 49,67.9 -42,58.2 -57,-18.5" fill="none" stroke="#B8C0C9" stroke-width="1" stroke-dasharray="5,3" />
+
+          <!-- Current: Process 1.5, Tech 1.5, Data 1.0, Docs 1.5, KM 1.5 -->
+          <polygon points="0,-36 34.2,-11.1 14,19.4 -21,29.1 -34.2,-11.1" fill="rgba(15,107,98,0.14)" stroke="#0F6B62" stroke-width="1.75" />
+          <circle cx="0" cy="-36" r="3.2" fill="#0F6B62" />
+          <circle cx="34.2" cy="-11.1" r="3.2" fill="#0F6B62" />
+          <circle cx="14" cy="19.4" r="3.2" fill="#0F6B62" />
+          <circle cx="-21" cy="29.1" r="3.2" fill="#0F6B62" />
+          <circle cx="-34.2" cy="-11.1" r="3.2" fill="#0F6B62" />
+
+          <text x="0" y="-132" text-anchor="middle" font-size="9" fill="#1B2A4A" font-weight="600">Process</text>
+          <text x="128" y="-20" text-anchor="start" font-size="9" fill="#1B2A4A" font-weight="600">Technology</text>
+          <text x="78" y="110" text-anchor="start" font-size="9" fill="#1B2A4A" font-weight="600">Data Quality</text>
+          <text x="-78" y="110" text-anchor="end" font-size="9" fill="#1B2A4A" font-weight="600">Documentation</text>
+          <text x="-128" y="-16" text-anchor="end" font-size="9" fill="#1B2A4A" font-weight="600">Knowledge Mgmt.</text>
+        </g>
+      </svg>
+    </div>
+    <div class="exhibit-note">
+      Solid line: current state. Dashed line: target state (post-roadmap).<br><br>
+      <b>Seed BD scores 1.4 overall</b> — The lack of a CRM for the solo manager, reliance on manual Google News/ChatGPT scraping, and unformalized reporting lines severely limit scalability. The Data Quality dimension scores only 1.0 because trial data needed for proposals is buried in R&amp;D's unstructured Google Drive.<br><br>
+      Deploying a CRM with automated follow-up cadences and integrating R&amp;D data directly into pitch templates will dramatically increase the manager's capacity and reduce proposal turnaround from days to hours.
+    </div>
+  </div>
+
+  <table>
+    <tr><th>Dimension</th><th class="num">Current</th><th class="num">Target</th><th class="num">Gap</th></tr>
+    <tr><td>Process Standardization</td><td class="num">1.5</td><td class="num">3.0</td><td class="num">1.5</td></tr>
+    <tr><td>Technology Utilization</td><td class="num">1.5</td><td class="num">3.0</td><td class="num">1.5</td></tr>
+    <tr><td>Data Quality &amp; Accessibility</td><td class="num">1.0</td><td class="num">3.5</td><td class="num">2.5</td></tr>
+    <tr><td>Documentation</td><td class="num">1.5</td><td class="num">3.0</td><td class="num">1.5</td></tr>
+    <tr><td>Knowledge Management</td><td class="num">1.5</td><td class="num">2.5</td><td class="num">1.0</td></tr>
+    <tr style="font-weight:700;"><td>Overall</td><td class="num">1.4</td><td class="num">3.0</td><td class="num">1.6</td></tr>
+  </table>
+  <div class="doc-footer"><span>BD (Seed) Audit Report · v1.0</span><span>Page 3</span></div>
+</div>
+
+
+<!-- ============ 03 TEAM STRUCTURE & TOOLS ============ -->
+<div class="page">
+  <div class="doc-header"><span><b>EF Polymer Private Limited</b> — BD (Seed) Audit</span><span>Confidential</span></div>
+
+  <div class="eyebrow">Section 03 — Department Snapshot</div>
+  <h2>Team Structure &amp; Tooling</h2>
+  <div class="section-dek">Reporting hierarchy, current systems in use, and identified structural gaps</div>
+
   <h3>Team Structure</h3>
   <p style="font-size:8.5pt;color:var(--muted);margin-bottom:4px;">Reporting hierarchy within the Seed BD vertical. Note: dual reporting line and the vacant South India executive position are structural risks identified in this audit.</p>
   <div class="org-chart">
@@ -280,228 +350,552 @@ td.num{ text-align:center; white-space:nowrap; }
       <span class="org-tag vacant-tag">Hiring</span>
     </div>
   </div>
+
   <h3>Tools in Use</h3>
   <div class="tools-grid">
-    <div class="tool-card"><div class="tool-icon">📊</div><div><div class="tool-name">Google Sheets (Local)</div><div class="tool-desc">Ad-hoc pipeline tracking with 25–30 active leads. No shared visibility; fully dependent on solo manager's memory for follow-up timing.</div></div></div>
-    <div class="tool-card"><div class="tool-icon">🤖</div><div><div class="tool-name">ChatGPT + Google News</div><div class="tool-desc">Primary lead discovery method. Searches for seed companies, universities, and institutions posting tenders or seasonal expansion news.</div></div></div>
-    <div class="tool-card"><div class="tool-icon">🎨</div><div><div class="tool-name">Canva / PowerPoint</div><div class="tool-desc">Custom proposal and pitch deck creation. Turnaround of 1–2.5 days per deck as R&amp;D trial data is pulled manually from Google Drive each time.</div></div></div>
-    <div class="tool-card"><div class="tool-icon">📱</div><div><div class="tool-name">WhatsApp</div><div class="tool-desc">Primary client communication channel for warm introductions, follow-ups, and informal progress updates during field travel.</div></div></div>
-    <div class="tool-card"><div class="tool-icon">📁</div><div><div class="tool-name">Google Drive (R&amp;D Shared)</div><div class="tool-desc">Source of trial reports and technical certificates used in proposals. Data is unstructured — BD Manager must manually identify and extract relevant data per client.</div></div></div>
-    <div class="tool-card"><div class="tool-icon">📧</div><div><div class="tool-name">Gmail + WhatsApp</div><div class="tool-desc">Formal proposals and PO-related communications sent via Gmail. Day-to-day client coordination runs through WhatsApp.</div></div></div>
+    <div class="tool-card">
+      <div class="tool-icon">
+        <svg role="img" viewBox="0 0 24 24" width="22" height="22" xmlns="http://www.w3.org/2000/svg"><title>Google Sheets</title><path d="M11.318 12.545H7.91v-1.909h3.41v1.91zM14.728 0H3.273C2.233 0 1.386.847 1.386 1.887v20.226C1.386 23.153 2.233 24 3.273 24h17.454c1.04 0 1.887-.847 1.887-1.887V7.02L14.728 0zm-.46 1.887 4.62 4.606h-4.62V1.887zM3.273 22.113V1.887h9.268v6.366h6.186v13.86H3.273zm3.637-8.114h9.409v-5.09H6.91v5.09zm1.637-3.454h2.273v1.817H8.547v-1.817zm3.819 0h2.273v1.817h-2.273v-1.817zm-3.819 2.273h2.273v1.818H8.547v-1.818zm3.819 0h2.273v1.818h-2.273v-1.818z" fill="#34A853"/></svg>
+      </div>
+      <div>
+        <div class="tool-name">Google Sheets (Local)</div>
+        <div class="tool-desc">Ad-hoc pipeline tracking with 25–30 active leads. No shared visibility; fully dependent on solo manager's memory for follow-up timing.</div>
+      </div>
+    </div>
+    <div class="tool-card">
+      <div class="tool-icon">
+        <svg role="img" viewBox="0 0 24 24" width="22" height="22" xmlns="http://www.w3.org/2000/svg"><title>ChatGPT</title><path d="M22.282 9.821a5.985 5.985 0 0 0-.516-4.91 6.046 6.046 0 0 0-6.51-2.9A6.065 6.065 0 0 0 4.981 4.18a5.985 5.985 0 0 0-3.998 2.9 6.046 6.046 0 0 0 .743 7.097 5.98 5.98 0 0 0 .51 4.911 6.051 6.051 0 0 0 6.515 2.9A5.985 5.985 0 0 0 13.26 24a6.056 6.056 0 0 0 5.772-4.206 5.99 5.99 0 0 0 3.997-2.9 6.056 6.056 0 0 0-.747-7.073zM13.26 22.43a4.476 4.476 0 0 1-2.876-1.04l.141-.081 4.779-2.758a.795.795 0 0 0 .392-.681v-6.737l2.02 1.168a.071.071 0 0 1 .038.052v5.583a4.504 4.504 0 0 1-4.494 4.494zM3.6 18.304a4.47 4.47 0 0 1-.535-3.014l.142.085 4.783 2.759a.771.771 0 0 0 .78 0l5.843-3.369v2.332a.08.08 0 0 1-.033.062L9.74 19.95a4.5 4.5 0 0 1-6.14-1.646zM2.34 7.896a4.485 4.485 0 0 1 2.366-1.973V11.6a.766.766 0 0 0 .388.676l5.815 3.355-2.02 1.168a.076.076 0 0 1-.071 0l-4.83-2.786A4.504 4.504 0 0 1 2.34 7.872zm16.597 3.855l-5.833-3.387L15.119 7.2a.076.076 0 0 1 .071 0l4.83 2.791a4.494 4.494 0 0 1-.676 8.105v-5.678a.79.79 0 0 0-.407-.667zm2.01-3.023l-.141-.085-4.774-2.782a.776.776 0 0 0-.785 0L9.409 9.23V6.897a.066.066 0 0 1 .028-.061l4.83-2.787a4.5 4.5 0 0 1 6.68 4.66zm-12.64 4.135l-2.02-1.164a.08.08 0 0 1-.038-.057V6.075a4.5 4.5 0 0 1 7.375-3.453l-.142.08L8.704 5.46a.795.795 0 0 0-.393.681zm1.097-2.365l2.602-1.5 2.607 1.5v2.999l-2.597 1.5-2.607-1.5z" fill="#10A37F"/></svg>
+      </div>
+      <div>
+        <div class="tool-name">ChatGPT + Google News</div>
+        <div class="tool-desc">Primary lead discovery method. Searches for seed companies, universities, and institutions posting tenders or seasonal expansion news.</div>
+      </div>
+    </div>
+    <div class="tool-card">
+      <div class="tool-icon">
+        <svg role="img" viewBox="0 0 24 24" width="22" height="22" xmlns="http://www.w3.org/2000/svg"><title>Canva</title><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.564 12.21c-.345.766-1.046 1.282-1.899 1.366-.514.05-1.033-.024-1.55-.014-.343.007-.69.014-1.034.014-.343 0-.686-.007-1.029-.014-.43-.012-.86-.024-1.29-.024-.343 0-.687.012-1.03.024-.43.012-.86.024-1.29.024-.343 0-.686-.007-1.029-.014-.517-.01-1.036.064-1.55.014-.853-.084-1.554-.6-1.899-1.366-.345-.766-.214-1.617.345-2.243.559-.626 1.402-.886 2.255-.698.514.114 1.029.181 1.55.181.43 0 .86-.012 1.29-.024.343-.012.687-.024 1.03-.024.343 0 .686.012 1.029.024.43.012.86.024 1.29.024.521 0 1.036-.067 1.55-.181.853-.188 1.696.072 2.255.698.559.626.69 1.477.345 2.243z" fill="#00C4CC"/></svg>
+      </div>
+      <div>
+        <div class="tool-name">Canva / PowerPoint</div>
+        <div class="tool-desc">Custom proposal and pitch deck creation. Turnaround of 1–2.5 days per deck as R&amp;D trial data is pulled manually from Google Drive each time.</div>
+      </div>
+    </div>
+    <div class="tool-card">
+      <div class="tool-icon">
+        <svg role="img" viewBox="0 0 24 24" width="22" height="22" xmlns="http://www.w3.org/2000/svg"><title>WhatsApp</title><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.002-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="#25D366"/></svg>
+      </div>
+      <div>
+        <div class="tool-name">WhatsApp</div>
+        <div class="tool-desc">Primary client communication channel for warm introductions, follow-ups, and informal progress updates during field travel.</div>
+      </div>
+    </div>
+    <div class="tool-card">
+      <div class="tool-icon">
+        <svg role="img" viewBox="0 0 24 24" width="22" height="22" xmlns="http://www.w3.org/2000/svg"><title>Google Drive</title><path d="M4.65 3.87L0 12l4.65 8.13h14.7L24 12 19.35 3.87H4.65zM12 15.6L7.35 7.47h9.3L12 15.6zM8.87 18.13H2.93l2.97-5.13 2.97 5.13zm6.26 0l2.97-5.13 2.97 5.13h-5.94z" fill="#4285F4"/></svg>
+      </div>
+      <div>
+        <div class="tool-name">Google Drive (R&amp;D Shared)</div>
+        <div class="tool-desc">Source of trial reports and technical certificates used in proposals. Data is unstructured — BD Manager must manually identify and extract relevant data per client.</div>
+      </div>
+    </div>
+    <div class="tool-card">
+      <div class="tool-icon">
+        <svg role="img" viewBox="0 0 24 24" width="22" height="22" xmlns="http://www.w3.org/2000/svg"><title>Gmail</title><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z" fill="#EA4335"/></svg>
+      </div>
+      <div>
+        <div class="tool-name">Gmail + WhatsApp</div>
+        <div class="tool-desc">Formal proposals and PO-related communications sent via Gmail. Day-to-day client coordination runs through WhatsApp.</div>
+      </div>
+    </div>
   </div>
-  <div class="doc-footer"><span>BD (Seed) Audit Report · v1.0</span><span>Page 3</span></div>
+  <div class="doc-footer"><span>BD (Seed) Audit Report · v1.0</span><span>Page 4</span></div>
 </div>
 
+
+<!-- ============ 03b WORKFLOWS ============ -->
 <div class="page">
   <div class="doc-header"><span><b>EF Polymer Private Limited</b> — BD (Seed) Audit</span><span>Confidential</span></div>
-  <div class="eyebrow">Section 02 — Risk &amp; Control Findings</div>
-  <h2>Findings Register</h2>
-  <div class="section-dek">Ranked by risk rating. Each finding is cross-referenced to its recommendation in Section 04.</div>
-  <table>
-    <tr><th class="id">ID</th><th>Finding</th><th>Risk</th><th>Evidence / Impact</th><th>Linked Rec.</th></tr>
-    <tr><td class="id">F-01</td><td><b>Lack of Follow-Up Cadence &amp; CRM.</b> Entire operation relies on local spreadsheets and memory.</td><td><span class="chip chip-crit">High</span></td><td>Given the solo operator model and heavy travel schedule, leads routinely slip through the cracks.</td><td><span class="chip-ref">R-01</span></td></tr>
-    <tr><td class="id">F-02</td><td><b>Dual Executive Reporting.</b> Reporting lines are split between the COO and CBDO.</td><td><span class="chip chip-med">Medium</span></td><td>Creates risk of task prioritization conflicts and misaligned goals.</td><td><span class="chip-ref">R-02</span></td></tr>
-    <tr><td class="id">F-03</td><td><b>Siloed Sourcing Inputs.</b> Lead generation relies on speculative, manual Google News and ChatGPT queries.</td><td><span class="chip chip-med">Medium</span></td><td>Low volume of low-intent leads. Time-consuming process with weak signal.</td><td><span class="chip-ref">R-03</span></td></tr>
-    <tr><td class="id">F-04</td><td><b>Single-Point Solo Operation.</b> The entire 90 MT pan-India target is managed by one person.</td><td><span class="chip chip-low">Low</span></td><td>Severe capacity limits and a single point of failure if the manager leaves.</td><td><span class="chip-ref">R-04</span></td></tr>
-  </table>
-  <div class="callout">A critical theme in this vertical is the failure to leverage existing internal data to accelerate sales. Proposal creation takes 1-2.5 days because the BD Manager manually pulls trial data from R&D’s shared Google Drive and builds custom slides. By establishing a direct, structured pipeline of R&D data into standardized sales templates—and formalizing cross-departmental alignment—this turnaround time could be reduced to hours.</div>
-  <div class="doc-footer"><span>BD (Seed) Audit Report · v1.0</span><span>Page 3</span></div>
-</div>
 
-<div class="page">
-<div class="doc-header"><span><b>EF Polymer Private Limited</b> — BD (Seed) Audit</span><span>Confidential</span></div>
-<div class="eyebrow">Section 03 — Process Detail</div>
-<h2>Current Workflows</h2>
-<div class="section-dek">Analysis of current operational sequences</div>
-  
-  <h3>Demo &amp; Sales Lifecycle</h3>
+  <div class="eyebrow">Section 03 — Process Detail</div>
+  <h2>Current Workflows</h2>
+  <div class="section-dek">Analysis of current operational sequences and inter-departmental handoffs</div>
+
+  <h3>Lead Sourcing &amp; Qualification — <span class="chip-ref">P-03</span></h3>
   <svg viewBox="0 0 740 92" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:10px 0 4px;">
     <defs>
-      <marker id="a1" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+      <marker id="b1a" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
         <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5"/>
       </marker>
     </defs>
-    
-    <rect x="10" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
-    <text x="70" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Warm Intro &amp;</text>
-    <text x="70" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Soft Pitch</text>
-    <line x1="130" y1="46" x2="150" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)"/>
-    
+
+    <rect x="10" y="22" width="120" height="48" rx="3" fill="#F4E8FB" stroke="#A772D9" stroke-width="1.5"/>
+    <text x="70" y="37" text-anchor="middle" font-size="7.6" fill="#603487" font-family="Segoe UI,sans-serif" font-weight="bold">ChatGPT / Google News</text>
+    <text x="70" y="49" text-anchor="middle" font-size="6.5" fill="#814BAF" font-family="Segoe UI,sans-serif">Action: Sameer (Manual)</text>
+    <line x1="130" y1="46" x2="150" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#b1a)"/>
+
     <rect x="150" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
-    <text x="210" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">In-Person Demo</text>
-    <text x="210" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">(15-20 days travel)</text>
-    <line x1="270" y1="46" x2="290" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)"/>
-    
-    <rect x="290" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
-    <text x="350" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Sample Dispatch</text>
-    <text x="350" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">(Logistics Dependency)</text>
-    <line x1="410" y1="46" x2="430" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)"/>
-    
+    <text x="210" y="37" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif" font-weight="bold">Identify Prospects</text>
+    <text x="210" y="49" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">Seed cos / univs / insts</text>
+    <line x1="270" y1="46" x2="290" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#b1a)"/>
+
+    <rect x="290" y="22" width="120" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5"/>
+    <text x="350" y="37" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif" font-weight="bold">Manual Log to Sheet</text>
+    <text x="350" y="49" text-anchor="middle" font-size="6.5" fill="#C0453A" font-family="Segoe UI,sans-serif">Task: Sameer (Ad-hoc)</text>
+    <line x1="410" y1="46" x2="430" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#b1a)"/>
+
     <rect x="430" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
-    <text x="490" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Sowing Timeline</text>
-    <text x="490" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Alignment</text>
-    <line x1="550" y1="46" x2="570" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)"/>
-    
-    <rect x="570" y="22" width="120" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5"/>
-    <text x="630" y="43" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">Untested Collections</text>
-    <text x="630" y="55" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">Process</text>
+    <text x="490" y="37" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif" font-weight="bold">Warm Intro (WhatsApp)</text>
+    <text x="490" y="49" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">Soft pitch to lead</text>
+    <line x1="550" y1="46" x2="570" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#b1a)"/>
+
+    <rect x="570" y="22" width="120" height="48" rx="3" fill="#E9F4EC" stroke="#92C7A3" stroke-width="1"/>
+    <text x="630" y="37" text-anchor="middle" font-size="7.6" fill="#276B3E" font-family="Segoe UI,sans-serif" font-weight="bold">Lead Qualified</text>
+    <text x="630" y="49" text-anchor="middle" font-size="6.5" fill="#276B3E" font-family="Segoe UI,sans-serif">Demo requested</text>
   </svg>
   <div class="flow-note">
-    <p style="margin-top:0;"><strong>What is good:</strong> The warm intro approach respects the relationship-first nature of institutional seed sales. Sameer's on-ground presence at trials builds credibility that cold outreach cannot replicate.</p>
-    <p><strong>What needs to be fixed:</strong> No CRM means follow-up relies on memory across 25–30 active leads while traveling 15–20 days a month. A missed seasonal window (e.g., wrong sowing period) costs 6–12 months of opportunity.</p>
-    <p><strong>Bottlenecks:</strong> Proposal creation takes 1–2.5 days because R&amp;D trial data must be manually extracted from an unstructured Google Drive. The entire 90 MT pan-India target rests on one person — the vertical has zero coverage if Sameer is unavailable.</p>
-    <p style="margin-bottom:0;"><strong>Dependencies:</strong> Sample dispatch depends on Logistics hitting precise sowing-window timelines. R&amp;D must provide structured trial data for proposals. Both are informal with no SLA.</p>
+    <p style="margin-top:0;"><strong>What is good:</strong> The warm intro approach respects the relationship-first nature of institutional seed sales. Sameer's on-ground credibility helps open doors that cold outreach cannot.</p>
+    <p><strong>What needs to be fixed:</strong> Lead generation relies on speculative, manual ChatGPT and Google News queries with weak signal. Lead volume is low and intent quality is unverified before outreach.</p>
+    <p><strong>Bottlenecks:</strong> Lead sourcing happens only during the 8–10 non-travel days per month, capping top-of-funnel inflow. No scoring or segmentation exists.</p>
+    <p style="margin-bottom:0;"><strong>Dependencies:</strong> No external data feed. All discovery depends on Sameer's manual search effort and individual memory of past conversations.</p>
   </div>
-<div class="doc-footer"><span>BD (Seed) Audit Report · v1.0</span><span>Page 4</span></div>
+
+  <h3>Demo &amp; Sales Lifecycle — <span class="chip-ref">P-01</span> <span class="chip-ref">P-04</span></h3>
+  <svg viewBox="0 0 740 140" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:10px 0 4px;">
+    <defs>
+      <marker id="b1b" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+        <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5"/>
+      </marker>
+      <marker id="b1r" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+        <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#EFB4B1"/>
+      </marker>
+      <marker id="b1g" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+        <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#92C7A3"/>
+      </marker>
+    </defs>
+
+    <rect x="10" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="70" y="37" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif" font-weight="bold">Warm Intro &amp;</text>
+    <text x="70" y="49" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Soft Pitch</text>
+    <line x1="130" y1="46" x2="150" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#b1b)"/>
+
+    <rect x="150" y="22" width="120" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5"/>
+    <text x="210" y="37" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif" font-weight="bold">In-Person Demo</text>
+    <text x="210" y="49" text-anchor="middle" font-size="6.5" fill="#C0453A" font-family="Segoe UI,sans-serif">15-20 days travel / mo</text>
+    <line x1="270" y1="46" x2="290" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#b1b)"/>
+
+    <rect x="290" y="22" width="120" height="48" rx="3" fill="#F4E8FB" stroke="#A772D9" stroke-width="1.5"/>
+    <text x="350" y="37" text-anchor="middle" font-size="7.6" fill="#603487" font-family="Segoe UI,sans-serif" font-weight="bold">Sample Dispatch</text>
+    <text x="350" y="49" text-anchor="middle" font-size="6.5" fill="#814BAF" font-family="Segoe UI,sans-serif">Action: Logistics (External)</text>
+    <line x1="410" y1="46" x2="430" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#b1b)"/>
+
+    <rect x="430" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="490" y="37" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif" font-weight="bold">Sowing Window</text>
+    <text x="490" y="49" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">Alignment (2-4 mo trial)</text>
+    <line x1="550" y1="46" x2="570" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#b1b)"/>
+
+    <rect x="570" y="22" width="120" height="48" rx="3" fill="#E9F4EC" stroke="#92C7A3" stroke-width="1.5"/>
+    <text x="630" y="37" text-anchor="middle" font-size="7.6" fill="#276B3E" font-family="Segoe UI,sans-serif" font-weight="bold">Trial Success</text>
+    <text x="630" y="49" text-anchor="middle" font-size="6.5" fill="#276B3E" font-family="Segoe UI,sans-serif">Task: Sameer</text>
+
+    <!-- Re-run / lost path -->
+    <line x1="490" y1="70" x2="490" y2="100" stroke="#EFB4B1" stroke-width="1.2" marker-end="url(#b1r)"/>
+    <rect x="430" y="102" width="120" height="34" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1"/>
+    <text x="490" y="118" text-anchor="middle" font-size="7" fill="#A32E24" font-family="Segoe UI,sans-serif" font-weight="bold">✗ Window Missed</text>
+    <text x="490" y="129" text-anchor="middle" font-size="6.3" fill="#A32E24" font-family="Segoe UI,sans-serif">6–12 month delay</text>
+
+    <!-- Risk note -->
+    <rect x="10" y="102" width="380" height="34" rx="3" fill="#FEF9EC" stroke="#E8D08A" stroke-width="1"/>
+    <text x="20" y="118" font-size="6.8" fill="#7C5E0A" font-family="Segoe UI,sans-serif" font-weight="700">⚠ No SLA between BD and Logistics</text>
+    <text x="20" y="129" font-size="6.5" fill="#7C5E0A" font-family="Segoe UI,sans-serif">Sample dispatch delays cascade into lost seasonal windows.</text>
+  </svg>
+  <div class="flow-note">
+    <p style="margin-top:0;"><strong>What is good:</strong> The in-person demo approach builds credibility that cold outreach cannot replicate. Sowing-window alignment respects the agronomic reality of seed sales.</p>
+    <p><strong>What needs to be fixed:</strong> No CRM means follow-up relies on memory across 25–30 active leads while traveling 15–20 days a month. A missed seasonal window costs 6–12 months of opportunity.</p>
+    <p><strong>Bottlenecks:</strong> The entire 90 MT pan-India target rests on one person — the vertical has zero coverage if Sameer is unavailable. Sample dispatch depends on Logistics hitting precise sowing timelines with no formal SLA.</p>
+    <p style="margin-bottom:0;"><strong>Dependencies:</strong> Logistics must dispatch samples within the institution-specific sowing window. R&amp;D must provide structured trial data for proposal creation. Both are informal.</p>
+  </div>
+  <div class="doc-footer"><span>BD (Seed) Audit Report · v1.0</span><span>Page 5</span></div>
 </div>
 
-<!-- TIME & EFFORT -->
+
+<!-- ============ 03c WORKFLOWS (continued) ============ -->
+<div class="page">
+  <div class="doc-header"><span><b>EF Polymer Private Limited</b> — BD (Seed) Audit</span><span>Confidential</span></div>
+
+  <h3>Proposal Creation &amp; R&amp;D Data Extraction — <span class="chip-ref">P-04</span> <span class="chip-ref">P-07</span></h3>
+  <svg viewBox="0 0 740 156" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:10px 0 4px;">
+    <defs>
+      <marker id="b2a" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+        <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5"/>
+      </marker>
+    </defs>
+
+    <!-- Step 1 -->
+    <rect x="8" y="20" width="120" height="56" rx="3" fill="#F4E8FB" stroke="#A772D9" stroke-width="1.5"/>
+    <text x="68" y="36" text-anchor="middle" font-size="7.4" fill="#603487" font-family="Segoe UI,sans-serif" font-weight="bold">Client Requirement</text>
+    <text x="68" y="48" text-anchor="middle" font-size="6.5" fill="#814BAF" font-family="Segoe UI,sans-serif">Action: Sameer (Demo)</text>
+    <text x="68" y="59" text-anchor="middle" font-size="6.5" fill="#814BAF" font-family="Segoe UI,sans-serif">Crop, dose, region</text>
+    <line x1="128" y1="48" x2="146" y2="48" stroke="#B0BAC5" stroke-width="1" marker-end="url(#b2a)"/>
+
+    <!-- Step 2: Manual R&D search -->
+    <rect x="148" y="20" width="120" height="56" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5"/>
+    <text x="208" y="36" text-anchor="middle" font-size="7.4" fill="#A32E24" font-family="Segoe UI,sans-serif" font-weight="bold">Search R&amp;D Drive</text>
+    <text x="208" y="48" text-anchor="middle" font-size="6.5" fill="#C0453A" font-family="Segoe UI,sans-serif">Task: Sameer (Manual)</text>
+    <text x="208" y="59" text-anchor="middle" font-size="6.5" fill="#C0453A" font-family="Segoe UI,sans-serif">Unstructured folders</text>
+    <line x1="268" y1="48" x2="286" y2="48" stroke="#B0BAC5" stroke-width="1" marker-end="url(#b2a)"/>
+
+    <!-- Step 3: Extract trial data -->
+    <rect x="288" y="20" width="120" height="56" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5"/>
+    <text x="348" y="36" text-anchor="middle" font-size="7.4" fill="#A32E24" font-family="Segoe UI,sans-serif" font-weight="bold">Extract Trial Data</text>
+    <text x="348" y="48" text-anchor="middle" font-size="6.5" fill="#C0453A" font-family="Segoe UI,sans-serif">Task: Sameer (Manual)</text>
+    <text x="348" y="59" text-anchor="middle" font-size="6.5" fill="#C0453A" font-family="Segoe UI,sans-serif">Yield, dose, cert.</text>
+    <line x1="408" y1="48" x2="426" y2="48" stroke="#B0BAC5" stroke-width="1" marker-end="url(#b2a)"/>
+
+    <!-- Step 4: Build deck -->
+    <rect x="428" y="20" width="120" height="56" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5"/>
+    <text x="488" y="36" text-anchor="middle" font-size="7.4" fill="#A32E24" font-family="Segoe UI,sans-serif" font-weight="bold">Build Custom Deck</text>
+    <text x="488" y="48" text-anchor="middle" font-size="6.5" fill="#C0453A" font-family="Segoe UI,sans-serif">Task: Sameer (Canva)</text>
+    <text x="488" y="59" text-anchor="middle" font-size="6.5" fill="#C0453A" font-family="Segoe UI,sans-serif">1–2.5 days / deck</text>
+    <line x1="548" y1="48" x2="566" y2="48" stroke="#B0BAC5" stroke-width="1" marker-end="url(#b2a)"/>
+
+    <!-- Step 5: Send proposal -->
+    <rect x="568" y="20" width="120" height="56" rx="3" fill="#E9F4EC" stroke="#92C7A3" stroke-width="1.5"/>
+    <text x="628" y="36" text-anchor="middle" font-size="7.4" fill="#276B3E" font-family="Segoe UI,sans-serif" font-weight="bold">Send Proposal</text>
+    <text x="628" y="48" text-anchor="middle" font-size="6.5" fill="#276B3E" font-family="Segoe UI,sans-serif">Action: Sameer (Gmail)</text>
+    <text x="628" y="59" text-anchor="middle" font-size="6.5" fill="#276B3E" font-family="Segoe UI,sans-serif">Pitch deployed</text>
+
+    <!-- Non-delegable annotation -->
+    <rect x="148" y="92" width="400" height="34" rx="3" fill="#FEF9EC" stroke="#E8D08A" stroke-width="1"/>
+    <text x="158" y="107" font-size="6.8" fill="#7C5E0A" font-family="Segoe UI,sans-serif" font-weight="700">⚠ Manual Multi-Step Bottleneck</text>
+    <text x="158" y="118" font-size="6.5" fill="#7C5E0A" font-family="Segoe UI,sans-serif">Steps 2–4 are personally executed by Sameer. No template library or R&amp;D handoff format exists.</text>
+
+    <!-- R&D dependency arrow -->
+    <rect x="8" y="92" width="120" height="34" rx="3" fill="#F4E8FB" stroke="#A772D9" stroke-width="1"/>
+    <text x="68" y="107" text-anchor="middle" font-size="6.8" fill="#603487" font-family="Segoe UI,sans-serif" font-weight="700">R&amp;D Dependency</text>
+    <text x="68" y="118" text-anchor="middle" font-size="6.3" fill="#814BAF" font-family="Segoe UI,sans-serif">Ritu Panwar (Lead)</text>
+  </svg>
+  <div class="flow-note">
+    <p style="margin-top:0;"><strong>What is good:</strong> Each proposal is tailored to the specific client's crop, region, and trial context — reflecting genuine consultative selling.</p>
+    <p><strong>What needs to be fixed:</strong> Proposal creation takes 1–2.5 days because R&amp;D trial data must be manually extracted from an unstructured Google Drive. Sameer must identify the relevant trial, extract figures, and reformat them into Canva/PPT for each unique client pitch.</p>
+    <p><strong>Bottlenecks:</strong> Manual multi-step process with no template library. If a competitor responds to an institution first with a credible proposal, EFP loses the deal regardless of product quality.</p>
+    <p style="margin-bottom:0;"><strong>Dependencies:</strong> R&amp;D must provide structured trial data (crop type, dose, yield uplift, certificate) in pitch-ready format. Currently informal with no SLA.</p>
+  </div>
+
+  <h3>PO to Collections Workflow — <span class="chip-ref">P-08</span></h3>
+  <svg viewBox="0 0 740 92" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:10px 0 4px;">
+    <defs>
+      <marker id="b3a" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+        <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5"/>
+      </marker>
+    </defs>
+
+    <rect x="8" y="22" width="120" height="48" rx="3" fill="#E9F4EC" stroke="#92C7A3" stroke-width="1"/>
+    <text x="68" y="37" text-anchor="middle" font-size="7.4" fill="#276B3E" font-family="Segoe UI,sans-serif" font-weight="bold">PO Received</text>
+    <text x="68" y="49" text-anchor="middle" font-size="6.5" fill="#276B3E" font-family="Segoe UI,sans-serif">Action: Client</text>
+    <line x1="128" y1="46" x2="146" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#b3a)"/>
+
+    <rect x="148" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="208" y="37" text-anchor="middle" font-size="7.4" fill="#3F4B5C" font-family="Segoe UI,sans-serif" font-weight="bold">Log in Sheet</text>
+    <text x="208" y="49" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">Task: Sameer</text>
+    <line x1="268" y1="46" x2="286" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#b3a)"/>
+
+    <rect x="288" y="22" width="120" height="48" rx="3" fill="#F4E8FB" stroke="#A772D9" stroke-width="1.5"/>
+    <text x="348" y="37" text-anchor="middle" font-size="7.4" fill="#603487" font-family="Segoe UI,sans-serif" font-weight="bold">Production Handoff</text>
+    <text x="348" y="49" text-anchor="middle" font-size="6.5" fill="#814BAF" font-family="Segoe UI,sans-serif">Action: Production Dept</text>
+    <line x1="408" y1="46" x2="426" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#b3a)"/>
+
+    <rect x="428" y="22" width="120" height="48" rx="3" fill="#F4E8FB" stroke="#A772D9" stroke-width="1.5"/>
+    <text x="488" y="37" text-anchor="middle" font-size="7.4" fill="#603487" font-family="Segoe UI,sans-serif" font-weight="bold">Dispatch &amp; Delivery</text>
+    <text x="488" y="49" text-anchor="middle" font-size="6.5" fill="#814BAF" font-family="Segoe UI,sans-serif">Action: Logistics</text>
+    <line x1="548" y1="46" x2="566" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#b3a)"/>
+
+    <rect x="568" y="22" width="120" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5"/>
+    <text x="628" y="37" text-anchor="middle" font-size="7.4" fill="#A32E24" font-family="Segoe UI,sans-serif" font-weight="bold">Untested Collections</text>
+    <text x="628" y="49" text-anchor="middle" font-size="6.5" fill="#C0453A" font-family="Segoe UI,sans-serif">No formal process yet</text>
+  </svg>
+  <div class="flow-note">
+    <p style="margin-top:0;"><strong>What is good:</strong> PO intake and production handoff exist as informal but functional steps.</p>
+    <p><strong>What needs to be fixed:</strong> No tested collections workflow exists yet. The vertical has not closed enough volume to have a proven receivables loop with Accounts.</p>
+    <p><strong>Bottlenecks:</strong> Once POs start flowing in volume, the lack of a structured collections process will create reconciliation gaps with Finance.</p>
+    <p style="margin-bottom:0;"><strong>Dependencies:</strong> Production must fulfill on spec; Logistics must deliver on time; Accounts must reconcile invoices — none currently formalized with BD.</p>
+  </div>
+  <div class="doc-footer"><span>BD (Seed) Audit Report · v1.0</span><span>Page 6</span></div>
+</div>
+
+
+<!-- ============ 04 PAIN POINTS ============ -->
+<div class="page">
+  <div class="doc-header"><span><b>EF Polymer Private Limited</b> — BD (Seed) Audit</span><span>Confidential</span></div>
+
+  <div class="eyebrow">Section 04 — Operational Pain Points</div>
+  <h2>Pain Points Register</h2>
+  <div class="section-dek">Ranked by operational impact. Each pain point is cross-referenced to its recommendation in Section 06.</div>
+
+  <div class="callout" style="margin-bottom:14px;border-left-color:#2563eb;background:#EFF4FF;">
+    <strong style="color:#1B2A4A;">Priority Focus Areas:</strong><br>
+    <span style="color:#1B2A4A;">&#9312; <b>Follow-Up Cadence &amp; Pipeline Visibility</b> — With a solo manager traveling 15–20 days/month, the absence of a CRM is the single largest risk. Leads routinely slip through the cracks, and leadership has no real-time visibility of pipeline health.</span><br>
+    <span style="color:#1B2A4A;">&#9313; <b>Proposal Turnaround Bottleneck</b> — The 1–2.5 day proposal creation cycle is driven entirely by manual R&amp;D data extraction. This caps throughput at 3–8 proposals/month against a 90 MT annual target.</span>
+  </div>
+
+  <table>
+    <tr>
+      <th class="id">ID</th>
+      <th>Pain Point</th>
+      <th>Impact</th>
+      <th>Evidence from Audit</th>
+    </tr>
+    <tr>
+      <td class="id">P-01</td>
+      <td><b>Lack of Follow-Up Cadence &amp; CRM.</b> Entire operation relies on local spreadsheets and memory. No automated reminders, no shared visibility, no stage-based pipeline.</td>
+      <td><span class="chip chip-crit">Critical</span></td>
+      <td>Given the solo operator model and heavy travel schedule, leads routinely slip through the cracks. 25–30 active leads tracked manually with no follow-up prompts.</td>
+    </tr>
+    <tr>
+      <td class="id">P-02</td>
+      <td><b>Single-Point Solo Operation.</b> The entire 90 MT pan-India target is managed by one person. Zero coverage if Sameer is unavailable.</td>
+      <td><span class="chip chip-crit">Critical</span></td>
+      <td>Severe capacity limits and a single point of failure. With 15–20 travel days/month, only 8–10 days remain for lead generation and proposal work.</td>
+    </tr>
+    <tr>
+      <td class="id">P-03</td>
+      <td><b>Siloed &amp; Speculative Lead Sourcing.</b> Lead generation relies on manual Google News and ChatGPT queries with weak signal and no scoring.</td>
+      <td><span class="chip chip-crit">Critical</span></td>
+      <td>Low volume of low-intent leads. Time-consuming process with weak signal. No segmented database of seed companies, universities, or institutions.</td>
+    </tr>
+    <tr>
+      <td class="id">P-04</td>
+      <td><b>Manual R&amp;D Data Extraction for Proposals.</b> Proposal creation takes 1–2.5 days because trial data must be manually pulled from R&amp;D's unstructured Google Drive.</td>
+      <td><span class="chip chip-crit">Critical</span></td>
+      <td>Sameer must identify the relevant trial, extract figures, and reformat into Canva/PPT for each unique client pitch. No standardized template library exists.</td>
+    </tr>
+    <tr>
+      <td class="id">P-05</td>
+      <td><b>Dual Executive Reporting Line.</b> Reporting lines are split between COO (Puran Singh Rajput) and CBDO (Ankit Jain).</td>
+      <td><span class="chip chip-med">High</span></td>
+      <td>Creates risk of task prioritization conflicts and misaligned goals. A solo operator with dual reporting must navigate competing directives mid-travel.</td>
+    </tr>
+    <tr>
+      <td class="id">P-06</td>
+      <td><b>No Sample Dispatch SLA with Logistics.</b> Sample shipments must align to institution-specific sowing windows, but no formal SLA exists.</td>
+      <td><span class="chip chip-med">High</span></td>
+      <td>A delay of even 2–3 days can push the trial to the next season (6–12 months later). Sameer has no live tracking visibility while on the road.</td>
+    </tr>
+    <tr>
+      <td class="id">P-07</td>
+      <td><b>Seasonal Window Risk.</b> Missing a sowing window means losing 6–12 months of opportunity per lead.</td>
+      <td><span class="chip chip-med">High</span></td>
+      <td>With no CRM-driven seasonal reminders and no Logistics SLA, the vertical is structurally exposed to seasonal miss risk across the entire pipeline.</td>
+    </tr>
+    <tr>
+      <td class="id">P-08</td>
+      <td><b>Untested Collections Workflow.</b> No proven PO-to-cash loop exists with Accounts. Receivables reconciliation is unformalized.</td>
+      <td><span class="chip chip-low">Medium</span></td>
+      <td>The vertical has not yet closed enough volume to have a tested collections process. Once POs scale, reconciliation gaps with Finance will emerge.</td>
+    </tr>
+  </table>
+  <div class="doc-footer"><span>BD (Seed) Audit Report · v1.0</span><span>Page 7</span></div>
+</div>
+
+
+<!-- ============ 05 TIME AND EFFORT ============ -->
 <div class="page">
   <div class="doc-header"><span><b>EF Polymer Private Limited</b> — BD (Seed) Audit</span><span>Confidential</span></div>
   <div class="eyebrow">Section 05 — Time &amp; Effort</div>
   <h3>Time &amp; Effort Allocation</h3>
   <p style="font-size:8.5pt;color:var(--muted);margin-bottom:8px;">Based on a standard 8-hour workday. All activities are managed by a single BD Manager operating with no support staff.</p>
   <table>
-    <tr><th>Activity</th><th class="num">Share of Team Time</th><th class="num">Est. Time / Day</th></tr>
-    <tr><td>Field Travel &amp; In-Person Demos (averaged monthly)</td><td class="num">~50%</td><td class="num">~4.0 hrs</td></tr>
-    <tr><td>Lead Sourcing (ChatGPT, Google News, referral follow-up)</td><td class="num">~20%</td><td class="num">~1.6 hrs</td></tr>
-    <tr><td>Proposal Creation (Canva/PPT with manual R&amp;D data extraction)</td><td class="num">~20%</td><td class="num">~1.6 hrs</td></tr>
-    <tr><td>Pipeline Management &amp; Reporting (manual spreadsheet)</td><td class="num">~10%</td><td class="num">~0.8 hrs</td></tr>
+    <tr>
+      <th>Activity</th>
+      <th class="num" style="text-align:right">Share of Team Time</th>
+      <th class="num" style="text-align:right">Est. Time / Day</th>
+    </tr>
+    <tr>
+      <td>Field Travel &amp; In-Person Demos (averaged monthly)</td>
+      <td class="num">~50%</td>
+      <td class="num">~4.0 hrs</td>
+    </tr>
+    <tr>
+      <td>Lead Sourcing (ChatGPT, Google News, referral follow-up)</td>
+      <td class="num">~20%</td>
+      <td class="num">~1.6 hrs</td>
+    </tr>
+    <tr>
+      <td>Proposal Creation (Canva/PPT with manual R&amp;D data extraction)</td>
+      <td class="num">~20%</td>
+      <td class="num">~1.6 hrs</td>
+    </tr>
+    <tr>
+      <td>Pipeline Management &amp; Reporting (manual spreadsheet)</td>
+      <td class="num">~10%</td>
+      <td class="num">~0.8 hrs</td>
+    </tr>
   </table>
   <div class="callout" style="margin-top:12px;border-left-color:#2563eb;background:#EFF4FF;">
     <strong style="color:#1B2A4A;">Key Observation:</strong><br>
     <span style="color:#1B2A4A;">With 15–20 travel days per month, only <b>8–10 days</b> remain for lead generation and proposal work. Proposal turnaround (1–2.5 days each) means Sameer can realistically produce <b>3–8 proposals per month maximum</b> — a severe throughput constraint given the 90 MT annual target.</span>
   </div>
-  <div class="doc-footer"><span>BD (Seed) Audit Report · v1.0</span><span>Page 5</span></div>
+  <div class="doc-footer"><span>BD (Seed) Audit Report · v1.0</span><span>Page 8</span></div>
 </div>
 
-<div class="page">
-  <div class="doc-header"><span><b>EF Polymer Private Limited</b> — BD (Seed) Audit</span><span>Confidential</span></div>
-  <div class="eyebrow">Section 04 — Corrective Action Plan</div>
-  <h2>Recommendations Register</h2>
-  <div class="section-dek">Ordered by priority. Effort and impact are directional estimates for planning purposes.</div>
-  <table>
-    <tr><th class="id">ID</th><th>Recommendation</th><th>Finding</th><th>Priority</th><th>Effort</th><th>Expected Impact</th></tr>
-    <tr><td class="id">R-01</td><td><b>Central CRM Deployment &amp; Follow-up Automation</b> — Implement Zoho CRM to log stages. Set automated follow-up cadences so the solo manager is prompted automatically, avoiding memory-reliant tracking.</td><td><span class="chip-ref">F-01</span></td><td><span class="chip chip-crit">P1</span></td><td>Medium</td><td>Secures 100% of pipeline visibility and prevents lead loss.</td></tr>
-    <tr><td class="id">R-02</td><td><b>R&amp;D Data Integration (Cross-Department)</b> — Build a standardized, accessible library mapping R&amp;D trial certificates directly to sales templates, reducing proposal generation time from days to hours.</td><td><span class="chip-ref">F-03</span></td><td><span class="chip chip-crit">P1</span></td><td>Medium</td><td>Radically accelerates pitch deployment.</td></tr>
-    <tr><td class="id">R-03</td><td><b>Reporting Alignment</b> — Formalize a primary reporting structure (either to COO or CBDO) to prevent priority clashes and ensure unified KPI tracking.</td><td><span class="chip-ref">F-02</span></td><td><span class="chip chip-med">P2</span></td><td>Low</td><td>Streamlines executive accountability.</td></tr>
-    <tr><td class="id">R-04</td><td><b>Accelerated Executive Onboarding</b> — Prioritize the hiring and onboarding of the South India executive to relieve the travel bottleneck.</td><td><span class="chip-ref">F-04</span></td><td><span class="chip chip-low">P3</span></td><td>High</td><td>Doubles capacity for field demos.</td></tr>
-  </table>
-  <div class="doc-footer"><span>BD (Seed) Audit Report · v1.0</span><span>Page 6</span></div>
-</div>
 
-<!-- CROSS-DEPT DEPENDENCIES -->
-<div class="page">
-  <div class="doc-header"><span><b>EF Polymer Private Limited</b> — BD (Seed) Audit</span><span>Confidential</span></div>
-  <div class="eyebrow">Appendix — Cross-Department Dependencies</div>
-  <h2>Cross-Department Dependencies</h2>
-  <div class="section-dek">Findings requiring action from other departments to resolve.</div>
-  <div class="dep-card">
-    <div class="dep-header"><div class="dep-title">R&amp;D</div><div class="dep-badge">Proposal Bottleneck</div></div>
-    <div class="dep-grid">
-      <div class="dep-section"><div class="dep-section-title">Operations Dependency</div><div class="dep-section-content">Proposal generation relies on manually extracting trial data from R&amp;D's unstructured Google Drive. Sameer must identify the relevant trial, extract figures, and reformat them into Canva/PPT for each unique client pitch.<div class="dep-person">👤 Key Person: Ritu Panwar (R&amp;D Lead)</div></div></div>
-      <div class="dep-section bottleneck"><div class="dep-section-title">Critical Bottleneck</div><div class="dep-section-content">1–2.5 days per proposal is too slow for a time-boxed seasonal window. If a competitor responds to an institution first with a credible proposal, EFP loses the deal regardless of product quality.</div></div>
-      <div class="dep-section data-sync" style="grid-column:1/-1;"><div class="dep-section-title">Data Transfer &amp; Action Needed</div><div class="dep-section-content">R&amp;D must structure trial data into standardized, pitch-ready case study cards (crop type, dose, yield uplift, certificate) that BD can slot directly into templates. Manual extraction must be eliminated entirely.</div></div>
-    </div>
-  </div>
-  <div class="dep-card">
-    <div class="dep-header"><div class="dep-title">Logistics</div><div class="dep-badge">Sample Timing Dependency</div></div>
-    <div class="dep-grid">
-      <div class="dep-section"><div class="dep-section-title">Operations Dependency</div><div class="dep-section-content">Sample dispatch must align to institution-specific sowing windows. A delay of even 2–3 days can push the trial to the next season (6–12 months later), losing the opportunity entirely.<div class="dep-person">👤 Key Person: Nihal Paliwal (Logistics)</div></div></div>
-      <div class="dep-section bottleneck"><div class="dep-section-title">Critical Bottleneck</div><div class="dep-section-content">No formal SLA exists between BD (Seed) and Logistics for trial sample shipments. BD Manager on the road has no live tracking visibility, relying on phone calls to get shipment status.</div></div>
-      <div class="dep-section data-sync" style="grid-column:1/-1;"><div class="dep-section-title">Data Transfer &amp; Action Needed</div><div class="dep-section-content">Logistics must provide a real-time shipment tracker link for each BD sample dispatch. Sowing-window deadlines must be logged as hard SLAs in the dispatch system, not treated as informal requests.</div></div>
-    </div>
-  </div>
-  <div class="dep-card">
-    <div class="dep-header"><div class="dep-title">COO &amp; CBDO (Leadership)</div><div class="dep-badge">Structural Alignment</div></div>
-    <div class="dep-grid">
-      <div class="dep-section"><div class="dep-section-title">Operations Dependency</div><div class="dep-section-content">Sameer reports to both the COO (Puran Singh Rajput) and CBDO (Ankit Jain). Conflicting task priorities and KPIs from two reporting lines reduce execution speed and clarity.</div></div>
-      <div class="dep-section bottleneck"><div class="dep-section-title">Critical Bottleneck</div><div class="dep-section-content">A solo operator with a dual reporting line is the most structural risk in this vertical. Without a single decision-maker, Sameer must navigate competing directives mid-travel.</div></div>
-      <div class="dep-section data-sync" style="grid-column:1/-1;"><div class="dep-section-title">Action Needed</div><div class="dep-section-content">Leadership must designate a single primary reporting executive for the Seed vertical. KPIs, targets, and weekly check-ins should be consolidated under one manager.</div></div>
-    </div>
-  </div>
-  <div class="doc-footer"><span>BD (Seed) Audit Report · v1.0</span><span>Page 7</span></div>
-</div>
-
-<!-- ============ 05 MATURITY ============ -->
-<div class="page">
-<div class="doc-header"><span><b>EF Polymer Private Limited</b> — BD (Seed) Audit</span><span>Confidential</span></div>
-<div class="eyebrow">Section 05 — Benchmarking</div>
-<h2>Department Maturity Assessment</h2>
-<div class="section-dek">Scored 1 (ad hoc) to 5 (optimized) against five capability dimensions</div>
-
-  <div class="exhibit">
-    <div class="exhibit-chart">
-      <svg viewBox="0 0 400 350" xmlns="http://www.w3.org/2000/svg" style="width:100%;">
-        <g transform="translate(200,170)">
-          <polygon points="0,-120 114,-37 70,97 -70,97 -114,-37" fill="none" stroke="#E2E8F0" stroke-width="0.75"/>
-          <polygon points="0,-96 91,-30 56,78 -56,78 -91,-30"    fill="none" stroke="#E2E8F0" stroke-width="0.75"/>
-          <polygon points="0,-72 68,-22 42,58 -42,58 -68,-22"    fill="none" stroke="#E2E8F0" stroke-width="0.75"/>
-          <polygon points="0,-48 46,-15 28,39 -28,39 -46,-15"    fill="none" stroke="#E2E8F0" stroke-width="0.75"/>
-          <polygon points="0,-24 23,-7 14,19 -14,19 -23,-7"      fill="none" stroke="#E2E8F0" stroke-width="0.75"/>
-          <line x1="0" y1="0" x2="0"    y2="-120" stroke="#E2E8F0" stroke-width="0.75"/>
-          <line x1="0" y1="0" x2="114"  y2="-37"  stroke="#E2E8F0" stroke-width="0.75"/>
-          <line x1="0" y1="0" x2="70"   y2="97"   stroke="#E2E8F0" stroke-width="0.75"/>
-          <line x1="0" y1="0" x2="-70"  y2="97"   stroke="#E2E8F0" stroke-width="0.75"/>
-          <line x1="0" y1="0" x2="-114" y2="-37"  stroke="#E2E8F0" stroke-width="0.75"/>
-          
-          <!-- Target dashed: Process 3.0, Tech 3.0, Data 3.5, Docs 3.0, KM 2.5 -->
-          <polygon points="0,-72 68.4,-22.2 49,67.9 -42,58.2 -57,-18.5" fill="none" stroke="#B8C0C9" stroke-width="1" stroke-dasharray="5,3"/>
-          
-          <!-- Current: Process 1.5, Tech 1.5, Data 1.0, Docs 1.5, KM 1.5 -->
-          <polygon points="0,-36 34.2,-11.1 14,19.4 -21,29.1 -34.2,-11.1" fill="rgba(15,107,98,0.14)" stroke="#0F6B62" stroke-width="1.75"/>
-          <circle cx="0" cy="-36" r="3.2" fill="#0F6B62"/>
-          <circle cx="34.2" cy="-11.1" r="3.2" fill="#0F6B62"/>
-          <circle cx="14" cy="19.4" r="3.2" fill="#0F6B62"/>
-          <circle cx="-21" cy="29.1" r="3.2" fill="#0F6B62"/>
-          <circle cx="-34.2" cy="-11.1" r="3.2" fill="#0F6B62"/>
-          
-          <text x="0"    y="-132" text-anchor="middle" font-size="9" fill="#1B2A4A" font-weight="600">Process</text>
-          <text x="128"  y="-20"  text-anchor="start"  font-size="9" fill="#1B2A4A" font-weight="600">Technology</text>
-          <text x="78"   y="110"  text-anchor="start"  font-size="9" fill="#1B2A4A" font-weight="600">Data Quality</text>
-          <text x="-78"  y="110"  text-anchor="end"    font-size="9" fill="#1B2A4A" font-weight="600">Documentation</text>
-          <text x="-128" y="-16"  text-anchor="end"    font-size="9" fill="#1B2A4A" font-weight="600">Knowledge Mgmt.</text>
-        </g>
-      </svg>
-    </div>
-    <div class="exhibit-note">
-      Solid line: current state. Dashed line: target state (post-roadmap).<br><br>
-      <b>Seed BD scores 1.4 overall</b> — The lack of a CRM for the solo manager, reliance on manual Google News/ChatGPT scraping, and unformalized reporting lines severely limit scalability. Deploying a CRM and integrating R&amp;D data directly into pitch templates will dramatically increase the manager's capacity.
-    </div>
-  </div>
-
-<table>
-  <tr><th>Dimension</th><th class="num">Current</th><th class="num">Target</th><th class="num">Gap</th></tr>
-  <tr><td>Process Standardization</td><td class="num">1.5</td><td class="num">3.0</td><td class="num">1.5</td></tr>
-  <tr><td>Technology Utilization</td><td class="num">1.5</td><td class="num">3.0</td><td class="num">1.5</td></tr>
-  <tr><td>Data Quality &amp; Accessibility</td><td class="num">1.0</td><td class="num">3.5</td><td class="num">2.5</td></tr>
-  <tr><td>Documentation</td><td class="num">1.5</td><td class="num">3.0</td><td class="num">1.5</td></tr>
-  <tr><td>Knowledge Management</td><td class="num">1.5</td><td class="num">2.5</td><td class="num">1.0</td></tr>
-  <tr style="font-weight:700;"><td>Overall</td><td class="num">1.4</td><td class="num">3.0</td><td class="num">1.6</td></tr>
-</table>
-<div class="doc-footer"><span>BD (Seed) Audit Report · v1.0</span><span>Page 7</span></div>
-</div>
-
-<!-- ============ 06 ROADMAP ============ -->
+<!-- ============ 06 RECOMMENDATIONS / SOLUTION ============ -->
 <div class="page">
   <div class="doc-header"><span><b>EF Polymer Private Limited</b> — BD (Seed) Audit</span><span>Confidential</span></div>
 
-  <div class="eyebrow">Section 06 — Implementation Plan</div>
+  <div class="eyebrow">Section 06 — Corrective Action Plan</div>
+  <h2>Recommended Solution Segment</h2>
+  <div class="section-dek">This section outlines the integrated technology and process solution proposed to resolve operational bottlenecks, replacing the legacy recommendations register.</div>
+
+  <h3>Implementation Required</h3>
+
+  <p style="font-weight:700;color:var(--ink);margin-top:15px;margin-bottom:10px;font-size:9.5pt;">Solution Modules to be Built:</p>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-bottom:20px;">
+    <!-- Module 1 -->
+    <div style="border:1px solid var(--line);border-radius:4px;padding:12px;background:var(--paper);">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+        <div style="background:#E9F4EC;color:#276B3E;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:10pt;">1</div>
+        <div style="font-weight:700;color:var(--ink);font-size:9.5pt;">CRM &amp; Pipeline Dashboard</div>
+      </div>
+      <ul style="font-size:8.5pt;color:var(--muted);line-height:1.5;padding-left:18px;margin:0;">
+        <li style="margin-bottom:6px;"><strong>Centralised Pipeline Tracking:</strong> Deploy Zoho CRM (or equivalent) to log all 25–30 active leads with stage-based visibility. Replaces local spreadsheets and memory-reliant follow-up.</li>
+        <li style="margin-bottom:6px;"><strong>Automated Follow-Up Cadences:</strong> The CRM automatically pings Sameer on follow-up timing, eliminating dropped leads during the 15–20 travel days each month.</li>
+        <li><strong>Seasonal Window Alerts:</strong> Sowing-window deadlines are logged as hard SLAs in the system, with automated reminders triggered 2 weeks before the window closes.</li>
+      </ul>
+    </div>
+
+    <!-- Module 2 -->
+    <div style="border:1px solid var(--line);border-radius:4px;padding:12px;background:var(--paper);">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+        <div style="background:#E9F4EC;color:#276B3E;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:10pt;">2</div>
+        <div style="font-weight:700;color:var(--ink);font-size:9.5pt;">R&amp;D Data Integration &amp; Proposal Engine</div>
+      </div>
+      <ul style="font-size:8.5pt;color:var(--muted);line-height:1.5;padding-left:18px;margin:0;">
+        <li style="margin-bottom:6px;"><strong>Structured Trial Case-Study Cards:</strong> R&amp;D trial certificates mapped to standardized, pitch-ready templates (crop type, dose, yield uplift, certificate) that BD can slot directly into proposals.</li>
+        <li style="margin-bottom:6px;"><strong>AI Proposal Drafting Engine:</strong> A custom assistant that reads existing past proposals and templates stored on Google Drive, generating new proposals in the required format.</li>
+        <li><strong>Unified Dashboard Integration:</strong> The proposal engine lives inside the BD CRM dashboard so Sameer doesn't have to jump between multiple tools while on the road.</li>
+      </ul>
+    </div>
+
+    <!-- Module 3 -->
+    <div style="border:1px solid var(--line);border-radius:4px;padding:12px;background:var(--paper);grid-column:1 / -1;">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+        <div style="background:#E9F4EC;color:#276B3E;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:10pt;">3</div>
+        <div style="font-weight:700;color:var(--ink);font-size:9.5pt;">Automated Communications &amp; Cross-Department SLAs</div>
+      </div>
+      <ul style="font-size:8.5pt;color:var(--muted);line-height:1.5;padding-left:18px;margin:0;">
+        <li style="margin-bottom:4px;"><strong>Logistics Sample Tracking:</strong> Real-time shipment tracker link for each BD sample dispatch, integrated into the CRM with sowing-window SLA enforcement.</li>
+        <li style="margin-bottom:4px;"><strong>Reporting Alignment:</strong> Formalize a single primary reporting executive (COO or CBDO) with consolidated KPIs and weekly check-ins.</li>
+        <li><strong>Unified OS Integration:</strong> Integrates into the larger EF Polymer operating system, giving CXOs role-based, one-click visibility into pipeline health and BD ROI.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Data Strategy & Tech Stack -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-bottom:20px;">
+    <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:4px;padding:12px;">
+      <p style="font-weight:700;color:var(--ink);margin-bottom:6px;font-size:9pt;">What Remains the Same</p>
+      <ul style="font-size:8.5pt;color:var(--muted);line-height:1.5;padding-left:18px;margin:0;">
+        <li style="margin-bottom:4px;"><strong>No Forced Tool Migration:</strong> Google Drive remains the source of R&amp;D trial files; the integration layer pulls structured data from it.</li>
+        <li><strong>Relationship-First Selling:</strong> Sameer's on-ground demo approach is preserved — the system removes admin load, not field presence.</li>
+      </ul>
+    </div>
+    <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:4px;padding:12px;">
+      <p style="font-weight:700;color:var(--ink);margin-bottom:6px;font-size:9pt;">Tech Stack Utilized</p>
+      <ul style="font-size:8.5pt;color:var(--muted);line-height:1.5;padding-left:18px;margin:0;">
+        <li style="margin-bottom:2px;"><strong>CRM:</strong> Zoho CRM (or equivalent)</li>
+        <li style="margin-bottom:2px;"><strong>Frontend Dashboard:</strong> ReactJS + TypeScript</li>
+        <li style="margin-bottom:2px;"><strong>APIs:</strong> Google Drive, WhatsApp, Gmail, Zoho</li>
+        <li style="margin-bottom:2px;"><strong>AI:</strong> Gemini/LLMs for proposal drafting</li>
+        <li><strong>Host:</strong> Google Cloud Platform</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Problems Solved -->
+  <div style="background:#F0FDF4;border:1px solid #BBF7D0;border-radius:4px;padding:12px;margin-bottom:25px;">
+    <p style="font-weight:700;color:#166534;margin-bottom:6px;font-size:9.5pt;">Key Operational Problems Solved</p>
+    <ul style="font-size:8.5pt;color:#15803D;line-height:1.5;padding-left:18px;margin:0;">
+      <li style="margin-bottom:4px;">Eliminates memory-reliant follow-up across 25–30 active leads during 15–20 travel days per month.</li>
+      <li style="margin-bottom:4px;">Reduces proposal turnaround from 1–2.5 days to hours via structured R&amp;D case-study cards and AI drafting.</li>
+      <li style="margin-bottom:4px;">Provides CXOs real-time pipeline visibility and BD ROI tracking without manual spreadsheet exports.</li>
+      <li>Formalizes Logistics sample-dispatch SLAs to protect seasonal sowing windows.</li>
+    </ul>
+  </div>
+
+  <h3>Future Scope of Improvement / Enhancement</h3>
+  <ul style="font-size:9pt;color:var(--muted);line-height:1.5;padding-left:20px;margin-bottom:25px;">
+    <li><strong>Lead Intelligence Engine:</strong> In the future, an AI agent could actively monitor tender portals, university bulletins, and seed company expansion news to auto-populate the pipeline with pre-scored, high-intent leads. This is not needed right now but is a planned future enhancement once the South India executive is onboarded.</li>
+  </ul>
+
+  <h3>Next Steps for Team Adoption</h3>
+  <ul style="font-size:9pt;color:var(--muted);line-height:1.5;padding-left:20px;margin-bottom:15px;">
+    <li><strong>Mandatory CRM Training:</strong> Sameer must be trained on Zoho CRM adoption and follow-up cadence configuration before the next travel cycle.</li>
+    <li><strong>R&amp;D Alignment Workshop:</strong> A cross-departmental workshop with Ritu Panwar to define the structured case-study card format and handoff SLA.</li>
+    <li><strong>Feedback Loop:</strong> Establish a continuous feedback loop to iterate on the solution on the ground, ensuring it adapts to the realities of field travel.</li>
+  </ul>
+  <div class="doc-footer"><span>BD (Seed) Audit Report · v1.0</span><span>Page 9</span></div>
+</div>
+
+
+<!-- ============ 07 ROADMAP ============ -->
+<div class="page">
+  <div class="doc-header"><span><b>EF Polymer Private Limited</b> — BD (Seed) Audit</span><span>Confidential</span></div>
+
+  <div class="eyebrow">Section 07 — Implementation Plan</div>
   <h2>Phased Roadmap</h2>
-  <div class="section-dek">Initiatives sequenced across three phases, with quantified ROI and scope of work per phase</div>
+  <div class="section-dek">Initiatives sequenced across three phases, with quantified ROI and scope of work</div>
 
   <table class="tl-table">
     <tr>
-      <th>Initiative</th><th class="id">Rec.</th>
+      <th>Initiative</th>
+      <th class="id">Target</th>
       <th class="num">Phase 1<br><span style="font-weight:400">Mo. 1–2</span></th>
       <th class="num">Phase 2<br><span style="font-weight:400">Mo. 3–5</span></th>
       <th class="num">Phase 3<br><span style="font-weight:400">Mo. 6+</span></th>
     </tr>
-    <tr><td>CRM Deployment</td><td class="id">R-01</td><td class="phase-mark p1">●</td><td></td><td></td></tr>
-    <tr><td>Reporting Alignment</td><td class="id">R-03</td><td class="phase-mark p1">●</td><td></td><td></td></tr>
-    <tr><td>Follow-up Automation</td><td class="id">R-01</td><td></td><td class="phase-mark p2">●</td><td></td></tr>
-    <tr><td>R&amp;D Data Integration</td><td class="id">R-02</td><td></td><td class="phase-mark p2">●</td><td></td></tr>
-    <tr><td>Accelerated Onboarding</td><td class="id">R-04</td><td></td><td></td><td class="phase-mark p3">●</td></tr>
+    <tr>
+      <td>CRM Deployment &amp; Pipeline Visibility</td>
+      <td class="id">Module 1</td>
+      <td class="phase-mark p1">●</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Reporting Alignment (COO / CBDO)</td>
+      <td class="id">Module 3</td>
+      <td class="phase-mark p1">●</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Follow-Up Automation &amp; Seasonal Alerts</td>
+      <td class="id">Module 1</td>
+      <td></td>
+      <td class="phase-mark p2">●</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>R&amp;D Data Integration &amp; Proposal Engine</td>
+      <td class="id">Module 2</td>
+      <td></td>
+      <td class="phase-mark p2">●</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Logistics SLA &amp; Sample Tracking</td>
+      <td class="id">Module 3</td>
+      <td></td>
+      <td class="phase-mark p2">●</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Accelerated Executive Onboarding (South India)</td>
+      <td class="id">Module 3</td>
+      <td></td>
+      <td></td>
+      <td class="phase-mark p3">●</td>
+    </tr>
   </table>
 
   <!-- PHASE 1 -->
@@ -514,20 +908,28 @@ td.num{ text-align:center; white-space:nowrap; }
       <span class="phase-maturity">Maturity 1.4 &rarr; 1.8</span>
     </div>
     <div class="phase-sow">
-      <div class="col-label">Scope of Work</div>
-      <div class="sow-item"><span class="sow-dot"></span><span>Deploy Zoho CRM to log the 25-30 active leads and replace manual local spreadsheets.</span></div>
-      <div class="sow-item"><span class="sow-dot"></span><span>Clarify reporting lines between COO (Puran) and CBDO (Ankit) to avoid dual-reporting conflicts.</span></div>
+      <div class="col-label">Scope of Work &amp; Dependencies</div>
+      <div class="sow-item"><span class="sow-dot"></span><span><strong>Build:</strong> Deploy Zoho CRM to log the 25–30 active leads and replace manual local spreadsheets with stage-based pipeline tracking.</span></div>
+      <div class="sow-item"><span class="sow-dot"></span><span><strong>Align:</strong> Clarify reporting lines between COO (Puran Singh Rajput) and CBDO (Ankit Jain) to avoid dual-reporting conflicts and consolidate KPIs.</span></div>
+      <div class="sow-item"><span class="sow-dot"></span><span><strong>Tech Stack &amp; Dependencies:</strong> Zoho CRM, Google Workspace API. Requires Sameer's current lead list to act as base data.</span></div>
+      <div class="sow-item"><span class="sow-dot"></span><span><strong>Team Adoption:</strong> Conduct CRM onboarding sessions for Sameer before the next travel cycle.</span></div>
+      <div class="sow-item"><span class="sow-dot" style="background:#ef4444;"></span><span><strong>Client To-Do:</strong> Designate a single primary reporting executive and provide Zoho CRM admin access.</span></div>
     </div>
     <div class="phase-roi">
       <div class="roi-card">
         <div class="roi-card-num">100%</div>
-        <div class="roi-card-label">pipeline vis</div>
-        <div class="roi-card-desc">No dropped leads during the 15-20 days of travel.</div>
+        <div class="roi-card-label">Pipeline Vis</div>
+        <div class="roi-card-desc">No dropped leads during the 15–20 days of travel.</div>
       </div>
       <div class="roi-card">
         <div class="roi-card-num">Single</div>
-        <div class="roi-card-label">reporting line</div>
+        <div class="roi-card-label">Reporting Line</div>
         <div class="roi-card-desc">Clear task prioritization for the solo manager.</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-card-num">Live</div>
+        <div class="roi-card-label">CXO Visibility</div>
+        <div class="roi-card-desc">Instant pipeline health visibility for leadership.</div>
       </div>
     </div>
   </div>
@@ -542,20 +944,28 @@ td.num{ text-align:center; white-space:nowrap; }
       <span class="phase-maturity p2">Maturity 1.8 &rarr; 2.5</span>
     </div>
     <div class="phase-sow">
-      <div class="col-label">Scope of Work</div>
-      <div class="sow-item"><span class="sow-dot p2"></span><span>Establish automated follow-up cadences in the CRM to ping off-season contacts every 2-3 months without manual effort.</span></div>
-      <div class="sow-item"><span class="sow-dot p2"></span><span>Integrate R&amp;D trial certificates directly into Canva/PPT sales templates rather than relying on raw Google Drive dumps.</span></div>
+      <div class="col-label">Scope of Work &amp; Dependencies</div>
+      <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Build:</strong> Establish automated follow-up cadences in the CRM to ping off-season contacts every 2–3 months without manual effort.</span></div>
+      <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Build:</strong> Integrate R&amp;D trial certificates directly into standardized Canva/PPT sales templates via the AI Proposal Drafting Engine.</span></div>
+      <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Build:</strong> Implement Logistics sample-dispatch tracker with sowing-window SLA enforcement inside the CRM.</span></div>
+      <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Tech Stack &amp; Dependencies:</strong> Gemini/LLMs, Google Drive API, Zoho CRM API, Logistics tracker integration. Requires R&amp;D case-study card format defined with Ritu Panwar.</span></div>
+      <div class="sow-item"><span class="sow-dot p2" style="background:#ef4444;"></span><span><strong>Client To-Do:</strong> Organize R&amp;D Drive folders and provide historical proposals/templates to train the engine. Formalize Logistics SLA.</span></div>
     </div>
     <div class="phase-roi">
       <div class="roi-card">
         <div class="roi-card-num">&uarr; 2x</div>
-        <div class="roi-card-label">follow-ups</div>
-        <div class="roi-card-desc">Automated prompts save memory load.</div>
+        <div class="roi-card-label">Follow-Ups</div>
+        <div class="roi-card-desc">Automated prompts save memory load during travel.</div>
       </div>
       <div class="roi-card">
         <div class="roi-card-num">&darr; 80%</div>
-        <div class="roi-card-label">proposal time</div>
+        <div class="roi-card-label">Proposal Time</div>
         <div class="roi-card-desc">Turnaround reduced from 2.5 days to hours.</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-card-num">Zero</div>
+        <div class="roi-card-label">Window Misses</div>
+        <div class="roi-card-desc">SLA enforcement protects seasonal sowing cycles.</div>
       </div>
     </div>
   </div>
@@ -570,25 +980,179 @@ td.num{ text-align:center; white-space:nowrap; }
       <span class="phase-maturity p3">Maturity 2.5 &rarr; 3.0</span>
     </div>
     <div class="phase-sow">
-      <div class="col-label">Scope of Work</div>
-      <div class="sow-item"><span class="sow-dot p3"></span><span>Onboard and train the incoming South India BD Executive.</span></div>
-      <div class="sow-item"><span class="sow-dot p3"></span><span>Execute the first live payment collection workflow as early seed deals begin to close.</span></div>
+      <div class="col-label">Scope of Work &amp; Dependencies</div>
+      <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Hire &amp; Onboard:</strong> Recruit and train the incoming South India BD Executive to relieve the travel bottleneck.</span></div>
+      <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Build:</strong> Execute the first live PO-to-cash collection workflow with Accounts as early seed deals begin to close.</span></div>
+      <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Build:</strong> Connect the BD CRM into the broader EF Polymer OS for CXO-level access and unified reporting.</span></div>
+      <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Tech Stack &amp; Dependencies:</strong> Unified OS integration, Finance/Accounts API for collections reconciliation.</span></div>
+      <div class="sow-item"><span class="sow-dot p3" style="background:#ef4444;"></span><span><strong>Client To-Do:</strong> Complete South India executive hiring and provide Accounts contact for collections workflow mapping.</span></div>
     </div>
     <div class="phase-roi">
       <div class="roi-card">
         <div class="roi-card-num">&uarr; 200%</div>
-        <div class="roi-card-label">field capacity</div>
+        <div class="roi-card-label">Field Capacity</div>
         <div class="roi-card-desc">Two full-time executives managing Pan-India.</div>
       </div>
       <div class="roi-card">
         <div class="roi-card-num">Tested</div>
-        <div class="roi-card-label">receivables</div>
+        <div class="roi-card-label">Receivables</div>
         <div class="roi-card-desc">Proven operational loop with Accounts.</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-card-num">1-Click</div>
+        <div class="roi-card-label">CXO Visibility</div>
+        <div class="roi-card-desc">Instant board-level metrics via the Unified OS.</div>
+      </div>
+    </div>
+  </div>
+  <div class="doc-footer"><span>BD (Seed) Audit Report · v1.0</span><span>Page 10</span></div>
+</div>
+
+
+<!-- ============ 08 ROI ============ -->
+<div class="page">
+  <div class="doc-header"><span><b>EF Polymer Private Limited</b> — BD (Seed) Audit</span><span>Confidential</span></div>
+  <div class="eyebrow">Section 08 — Return on Investment (ROI)</div>
+  <h2>System Impact: Before &amp; After</h2>
+  <div class="section-dek">Measurable improvements post-implementation</div>
+
+  <table class="tl-table" style="margin-top:20px;">
+    <tr>
+      <th style="width:25%;">Category</th>
+      <th style="width:35%;border-left:1px solid #e2e8f0;">Before (Current State)</th>
+      <th style="width:40%;border-left:1px solid #e2e8f0;background:#f8fafc;">After (Post-Implementation)</th>
+    </tr>
+    <tr>
+      <td><strong>Pipeline Tracking</strong></td>
+      <td style="border-left:1px solid #e2e8f0;">Local spreadsheet with 25–30 leads. Memory-reliant follow-up.</td>
+      <td style="border-left:1px solid #e2e8f0;background:#f8fafc;color:#166534;"><strong>Zoho CRM Dashboard.</strong> Stage-based pipeline with automated follow-up cadences.</td>
+    </tr>
+    <tr>
+      <td><strong>Lead Sourcing</strong></td>
+      <td style="border-left:1px solid #e2e8f0;">Manual ChatGPT + Google News searches during 8–10 non-travel days.</td>
+      <td style="border-left:1px solid #e2e8f0;background:#f8fafc;color:#166534;"><strong>Structured Lead Database + AI Engine.</strong> Pre-scored, segmented prospects with signal-based prioritization.</td>
+    </tr>
+    <tr>
+      <td><strong>Proposal Turnaround</strong></td>
+      <td style="border-left:1px solid #e2e8f0;">1–2.5 days per deck. Manual R&amp;D data extraction from unstructured Drive.</td>
+      <td style="border-left:1px solid #e2e8f0;background:#f8fafc;color:#166534;"><strong>AI-Powered Drafting Engine.</strong> Structured case-study cards slot into templates — turnaround reduced to hours.</td>
+    </tr>
+    <tr>
+      <td><strong>Follow-Up Discipline</strong></td>
+      <td style="border-left:1px solid #e2e8f0;background:#f8fafc;color:#166534;"><strong>Automated CRM Prompts.</strong> Seasonal alerts and 2-3 month cadences prevent dropped leads and missed windows.</td>
+    </tr>
+    <tr>
+      <td><strong>Cross-Department SLAs</strong></td>
+      <td style="border-left:1px solid #e2e8f0;">No formal SLA with Logistics. Sample delays risk 6–12 month seasonal window misses.</td>
+      <td style="border-left:1px solid #e2e8f0;background:#f8fafc;color:#166534;"><strong>Integrated Tracker & SLAs.</strong> Logistics dispatch linked to CRM with sowing-window deadline enforcement.</td>
+    </tr>
+    <tr>
+      <td><strong>Executive Visibility</strong></td>
+      <td style="border-left:1px solid #e2e8f0;">Manual reporting to dual reporting lines (COO & CBDO).</td>
+      <td style="border-left:1px solid #e2e8f0;background:#f8fafc;color:#166534;"><strong>Unified OS Dashboard.</strong> Real-time visibility into pipeline health and BD ROI.</td>
+    </tr>
+    <tr>
+      <td><strong>Department Maturity Score</strong></td>
+      <td style="border-left:1px solid #e2e8f0;">1.4 / 5.0 (Ad-hoc)</td>
+      <td style="border-left:1px solid #e2e8f0;background:#f8fafc;color:#166534;"><strong>3.0 / 5.0 (Systematised)</strong></td>
+    </tr>
+  </table>
+  <div class="doc-footer"><span>BD (Seed) Audit Report · v1.0</span><span>Page 11</span></div>
+</div>
+
+
+<!-- ============ APPENDIX: CROSS-DEPARTMENT DEPENDENCIES ============ -->
+<div class="page">
+  <div class="doc-header"><span><b>EF Polymer Private Limited</b> — BD (Seed) Audit</span><span>Confidential</span></div>
+
+  <div class="eyebrow">Appendix — Cross-Department Dependencies</div>
+  <h2>Cross-Department Dependencies</h2>
+  <div class="section-dek">Findings requiring action from other departments to resolve.</div>
+  
+  <div class="dep-card">
+    <div class="dep-header">
+      <div class="dep-title">R&amp;D</div>
+      <div class="dep-badge">Proposal Bottleneck</div>
+    </div>
+    <div class="dep-grid">
+      <div class="dep-section">
+        <div class="dep-section-title">Operations Dependency <span class="chip chip-info">Information Sharing</span></div>
+        <div class="dep-section-content">
+          Proposal generation relies on manually extracting trial data from R&amp;D's unstructured Google Drive. Sameer must identify the relevant trial, extract figures, and reformat them into Canva/PPT for each unique client pitch.
+          <div class="dep-person">👤 Key Person: Ritu Panwar (R&amp;D Lead)</div>
+        </div>
+      </div>
+      <div class="dep-section bottleneck">
+        <div class="dep-section-title">Critical Bottleneck</div>
+        <div class="dep-section-content">
+          1–2.5 days per proposal is too slow for a time-boxed seasonal window. If a competitor responds to an institution first with a credible proposal, EFP loses the deal regardless of product quality.
+        </div>
+      </div>
+      <div class="dep-section data-sync" style="grid-column:1/-1;">
+        <div class="dep-section-title">Data Transfer &amp; Action Needed <span class="chip chip-data">Data Flow</span></div>
+        <div class="dep-section-content">
+          R&amp;D must structure trial data into standardized, pitch-ready case study cards (crop type, dose, yield uplift, certificate) that BD can slot directly into templates. Manual extraction must be eliminated entirely.
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="doc-footer"><span>BD (Seed) Audit Report · v1.0</span><span>Page 8</span></div>
+  <div class="dep-card">
+    <div class="dep-header">
+      <div class="dep-title">Logistics</div>
+      <div class="dep-badge">Sample Timing Dependency</div>
+    </div>
+    <div class="dep-grid">
+      <div class="dep-section">
+        <div class="dep-section-title">Operations Dependency <span class="chip chip-approval">Approval Flow</span></div>
+        <div class="dep-section-content">
+          Sample dispatch must align to institution-specific sowing windows. A delay of even 2–3 days can push the trial to the next season (6–12 months later), losing the opportunity entirely.
+          <div class="dep-person">👤 Key Person: Nihal Paliwal (Logistics)</div>
+        </div>
+      </div>
+      <div class="dep-section bottleneck">
+        <div class="dep-section-title">Critical Bottleneck</div>
+        <div class="dep-section-content">
+          No formal SLA exists between BD (Seed) and Logistics for trial sample shipments. BD Manager on the road has no live tracking visibility, relying on phone calls to get shipment status.
+        </div>
+      </div>
+      <div class="dep-section data-sync" style="grid-column:1/-1;">
+        <div class="dep-section-title">Data Transfer &amp; Action Needed <span class="chip chip-data">Data Flow</span></div>
+        <div class="dep-section-content">
+          Logistics must provide a real-time shipment tracker link for each BD sample dispatch. Sowing-window deadlines must be logged as hard SLAs in the dispatch system, not treated as informal requests.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dep-card">
+    <div class="dep-header">
+      <div class="dep-title">COO &amp; CBDO (Leadership)</div>
+      <div class="dep-badge">Structural Alignment</div>
+    </div>
+    <div class="dep-grid">
+      <div class="dep-section">
+        <div class="dep-section-title">Operations Dependency</div>
+        <div class="dep-section-content">
+          Sameer reports to both the COO (Puran Singh Rajput) and CBDO (Ankit Jain). Conflicting task priorities and KPIs from two reporting lines reduce execution speed and clarity.
+        </div>
+      </div>
+      <div class="dep-section bottleneck">
+        <div class="dep-section-title">Critical Bottleneck</div>
+        <div class="dep-section-content">
+          A solo operator with a dual reporting line is the most structural risk in this vertical. Without a single decision-maker, Sameer must navigate competing directives mid-travel.
+        </div>
+      </div>
+      <div class="dep-section data-sync" style="grid-column:1/-1;">
+        <div class="dep-section-title">Action Needed</div>
+        <div class="dep-section-content">
+          Leadership must designate a single primary reporting executive for the Seed vertical. KPIs, targets, and weekly check-ins should be consolidated under one manager.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="doc-footer"><span>BD (Seed) Audit Report · v1.0</span><span>Page 12</span></div>
 </div>
 
 </body>

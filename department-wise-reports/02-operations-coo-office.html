@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Operations & Finance (COO) — Department Audit Report | EF Polymers</title>
+<title>Operations & Finance (COO) — Department Audit Report | EF Polymer Private Limited</title>
 <style>
 :root{
   --ink:#1B2A4A;
@@ -108,13 +108,39 @@ td.num{ text-align:center; white-space:nowrap; }
 /* ---- flow notes ---- */
 .flow-note{ font-size:8.6pt; color:var(--muted); margin:4px 0 18px; padding-left:2px; }
 .flow-note b{ color:var(--risk-crit-fg); }
-.flow-ok{   font-size:8.6pt; color:var(--accent); margin:4px 0 18px; }
 
-/* ---- maturity exhibit ---- */
-.exhibit{ display:flex; gap:26px; align-items:center; margin:14px 0 6px; }
-.exhibit-chart{ flex:0 0 220px; }
-.exhibit-note{ flex:1; font-size:9.2pt; color:var(--slate); }
-.exhibit-note b{ color:var(--ink); }
+/* ---- maturity legend (static, PDF-safe) ---- */
+.maturity-legend{ background:var(--paper-alt); border:1px solid var(--line); border-radius:4px; padding:10px 14px; margin:4px 0 0; font-size:8pt; }
+.maturity-legend-title{ font-weight:700; color:var(--ink); font-size:8pt; margin-bottom:6px; }
+.maturity-bar-wrap{ display:flex; align-items:center; gap:8px; margin-bottom:4px; }
+.maturity-bar-track{ flex:1; height:7px; background:var(--line); border-radius:4px; position:relative; overflow:visible; }
+.maturity-bar-fill{ position:absolute; left:0; top:0; height:100%; width:34%; background:var(--accent); border-radius:4px; }
+.maturity-bar-marker{ position:absolute; top:-3px; width:2px; height:13px; background:var(--ink); border-radius:1px; }
+.maturity-bar-marker.target{ left:60%; background:#2563eb; }
+.maturity-bar-lbl{ font-size:7pt; color:var(--muted); white-space:nowrap; }
+.maturity-legend-notes{ display:flex; gap:14px; margin-top:6px; font-size:7.2pt; color:var(--muted); }
+.maturity-legend-notes span b{ color:var(--ink); }
+
+/* ---- team structure ---- */
+.team-structure{ margin:0 0 20px; }
+.org-chart{ display:flex; flex-direction:column; align-items:center; gap:0; margin:14px 0; font-size:8.3pt; }
+.org-level{ display:flex; justify-content:center; align-items:flex-start; gap:14px; width:100%; position:relative; }
+.org-connector-top{ width:1px; height:18px; background:var(--line); margin:0 auto; }
+.org-connector-row{ position:relative; display:flex; justify-content:center; gap:14px; width:100%; }
+.org-connector-row::before{ content:''; position:absolute; top:0; left:50%; transform:translateX(-50%); width:1px; height:18px; background:var(--line); }
+.org-node{ background:var(--paper); border:1px solid var(--line); border-radius:4px; padding:8px 10px; min-width:120px; max-width:160px; text-align:center; flex-shrink:0; }
+.org-node.lead{ border-color:var(--accent); background:var(--accent-soft); border-width:1.5px; }
+.org-node.secondary{ background:var(--paper-alt); }
+.org-name{ font-weight:700; color:var(--ink); font-size:8.2pt; margin-bottom:3px; }
+.org-role{ font-size:7pt; color:var(--muted); line-height:1.3; }
+.org-tag{ display:inline-block; background:var(--accent-soft); color:var(--accent); font-size:6.5pt; font-weight:700; padding:1px 5px; border-radius:2px; margin-top:4px; text-transform:uppercase; letter-spacing:0.3px; }
+
+/* ---- tools grid ---- */
+.tools-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:10px; margin:12px 0 20px; }
+.tool-card{ border:1px solid var(--line); border-radius:4px; padding:10px 12px; display:flex; gap:10px; align-items:flex-start; background:var(--paper); }
+.tool-icon{ font-size:18pt; line-height:1; flex-shrink:0; margin-top:1px; }
+.tool-name{ font-weight:700; color:var(--ink); font-size:8.5pt; margin-bottom:2px; }
+.tool-desc{ font-size:7.5pt; color:var(--muted); line-height:1.4; }
 
 /* ---- roadmap table ---- */
 .tl-table td.phase-mark{ text-align:center; font-weight:700; }
@@ -144,6 +170,27 @@ td.num{ text-align:center; white-space:nowrap; }
 .roi-card-label{ font-size:7.5pt; color:var(--ink); font-weight:700; text-transform:uppercase; letter-spacing:0.3px; margin-bottom:3px; }
 .roi-card-desc{ font-size:7pt; color:var(--muted); line-height:1.35; }
 
+/* ---- maturity exhibit ---- */
+.exhibit{ display:flex; gap:26px; align-items:center; margin:14px 0 6px; }
+.exhibit-chart{ flex:0 0 220px; }
+.exhibit-note{ flex:1; font-size:9.2pt; color:var(--slate); }
+.exhibit-note b{ color:var(--ink); }
+
+/* ---- dep cards (cross-dept appendix) ---- */
+.dep-card{ border:1px solid var(--line); border-radius:8px; background:var(--paper); padding:16px; margin-bottom:16px; }
+.dep-header{ display:flex; align-items:center; justify-content:space-between; margin-bottom:12px; padding-bottom:8px; border-bottom:1px solid var(--line); }
+.dep-title{ font-weight:700; font-size:11pt; color:var(--ink); }
+.dep-badge{ font-size:7.5pt; font-weight:600; padding:3px 8px; border-radius:12px; background:#f1f5f9; color:#475569; text-transform:uppercase; }
+.dep-grid{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.dep-section{ background:#f8fafc; border-radius:6px; padding:12px; border:1px solid #e2e8f0; }
+.dep-section.bottleneck{ background:#fef2f2; border-color:#fecaca; }
+.dep-section.data-sync{ background:#f0f9ff; border-color:#bae6fd; }
+.dep-section-title{ font-size:7.5pt; font-weight:700; color:#64748b; text-transform:uppercase; margin-bottom:6px; letter-spacing:0.5px; }
+.bottleneck .dep-section-title{ color:#b91c1c; }
+.data-sync .dep-section-title{ color:#0369a1; }
+.dep-section-content{ font-size:8.5pt; color:var(--ink); line-height:1.4; }
+.dep-person{ display:inline-block; background:#f1f5f9; padding:2px 6px; border-radius:4px; font-weight:600; font-size:8pt; margin-top:4px; border:1px solid #cbd5e1; }
+
 @media print{
   body{ background:#fff; }
   .page{ box-shadow:none; margin:0; }
@@ -155,33 +202,32 @@ td.num{ text-align:center; white-space:nowrap; }
 <!-- ============ COVER ============ -->
 <div class="page cover">
   <div class="cover-top">
-    <div class="cover-mark">EF<span>·</span>POLYMERS</div>
+    <div class="cover-mark">EF POLYMER PRIVATE LIMITED</div>
     <div class="cover-class">Confidential — Executive Leadership Only</div>
   </div>
   <div class="cover-body">
-    <div class="cover-eyebrow">Department Audit Report</div>
+    <div class="cover-eyebrow">Department Wise Audit Report</div>
     <div class="cover-title">Operations &amp; Finance (COO)</div>
     <div class="cover-sub">Operational Triage, Retail &amp; MENA Oversight — Puran Singh Rajput</div>
     <div class="cover-rule"></div>
     <p style="max-width:70%;color:var(--muted);font-size:9.3pt;">
-      An independent review of executive communication saturation, retail field force tracking, and marketing accountability pipelines overseen by the COO, prepared as part of the EF Polymers organization-wide operational audit.
+      An independent review of executive communication saturation, retail field force tracking, and marketing accountability pipelines overseen by the COO, prepared as part of the EF Polymer Private Limited organization-wide operational audit by Creative Upaay (brand owned by Cinnovate Solutions (OPC) Private Limited).
     </p>
   </div>
   <div class="cover-ctrl">
     <table>
-      <tr><td class="label">Client</td><td class="val">EF Polymers Private Limited</td></tr>
-      <tr><td class="label">Prepared by</td><td class="val">Creative Upaay Consulting</td></tr>
+      <tr><td class="label">Client</td><td class="val">EF Polymer Private Limited</td></tr>
+      <tr><td class="label">Prepared by</td><td class="val">Creative Upaay</td></tr>
       <tr><td class="label">Document version</td><td class="val">1.0</td></tr>
-      <tr><td class="label">Date issued</td><td class="val">July 2026</td></tr>
+      <tr><td class="label">Date issued</td><td class="val">17th July 2026</td></tr>
       <tr><td class="label">Review scope</td><td class="val">COO Office Operations</td></tr>
-      <tr><td class="label">Distribution</td><td class="val">CEO, COO</td></tr>
     </table>
   </div>
 </div>
 
 <!-- ============ 01 EXECUTIVE SUMMARY ============ -->
 <div class="page">
-  <div class="doc-header"><span><b>EF Polymers</b> — Operations Audit</span><span>Confidential</span></div>
+  <div class="doc-header"><span><b>EF Polymer Private Limited</b> — Operations Audit</span><span>Confidential</span></div>
 
   <div class="eyebrow">Section 01 — Executive Summary</div>
   <h2>Department Overview</h2>
@@ -197,269 +243,33 @@ td.num{ text-align:center; white-space:nowrap; }
     <div class="kpi-cell"><div class="kpi-num">~25–50%</div><div class="kpi-lbl">Mktg Budget/Rev</div></div>
     <div class="kpi-cell"><div class="kpi-num">1.7 / 5.0</div><div class="kpi-lbl">Overall Maturity Score</div></div>
   </div>
-
-  <h3>Time &amp; Effort Allocation</h3>
-  <table>
-    <tr><th>Activity</th><th class="num" style="text-align:right">Share of COO Time</th></tr>
-    <tr><td>Communication &amp; Operational Triage</td><td class="num">~45%</td></tr>
-    <tr><td>Retail Sales &amp; Ground Compliance Oversight</td><td class="num">~20%</td></tr>
-    <tr><td>Board, Investor &amp; BOD Reporting Prep</td><td class="num">~15%</td></tr>
-    <tr><td>Approvals &amp; Administrative Processing</td><td class="num">~10%</td></tr>
-    <tr><td>Marketing Projections &amp; Budgeting</td><td class="num">~10%</td></tr>
-  </table>
-
-  <h3>Tools in Use</h3>
-  <table>
-    <tr><th>Tool</th><th>Role</th></tr>
-    <tr><td>Field Force App</td><td>GPS tracking for retail reps (suffers from low-network failures)</td></tr>
-    <tr><td>Google Sheets</td><td>Distributor onboarding, pipeline status tracking</td></tr>
-    <tr><td>WhatsApp &amp; Slack</td><td>Saturated instant communication across teams</td></tr>
-    <tr><td>Zoho Suite</td><td>Finance, Expense, Payroll, and People reporting inputs</td></tr>
-  </table>
+  
+  <div class="maturity-legend">
+    <div class="maturity-legend-title">About the Maturity Score</div>
+    <div style="font-size:7.5pt;color:var(--muted);margin-bottom:8px;">A 1–5 scale measuring how systematised, documented, and independently operable the department is. Scored across five dimensions: Process, Technology, Data Quality, Documentation &amp; Knowledge Management.</div>
+    <div class="maturity-bar-wrap">
+      <span class="maturity-bar-lbl">1 — Ad hoc</span>
+      <div class="maturity-bar-track">
+        <div class="maturity-bar-fill"></div>
+        <div class="maturity-bar-marker target"></div>
+      </div>
+      <span class="maturity-bar-lbl">5 — Optimised</span>
+    </div>
+    <div class="maturity-legend-notes">
+      <span>&#9632; <b>1.7</b> Current state</span>
+      <span style="color:#2563eb;">&#9646; <b>3.0</b> Post-roadmap target</span>
+      <span>&#9711; <b>5.0</b> Best-in-class benchmark</span>
+    </div>
+  </div>
 
   <div class="doc-footer"><span>Operations Audit Report · v1.0</span><span>Page 2</span></div>
 </div>
 
-<!-- ============ 02 FINDINGS REGISTER ============ -->
+<!-- ============ 02 BENCHMARKING ============ -->
 <div class="page">
-  <div class="doc-header"><span><b>EF Polymers</b> — Operations Audit</span><span>Confidential</span></div>
+  <div class="doc-header"><span><b>EF Polymer Private Limited</b> — Operations Audit</span><span>Confidential</span></div>
 
-  <div class="eyebrow">Section 02 — Risk &amp; Control Findings</div>
-  <h2>Findings Register</h2>
-  <div class="section-dek">Ranked by risk rating. Each finding is cross-referenced to its recommendation in Section 04.</div>
-
-  <table>
-    <tr>
-      <th class="id">ID</th><th>Finding</th><th>Risk</th><th>Evidence / Impact</th><th>Linked Rec.</th>
-    </tr>
-    <tr>
-      <td class="id">F-01</td>
-      <td><b>Executive Communication Saturation.</b> COO manages 50–80 emails/day using "unread" filters and 151 shared WhatsApp groups with single staff members.</td>
-      <td><span class="chip chip-crit">Critical</span></td>
-      <td>Creates a massive operational bottleneck for approvals; tasks are easily lost; post-10 PM ideas are forgotten entirely.</td>
-      <td><span class="chip-ref">R-01</span></td>
-    </tr>
-    <tr>
-      <td class="id">F-02</td>
-      <td><b>Field Tracking &amp; Compliance Leakage.</b> The Retail Sales mobile app fails in low-network agricultural regions.</td>
-      <td><span class="chip chip-med">Medium</span></td>
-      <td>Ground-level compliance gaps; sales pipeline status and qualitative farmer feedback are not reliably recorded.</td>
-      <td><span class="chip-ref">R-02</span></td>
-    </tr>
-    <tr>
-      <td class="id">F-03</td>
-      <td><b>Marketing Accountability Gap.</b> No dedicated Marketing Manager; budget execution is handled as a side-task by BD staff.</td>
-      <td><span class="chip chip-med">Medium</span></td>
-      <td>Execution lag post-budget approval; 25-50% of revenue is spent on marketing with zero ROI or conversion tracking.</td>
-      <td><span class="chip-ref">R-03</span></td>
-    </tr>
-    <tr>
-      <td class="id">F-04</td>
-      <td><b>Lost Decision Opportunities.</b> Operational ideas conceived outside standard hours lack a capture mechanism.</td>
-      <td><span class="chip chip-low">Low</span></td>
-      <td>Creative friction and forgotten strategic follow-ups due to disorganized tracking.</td>
-      <td><span class="chip-ref">R-01</span></td>
-    </tr>
-    <tr>
-      <td class="id">F-05</td>
-      <td><b>Fragmented Pipeline &amp; Trial Tracking (B2B/MENA).</b> Complex sales cycles involving parent accounts (e.g., Nadec) and nested multi-crop trials lack structured CRM tracking.</td>
-      <td><span class="chip chip-med">Medium</span></td>
-      <td>Inability to reliably track stage-by-stage trial progress, trigger timely follow-ups, or incorporate telecaller feedback and gamification for retail teams.</td>
-      <td><span class="chip-ref">R-04</span></td>
-    </tr>
-  </table>
-
-  <div class="callout">One of four findings is rated Critical — executive communication saturation (F-01) has created a single-point bottleneck where the COO triages 50–80 emails daily using "unread" markers. This is a shared-resource constraint: it cannot be solved by adding tools alone and requires structural delegation. The Medium findings (F-02, F-03) are operationally distinct — field tracking is a technology gap while marketing accountability is a staffing gap. Phase 1 targets the communication bottleneck as a zero-cost quick win before the heavier field-app and hiring work in Phases 2–3.</div>
-
-  <div class="doc-footer"><span>Operations Audit Report · v1.0</span><span>Page 3</span></div>
-</div>
-
-<!-- ============ 03 WORKFLOWS ============ -->
-<div class="page">
-  <div class="doc-header"><span><b>EF Polymers</b> — Operations Audit</span><span>Confidential</span></div>
-
-  <div class="eyebrow">Section 03 — Process Detail</div>
-  <h2>Current Workflows</h2>
-  <div class="section-dek">Where each finding sits inside the operational process</div>
-
-  <!-- WORKFLOW 1 -->
-  <h3>Board &amp; Investor Reporting Prep</h3>
-  <svg viewBox="0 0 740 92" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:10px 0 4px;">
-    <defs>
-      <marker id="a1" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
-        <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5"/>
-      </marker>
-    </defs>
-    <!-- 4 steps: width=140, stride=170, start x=10 -->
-    <rect x="10"  y="22" width="140" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
-    <text x="80"  y="42" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">COO Designs</text>
-    <text x="80"  y="53" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">New Report Struct</text>
-    <line x1="150" y1="46" x2="180" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)"/>
-
-    <rect x="180" y="22" width="140" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
-    <text x="250" y="42" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Ops Team Coordinates</text>
-    <text x="250" y="53" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Data Gathering</text>
-    <line x1="320" y1="46" x2="350" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)"/>
-
-    <rect x="350" y="22" width="140" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
-    <text x="420" y="42" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Finance Team</text>
-    <text x="420" y="53" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Compiles P&amp;L</text>
-    <line x1="490" y1="46" x2="520" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)"/>
-
-    <rect x="520" y="22" width="140" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1"/>
-    <text x="590" y="42" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">COO Drafts Final Deck</text>
-    <text x="590" y="53" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">from Verbal Updates</text>
-  </svg>
-  <p class="flow-note">To insulate operational sales personnel from admin tasks, the COO absorbs the heavy lifting of drafting investor decks from raw, unstructured verbal inputs, adding to the communication saturation (<span class="chip-ref">F-01</span>).</p>
-
-  <!-- WORKFLOW 2 -->
-  <h3>MENA Pipeline Lifecycle</h3>
-  <svg viewBox="0 0 740 92" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:10px 0 4px;">
-    <defs>
-      <marker id="a2" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
-        <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5"/>
-      </marker>
-    </defs>
-    <!-- 5 steps -->
-    <rect x="10"  y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
-    <text x="70"  y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Corp Warm Intro</text>
-    <line x1="130" y1="46" x2="150" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)"/>
-
-    <rect x="150" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
-    <text x="210" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Video Presentation</text>
-    <line x1="270" y1="46" x2="290" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)"/>
-
-    <rect x="290" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
-    <text x="350" y="39" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Trial Authorization &amp;</text>
-    <text x="350" y="50" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Crop Specification</text>
-    <line x1="410" y1="46" x2="430" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)"/>
-
-    <rect x="430" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
-    <text x="490" y="39" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Product Dispatch</text>
-    <text x="490" y="50" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">&amp; Execution</text>
-    <line x1="550" y1="46" x2="570" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)"/>
-
-    <rect x="570" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
-    <text x="630" y="39" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Trial Completion &amp;</text>
-    <text x="630" y="50" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Contract Negotiation</text>
-  </svg>
-  <p class="flow-note">Overseeing this MENA cycle requires a HubSpot-style CRM tracking parent Companies and nested Deal/Crop Accounts, currently missing in ops.</p>
-
-  <!-- WORKFLOW 3 -->
-  <h3>Retail Field Tracking &amp; Compliance — <span class="chip-ref">F-02</span></h3>
-  <svg viewBox="0 0 740 92" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:10px 0 4px;">
-    <defs>
-      <marker id="a3" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
-        <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5"/>
-      </marker>
-    </defs>
-    <rect x="10"  y="22" width="130" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
-    <text x="75"  y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Rep Logs Visit</text>
-    <text x="75"  y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">via Mobile App</text>
-    <line x1="140" y1="46" x2="160" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a3)"/>
-
-    <text x="225" y="14" text-anchor="middle" font-size="7" fill="#A32E24" font-weight="700" font-family="Segoe UI,sans-serif" letter-spacing="0.4">NETWORK FAILURE</text>
-    <rect x="160" y="22" width="130" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5"/>
-    <text x="225" y="43" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">Offline Data Lost</text>
-    <text x="225" y="55" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">(No Native Sync)</text>
-    <line x1="290" y1="46" x2="310" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a3)"/>
-
-    <rect x="310" y="22" width="130" height="48" rx="3" fill="#FBF1DF" stroke="#E8C97A" stroke-width="1.5"/>
-    <text x="375" y="43" text-anchor="middle" font-size="7.6" fill="#8A5A10" font-family="Segoe UI,sans-serif">Manual WhatsApp</text>
-    <text x="375" y="55" text-anchor="middle" font-size="7.6" fill="#8A5A10" font-family="Segoe UI,sans-serif">Templates Sent</text>
-    <line x1="440" y1="46" x2="460" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a3)"/>
-
-    <rect x="460" y="22" width="130" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
-    <text x="525" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Missing Farmer</text>
-    <text x="525" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Feedback &amp; Pipeline</text>
-  </svg>
-  <p class="flow-note">The field app's inability to gracefully handle low-network zones forces reps back to unstructured WhatsApp updates, destroying compliance data.</p>
-
-  <!-- WORKFLOW 4 -->
-  <h3>Marketing Budget Execution — <span class="chip-ref">F-03</span></h3>
-  <svg viewBox="0 0 740 92" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:10px 0 4px;">
-    <defs>
-      <marker id="a4" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
-        <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5"/>
-      </marker>
-    </defs>
-    <rect x="10"  y="22" width="130" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
-    <text x="75"  y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">COO Sets Budget</text>
-    <text x="75"  y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">(25-50% Revenue)</text>
-    <line x1="140" y1="46" x2="160" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a4)"/>
-
-    <text x="225" y="14" text-anchor="middle" font-size="7" fill="#8A5A10" font-weight="700" font-family="Segoe UI,sans-serif" letter-spacing="0.4">NO DEDICATED OWNER</text>
-    <rect x="160" y="22" width="130" height="48" rx="3" fill="#FBF1DF" stroke="#E8C97A" stroke-width="1.5"/>
-    <text x="225" y="43" text-anchor="middle" font-size="7.6" fill="#8A5A10" font-family="Segoe UI,sans-serif">BD Team Attempts</text>
-    <text x="225" y="55" text-anchor="middle" font-size="7.6" fill="#8A5A10" font-family="Segoe UI,sans-serif">Execution on Side</text>
-    <line x1="290" y1="46" x2="310" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a4)"/>
-
-    <rect x="310" y="22" width="130" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5"/>
-    <text x="375" y="43" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">Execution Lag &amp;</text>
-    <text x="375" y="55" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">Delayed Campaigns</text>
-    <line x1="440" y1="46" x2="460" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a4)"/>
-
-    <rect x="460" y="22" width="130" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
-    <text x="525" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Spend Untracked</text>
-    <text x="525" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Zero ROI Analytics</text>
-  </svg>
-  <p class="flow-note">Operating without a dedicated Marketing Manager leads to significant lags between budget approval and campaign launch, with zero measurement of conversion metrics.</p>
-
-  <div class="doc-footer"><span>Operations Audit Report · v1.0</span><span>Page 4</span></div>
-</div>
-
-<!-- ============ 04 RECOMMENDATIONS ============ -->
-<div class="page">
-  <div class="doc-header"><span><b>EF Polymers</b> — Operations Audit</span><span>Confidential</span></div>
-
-  <div class="eyebrow">Section 04 — Corrective Action Plan</div>
-  <h2>Recommendations Register</h2>
-  <div class="section-dek">Ordered by priority. Effort and impact are directional estimates for planning purposes.</div>
-
-  <table>
-    <tr><th class="id">ID</th><th>Recommendation</th><th>Finding</th><th>Priority</th><th>Effort</th><th>Expected Impact</th></tr>
-    <tr>
-      <td class="id">R-01</td>
-      <td>Centralized Communication &amp; Task Capture — Deploy an executive task management tool (e.g., Todoist, Asana) to replace "unread email" tracking and log post-10PM decisions.</td>
-      <td><span class="chip-ref">F-01</span><br><span class="chip-ref">F-04</span></td>
-      <td><span class="chip chip-crit">P1</span></td>
-      <td>Low</td>
-      <td>Drastically reduces COO bottleneck, ensures 100% follow-up compliance, declutters WhatsApp.</td>
-    </tr>
-    <tr>
-      <td class="id">R-02</td>
-      <td>Offline-First Field Force Tracking — Upgrade or replace the retail field sales application to support robust offline data collection, syncing automatically when network restores.</td>
-      <td><span class="chip-ref">F-02</span></td>
-      <td><span class="chip chip-crit">P1</span></td>
-      <td>High</td>
-      <td>Restores data integrity to the retail pipeline and allows structural logging of farmer feedback.</td>
-    </tr>
-    <tr>
-      <td class="id">R-03</td>
-      <td>Marketing Manager Recruitment &amp; ROI Framework — Hire a dedicated Marketing Manager to decouple marketing from BD duties, and enforce strict CAC/ROI metric tracking for the 25-50% budget.</td>
-      <td><span class="chip-ref">F-03</span></td>
-      <td><span class="chip chip-med">P2</span></td>
-      <td>Medium</td>
-      <td>Secures accountability for marketing spend; accelerates campaign time-to-market.</td>
-    </tr>
-    <tr>
-      <td class="id">R-04</td>
-      <td>Deploy Account-Based CRM (e.g., HubSpot) — Implement a CRM capable of parent/child account relationships to track complex B2B trials. Integrate telecaller feedback loops and performance gamification for the Retail team.</td>
-      <td><span class="chip-ref">F-05</span></td>
-      <td><span class="chip chip-med">P2</span></td>
-      <td>Medium</td>
-      <td>Provides real-time visibility into international trial stages and boosts retail engagement.</td>
-    </tr>
-  </table>
-
-  <div class="doc-footer"><span>Operations Audit Report · v1.0</span><span>Page 5</span></div>
-</div>
-
-<!-- ============ 05 MATURITY ============ -->
-<div class="page">
-  <div class="doc-header"><span><b>EF Polymers</b> — Operations Audit</span><span>Confidential</span></div>
-
-  <div class="eyebrow">Section 05 — Benchmarking</div>
+  <div class="eyebrow">Section 02 — Benchmarking</div>
   <h2>Department Maturity Assessment</h2>
   <div class="section-dek">Scored 1 (ad hoc) to 5 (optimized) against five capability dimensions</div>
 
@@ -513,27 +323,527 @@ td.num{ text-align:center; white-space:nowrap; }
     <tr style="font-weight:700;"><td>Overall</td><td class="num">1.7</td><td class="num">3.0</td><td class="num">1.3</td></tr>
   </table>
 
+  <div class="doc-footer"><span>Operations Audit Report · v1.0</span><span>Page 3</span></div>
+</div>
+
+<!-- ============ 03 TEAM STRUCTURE & TOOLS ============ -->
+<div class="page">
+  <div class="doc-header"><span><b>EF Polymer Private Limited</b> — Operations Audit</span><span>Confidential</span></div>
+  
+  <h3>Team Structure</h3>
+  <p style="font-size:8.5pt;color:var(--muted);margin-bottom:4px;">Reporting hierarchy and current responsibility domains within Operations &amp; Finance.</p>
+  <div class="org-chart">
+    <!-- Lead -->
+    <div class="org-level">
+      <div class="org-node lead">
+        <div class="org-name">Puran Singh Rajput</div>
+        <div class="org-role">COO &amp; Operations Lead<br>MENA Ops &amp; Finance Oversight</div>
+        <span class="org-tag">Lead</span>
+      </div>
+    </div>
+    <div class="org-connector-top"></div>
+    <!-- Horizontal line -->
+    <div style="width:78%;border-top:1px solid var(--line);margin:0 auto;"></div>
+    <!-- Level 2 -->
+    <div style="display:flex;justify-content:center;gap:14px;width:100%;margin-top:0;">
+      <!-- Finance branch -->
+      <div class="org-sub-branch">
+        <div class="org-connector-top"></div>
+        <div class="org-node">
+          <div class="org-name">Finance</div>
+          <div class="org-role">Expense &amp; Payroll</div>
+        </div>
+      </div>
+      <!-- HR branch -->
+      <div class="org-sub-branch">
+        <div class="org-connector-top"></div>
+        <div class="org-node">
+          <div class="org-name">HR</div>
+          <div class="org-role">People Reporting</div>
+        </div>
+      </div>
+      <!-- Marketing branch -->
+      <div class="org-sub-branch">
+        <div class="org-connector-top"></div>
+        <div class="org-node">
+          <div class="org-name">Marketing</div>
+          <div class="org-role">Budgeting &amp; Execution</div>
+        </div>
+      </div>
+      <!-- Retail branch -->
+      <div class="org-sub-branch">
+        <div class="org-connector-top"></div>
+        <div class="org-node">
+          <div class="org-name">Retail Sales</div>
+          <div class="org-role">Compliance &amp; Tracking</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3>Tools in Use</h3>
+  <div class="tools-grid">
+    <div class="tool-card">
+      <div class="tool-icon">
+        <svg role="img" viewBox="0 0 24 24" width="22" height="22" xmlns="http://www.w3.org/2000/svg"><title>Field Force App</title><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" fill="#0F6B62"/></svg>
+      </div>
+      <div class="tool-info">
+        <div class="tool-name">Field Force App</div>
+        <div class="tool-desc">GPS tracking for retail reps (suffers from low-network failures)</div>
+      </div>
+    </div>
+    <div class="tool-card">
+      <div class="tool-icon">
+        <svg role="img" viewBox="0 0 24 24" width="22" height="22" xmlns="http://www.w3.org/2000/svg"><title>Google Sheets</title><path d="M11.318 12.545H7.91v-1.909h3.41v1.91zM14.728 0H3.273C2.233 0 1.386.847 1.386 1.887v20.226C1.386 23.153 2.233 24 3.273 24h17.454c1.04 0 1.887-.847 1.887-1.887V7.02L14.728 0zm-.46 1.887 4.62 4.606h-4.62V1.887zM3.273 22.113V1.887h9.268v6.366h6.186v13.86H3.273zm3.637-8.114h9.409v-5.09H6.91v5.09zm1.637-3.454h2.273v1.817H8.547v-1.817zm3.819 0h2.273v1.817h-2.273v-1.817zm-3.819 2.273h2.273v1.818H8.547v-1.818zm3.819 0h2.273v1.818h-2.273v-1.818z" fill="#34A853"/></svg>
+      </div>
+      <div class="tool-info">
+        <div class="tool-name">Google Sheets</div>
+        <div class="tool-desc">Distributor onboarding, pipeline status tracking</div>
+      </div>
+    </div>
+    <div class="tool-card">
+      <div class="tool-icon">
+        <svg role="img" viewBox="0 0 24 24" width="22" height="22" xmlns="http://www.w3.org/2000/svg"><title>WhatsApp &amp; Slack</title><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" fill="#25D366"/></svg>
+      </div>
+      <div class="tool-info">
+        <div class="tool-name">WhatsApp &amp; Slack</div>
+        <div class="tool-desc">Saturated instant communication across teams</div>
+      </div>
+    </div>
+    <div class="tool-card">
+      <div class="tool-icon">
+        <svg role="img" viewBox="0 0 24 24" width="22" height="22" xmlns="http://www.w3.org/2000/svg"><title>Zoho Suite</title><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" fill="#0F6B62"/></svg>
+      </div>
+      <div class="tool-info">
+        <div class="tool-name">Zoho Suite</div>
+        <div class="tool-desc">Finance, Expense, Payroll, and People reporting inputs</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="doc-footer"><span>Operations Audit Report · v1.0</span><span>Page 4</span></div>
+</div>
+
+<!-- ============ 03 WORKFLOWS ============ -->
+<div class="page">
+  <div class="doc-header"><span><b>EF Polymer Private Limited</b> — Operations Audit</span><span>Confidential</span></div>
+
+  <div class="eyebrow">Section 03 — Process Detail</div>
+  <h2>Current Workflows</h2>
+  <div class="section-dek">Where each finding sits inside the operational process</div>
+
+  <!-- WORKFLOW 1 -->
+  <h3>Board &amp; Investor Reporting Prep</h3>
+  <svg viewBox="0 0 740 92" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:10px 0 4px;">
+    <defs>
+      <marker id="a1" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+        <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5"/>
+      </marker>
+    </defs>
+    <!-- 4 steps: width=140, stride=170, start x=10 -->
+    <rect x="10"  y="22" width="140" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="80"  y="42" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">COO Designs</text>
+    <text x="80"  y="53" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">New Report Struct</text>
+    <line x1="150" y1="46" x2="180" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)"/>
+
+    <rect x="180" y="22" width="140" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="250" y="42" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Ops Team Coordinates</text>
+    <text x="250" y="53" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Data Gathering</text>
+    <line x1="320" y1="46" x2="350" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)"/>
+
+    <rect x="350" y="22" width="140" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="420" y="42" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Finance Team</text>
+    <text x="420" y="53" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Compiles P&amp;L</text>
+    <line x1="490" y1="46" x2="520" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)"/>
+
+    <rect x="520" y="22" width="140" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1"/>
+    <text x="590" y="42" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">COO Drafts Final Deck</text>
+    <text x="590" y="53" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">from Verbal Updates</text>
+  </svg>
+  <div class="flow-note">
+    <p style="margin-top:0;"><strong>What is good:</strong> Structured board reporting ensures executive visibility.</p>
+    <p><strong>What needs to be fixed:</strong> To insulate operational sales personnel from admin tasks, the COO absorbs the heavy lifting of drafting investor decks from raw, unstructured verbal inputs, adding to the communication saturation (<span class="chip-ref">P-01</span>).</p>
+    <p><strong>Bottlenecks:</strong> Manual drafting adds a massive operational load onto the COO.</p>
+  </div>
+
+  <!-- WORKFLOW 2 -->
+  <h3>MENA Pipeline Lifecycle</h3>
+  <svg viewBox="0 0 740 92" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:10px 0 4px;">
+    <defs>
+      <marker id="a2" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+        <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5"/>
+      </marker>
+    </defs>
+    <!-- 5 steps -->
+    <rect x="10"  y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="70"  y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Corp Warm Intro</text>
+    <line x1="130" y1="46" x2="150" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)"/>
+
+    <rect x="150" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="210" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Video Presentation</text>
+    <line x1="270" y1="46" x2="290" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)"/>
+
+    <rect x="290" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="350" y="39" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Trial Authorization &amp;</text>
+    <text x="350" y="50" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Crop Specification</text>
+    <line x1="410" y1="46" x2="430" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)"/>
+
+    <rect x="430" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="490" y="39" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Product Dispatch</text>
+    <text x="490" y="50" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">&amp; Execution</text>
+    <line x1="550" y1="46" x2="570" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)"/>
+
+    <rect x="570" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="630" y="39" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Trial Completion &amp;</text>
+    <text x="630" y="50" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Contract Negotiation</text>
+  </svg>
+  <div class="flow-note">
+    <p style="margin-top:0;"><strong>What is good:</strong> Defined stage-gate pipeline for MENA prospects.</p>
+    <p><strong>What needs to be fixed:</strong> Overseeing this MENA cycle requires a HubSpot-style CRM tracking parent Companies and nested Deal/Crop Accounts, currently missing in ops.</p>
+  </div>
+
+  <!-- WORKFLOW 3 -->
+  <h3>Retail Field Tracking &amp; Compliance — <span class="chip-ref">P-02</span></h3>
+  <svg viewBox="0 0 740 92" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:10px 0 4px;">
+    <defs>
+      <marker id="a3" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+        <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5"/>
+      </marker>
+    </defs>
+    <rect x="10"  y="22" width="130" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="75"  y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Rep Logs Visit</text>
+    <text x="75"  y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">via Mobile App</text>
+    <line x1="140" y1="46" x2="160" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a3)"/>
+
+    <text x="225" y="14" text-anchor="middle" font-size="7" fill="#A32E24" font-weight="700" font-family="Segoe UI,sans-serif" letter-spacing="0.4">NETWORK FAILURE</text>
+    <rect x="160" y="22" width="130" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5"/>
+    <text x="225" y="43" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">Offline Data Lost</text>
+    <text x="225" y="55" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">(No Native Sync)</text>
+    <line x1="290" y1="46" x2="310" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a3)"/>
+
+    <rect x="310" y="22" width="130" height="48" rx="3" fill="#FBF1DF" stroke="#E8C97A" stroke-width="1.5"/>
+    <text x="375" y="43" text-anchor="middle" font-size="7.6" fill="#8A5A10" font-family="Segoe UI,sans-serif">Manual WhatsApp</text>
+    <text x="375" y="55" text-anchor="middle" font-size="7.6" fill="#8A5A10" font-family="Segoe UI,sans-serif">Templates Sent</text>
+    <line x1="440" y1="46" x2="460" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a3)"/>
+
+    <rect x="460" y="22" width="130" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="525" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Missing Farmer</text>
+    <text x="525" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Feedback &amp; Pipeline</text>
+  </svg>
+  <div class="flow-note">
+    <p style="margin-top:0;"><strong>What needs to be fixed:</strong> The field app's inability to gracefully handle low-network zones forces reps back to unstructured WhatsApp updates, destroying compliance data.</p>
+  </div>
+
+  <!-- WORKFLOW 4 -->
+  <h3>Marketing Budget Execution — <span class="chip-ref">P-03</span></h3>
+  <svg viewBox="0 0 740 92" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:10px 0 4px;">
+    <defs>
+      <marker id="a4" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+        <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5"/>
+      </marker>
+    </defs>
+    <rect x="10"  y="22" width="130" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="75"  y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">COO Sets Budget</text>
+    <text x="75"  y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">(25-50% Revenue)</text>
+    <line x1="140" y1="46" x2="160" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a4)"/>
+
+    <text x="225" y="14" text-anchor="middle" font-size="7" fill="#8A5A10" font-weight="700" font-family="Segoe UI,sans-serif" letter-spacing="0.4">NO DEDICATED OWNER</text>
+    <rect x="160" y="22" width="130" height="48" rx="3" fill="#FBF1DF" stroke="#E8C97A" stroke-width="1.5"/>
+    <text x="225" y="43" text-anchor="middle" font-size="7.6" fill="#8A5A10" font-family="Segoe UI,sans-serif">BD Team Attempts</text>
+    <text x="225" y="55" text-anchor="middle" font-size="7.6" fill="#8A5A10" font-family="Segoe UI,sans-serif">Execution on Side</text>
+    <line x1="290" y1="46" x2="310" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a4)"/>
+
+    <rect x="310" y="22" width="130" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5"/>
+    <text x="375" y="43" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">Execution Lag &amp;</text>
+    <text x="375" y="55" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">Delayed Campaigns</text>
+    <line x1="440" y1="46" x2="460" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a4)"/>
+
+    <rect x="460" y="22" width="130" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="525" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Spend Untracked</text>
+    <text x="525" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Zero ROI Analytics</text>
+  </svg>
+  <div class="flow-note">
+    <p style="margin-top:0;"><strong>What needs to be fixed:</strong> Operating without a dedicated Marketing Manager leads to significant lags between budget approval and campaign launch, with zero measurement of conversion metrics.</p>
+  </div>
+
+  <div class="doc-footer"><span>Operations Audit Report · v1.0</span><span>Page 5</span></div>
+</div>
+
+<!-- ============ APPENDIX ============ -->
+<div class="page">
+  <div class="doc-header"><span><b>EF Polymer Private Limited</b> — Operations Audit</span><span>Confidential</span></div>
+
+  <div class="eyebrow">Appendix</div>
+  <h2>Cross-Department Dependencies</h2>
+  <div class="section-dek">Findings and recommendations that require action outside the COO Office to resolve</div>
+
+  <!-- IT / Technology -->
+  <div class="dep-card">
+    <div class="dep-header">
+      <div class="dep-title">IT / Technology</div>
+      <div class="dep-badge">Offline Field App</div>
+    </div>
+    <div class="dep-grid">
+      <div class="dep-section">
+        <div class="dep-section-title">Operations Dependency</div>
+        <div class="dep-section-content">
+          Evaluating and deploying a new offline-capable mobile app for field reps requires IT/Systems evaluation and vendor negotiation. The field team cannot resolve network reliability alone.
+          <div class="dep-person">👤 Key Person: IT / Systems Lead</div>
+        </div>
+      </div>
+      <div class="dep-section bottleneck">
+        <div class="dep-section-title">Critical Bottleneck</div>
+        <div class="dep-section-content">Without IT-led vendor evaluation and deployment, the retail field app will continue to fail in low-network zones, causing ongoing data loss.</div>
+      </div>
+      <div class="dep-section data-sync" style="grid-column:1/-1;">
+        <div class="dep-section-title">Data Transfer &amp; Updates Needed</div>
+        <div class="dep-section-content">IT must define offline-first architecture requirements, evaluate React Native/Flutter vendors, and configure auto-sync protocols for low-connectivity environments.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HR & Talent -->
+  <div class="dep-card">
+    <div class="dep-header">
+      <div class="dep-title">HR &amp; Talent</div>
+      <div class="dep-badge">Marketing Recruitment</div>
+    </div>
+    <div class="dep-grid">
+      <div class="dep-section">
+        <div class="dep-section-title">Operations Dependency</div>
+        <div class="dep-section-content">
+          HR must scope the JD, allocate salary budgets, and source the Marketing Manager, accelerating the hiring timeline to remove BD overhead. The COO cannot execute marketing strategy without this hire.
+          <div class="dep-person">👤 Key Person: HR Manager / Dolly Mehta</div>
+        </div>
+      </div>
+      <div class="dep-section bottleneck">
+        <div class="dep-section-title">Critical Bottleneck</div>
+        <div class="dep-section-content">Without a dedicated Marketing Manager, BD staff will continue to handle marketing as a side-task, causing execution lag and zero ROI accountability on 25-50% of revenue.</div>
+      </div>
+      <div class="dep-section data-sync" style="grid-column:1/-1;">
+        <div class="dep-section-title">Data Transfer &amp; Updates Needed</div>
+        <div class="dep-section-content">HR must finalize the Marketing Manager JD within 30 days, define the CAC/ROI reporting structure, and align with the COO on performance review cadence.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Finance & Accounts -->
+  <div class="dep-card">
+    <div class="dep-header">
+      <div class="dep-title">Finance &amp; Accounts</div>
+      <div class="dep-badge">Board Prep Data</div>
+    </div>
+    <div class="dep-grid">
+      <div class="dep-section">
+        <div class="dep-section-title">Operations Dependency</div>
+        <div class="dep-section-content">
+          COO requires accurate, on-time P&amp;L consolidation from Finance to finalize the draft of the board/investor decks. The board reporting cycle is entirely dependent on Finance data quality.
+          <div class="dep-person">👤 Key Person: Shobha Shekhawat (Finance)</div>
+        </div>
+      </div>
+      <div class="dep-section bottleneck">
+        <div class="dep-section-title">Critical Bottleneck</div>
+        <div class="dep-section-content">If Finance data is delayed or inaccurate, the COO cannot produce reliable board/investor decks, undermining strategic presentations and investor confidence.</div>
+      </div>
+      <div class="dep-section data-sync" style="grid-column:1/-1;">
+        <div class="dep-section-title">Data Transfer &amp; Updates Needed</div>
+        <div class="dep-section-content">Finance must establish a fixed monthly reporting cadence with standardized P&amp;L data formats that feed directly into the board deck templates.</div>
+      </div>
+    </div>
+  </div>
+
   <div class="doc-footer"><span>Operations Audit Report · v1.0</span><span>Page 6</span></div>
 </div>
 
-<!-- ============ 06 ROADMAP ============ -->
+<!-- ============ 04 PAIN POINTS ============ -->
 <div class="page">
-  <div class="doc-header"><span><b>EF Polymers</b> — Operations Audit</span><span>Confidential</span></div>
+  <div class="doc-header"><span><b>EF Polymer Private Limited</b> — Operations Audit</span><span>Confidential</span></div>
 
-  <div class="eyebrow">Section 06 — Implementation Plan</div>
+  <div class="eyebrow">Section 04 — Operational Pain Points</div>
+  <h2>Pain Points Register</h2>
+  <div class="section-dek">Ranked by operational impact. Each pain point is cross-referenced to its recommendation in Section 06.</div>
+
+  <div class="callout" style="margin-bottom:14px;border-left-color:#2563eb;background:#EFF4FF;">
+    <strong style="color:#1B2A4A;">Priority Focus Areas:</strong><br>
+    <span style="color:#1B2A4A;">&#9312; <b>Executive Communication Saturation</b> — The COO manages 50–80 emails/day using "unread" filters and 151 shared WhatsApp groups, creating a single-point bottleneck for all operational approvals and task tracking.</span><br>
+    <span style="color:#1B2A4A;">&#9313; <b>Field Data Integrity Gap</b> — The Retail Sales mobile app fails in low-network agricultural regions, causing unreliable ground-level compliance tracking and lost farmer feedback data.</span><br>
+  </div>
+
+  <table>
+    <tr>
+      <th class="id">ID</th><th>Pain Point</th><th>Impact</th><th>Evidence from Audit</th>
+    </tr>
+    <tr>
+      <td class="id">P-01</td>
+      <td><b>Executive Communication Saturation.</b> COO manages 50–80 emails/day using "unread" filters and 151 shared WhatsApp groups with single staff members.</td>
+      <td><span class="chip chip-crit">Critical</span></td>
+      <td>Creates a massive operational bottleneck for approvals; tasks are easily lost; post-10 PM ideas are forgotten entirely.</td>
+    </tr>
+    <tr>
+      <td class="id">P-02</td>
+      <td><b>Field Tracking &amp; Compliance Leakage.</b> The Retail Sales mobile app fails in low-network agricultural regions.</td>
+      <td><span class="chip chip-med">High</span></td>
+      <td>Ground-level compliance gaps; sales pipeline status and qualitative farmer feedback are not reliably recorded.</td>
+    </tr>
+    <tr>
+      <td class="id">P-03</td>
+      <td><b>Marketing Accountability Gap.</b> No dedicated Marketing Manager; budget execution is handled as a side-task by BD staff.</td>
+      <td><span class="chip chip-med">High</span></td>
+      <td>Execution lag post-budget approval; 25-50% of revenue is spent on marketing with zero ROI or conversion tracking.</td>
+    </tr>
+    <tr>
+      <td class="id">P-04</td>
+      <td><b>Lost Decision Opportunities.</b> Operational ideas conceived outside standard hours lack a capture mechanism.</td>
+      <td><span class="chip chip-low">Medium</span></td>
+      <td>Creative friction and forgotten strategic follow-ups due to disorganized tracking.</td>
+    </tr>
+    <tr>
+      <td class="id">P-05</td>
+      <td><b>Fragmented Pipeline &amp; Trial Tracking (B2B/MENA).</b> Complex sales cycles involving parent accounts (e.g., Nadec) and nested multi-crop trials lack structured CRM tracking.</td>
+      <td><span class="chip chip-med">High</span></td>
+      <td>Inability to reliably track stage-by-stage trial progress, trigger timely follow-ups, or incorporate telecaller feedback and gamification for retail teams.</td>
+    </tr>
+  </table>
+
+  <div class="doc-footer"><span>Operations Audit Report · v1.0</span><span>Page 7</span></div>
+</div>
+
+<!-- ============ 05 TIME & EFFORT ============ -->
+<div class="page">
+  <div class="doc-header"><span><b>EF Polymer Private Limited</b> — Operations Audit</span><span>Confidential</span></div>
+
+  <div class="eyebrow">Section 05 — Time &amp; Effort</div>
+  <h3>Time &amp; Effort Allocation</h3>
+  <div class="section-dek">Estimated breakdown of weekly bandwidth based on workflow analysis</div>
+  <p style="font-size:8.5pt;color:var(--muted);margin-bottom:8px;">Based on a standard 8-hour workday. Hours shown are estimates per the COO's daily allocation, averaged across a typical week.</p>
+
+  <table>
+    <tr><th>Activity</th><th class="num" style="text-align:right">Share of COO Time</th><th class="num" style="text-align:right">Est. Time / Day</th></tr>
+    <tr><td>Communication &amp; Operational Triage</td><td class="num">~45%</td><td class="num">~3.6 hrs</td></tr>
+    <tr><td>Retail Sales &amp; Ground Compliance Oversight</td><td class="num">~20%</td><td class="num">~1.6 hrs</td></tr>
+    <tr><td>Board, Investor &amp; BOD Reporting Prep</td><td class="num">~15%</td><td class="num">~1.2 hrs</td></tr>
+    <tr><td>Approvals &amp; Administrative Processing</td><td class="num">~10%</td><td class="num">~48 min</td></tr>
+    <tr><td>Marketing Projections &amp; Budgeting</td><td class="num">~10%</td><td class="num">~48 min</td></tr>
+  </table>
+
+  <div class="doc-footer"><span>Operations Audit Report · v1.0</span><span>Page 8</span></div>
+</div>
+
+<!-- ============ 06 CORRECTIVE ACTION PLAN ============ -->
+<div class="page">
+  <div class="doc-header"><span><b>EF Polymer Private Limited</b> — Operations Audit</span><span>Confidential</span></div>
+
+  <div class="eyebrow">Section 06 — Corrective Action Plan</div>
+  <h2>Recommended Solution Segment</h2>
+  <div class="section-dek">This section outlines the integrated technology solution proposed to resolve operational bottlenecks, replacing the legacy recommendations register.</div>
+  
+  <h3>Implementation Required</h3>
+
+  <p style="font-weight: 700; color: var(--ink); margin-top: 15px; margin-bottom: 10px; font-size: 9.5pt;">Solution Modules to be Built:</p>
+
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px;">
+    <!-- Module 1 -->
+    <div style="border: 1px solid var(--line); border-radius: 4px; padding: 12px; background: var(--paper);">
+      <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+        <div style="background: #E9F4EC; color: #276B3E; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 10pt;">1</div>
+        <div style="font-weight: 700; color: var(--ink); font-size: 9.5pt;">Centralized Communication &amp; Task Capture</div>
+      </div>
+      <ul style="font-size: 8.5pt; color: var(--muted); line-height: 1.5; padding-left: 18px; margin: 0;">
+        <li style="margin-bottom: 6px;"><strong>Executive Task Management:</strong> Deploy a structured task manager (e.g., Todoist, Asana) to replace the "unread email" tracking method. All tasks, approvals, and decisions are logged, assigned, and tracked to completion.</li>
+        <li style="margin-bottom: 6px;"><strong>Post-Hours Idea Capture:</strong> Establish a dedicated Slack #brainstorming channel for late-night ideas with auto-capture to the task queue, ensuring no strategic thought is lost.</li>
+        <li><strong>Channel Consolidation:</strong> Consolidate 151 WhatsApp groups into structured Slack channels with clear purpose definitions and archival policies.</li>
+      </ul>
+    </div>
+
+    <!-- Module 2 -->
+    <div style="border: 1px solid var(--line); border-radius: 4px; padding: 12px; background: var(--paper);">
+      <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+        <div style="background: #E9F4EC; color: #276B3E; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 10pt;">2</div>
+        <div style="font-weight: 700; color: var(--ink); font-size: 9.5pt;">Offline-First Field Force Tracking</div>
+      </div>
+      <ul style="font-size: 8.5pt; color: var(--muted); line-height: 1.5; padding-left: 18px; margin: 0;">
+        <li style="margin-bottom: 6px;"><strong>Offline Data Collection:</strong> Upgrade or replace the retail field sales application to support robust offline data collection, syncing automatically when network restores.</li>
+        <li style="margin-bottom: 6px;"><strong>Structured Farmer Feedback:</strong> Establish structured farmer feedback fields in the app to replace unformatted WhatsApp text templates.</li>
+        <li><strong>Pipeline Logging:</strong> Mandate digital pipeline logging for distributors to track onboarding stages directly from the field.</li>
+      </ul>
+    </div>
+
+    <!-- Module 3 -->
+    <div style="border: 1px solid var(--line); border-radius: 4px; padding: 12px; background: var(--paper); grid-column: 1 / -1;">
+      <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+        <div style="background: #E9F4EC; color: #276B3E; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 10pt;">3</div>
+        <div style="font-weight: 700; color: var(--ink); font-size: 9.5pt;">Marketing Accountability &amp; CRM Infrastructure</div>
+      </div>
+      <ul style="font-size: 8.5pt; color: var(--muted); line-height: 1.5; padding-left: 18px; margin: 0;">
+        <li style="margin-bottom: 6px;"><strong>Marketing Manager Recruitment:</strong> Hire a dedicated Marketing Manager to decouple marketing execution from BD duties, with strict CAC/ROI metric tracking for the 25-50% budget.</li>
+        <li style="margin-bottom: 4px;"><strong>Account-Based CRM:</strong> Deploy a CRM (e.g., HubSpot) capable of parent/child account relationships to track complex B2B trials. Integrate telecaller feedback loops and performance gamification for the Retail team.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Data Strategy & Tech Stack Table -->
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px;">
+    <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 4px; padding: 12px;">
+      <p style="font-weight: 700; color: var(--ink); margin-bottom: 6px; font-size: 9pt;">What Remains the Same</p>
+      <ul style="font-size: 8.5pt; color: var(--muted); line-height: 1.5; padding-left: 18px; margin: 0;">
+        <li style="margin-bottom: 4px;"><strong>Core Systems:</strong> Zoho Books and CRM remain the core financial and sales data sources.</li>
+        <li><strong>Communication Habits:</strong> Slack and WhatsApp remain primary channels; the solution fits into existing habits without forcing new external software.</li>
+      </ul>
+    </div>
+    <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 4px; padding: 12px;">
+      <p style="font-weight: 700; color: var(--ink); margin-bottom: 6px; font-size: 9pt;">Tech Stack Utilized</p>
+      <ul style="font-size: 8.5pt; color: var(--muted); line-height: 1.5; padding-left: 18px; margin: 0;">
+        <li style="margin-bottom: 2px;"><strong>Task Management:</strong> Asana / Todoist</li>
+        <li style="margin-bottom: 2px;"><strong>Field App:</strong> React Native / Flutter (offline-first)</li>
+        <li style="margin-bottom: 2px;"><strong>CRM:</strong> HubSpot (account-based)</li>
+        <li><strong>Automation:</strong> Slack Workflow Builder, WhatsApp Business API</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Problems Solved Box -->
+  <div style="background: #F0FDF4; border: 1px solid #BBF7D0; border-radius: 4px; padding: 12px; margin-bottom: 25px;">
+    <p style="font-weight: 700; color: #166534; margin-bottom: 6px; font-size: 9.5pt;">Key Operational Problems Solved</p>
+    <ul style="font-size: 8.5pt; color: #15803D; line-height: 1.5; padding-left: 18px; margin: 0;">
+      <li style="margin-bottom: 4px;">Eliminates the COO's single-point bottleneck on task triage and approvals, ensuring 100% follow-up compliance.</li>
+      <li style="margin-bottom: 4px;">Restores data integrity to the retail pipeline with zero data loss in low-network agricultural zones.</li>
+      <li style="margin-bottom: 4px;">Secures accountability for 25-50% marketing budget spend with strict CAC/ROI tracking.</li>
+      <li>Provides real-time visibility into complex B2B/MENA trial stages with parent/child account tracking.</li>
+    </ul>
+  </div>
+
+  <h3>Future Scope of Improvement / Enhancement</h3>
+  <ul style="font-size: 9pt; color: var(--muted); line-height: 1.5; padding-left: 20px; margin-bottom: 25px;">
+    <li><strong>AI-Powered Triage Assistant:</strong> In the future, an AI agent could automatically categorize and prioritize incoming communications, draft responses, and flag urgent items for the COO. This is not needed right now but is a planned future enhancement.</li>
+  </ul>
+
+  <h3>Next Steps for Team Adoption</h3>
+  <ul style="font-size: 9pt; color: var(--muted); line-height: 1.5; padding-left: 20px; margin-bottom: 15px;">
+    <li><strong>Mandatory Training:</strong> Team adoption sessions for the new task manager and field app must be compulsory to ensure all team members transition from email/WhatsApp-based tracking.</li>
+    <li><strong>Feedback Loop:</strong> Establish a continuous feedback loop between the COO and field teams to iterate on the field app's offline capabilities and CRM workflow design.</li>
+  </ul>
+
+  <div class="doc-footer"><span>Operations Audit Report · v1.0</span><span>Page 9</span></div>
+</div>
+
+<!-- ============ 07 IMPLEMENTATION PLAN ============ -->
+<div class="page">
+  <div class="doc-header"><span><b>EF Polymer Private Limited</b> — Operations Audit</span><span>Confidential</span></div>
+
+  <div class="eyebrow">Section 07 — Implementation Plan</div>
   <h2>Phased Roadmap</h2>
-  <div class="section-dek">Three recommendations sequenced across three phases, with quantified ROI and scope of work per phase</div>
+  <div class="section-dek">Initiatives sequenced across three phases, with quantified ROI and scope of work</div>
 
   <table class="tl-table">
     <tr>
-      <th>Initiative</th><th class="id">Rec.</th>
+      <th>Initiative</th><th class="id">Target</th>
       <th class="num">Phase 1<br><span style="font-weight:400">Mo. 1–2</span></th>
       <th class="num">Phase 2<br><span style="font-weight:400">Mo. 3–5</span></th>
       <th class="num">Phase 3<br><span style="font-weight:400">Mo. 6+</span></th>
     </tr>
-    <tr><td>Centralized Task Capture &amp; Comms</td><td class="id">R-01</td><td class="phase-mark p1">●</td><td></td><td></td></tr>
-    <tr><td>Offline-First Field Force Tracking</td><td class="id">R-02</td><td></td><td class="phase-mark p2">●</td><td></td></tr>
-    <tr><td>Marketing Manager Recruitment &amp; ROI</td><td class="id">R-03</td><td></td><td></td><td class="phase-mark p3">●</td></tr>
+    <tr><td>Centralized Task Capture &amp; Comms</td><td class="id">Module 1</td><td class="phase-mark p1">●</td><td></td><td></td></tr>
+    <tr><td>Offline-First Field Force Tracking</td><td class="id">Module 2</td><td></td><td class="phase-mark p2">●</td><td></td></tr>
+    <tr><td>Marketing Accountability &amp; CRM</td><td class="id">Module 3</td><td></td><td></td><td class="phase-mark p3">●</td></tr>
   </table>
 
   <!-- PHASE 1 -->
@@ -546,11 +856,12 @@ td.num{ text-align:center; white-space:nowrap; }
       <span class="phase-maturity">Maturity 1.7 &rarr; 2.2</span>
     </div>
     <div class="phase-sow">
-      <div class="col-label">Scope of Work</div>
-      <div class="sow-item"><span class="sow-dot"></span><span>Adopt a structured task-manager (e.g. Asana/Todoist) for COO triage, retiring the "unread email" method</span></div>
-      <div class="sow-item"><span class="sow-dot"></span><span>Establish a dedicated Slack #brainstorming channel for late-night ideas with auto-capture to the task queue</span></div>
-      <div class="sow-item"><span class="sow-dot"></span><span>Consolidate the 151 WhatsApp groups into structured Slack channels with clear purpose definitions and archival policy</span></div>
-      <div class="sow-item"><span class="sow-dot"></span><span>Define delegation rules &mdash; identify which approvals can be pre-authorized without COO involvement</span></div>
+      <div class="col-label">Scope of Work &amp; Dependencies</div>
+      <div class="sow-item"><span class="sow-dot"></span><span><strong>Build:</strong> Deploy a structured task-manager (e.g. Asana/Todoist) for COO triage, retiring the "unread email" method.</span></div>
+      <div class="sow-item"><span class="sow-dot"></span><span><strong>Build:</strong> Set up dedicated Slack channels with auto-capture for late-night ideas, consolidating 151 WhatsApp groups.</span></div>
+      <div class="sow-item"><span class="sow-dot"></span><span><strong>Tech Stack &amp; Dependencies:</strong> Asana/Todoist, Slack Workflow Builder. Requires defining delegation rules and approval thresholds.</span></div>
+      <div class="sow-item"><span class="sow-dot"></span><span><strong>Team Adoption:</strong> Train the COO and direct reports on the new task triage workflow, retiring email-based approvals.</span></div>
+      <div class="sow-item"><span class="sow-dot" style="background:#ef4444;"></span><span><strong>Client To-Do:</strong> Define delegation rules &mdash; identify which approvals can be pre-authorized without COO involvement.</span></div>
     </div>
     <div class="phase-roi">
       <div class="roi-card">
@@ -562,11 +873,6 @@ td.num{ text-align:center; white-space:nowrap; }
         <div class="roi-card-num">&darr; 40%</div>
         <div class="roi-card-label">email triage time</div>
         <div class="roi-card-desc">Clearing executive bottlenecks on trivial approvals</div>
-      </div>
-      <div class="roi-card">
-        <div class="roi-card-num">&curren;0</div>
-        <div class="roi-card-label">technology cost</div>
-        <div class="roi-card-desc">Free-tier task tools and existing Slack workspace</div>
       </div>
       <div class="roi-card">
         <div class="roi-card-num">100%</div>
@@ -586,11 +892,12 @@ td.num{ text-align:center; white-space:nowrap; }
       <span class="phase-maturity p2">Maturity 2.2 &rarr; 2.7</span>
     </div>
     <div class="phase-sow">
-      <div class="col-label">Scope of Work</div>
-      <div class="sow-item"><span class="sow-dot p2"></span><span>Audit and upgrade/replace the retail sales app to an offline-first architecture for agricultural regions</span></div>
-      <div class="sow-item"><span class="sow-dot p2"></span><span>Mandate digital pipeline logging for distributors to track onboarding stages directly from the field</span></div>
-      <div class="sow-item"><span class="sow-dot p2"></span><span>Configure automatic data sync on network restore &mdash; ensure zero data loss in low-connectivity zones</span></div>
-      <div class="sow-item"><span class="sow-dot p2"></span><span>Establish structured farmer feedback fields in the app to replace unformatted WhatsApp text templates</span></div>
+      <div class="col-label">Scope of Work &amp; Dependencies</div>
+      <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Build:</strong> Audit and upgrade/replace the retail sales app to an offline-first architecture for agricultural regions.</span></div>
+      <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Build:</strong> Configure automatic data sync on network restore and structured farmer feedback fields in the app.</span></div>
+      <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Tech Stack &amp; Dependencies:</strong> React Native / Flutter (offline-first), local SQLite storage. Requires field team input on feedback taxonomy.</span></div>
+      <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Team Adoption:</strong> Mandate digital pipeline logging for distributors to track onboarding stages directly from the field.</span></div>
+      <div class="sow-item"><span class="sow-dot p2" style="background:#ef4444;"></span><span><strong>Client To-Do:</strong> IT must evaluate and negotiate with mobile app vendors for the offline-first architecture.</span></div>
     </div>
     <div class="phase-roi">
       <div class="roi-card">
@@ -602,11 +909,6 @@ td.num{ text-align:center; white-space:nowrap; }
         <div class="roi-card-num">Live</div>
         <div class="roi-card-label">pipeline status</div>
         <div class="roi-card-desc">Clear visibility on retail onboarding stages</div>
-      </div>
-      <div class="roi-card">
-        <div class="roi-card-num">&darr; 100%</div>
-        <div class="roi-card-label">WhatsApp templates</div>
-        <div class="roi-card-desc">Structured app fields replace ad-hoc text messages</div>
       </div>
       <div class="roi-card">
         <div class="roi-card-num">First</div>
@@ -626,67 +928,82 @@ td.num{ text-align:center; white-space:nowrap; }
       <span class="phase-maturity p3">Maturity 2.7 &rarr; 3.0</span>
     </div>
     <div class="phase-sow">
-      <div class="col-label">Scope of Work</div>
-      <div class="sow-item"><span class="sow-dot p3"></span><span>Recruit a dedicated Marketing Manager to decouple execution from the BD team</span></div>
-      <div class="sow-item"><span class="sow-dot p3"></span><span>Implement strict CAC and campaign-level ROI tracking for the 25-50% marketing budget</span></div>
-      <div class="sow-item"><span class="sow-dot p3"></span><span>Establish monthly marketing performance reviews with COO &mdash; connecting spend to measurable conversion outcomes</span></div>
-      <div class="sow-item"><span class="sow-dot p3"></span><span>Build a channel attribution model to evaluate offline (exhibitions, print) vs. online (social, email) marketing effectiveness</span></div>
+      <div class="col-label">Scope of Work &amp; Dependencies</div>
+      <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Build:</strong> Deploy HubSpot (or equivalent) CRM with parent/child account relationships, telecaller feedback, and retail gamification modules.</span></div>
+      <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Build:</strong> Implement strict CAC and campaign-level ROI tracking for the 25-50% marketing budget with channel attribution modeling.</span></div>
+      <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Tech Stack &amp; Dependencies:</strong> HubSpot CRM, marketing analytics dashboards. Requires HR to scope and source the Marketing Manager role.</span></div>
+      <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Team Adoption:</strong> Establish monthly marketing performance reviews with COO &mdash; connecting spend to measurable conversion outcomes.</span></div>
+      <div class="sow-item"><span class="sow-dot p3" style="background:#ef4444;"></span><span><strong>Client To-Do:</strong> HR must scope the JD, allocate salary budgets, and source the Marketing Manager to decouple execution from the BD team.</span></div>
     </div>
     <div class="phase-roi">
       <div class="roi-card">
-        <div class="roi-card-num">Measured</div>
-        <div class="roi-card-label">campaign ROI</div>
-        <div class="roi-card-desc">Full accountability over the 25-50% marketing budget</div>
+        <div class="roi-card-num">100%</div>
+        <div class="roi-card-label">marketing ROI tracked</div>
+        <div class="roi-card-desc">Every rupee of the 25-50% budget is measured</div>
       </div>
       <div class="roi-card">
-        <div class="roi-card-num">&darr; 50%</div>
-        <div class="roi-card-label">execution lag</div>
-        <div class="roi-card-desc">Dedicated owner accelerates campaign time-to-market</div>
-      </div>
-      <div class="roi-card">
-        <div class="roi-card-num">First</div>
-        <div class="roi-card-label">attribution model</div>
-        <div class="roi-card-desc">Data-driven allocation between offline and online channels</div>
+        <div class="roi-card-num">Live</div>
+        <div class="roi-card-label">B2B trial tracking</div>
+        <div class="roi-card-desc">Parent/child account visibility for MENA trials</div>
       </div>
       <div class="roi-card">
         <div class="roi-card-num">3.0</div>
         <div class="roi-card-label">maturity level</div>
-        <div class="roi-card-desc">Managed &amp; measured &mdash; structured marketing operations</div>
+        <div class="roi-card-desc">Achieving a structured and scalable operations office</div>
       </div>
     </div>
   </div>
 
-  <div class="doc-footer"><span>Operations Audit Report · v1.0</span><span>Page 7</span></div>
+  <div class="doc-footer"><span>Operations Audit Report · v1.0</span><span>Page 10</span></div>
 </div>
 
-<!-- ============ APPENDIX ============ -->
+<!-- ============ 08 ROI ============ -->
 <div class="page">
-  <div class="doc-header"><span><b>EF Polymers</b> — Operations Audit</span><span>Confidential</span></div>
+  <div class="doc-header"><span><b>EF Polymer Private Limited</b> — Operations Audit</span><span>Confidential</span></div>
 
-  <div class="eyebrow">Appendix</div>
-  <h2>Cross-Department Dependencies</h2>
-  <div class="section-dek">Findings and recommendations that require action outside the COO Office to resolve</div>
+  <div class="eyebrow">Section 08 — Return on Investment (ROI)</div>
+  <h2>System Impact: Before &amp; After</h2>
+  <div class="section-dek">Measurable improvements post-implementation</div>
 
-  <table>
-    <tr><th>Finding / Rec.</th><th>Counterpart Department</th><th>Dependency</th></tr>
+  <table class="tl-table" style="margin-top:20px;">
     <tr>
-      <td><span class="chip-ref">R-02</span> Offline Field App</td>
-      <td>IT / Technology</td>
-      <td>Evaluating and deploying a new offline-capable mobile app for field reps requires IT/Systems evaluation and vendor negotiation.</td>
+      <th style="width:25%;">Category</th>
+      <th style="width:35%; border-left: 1px solid #e2e8f0;">Before (Current State)</th>
+      <th style="width:40%; border-left: 1px solid #e2e8f0; background: #f8fafc;">After (Post-Implementation)</th>
     </tr>
     <tr>
-      <td><span class="chip-ref">R-03</span> Marketing Recruitment</td>
-      <td>HR &amp; Talent</td>
-      <td>HR must scope the JD, allocate salary budgets, and source the Marketing Manager, accelerating the hiring timeline to remove BD overhead.</td>
+      <td><strong>Executive Task Management</strong></td>
+      <td style="border-left: 1px solid #e2e8f0;">50–80 emails/day triaged using "unread" markers. Tasks lost daily.</td>
+      <td style="border-left: 1px solid #e2e8f0; background: #f8fafc; color: #166534;"><strong>Structured Task Dashboard.</strong> 100% follow-up compliance with automated tracking.</td>
     </tr>
     <tr>
-      <td><span class="chip-ref">Workflow</span> Board Prep</td>
-      <td>Finance &amp; Accounts</td>
-      <td>COO requires accurate, on-time P&amp;L consolidation from Finance to finalize the draft of the board/investor decks.</td>
+      <td><strong>Field Data Collection</strong></td>
+      <td style="border-left: 1px solid #e2e8f0;">Retail app fails in low-network zones. Lost check-ins and farmer feedback.</td>
+      <td style="border-left: 1px solid #e2e8f0; background: #f8fafc; color: #166534;"><strong>Offline-First Field App.</strong> 100% data uptime with auto-sync on network restore.</td>
+    </tr>
+    <tr>
+      <td><strong>Marketing Accountability</strong></td>
+      <td style="border-left: 1px solid #e2e8f0;">25-50% of revenue spent on marketing with zero ROI tracking.</td>
+      <td style="border-left: 1px solid #e2e8f0; background: #f8fafc; color: #166534;"><strong>Dedicated Marketing Manager.</strong> Strict CAC/ROI tracking on every campaign.</td>
+    </tr>
+    <tr>
+      <td><strong>B2B/MENA Pipeline Tracking</strong></td>
+      <td style="border-left: 1px solid #e2e8f0;">Complex trial cycles lack structured CRM tracking. Stage-by-stage visibility absent.</td>
+      <td style="border-left: 1px solid #e2e8f0; background: #f8fafc; color: #166534;"><strong>Account-Based CRM.</strong> Parent/child account tracking with live trial status.</td>
+    </tr>
+    <tr>
+      <td><strong>Communication Overload</strong></td>
+      <td style="border-left: 1px solid #e2e8f0;">151 WhatsApp groups with single staff members. No archival policy.</td>
+      <td style="border-left: 1px solid #e2e8f0; background: #f8fafc; color: #166534;"><strong>Consolidated Slack Channels.</strong> Structured channels with clear purpose definitions.</td>
+    </tr>
+    <tr>
+      <td><strong>Department Maturity Score</strong></td>
+      <td style="border-left: 1px solid #e2e8f0;">1.7 / 5.0 (Reactive)</td>
+      <td style="border-left: 1px solid #e2e8f0; background: #f8fafc; color: #166534;"><strong>3.0 / 5.0 (Systematised)</strong></td>
     </tr>
   </table>
 
-  <div class="doc-footer"><span>Operations Audit Report · v1.0</span><span>Page 8</span></div>
+  <div class="doc-footer"><span>Operations Audit Report · v1.0</span><span>Page 11</span></div>
 </div>
 
 </body>
