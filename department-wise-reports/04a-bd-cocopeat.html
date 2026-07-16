@@ -4,7 +4,7 @@
 
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>BD (Cocopeat) — Department Audit Report | EF Polymers</title>
+<title>BD (Cocopeat) — Department Audit Report | EF Polymer Private Limited</title>
 <style>
 :root{
   --ink:#1B2A4A;
@@ -143,6 +143,54 @@ td.num{ text-align:center; white-space:nowrap; }
 .roi-card-label{ font-size:7.5pt; color:var(--ink); font-weight:700; text-transform:uppercase; letter-spacing:0.3px; margin-bottom:3px; }
 .roi-card-desc{ font-size:7pt; color:var(--muted); line-height:1.35; }
 
+/* ---- maturity legend ---- */
+.maturity-legend{ background:var(--paper-alt); border:1px solid var(--line); border-radius:4px; padding:10px 14px; margin:4px 0 0; font-size:8pt; }
+.maturity-legend-title{ font-weight:700; color:var(--ink); font-size:8pt; margin-bottom:6px; }
+.maturity-bar-wrap{ display:flex; align-items:center; gap:8px; margin-bottom:4px; }
+.maturity-bar-track{ flex:1; height:7px; background:var(--line); border-radius:4px; position:relative; overflow:visible; }
+.maturity-bar-fill{ position:absolute; left:0; top:0; height:100%; background:var(--accent); border-radius:4px; }
+.maturity-bar-marker{ position:absolute; top:-3px; width:2px; height:13px; background:var(--ink); border-radius:1px; }
+.maturity-bar-marker.target{ background:#2563eb; }
+.maturity-bar-lbl{ font-size:7pt; color:var(--muted); white-space:nowrap; }
+.maturity-legend-notes{ display:flex; gap:14px; margin-top:6px; font-size:7.2pt; color:var(--muted); }
+.maturity-legend-notes span b{ color:var(--ink); }
+
+/* ---- tools grid ---- */
+.tools-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin:12px 0 20px; }
+.tool-card{ border:1px solid var(--line); border-radius:4px; padding:10px 12px; display:flex; gap:10px; align-items:flex-start; background:var(--paper); }
+.tool-icon{ font-size:18pt; line-height:1; flex-shrink:0; margin-top:1px; }
+.tool-name{ font-weight:700; color:var(--ink); font-size:8.5pt; margin-bottom:2px; }
+.tool-desc{ font-size:7.5pt; color:var(--muted); line-height:1.4; }
+
+/* ---- org chart ---- */
+.org-chart{ display:flex; flex-direction:column; align-items:center; gap:0; margin:14px 0; font-size:8.3pt; }
+.org-level{ display:flex; justify-content:center; align-items:flex-start; gap:14px; width:100%; position:relative; }
+.org-connector-top{ width:1px; height:18px; background:var(--line); margin:0 auto; }
+.org-node{ background:var(--paper); border:1px solid var(--line); border-radius:4px; padding:8px 10px; min-width:120px; max-width:160px; text-align:center; flex-shrink:0; }
+.org-node.lead{ border-color:var(--accent); background:var(--accent-soft); border-width:1.5px; }
+.org-node.secondary{ background:var(--paper-alt); }
+.org-node.remote{ border-style:dashed; opacity:0.85; }
+.org-name{ font-weight:700; color:var(--ink); font-size:8.2pt; margin-bottom:3px; }
+.org-role{ font-size:7pt; color:var(--muted); line-height:1.3; }
+.org-tag{ display:inline-block; background:var(--accent-soft); color:var(--accent); font-size:6.5pt; font-weight:700; padding:1px 5px; border-radius:2px; margin-top:4px; text-transform:uppercase; letter-spacing:0.3px; }
+.org-tag.remote-tag{ background:var(--risk-med-bg); color:var(--risk-med-fg); }
+.org-sub-branch{ display:flex; flex-direction:column; align-items:center; }
+
+/* ---- dep cards (cross-dept appendix) ---- */
+.dep-card{ border:1px solid var(--line); border-radius:8px; background:var(--paper); padding:16px; margin-bottom:16px; }
+.dep-header{ display:flex; align-items:center; justify-content:space-between; margin-bottom:12px; padding-bottom:8px; border-bottom:1px solid var(--line); }
+.dep-title{ font-weight:700; font-size:11pt; color:var(--ink); }
+.dep-badge{ font-size:7.5pt; font-weight:600; padding:3px 8px; border-radius:12px; background:#f1f5f9; color:#475569; text-transform:uppercase; }
+.dep-grid{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.dep-section{ background:#f8fafc; border-radius:6px; padding:12px; border:1px solid #e2e8f0; }
+.dep-section.bottleneck{ background:#fef2f2; border-color:#fecaca; }
+.dep-section.data-sync{ background:#f0f9ff; border-color:#bae6fd; }
+.dep-section-title{ font-size:7.5pt; font-weight:700; color:#64748b; text-transform:uppercase; margin-bottom:6px; letter-spacing:0.5px; }
+.bottleneck .dep-section-title{ color:#b91c1c; }
+.data-sync .dep-section-title{ color:#0369a1; }
+.dep-section-content{ font-size:8.5pt; color:var(--ink); line-height:1.4; }
+.dep-person{ display:inline-block; background:#f1f5f9; padding:2px 6px; border-radius:4px; font-weight:600; font-size:8pt; margin-top:4px; border:1px solid #cbd5e1; }
+
 @media print{
   body{ background:#fff; }
   .page{ box-shadow:none; margin:0; }
@@ -152,32 +200,32 @@ td.num{ text-align:center; white-space:nowrap; }
 <body>
 <div class="page cover">
 <div class="cover-top">
-<div class="cover-mark">EF<span>·</span>POLYMERS</div>
-<div class="cover-class">Confidential — Executive Leadership Only</div>
+<div class="cover-mark">EF POLYMER PRIVATE LIMITED</div>
+<div class="cover-class">Confidential</div>
 </div>
 <div class="cover-body">
-<div class="cover-eyebrow">Department Audit Report</div>
+<div class="cover-eyebrow">Department Wise Audit Report</div>
 <div class="cover-title">Business Development: Cocopeat</div>
-<div class="cover-sub">Export Markets (Europe, UK, Middle East) &amp; Japan D2C</div>
+<div class="cover-sub">Export Markets &amp; Japan D2C — Mohit Kumar Gupta &amp; Ishwarya M</div>
 <div class="cover-rule"></div>
 <p style="max-width:70%;color:var(--muted);font-size:9.3pt;">
-      An independent operational review of the Business Development (Cocopeat) vertical, assessing sourcing, sales, and fulfillment workflows, prepared as part of the EF Polymers organization-wide operational audit.
+      An independent operational review of the Business Development (Cocopeat) vertical, evaluating international outreach workflows, export fulfillment bottlenecks, cross-departmental finance gating, and lead pipeline fragmentation, prepared as part of the EF Polymer Private Limited organization-wide operational audit by Creative Upaay (brand owned by Cinnovate Solutions (OPC) Private Limited).
     </p>
 </div>
 <div class="cover-ctrl">
 <table>
-<tr><td class="label">Client</td><td class="val">EF Polymers Private Limited</td></tr>
-<tr><td class="label">Prepared by</td><td class="val">Creative Upaay Consulting</td></tr>
+<tr><td class="label">Client</td><td class="val">EF Polymer Private Limited</td></tr>
+<tr><td class="label">Prepared by</td><td class="val">Creative Upaay</td></tr>
 <tr><td class="label">Document version</td><td class="val">1.0</td></tr>
-<tr><td class="label">Date issued</td><td class="val">July 2026</td></tr>
-<tr><td class="label">Review scope</td><td class="val">Business Development — Cocopeat</td></tr>
+<tr><td class="label">Date issued</td><td class="val">17th July 2026</td></tr>
+<tr><td class="label">Review scope</td><td class="val">BD — Cocopeat (International Export &amp; Japan D2C)</td></tr>
 <tr><td class="label">Distribution</td><td class="val">Executive Leadership Only</td></tr>
 </table>
 </div>
 </div>
 
 <div class="page">
-<div class="doc-header"><span><b>EF Polymers</b> — BD (Cocopeat) Audit</span><span>Confidential</span></div>
+<div class="doc-header"><span><b>EF Polymer Private Limited</b> — BD (Cocopeat) Audit</span><span>Confidential</span></div>
 <div class="eyebrow">Section 01 — Executive Summary</div>
 <h2>Vertical Overview — Cocopeat</h2>
 <div class="section-dek">Scope, current state, and headline findings</div>
@@ -186,23 +234,121 @@ td.num{ text-align:center; white-space:nowrap; }
 <div class="kpi-strip">
 <div class="kpi-cell"><div class="kpi-num">1 Container</div><div class="kpi-lbl">Minimum Order Qty (MOQ)</div></div>
 <div class="kpi-cell"><div class="kpi-num">20–25</div><div class="kpi-lbl">Outbound Emails / Day / Rep</div></div>
-<div class="kpi-cell"><div class="kpi-num">20–25 Days</div><div class="kpi-lbl">Import Permit SLA (Egypt/Peru)</div></div>
-<div class="kpi-cell"><div class="kpi-num">10 Days</div><div class="kpi-lbl">CargoX Upload Window</div></div>
+<div class="kpi-cell"><div class="kpi-num">~5%</div><div class="kpi-lbl">Outreach Response Rate</div></div>
+<div class="kpi-cell"><div class="kpi-num">6–10 hrs</div><div class="kpi-lbl">Inbound Ad Lead Response Lag</div></div>
+<div class="kpi-cell"><div class="kpi-num">1.3 / 5.0</div><div class="kpi-lbl">Overall Maturity Score</div></div>
 </div>
-
-<h3>Team Structure &amp; Role Distribution</h3>
-<table>
-<tr><th>Member</th><th>Role</th><th>Primary Responsibilities</th></tr>
-<tr><td>Mohit Kumar Gupta</td><td>BD Executive / Lead</td><td>Japan business lead, manages Japanese client relations and team coordination.</td></tr>
-<tr><td>Ishwarya M</td><td>BD Manager</td><td>End-to-end client relationships, logistics coordination, documentation.</td></tr>
-<tr><td>Rajesh Balu</td><td>BD Executive</td><td>Logistics operations (80-90%), product development support, and some BD tasks.</td></tr>
-<tr><td>Yoshida-san</td><td>BD Executive (Japan)</td><td>Japan-specific pricing and manufacturer alignment.</td></tr>
-</table>
+<div class="maturity-legend">
+  <div class="maturity-legend-title">About the Maturity Score</div>
+  <div style="font-size:7.5pt;color:var(--muted);margin-bottom:8px;">A 1–5 scale measuring how systematised, documented, and independently operable the vertical is. Scored across five dimensions: Process, Technology, Data Quality, Documentation &amp; Knowledge Management.</div>
+  <div class="maturity-bar-wrap">
+    <span class="maturity-bar-lbl">1 — Ad hoc</span>
+    <div class="maturity-bar-track">
+      <div class="maturity-bar-fill" style="width:26%;"></div>
+      <div class="maturity-bar-marker target" style="left:60%;"></div>
+    </div>
+    <span class="maturity-bar-lbl">5 — Optimised</span>
+  </div>
+  <div class="maturity-legend-notes">
+    <span>&#9632; <b>1.3</b> Current state</span>
+    <span style="color:#2563eb;">&#9646; <b>3.0</b> Post-roadmap target</span>
+    <span>&#9711; <b>5.0</b> Best-in-class benchmark</span>
+  </div>
+</div>
 <div class="doc-footer"><span>BD (Cocopeat) Audit Report · v1.0</span><span>Page 2</span></div>
 </div>
 
+<!-- ============ TEAM STRUCTURE & TOOLS ============ -->
 <div class="page">
-  <div class="doc-header"><span><b>EF Polymers</b> — BD (Cocopeat) Audit</span><span>Confidential</span></div>
+  <div class="doc-header"><span><b>EF Polymer Private Limited</b> — BD (Cocopeat) Audit</span><span>Confidential</span></div>
+  <h3>Team Structure</h3>
+  <p style="font-size:8.5pt;color:var(--muted);margin-bottom:4px;">Reporting hierarchy and current responsibility domains within the Cocopeat BD vertical.</p>
+  <div class="org-chart">
+    <div class="org-level">
+      <div class="org-node lead">
+        <div class="org-name">Mohit Kumar Gupta</div>
+        <div class="org-role">BD Executive / Lead<br>Japan Market Head</div>
+        <span class="org-tag">Lead</span>
+      </div>
+    </div>
+    <div class="org-connector-top"></div>
+    <div style="width:72%;border-top:1px solid var(--line);margin:0 auto;"></div>
+    <div style="display:flex;justify-content:center;gap:14px;width:100%;margin-top:0;">
+      <div class="org-sub-branch">
+        <div class="org-connector-top"></div>
+        <div class="org-node">
+          <div class="org-name">Ishwarya M</div>
+          <div class="org-role">BD Manager<br>End-to-end client relations,<br>logistics &amp; documentation</div>
+        </div>
+      </div>
+      <div class="org-sub-branch">
+        <div class="org-connector-top"></div>
+        <div class="org-node secondary">
+          <div class="org-name">Rajesh Balu</div>
+          <div class="org-role">BD Executive<br>Logistics ops (80–90%),<br>product dev support</div>
+        </div>
+      </div>
+      <div class="org-sub-branch">
+        <div class="org-connector-top"></div>
+        <div class="org-node remote">
+          <div class="org-name">Yoshida-san</div>
+          <div class="org-role">BD Executive (Japan)<br>Pricing &amp; manufacturer<br>alignment — Japan</div>
+          <span class="org-tag remote-tag">Japan-based</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3>Tools in Use</h3>
+  <div class="tools-grid">
+    <div class="tool-card">
+      <div class="tool-icon">📊</div>
+      <div>
+        <div class="tool-name">Google Sheets / Excel</div>
+        <div class="tool-desc">Ad-hoc pipeline tracking — sourced leads, follow-up status, and inbound landing page queries. Custom dashboard built by Mohit (~7 days before audit).</div>
+      </div>
+    </div>
+    <div class="tool-card">
+      <div class="tool-icon">📧</div>
+      <div>
+        <div class="tool-name">Gmail (Primary Domain)</div>
+        <div class="tool-desc">Cold outbound (20–25 emails/day/rep) + client replies + internal comms — all sharing one company domain with no warm-up or inbox separation.</div>
+      </div>
+    </div>
+    <div class="tool-card">
+      <div class="tool-icon">💼</div>
+      <div>
+        <div class="tool-name">LinkedIn + Dripify</div>
+        <div class="tool-desc">Multi-touch outreach: connection request → case study → 3–4 follow-ups. Dripify automation subscription lapsed at time of audit.</div>
+      </div>
+    </div>
+    <div class="tool-card">
+      <div class="tool-icon">📱</div>
+      <div>
+        <div class="tool-name">WhatsApp / WeChat / LINE</div>
+        <div class="tool-desc">Regional messaging by geography: WhatsApp (Middle East/UAE), WeChat (China), LINE (Japan). Primary communication channel for trading company contacts.</div>
+      </div>
+    </div>
+    <div class="tool-card">
+      <div class="tool-icon">🚢</div>
+      <div>
+        <div class="tool-name">CargoX</div>
+        <div class="tool-desc">Export document upload platform. Gated behind Accounts payment clearance; uploads must occur within 10 days of container arrival at destination port.</div>
+      </div>
+    </div>
+    <div class="tool-card">
+      <div class="tool-icon">📣</div>
+      <div>
+        <div class="tool-name">Google Ads + LinkedIn Ads</div>
+        <div class="tool-desc">Paid inbound lead generation to landing page form. Leads reviewed manually and followed up via WhatsApp/email with a 6–10 hr timezone lag.</div>
+      </div>
+    </div>
+  </div>
+  <div class="doc-footer"><span>BD (Cocopeat) Audit Report · v1.0</span><span>Page 3</span></div>
+</div>
+
+<div class="page">
+  <div class="doc-header"><span><b>EF Polymer Private Limited</b> — BD (Cocopeat) Audit</span><span>Confidential</span></div>
   <div class="eyebrow">Section 02 — Risk &amp; Control Findings</div>
   <h2>Findings Register</h2>
   <div class="section-dek">Ranked by risk rating. Each finding is cross-referenced to its recommendation in Section 04.</div>
@@ -219,7 +365,7 @@ td.num{ text-align:center; white-space:nowrap; }
 </div>
 
 <div class="page">
-<div class="doc-header"><span><b>EF Polymers</b> — BD (Cocopeat) Audit</span><span>Confidential</span></div>
+<div class="doc-header"><span><b>EF Polymer Private Limited</b> — BD (Cocopeat) Audit</span><span>Confidential</span></div>
 <div class="eyebrow">Section 03 — Process Detail</div>
 <h2>Current Workflows</h2>
 <div class="section-dek">Analysis of current operational sequences</div>
@@ -256,7 +402,12 @@ td.num{ text-align:center; white-space:nowrap; }
     <text x="630" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">CargoX Upload</text>
     <text x="630" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">(<10 days from arrival)</text>
   </svg>
-  <p class="flow-note">The dependency on manual Accounts clearance creates a bottleneck for CargoX document uploads, risking major demurrage costs. For Egypt/Peru, a 20-25 day wait for ACID import permits precedes CargoX eligibility.</p>
+  <div class="flow-note">
+    <p style="margin-top:0;"><strong>What is good:</strong> The sequential export lifecycle is logically ordered — sample verification feeds negotiation, which feeds PO, which feeds production and then shipment. Clients test before committing to a full container, reducing costly surprises.</p>
+    <p><strong>What needs to be fixed:</strong> CargoX document upload is gated behind Accounts payment clearance. Any delay in clearance confirmation pushes the upload past the mandatory 10-day arrival window, triggering demurrage fees.</p>
+    <p><strong>Bottlenecks:</strong> For Egypt, Peru, and Spain: a 20–25 day wait for local import permits (ACID numbers) precedes CargoX eligibility, compressing the already-tight 10-day upload window further.</p>
+    <p style="margin-bottom:0;"><strong>Dependencies:</strong> Finance/Accounts must confirm payment in real-time for BD to proceed with CargoX. Logistics must book the container and track arrival date. Any break in this chain risks demurrage.</p>
+  </div>
 
   <h3>Sourcing &amp; Outreach Workflow</h3>
   <svg viewBox="0 0 740 92" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:10px 0 4px;">
@@ -285,12 +436,17 @@ td.num{ text-align:center; white-space:nowrap; }
     <text x="490" y="43" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">Delayed Response</text>
     <text x="490" y="55" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">(6-10 hr lag)</text>
   </svg>
-  <p class="flow-note">Manual sourcing takes up ~40% of effort, strictly prioritizing Designation → Country → Size. Outreach is timezone-bound (e.g., China at 7AM IST, UK/US after 5PM IST), but disparities still cause severe lags in lead response times.</p>
+  <div class="flow-note">
+    <p style="margin-top:0;"><strong>What is good:</strong> Outreach is structured with timezone awareness — China contacts at 07:00 IST, UK/US contacts after 17:00 IST. LinkedIn sequences are multi-touch (connection → case study → 3–4 follow-ups), showing process discipline.</p>
+    <p><strong>What needs to be fixed:</strong> No CRM — all pipeline data lives in ad-hoc Google Sheets/Excel with no unified view across sourced leads, landing page inquiries, and LinkedIn responses. Inbound ad leads sit uncontacted for 6–10 hours due to timezone gaps.</p>
+    <p><strong>Bottlenecks:</strong> Manual lead sourcing consumes ~40% of team bandwidth (Google search, AI tools, export databases, exhibition directories). Dripify LinkedIn automation subscription has lapsed, forcing manual follow-up sequences.</p>
+    <p style="margin-bottom:0;"><strong>Dependencies:</strong> R&amp;D must provide lab reports and technical test data to support international client qualification. Design provides packaging artwork for white-label clients. Both are ad-hoc with no SLA.</p>
+  </div>
 <div class="doc-footer"><span>BD (Cocopeat) Audit Report · v1.0</span><span>Page 4</span></div>
 </div>
 
 <div class="page">
-  <div class="doc-header"><span><b>EF Polymers</b> — BD (Cocopeat) Audit</span><span>Confidential</span></div>
+  <div class="doc-header"><span><b>EF Polymer Private Limited</b> — BD (Cocopeat) Audit</span><span>Confidential</span></div>
   <div class="eyebrow">Section 04 — Corrective Action Plan</div>
   <h2>Recommendations Register</h2>
   <div class="section-dek">Ordered by priority. Effort and impact are directional estimates for planning purposes.</div>
@@ -305,27 +461,132 @@ td.num{ text-align:center; white-space:nowrap; }
   <div class="doc-footer"><span>BD (Cocopeat) Audit Report · v1.0</span><span>Page 5</span></div>
 </div>
 
+<!-- ============ TIME & EFFORT ============ -->
 <div class="page">
-  <div class="doc-header"><span><b>EF Polymers</b> — BD (Cocopeat) Audit</span><span>Confidential</span></div>
-  <div class="eyebrow">Appendix</div>
-  <h2>Cross-Department Dependencies</h2>
-  <div class="section-dek">Findings and recommendations that require action outside the BD department to resolve, enforcing cross-departmental collaboration.</div>
+  <div class="doc-header"><span><b>EF Polymer Private Limited</b> — BD (Cocopeat) Audit</span><span>Confidential</span></div>
+  <div class="eyebrow">Section 05 — Time &amp; Effort</div>
+  <h3>Time &amp; Effort Allocation</h3>
+  <p style="font-size:8.5pt;color:var(--muted);margin-bottom:8px;">Based on a standard 8-hour workday. Hours shown are estimates per team member per day, averaged across the team.</p>
   <table>
-    <tr><th>Finding / Rec.</th><th>Counterpart Department</th><th>Dependency / Collaboration Required</th></tr>
-    <tr><td><span class="chip-ref">R-01</span> CargoX Export Gating</td><td>Finance &amp; Accounts</td><td>Accounts must provide real-time payment status visibility to BD and Logistics, rather than relying on manual clearance emails.</td></tr>
-    <tr><td><span class="chip-ref">R-04</span> CRM Deployment</td><td>IT / Operations</td><td>Requires tech support for integration with existing company-wide systems.</td></tr>
-    <tr><td>Testing &amp; Lab Reports</td><td>R&D</td><td>R&D turnaround times for sample tests must be formalized and accessible via shared SLA trackers.</td></tr>
-    <tr><td>Logistics Capacity</td><td>Logistics</td><td>Container booking and customs clearance timelines must be visible to BD to accurately forecast delivery times to clients.</td></tr>
-    <tr><td>Export Compliance</td><td>Documentation</td><td>End-to-end compilation of export documents and execution of CargoX uploads within the strict 10-day window.</td></tr>
-    <tr><td>Inventory &amp; Lead Times</td><td>Production</td><td>Syncing product availability and confirming lead times post-PO receipt to ensure on-time dispatch.</td></tr>
-    <tr><td>White-Label Packaging</td><td>Design</td><td>BD requires on-demand support from Design for custom customer branding and LinkedIn content approval.</td></tr>
+    <tr>
+      <th>Activity</th>
+      <th class="num" style="text-align:right">Share of Team Time</th>
+      <th class="num" style="text-align:right">Est. Time / Day</th>
+    </tr>
+    <tr>
+      <td>Outbound Lead Sourcing (Google, AI tools, export databases, exhibitions)</td>
+      <td class="num">~40%</td>
+      <td class="num">~3.2 hrs</td>
+    </tr>
+    <tr>
+      <td>Lead Nurturing, Follow-ups &amp; Sample Coordination</td>
+      <td class="num">~25%</td>
+      <td class="num">~2.0 hrs</td>
+    </tr>
+    <tr>
+      <td>Logistics &amp; Documentation (CargoX, export docs, container tracking)</td>
+      <td class="num">~20%</td>
+      <td class="num">~1.6 hrs</td>
+    </tr>
+    <tr>
+      <td>Cross-Department Coordination (Accounts, Logistics, Production, R&amp;D)</td>
+      <td class="num">~15%</td>
+      <td class="num">~1.2 hrs</td>
+    </tr>
   </table>
+  <div class="callout" style="margin-top:12px;border-left-color:#2563eb;background:#EFF4FF;">
+    <strong style="color:#1B2A4A;">Key Observation:</strong><br>
+    <span style="color:#1B2A4A;">Rajesh Balu, nominally a BD Executive, devotes only <b>10–20%</b> of his actual effort to BD tasks. The remaining <b>80–90%</b> is consumed by logistics operations and product development support — effectively making him a logistics resource. This critically understates the actual BD headcount available for lead generation.</span>
+  </div>
   <div class="doc-footer"><span>BD (Cocopeat) Audit Report · v1.0</span><span>Page 6</span></div>
+</div>
+
+<div class="page">
+  <div class="doc-header"><span><b>EF Polymer Private Limited</b> — BD (Cocopeat) Audit</span><span>Confidential</span></div>
+  <div class="eyebrow">Appendix — Cross-Department Dependencies</div>
+  <h2>Cross-Department Dependencies</h2>
+  <div class="section-dek">Findings and recommendations that require action outside the BD (Cocopeat) vertical to resolve.</div>
+
+  <!-- Finance & Accounts -->
+  <div class="dep-card">
+    <div class="dep-header">
+      <div class="dep-title">Finance &amp; Accounts</div>
+      <div class="dep-badge">Critical Gating</div>
+    </div>
+    <div class="dep-grid">
+      <div class="dep-section">
+        <div class="dep-section-title">Operations Dependency</div>
+        <div class="dep-section-content">
+          CargoX export document upload is gated behind payment confirmation from Accounts. BD cannot proceed without explicit clearance — no API or dashboard visibility exists today.
+          <div class="dep-person">👤 Key Person: Shobha Shekhawat (Finance)</div>
+        </div>
+      </div>
+      <div class="dep-section bottleneck">
+        <div class="dep-section-title">Critical Bottleneck</div>
+        <div class="dep-section-content">Manual clearance emails create unpredictable delays. If the 10-day CargoX upload window is missed, demurrage fees become inevitable — with no automated alert to warn BD in time.</div>
+      </div>
+      <div class="dep-section data-sync" style="grid-column: 1 / -1;">
+        <div class="dep-section-title">Data Transfer &amp; Action Needed</div>
+        <div class="dep-section-content">Accounts must push a real-time payment status flag to BD and Logistics the moment payment clears — via dashboard integration or automated WhatsApp/Slack notification. BD should never need to chase Accounts manually.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- R&D -->
+  <div class="dep-card">
+    <div class="dep-header">
+      <div class="dep-title">R&amp;D</div>
+      <div class="dep-badge">Technical Support</div>
+    </div>
+    <div class="dep-grid">
+      <div class="dep-section">
+        <div class="dep-section-title">Operations Dependency</div>
+        <div class="dep-section-content">
+          International clients require lab test reports and technical certifications before and after sample dispatch. BD cannot qualify or close deals without R&amp;D's turnaround on these reports.
+          <div class="dep-person">👤 Key Person: Ritu Panwar (R&amp;D Lead)</div>
+        </div>
+      </div>
+      <div class="dep-section bottleneck">
+        <div class="dep-section-title">Critical Bottleneck</div>
+        <div class="dep-section-content">No formal SLA exists for R&amp;D lab report delivery. QC-level queries take a minimum of 28–30 hours. BD has no visibility into queue status, stalling client qualification timelines.</div>
+      </div>
+      <div class="dep-section data-sync" style="grid-column: 1 / -1;">
+        <div class="dep-section-title">Data Transfer &amp; Action Needed</div>
+        <div class="dep-section-content">R&amp;D must maintain a shared tracker of pending BD lab requests with SLA commitments. Completed reports must be pushed to a shared Drive folder, not delivered ad-hoc via WhatsApp.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Logistics -->
+  <div class="dep-card">
+    <div class="dep-header">
+      <div class="dep-title">Logistics</div>
+      <div class="dep-badge">Fulfillment Dependency</div>
+    </div>
+    <div class="dep-grid">
+      <div class="dep-section">
+        <div class="dep-section-title">Operations Dependency</div>
+        <div class="dep-section-content">
+          Container booking, port arrival tracking, and customs clearance timelines must be visible to BD to accurately forecast delivery commitments to international clients.
+          <div class="dep-person">👤 Key Person: Nihal Paliwal (Logistics)</div>
+        </div>
+      </div>
+      <div class="dep-section bottleneck">
+        <div class="dep-section-title">Critical Bottleneck</div>
+        <div class="dep-section-content">Container arrival dates are not proactively shared with BD. The 10-day CargoX window countdown begins upon arrival — with BD often finding out too late to act within the window.</div>
+      </div>
+      <div class="dep-section data-sync" style="grid-column: 1 / -1;">
+        <div class="dep-section-title">Data Transfer &amp; Action Needed</div>
+        <div class="dep-section-content">Logistics must auto-notify BD via WhatsApp/dashboard the moment a container arrives at destination port. BD needs live shipping status, not periodic updates, to manage the CargoX clock.</div>
+      </div>
+    </div>
+  </div>
+  <div class="doc-footer"><span>BD (Cocopeat) Audit Report · v1.0</span><span>Page 7</span></div>
 </div>
 
 <!-- ============ 05 MATURITY ============ -->
 <div class="page">
-<div class="doc-header"><span><b>EF Polymers</b> — BD (Cocopeat) Audit</span><span>Confidential</span></div>
+<div class="doc-header"><span><b>EF Polymer Private Limited</b> — BD (Cocopeat) Audit</span><span>Confidential</span></div>
 <div class="eyebrow">Section 05 — Benchmarking</div>
 <h2>Department Maturity Assessment</h2>
 <div class="section-dek">Scored 1 (ad hoc) to 5 (optimized) against five capability dimensions</div>
@@ -384,7 +645,7 @@ td.num{ text-align:center; white-space:nowrap; }
 
 <!-- ============ 06 ROADMAP ============ -->
 <div class="page">
-  <div class="doc-header"><span><b>EF Polymers</b> — BD (Cocopeat) Audit</span><span>Confidential</span></div>
+  <div class="doc-header"><span><b>EF Polymer Private Limited</b> — BD (Cocopeat) Audit</span><span>Confidential</span></div>
 
   <div class="eyebrow">Section 06 — Implementation Plan</div>
   <h2>Phased Roadmap</h2>

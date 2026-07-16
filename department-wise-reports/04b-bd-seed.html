@@ -143,6 +143,50 @@ td.num{ text-align:center; white-space:nowrap; }
 .roi-card-label{ font-size:7.5pt; color:var(--ink); font-weight:700; text-transform:uppercase; letter-spacing:0.3px; margin-bottom:3px; }
 .roi-card-desc{ font-size:7pt; color:var(--muted); line-height:1.35; }
 
+/* ---- maturity legend ---- */
+.maturity-legend{ background:var(--paper-alt); border:1px solid var(--line); border-radius:4px; padding:10px 14px; margin:4px 0 0; font-size:8pt; }
+.maturity-legend-title{ font-weight:700; color:var(--ink); font-size:8pt; margin-bottom:6px; }
+.maturity-bar-wrap{ display:flex; align-items:center; gap:8px; margin-bottom:4px; }
+.maturity-bar-track{ flex:1; height:7px; background:var(--line); border-radius:4px; position:relative; overflow:visible; }
+.maturity-bar-fill{ position:absolute; left:0; top:0; height:100%; background:var(--accent); border-radius:4px; }
+.maturity-bar-marker{ position:absolute; top:-3px; width:2px; height:13px; background:var(--ink); border-radius:1px; }
+.maturity-bar-marker.target{ background:#2563eb; }
+.maturity-bar-lbl{ font-size:7pt; color:var(--muted); white-space:nowrap; }
+.maturity-legend-notes{ display:flex; gap:14px; margin-top:6px; font-size:7.2pt; color:var(--muted); }
+.maturity-legend-notes span b{ color:var(--ink); }
+/* ---- tools grid ---- */
+.tools-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin:12px 0 20px; }
+.tool-card{ border:1px solid var(--line); border-radius:4px; padding:10px 12px; display:flex; gap:10px; align-items:flex-start; background:var(--paper); }
+.tool-icon{ font-size:18pt; line-height:1; flex-shrink:0; margin-top:1px; }
+.tool-name{ font-weight:700; color:var(--ink); font-size:8.5pt; margin-bottom:2px; }
+.tool-desc{ font-size:7.5pt; color:var(--muted); line-height:1.4; }
+/* ---- org chart ---- */
+.org-chart{ display:flex; flex-direction:column; align-items:center; gap:0; margin:14px 0; font-size:8.3pt; }
+.org-level{ display:flex; justify-content:center; align-items:flex-start; gap:14px; width:100%; position:relative; }
+.org-connector-top{ width:1px; height:18px; background:var(--line); margin:0 auto; }
+.org-node{ background:var(--paper); border:1px solid var(--line); border-radius:4px; padding:8px 10px; min-width:120px; max-width:180px; text-align:center; flex-shrink:0; }
+.org-node.lead{ border-color:var(--accent); background:var(--accent-soft); border-width:1.5px; }
+.org-node.secondary{ background:var(--paper-alt); }
+.org-node.vacant{ border-style:dashed; opacity:0.75; }
+.org-name{ font-weight:700; color:var(--ink); font-size:8.2pt; margin-bottom:3px; }
+.org-role{ font-size:7pt; color:var(--muted); line-height:1.3; }
+.org-tag{ display:inline-block; background:var(--accent-soft); color:var(--accent); font-size:6.5pt; font-weight:700; padding:1px 5px; border-radius:2px; margin-top:4px; text-transform:uppercase; }
+.org-tag.vacant-tag{ background:var(--risk-med-bg); color:var(--risk-med-fg); }
+.org-sub-branch{ display:flex; flex-direction:column; align-items:center; }
+/* ---- dep cards ---- */
+.dep-card{ border:1px solid var(--line); border-radius:8px; background:var(--paper); padding:16px; margin-bottom:16px; }
+.dep-header{ display:flex; align-items:center; justify-content:space-between; margin-bottom:12px; padding-bottom:8px; border-bottom:1px solid var(--line); }
+.dep-title{ font-weight:700; font-size:11pt; color:var(--ink); }
+.dep-badge{ font-size:7.5pt; font-weight:600; padding:3px 8px; border-radius:12px; background:#f1f5f9; color:#475569; text-transform:uppercase; }
+.dep-grid{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.dep-section{ background:#f8fafc; border-radius:6px; padding:12px; border:1px solid #e2e8f0; }
+.dep-section.bottleneck{ background:#fef2f2; border-color:#fecaca; }
+.dep-section.data-sync{ background:#f0f9ff; border-color:#bae6fd; }
+.dep-section-title{ font-size:7.5pt; font-weight:700; color:#64748b; text-transform:uppercase; margin-bottom:6px; letter-spacing:0.5px; }
+.bottleneck .dep-section-title{ color:#b91c1c; }
+.data-sync .dep-section-title{ color:#0369a1; }
+.dep-section-content{ font-size:8.5pt; color:var(--ink); line-height:1.4; }
+.dep-person{ display:inline-block; background:#f1f5f9; padding:2px 6px; border-radius:4px; font-weight:600; font-size:8pt; margin-top:4px; border:1px solid #cbd5e1; }
 @media print{
   body{ background:#fff; }
   .page{ box-shadow:none; margin:0; }
@@ -152,56 +196,104 @@ td.num{ text-align:center; white-space:nowrap; }
 <body>
 <div class="page cover">
 <div class="cover-top">
-<div class="cover-mark">EF<span>·</span>POLYMERS</div>
-<div class="cover-class">Confidential — Executive Leadership Only</div>
+<div class="cover-mark">EF POLYMER PRIVATE LIMITED</div>
+<div class="cover-class">Confidential</div>
 </div>
 <div class="cover-body">
-<div class="cover-eyebrow">Department Audit Report</div>
+<div class="cover-eyebrow">Department Wise Audit Report</div>
 <div class="cover-title">Business Development: Seed</div>
-<div class="cover-sub">Institutional Sales (Pan-India)</div>
+<div class="cover-sub">Institutional Sales (Pan-India) — Sameer Vishnuji Mahiskar</div>
 <div class="cover-rule"></div>
 <p style="max-width:70%;color:var(--muted);font-size:9.3pt;">
-      An independent operational review of the Business Development (Seed) vertical, assessing lead sourcing, proposal generation, and institutional demo workflows, prepared as part of the EF Polymers organization-wide operational audit.
+      An independent operational review of the Business Development (Seed) vertical, evaluating institutional lead sourcing workflows, demo-to-PO lifecycle bottlenecks, solo operator capacity risks, and cross-departmental R&amp;D data dependency, prepared as part of the EF Polymer Private Limited organization-wide operational audit by Creative Upaay (brand owned by Cinnovate Solutions (OPC) Private Limited).
     </p>
 </div>
 <div class="cover-ctrl">
 <table>
-<tr><td class="label">Client</td><td class="val">EF Polymers Private Limited</td></tr>
-<tr><td class="label">Prepared by</td><td class="val">Creative Upaay Consulting</td></tr>
+<tr><td class="label">Client</td><td class="val">EF Polymer Private Limited</td></tr>
+<tr><td class="label">Prepared by</td><td class="val">Creative Upaay</td></tr>
 <tr><td class="label">Document version</td><td class="val">1.0</td></tr>
-<tr><td class="label">Date issued</td><td class="val">July 2026</td></tr>
-<tr><td class="label">Review scope</td><td class="val">Business Development — Seed</td></tr>
+<tr><td class="label">Date issued</td><td class="val">17th July 2026</td></tr>
+<tr><td class="label">Review scope</td><td class="val">BD — Seed (Institutional Pan-India Sales)</td></tr>
 <tr><td class="label">Distribution</td><td class="val">Executive Leadership Only</td></tr>
 </table>
 </div>
 </div>
 
 <div class="page">
-<div class="doc-header"><span><b>EF Polymers</b> — BD (Seed) Audit</span><span>Confidential</span></div>
+<div class="doc-header"><span><b>EF Polymer Private Limited</b> — BD (Seed) Audit</span><span>Confidential</span></div>
 <div class="eyebrow">Section 01 — Executive Summary</div>
 <h2>Vertical Overview — Seed</h2>
 <div class="section-dek">Scope, current state, and headline findings</div>
-<p class="lede">The Seed vertical is an institutional B2B sales division focused on pan-India delivery of polymer-based seed coatings and soil additives. Sales are heavily demo-led, requiring on-ground trials with seed companies, universities, and agricultural institutions.</p>
-<p>Run entirely by a single BD Manager (Sameer Vishnuji Mahiskar), the vertical operates under severe capacity constraints. The manager spends 15–20 days a month on physical travel, leaving minimal time for lead generation, which currently relies on manual ChatGPT and Google News searches. With no CRM, follow-ups depend on memory and local ad-hoc spreadsheets.</p>
+<p class="lede">The Seed vertical is an institutional B2B sales division focused on pan-India delivery of polymer-based seed coatings and soil additives to seed companies, universities, and agricultural institutions. Sales are entirely demo-led — requiring on-ground trials before any PO can be raised.</p>
+<p>Run entirely by a single BD Manager (Sameer Vishnuji Mahiskar), the vertical operates under severe capacity constraints. Sameer spends 15–20 days a month on physical travel, leaving minimal time for lead generation, which currently relies on manual ChatGPT and Google News searches. With no CRM, follow-ups depend on memory and local ad-hoc spreadsheets.</p>
 <div class="kpi-strip">
-<div class="kpi-cell"><div class="kpi-num">90 MT</div><div class="kpi-lbl">Annual Target</div></div>
-<div class="kpi-cell"><div class="kpi-num">15-20 Days</div><div class="kpi-lbl">Monthly Travel</div></div>
-<div class="kpi-cell"><div class="kpi-num">15-20%</div><div class="kpi-lbl">Stage Conversion</div></div>
-<div class="kpi-cell"><div class="kpi-num">1-2.5 Days</div><div class="kpi-lbl">Proposal Turnaround</div></div>
+<div class="kpi-cell"><div class="kpi-num">90 MT</div><div class="kpi-lbl">Annual Sales Target</div></div>
+<div class="kpi-cell"><div class="kpi-num">15–20 Days</div><div class="kpi-lbl">Monthly Travel (Solo Manager)</div></div>
+<div class="kpi-cell"><div class="kpi-num">1–2.5 Days</div><div class="kpi-lbl">Proposal Turnaround Time</div></div>
+<div class="kpi-cell"><div class="kpi-num">25–30</div><div class="kpi-lbl">Active Leads (at audit date)</div></div>
+<div class="kpi-cell"><div class="kpi-num">1.4 / 5.0</div><div class="kpi-lbl">Overall Maturity Score</div></div>
 </div>
-
-<h3>Team Structure &amp; Reporting</h3>
-<table>
-<tr><th>Member</th><th>Role</th><th>Primary Responsibilities</th></tr>
-<tr><td>Sameer Vishnuji Mahiskar</td><td>BD Manager</td><td>Single operator for Pan-India institutional accounts. Conducts field travel, proposals, and pipeline management.</td></tr>
-<tr><td>Dual Reporting Line</td><td>COO / CBDO</td><td>Reports to Puran Singh Rajput (COO) and Ankit Jain (CBDO) simultaneously.</td></tr>
-<tr><td>Vacant (Recruiting)</td><td>BD Executive</td><td>To support South India operations (previously covered by 2 interns).</td></tr>
-</table>
+<div class="maturity-legend">
+  <div class="maturity-legend-title">About the Maturity Score</div>
+  <div style="font-size:7.5pt;color:var(--muted);margin-bottom:8px;">A 1–5 scale measuring how systematised, documented, and independently operable the vertical is. Scored across five dimensions: Process, Technology, Data Quality, Documentation &amp; Knowledge Management.</div>
+  <div class="maturity-bar-wrap">
+    <span class="maturity-bar-lbl">1 — Ad hoc</span>
+    <div class="maturity-bar-track">
+      <div class="maturity-bar-fill" style="width:28%;"></div>
+      <div class="maturity-bar-marker target" style="left:60%;"></div>
+    </div>
+    <span class="maturity-bar-lbl">5 — Optimised</span>
+  </div>
+  <div class="maturity-legend-notes">
+    <span>&#9632; <b>1.4</b> Current state</span>
+    <span style="color:#2563eb;">&#9646; <b>3.0</b> Post-roadmap target</span>
+    <span>&#9711; <b>5.0</b> Best-in-class benchmark</span>
+  </div>
+</div>
 <div class="doc-footer"><span>BD (Seed) Audit Report · v1.0</span><span>Page 2</span></div>
 </div>
 
+<!-- TEAM STRUCTURE & TOOLS -->
 <div class="page">
-  <div class="doc-header"><span><b>EF Polymers</b> — BD (Seed) Audit</span><span>Confidential</span></div>
+  <div class="doc-header"><span><b>EF Polymer Private Limited</b> — BD (Seed) Audit</span><span>Confidential</span></div>
+  <h3>Team Structure</h3>
+  <p style="font-size:8.5pt;color:var(--muted);margin-bottom:4px;">Reporting hierarchy within the Seed BD vertical. Note: dual reporting line and the vacant South India executive position are structural risks identified in this audit.</p>
+  <div class="org-chart">
+    <div style="display:flex;justify-content:center;gap:40px;width:100%;">
+      <div class="org-node secondary"><div class="org-name">Puran Singh Rajput</div><div class="org-role">COO — Reporting Line A</div></div>
+      <div class="org-node secondary"><div class="org-name">Ankit Jain</div><div class="org-role">CBDO — Reporting Line B</div></div>
+    </div>
+    <div style="width:60%;border-top:1px solid var(--line);margin:18px auto 0;"></div>
+    <div class="org-sub-branch">
+      <div class="org-connector-top"></div>
+      <div class="org-node lead">
+        <div class="org-name">Sameer Vishnuji Mahiskar</div>
+        <div class="org-role">BD Manager — Solo Operator<br>Pan-India Institutional Accounts</div>
+        <span class="org-tag">Lead</span>
+      </div>
+    </div>
+    <div class="org-connector-top"></div>
+    <div class="org-node vacant">
+      <div class="org-name">Vacant Position</div>
+      <div class="org-role">BD Executive<br>South India (Recruiting)</div>
+      <span class="org-tag vacant-tag">Hiring</span>
+    </div>
+  </div>
+  <h3>Tools in Use</h3>
+  <div class="tools-grid">
+    <div class="tool-card"><div class="tool-icon">📊</div><div><div class="tool-name">Google Sheets (Local)</div><div class="tool-desc">Ad-hoc pipeline tracking with 25–30 active leads. No shared visibility; fully dependent on solo manager's memory for follow-up timing.</div></div></div>
+    <div class="tool-card"><div class="tool-icon">🤖</div><div><div class="tool-name">ChatGPT + Google News</div><div class="tool-desc">Primary lead discovery method. Searches for seed companies, universities, and institutions posting tenders or seasonal expansion news.</div></div></div>
+    <div class="tool-card"><div class="tool-icon">🎨</div><div><div class="tool-name">Canva / PowerPoint</div><div class="tool-desc">Custom proposal and pitch deck creation. Turnaround of 1–2.5 days per deck as R&amp;D trial data is pulled manually from Google Drive each time.</div></div></div>
+    <div class="tool-card"><div class="tool-icon">📱</div><div><div class="tool-name">WhatsApp</div><div class="tool-desc">Primary client communication channel for warm introductions, follow-ups, and informal progress updates during field travel.</div></div></div>
+    <div class="tool-card"><div class="tool-icon">📁</div><div><div class="tool-name">Google Drive (R&amp;D Shared)</div><div class="tool-desc">Source of trial reports and technical certificates used in proposals. Data is unstructured — BD Manager must manually identify and extract relevant data per client.</div></div></div>
+    <div class="tool-card"><div class="tool-icon">📧</div><div><div class="tool-name">Gmail + WhatsApp</div><div class="tool-desc">Formal proposals and PO-related communications sent via Gmail. Day-to-day client coordination runs through WhatsApp.</div></div></div>
+  </div>
+  <div class="doc-footer"><span>BD (Seed) Audit Report · v1.0</span><span>Page 3</span></div>
+</div>
+
+<div class="page">
+  <div class="doc-header"><span><b>EF Polymer Private Limited</b> — BD (Seed) Audit</span><span>Confidential</span></div>
   <div class="eyebrow">Section 02 — Risk &amp; Control Findings</div>
   <h2>Findings Register</h2>
   <div class="section-dek">Ranked by risk rating. Each finding is cross-referenced to its recommendation in Section 04.</div>
@@ -217,7 +309,7 @@ td.num{ text-align:center; white-space:nowrap; }
 </div>
 
 <div class="page">
-<div class="doc-header"><span><b>EF Polymers</b> — BD (Seed) Audit</span><span>Confidential</span></div>
+<div class="doc-header"><span><b>EF Polymer Private Limited</b> — BD (Seed) Audit</span><span>Confidential</span></div>
 <div class="eyebrow">Section 03 — Process Detail</div>
 <h2>Current Workflows</h2>
 <div class="section-dek">Analysis of current operational sequences</div>
@@ -254,12 +346,37 @@ td.num{ text-align:center; white-space:nowrap; }
     <text x="630" y="43" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">Untested Collections</text>
     <text x="630" y="55" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">Process</text>
   </svg>
-  <p class="flow-note">The manager operates alone, spending up to 20 days on the road. The final step (collections) is completely untested as no deals have closed yet.</p>
+  <div class="flow-note">
+    <p style="margin-top:0;"><strong>What is good:</strong> The warm intro approach respects the relationship-first nature of institutional seed sales. Sameer's on-ground presence at trials builds credibility that cold outreach cannot replicate.</p>
+    <p><strong>What needs to be fixed:</strong> No CRM means follow-up relies on memory across 25–30 active leads while traveling 15–20 days a month. A missed seasonal window (e.g., wrong sowing period) costs 6–12 months of opportunity.</p>
+    <p><strong>Bottlenecks:</strong> Proposal creation takes 1–2.5 days because R&amp;D trial data must be manually extracted from an unstructured Google Drive. The entire 90 MT pan-India target rests on one person — the vertical has zero coverage if Sameer is unavailable.</p>
+    <p style="margin-bottom:0;"><strong>Dependencies:</strong> Sample dispatch depends on Logistics hitting precise sowing-window timelines. R&amp;D must provide structured trial data for proposals. Both are informal with no SLA.</p>
+  </div>
 <div class="doc-footer"><span>BD (Seed) Audit Report · v1.0</span><span>Page 4</span></div>
 </div>
 
+<!-- TIME & EFFORT -->
 <div class="page">
-  <div class="doc-header"><span><b>EF Polymers</b> — BD (Seed) Audit</span><span>Confidential</span></div>
+  <div class="doc-header"><span><b>EF Polymer Private Limited</b> — BD (Seed) Audit</span><span>Confidential</span></div>
+  <div class="eyebrow">Section 05 — Time &amp; Effort</div>
+  <h3>Time &amp; Effort Allocation</h3>
+  <p style="font-size:8.5pt;color:var(--muted);margin-bottom:8px;">Based on a standard 8-hour workday. All activities are managed by a single BD Manager operating with no support staff.</p>
+  <table>
+    <tr><th>Activity</th><th class="num">Share of Team Time</th><th class="num">Est. Time / Day</th></tr>
+    <tr><td>Field Travel &amp; In-Person Demos (averaged monthly)</td><td class="num">~50%</td><td class="num">~4.0 hrs</td></tr>
+    <tr><td>Lead Sourcing (ChatGPT, Google News, referral follow-up)</td><td class="num">~20%</td><td class="num">~1.6 hrs</td></tr>
+    <tr><td>Proposal Creation (Canva/PPT with manual R&amp;D data extraction)</td><td class="num">~20%</td><td class="num">~1.6 hrs</td></tr>
+    <tr><td>Pipeline Management &amp; Reporting (manual spreadsheet)</td><td class="num">~10%</td><td class="num">~0.8 hrs</td></tr>
+  </table>
+  <div class="callout" style="margin-top:12px;border-left-color:#2563eb;background:#EFF4FF;">
+    <strong style="color:#1B2A4A;">Key Observation:</strong><br>
+    <span style="color:#1B2A4A;">With 15–20 travel days per month, only <b>8–10 days</b> remain for lead generation and proposal work. Proposal turnaround (1–2.5 days each) means Sameer can realistically produce <b>3–8 proposals per month maximum</b> — a severe throughput constraint given the 90 MT annual target.</span>
+  </div>
+  <div class="doc-footer"><span>BD (Seed) Audit Report · v1.0</span><span>Page 5</span></div>
+</div>
+
+<div class="page">
+  <div class="doc-header"><span><b>EF Polymer Private Limited</b> — BD (Seed) Audit</span><span>Confidential</span></div>
   <div class="eyebrow">Section 04 — Corrective Action Plan</div>
   <h2>Recommendations Register</h2>
   <div class="section-dek">Ordered by priority. Effort and impact are directional estimates for planning purposes.</div>
@@ -270,26 +387,45 @@ td.num{ text-align:center; white-space:nowrap; }
     <tr><td class="id">R-03</td><td><b>Reporting Alignment</b> — Formalize a primary reporting structure (either to COO or CBDO) to prevent priority clashes and ensure unified KPI tracking.</td><td><span class="chip-ref">F-02</span></td><td><span class="chip chip-med">P2</span></td><td>Low</td><td>Streamlines executive accountability.</td></tr>
     <tr><td class="id">R-04</td><td><b>Accelerated Executive Onboarding</b> — Prioritize the hiring and onboarding of the South India executive to relieve the travel bottleneck.</td><td><span class="chip-ref">F-04</span></td><td><span class="chip chip-low">P3</span></td><td>High</td><td>Doubles capacity for field demos.</td></tr>
   </table>
-  <div class="doc-footer"><span>BD (Seed) Audit Report · v1.0</span><span>Page 5</span></div>
+  <div class="doc-footer"><span>BD (Seed) Audit Report · v1.0</span><span>Page 6</span></div>
 </div>
 
+<!-- CROSS-DEPT DEPENDENCIES -->
 <div class="page">
-  <div class="doc-header"><span><b>EF Polymers</b> — BD (Seed) Audit</span><span>Confidential</span></div>
-  <div class="eyebrow">Appendix</div>
+  <div class="doc-header"><span><b>EF Polymer Private Limited</b> — BD (Seed) Audit</span><span>Confidential</span></div>
+  <div class="eyebrow">Appendix — Cross-Department Dependencies</div>
   <h2>Cross-Department Dependencies</h2>
-  <div class="section-dek">Findings and recommendations that require action outside the BD department to resolve, enforcing cross-departmental collaboration.</div>
-  <table>
-    <tr><th>Finding / Rec.</th><th>Counterpart Department</th><th>Dependency / Collaboration Required</th></tr>
-    <tr><td><span class="chip-ref">R-02</span> R&amp;D Data Integration</td><td>R&amp;D</td><td>R&amp;D must structure trial data in a way that is easily consumable by Sales, moving beyond a raw Google Drive dump to mapped, pitch-ready case studies.</td></tr>
-    <tr><td>Reporting Alignment</td><td>COO &amp; CBDO</td><td>Executive leadership must align on who manages the Seed vertical to avoid contradictory mandates.</td></tr>
-    <tr><td>Sample Logistics</td><td>Logistics</td><td>Logistics must provide reliable shipping windows to the BD manager on the road, ensuring samples arrive before precise sowing dates.</td></tr>
-  </table>
-  <div class="doc-footer"><span>BD (Seed) Audit Report · v1.0</span><span>Page 6</span></div>
+  <div class="section-dek">Findings requiring action from other departments to resolve.</div>
+  <div class="dep-card">
+    <div class="dep-header"><div class="dep-title">R&amp;D</div><div class="dep-badge">Proposal Bottleneck</div></div>
+    <div class="dep-grid">
+      <div class="dep-section"><div class="dep-section-title">Operations Dependency</div><div class="dep-section-content">Proposal generation relies on manually extracting trial data from R&amp;D's unstructured Google Drive. Sameer must identify the relevant trial, extract figures, and reformat them into Canva/PPT for each unique client pitch.<div class="dep-person">👤 Key Person: Ritu Panwar (R&amp;D Lead)</div></div></div>
+      <div class="dep-section bottleneck"><div class="dep-section-title">Critical Bottleneck</div><div class="dep-section-content">1–2.5 days per proposal is too slow for a time-boxed seasonal window. If a competitor responds to an institution first with a credible proposal, EFP loses the deal regardless of product quality.</div></div>
+      <div class="dep-section data-sync" style="grid-column:1/-1;"><div class="dep-section-title">Data Transfer &amp; Action Needed</div><div class="dep-section-content">R&amp;D must structure trial data into standardized, pitch-ready case study cards (crop type, dose, yield uplift, certificate) that BD can slot directly into templates. Manual extraction must be eliminated entirely.</div></div>
+    </div>
+  </div>
+  <div class="dep-card">
+    <div class="dep-header"><div class="dep-title">Logistics</div><div class="dep-badge">Sample Timing Dependency</div></div>
+    <div class="dep-grid">
+      <div class="dep-section"><div class="dep-section-title">Operations Dependency</div><div class="dep-section-content">Sample dispatch must align to institution-specific sowing windows. A delay of even 2–3 days can push the trial to the next season (6–12 months later), losing the opportunity entirely.<div class="dep-person">👤 Key Person: Nihal Paliwal (Logistics)</div></div></div>
+      <div class="dep-section bottleneck"><div class="dep-section-title">Critical Bottleneck</div><div class="dep-section-content">No formal SLA exists between BD (Seed) and Logistics for trial sample shipments. BD Manager on the road has no live tracking visibility, relying on phone calls to get shipment status.</div></div>
+      <div class="dep-section data-sync" style="grid-column:1/-1;"><div class="dep-section-title">Data Transfer &amp; Action Needed</div><div class="dep-section-content">Logistics must provide a real-time shipment tracker link for each BD sample dispatch. Sowing-window deadlines must be logged as hard SLAs in the dispatch system, not treated as informal requests.</div></div>
+    </div>
+  </div>
+  <div class="dep-card">
+    <div class="dep-header"><div class="dep-title">COO &amp; CBDO (Leadership)</div><div class="dep-badge">Structural Alignment</div></div>
+    <div class="dep-grid">
+      <div class="dep-section"><div class="dep-section-title">Operations Dependency</div><div class="dep-section-content">Sameer reports to both the COO (Puran Singh Rajput) and CBDO (Ankit Jain). Conflicting task priorities and KPIs from two reporting lines reduce execution speed and clarity.</div></div>
+      <div class="dep-section bottleneck"><div class="dep-section-title">Critical Bottleneck</div><div class="dep-section-content">A solo operator with a dual reporting line is the most structural risk in this vertical. Without a single decision-maker, Sameer must navigate competing directives mid-travel.</div></div>
+      <div class="dep-section data-sync" style="grid-column:1/-1;"><div class="dep-section-title">Action Needed</div><div class="dep-section-content">Leadership must designate a single primary reporting executive for the Seed vertical. KPIs, targets, and weekly check-ins should be consolidated under one manager.</div></div>
+    </div>
+  </div>
+  <div class="doc-footer"><span>BD (Seed) Audit Report · v1.0</span><span>Page 7</span></div>
 </div>
 
 <!-- ============ 05 MATURITY ============ -->
 <div class="page">
-<div class="doc-header"><span><b>EF Polymers</b> — BD (Seed) Audit</span><span>Confidential</span></div>
+<div class="doc-header"><span><b>EF Polymer Private Limited</b> — BD (Seed) Audit</span><span>Confidential</span></div>
 <div class="eyebrow">Section 05 — Benchmarking</div>
 <h2>Department Maturity Assessment</h2>
 <div class="section-dek">Scored 1 (ad hoc) to 5 (optimized) against five capability dimensions</div>
@@ -348,7 +484,7 @@ td.num{ text-align:center; white-space:nowrap; }
 
 <!-- ============ 06 ROADMAP ============ -->
 <div class="page">
-  <div class="doc-header"><span><b>EF Polymers</b> — BD (Seed) Audit</span><span>Confidential</span></div>
+  <div class="doc-header"><span><b>EF Polymer Private Limited</b> — BD (Seed) Audit</span><span>Confidential</span></div>
 
   <div class="eyebrow">Section 06 — Implementation Plan</div>
   <h2>Phased Roadmap</h2>

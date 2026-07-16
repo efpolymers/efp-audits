@@ -143,6 +143,42 @@ td.num{ text-align:center; white-space:nowrap; }
 .roi-card-label{ font-size:7.5pt; color:var(--ink); font-weight:700; text-transform:uppercase; letter-spacing:0.3px; margin-bottom:3px; }
 .roi-card-desc{ font-size:7pt; color:var(--muted); line-height:1.35; }
 
+/* ---- org chart ---- */
+.org-chart { display:flex; flex-direction:column; align-items:center; gap:0; margin:14px 0; font-size:8.3pt; }
+.org-level { display:flex; justify-content:center; align-items:flex-start; gap:14px; width:100%; position:relative; }
+.org-connector-top { width:1px; height:18px; background:var(--line); margin:0 auto; }
+.org-node { background:var(--paper); border:1px solid var(--line); border-radius:4px; padding:8px 10px; min-width:120px; max-width:160px; text-align:center; flex-shrink:0; }
+.org-node.lead { border-color:var(--accent); background:var(--accent-soft); border-width:1.5px; }
+.org-node.secondary { background:var(--paper-alt); }
+.org-name { font-weight:700; color:var(--ink); font-size:8.2pt; margin-bottom:3px; }
+.org-role { font-size:7pt; color:var(--muted); line-height:1.3; }
+.org-tag { display:inline-block; background:var(--accent-soft); color:var(--accent); font-size:6.5pt; font-weight:700; padding:1px 5px; border-radius:2px; margin-top:4px; text-transform:uppercase; letter-spacing:0.3px; }
+.org-sub-branch { display:flex; flex-direction:column; align-items:center; }
+
+/* ---- tools grid ---- */
+.tools-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:10px; margin:12px 0 20px; }
+.tool-card { border:1px solid var(--line); border-radius:4px; padding:10px 12px; display:flex; gap:10px; align-items:flex-start; background:var(--paper); }
+.tool-icon { font-size:18pt; line-height:1; flex-shrink:0; margin-top:1px; }
+.tool-name { font-weight:700; color:var(--ink); font-size:8.5pt; margin-bottom:2px; }
+.tool-desc { font-size:7.5pt; color:var(--muted); line-height:1.4; }
+
+/* ---- dep cards ---- */
+.dep-card { border:1px solid var(--line); border-radius:8px; background:var(--paper); padding:16px; margin-bottom:16px; box-shadow:0 1px 3px rgba(0,0,0,0.05); }
+.dep-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:12px; padding-bottom:8px; border-bottom:1px solid var(--line); }
+.dep-title { font-weight:700; font-size:11pt; color:var(--ink); }
+.dep-badge { font-size:7.5pt; font-weight:600; padding:3px 8px; border-radius:12px; background:#f1f5f9; color:#475569; text-transform:uppercase; }
+.dep-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.dep-section { background:#f8fafc; border-radius:6px; padding:12px; border:1px solid #e2e8f0; }
+.dep-section.bottleneck { background:#fef2f2; border-color:#fecaca; }
+.dep-section.data-sync { background:#f0f9ff; border-color:#bae6fd; }
+.dep-section-title { font-size:7.5pt; font-weight:700; color:#64748b; text-transform:uppercase; margin-bottom:6px; letter-spacing:0.5px; }
+.bottleneck .dep-section-title { color:#b91c1c; }
+.data-sync .dep-section-title { color:#0369a1; }
+.dep-section-content { font-size:8.5pt; color:var(--ink); line-height:1.4; }
+.dep-person { display:inline-block; background:#f1f5f9; padding:2px 6px; border-radius:4px; font-weight:600; font-size:8pt; margin-top:4px; border:1px solid #cbd5e1; }
+.chip-data { background:#e0f2fe; color:#0284c7; border:1px solid #bae6fd; display:inline-block; padding:2px 6px; border-radius:4px; font-size:7pt; font-weight:700; margin-left:6px; }
+.chip-approval { background:#fef08a; color:#a16207; border:1px solid #fde047; display:inline-block; padding:2px 6px; border-radius:4px; font-size:7pt; font-weight:700; margin-left:6px; }
+
 @media print{
   body{ background:#fff; }
   .page{ box-shadow:none; margin:0; }
@@ -190,14 +226,73 @@ td.num{ text-align:center; white-space:nowrap; }
 <div class="kpi-cell"><div class="kpi-num">7</div><div class="kpi-lbl">Active Team Members</div></div>
 </div>
 
-<h3>Team Structure &amp; Role Distribution</h3>
-<table>
-<tr><th>Member</th><th>Role</th><th>Primary Responsibilities</th></tr>
-<tr><td>Jatin Jain</td><td>AM-BD</td><td>Vertical Lead. Manages key B2B relationships and team performance.</td></tr>
-<tr><td>Anil Suthar</td><td>Back Office Lead</td><td>Coordinates invoicing, operations, and cross-departmental supply chain tracking.</td></tr>
-<tr><td>Prabha</td><td>BD Exec (Supply)</td><td>Monitors depot stock levels and coordinates RCM inventory replenishment.</td></tr>
-<tr><td>Piyush Korde</td><td>Field Training Lead</td><td>Executes on-ground farmer training and runs WhatsApp community engagement.</td></tr>
-</table>
+<h3>Team Structure</h3>
+<p style="font-size:8.5pt;color:var(--muted);margin-bottom:4px;">Reporting hierarchy and current responsibility domains within the BD (B2B &amp; RCM) vertical.</p>
+<div class="org-chart">
+  <div class="org-level">
+    <div class="org-node lead">
+      <div class="org-name">Jatin Jain</div>
+      <div class="org-role">AM-BD<br>Vertical Lead</div>
+      <span class="org-tag">Lead</span>
+    </div>
+  </div>
+  <div class="org-connector-top"></div>
+  <div style="width:58%;border-top:1px solid var(--line);margin:0 auto;"></div>
+  <div style="display:flex;justify-content:center;gap:14px;width:100%;margin-top:0;">
+    <div class="org-sub-branch">
+      <div class="org-connector-top"></div>
+      <div class="org-node">
+        <div class="org-name">Anil Suthar</div>
+        <div class="org-role">Back Office Lead<br>Invoicing &amp; Operations</div>
+      </div>
+    </div>
+    <div class="org-sub-branch">
+      <div class="org-connector-top"></div>
+      <div class="org-node">
+        <div class="org-name">Prabha</div>
+        <div class="org-role">BD Exec (Supply)<br>Depot &amp; Replenishment</div>
+      </div>
+    </div>
+    <div class="org-sub-branch">
+      <div class="org-connector-top"></div>
+      <div class="org-node">
+        <div class="org-name">Piyush Korde</div>
+        <div class="org-role">Field Training Lead<br>Farmer Comms</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h3>Tools in Use</h3>
+<div class="tools-grid">
+  <div class="tool-card">
+    <div class="tool-icon">
+      <svg role="img" viewBox="0 0 24 24" width="22" height="22" xmlns="http://www.w3.org/2000/svg"><title>WhatsApp</title><path d="M11.97 0C5.362 0 0 5.362 0 11.97c0 2.128.558 4.195 1.621 6.002L.15 24l6.168-1.616c1.765 1.002 3.771 1.531 5.827 1.531 6.608 0 11.97-5.362 11.97-11.97S18.578 0 11.97 0zm6.541 17.297c-.296.837-1.442 1.516-2.22 1.65-.67.114-1.52.223-3.26-.497-2.083-.86-3.415-2.99-3.52-3.13-.105-.14-84-.112-1.12-1.61-.277-1.498.473-2.26.745-2.553.272-.293.593-.367.79-.367.197 0 .393.003.565.013.18.01.423-.07.665.513.255.61 1.021 2.49 1.112 2.673.09.183.153.397.037.63-.116.233-.176.377-.353.587-.176.21-.37.45-.526.623-.176.197-.36.407-.156.76.204.35 906 1.107 1.6 1.727.896.8 1.48 1.273 1.83 1.483.35.21.553.177.763-.063.21-.24.907-1.06 1.15-1.42.243-.36.483-.297.807-.173.323.123 2.053.967 2.406 1.14.353.173.587.26.673.407.087.147.087.857-.209 1.693z" fill="#25D366"/></svg>
+    </div>
+    <div class="tool-info">
+      <div class="tool-name">WhatsApp (Personal)</div>
+      <div class="tool-desc">Primary communication with 10k+ RCM stores and farmers. 90% of comms occur here.</div>
+    </div>
+  </div>
+  <div class="tool-card">
+    <div class="tool-icon">
+      <svg role="img" viewBox="0 0 24 24" width="22" height="22" xmlns="http://www.w3.org/2000/svg"><title>Notebook</title><path d="M21 2H5c-1.103 0-2 .897-2 2v16c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zM5 20V4h1v16H5zm14 0H8V4h11v16z" fill="#F2C811"/></svg>
+    </div>
+    <div class="tool-info">
+      <div class="tool-name">Physical Diaries</div>
+      <div class="tool-desc">Used for recording field training data and farmer contacts before transcription.</div>
+    </div>
+  </div>
+  <div class="tool-card">
+    <div class="tool-icon">
+      <svg role="img" viewBox="0 0 24 24" width="22" height="22" xmlns="http://www.w3.org/2000/svg"><title>Google Sheets</title><path d="M11.318 12.545H7.91v-1.909h3.41v1.91zM14.728 0H3.273C2.233 0 1.386.847 1.386 1.887v20.226C1.386 23.153 2.233 24 3.273 24h17.454c1.04 0 1.887-.847 1.887-1.887V7.02L14.728 0zm-.46 1.887 4.62 4.606h-4.62V1.887zM3.273 22.113V1.887h9.268v6.366h6.186v13.86H3.273zm3.637-8.114h9.409v-5.09H6.91v5.09zm1.637-3.454h2.273v1.817H8.547v-1.817zm3.819 0h2.273v1.817h-2.273v-1.817zm-3.819 2.273h2.273v1.818H8.547v-1.818zm3.819 0h2.273v1.818h-2.273v-1.818z" fill="#34A853"/></svg>
+    </div>
+    <div class="tool-info">
+      <div class="tool-name">Google Sheets</div>
+      <div class="tool-desc">Manual transcription of field data and tracking of tertiary sales indicators.</div>
+    </div>
+  </div>
+</div>
 <div class="doc-footer"><span>BD (B2B &amp; RCM) Audit Report · v1.0</span><span>Page 2</span></div>
 </div>
 
@@ -279,12 +374,80 @@ td.num{ text-align:center; white-space:nowrap; }
   <div class="eyebrow">Appendix</div>
   <h2>Cross-Department Dependencies</h2>
   <div class="section-dek">Findings and recommendations that require action outside the BD department to resolve, enforcing cross-departmental collaboration.</div>
-  <table>
-    <tr><th>Finding / Rec.</th><th>Counterpart Department</th><th>Dependency / Collaboration Required</th></tr>
-    <tr><td><span class="chip-ref">R-01</span> Tertiary Data Sharing</td><td>Production</td><td>BD must secure tertiary sales data from RCM and funnel it directly into Production’s ERP/planning tools to shift from reactive to predictive manufacturing.</td></tr>
-    <tr><td>Expense Approvals</td><td>Accounts</td><td>Continued adherence to the three-level Zoho Expense approval process, requiring timely processing by Accounts to ensure field staff are reimbursed.</td></tr>
-    <tr><td>Logistics Routing</td><td>Logistics</td><td>Daily coordination required to manage freight delivery to RCM's Bhilwara facility and regional depots based on the 40kg reorder threshold.</td></tr>
-  </table>
+  <!-- Production -->
+  <div class="dep-card">
+    <div class="dep-header">
+      <div class="dep-title">Production</div>
+      <div class="dep-badge">Operational Handoff</div>
+    </div>
+    <div class="dep-grid">
+      <div class="dep-section">
+        <div class="dep-section-title">Operations Dependency <span class="chip chip-info">Planning Data</span></div>
+        <div class="dep-section-content">
+          Production requires predictive sales data to plan the 20 MT inventory flow efficiently.
+          <div class="dep-person">👤 Key Person: Production Lead</div>
+        </div>
+      </div>
+      <div class="dep-section bottleneck">
+        <div class="dep-section-title">Critical Bottleneck</div>
+        <div class="dep-section-content">
+          Because BD cannot provide RCM tertiary sales data, Production must rely on reactive 40kg depot thresholds, triggering chaotic ad-hoc manufacturing runs.
+        </div>
+      </div>
+      <div class="dep-section data-sync" style="grid-column: 1 / -1;">
+        <div class="dep-section-title">Data Transfer &amp; Updates Needed <span class="chip chip-data">Data Flow</span></div>
+        <div class="dep-section-content">
+          BD must secure API integration or automated reporting from RCM’s ERP and pipe this tertiary sales data directly into Production's systems.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Accounts -->
+  <div class="dep-card">
+    <div class="dep-header">
+      <div class="dep-title">Accounts</div>
+      <div class="dep-badge">Finance Support</div>
+    </div>
+    <div class="dep-grid">
+      <div class="dep-section">
+        <div class="dep-section-title">Operations Dependency <span class="chip chip-approval">Approval Flow</span></div>
+        <div class="dep-section-content">
+          Field staff require timely expense reimbursements to sustain on-ground training activities.
+          <div class="dep-person">👤 Key Person: Accounts Manager</div>
+        </div>
+      </div>
+      <div class="dep-section bottleneck">
+        <div class="dep-section-title">Critical Bottleneck</div>
+        <div class="dep-section-content">
+          Manual transcription from paper diaries delays expense reporting and reimbursement processing.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Logistics -->
+  <div class="dep-card">
+    <div class="dep-header">
+      <div class="dep-title">Logistics</div>
+      <div class="dep-badge">Dispatch Support</div>
+    </div>
+    <div class="dep-grid">
+      <div class="dep-section">
+        <div class="dep-section-title">Operations Dependency <span class="chip chip-info">Freight Coordination</span></div>
+        <div class="dep-section-content">
+          Requires daily coordination to manage freight delivery to RCM's Bhilwara facility.
+          <div class="dep-person">👤 Key Person: Logistics Lead</div>
+        </div>
+      </div>
+      <div class="dep-section bottleneck">
+        <div class="dep-section-title">Critical Bottleneck</div>
+        <div class="dep-section-content">
+          Lack of predictive analytics forces rush dispatch orders.
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="doc-footer"><span>BD (B2B &amp; RCM) Audit Report · v1.0</span><span>Page 6</span></div>
 </div>
 
