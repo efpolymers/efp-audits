@@ -1,632 +1,1321 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Logistics & Supply Chain — Department Audit Report | EF Polymers</title>
-<style>
-:root{
-  --ink:#1B2A4A;
-  --slate:#3F4B5C;
-  --muted:#6B7785;
-  --line:#D8DEE5;
-  --line-soft:#E9EDF1;
-  --paper:#FFFFFF;
-  --paper-alt:#F6F7F9;
-  --accent:#0F6B62;
-  --accent-soft:#EAF3F1;
-  --risk-crit-bg:#FCEBEA; --risk-crit-fg:#A32E24;
-  --risk-med-bg:#FBF1DF;  --risk-med-fg:#8A5A10;
-  --risk-low-bg:#E9F4EC;  --risk-low-fg:#276B3E;
-}
-@page{ size:A4; margin:22mm 18mm 20mm 18mm; }
-*{ margin:0; padding:0; box-sizing:border-box; }
-body{
-  font-family:'Segoe UI',system-ui,-apple-system,sans-serif;
-  color:var(--slate);
-  line-height:1.55;
-  background:#EDEFF1;
-  font-size:10.3pt;
-}
-.page{
-  background:var(--paper);
-  max-width:840px;
-  margin:0 auto 14px auto;
-  padding:26mm 20mm 20mm 20mm;
-  position:relative;
-  page-break-after:always;
-  min-height:1120px;
-}
-.page:last-child{ page-break-after:avoid; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Logistics & Supply Chain — Department Audit Report | EF Polymer Private Limited</title>
+  <style>
+    :root {
+      --ink: #1B2A4A;
+      --slate: #3F4B5C;
+      --muted: #6B7785;
+      --line: #D8DEE5;
+      --line-soft: #E9EDF1;
+      --paper: #FFFFFF;
+      --paper-alt: #F6F7F9;
+      --accent: #0F6B62;
+      --accent-soft: #EAF3F1;
+      --risk-crit-bg: #FCEBEA;
+      --risk-crit-fg: #A32E24;
+      --risk-med-bg: #FBF1DF;
+      --risk-med-fg: #8A5A10;
+      --risk-low-bg: #E9F4EC;
+      --risk-low-fg: #276B3E;
+    }
 
-/* ---- running header / footer ---- */
-.doc-header{
-  display:flex; justify-content:space-between; align-items:baseline;
-  font-size:7.8pt; letter-spacing:0.4px; text-transform:uppercase; color:var(--muted);
-  border-bottom:1px solid var(--line); padding-bottom:8px; margin-bottom:22px;
-}
-.doc-header b{ color:var(--ink); }
-.doc-footer{
-  position:absolute; bottom:10mm; left:20mm; right:20mm;
-  display:flex; justify-content:space-between;
-  font-size:7.5pt; color:var(--muted);
-  border-top:1px solid var(--line-soft); padding-top:6px;
-}
+    @page {
+      size: A4;
+      margin: 22mm 18mm 20mm 18mm;
+    }
 
-/* ---- cover ---- */
-.cover{ display:flex; flex-direction:column; min-height:1080px; }
-.cover-top{ display:flex; justify-content:space-between; align-items:flex-start; }
-.cover-mark{ font-size:9pt; font-weight:700; letter-spacing:2px; color:var(--ink); }
-.cover-mark span{ color:var(--accent); }
-.cover-class{ font-size:7.8pt; text-transform:uppercase; letter-spacing:1.5px; color:var(--muted); border:1px solid var(--line); padding:4px 10px; }
-.cover-body{ flex:1; display:flex; flex-direction:column; justify-content:center; padding:60px 0; }
-.cover-eyebrow{ font-family:Georgia,'Times New Roman',serif; font-style:italic; font-size:11pt; color:var(--accent); margin-bottom:14px; }
-.cover-title{ font-family:Georgia,'Times New Roman',serif; font-size:34pt; color:var(--ink); font-weight:600; line-height:1.15; margin-bottom:10px; }
-.cover-sub{ font-size:13pt; color:var(--slate); font-weight:400; }
-.cover-rule{ width:52px; height:2px; background:var(--accent); margin:26px 0; }
-.cover-ctrl{ border:1px solid var(--line); }
-.cover-ctrl table{ width:100%; border-collapse:collapse; margin:0; }
-.cover-ctrl td{ padding:9px 14px; font-size:9pt; border-bottom:1px solid var(--line-soft); }
-.cover-ctrl tr:last-child td{ border-bottom:none; }
-.cover-ctrl td.label{ color:var(--muted); width:38%; text-transform:uppercase; font-size:7.8pt; letter-spacing:0.5px; }
-.cover-ctrl td.val{ color:var(--ink); font-weight:600; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-/* ---- section furniture ---- */
-.eyebrow{ font-size:8pt; color:var(--accent); font-weight:700; letter-spacing:1.6px; text-transform:uppercase; margin-bottom:6px; }
-h2{ font-family:Georgia,'Times New Roman',serif; font-size:17pt; color:var(--ink); font-weight:600; margin-bottom:4px; }
-h2 + .section-dek{ color:var(--muted); font-size:9.3pt; margin-bottom:18px; padding-bottom:14px; border-bottom:1px solid var(--line); }
-h3{ font-family:Georgia,'Times New Roman',serif; font-size:12.5pt; color:var(--ink); font-weight:600; margin:22px 0 8px; }
-h4{ font-size:10pt; color:var(--ink); font-weight:700; margin:14px 0 4px; }
-p{ margin-bottom:10px; }
-.lede{ font-size:10.6pt; color:var(--slate); max-width:95%; }
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      color: var(--slate);
+      line-height: 1.55;
+      background: #EDEFF1;
+      font-size: 10.3pt;
+    }
 
-/* ---- tables ---- */
-table{ width:100%; border-collapse:collapse; margin:10px 0 20px; font-size:9pt; }
-th{ background:var(--ink); color:#fff; padding:8px 10px; text-align:left; font-weight:600; font-size:8.3pt; letter-spacing:0.3px; text-transform:uppercase; }
-td{ padding:8px 10px; border-bottom:1px solid var(--line-soft); vertical-align:top; }
-tr:nth-child(even) td{ background:var(--paper-alt); }
-td.id, th.id{ font-family:Georgia,serif; font-weight:700; color:var(--ink); white-space:nowrap; width:44px; }
-td.num{ text-align:center; white-space:nowrap; }
+    .page {
+      background: var(--paper);
+      max-width: 840px;
+      margin: 0 auto 14px auto;
+      padding: 26mm 20mm 20mm 20mm;
+      position: relative;
+      page-break-after: always;
+      min-height: 1120px;
+    }
 
-/* ---- chips ---- */
-.chip{ display:inline-block; padding:2px 9px; border-radius:3px; font-size:7.8pt; font-weight:700; letter-spacing:0.3px; text-transform:uppercase; white-space:nowrap; }
-.chip-crit{ background:var(--risk-crit-bg); color:var(--risk-crit-fg); }
-.chip-med{  background:var(--risk-med-bg);  color:var(--risk-med-fg); }
-.chip-low{  background:var(--risk-low-bg);  color:var(--risk-low-fg); }
-.chip-ref{ display:inline-block; background:var(--accent-soft); color:var(--accent); font-family:Georgia,serif; font-weight:700; font-size:8pt; padding:1px 6px; border-radius:3px; margin:1px 2px 1px 0; }
+    .page:last-child {
+      page-break-after: avoid;
+    }
 
-/* ---- KPI strip ---- */
-.kpi-strip{ display:flex; border:1px solid var(--line); margin:16px 0 22px; }
-.kpi-cell{ flex:1; padding:12px 14px; border-right:1px solid var(--line); }
-.kpi-cell:last-child{ border-right:none; }
-.kpi-num{ font-family:Georgia,serif; font-size:15pt; color:var(--ink); font-weight:700; }
-.kpi-lbl{ font-size:7.6pt; color:var(--muted); text-transform:uppercase; letter-spacing:0.5px; margin-top:2px; }
+    /* ---- running header / footer ---- */
+    .doc-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: 7.8pt;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      color: var(--muted);
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 8px;
+      margin-bottom: 22px;
+    }
 
-/* ---- callout ---- */
-.callout{ border-left:3px solid var(--accent); background:var(--accent-soft); padding:10px 14px; font-size:9pt; color:var(--ink); margin:10px 0 20px; }
+    .doc-header b {
+      color: var(--ink);
+    }
 
-/* ---- flow notes ---- */
-.flow-note{ font-size:8.6pt; color:var(--muted); margin:4px 0 18px; padding-left:2px; }
-.flow-note b{ color:var(--risk-crit-fg); }
+    .doc-footer {
+      position: absolute;
+      bottom: 10mm;
+      left: 20mm;
+      right: 20mm;
+      display: flex;
+      justify-content: space-between;
+      font-size: 7.5pt;
+      color: var(--muted);
+      border-top: 1px solid var(--line-soft);
+      padding-top: 6px;
+    }
 
-/* ---- maturity exhibit ---- */
-.exhibit{ display:flex; gap:26px; align-items:center; margin:14px 0 6px; }
-.exhibit-chart{ flex:0 0 220px; }
-.exhibit-note{ flex:1; font-size:9.2pt; color:var(--slate); }
-.exhibit-note b{ color:var(--ink); }
+    /* ---- cover ---- */
+    .cover {
+      display: flex;
+      flex-direction: column;
+      min-height: 1080px;
+    }
 
-/* ---- roadmap table ---- */
-.tl-table td.phase-mark{ text-align:center; font-weight:700; }
-.tl-table td.phase-mark.p1{ color:var(--accent); }
-.tl-table td.phase-mark.p2{ color:#2563eb; }
-.tl-table td.phase-mark.p3{ color:#7c3aed; }
+    .cover-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
 
-/* ---- phase blocks ---- */
-.phase-block{ border:1px solid var(--line); margin:14px 0; overflow:hidden; }
-.phase-hd{ display:flex; justify-content:space-between; align-items:center; padding:10px 14px; border-bottom:1px solid var(--line); background:var(--paper-alt); gap:16px; }
-.phase-hd-left{ display:flex; flex-direction:column; gap:2px; }
-.phase-hd-title{ font-family:Georgia,serif; font-size:11pt; font-weight:700; color:var(--ink); }
-.phase-hd-timeline{ font-size:7.8pt; color:var(--muted); }
-.phase-maturity{ font-size:8.5pt; font-weight:700; color:var(--accent); border:1px solid var(--accent); border-radius:3px; padding:3px 10px; white-space:nowrap; flex-shrink:0; }
-.phase-maturity.p2{ color:#2563eb; border-color:#2563eb; }
-.phase-maturity.p3{ color:#7c3aed; border-color:#7c3aed; }
-.phase-sow{ padding:11px 14px 14px; }
-.col-label{ font-size:7.4pt; color:var(--muted); text-transform:uppercase; letter-spacing:0.8px; margin-bottom:8px; font-weight:700; }
-.sow-item{ display:flex; gap:8px; margin-bottom:5px; font-size:8.5pt; color:var(--slate); line-height:1.4; }
-.sow-dot{ width:4px; height:4px; background:var(--accent); border-radius:50%; margin-top:5px; flex-shrink:0; }
-.sow-dot.p2{ background:#2563eb; }
-.sow-dot.p3{ background:#7c3aed; }
-.phase-roi{ display:flex; border-top:1px solid var(--line); background:var(--paper-alt); }
-.roi-card{ flex:1; padding:10px 12px; border-right:1px solid var(--line); text-align:center; }
-.roi-card:last-child{ border-right:none; }
-.roi-card-num{ font-family:Georgia,serif; font-size:13pt; font-weight:700; color:var(--ink); line-height:1.1; margin-bottom:3px; }
-.roi-card-label{ font-size:7.5pt; color:var(--ink); font-weight:700; text-transform:uppercase; letter-spacing:0.3px; margin-bottom:3px; }
-.roi-card-desc{ font-size:7pt; color:var(--muted); line-height:1.35; }
+    .cover-mark {
+      font-size: 9pt;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--ink);
+    }
 
-@media print{
-  body{ background:#fff; }
-  .page{ box-shadow:none; margin:0; }
-}
-</style>
+    .cover-mark span {
+      color: var(--accent);
+    }
+
+    .cover-class {
+      font-size: 7.8pt;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--muted);
+      border: 1px solid var(--line);
+      padding: 4px 10px;
+    }
+
+    .cover-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 60px 0;
+    }
+
+    .cover-eyebrow {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-style: italic;
+      font-size: 11pt;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+
+    .cover-title {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 34pt;
+      color: var(--ink);
+      font-weight: 600;
+      line-height: 1.15;
+      margin-bottom: 10px;
+    }
+
+    .cover-sub {
+      font-size: 13pt;
+      color: var(--slate);
+      font-weight: 400;
+    }
+
+    .cover-rule {
+      width: 52px;
+      height: 2px;
+      background: var(--accent);
+      margin: 26px 0;
+    }
+
+    .cover-ctrl {
+      border: 1px solid var(--line);
+    }
+
+    .cover-ctrl table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0;
+    }
+
+    .cover-ctrl td {
+      padding: 9px 14px;
+      font-size: 9pt;
+      border-bottom: 1px solid var(--line-soft);
+    }
+
+    .cover-ctrl tr:last-child td {
+      border-bottom: none;
+    }
+
+    .cover-ctrl td.label {
+      color: var(--muted);
+      width: 38%;
+      text-transform: uppercase;
+      font-size: 7.8pt;
+      letter-spacing: 0.5px;
+    }
+
+    .cover-ctrl td.val {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    /* ---- section furniture ---- */
+    .eyebrow {
+      font-size: 8pt;
+      color: var(--accent);
+      font-weight: 700;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    h2 {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 17pt;
+      color: var(--ink);
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    h2+.section-dek {
+      color: var(--muted);
+      font-size: 9.3pt;
+      margin-bottom: 18px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    h3 {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 12.5pt;
+      color: var(--ink);
+      font-weight: 600;
+      margin: 22px 0 8px;
+    }
+
+    h4 {
+      font-size: 10pt;
+      color: var(--ink);
+      font-weight: 700;
+      margin: 14px 0 4px;
+    }
+
+    p {
+      margin-bottom: 10px;
+    }
+
+    .lede {
+      font-size: 10.6pt;
+      color: var(--slate);
+      max-width: 95%;
+    }
+
+    /* ---- tables ---- */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 10px 0 20px;
+      font-size: 9pt;
+    }
+
+    th {
+      background: var(--ink);
+      color: #fff;
+      padding: 8px 10px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 8.3pt;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+    }
+
+    td {
+      padding: 8px 10px;
+      border-bottom: 1px solid var(--line-soft);
+      vertical-align: top;
+    }
+
+    tr:nth-child(even) td {
+      background: var(--paper-alt);
+    }
+
+    td.id,
+    th.id {
+      font-family: Georgia, serif;
+      font-weight: 700;
+      color: var(--ink);
+      white-space: nowrap;
+      width: 44px;
+    }
+
+    td.num {
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    /* ---- chips ---- */
+    .chip {
+      display: inline-block;
+      padding: 2px 9px;
+      border-radius: 3px;
+      font-size: 7.8pt;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .chip-crit {
+      background: var(--risk-crit-bg);
+      color: var(--risk-crit-fg);
+    }
+
+    .chip-med {
+      background: var(--risk-med-bg);
+      color: var(--risk-med-fg);
+    }
+
+    .chip-low {
+      background: var(--risk-low-bg);
+      color: var(--risk-low-fg);
+    }
+
+    .chip-ref {
+      display: inline-block;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-family: Georgia, serif;
+      font-weight: 700;
+      font-size: 8pt;
+      padding: 1px 6px;
+      border-radius: 3px;
+      margin: 1px 2px 1px 0;
+    }
+
+    /* ---- KPI strip ---- */
+    .kpi-strip {
+      display: flex;
+      border: 1px solid var(--line);
+      margin: 16px 0 22px;
+    }
+
+    .kpi-cell {
+      flex: 1;
+      padding: 12px 14px;
+      border-right: 1px solid var(--line);
+    }
+
+    .kpi-cell:last-child {
+      border-right: none;
+    }
+
+    .kpi-num {
+      font-family: Georgia, serif;
+      font-size: 15pt;
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    .kpi-lbl {
+      font-size: 7.6pt;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 2px;
+    }
+
+    /* ---- callout ---- */
+    .callout {
+      border-left: 3px solid var(--accent);
+      background: var(--accent-soft);
+      padding: 10px 14px;
+      font-size: 9pt;
+      color: var(--ink);
+      margin: 10px 0 20px;
+    }
+
+    /* ---- flow notes ---- */
+    .flow-note {
+      font-size: 8.6pt;
+      color: var(--muted);
+      margin: 4px 0 18px;
+      padding-left: 2px;
+    }
+
+    .flow-note b {
+      color: var(--risk-crit-fg);
+    }
+
+    /* ---- maturity exhibit ---- */
+    .exhibit {
+      display: flex;
+      gap: 26px;
+      align-items: center;
+      margin: 14px 0 6px;
+    }
+
+    .exhibit-chart {
+      flex: 0 0 220px;
+    }
+
+    .exhibit-note {
+      flex: 1;
+      font-size: 9.2pt;
+      color: var(--slate);
+    }
+
+    .exhibit-note b {
+      color: var(--ink);
+    }
+
+    /* ---- roadmap table ---- */
+    .tl-table td.phase-mark {
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .tl-table td.phase-mark.p1 {
+      color: var(--accent);
+    }
+
+    .tl-table td.phase-mark.p2 {
+      color: #2563eb;
+    }
+
+    .tl-table td.phase-mark.p3 {
+      color: #7c3aed;
+    }
+
+    /* ---- phase blocks ---- */
+    .phase-block {
+      border: 1px solid var(--line);
+      margin: 14px 0;
+      overflow: hidden;
+    }
+
+    .phase-hd {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--line);
+      background: var(--paper-alt);
+      gap: 16px;
+    }
+
+    .phase-hd-left {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .phase-hd-title {
+      font-family: Georgia, serif;
+      font-size: 11pt;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .phase-hd-timeline {
+      font-size: 7.8pt;
+      color: var(--muted);
+    }
+
+    .phase-maturity {
+      font-size: 8.5pt;
+      font-weight: 700;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      border-radius: 3px;
+      padding: 3px 10px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .phase-maturity.p2 {
+      color: #2563eb;
+      border-color: #2563eb;
+    }
+
+    .phase-maturity.p3 {
+      color: #7c3aed;
+      border-color: #7c3aed;
+    }
+
+    .phase-sow {
+      padding: 11px 14px 14px;
+    }
+
+    .col-label {
+      font-size: 7.4pt;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+
+    .sow-item {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 5px;
+      font-size: 8.5pt;
+      color: var(--slate);
+      line-height: 1.4;
+    }
+
+    .sow-dot {
+      width: 4px;
+      height: 4px;
+      background: var(--accent);
+      border-radius: 50%;
+      margin-top: 5px;
+      flex-shrink: 0;
+    }
+
+    .sow-dot.p2 {
+      background: #2563eb;
+    }
+
+    .sow-dot.p3 {
+      background: #7c3aed;
+    }
+
+    .phase-roi {
+      display: flex;
+      border-top: 1px solid var(--line);
+      background: var(--paper-alt);
+    }
+
+    .roi-card {
+      flex: 1;
+      padding: 10px 12px;
+      border-right: 1px solid var(--line);
+      text-align: center;
+    }
+
+    .roi-card:last-child {
+      border-right: none;
+    }
+
+    .roi-card-num {
+      font-family: Georgia, serif;
+      font-size: 13pt;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.1;
+      margin-bottom: 3px;
+    }
+
+    .roi-card-label {
+      font-size: 7.5pt;
+      color: var(--ink);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      margin-bottom: 3px;
+    }
+
+    .roi-card-desc {
+      font-size: 7pt;
+      color: var(--muted);
+      line-height: 1.35;
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .page {
+        box-shadow: none;
+        margin: 0;
+      }
+    }
+    /* ---- tools grid ---- */
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin: 12px 0 20px;
+    }
+    .tool-card {
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 10px 12px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      background: var(--paper);
+    }
+    .tool-icon {
+      font-size: 18pt;
+      line-height: 1;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .tool-info {}
+    .tool-name {
+      font-weight: 700;
+      color: var(--ink);
+      font-size: 9pt;
+    }
+    .tool-desc {
+      font-size: 8pt;
+      color: var(--muted);
+      line-height: 1.3;
+      margin-top: 2px;
+    }
+  </style>
 </head>
+
 <body>
 
-<!-- ============ COVER ============ -->
-<div class="page cover">
-  <div class="cover-top">
-    <div class="cover-mark">EF<span>·</span>POLYMERS</div>
-    <div class="cover-class">Confidential — Executive Leadership Only</div>
+  <!-- ============ COVER ============ -->
+  <div class="page cover">
+    <div class="cover-top">
+      <div class="cover-mark">EF POLYMER PRIVATE LIMITED</div>
+      <div class="cover-class">Confidential</div>
+    </div>
+    <div class="cover-body">
+      <div class="cover-eyebrow">Department Wise Audit Report</div>
+      <div class="cover-title">Logistics &amp; Dispatch</div>
+      <div class="cover-sub">Freight, Export &amp; Order Processing — Nihal Paliwal</div>
+      <div class="cover-rule"></div>
+      <p style="max-width:70%;color:var(--muted);font-size:9.3pt;">
+        An independent operational review of the Logistics department, evaluating order intake friction, carrier
+        coordination, and export compliance processes, prepared as part of the EF Polymers organization-wide operational
+        audit by Creative Upaay (brand owned by Cinnovate Solutions (OPC) Private Limited).
+      </p>
+    </div>
+    <div class="cover-ctrl">
+      <table>
+        <tr>
+          <td class="label">Client</td>
+          <td class="val">EF Polymer Private Limited</td>
+        </tr>
+        <tr>
+          <td class="label">Prepared by</td>
+          <td class="val">Creative Upaay</td>
+        </tr>
+        <tr>
+          <td class="label">Document version</td>
+          <td class="val">1.0</td>
+        </tr>
+        <tr>
+          <td class="label">Date issued</td>
+          <td class="val">17th July 2026</td>
+        </tr>
+        <tr>
+          <td class="label">Department scope</td>
+          <td class="val">Logistics, Supply Chain &amp; Export Ops</td>
+        </tr>
+        <tr>
+          <td class="label">Distribution</td>
+          <td class="val">CXOs, Logistics Head and Team</td>
+        </tr>
+      </table>
+    </div>
   </div>
-  <div class="cover-body">
-    <div class="cover-eyebrow">Department Audit Report</div>
-    <div class="cover-title">Logistics &amp; Dispatch</div>
-    <div class="cover-sub">Freight, Export &amp; Order Processing — Nihal Paliwal</div>
-    <div class="cover-rule"></div>
-    <p style="max-width:70%;color:var(--muted);font-size:9.3pt;">
-      An independent operational review of the Logistics department, evaluating order intake friction, carrier coordination, and export compliance processes, prepared as part of the EF Polymers organization-wide operational audit.
-    </p>
-  </div>
-  <div class="cover-ctrl">
+
+  <!-- ============ 01 EXECUTIVE SUMMARY ============ -->
+  <div class="page">
+    <div class="doc-header"><span><b>EF Polymer Private Limited</b> — Logistics Audit</span><span>Confidential</span>
+    </div>
+
+    <div class="eyebrow">Section 01 — Executive Summary</div>
+    <h2>Department Overview</h2>
+    <div class="section-dek">Scope, current state, and headline findings</div>
+
+    <p class="lede">The Logistics department, led by Nihal Paliwal, is a lean, two-person team handling the entirety
+      of EF Polymers' domestic dispatch and complex international export schedules.</p>
+
+    <p>The core audit finding is severe upstream order friction. Sales representatives trigger orders via unstructured
+      WhatsApp text messages that frequently lack mandatory fields (e.g., pin codes, SKU weights). This forces the
+      Logistics Manager into an administrative chase, extending standard call durations to 20–25 minutes per order.
+      Furthermore, tracking spreadsheets remain entirely disconnected from the Zoho Books billing engine, necessitating
+      manual double-entry.</p>
+
+    <div class="kpi-strip">
+      <div class="kpi-cell">
+        <div class="kpi-num">2&ndash;4 Days</div>
+        <div class="kpi-lbl">Vessel Buffer</div>
+      </div>
+      <div class="kpi-cell">
+        <div class="kpi-num">1 Week</div>
+        <div class="kpi-lbl">20ft Export Prep SLA</div>
+      </div>
+      <div class="kpi-cell">
+        <div class="kpi-num">10 Days</div>
+        <div class="kpi-lbl">Manual Prod Turnaround</div>
+      </div>
+      <div class="kpi-cell">
+        <div class="kpi-num">1.6 / 5.0</div>
+        <div class="kpi-lbl">Overall Maturity Score</div>
+      </div>
+    </div>
+
+    <div class="maturity-box">
+      <div class="maturity-box-title">Understanding the Overall Maturity Score (1.6 / 5.0)</div>
+      <div class="maturity-scale">
+        <div class="maturity-scale-fill" style="width: 32%;"></div>
+      </div>
+      <div class="maturity-labels">
+        <span>1 - Ad Hoc</span>
+        <span>2 - Developing</span>
+        <span>3 - Defined</span>
+        <span>4 - Managed</span>
+        <span>5 - Optimized</span>
+      </div>
+      <div class="maturity-desc">
+        A score of 1.6 indicates a largely <strong>Ad Hoc</strong> to <strong>Developing</strong> logistics process. Operations rely heavily on manual effort, individual tracking, and undocumented knowledge, with significant friction in scaling and tracking shipments.
+      </div>
+    </div>
+
+    <h3>Time &amp; Effort Allocation</h3>
     <table>
-      <tr><td class="label">Client</td><td class="val">EF Polymers Private Limited</td></tr>
-      <tr><td class="label">Prepared by</td><td class="val">Creative Upaay Consulting</td></tr>
-      <tr><td class="label">Document version</td><td class="val">1.0</td></tr>
-      <tr><td class="label">Date issued</td><td class="val">July 2026</td></tr>
-      <tr><td class="label">Review scope</td><td class="val">Logistics, Supply Chain &amp; Export Ops</td></tr>
-      <tr><td class="label">Distribution</td><td class="val">CEO, COO, Logistics Head</td></tr>
+      <tr>
+        <th>Activity</th>
+        <th class="num" style="text-align:right">Estimated Time (per day)</th>
+        <th class="num" style="text-align:right">Share of Team Time</th>
+      </tr>
+      <tr>
+        <td>Carrier Coordination &amp; Scheduling</td>
+        <td class="num" style="text-align:right">2h 48m</td>
+        <td class="num">~35%</td>
+      </tr>
+      <tr>
+        <td>Documentation &amp; Billing (Invoice/E-Way)</td>
+        <td class="num" style="text-align:right">2h 24m</td>
+        <td class="num">~30%</td>
+      </tr>
+      <tr>
+        <td>Physical Loading &amp; Stuffing Supervision</td>
+        <td class="num" style="text-align:right">1h 36m</td>
+        <td class="num">~20%</td>
+      </tr>
+      <tr>
+        <td>Exception Chasing &amp; Data Validation</td>
+        <td class="num" style="text-align:right">1h 12m</td>
+        <td class="num">~15%</td>
+      </tr>
     </table>
-  </div>
-</div>
 
-<!-- ============ 01 EXECUTIVE SUMMARY ============ -->
-<div class="page">
-  <div class="doc-header"><span><b>EF Polymers</b> — Logistics Audit</span><span>Confidential</span></div>
-
-  <div class="eyebrow">Section 01 — Executive Summary</div>
-  <h2>Department Overview</h2>
-  <div class="section-dek">Scope, current state, and headline findings</div>
-
-  <p class="lede">The Logistics department, managed by Nihal Paliwal, is a lean, two-person team handling the entirety of EF Polymers' domestic dispatch and complex international export schedules.</p>
-
-  <p>The core audit finding is severe upstream order friction. Sales representatives trigger orders via unstructured WhatsApp text messages that frequently lack mandatory fields (e.g., pin codes, SKU weights). This forces the Logistics Manager into an administrative chase, extending standard call durations to 20–25 minutes per order. Furthermore, tracking spreadsheets remain entirely disconnected from the Zoho Books billing engine, necessitating manual double-entry.</p>
-
-  <div class="kpi-strip">
-    <div class="kpi-cell"><div class="kpi-num">2&ndash;4 Days</div><div class="kpi-lbl">Vessel Buffer</div></div>
-    <div class="kpi-cell"><div class="kpi-num">1 Week</div><div class="kpi-lbl">20ft Export Prep SLA</div></div>
-    <div class="kpi-cell"><div class="kpi-num">10 Days</div><div class="kpi-lbl">Manual Prod Turnaround</div></div>
-    <div class="kpi-cell"><div class="kpi-num">1.6 / 5.0</div><div class="kpi-lbl">Overall Maturity Score</div></div>
-  </div>
-
-  <h3>Time &amp; Effort Allocation</h3>
-  <table>
-    <tr><th>Activity</th><th class="num" style="text-align:right">Share of Team Time</th></tr>
-    <tr><td>Carrier Coordination &amp; Scheduling</td><td class="num">~35%</td></tr>
-    <tr><td>Documentation &amp; Billing (Invoice/E-Way)</td><td class="num">~30%</td></tr>
-    <tr><td>Physical Loading &amp; Stuffing Supervision</td><td class="num">~20%</td></tr>
-    <tr><td>Exception Chasing &amp; Data Validation</td><td class="num">~15%</td></tr>
-  </table>
-
-  <h3>Tools in Use</h3>
-  <table>
-    <tr><th>Tool</th><th>Role</th></tr>
-    <tr><td>WhatsApp</td><td>Dominant order intake and carrier communication channel</td></tr>
-    <tr><td>Google Sheets</td><td>Manual dispatch scheduling and loading manifests</td></tr>
-    <tr><td>Zoho Books</td><td>Invoicing and Accounts sync (disconnected from tracking)</td></tr>
-  </table>
-
-  <div class="doc-footer"><span>Logistics Audit Report · v1.0</span><span>Page 2</span></div>
-</div>
-
-<!-- ============ 02 FINDINGS REGISTER ============ -->
-<div class="page">
-  <div class="doc-header"><span><b>EF Polymers</b> — Logistics Audit</span><span>Confidential</span></div>
-
-  <div class="eyebrow">Section 02 — Risk &amp; Control Findings</div>
-  <h2>Findings Register</h2>
-  <div class="section-dek">Ranked by risk rating. Each finding is cross-referenced to its recommendation in Section 04.</div>
-
-  <table>
-    <tr>
-      <th class="id">ID</th><th>Finding</th><th>Risk</th><th>Evidence / Impact</th><th>Linked Rec.</th>
-    </tr>
-    <tr>
-      <td class="id">F-01</td>
-      <td><b>Incomplete WhatsApp Order Intake.</b> Orders are entered via WhatsApp text with missing fields (pin codes, SKU weight).</td>
-      <td><span class="chip chip-crit">Critical</span></td>
-      <td>Forces Logistics to spend 10-25 mins manually chasing BD for missing compliance data.</td>
-      <td><span class="chip-ref">R-01</span></td>
-    </tr>
-    <tr>
-      <td class="id">F-02</td>
-      <td><b>Disconnected Invoicing &amp; Shipping Sheets.</b> Zoho Books and the logistics tracking sheet operate as separate silos.</td>
-      <td><span class="chip chip-crit">Critical</span></td>
-      <td>Requires double data entry for every shipment; risks typing errors in billing vs tracking.</td>
-      <td><span class="chip-ref">R-02</span></td>
-    </tr>
-    <tr>
-      <td class="id">F-03</td>
-      <td><b>Ocean Freight Schedule Shifts.</b> Vessel schedule shifts and cutoff delays require manual tracking.</td>
-      <td><span class="chip chip-med">Medium</span></td>
-      <td>Introduces export delays if notifications are missed during high-volume periods.</td>
-      <td><span class="chip-ref">R-03</span></td>
-    </tr>
-    <tr>
-      <td class="id">F-04</td>
-      <td><b>Factory Single-Line Capacity.</b> The Coimbatore plant runs a single production line.</td>
-      <td><span class="chip chip-low">Low</span></td>
-      <td>Peak export schedules directly delay concurrent domestic fulfillment.</td>
-      <td><span class="chip-ref">R-04</span></td>
-    </tr>
-  </table>
-
-  <div class="callout">The two Critical findings pinpoint massive administrative waste caused by poor data intake and disconnected systems. F-01 (WhatsApp Orders) forces the Logistics Manager to spend up to 30% of their time chasing basic data, artificially slowing standard dispatch turnaround. F-02 (Disconnected Sheets) creates severe double-entry risks across financial and shipping records. Phase 1 targets the root cause by entirely eliminating unstructured WhatsApp orders in favor of rigid intake forms.</div>
-
-  <div class="doc-footer"><span>Logistics Audit Report · v1.0</span><span>Page 3</span></div>
-</div>
-
-<!-- ============ 03 WORKFLOWS ============ -->
-<div class="page">
-  <div class="doc-header"><span><b>EF Polymers</b> — Logistics Audit</span><span>Confidential</span></div>
-
-  <div class="eyebrow">Section 03 — Process Detail</div>
-  <h2>Current Workflows</h2>
-  <div class="section-dek">Where each finding sits inside the operational process</div>
-
-  <!-- WORKFLOW 1 -->
-  <h3>Domestic Dispatch Workflow</h3>
-  <svg viewBox="0 0 740 92" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:10px 0 4px;">
-    <defs>
-      <marker id="a1" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
-        <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5"/>
-      </marker>
-    </defs>
-    <!-- 5 steps -->
-    <rect x="10"  y="22" width="120" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5"/>
-    <text x="70"  y="43" text-anchor="middle" font-size="7.6" fill="#A32E24" font-weight="700" font-family="Segoe UI,sans-serif">Sales WhatsApp Post</text>
-    <text x="70"  y="55" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">(Often Missing Data)</text>
-    <line x1="130" y1="46" x2="150" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)"/>
-
-    <rect x="150" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
-    <text x="210" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Chase Missing Info</text>
-    <text x="210" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Schedule Routing</text>
-    <line x1="270" y1="46" x2="290" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)"/>
-
-    <rect x="290" y="22" width="120" height="48" rx="3" fill="#FBF1DF" stroke="#E8C97A" stroke-width="1.5"/>
-    <text x="350" y="43" text-anchor="middle" font-size="7.6" fill="#8A5A10" font-weight="700" font-family="Segoe UI,sans-serif">Manual Billing Trigger</text>
-    <text x="350" y="55" text-anchor="middle" font-size="7.6" fill="#8A5A10" font-family="Segoe UI,sans-serif">(Accounts / Zoho)</text>
-    <line x1="410" y1="46" x2="430" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)"/>
-
-    <rect x="430" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
-    <text x="490" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Print Invoice &amp; E-Way</text>
-    <text x="490" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Delivery Note</text>
-    <line x1="550" y1="46" x2="570" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)"/>
-
-    <rect x="570" y="22" width="120" height="48" rx="3" fill="#E9F4EC" stroke="#276B3E" stroke-width="1"/>
-    <text x="630" y="43" text-anchor="middle" font-size="7.6" fill="#276B3E" font-weight="700" font-family="Segoe UI,sans-serif">Physical Loading</text>
-    <text x="630" y="55" text-anchor="middle" font-size="7.6" fill="#276B3E" font-family="Segoe UI,sans-serif">&amp; Dispatch Logging</text>
-  </svg>
-  <p class="flow-note">Unstructured WhatsApp orders (<span class="chip-ref">F-01</span>) inject errors at step one, demanding the Logistics Manager act as a data validation filter before freight can even be scheduled. The siloed nature of Zoho Books (<span class="chip-ref">F-02</span>) creates another manual choke point.</p>
-
-  <!-- WORKFLOW 2: International Export -->
-  <h3>International Shipping &amp; Export Workflow — <span class="chip-ref">F-03</span></h3>
-  <svg viewBox="0 0 740 92" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:10px 0 4px;">
-    <defs>
-      <marker id="a2" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
-        <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5"/>
-      </marker>
-    </defs>
-    
-    <rect x="10" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
-    <text x="70" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Export Invoice</text>
-    <text x="70" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">&amp; Declarations</text>
-    <line x1="130" y1="46" x2="150" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)"/>
-    
-    <rect x="150" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
-    <text x="210" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Port Delivery &amp;</text>
-    <text x="210" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Customs Loading</text>
-    <line x1="270" y1="46" x2="290" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)"/>
-    
-    <rect x="290" y="22" width="120" height="48" rx="3" fill="#FBF1DF" stroke="#E8C97A" stroke-width="1.5"/>
-    <text x="350" y="43" text-anchor="middle" font-size="7.6" fill="#8A5A10" font-family="Segoe UI,sans-serif">Vessel Booking &amp;</text>
-    <text x="350" y="55" text-anchor="middle" font-size="7.6" fill="#8A5A10" font-family="Segoe UI,sans-serif">Cutoff Mgmt</text>
-    <line x1="410" y1="46" x2="430" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)"/>
-    
-    <rect x="430" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
-    <text x="490" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Bill of Lading (BL)</text>
-    <text x="490" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Draft Review</text>
-    <line x1="550" y1="46" x2="570" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)"/>
-    
-    <rect x="570" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
-    <text x="630" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Destination Agent</text>
-    <text x="630" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Handoff</text>
-  </svg>
-  <p class="flow-note">A minimum 1-week prep window is vulnerable to manual miscommunications when vessel schedules shift without automated alerts.</p>
-
-  <div class="doc-footer"><span>Logistics Audit Report · v1.0</span><span>Page 4</span></div>
-</div>
-
-<!-- ============ 04 RECOMMENDATIONS ============ -->
-<div class="page">
-  <div class="doc-header"><span><b>EF Polymers</b> — Logistics Audit</span><span>Confidential</span></div>
-
-  <div class="eyebrow">Section 04 — Corrective Action Plan</div>
-  <h2>Recommendations Register</h2>
-  <div class="section-dek">Ordered by priority. Effort and impact are directional estimates for planning purposes.</div>
-
-  <table>
-    <tr><th class="id">ID</th><th>Recommendation</th><th>Finding</th><th>Priority</th><th>Effort</th><th>Expected Impact</th></tr>
-    <tr>
-      <td class="id">R-01</td>
-      <td>Mandatory Order Intake Forms — Force Sales to use a Zoho or Google Form that physically rejects submissions if pin codes, tax IDs, and exact SKUs are missing.</td>
-      <td><span class="chip-ref">F-01</span></td>
-      <td><span class="chip chip-crit">P1</span></td>
-      <td>Low</td>
-      <td>Reclaims up to 15% of the Manager's time wasted on chasing basic compliance data.</td>
-    </tr>
-    <tr>
-      <td class="id">R-02</td>
-      <td>Zoho Books - Logistics API Sync — Configure a direct export from Zoho Books into the Logistics Google Sheet to auto-populate shipping matrices.</td>
-      <td><span class="chip-ref">F-02</span></td>
-      <td><span class="chip chip-crit">P1</span></td>
-      <td>Medium</td>
-      <td>Ends double-entry between the Accounts ERP and dispatch scheduling.</td>
-    </tr>
-    <tr>
-      <td class="id">R-03</td>
-      <td>Automated Carrier API Alerts — Integrate carrier vessel tracking APIs to ping the Logistics channel when cutoff times shift dynamically.</td>
-      <td><span class="chip-ref">F-03</span></td>
-      <td><span class="chip chip-med">P2</span></td>
-      <td>Medium</td>
-      <td>Prevents export container misses; auto-notifies international clients.</td>
-    </tr>
-    <tr>
-      <td class="id">R-04</td>
-      <td>Multi-Line Factory Capacity Expansion — Evaluate Capex for parallel processing lines to isolate export batching from domestic continuous flow.</td>
-      <td><span class="chip-ref">F-04</span></td>
-      <td><span class="chip chip-low">P3</span></td>
-      <td>High</td>
-      <td>Strategic capacity scale-up removes internal production bottlenecks during peak ocean freight windows.</td>
-    </tr>
-  </table>
-
-  <div class="doc-footer"><span>Logistics Audit Report · v1.0</span><span>Page 5</span></div>
-</div>
-
-<!-- ============ 05 MATURITY ============ -->
-<div class="page">
-  <div class="doc-header"><span><b>EF Polymers</b> — Logistics Audit</span><span>Confidential</span></div>
-
-  <div class="eyebrow">Section 05 — Benchmarking</div>
-  <h2>Department Maturity Assessment</h2>
-  <div class="section-dek">Scored 1 (ad hoc) to 5 (optimized) against five capability dimensions</div>
-
-  <div class="exhibit">
-    <div class="exhibit-chart">
-      <svg viewBox="0 0 400 350" xmlns="http://www.w3.org/2000/svg" style="width:100%;">
-        <g transform="translate(200,170)">
-          <polygon points="0,-120 114,-37 70,97 -70,97 -114,-37" fill="none" stroke="#E2E8F0" stroke-width="0.75"/>
-          <polygon points="0,-96 91,-30 56,78 -56,78 -91,-30"    fill="none" stroke="#E2E8F0" stroke-width="0.75"/>
-          <polygon points="0,-72 68,-22 42,58 -42,58 -68,-22"    fill="none" stroke="#E2E8F0" stroke-width="0.75"/>
-          <polygon points="0,-48 46,-15 28,39 -28,39 -46,-15"    fill="none" stroke="#E2E8F0" stroke-width="0.75"/>
-          <polygon points="0,-24 23,-7 14,19 -14,19 -23,-7"      fill="none" stroke="#E2E8F0" stroke-width="0.75"/>
-          <line x1="0" y1="0" x2="0"    y2="-120" stroke="#E2E8F0" stroke-width="0.75"/>
-          <line x1="0" y1="0" x2="114"  y2="-37"  stroke="#E2E8F0" stroke-width="0.75"/>
-          <line x1="0" y1="0" x2="70"   y2="97"   stroke="#E2E8F0" stroke-width="0.75"/>
-          <line x1="0" y1="0" x2="-70"  y2="97"   stroke="#E2E8F0" stroke-width="0.75"/>
-          <line x1="0" y1="0" x2="-114" y2="-37"  stroke="#E2E8F0" stroke-width="0.75"/>
-          
-          <!-- Target dashed: Process 3.0, Tech 3.0, Data 3.5, Docs 3.0, KM 2.5 -->
-          <polygon points="0,-72 68.4,-22.2 68.6,95 -60,82.8 -79.8,-25.9" fill="none" stroke="#B8C0C9" stroke-width="1" stroke-dasharray="5,3"/>
-          
-          <!-- Current: Process 2.0, Tech 1.0, Data 1.5, Docs 2.0, KM 1.5 -->
-          <polygon points="0,-48 22.8,-7.4 21,29.1 -40,55.2 -34.2,-11.1" fill="rgba(15,107,98,0.14)" stroke="#0F6B62" stroke-width="1.75"/>
-          <circle cx="0" cy="-48" r="3.2" fill="#0F6B62"/>
-          <circle cx="22.8" cy="-7.4" r="3.2" fill="#0F6B62"/>
-          <circle cx="21" cy="29.1" r="3.2" fill="#0F6B62"/>
-          <circle cx="-40" cy="55.2" r="3.2" fill="#0F6B62"/>
-          <circle cx="-34.2" cy="-11.1" r="3.2" fill="#0F6B62"/>
-          
-          <text x="0"    y="-132" text-anchor="middle" font-size="9" fill="#1B2A4A" font-weight="600">Process</text>
-          <text x="128"  y="-20"  text-anchor="start"  font-size="9" fill="#1B2A4A" font-weight="600">Technology</text>
-          <text x="78"   y="110"  text-anchor="start"  font-size="9" fill="#1B2A4A" font-weight="600">Data Quality</text>
-          <text x="-78"  y="110"  text-anchor="end"    font-size="9" fill="#1B2A4A" font-weight="600">Documentation</text>
-          <text x="-128" y="-16"  text-anchor="end"    font-size="9" fill="#1B2A4A" font-weight="600">Knowledge Mgmt.</text>
-        </g>
-      </svg>
+    <h3>Tools in Use</h3>
+    <div class="tools-grid">
+      <div class="tool-card">
+        <div class="tool-icon">
+          <svg role="img" viewBox="0 0 24 24" width="22" height="22" xmlns="http://www.w3.org/2000/svg"><title>WhatsApp</title><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="#25D366"/></svg>
+        </div>
+        <div class="tool-info">
+          <div class="tool-name">WhatsApp</div>
+          <div class="tool-desc">Dominant order intake and carrier communication channel</div>
+        </div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-icon">
+          <svg role="img" viewBox="0 0 24 24" width="22" height="22" xmlns="http://www.w3.org/2000/svg"><title>Google Sheets</title><path d="M11.318 12.545H7.91v-1.909h3.41v1.91zM14.728 0H3.273C2.233 0 1.386.847 1.386 1.887v20.226C1.386 23.153 2.233 24 3.273 24h17.454c1.04 0 1.887-.847 1.887-1.887V7.02L14.728 0zm-.46 1.887 4.62 4.606h-4.62V1.887zM3.273 22.113V1.887h9.268v6.366h6.186v13.86H3.273zm3.637-8.114h9.409v-5.09H6.91v5.09zm1.637-3.454h2.273v1.817H8.547v-1.817zm3.819 0h2.273v1.817h-2.273v-1.817zm-3.819 2.273h2.273v1.818H8.547v-1.818zm3.819 0h2.273v1.818h-2.273v-1.818z" fill="#34A853"/></svg>
+        </div>
+        <div class="tool-info">
+          <div class="tool-name">Google Sheets</div>
+          <div class="tool-desc">Manual dispatch scheduling and loading manifests</div>
+        </div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-icon">
+          <svg role="img" viewBox="0 0 24 24" width="22" height="22" xmlns="http://www.w3.org/2000/svg"><title>Zoho Books</title><path d="M22.868 2.023l-3.23 6.643H24l-8.913 13.31h-4.32l3.415-6.696h-4.103L19.043 2.023h3.824zM5.385 10.662C8.36 10.662 10.77 8.274 10.77 5.33 10.77 2.387 8.36 0 5.385 0 2.41 0 0 2.386 0 5.33c0 2.943 2.41 5.331 5.385 5.331zm5.385 7.962c0-2.944-2.41-5.331-5.385-5.331-2.974 0-5.385 2.387-5.385 5.33 0 2.945 2.41 5.332 5.385 5.332 2.975 0 5.385-2.387 5.385-5.331z" fill="#E21B21"/></svg>
+        </div>
+        <div class="tool-info">
+          <div class="tool-name">Zoho Books</div>
+          <div class="tool-desc">Invoicing and Accounts sync (disconnected from tracking)</div>
+        </div>
+      </div>
     </div>
-    <div class="exhibit-note">
-      Solid line: current state. Dashed line: target state (post-roadmap).<br><br>
-      <b>Logistics scores 1.6 overall</b> — The department's efficiency is artificially depressed by poor upstream data quality (WhatsApp ordering) and a lack of Technology integration (Zoho API).<br><br>
-      Implementing rigid order intake forms will immediately pull the Data Quality score upward and drastically lower the operational drag on the Logistics team.
-    </div>
+
+    <div class="doc-footer"><span>Logistics Audit Report · v1.0</span><span>Page 2</span></div>
   </div>
 
-  <table>
-    <tr><th>Dimension</th><th class="num">Current</th><th class="num">Target</th><th class="num">Gap</th></tr>
-    <tr><td>Process Standardization</td><td class="num">2.0</td><td class="num">3.0</td><td class="num">1.0</td></tr>
-    <tr><td>Technology Utilization</td><td class="num">1.0</td><td class="num">3.0</td><td class="num">2.0</td></tr>
-    <tr><td>Data Quality &amp; Accessibility</td><td class="num">1.5</td><td class="num">3.5</td><td class="num">2.0</td></tr>
-    <tr><td>Documentation</td><td class="num">2.0</td><td class="num">3.0</td><td class="num">1.0</td></tr>
-    <tr><td>Knowledge Management</td><td class="num">1.5</td><td class="num">2.5</td><td class="num">1.0</td></tr>
-    <tr style="font-weight:700;"><td>Overall</td><td class="num">1.6</td><td class="num">3.0</td><td class="num">1.4</td></tr>
-  </table>
+  <!-- ============ 02 FINDINGS REGISTER ============ -->
+  <div class="page">
+    <div class="doc-header"><span><b>EF Polymer Private Limited</b> — Logistics Audit</span><span>Confidential</span></div>
 
-  <div class="doc-footer"><span>Logistics Audit Report · v1.0</span><span>Page 6</span></div>
-</div>
+    <div class="eyebrow">Section 02 — Risk &amp; Control Findings</div>
+    <h2>Findings Register</h2>
+    <div class="section-dek">Ranked by risk rating. Each finding is cross-referenced to its recommendation in Section
+      04.</div>
 
-<!-- ============ 06 ROADMAP ============ -->
-<div class="page">
-  <div class="doc-header"><span><b>EF Polymers</b> — Logistics Audit</span><span>Confidential</span></div>
+    <table>
+      <tr>
+        <th class="id">ID</th>
+        <th>Finding</th>
+        <th>Risk</th>
+        <th>Evidence / Impact</th>
+        <th>Linked Rec.</th>
+      </tr>
+      <tr>
+        <td class="id">F-01</td>
+        <td><b>Incomplete WhatsApp Order Intake.</b> Orders are entered via WhatsApp text with missing fields (pin
+          codes, SKU weight).</td>
+        <td><span class="chip chip-crit">Critical</span></td>
+        <td>Forces Logistics to spend 10-25 mins manually chasing BD for missing compliance data.</td>
+        <td><span class="chip-ref">R-01</span></td>
+      </tr>
+      <tr>
+        <td class="id">F-02</td>
+        <td><b>Disconnected Invoicing &amp; Shipping Sheets.</b> Zoho Books and the logistics tracking sheet operate as
+          separate silos.</td>
+        <td><span class="chip chip-crit">Critical</span></td>
+        <td>Requires double data entry for every shipment; risks typing errors in billing vs tracking.</td>
+        <td><span class="chip-ref">R-02</span></td>
+      </tr>
+      <tr>
+        <td class="id">F-03</td>
+        <td><b>Ocean Freight Schedule Shifts.</b> Vessel schedule shifts and cutoff delays require manual tracking.</td>
+        <td><span class="chip chip-med">Medium</span></td>
+        <td>Introduces export delays if notifications are missed during high-volume periods.</td>
+        <td><span class="chip-ref">R-03</span></td>
+      </tr>
+      <tr>
+        <td class="id">F-04</td>
+        <td><b>Factory Single-Line Capacity.</b> The Coimbatore plant runs a single production line.</td>
+        <td><span class="chip chip-low">Low</span></td>
+        <td>Peak export schedules directly delay concurrent domestic fulfillment.</td>
+        <td><span class="chip-ref">R-04</span></td>
+      </tr>
+    </table>
 
-  <div class="eyebrow">Section 06 — Implementation Plan</div>
-  <h2>Phased Roadmap</h2>
-  <div class="section-dek">Initiatives sequenced across three phases, with quantified ROI and scope of work</div>
+    <div class="callout">The two Critical findings pinpoint massive administrative waste caused by poor data intake and
+      disconnected systems. F-01 (WhatsApp Orders) forces the Logistics Manager to spend up to 30% of their time chasing
+      basic data, artificially slowing standard dispatch turnaround. F-02 (Disconnected Sheets) creates severe
+      double-entry risks across financial and shipping records. Phase 1 targets the root cause by entirely eliminating
+      unstructured WhatsApp orders in favor of rigid intake forms.</div>
 
-  <table class="tl-table">
-    <tr>
-      <th>Initiative</th><th class="id">Rec.</th>
-      <th class="num">Phase 1<br><span style="font-weight:400">Mo. 1–2</span></th>
-      <th class="num">Phase 2<br><span style="font-weight:400">Mo. 3–5</span></th>
-      <th class="num">Phase 3<br><span style="font-weight:400">Mo. 6+</span></th>
-    </tr>
-    <tr><td>Mandatory Order Intake Forms</td><td class="id">R-01</td><td class="phase-mark p1">●</td><td></td><td></td></tr>
-    <tr><td>Zoho Books Logistics Sync</td><td class="id">R-02</td><td></td><td class="phase-mark p2">●</td><td></td></tr>
-    <tr><td>Automated Carrier Alerts</td><td class="id">R-03</td><td></td><td class="phase-mark p2">●</td><td></td></tr>
-    <tr><td>Capacity Expansion Planning</td><td class="id">R-04</td><td></td><td></td><td class="phase-mark p3">●</td></tr>
-  </table>
-
-  <!-- PHASE 1 -->
-  <div class="phase-block">
-    <div class="phase-hd">
-      <div class="phase-hd-left">
-        <span class="phase-hd-title">Phase 1 &mdash; Intake Discipline</span>
-        <span class="phase-hd-timeline">Months 1&ndash;2 &middot; Eradicating WhatsApp Chasing</span>
-      </div>
-      <span class="phase-maturity">Maturity 1.6 &rarr; 2.2</span>
-    </div>
-    <div class="phase-sow">
-      <div class="col-label">Scope of Work</div>
-      <div class="sow-item"><span class="sow-dot"></span><span>Deploy a Zoho/Google Form for all Sales teams with mandatory fields for pin codes and SKUs</span></div>
-      <div class="sow-item"><span class="sow-dot"></span><span>Enforce a strict policy rejecting any free-text WhatsApp orders that bypass the official form</span></div>
-      <div class="sow-item"><span class="sow-dot"></span><span>Build a database lookup to automatically fetch historical shipping addresses for repeat clients</span></div>
-      <div class="sow-item"><span class="sow-dot"></span><span>Standardize the intake format for all B2B packaging and custom print requirements</span></div>
-    </div>
-    <div class="phase-roi">
-      <div class="roi-card">
-        <div class="roi-card-num">&darr; 30%</div>
-        <div class="roi-card-label">admin time</div>
-        <div class="roi-card-desc">Manager reclaims hours previously spent chasing missing BD data</div>
-      </div>
-      <div class="roi-card">
-        <div class="roi-card-num">Zero</div>
-        <div class="roi-card-label">intake errors</div>
-        <div class="roi-card-desc">Strict form validation eliminates typos in destination pin codes</div>
-      </div>
-      <div class="roi-card">
-        <div class="roi-card-num">Instant</div>
-        <div class="roi-card-label">repeat orders</div>
-        <div class="roi-card-desc">Historical address lookups prevent redundant client questioning</div>
-      </div>
-      <div class="roi-card">
-        <div class="roi-card-num">&lt; 10 min</div>
-        <div class="roi-card-label">order processing</div>
-        <div class="roi-card-desc">Standardized data drops typical large order processing times</div>
-      </div>
-    </div>
+    <div class="doc-footer"><span>Logistics Audit Report · v1.0</span><span>Page 3</span></div>
   </div>
 
-  <!-- PHASE 2 -->
-  <div class="phase-block">
-    <div class="phase-hd">
-      <div class="phase-hd-left">
-        <span class="phase-hd-title">Phase 2 &mdash; Systems Integration</span>
-        <span class="phase-hd-timeline">Months 3&ndash;5 &middot; Data Unification</span>
-      </div>
-      <span class="phase-maturity p2">Maturity 2.2 &rarr; 2.7</span>
+  <!-- ============ 03 WORKFLOWS ============ -->
+  <div class="page">
+    <div class="doc-header"><span><b>EF Polymer Private Limited</b> — Logistics Audit</span><span>Confidential</span></div>
+
+    <div class="eyebrow">Section 03 — Process Detail</div>
+    <h2>Current Workflows</h2>
+    <div class="section-dek">Where each finding sits inside the operational process</div>
+
+    <!-- WORKFLOW 1 -->
+    <h3>Domestic Dispatch Workflow</h3>
+    <svg viewBox="0 0 740 92" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:10px 0 4px;">
+      <defs>
+        <marker id="a1" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+          <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5" />
+        </marker>
+      </defs>
+      <!-- 5 steps -->
+      <rect x="10" y="22" width="120" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
+      <text x="70" y="43" text-anchor="middle" font-size="7.6" fill="#A32E24" font-weight="700"
+        font-family="Segoe UI,sans-serif">Sales WhatsApp Post</text>
+      <text x="70" y="55" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">(Often
+        Missing Data)</text>
+      <line x1="130" y1="46" x2="150" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)" />
+
+      <rect x="150" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <text x="210" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Chase
+        Missing Info</text>
+      <text x="210" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C"
+        font-family="Segoe UI,sans-serif">Schedule Routing</text>
+      <line x1="270" y1="46" x2="290" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)" />
+
+      <rect x="290" y="22" width="120" height="48" rx="3" fill="#FBF1DF" stroke="#E8C97A" stroke-width="1.5" />
+      <text x="350" y="43" text-anchor="middle" font-size="7.6" fill="#8A5A10" font-weight="700"
+        font-family="Segoe UI,sans-serif">Manual Billing Trigger</text>
+      <text x="350" y="55" text-anchor="middle" font-size="7.6" fill="#8A5A10"
+        font-family="Segoe UI,sans-serif">(Accounts / Zoho)</text>
+      <line x1="410" y1="46" x2="430" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)" />
+
+      <rect x="430" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <text x="490" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Print
+        Invoice &amp; E-Way</text>
+      <text x="490" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C"
+        font-family="Segoe UI,sans-serif">Delivery Note</text>
+      <line x1="550" y1="46" x2="570" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)" />
+
+      <rect x="570" y="22" width="120" height="48" rx="3" fill="#E9F4EC" stroke="#276B3E" stroke-width="1" />
+      <text x="630" y="43" text-anchor="middle" font-size="7.6" fill="#276B3E" font-weight="700"
+        font-family="Segoe UI,sans-serif">Physical Loading</text>
+      <text x="630" y="55" text-anchor="middle" font-size="7.6" fill="#276B3E" font-family="Segoe UI,sans-serif">&amp;
+        Dispatch Logging</text>
+    </svg>
+    <div class="flow-note">
+      <p style="margin-top:0;"><strong>What is good:</strong> Direct coordination allows for prompt physical loading once data is clean.</p>
+      <p><strong>What needs to be fixed:</strong> Replace unstructured WhatsApp orders with a mandatory structured intake form. Connect tracking directly to Zoho Books.</p>
+      <p><strong>Bottlenecks:</strong> Logistics Manager acts as a manual data validator for missing info (F-01). Siloed Zoho Books delays billing (F-02).</p>
+      <p style="margin-bottom:0;"><strong>Dependencies:</strong> Sales Team (Accurate order intake data), Accounts Team (Timely manual billing trigger).</p>
     </div>
-    <div class="phase-sow">
-      <div class="col-label">Scope of Work</div>
-      <div class="sow-item"><span class="sow-dot p2"></span><span>Configure a direct API export from Zoho Books into the Logistics Google Sheet to auto-populate fields</span></div>
-      <div class="sow-item"><span class="sow-dot p2"></span><span>Integrate carrier vessel tracking APIs to auto-ping the Logistics channel when cutoffs shift</span></div>
-      <div class="sow-item"><span class="sow-dot p2"></span><span>Automate shipping status updates sent directly to international clients via email</span></div>
-      <div class="sow-item"><span class="sow-dot p2"></span><span>Establish a shared tracking dashboard linking the Accounts and Logistics teams in real-time</span></div>
+
+    <!-- WORKFLOW 2: International Export -->
+    <h3>International Shipping &amp; Export Workflow — <span class="chip-ref">F-03</span></h3>
+    <svg viewBox="0 0 740 92" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:10px 0 4px;">
+      <defs>
+        <marker id="a2" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+          <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5" />
+        </marker>
+      </defs>
+
+      <rect x="10" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <text x="70" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Export
+        Invoice</text>
+      <text x="70" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">&amp;
+        Declarations</text>
+      <line x1="130" y1="46" x2="150" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)" />
+
+      <rect x="150" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <text x="210" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Port
+        Delivery &amp;</text>
+      <text x="210" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Customs
+        Loading</text>
+      <line x1="270" y1="46" x2="290" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)" />
+
+      <rect x="290" y="22" width="120" height="48" rx="3" fill="#FBF1DF" stroke="#E8C97A" stroke-width="1.5" />
+      <text x="350" y="43" text-anchor="middle" font-size="7.6" fill="#8A5A10" font-family="Segoe UI,sans-serif">Vessel
+        Booking &amp;</text>
+      <text x="350" y="55" text-anchor="middle" font-size="7.6" fill="#8A5A10" font-family="Segoe UI,sans-serif">Cutoff
+        Mgmt</text>
+      <line x1="410" y1="46" x2="430" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)" />
+
+      <rect x="430" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <text x="490" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Bill of
+        Lading (BL)</text>
+      <text x="490" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Draft
+        Review</text>
+      <line x1="550" y1="46" x2="570" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)" />
+
+      <rect x="570" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <text x="630" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C"
+        font-family="Segoe UI,sans-serif">Destination Agent</text>
+      <text x="630" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C"
+        font-family="Segoe UI,sans-serif">Handoff</text>
+    </svg>
+    <div class="flow-note">
+      <p style="margin-top:0;"><strong>What is good:</strong> Established checklist for required declarations and customs loading.</p>
+      <p><strong>What needs to be fixed:</strong> Automate alerts for vessel schedule shifts and integrate booking management.</p>
+      <p><strong>Bottlenecks:</strong> A minimum 1-week prep window is vulnerable to manual miscommunications when schedules shift without alerts.</p>
+      <p style="margin-bottom:0;"><strong>Dependencies:</strong> Destination Agent (Handoff), Carrier (Schedule updates).</p>
     </div>
-    <div class="phase-roi">
-      <div class="roi-card">
-        <div class="roi-card-num">100%</div>
-        <div class="roi-card-label">single entry</div>
-        <div class="roi-card-desc">Direct Zoho Books sync entirely eliminates manual double-typing</div>
-      </div>
-      <div class="roi-card">
-        <div class="roi-card-num">Proactive</div>
-        <div class="roi-card-label">delay alerts</div>
-        <div class="roi-card-desc">Carrier APIs prevent export container misses during schedule shifts</div>
-      </div>
-      <div class="roi-card">
-        <div class="roi-card-num">Automated</div>
-        <div class="roi-card-label">client comms</div>
-        <div class="roi-card-desc">Clients receive live tracking without pinging the Logistics Manager</div>
-      </div>
-      <div class="roi-card">
-        <div class="roi-card-num">Unified</div>
-        <div class="roi-card-label">data ledger</div>
-        <div class="roi-card-desc">Accounts and Logistics operate from the exact same shipping data</div>
-      </div>
-    </div>
+
+    <div class="doc-footer"><span>Logistics Audit Report · v1.0</span><span>Page 4</span></div>
   </div>
 
-  <!-- PHASE 3 -->
-  <div class="phase-block">
-    <div class="phase-hd">
-      <div class="phase-hd-left">
-        <span class="phase-hd-title">Phase 3 &mdash; Strategic Scale</span>
-        <span class="phase-hd-timeline">Month 6 onward &middot; Capex review</span>
-      </div>
-      <span class="phase-maturity p3">Maturity 2.7 &rarr; 3.0</span>
+  <!-- ============ 04 RECOMMENDATIONS ============ -->
+  <div class="page">
+    <div class="doc-header"><span><b>EF Polymer Private Limited</b> — Logistics Audit</span><span>Confidential</span></div>
+
+    <div class="eyebrow">Section 04 — Corrective Action Plan</div>
+    <h2>Recommendations Register</h2>
+    <div class="section-dek">Ordered by priority. Effort and impact are directional estimates for planning purposes.
     </div>
-    <div class="phase-sow">
-      <div class="col-label">Scope of Work</div>
-      <div class="sow-item"><span class="sow-dot p3"></span><span>Evaluate Capex proposals for a parallel processing line at the Coimbatore factory</span></div>
-      <div class="sow-item"><span class="sow-dot p3"></span><span>Physically isolate large export batching workflows from the domestic continuous flow line</span></div>
-      <div class="sow-item"><span class="sow-dot p3"></span><span>Integrate a centralized WMS barcode scanning system to verify cargo loading at the port</span></div>
-      <div class="sow-item"><span class="sow-dot p3"></span><span>Transition all domestic carrier bidding to an automated digital freight marketplace</span></div>
-    </div>
-    <div class="phase-roi">
-      <div class="roi-card">
-        <div class="roi-card-num">Parallel</div>
-        <div class="roi-card-label">factory output</div>
-        <div class="roi-card-desc">Export container peaks no longer choke domestic order fulfillment</div>
-      </div>
-      <div class="roi-card">
-        <div class="roi-card-num">Verified</div>
-        <div class="roi-card-label">port loading</div>
-        <div class="roi-card-desc">Barcode scanners guarantee 100% accuracy during vessel stuffing</div>
-      </div>
-      <div class="roi-card">
-        <div class="roi-card-num">Lowest</div>
-        <div class="roi-card-label">freight costs</div>
-        <div class="roi-card-desc">Digital bidding continuously optimizes domestic carrier pricing</div>
-      </div>
-      <div class="roi-card">
-        <div class="roi-card-num">3.0</div>
-        <div class="roi-card-label">maturity level</div>
-        <div class="roi-card-desc">Highly resilient and automated global dispatch network</div>
-      </div>
-    </div>
+
+    <table>
+      <tr>
+        <th class="id">ID</th>
+        <th>Recommendation</th>
+        <th>Finding</th>
+        <th>Priority</th>
+        <th>Effort</th>
+        <th>Expected Impact</th>
+      </tr>
+      <tr>
+        <td class="id">R-01</td>
+        <td>Mandatory Order Intake Forms — Force Sales to use a Zoho or Google Form that physically rejects submissions
+          if pin codes, tax IDs, and exact SKUs are missing.</td>
+        <td><span class="chip-ref">F-01</span></td>
+        <td><span class="chip chip-crit">P1</span></td>
+        <td>Low</td>
+        <td>Reclaims up to 15% of the Manager's time wasted on chasing basic compliance data.</td>
+      </tr>
+      <tr>
+        <td class="id">R-02</td>
+        <td>Zoho Books - Logistics API Sync — Configure a direct export from Zoho Books into the Logistics Google Sheet
+          to auto-populate shipping matrices.</td>
+        <td><span class="chip-ref">F-02</span></td>
+        <td><span class="chip chip-crit">P1</span></td>
+        <td>Medium</td>
+        <td>Ends double-entry between the Accounts ERP and dispatch scheduling.</td>
+      </tr>
+      <tr>
+        <td class="id">R-03</td>
+        <td>Automated Carrier API Alerts — Integrate carrier vessel tracking APIs to ping the Logistics channel when
+          cutoff times shift dynamically.</td>
+        <td><span class="chip-ref">F-03</span></td>
+        <td><span class="chip chip-med">P2</span></td>
+        <td>Medium</td>
+        <td>Prevents export container misses; auto-notifies international clients.</td>
+      </tr>
+      <tr>
+        <td class="id">R-04</td>
+        <td>Multi-Line Factory Capacity Expansion — Evaluate Capex for parallel processing lines to isolate export
+          batching from domestic continuous flow.</td>
+        <td><span class="chip-ref">F-04</span></td>
+        <td><span class="chip chip-low">P3</span></td>
+        <td>High</td>
+        <td>Strategic capacity scale-up removes internal production bottlenecks during peak ocean freight windows.</td>
+      </tr>
+    </table>
+
+    <div class="doc-footer"><span>Logistics Audit Report · v1.0</span><span>Page 5</span></div>
   </div>
 
-  <div class="doc-footer"><span>Logistics Audit Report · v1.0</span><span>Page 7</span></div>
-</div>
+  <!-- ============ 05 MATURITY ============ -->
+  <div class="page">
+    <div class="doc-header"><span><b>EF Polymer Private Limited</b> — Logistics Audit</span><span>Confidential</span></div>
 
-<!-- ============ APPENDIX ============ -->
-<div class="page">
-  <div class="doc-header"><span><b>EF Polymers</b> — Logistics Audit</span><span>Confidential</span></div>
+    <div class="eyebrow">Section 05 — Benchmarking</div>
+    <h2>Department Maturity Assessment</h2>
+    <div class="section-dek">Scored 1 (ad hoc) to 5 (optimized) against five capability dimensions</div>
 
-  <div class="eyebrow">Appendix</div>
-  <h2>Cross-Department Dependencies</h2>
-  <div class="section-dek">Findings and recommendations that require action outside the Logistics Office to resolve</div>
+    <div class="exhibit">
+      <div class="exhibit-chart">
+        <svg viewBox="0 0 400 350" xmlns="http://www.w3.org/2000/svg" style="width:100%;">
+          <g transform="translate(200,170)">
+            <polygon points="0,-120 114,-37 70,97 -70,97 -114,-37" fill="none" stroke="#E2E8F0" stroke-width="0.75" />
+            <polygon points="0,-96 91,-30 56,78 -56,78 -91,-30" fill="none" stroke="#E2E8F0" stroke-width="0.75" />
+            <polygon points="0,-72 68,-22 42,58 -42,58 -68,-22" fill="none" stroke="#E2E8F0" stroke-width="0.75" />
+            <polygon points="0,-48 46,-15 28,39 -28,39 -46,-15" fill="none" stroke="#E2E8F0" stroke-width="0.75" />
+            <polygon points="0,-24 23,-7 14,19 -14,19 -23,-7" fill="none" stroke="#E2E8F0" stroke-width="0.75" />
+            <line x1="0" y1="0" x2="0" y2="-120" stroke="#E2E8F0" stroke-width="0.75" />
+            <line x1="0" y1="0" x2="114" y2="-37" stroke="#E2E8F0" stroke-width="0.75" />
+            <line x1="0" y1="0" x2="70" y2="97" stroke="#E2E8F0" stroke-width="0.75" />
+            <line x1="0" y1="0" x2="-70" y2="97" stroke="#E2E8F0" stroke-width="0.75" />
+            <line x1="0" y1="0" x2="-114" y2="-37" stroke="#E2E8F0" stroke-width="0.75" />
 
-  <table>
-    <tr><th>Finding / Rec.</th><th>Counterpart Department</th><th>Dependency</th></tr>
-    <tr>
-      <td><span class="chip-ref">R-01</span> Mandatory Intake Forms</td>
-      <td>Sales &amp; BD</td>
-      <td>Sales leadership must strictly enforce the use of forms and reprimand reps continuing to order via WhatsApp.</td>
-    </tr>
-    <tr>
-      <td><span class="chip-ref">R-02</span> Zoho Logistics Sync</td>
-      <td>Finance &amp; Accounts</td>
-      <td>Accounts must grant Logistics access to export invoice parameters or assist in building the Zapier/API connection.</td>
-    </tr>
-    <tr>
-      <td><span class="chip-ref">R-04</span> Capacity Expansion</td>
-      <td>Production &amp; Ops</td>
-      <td>Production must assess factory floor space and capital requirements to stand up a parallel line.</td>
-    </tr>
-  </table>
+            <!-- Target dashed: Process 3.0, Tech 3.0, Data 3.5, Docs 3.0, KM 2.5 -->
+            <polygon points="0,-72 68.4,-22.2 68.6,95 -60,82.8 -79.8,-25.9" fill="none" stroke="#B8C0C9"
+              stroke-width="1" stroke-dasharray="5,3" />
 
-  <div class="doc-footer"><span>Logistics Audit Report · v1.0</span><span>Page 8</span></div>
-</div>
+            <!-- Current: Process 2.0, Tech 1.0, Data 1.5, Docs 2.0, KM 1.5 -->
+            <polygon points="0,-48 22.8,-7.4 21,29.1 -40,55.2 -34.2,-11.1" fill="rgba(15,107,98,0.14)" stroke="#0F6B62"
+              stroke-width="1.75" />
+            <circle cx="0" cy="-48" r="3.2" fill="#0F6B62" />
+            <circle cx="22.8" cy="-7.4" r="3.2" fill="#0F6B62" />
+            <circle cx="21" cy="29.1" r="3.2" fill="#0F6B62" />
+            <circle cx="-40" cy="55.2" r="3.2" fill="#0F6B62" />
+            <circle cx="-34.2" cy="-11.1" r="3.2" fill="#0F6B62" />
+
+            <text x="0" y="-132" text-anchor="middle" font-size="9" fill="#1B2A4A" font-weight="600">Process</text>
+            <text x="128" y="-20" text-anchor="start" font-size="9" fill="#1B2A4A" font-weight="600">Technology</text>
+            <text x="78" y="110" text-anchor="start" font-size="9" fill="#1B2A4A" font-weight="600">Data Quality</text>
+            <text x="-78" y="110" text-anchor="end" font-size="9" fill="#1B2A4A" font-weight="600">Documentation</text>
+            <text x="-128" y="-16" text-anchor="end" font-size="9" fill="#1B2A4A" font-weight="600">Knowledge
+              Mgmt.</text>
+          </g>
+        </svg>
+      </div>
+      <div class="exhibit-note">
+        Solid line: current state. Dashed line: target state (post-roadmap).<br><br>
+        <b>Logistics scores 1.6 overall</b> — The department's efficiency is artificially depressed by poor upstream
+        data quality (WhatsApp ordering) and a lack of Technology integration (Zoho API).<br><br>
+        Implementing rigid order intake forms will immediately pull the Data Quality score upward and drastically lower
+        the operational drag on the Logistics team.
+      </div>
+    </div>
+
+    <table>
+      <tr>
+        <th>Dimension</th>
+        <th class="num">Current</th>
+        <th class="num">Target</th>
+        <th class="num">Gap</th>
+      </tr>
+      <tr>
+        <td>Process Standardization</td>
+        <td class="num">2.0</td>
+        <td class="num">3.0</td>
+        <td class="num">1.0</td>
+      </tr>
+      <tr>
+        <td>Technology Utilization</td>
+        <td class="num">1.0</td>
+        <td class="num">3.0</td>
+        <td class="num">2.0</td>
+      </tr>
+      <tr>
+        <td>Data Quality &amp; Accessibility</td>
+        <td class="num">1.5</td>
+        <td class="num">3.5</td>
+        <td class="num">2.0</td>
+      </tr>
+      <tr>
+        <td>Documentation</td>
+        <td class="num">2.0</td>
+        <td class="num">3.0</td>
+        <td class="num">1.0</td>
+      </tr>
+      <tr>
+        <td>Knowledge Management</td>
+        <td class="num">1.5</td>
+        <td class="num">2.5</td>
+        <td class="num">1.0</td>
+      </tr>
+      <tr style="font-weight:700;">
+        <td>Overall</td>
+        <td class="num">1.6</td>
+        <td class="num">3.0</td>
+        <td class="num">1.4</td>
+      </tr>
+    </table>
+
+    <div class="doc-footer"><span>Logistics Audit Report · v1.0</span><span>Page 6</span></div>
+  </div>
+
+  <!-- ============ 06 ROADMAP ============ -->
+  <div class="page">
+    <div class="doc-header"><span><b>EF Polymer Private Limited</b> — Logistics Audit</span><span>Confidential</span></div>
+
+    <div class="eyebrow">Section 06 — Implementation Plan</div>
+    <h2>Phased Roadmap</h2>
+    <div class="section-dek">Initiatives sequenced across three phases, with quantified ROI and scope of work</div>
+
+    <table class="tl-table">
+      <tr>
+        <th>Initiative</th>
+        <th class="id">Rec.</th>
+        <th class="num">Phase 1<br><span style="font-weight:400">Mo. 1–2</span></th>
+        <th class="num">Phase 2<br><span style="font-weight:400">Mo. 3–5</span></th>
+        <th class="num">Phase 3<br><span style="font-weight:400">Mo. 6+</span></th>
+      </tr>
+      <tr>
+        <td>Mandatory Order Intake Forms</td>
+        <td class="id">R-01</td>
+        <td class="phase-mark p1">●</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Zoho Books Logistics Sync</td>
+        <td class="id">R-02</td>
+        <td></td>
+        <td class="phase-mark p2">●</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Automated Carrier Alerts</td>
+        <td class="id">R-03</td>
+        <td></td>
+        <td class="phase-mark p2">●</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Capacity Expansion Planning</td>
+        <td class="id">R-04</td>
+        <td></td>
+        <td></td>
+        <td class="phase-mark p3">●</td>
+      </tr>
+    </table>
+
+    <!-- PHASE 1 -->
+    <div class="phase-block">
+      <div class="phase-hd">
+        <div class="phase-hd-left">
+          <span class="phase-hd-title">Phase 1 &mdash; Intake Discipline</span>
+          <span class="phase-hd-timeline">Months 1&ndash;2 &middot; Eradicating WhatsApp Chasing</span>
+        </div>
+        <span class="phase-maturity">Maturity 1.6 &rarr; 2.2</span>
+      </div>
+      <div class="phase-sow">
+        <div class="col-label">Scope of Work</div>
+        <div class="sow-item"><span class="sow-dot"></span><span>Deploy a Zoho/Google Form for all Sales teams with
+            mandatory fields for pin codes and SKUs</span></div>
+        <div class="sow-item"><span class="sow-dot"></span><span>Enforce a strict policy rejecting any free-text
+            WhatsApp orders that bypass the official form</span></div>
+        <div class="sow-item"><span class="sow-dot"></span><span>Build a database lookup to automatically fetch
+            historical shipping addresses for repeat clients</span></div>
+        <div class="sow-item"><span class="sow-dot"></span><span>Standardize the intake format for all B2B packaging and
+            custom print requirements</span></div>
+      </div>
+      <div class="phase-roi">
+        <div class="roi-card">
+          <div class="roi-card-num">&darr; 30%</div>
+          <div class="roi-card-label">admin time</div>
+          <div class="roi-card-desc">Manager reclaims hours previously spent chasing missing BD data</div>
+        </div>
+        <div class="roi-card">
+          <div class="roi-card-num">Zero</div>
+          <div class="roi-card-label">intake errors</div>
+          <div class="roi-card-desc">Strict form validation eliminates typos in destination pin codes</div>
+        </div>
+        <div class="roi-card">
+          <div class="roi-card-num">Instant</div>
+          <div class="roi-card-label">repeat orders</div>
+          <div class="roi-card-desc">Historical address lookups prevent redundant client questioning</div>
+        </div>
+        <div class="roi-card">
+          <div class="roi-card-num">&lt; 10 min</div>
+          <div class="roi-card-label">order processing</div>
+          <div class="roi-card-desc">Standardized data drops typical large order processing times</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PHASE 2 -->
+    <div class="phase-block">
+      <div class="phase-hd">
+        <div class="phase-hd-left">
+          <span class="phase-hd-title">Phase 2 &mdash; Systems Integration</span>
+          <span class="phase-hd-timeline">Months 3&ndash;5 &middot; Data Unification</span>
+        </div>
+        <span class="phase-maturity p2">Maturity 2.2 &rarr; 2.7</span>
+      </div>
+      <div class="phase-sow">
+        <div class="col-label">Scope of Work</div>
+        <div class="sow-item"><span class="sow-dot p2"></span><span>Configure a direct API export from Zoho Books into
+            the Logistics Google Sheet to auto-populate fields</span></div>
+        <div class="sow-item"><span class="sow-dot p2"></span><span>Integrate carrier vessel tracking APIs to auto-ping
+            the Logistics channel when cutoffs shift</span></div>
+        <div class="sow-item"><span class="sow-dot p2"></span><span>Automate shipping status updates sent directly to
+            international clients via email</span></div>
+        <div class="sow-item"><span class="sow-dot p2"></span><span>Establish a shared tracking dashboard linking the
+            Accounts and Logistics teams in real-time</span></div>
+      </div>
+      <div class="phase-roi">
+        <div class="roi-card">
+          <div class="roi-card-num">100%</div>
+          <div class="roi-card-label">single entry</div>
+          <div class="roi-card-desc">Direct Zoho Books sync entirely eliminates manual double-typing</div>
+        </div>
+        <div class="roi-card">
+          <div class="roi-card-num">Proactive</div>
+          <div class="roi-card-label">delay alerts</div>
+          <div class="roi-card-desc">Carrier APIs prevent export container misses during schedule shifts</div>
+        </div>
+        <div class="roi-card">
+          <div class="roi-card-num">Automated</div>
+          <div class="roi-card-label">client comms</div>
+          <div class="roi-card-desc">Clients receive live tracking without pinging the Logistics Manager</div>
+        </div>
+        <div class="roi-card">
+          <div class="roi-card-num">Unified</div>
+          <div class="roi-card-label">data ledger</div>
+          <div class="roi-card-desc">Accounts and Logistics operate from the exact same shipping data</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PHASE 3 -->
+    <div class="phase-block">
+      <div class="phase-hd">
+        <div class="phase-hd-left">
+          <span class="phase-hd-title">Phase 3 &mdash; Strategic Scale</span>
+          <span class="phase-hd-timeline">Month 6 onward &middot; Capex review</span>
+        </div>
+        <span class="phase-maturity p3">Maturity 2.7 &rarr; 3.0</span>
+      </div>
+      <div class="phase-sow">
+        <div class="col-label">Scope of Work</div>
+        <div class="sow-item"><span class="sow-dot p3"></span><span>Evaluate Capex proposals for a parallel processing
+            line at the Coimbatore factory</span></div>
+        <div class="sow-item"><span class="sow-dot p3"></span><span>Physically isolate large export batching workflows
+            from the domestic continuous flow line</span></div>
+        <div class="sow-item"><span class="sow-dot p3"></span><span>Integrate a centralized WMS barcode scanning system
+            to verify cargo loading at the port</span></div>
+        <div class="sow-item"><span class="sow-dot p3"></span><span>Transition all domestic carrier bidding to an
+            automated digital freight marketplace</span></div>
+      </div>
+      <div class="phase-roi">
+        <div class="roi-card">
+          <div class="roi-card-num">Parallel</div>
+          <div class="roi-card-label">factory output</div>
+          <div class="roi-card-desc">Export container peaks no longer choke domestic order fulfillment</div>
+        </div>
+        <div class="roi-card">
+          <div class="roi-card-num">Verified</div>
+          <div class="roi-card-label">port loading</div>
+          <div class="roi-card-desc">Barcode scanners guarantee 100% accuracy during vessel stuffing</div>
+        </div>
+        <div class="roi-card">
+          <div class="roi-card-num">Lowest</div>
+          <div class="roi-card-label">freight costs</div>
+          <div class="roi-card-desc">Digital bidding continuously optimizes domestic carrier pricing</div>
+        </div>
+        <div class="roi-card">
+          <div class="roi-card-num">3.0</div>
+          <div class="roi-card-label">maturity level</div>
+          <div class="roi-card-desc">Highly resilient and automated global dispatch network</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="doc-footer"><span>Logistics Audit Report · v1.0</span><span>Page 7</span></div>
+  </div>
+
+  <!-- ============ APPENDIX ============ -->
+  <div class="page">
+    <div class="doc-header"><span><b>EF Polymer Private Limited</b> — Logistics Audit</span><span>Confidential</span></div>
+
+    <div class="eyebrow">Appendix</div>
+    <h2>Cross-Department Dependencies</h2>
+    <div class="section-dek">Findings and recommendations that require action outside the Logistics Office to resolve
+    </div>
+
+    <table>
+      <tr>
+        <th>Finding / Rec.</th>
+        <th>Counterpart Department</th>
+        <th>Dependency</th>
+      </tr>
+      <tr>
+        <td><span class="chip-ref">R-01</span> Mandatory Intake Forms</td>
+        <td>Sales &amp; BD</td>
+        <td>Sales leadership must strictly enforce the use of forms and reprimand reps continuing to order via WhatsApp.
+        </td>
+      </tr>
+      <tr>
+        <td><span class="chip-ref">R-02</span> Zoho Logistics Sync</td>
+        <td>Finance &amp; Accounts</td>
+        <td>Accounts must grant Logistics access to export invoice parameters or assist in building the Zapier/API
+          connection.</td>
+      </tr>
+      <tr>
+        <td><span class="chip-ref">R-04</span> Capacity Expansion</td>
+        <td>Production &amp; Ops</td>
+        <td>Production must assess factory floor space and capital requirements to stand up a parallel line.</td>
+      </tr>
+    </table>
+
+    <div class="doc-footer"><span>Logistics Audit Report · v1.0</span><span>Page 8</span></div>
+  </div>
 
 </body>
+
 </html>

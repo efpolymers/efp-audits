@@ -1,527 +1,2355 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Research & Development — Department Audit Report | EF Polymers</title>
-<style>
-:root{
-  --ink:#1B2A4A;
-  --slate:#3F4B5C;
-  --muted:#6B7785;
-  --line:#D8DEE5;
-  --line-soft:#E9EDF1;
-  --paper:#FFFFFF;
-  --paper-alt:#F6F7F9;
-  --accent:#0F6B62;
-  --accent-soft:#EAF3F1;
-  --risk-crit-bg:#FCEBEA; --risk-crit-fg:#A32E24;
-  --risk-med-bg:#FBF1DF;  --risk-med-fg:#8A5A10;
-  --risk-low-bg:#E9F4EC;  --risk-low-fg:#276B3E;
-}
-@page{ size:A4; margin:22mm 18mm 20mm 18mm; }
-*{ margin:0; padding:0; box-sizing:border-box; }
-body{
-  font-family:'Segoe UI',system-ui,-apple-system,sans-serif;
-  color:var(--slate);
-  line-height:1.55;
-  background:#EDEFF1;
-  font-size:10.3pt;
-}
-.page{
-  background:var(--paper);
-  max-width:840px;
-  margin:0 auto 14px auto;
-  padding:26mm 20mm 20mm 20mm;
-  position:relative;
-  page-break-after:always;
-  min-height:1120px;
-}
-.page:last-child{ page-break-after:avoid; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Research & Development — Department Audit Report | EF Polymer Private Limited</title>
+  <style>
+    :root {
+      --ink: #1B2A4A;
+      --slate: #3F4B5C;
+      --muted: #6B7785;
+      --line: #D8DEE5;
+      --line-soft: #E9EDF1;
+      --paper: #FFFFFF;
+      --paper-alt: #F6F7F9;
+      --accent: #0F6B62;
+      --accent-soft: #EAF3F1;
+      --risk-crit-bg: #FCEBEA;
+      --risk-crit-fg: #A32E24;
+      --risk-med-bg: #FBF1DF;
+      --risk-med-fg: #8A5A10;
+      --risk-low-bg: #E9F4EC;
+      --risk-low-fg: #276B3E;
+    }
 
-/* ---- running header / footer ---- */
-.doc-header{
-  display:flex; justify-content:space-between; align-items:baseline;
-  font-size:7.8pt; letter-spacing:0.4px; text-transform:uppercase; color:var(--muted);
-  border-bottom:1px solid var(--line); padding-bottom:8px; margin-bottom:22px;
-}
-.doc-header b{ color:var(--ink); }
-.doc-footer{
-  position:absolute; bottom:10mm; left:20mm; right:20mm;
-  display:flex; justify-content:space-between;
-  font-size:7.5pt; color:var(--muted);
-  border-top:1px solid var(--line-soft); padding-top:6px;
-}
+    @page {
+      size: A4;
+      margin: 22mm 18mm 20mm 18mm;
+    }
 
-/* ---- cover ---- */
-.cover{ display:flex; flex-direction:column; min-height:1080px; }
-.cover-top{ display:flex; justify-content:space-between; align-items:flex-start; }
-.cover-mark{ font-size:9pt; font-weight:700; letter-spacing:2px; color:var(--ink); }
-.cover-mark span{ color:var(--accent); }
-.cover-class{ font-size:7.8pt; text-transform:uppercase; letter-spacing:1.5px; color:var(--muted); border:1px solid var(--line); padding:4px 10px; }
-.cover-body{ flex:1; display:flex; flex-direction:column; justify-content:center; padding:60px 0; }
-.cover-eyebrow{ font-family:Georgia,'Times New Roman',serif; font-style:italic; font-size:11pt; color:var(--accent); margin-bottom:14px; }
-.cover-title{ font-family:Georgia,'Times New Roman',serif; font-size:34pt; color:var(--ink); font-weight:600; line-height:1.15; margin-bottom:10px; }
-.cover-sub{ font-size:13pt; color:var(--slate); font-weight:400; }
-.cover-rule{ width:52px; height:2px; background:var(--accent); margin:26px 0; }
-.cover-ctrl{ border:1px solid var(--line); }
-.cover-ctrl table{ width:100%; border-collapse:collapse; margin:0; }
-.cover-ctrl td{ padding:9px 14px; font-size:9pt; border-bottom:1px solid var(--line-soft); }
-.cover-ctrl tr:last-child td{ border-bottom:none; }
-.cover-ctrl td.label{ color:var(--muted); width:38%; text-transform:uppercase; font-size:7.8pt; letter-spacing:0.5px; }
-.cover-ctrl td.val{ color:var(--ink); font-weight:600; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-/* ---- section furniture ---- */
-.eyebrow{ font-size:8pt; color:var(--accent); font-weight:700; letter-spacing:1.6px; text-transform:uppercase; margin-bottom:6px; }
-h2{ font-family:Georgia,'Times New Roman',serif; font-size:17pt; color:var(--ink); font-weight:600; margin-bottom:4px; }
-h2 + .section-dek{ color:var(--muted); font-size:9.3pt; margin-bottom:18px; padding-bottom:14px; border-bottom:1px solid var(--line); }
-h3{ font-family:Georgia,'Times New Roman',serif; font-size:12.5pt; color:var(--ink); font-weight:600; margin:22px 0 8px; }
-h4{ font-size:10pt; color:var(--ink); font-weight:700; margin:14px 0 4px; }
-p{ margin-bottom:10px; }
-.lede{ font-size:10.6pt; color:var(--slate); max-width:95%; }
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      color: var(--slate);
+      line-height: 1.55;
+      background: #EDEFF1;
+      font-size: 10.3pt;
+    }
 
-/* ---- tables ---- */
-table{ width:100%; border-collapse:collapse; margin:10px 0 20px; font-size:9pt; }
-th{ background:var(--ink); color:#fff; padding:8px 10px; text-align:left; font-weight:600; font-size:8.3pt; letter-spacing:0.3px; text-transform:uppercase; }
-td{ padding:8px 10px; border-bottom:1px solid var(--line-soft); vertical-align:top; }
-tr:nth-child(even) td{ background:var(--paper-alt); }
-td.id, th.id{ font-family:Georgia,serif; font-weight:700; color:var(--ink); white-space:nowrap; width:44px; }
-td.num{ text-align:center; white-space:nowrap; }
+    .page {
+      background: var(--paper);
+      max-width: 840px;
+      margin: 0 auto 14px auto;
+      padding: 26mm 20mm 20mm 20mm;
+      position: relative;
+      page-break-after: always;
+      min-height: 1120px;
+    }
 
-/* ---- chips ---- */
-.chip{ display:inline-block; padding:2px 9px; border-radius:3px; font-size:7.8pt; font-weight:700; letter-spacing:0.3px; text-transform:uppercase; white-space:nowrap; }
-.chip-crit{ background:var(--risk-crit-bg); color:var(--risk-crit-fg); }
-.chip-med{  background:var(--risk-med-bg);  color:var(--risk-med-fg); }
-.chip-low{  background:var(--risk-low-bg);  color:var(--risk-low-fg); }
-.chip-ref{ display:inline-block; background:var(--accent-soft); color:var(--accent); font-family:Georgia,serif; font-weight:700; font-size:8pt; padding:1px 6px; border-radius:3px; margin:1px 2px 1px 0; }
+    .page:last-child {
+      page-break-after: avoid;
+    }
 
-/* ---- KPI strip ---- */
-.kpi-strip{ display:flex; border:1px solid var(--line); margin:16px 0 22px; }
-.kpi-cell{ flex:1; padding:12px 14px; border-right:1px solid var(--line); }
-.kpi-cell:last-child{ border-right:none; }
-.kpi-num{ font-family:Georgia,serif; font-size:15pt; color:var(--ink); font-weight:700; }
-.kpi-lbl{ font-size:7.6pt; color:var(--muted); text-transform:uppercase; letter-spacing:0.5px; margin-top:2px; }
+    /* ---- running header / footer ---- */
+    .doc-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: 7.8pt;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      color: var(--muted);
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 8px;
+      margin-bottom: 22px;
+    }
 
-/* ---- callout ---- */
-.callout{ border-left:3px solid var(--accent); background:var(--accent-soft); padding:10px 14px; font-size:9pt; color:var(--ink); margin:10px 0 20px; }
+    .doc-header b {
+      color: var(--ink);
+    }
 
-/* ---- flow notes ---- */
-.flow-note{ font-size:8.6pt; color:var(--muted); margin:4px 0 18px; padding-left:2px; }
-.flow-note b{ color:var(--risk-crit-fg); }
+    .doc-footer {
+      position: absolute;
+      bottom: 10mm;
+      left: 20mm;
+      right: 20mm;
+      display: flex;
+      justify-content: space-between;
+      font-size: 7.5pt;
+      color: var(--muted);
+      border-top: 1px solid var(--line-soft);
+      padding-top: 6px;
+    }
 
-/* ---- maturity exhibit ---- */
-.exhibit{ display:flex; gap:26px; align-items:center; margin:14px 0 6px; }
-.exhibit-chart{ flex:0 0 220px; }
-.exhibit-note{ flex:1; font-size:9.2pt; color:var(--slate); }
-.exhibit-note b{ color:var(--ink); }
+    /* ---- cover ---- */
+    .cover {
+      display: flex;
+      flex-direction: column;
+      min-height: 1080px;
+    }
 
-/* ---- roadmap table ---- */
-.tl-table td.phase-mark{ text-align:center; font-weight:700; }
-.tl-table td.phase-mark.p1{ color:var(--accent); }
-.tl-table td.phase-mark.p2{ color:#2563eb; }
-.tl-table td.phase-mark.p3{ color:#7c3aed; }
+    .cover-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
 
-/* ---- phase blocks ---- */
-.phase-block{ border:1px solid var(--line); margin:14px 0; overflow:hidden; }
-.phase-hd{ display:flex; justify-content:space-between; align-items:center; padding:10px 14px; border-bottom:1px solid var(--line); background:var(--paper-alt); gap:16px; }
-.phase-hd-left{ display:flex; flex-direction:column; gap:2px; }
-.phase-hd-title{ font-family:Georgia,serif; font-size:11pt; font-weight:700; color:var(--ink); }
-.phase-hd-timeline{ font-size:7.8pt; color:var(--muted); }
-.phase-maturity{ font-size:8.5pt; font-weight:700; color:var(--accent); border:1px solid var(--accent); border-radius:3px; padding:3px 10px; white-space:nowrap; flex-shrink:0; }
-.phase-maturity.p2{ color:#2563eb; border-color:#2563eb; }
-.phase-maturity.p3{ color:#7c3aed; border-color:#7c3aed; }
-.phase-sow{ padding:11px 14px 14px; }
-.col-label{ font-size:7.4pt; color:var(--muted); text-transform:uppercase; letter-spacing:0.8px; margin-bottom:8px; font-weight:700; }
-.sow-item{ display:flex; gap:8px; margin-bottom:5px; font-size:8.5pt; color:var(--slate); line-height:1.4; }
-.sow-dot{ width:4px; height:4px; background:var(--accent); border-radius:50%; margin-top:5px; flex-shrink:0; }
-.sow-dot.p2{ background:#2563eb; }
-.sow-dot.p3{ background:#7c3aed; }
-.phase-roi{ display:flex; border-top:1px solid var(--line); background:var(--paper-alt); }
-.roi-card{ flex:1; padding:10px 12px; border-right:1px solid var(--line); text-align:center; }
-.roi-card:last-child{ border-right:none; }
-.roi-card-num{ font-family:Georgia,serif; font-size:13pt; font-weight:700; color:var(--ink); line-height:1.1; margin-bottom:3px; }
-.roi-card-label{ font-size:7.5pt; color:var(--ink); font-weight:700; text-transform:uppercase; letter-spacing:0.3px; margin-bottom:3px; }
-.roi-card-desc{ font-size:7pt; color:var(--muted); line-height:1.35; }
+    .cover-mark {
+      font-size: 9pt;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--ink);
+    }
 
-@media print{
-  body{ background:#fff; }
-  .page{ box-shadow:none; margin:0; }
-}
-</style>
+    .cover-mark span {
+      color: var(--accent);
+    }
+
+    .cover-class {
+      font-size: 7.8pt;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--muted);
+      border: 1px solid var(--line);
+      padding: 4px 10px;
+    }
+
+    .cover-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 60px 0;
+    }
+
+    .cover-eyebrow {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-style: italic;
+      font-size: 11pt;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+
+    .cover-title {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 34pt;
+      color: var(--ink);
+      font-weight: 600;
+      line-height: 1.15;
+      margin-bottom: 10px;
+    }
+
+    .cover-sub {
+      font-size: 13pt;
+      color: var(--slate);
+      font-weight: 400;
+    }
+
+    .cover-rule {
+      width: 52px;
+      height: 2px;
+      background: var(--accent);
+      margin: 26px 0;
+    }
+
+    .cover-ctrl {
+      border: 1px solid var(--line);
+    }
+
+    .cover-ctrl table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0;
+    }
+
+    .cover-ctrl td {
+      padding: 9px 14px;
+      font-size: 9pt;
+      border-bottom: 1px solid var(--line-soft);
+    }
+
+    .cover-ctrl tr:last-child td {
+      border-bottom: none;
+    }
+
+    .cover-ctrl td.label {
+      color: var(--muted);
+      width: 38%;
+      text-transform: uppercase;
+      font-size: 7.8pt;
+      letter-spacing: 0.5px;
+    }
+
+    .cover-ctrl td.val {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    /* ---- section furniture ---- */
+    .eyebrow {
+      font-size: 8pt;
+      color: var(--accent);
+      font-weight: 700;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    h2 {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 17pt;
+      color: var(--ink);
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    h2+.section-dek {
+      color: var(--muted);
+      font-size: 9.3pt;
+      margin-bottom: 18px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    h3 {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 12.5pt;
+      color: var(--ink);
+      font-weight: 600;
+      margin: 22px 0 8px;
+    }
+
+    h4 {
+      font-size: 10pt;
+      color: var(--ink);
+      font-weight: 700;
+      margin: 14px 0 4px;
+    }
+
+    p {
+      margin-bottom: 10px;
+    }
+
+    .lede {
+      font-size: 10.6pt;
+      color: var(--slate);
+      max-width: 95%;
+    }
+
+    /* ---- tables ---- */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 10px 0 20px;
+      font-size: 9pt;
+    }
+
+    th {
+      background: var(--ink);
+      color: #fff;
+      padding: 8px 10px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 8.3pt;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+    }
+
+    td {
+      padding: 8px 10px;
+      border-bottom: 1px solid var(--line-soft);
+      vertical-align: top;
+    }
+
+    tr:nth-child(even) td {
+      background: var(--paper-alt);
+    }
+
+    td.id,
+    th.id {
+      font-family: Georgia, serif;
+      font-weight: 700;
+      color: var(--ink);
+      white-space: nowrap;
+      width: 44px;
+    }
+
+    td.num {
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    /* ---- chips ---- */
+    .chip {
+      display: inline-block;
+      padding: 2px 9px;
+      border-radius: 3px;
+      font-size: 7.8pt;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .chip-crit {
+      background: var(--risk-crit-bg);
+      color: var(--risk-crit-fg);
+    }
+
+    .chip-med {
+      background: var(--risk-med-bg);
+      color: var(--risk-med-fg);
+    }
+
+    .chip-low {
+      background: var(--risk-low-bg);
+      color: var(--risk-low-fg);
+    }
+
+    .chip-ref {
+      display: inline-block;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-family: Georgia, serif;
+      font-weight: 700;
+      font-size: 8pt;
+      padding: 1px 6px;
+      border-radius: 3px;
+      margin: 1px 2px 1px 0;
+    }
+
+    /* ---- KPI strip ---- */
+    .kpi-strip {
+      display: flex;
+      border: 1px solid var(--line);
+      margin: 16px 0 22px;
+    }
+
+    .kpi-cell {
+      flex: 1;
+      padding: 12px 14px;
+      border-right: 1px solid var(--line);
+    }
+
+    .kpi-cell:last-child {
+      border-right: none;
+    }
+
+    .kpi-num {
+      font-family: Georgia, serif;
+      font-size: 15pt;
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    .kpi-lbl {
+      font-size: 7.6pt;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 2px;
+    }
+
+    /* ---- callout ---- */
+    .callout {
+      border-left: 3px solid var(--accent);
+      background: var(--accent-soft);
+      padding: 10px 14px;
+      font-size: 9pt;
+      color: var(--ink);
+      margin: 10px 0 20px;
+    }
+
+    /* ---- flow notes ---- */
+    .flow-note {
+      font-size: 8.6pt;
+      color: var(--muted);
+      margin: 4px 0 18px;
+      padding-left: 2px;
+    }
+
+    .flow-note b {
+      color: var(--risk-crit-fg);
+    }
+
+    /* ---- maturity legend (static, PDF-safe) ---- */
+    .maturity-legend {
+      background: var(--paper-alt);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 10px 14px;
+      margin: 4px 0 0;
+      font-size: 8pt;
+    }
+
+    .maturity-legend-title {
+      font-weight: 700;
+      color: var(--ink);
+      font-size: 8pt;
+      margin-bottom: 6px;
+    }
+
+    .maturity-bar-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+
+    .maturity-bar-track {
+      flex: 1;
+      height: 7px;
+      background: var(--line);
+      border-radius: 4px;
+      position: relative;
+      overflow: visible;
+    }
+
+    .maturity-bar-fill {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 30%;
+      background: var(--accent);
+      border-radius: 4px;
+    }
+
+    .maturity-bar-marker {
+      position: absolute;
+      top: -3px;
+      width: 2px;
+      height: 13px;
+      background: var(--ink);
+      border-radius: 1px;
+    }
+
+    .maturity-bar-marker.target {
+      left: 64%;
+      background: #2563eb;
+    }
+
+    .maturity-bar-lbl {
+      font-size: 7pt;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .maturity-legend-notes {
+      display: flex;
+      gap: 14px;
+      margin-top: 6px;
+      font-size: 7.2pt;
+      color: var(--muted);
+    }
+
+    .maturity-legend-notes span b {
+      color: var(--ink);
+    }
+
+    /* ---- team structure ---- */
+    .team-structure {
+      margin: 0 0 20px;
+    }
+
+    .org-chart {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      margin: 14px 0;
+      font-size: 8.3pt;
+    }
+
+    .org-level {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 14px;
+      width: 100%;
+      position: relative;
+    }
+
+    .org-connector-top {
+      width: 1px;
+      height: 18px;
+      background: var(--line);
+      margin: 0 auto;
+    }
+
+    .org-connector-row {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      width: 100%;
+    }
+
+    .org-connector-row::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1px;
+      height: 18px;
+      background: var(--line);
+    }
+
+    .org-node {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 8px 10px;
+      min-width: 120px;
+      max-width: 160px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .org-node.lead {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+      border-width: 1.5px;
+    }
+
+    .org-node.secondary {
+      background: var(--paper-alt);
+    }
+
+    .org-node.joining {
+      border-style: dashed;
+      opacity: 0.8;
+    }
+
+    .org-node.intern {
+      border-style: dashed;
+      opacity: 0.7;
+      background: var(--paper-alt);
+    }
+
+    .org-name {
+      font-weight: 700;
+      color: var(--ink);
+      font-size: 8.2pt;
+      margin-bottom: 3px;
+    }
+
+    .org-role {
+      font-size: 7pt;
+      color: var(--muted);
+      line-height: 1.3;
+    }
+
+    .org-tag {
+      display: inline-block;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 6.5pt;
+      font-weight: 700;
+      padding: 1px 5px;
+      border-radius: 2px;
+      margin-top: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    .org-tag.joining {
+      background: var(--risk-med-bg);
+      color: var(--risk-med-fg);
+    }
+
+    .org-h-line {
+      width: 100%;
+      border-top: 1px solid var(--line);
+      margin-bottom: 0;
+      position: relative;
+    }
+
+    .org-sub-branch {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* ---- tools grid ---- */
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin: 12px 0 20px;
+    }
+
+    .tool-card {
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 10px 12px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      background: var(--paper);
+    }
+
+    .tool-icon {
+      font-size: 18pt;
+      line-height: 1;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .tool-info {}
+
+    .tool-name {
+      font-weight: 700;
+      color: var(--ink);
+      font-size: 8.5pt;
+      margin-bottom: 2px;
+    }
+
+    .tool-desc {
+      font-size: 7.5pt;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    /* ---- maturity exhibit ---- */
+    .exhibit {
+      display: flex;
+      gap: 26px;
+      align-items: center;
+      margin: 14px 0 6px;
+    }
+
+    .exhibit-chart {
+      flex: 0 0 220px;
+    }
+
+    .exhibit-note {
+      flex: 1;
+      font-size: 9.2pt;
+      color: var(--slate);
+    }
+
+    .exhibit-note b {
+      color: var(--ink);
+    }
+
+    /* ---- roadmap table ---- */
+    .tl-table td.phase-mark {
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .tl-table td.phase-mark.p1 {
+      color: var(--accent);
+    }
+
+    .tl-table td.phase-mark.p2 {
+      color: #2563eb;
+    }
+
+    .tl-table td.phase-mark.p3 {
+      color: #7c3aed;
+    }
+
+    /* ---- phase blocks ---- */
+    .phase-block {
+      border: 1px solid var(--line);
+      margin: 14px 0;
+      overflow: hidden;
+    }
+
+    .phase-hd {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--line);
+      background: var(--paper-alt);
+      gap: 16px;
+    }
+
+    .phase-hd-left {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .phase-hd-title {
+      font-family: Georgia, serif;
+      font-size: 11pt;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .phase-hd-timeline {
+      font-size: 7.8pt;
+      color: var(--muted);
+    }
+
+    .phase-maturity {
+      font-size: 8.5pt;
+      font-weight: 700;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      border-radius: 3px;
+      padding: 3px 10px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .phase-maturity.p2 {
+      color: #2563eb;
+      border-color: #2563eb;
+    }
+
+    .phase-maturity.p3 {
+      color: #7c3aed;
+      border-color: #7c3aed;
+    }
+
+    .phase-sow {
+      padding: 11px 14px 14px;
+    }
+
+    .col-label {
+      font-size: 7.4pt;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+
+    .sow-item {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 5px;
+      font-size: 8.5pt;
+      color: var(--slate);
+      line-height: 1.4;
+    }
+
+    .sow-dot {
+      width: 4px;
+      height: 4px;
+      background: var(--accent);
+      border-radius: 50%;
+      margin-top: 5px;
+      flex-shrink: 0;
+    }
+
+    .sow-dot.p2 {
+      background: #2563eb;
+    }
+
+    .sow-dot.p3 {
+      background: #7c3aed;
+    }
+
+    .phase-roi {
+      display: flex;
+      border-top: 1px solid var(--line);
+      background: var(--paper-alt);
+    }
+
+    .roi-card {
+      flex: 1;
+      padding: 10px 12px;
+      border-right: 1px solid var(--line);
+      text-align: center;
+    }
+
+    .roi-card:last-child {
+      border-right: none;
+    }
+
+    .roi-card-num {
+      font-family: Georgia, serif;
+      font-size: 13pt;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.1;
+      margin-bottom: 3px;
+    }
+
+    .roi-card-label {
+      font-size: 7.5pt;
+      color: var(--ink);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      margin-bottom: 3px;
+    }
+
+    .roi-card-desc {
+      font-size: 7pt;
+      color: var(--muted);
+      line-height: 1.35;
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .page {
+        box-shadow: none;
+        margin: 0;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<!-- ============ COVER ============ -->
-<div class="page cover">
-  <div class="cover-top">
-    <div class="cover-mark">EF<span>·</span>POLYMERS</div>
-    <div class="cover-class">Confidential — Executive Leadership Only</div>
+
+  <!-- ============ COVER ============ -->
+  <div class="page cover">
+    <div class="cover-top">
+      <div class="cover-mark">EF POLYMER PRIVATE LIMITED</div>
+      <div class="cover-class">Confidential</div>
+    </div>
+    <div class="cover-body">
+      <div class="cover-eyebrow">Department Wise Audit Report</div>
+      <div class="cover-title">Research &amp; Development</div>
+      <div class="cover-sub">Field Trials, Grants &amp; Technical Reporting — Ritu Panwar</div>
+      <div class="cover-rule"></div>
+      <p style="max-width:70%;color:var(--muted);font-size:9.3pt;">
+        An independent operational review of the R&amp;D department, evaluating trial data fragmentation, key-person
+        bottlenecks, and technical documentation workflows, prepared as part of the EF Polymer Private Limited
+        organization-wide
+        operational
+        audit by Creative Upaay (brand owned by Cinnovate Solutions (OPC) Private Limited).
+      </p>
+    </div>
+    <div class="cover-ctrl">
+      <table>
+        <tr>
+          <td class="label">Client</td>
+          <td class="val">EF Polymer Private Limited</td>
+        </tr>
+        <tr>
+          <td class="label">Prepared by</td>
+          <td class="val">Creative Upaay</td>
+        </tr>
+        <tr>
+          <td class="label">Document version</td>
+          <td class="val">1.0</td>
+        </tr>
+        <tr>
+          <td class="label">Date issued</td>
+          <td class="val">17th July 2026</td>
+        </tr>
+        <tr>
+          <td class="label">Review scope</td>
+          <td class="val">R&amp;D, National and International Field Trials &amp; Product Validation</td>
+        </tr>
+      </table>
+    </div>
   </div>
-  <div class="cover-body">
-    <div class="cover-eyebrow">Department Audit Report</div>
-    <div class="cover-title">Research &amp; Development</div>
-    <div class="cover-sub">Field Trials, Grants &amp; Technical Reporting — Ritu Panwar</div>
-    <div class="cover-rule"></div>
-    <p style="max-width:70%;color:var(--muted);font-size:9.3pt;">
-      An independent operational review of the R&amp;D department, evaluating trial data fragmentation, key-person bottlenecks, and technical documentation workflows, prepared as part of the EF Polymers organization-wide operational audit.
-    </p>
+
+
+  <!-- ============ 01 EXECUTIVE SUMMARY ============ -->
+  <div class="page">
+    <div class="doc-header"><span><b>EF Polymer Private Limited</b> — R&amp;D & Technical Department
+        Audit</span><span>Confidential</span></div>
+
+    <div class="eyebrow">Section 01 — Executive Summary</div>
+    <h2>Department Overview</h2>
+    <div class="section-dek">Scope, current state, and headline findings</div>
+
+    <p class="lede">The R&amp;D team manages new product development, crop validation trials, regulatory registration,
+      and international technical documentation. Operating across India, the US, EU, and Japan, the team forms the
+      scientific backbone of EF Polymer Private Limited.</p>
+
+    <p>The audit identified a severe key-person dependency on the Product Development Manager (Ritu Panwar), who
+      single-handedly manages multi-stage protocol approvals and grant drafting for all regions. Additionally, research
+      findings are fragmented across 8–10 independent Excel spreadsheets. This lack of a unified database leads to
+      redundant testing and risks institutional knowledge loss.</p>
+
+    <div class="kpi-strip">
+      <div class="kpi-cell">
+        <div class="kpi-num">18–20</div>
+        <div class="kpi-lbl">Active Trials and Audits</div>
+      </div>
+      <div class="kpi-cell">
+        <div class="kpi-num">8–10</div>
+        <div class="kpi-lbl">Excel Trackers</div>
+      </div>
+      <div class="kpi-cell">
+        <div class="kpi-num">3</div>
+        <div class="kpi-lbl">Approval Stages</div>
+      </div>
+      <div class="kpi-cell">
+        <div class="kpi-num">1.5 / 5.0</div>
+        <div class="kpi-lbl">Overall Maturity Score</div>
+      </div>
+    </div>
+    <div class="maturity-legend">
+      <div class="maturity-legend-title">About the Maturity Score</div>
+      <div style="font-size:7.5pt;color:var(--muted);margin-bottom:8px;">A 1–5 scale measuring how systematised,
+        documented, and independently operable the department is. Scored across five dimensions: Process, Technology,
+        Data Quality, Documentation &amp; Knowledge Management.</div>
+      <div class="maturity-bar-wrap">
+        <span class="maturity-bar-lbl">1 — Ad hoc</span>
+        <div class="maturity-bar-track">
+          <div class="maturity-bar-fill"></div>
+          <div class="maturity-bar-marker target"></div>
+        </div>
+        <span class="maturity-bar-lbl">5 — Optimised</span>
+      </div>
+      <div class="maturity-legend-notes">
+        <span>&#9632; <b>1.5</b> Current state</span>
+        <span style="color:#2563eb;">&#9646; <b>3.2</b> Post-roadmap target</span>
+        <span>&#9711; <b>5.0</b> Best-in-class benchmark</span>
+      </div>
+    </div>
+    <div class="doc-footer"><span>R&amp;D Audit Report · v1.0</span><span>Page 2</span></div>
   </div>
-  <div class="cover-ctrl">
+
+
+  <!-- ============ 05 MATURITY ============ -->
+  <div class="page">
+    <div class="doc-header"><span><b>EF Polymer Private Limited</b> — R&amp;D &amp; Technical Department
+        Audit</span><span>Confidential</span></div>
+
+    <div class="eyebrow">Section 02 — Benchmarking</div>
+    <h2>Department Maturity Assessment</h2>
+    <div class="section-dek">Scored 1 (ad hoc) to 5 (optimized) against five capability dimensions</div>
+
+    <div class="exhibit">
+      <div class="exhibit-chart">
+        <svg viewBox="0 0 400 350" xmlns="http://www.w3.org/2000/svg" style="width:100%;">
+          <g transform="translate(200,170)">
+            <polygon points="0,-120 114,-37 70,97 -70,97 -114,-37" fill="none" stroke="#E2E8F0" stroke-width="0.75" />
+            <polygon points="0,-96 91,-30 56,78 -56,78 -91,-30" fill="none" stroke="#E2E8F0" stroke-width="0.75" />
+            <polygon points="0,-72 68,-22 42,58 -42,58 -68,-22" fill="none" stroke="#E2E8F0" stroke-width="0.75" />
+            <polygon points="0,-48 46,-15 28,39 -28,39 -46,-15" fill="none" stroke="#E2E8F0" stroke-width="0.75" />
+            <polygon points="0,-24 23,-7 14,19 -14,19 -23,-7" fill="none" stroke="#E2E8F0" stroke-width="0.75" />
+            <line x1="0" y1="0" x2="0" y2="-120" stroke="#E2E8F0" stroke-width="0.75" />
+            <line x1="0" y1="0" x2="114" y2="-37" stroke="#E2E8F0" stroke-width="0.75" />
+            <line x1="0" y1="0" x2="70" y2="97" stroke="#E2E8F0" stroke-width="0.75" />
+            <line x1="0" y1="0" x2="-70" y2="97" stroke="#E2E8F0" stroke-width="0.75" />
+            <line x1="0" y1="0" x2="-114" y2="-37" stroke="#E2E8F0" stroke-width="0.75" />
+
+            <!-- Target dashed: Process 3.0, Tech 3.0, Data 3.5, Docs 3.5, KM 3.0 -->
+            <polygon points="0,-72 68.4,-22.2 68.6,95 -68.6,95 -68.4,-22.2" fill="none" stroke="#B8C0C9"
+              stroke-width="1" stroke-dasharray="5,3" />
+
+            <!-- Current: Process 2.0, Tech 1.5, Data 1.0, Docs 2.0, KM 1.0 -->
+            <polygon points="0,-48 34.2,-11.1 14,19.4 -40,55.2 -22.8,-7.4" fill="rgba(15,107,98,0.14)" stroke="#0F6B62"
+              stroke-width="1.75" />
+            <circle cx="0" cy="-48" r="3.2" fill="#0F6B62" />
+            <circle cx="34.2" cy="-11.1" r="3.2" fill="#0F6B62" />
+            <circle cx="14" cy="19.4" r="3.2" fill="#0F6B62" />
+            <circle cx="-40" cy="55.2" r="3.2" fill="#0F6B62" />
+            <circle cx="-22.8" cy="-7.4" r="3.2" fill="#0F6B62" />
+
+            <text x="0" y="-132" text-anchor="middle" font-size="9" fill="#1B2A4A" font-weight="600">Process</text>
+            <text x="128" y="-20" text-anchor="start" font-size="9" fill="#1B2A4A" font-weight="600">Technology</text>
+            <text x="78" y="110" text-anchor="start" font-size="9" fill="#1B2A4A" font-weight="600">Data Quality</text>
+            <text x="-78" y="110" text-anchor="end" font-size="9" fill="#1B2A4A" font-weight="600">Documentation</text>
+            <text x="-128" y="-16" text-anchor="end" font-size="9" fill="#1B2A4A" font-weight="600">Knowledge
+              Mgmt.</text>
+          </g>
+        </svg>
+      </div>
+      <div class="exhibit-note">
+        Solid line: current state. Dashed line: target state (post-roadmap).<br><br>
+        <b>R&amp;D scores 1.5 overall</b> — The department is a critical knowledge center, yet scores only 1.0 in
+        Knowledge Management and Data Quality due to over-reliance on individual memory and 8-10 disparate Excel
+        trackers.<br><br>
+        Migrating to a unified database and formally delegating approvals will structurally stabilize the department and
+        preserve institutional IP.
+      </div>
+    </div>
+
     <table>
-      <tr><td class="label">Client</td><td class="val">EF Polymers Private Limited</td></tr>
-      <tr><td class="label">Prepared by</td><td class="val">Creative Upaay Consulting</td></tr>
-      <tr><td class="label">Document version</td><td class="val">1.0</td></tr>
-      <tr><td class="label">Date issued</td><td class="val">July 2026</td></tr>
-      <tr><td class="label">Review scope</td><td class="val">R&amp;D &amp; Product Validation Operations</td></tr>
-      <tr><td class="label">Distribution</td><td class="val">CEO, COO, PD Manager</td></tr>
+      <tr>
+        <th>Dimension</th>
+        <th class="num">Current</th>
+        <th class="num">Target</th>
+        <th class="num">Gap</th>
+      </tr>
+      <tr>
+        <td>Process Standardization</td>
+        <td class="num">2.0</td>
+        <td class="num">3.0</td>
+        <td class="num">1.0</td>
+      </tr>
+      <tr>
+        <td>Technology Utilization</td>
+        <td class="num">1.5</td>
+        <td class="num">3.0</td>
+        <td class="num">1.5</td>
+      </tr>
+      <tr>
+        <td>Data Quality &amp; Accessibility</td>
+        <td class="num">1.0</td>
+        <td class="num">3.5</td>
+        <td class="num">2.5</td>
+      </tr>
+      <tr>
+        <td>Documentation</td>
+        <td class="num">2.0</td>
+        <td class="num">3.5</td>
+        <td class="num">1.5</td>
+      </tr>
+      <tr>
+        <td>Knowledge Management</td>
+        <td class="num">1.0</td>
+        <td class="num">3.0</td>
+        <td class="num">2.0</td>
+      </tr>
+      <tr style="font-weight:700;">
+        <td>Overall</td>
+        <td class="num">1.5</td>
+        <td class="num">3.2</td>
+        <td class="num">1.7</td>
+      </tr>
     </table>
+    <div class="doc-footer"><span>R&amp;D Audit Report · v1.0</span><span>Page 3</span></div>
   </div>
+
+
+  <!-- ============ 03 TEAM STRUCTURE & TOOLS ============ -->
+  <div class="page">
+    <div class="doc-header"><span><b>EF Polymer Private Limited</b> — R&amp;D & Technical Department
+        Audit</span><span>Confidential</span></div>
+    <h3>Team Structure</h3>
+    <p style="font-size:8.5pt;color:var(--muted);margin-bottom:4px;">Reporting hierarchy and current responsibility
+      domains within the R&amp;D department.</p>
+    <div class="org-chart">
+      <!-- Lead -->
+      <div class="org-level">
+        <div class="org-node lead">
+          <div class="org-name">Ritu Panwar</div>
+          <div class="org-role">Product Development Manager<br>R&amp;D Lead</div>
+          <span class="org-tag">Lead</span>
+        </div>
+      </div>
+      <div class="org-connector-top"></div>
+      <!-- Horizontal line -->
+      <div style="width:78%;border-top:1px solid var(--line);margin:0 auto;"></div>
+      <!-- Level 2 -->
+      <div style="display:flex;justify-content:center;gap:14px;width:100%;margin-top:0;">
+        <!-- Arman branch -->
+        <div class="org-sub-branch">
+          <div class="org-connector-top"></div>
+          <div class="org-node">
+            <div class="org-name">Arman</div>
+            <div class="org-role">Pilot Projects &amp; B2B Partnerships<br>Technical Training &amp; Commercial Bridge
+            </div>
+          </div>
+          <div class="org-connector-top"></div>
+          <div class="org-node intern" style="max-width:140px;">
+            <div class="org-name">Field Interns</div>
+            <div class="org-role">Field Trials &amp; POCs<br>UP, Gujarat, Rajasthan<br><em>6-month rotations</em></div>
+            <span class="org-tag" style="background:var(--risk-low-bg);color:var(--risk-low-fg);">Project Basis</span>
+          </div>
+        </div>
+        <!-- Gaurav branch -->
+        <div class="org-sub-branch">
+          <div class="org-connector-top"></div>
+          <div class="org-node">
+            <div class="org-name">Gaurav</div>
+            <div class="org-role">Scientific Partners &amp; Validation<br>Internal &amp; External Crop Trials</div>
+          </div>
+          <div class="org-connector-top"></div>
+          <div class="org-node secondary">
+            <div class="org-name">Swadeep</div>
+            <div class="org-role">Pot Trials &amp; Field Validation<br><em>Reports to Gaurav</em></div>
+          </div>
+        </div>
+        <!-- Shubham branch -->
+        <div class="org-sub-branch">
+          <div class="org-connector-top"></div>
+          <div class="org-node">
+            <div class="org-name">Shubham</div>
+            <div class="org-role">Data Analytics, GIS<br>&amp; Market Research</div>
+          </div>
+        </div>
+        <!-- Manan branch -->
+        <div class="org-sub-branch">
+          <div class="org-connector-top"></div>
+          <div class="org-node joining">
+            <div class="org-name">Manan</div>
+            <div class="org-role">Urban Gardening, Forestry<br>&amp; Government Segments</div>
+            <span class="org-tag joining">Joining</span>
+          </div>
+        </div>
+        <!-- Kamlesh branch -->
+        <div class="org-sub-branch">
+          <div class="org-connector-top"></div>
+          <div class="org-node joining">
+            <div class="org-name">Kamlesh Ji</div>
+            <div class="org-role">R&amp;D Formulation<br>Raw Material Development</div>
+            <span class="org-tag joining">Joining</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3>Tools in Use</h3>
+    <div class="tools-grid">
+      <div class="tool-card">
+        <div class="tool-icon">
+          <svg role="img" viewBox="0 0 24 24" width="22" height="22" xmlns="http://www.w3.org/2000/svg">
+            <title>Google Sheets</title>
+            <path
+              d="M11.318 12.545H7.91v-1.909h3.41v1.91zM14.728 0H3.273C2.233 0 1.386.847 1.386 1.887v20.226C1.386 23.153 2.233 24 3.273 24h17.454c1.04 0 1.887-.847 1.887-1.887V7.02L14.728 0zm-.46 1.887 4.62 4.606h-4.62V1.887zM3.273 22.113V1.887h9.268v6.366h6.186v13.86H3.273zm3.637-8.114h9.409v-5.09H6.91v5.09zm1.637-3.454h2.273v1.817H8.547v-1.817zm3.819 0h2.273v1.817h-2.273v-1.817zm-3.819 2.273h2.273v1.818H8.547v-1.818zm3.819 0h2.273v1.818h-2.273v-1.818z"
+              fill="#34A853" />
+          </svg>
+        </div>
+        <div class="tool-info">
+          <div class="tool-name">Google Sheets</div>
+          <div class="tool-desc">Project tracking — 8–10 simultaneous trackers across India, Japan, EU &amp; USA trials
+          </div>
+        </div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-icon">
+          <svg role="img" viewBox="0 0 24 24" width="22" height="22" xmlns="http://www.w3.org/2000/svg">
+            <title>Google Docs</title>
+            <path
+              d="M14.727 0H3.273C2.234 0 1.387.847 1.387 1.887v20.226C1.387 23.153 2.234 24 3.273 24h17.454c1.039 0 1.886-.847 1.886-1.887V7.02L14.727 0zm-.46 1.887 4.62 4.606h-4.62V1.887zM3.273 22.113V1.887h9.267v6.366h6.187v13.86H3.273zm2.18-5.46h9.094v-1.66H5.453v1.66zm0-3.273h9.094v-1.66H5.453v1.66zm0-3.274h5.46v-1.66h-5.46v1.66z"
+              fill="#4285F4" />
+          </svg>
+        </div>
+        <div class="tool-info">
+          <div class="tool-name">Google Docs</div>
+          <div class="tool-desc">Scientific white papers, technical reports, registration &amp; compliance documentation
+          </div>
+        </div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-icon">
+          <svg role="img" viewBox="0 0 24 24" width="22" height="22" xmlns="http://www.w3.org/2000/svg">
+            <title>Google Slides</title>
+            <path
+              d="M14.727 0H3.273C2.234 0 1.387.847 1.387 1.887v20.226C1.387 23.153 2.234 24 3.273 24h17.454c1.039 0 1.886-.847 1.886-1.887V7.02L14.727 0zm-.46 1.887 4.62 4.606h-4.62V1.887zM3.273 22.113V1.887h9.267v6.366h6.187v13.86H3.273zm2.18-3.82h13.093v-8.18H5.453v8.18zm1.66-6.52h9.773v4.86H7.113v-4.86z"
+              fill="#FBBC04" />
+          </svg>
+        </div>
+        <div class="tool-info">
+          <div class="tool-name">Google Slides</div>
+          <div class="tool-desc">Presentations for B2B pitching, technical training &amp; partner briefings</div>
+        </div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-icon">
+          <svg role="img" viewBox="0 0 24 24" width="22" height="22" xmlns="http://www.w3.org/2000/svg">
+            <title>Google Drive</title>
+            <path
+              d="M4.65 3.87L0 12l4.65 8.13h14.7L24 12 19.35 3.87H4.65zM12 15.6L7.35 7.47h9.3L12 15.6zM8.87 18.13H2.93l2.97-5.13 2.97 5.13zm6.26 0l2.97-5.13 2.97 5.13h-5.94z"
+              fill="#4285F4" />
+          </svg>
+        </div>
+        <div class="tool-info">
+          <div class="tool-name">Google Drive</div>
+          <div class="tool-desc">Central file upload, folder management &amp; cross-team document sharing</div>
+        </div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-icon" style="padding-top:2px;">
+          <svg role="img" viewBox="0 0 24 24" width="22" height="22" xmlns="http://www.w3.org/2000/svg">
+            <title>Microsoft Power BI</title>
+            <path
+              d="M21 3h-6.5a1.5 1.5 0 0 0-1.5 1.5V9H9.5A1.5 1.5 0 0 0 8 10.5V15H4.5A1.5 1.5 0 0 0 3 16.5v4A1.5 1.5 0 0 0 4.5 22H21a1.5 1.5 0 0 0 1.5-1.5v-16A1.5 1.5 0 0 0 21 3z"
+              fill="#F2C811" />
+          </svg>
+        </div>
+        <div class="tool-info">
+          <div class="tool-name">Power BI</div>
+          <div class="tool-desc">Active onboarding — GIS dashboards &amp; centralized R&amp;D data reporting (Shubham)
+          </div>
+        </div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-icon" style="padding-top:2px;">
+          <svg role="img" viewBox="0 0 24 24" width="22" height="22" xmlns="http://www.w3.org/2000/svg">
+            <title>Paper AI</title>
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"
+              fill="#0F6B62" />
+          </svg>
+        </div>
+        <div class="tool-info">
+          <div class="tool-name">Paper AI</div>
+          <div class="tool-desc">Online scientific paper referencing tool for literature reviews &amp; proposal
+            back-linking</div>
+        </div>
+      </div>
+    </div>
+    <div class="doc-footer"><span>R&amp;D Audit Report · v1.0</span><span>Page 4</span></div>
+  </div>
+
+
+  <!-- ============ 03 WORKFLOWS ============ -->
+  <div class="page">
+    <div class="doc-header"><span><b>EF Polymer Private Limited</b> — R&amp;D &amp; Technical Department
+        Audit</span><span>Confidential</span></div>
+
+    <div class="eyebrow">Section 03 — Process Detail</div>
+    <h2>Current Workflows</h2>
+    <div class="section-dek">Where each finding sits inside the operational process</div>
+
+    <!-- WORKFLOW 1: Trial Lifecycle -->
+    <h3>Product Validation &amp; Trial Lifecycle</h3>
+    <svg viewBox="0 0 740 140" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:10px 0 4px;">
+      <defs>
+        <marker id="a1" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+          <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5" />
+        </marker>
+      </defs>
+      <rect x="10" y="20" width="106" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <text x="63" y="35" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif"
+        font-weight="bold">Formulation Ready</text>
+      <text x="63" y="47" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">Task:
+        R&amp;D Exec</text>
+      <line x1="116" y1="44" x2="130" y2="44" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)" />
+
+      <rect x="134" y="20" width="106" height="48" rx="3" fill="#F4E8FB" stroke="#A772D9" stroke-width="1.5" />
+      <text x="187" y="32" text-anchor="middle" font-size="7.6" fill="#603487" font-family="Segoe UI,sans-serif"
+        font-weight="bold">Assign Lot &amp; QC</text>
+      <text x="187" y="44" text-anchor="middle" font-size="6.5" fill="#814BAF" font-family="Segoe UI,sans-serif">Action:
+        Prod &amp; QC Dept</text>
+      <text x="187" y="55" text-anchor="middle" font-size="6.5" fill="#814BAF"
+        font-family="Segoe UI,sans-serif">External Hand-off</text>
+      <line x1="240" y1="44" x2="254" y2="44" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)" />
+
+      <rect x="258" y="20" width="106" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <text x="311" y="35" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif"
+        font-weight="bold">Log Data to Drive</text>
+      <text x="311" y="47" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">Task:
+        R&amp;D Exec</text>
+      <line x1="364" y1="44" x2="378" y2="44" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)" />
+
+      <rect x="382" y="20" width="106" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <text x="435" y="35" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif"
+        font-weight="bold">Design Protocols</text>
+      <text x="435" y="47" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">Task:
+        Ritu Panwar</text>
+      <line x1="488" y1="44" x2="502" y2="44" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)" />
+
+      <rect x="506" y="20" width="106" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <text x="559" y="32" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif"
+        font-weight="bold">Deploy Trial</text>
+      <text x="559" y="44" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">Action:
+        Agronomist</text>
+      <text x="559" y="55" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">(2-4
+        Mo.)</text>
+
+      <!-- split to success / failure -->
+      <line x1="559" y1="68" x2="559" y2="100" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)" />
+      <rect x="506" y="100" width="106" height="40" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1" />
+      <text x="559" y="115" text-anchor="middle" font-size="7.5" fill="#A32E24" font-family="Segoe UI,sans-serif"
+        font-weight="bold">Re-run Trial</text>
+      <text x="559" y="127" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">Task:
+        R&amp;D Exec</text>
+
+      <line x1="612" y1="44" x2="626" y2="44" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)" />
+      <rect x="630" y="20" width="106" height="48" rx="3" fill="#E9F4EC" stroke="#92C7A3" stroke-width="1" />
+      <text x="683" y="35" text-anchor="middle" font-size="7.6" fill="#276B3E" font-family="Segoe UI,sans-serif"
+        font-weight="bold">Successful Trial</text>
+      <text x="683" y="47" text-anchor="middle" font-size="6.5" fill="#276B3E" font-family="Segoe UI,sans-serif">Task:
+        R&amp;D Exec</text>
+    </svg>
+    <div class="flow-note">
+      <p style="margin-top:0;"><strong>What is good:</strong> The sequence from formulation to field deployment is
+        logically ordered and well-defined across teams.</p>
+      <p><strong>What needs to be fixed:</strong> Validation is R&amp;D's largest cost center. Untracked findings lead
+        to repeated trials and inflated validation budgets. Data is logged manually into scattered sheets.</p>
+      <p><strong>Bottlenecks:</strong> Retrieving historical data from unlinked Google Drive trackers risks data loss
+        and prevents learning from past trials.</p>
+      <p style="margin-bottom:0;"><strong>Dependencies:</strong> 3-department handoff — Production assigns the lot
+        number &rarr; QC runs the 24-hr test and issues a QC report &rarr; R&amp;D logs the result. Any break here
+        derails the trial.</p>
+    </div>
+
+    <!-- WORKFLOW 2: Proposal Development -->
+    <h3>B2B Proposal &amp; Protocol Drafting — <span class="chip-ref">P-01</span></h3>
+    <svg viewBox="0 0 740 92" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:10px 0 4px;">
+      <defs>
+        <marker id="a2" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+          <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5" />
+        </marker>
+      </defs>
+
+      <!-- Intake -->
+      <rect x="10" y="22" width="120" height="48" rx="3" fill="#F4E8FB" stroke="#A772D9" stroke-width="1.5" />
+      <text x="70" y="37" text-anchor="middle" font-size="7.6" fill="#603487" font-family="Segoe UI,sans-serif"
+        font-weight="bold">Intake Novel Use Case</text>
+      <text x="70" y="49" text-anchor="middle" font-size="6.5" fill="#814BAF" font-family="Segoe UI,sans-serif">Action:
+        BD &amp; Sales</text>
+      <line x1="130" y1="46" x2="150" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)" />
+
+      <!-- Research -->
+      <rect x="150" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <text x="210" y="37" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif"
+        font-weight="bold">Scientific Research</text>
+      <text x="210" y="49" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">Task:
+        R&amp;D Exec</text>
+      <line x1="270" y1="46" x2="290" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)" />
+
+      <!-- Draft -->
+      <rect x="290" y="22" width="120" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
+      <text x="350" y="37" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif"
+        font-weight="bold">Draft Proposal</text>
+      <text x="350" y="49" text-anchor="middle" font-size="6.5" fill="#C0453A" font-family="Segoe UI,sans-serif">Task:
+        Ritu Panwar</text>
+      <line x1="410" y1="46" x2="430" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)" />
+
+      <!-- Auditing -->
+      <rect x="430" y="10" width="120" height="72" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1" />
+      <text x="490" y="25" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif"
+        font-weight="bold">3-Step Auditing</text>
+      <text x="490" y="35" text-anchor="middle" font-size="6.5" fill="#C0453A"
+        font-family="Segoe UI,sans-serif">Approval: Ritu Panwar</text>
+      <text x="490" y="49" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">1. Area
+        Fit</text>
+      <text x="490" y="60" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">2. Obj.
+        Alignment</text>
+      <text x="490" y="71" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">3.
+        Budget Check</text>
+      <line x1="550" y1="46" x2="570" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)" />
+
+      <!-- Review -->
+      <rect x="570" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <text x="630" y="32" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif"
+        font-weight="bold">Multi-Round Review</text>
+      <text x="630" y="44" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">Action:
+        Stakeholders</text>
+      <text x="630" y="55" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">(Up to
+        20 days)</text>
+    </svg>
+    <div class="flow-note">
+      <p style="margin-top:0;"><strong>What is good:</strong> Comprehensive 3-step technical and budget screening
+        prevents unviable trials from reaching the field.</p>
+      <p><strong>What needs to be fixed:</strong> All international proposals and scientific grants bottleneck on a
+        single person (PD Manager). Requires 2-3 manual drafts per proposal with no standardized templates.</p>
+      <p><strong>Bottlenecks:</strong> 3-step auditing process is non-delegable and directly inflates proposal
+        timelines. Multi-round reviews can take up to 15-20 days.</p>
+      <p style="margin-bottom:0;"><strong>Dependencies:</strong> BD and Sales team are entirely reliant on Ritu Panwar
+        for technical pitching materials and final sign-offs.</p>
+    </div>
+    <div class="doc-footer"><span>R&amp;D Audit Report · v1.0</span><span>Page 5</span></div>
+  </div>
+
+
+  <!-- ============ 03b WORKFLOWS (continued) ============ -->
+  <div class="page">
+    <div class="doc-header"><span><b>EF Polymer Private Limited</b> — R&amp;D &amp; Technical Department
+        Audit</span><span>Confidential</span></div>
+
+    <!-- WORKFLOW 3: Protocol Approval Gate -->
+    <h3>Protocol Approval Gate — <span class="chip-ref">P-01</span> <span class="chip-ref">P-04</span></h3>
+    <svg viewBox="0 0 740 156" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:10px 0 4px;">
+      <defs>
+        <marker id="w3a" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+          <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5" />
+        </marker>
+        <marker id="w3r" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+          <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#EFB4B1" />
+        </marker>
+        <marker id="w3g" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+          <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#92C7A3" />
+        </marker>
+      </defs>
+
+      <!-- Box 1: Trial Request -->
+      <rect x="8" y="18" width="110" height="52" rx="3" fill="#F4E8FB" stroke="#A772D9" stroke-width="1.5" />
+      <text x="63" y="34" text-anchor="middle" font-size="7.5" fill="#603487" font-family="Segoe UI,sans-serif"
+        font-weight="700">Trial Request</text>
+      <text x="63" y="46" text-anchor="middle" font-size="6.5" fill="#814BAF" font-family="Segoe UI,sans-serif">Action:
+        BD &amp; Sales</text>
+      <text x="63" y="57" text-anchor="middle" font-size="6.5" fill="#814BAF"
+        font-family="Segoe UI,sans-serif">(External)</text>
+      <line x1="118" y1="44" x2="136" y2="44" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w3a)" />
+
+      <!-- Box 2: Step 1 -->
+      <rect x="138" y="18" width="120" height="52" rx="3" fill="#EFF4FF" stroke="#93B4EB" stroke-width="1.5" />
+      <text x="198" y="32" text-anchor="middle" font-size="6.8" fill="#1B2A4A" font-family="Segoe UI,sans-serif"
+        font-weight="700">STEP 1: Area Fit</text>
+      <text x="198" y="44" text-anchor="middle" font-size="6.5" fill="#4A6390"
+        font-family="Segoe UI,sans-serif">Approval: Ritu Panwar</text>
+      <text x="198" y="55" text-anchor="middle" font-size="6.5" fill="#4A6390" font-family="Segoe UI,sans-serif">Farming
+        &amp; crop check</text>
+      <line x1="258" y1="44" x2="276" y2="44" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w3a)" />
+
+      <!-- Box 3: Step 2 -->
+      <rect x="278" y="18" width="120" height="52" rx="3" fill="#EFF4FF" stroke="#93B4EB" stroke-width="1.5" />
+      <text x="338" y="32" text-anchor="middle" font-size="6.8" fill="#1B2A4A" font-family="Segoe UI,sans-serif"
+        font-weight="700">STEP 2: Alignment</text>
+      <text x="338" y="44" text-anchor="middle" font-size="6.5" fill="#4A6390"
+        font-family="Segoe UI,sans-serif">Approval: Ritu Panwar</text>
+      <text x="338" y="55" text-anchor="middle" font-size="6.5" fill="#4A6390"
+        font-family="Segoe UI,sans-serif">Objective check</text>
+      <line x1="398" y1="44" x2="416" y2="44" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w3a)" />
+
+      <!-- Box 4: Step 3 -->
+      <rect x="418" y="18" width="120" height="52" rx="3" fill="#EFF4FF" stroke="#93B4EB" stroke-width="1.5" />
+      <text x="478" y="32" text-anchor="middle" font-size="6.8" fill="#1B2A4A" font-family="Segoe UI,sans-serif"
+        font-weight="700">STEP 3: Budget Check</text>
+      <text x="478" y="44" text-anchor="middle" font-size="6.5" fill="#4A6390"
+        font-family="Segoe UI,sans-serif">Approval: Ritu Panwar</text>
+      <text x="478" y="55" text-anchor="middle" font-size="6.5" fill="#4A6390" font-family="Segoe UI,sans-serif">Cost
+        verification</text>
+
+      <!-- Approved path -->
+      <line x1="538" y1="44" x2="556" y2="44" stroke="#92C7A3" stroke-width="1.2" marker-end="url(#w3g)" />
+      <rect x="558" y="18" width="112" height="52" rx="3" fill="#E9F4EC" stroke="#92C7A3" stroke-width="1.5" />
+      <text x="614" y="37" text-anchor="middle" font-size="7" fill="#276B3E" font-family="Segoe UI,sans-serif"
+        font-weight="700">✓ Approved</text>
+      <text x="614" y="49" text-anchor="middle" font-size="6.5" fill="#276B3E" font-family="Segoe UI,sans-serif">Action:
+        Ritu Panwar</text>
+
+      <!-- Rejected path (drop from Step 3) -->
+      <line x1="478" y1="70" x2="478" y2="102" stroke="#EFB4B1" stroke-width="1.2" marker-end="url(#w3r)" />
+      <rect x="418" y="104" width="120" height="40" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1" />
+      <text x="478" y="120" text-anchor="middle" font-size="7" fill="#A32E24" font-family="Segoe UI,sans-serif"
+        font-weight="700">✗ Rejected</text>
+      <text x="478" y="132" text-anchor="middle" font-size="6.5" fill="#A32E24"
+        font-family="Segoe UI,sans-serif">Action: Ritu Panwar</text>
+
+      <!-- Note: Non-delegable -->
+      <rect x="8" y="108" width="250" height="36" rx="3" fill="#FEF9EC" stroke="#E8D08A" stroke-width="1" />
+      <text x="16" y="123" font-size="6.8" fill="#7C5E0A" font-family="Segoe UI,sans-serif" font-weight="700">⚠
+        Non-Delegable Gate</text>
+      <text x="16" y="136" font-size="6.5" fill="#7C5E0A" font-family="Segoe UI,sans-serif">All 3 steps are personally
+        executed by Ritu Panwar. Cannot be handed over.</text>
+    </svg>
+    <div class="flow-note">
+      <p style="margin-top:0;"><strong>What is good:</strong> Gate system is well-defined and ensures rigorous technical
+        assessment of trial requests.</p>
+      <p><strong>What needs to be fixed:</strong> The compounded approval load of 18-20 active projects in peak season
+        is entirely centralized on one person.</p>
+      <p><strong>Bottlenecks:</strong> Non-delegable gate. All 3 steps are personally executed by the PD Manager,
+        causing significant delays.</p>
+      <p style="margin-bottom:0;"><strong>Dependencies:</strong> BD and Sales teams depend entirely on Ritu's bandwidth
+        to move any trial forward.</p>
+    </div>
+
+    <!-- WORKFLOW 4: Multi-Tracker Data Flow -->
+    <h3>Multi-Tracker Data Flow &amp; Consolidation — <span class="chip-ref">P-02</span> <span
+        class="chip-ref">P-03</span></h3>
+    <svg viewBox="0 0 740 222" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:10px 0 4px;">
+      <defs>
+        <marker id="w4a" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="6" markerHeight="6" orient="auto">
+          <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5" />
+        </marker>
+        <marker id="w4r" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="6" markerHeight="6" orient="auto">
+          <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#EFB4B1" />
+        </marker>
+        <marker id="w4g" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="6" markerHeight="6" orient="auto">
+          <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#92C7A3" />
+        </marker>
+      </defs>
+
+      <!-- Source boxes (left column) -->
+      <!-- India -->
+      <rect x="8" y="8" width="160" height="30" rx="3" fill="#F4F6F8" stroke="#D8DEE5" stroke-width="1" />
+      <text x="16" y="20" font-size="7" fill="#3F4B5C" font-family="Segoe UI,sans-serif" font-weight="700">India
+        Tracker</text>
+      <text x="16" y="31" font-size="6.3" fill="#6B7A8D" font-family="Segoe UI,sans-serif">Task: Gaurav (Input), Ritu
+        (Review)</text>
+      <!-- EU -->
+      <rect x="8" y="46" width="160" height="30" rx="3" fill="#F4F6F8" stroke="#D8DEE5" stroke-width="1" />
+      <text x="16" y="58" font-size="7" fill="#3F4B5C" font-family="Segoe UI,sans-serif" font-weight="700">EU
+        Tracker</text>
+      <text x="16" y="69" font-size="6.3" fill="#6B7A8D" font-family="Segoe UI,sans-serif">Task: Regional Staff
+        (Input)</text>
+      <!-- USA -->
+      <rect x="8" y="84" width="160" height="30" rx="3" fill="#F4F6F8" stroke="#D8DEE5" stroke-width="1" />
+      <text x="16" y="96" font-size="7" fill="#3F4B5C" font-family="Segoe UI,sans-serif" font-weight="700">USA
+        Tracker</text>
+      <text x="16" y="107" font-size="6.3" fill="#6B7A8D" font-family="Segoe UI,sans-serif">Task: Regional POC
+        (Input)</text>
+      <!-- Japan -->
+      <rect x="8" y="122" width="160" height="30" rx="3" fill="#F4F6F8" stroke="#D8DEE5" stroke-width="1" />
+      <text x="16" y="134" font-size="7" fill="#3F4B5C" font-family="Segoe UI,sans-serif" font-weight="700">Japan
+        Tracker</text>
+      <text x="16" y="145" font-size="6.3" fill="#6B7A8D" font-family="Segoe UI,sans-serif">Task: Regional POC
+        (Input)</text>
+      <!-- QC -->
+      <rect x="8" y="160" width="160" height="30" rx="3" fill="#F4E8FB" stroke="#A772D9" stroke-width="1.5" />
+      <text x="16" y="172" font-size="7" fill="#603487" font-family="Segoe UI,sans-serif" font-weight="700">QC Tracker
+        (External)</text>
+      <text x="16" y="183" font-size="6.3" fill="#814BAF" font-family="Segoe UI,sans-serif">Task: Production Dept
+        (Input)</text>
+      <!-- Sample/Lot -->
+      <rect x="8" y="198" width="160" height="18" rx="3" fill="#F4F6F8" stroke="#D8DEE5" stroke-width="1" />
+      <text x="16" y="211" font-size="6.3" fill="#6B7A8D" font-family="Segoe UI,sans-serif">+ Other Trackers</text>
+
+      <!-- Arrows → center box -->
+      <line x1="168" y1="23" x2="285" y2="100" stroke="#B0BAC5" stroke-width="0.9" marker-end="url(#w4a)" />
+      <line x1="168" y1="61" x2="285" y2="105" stroke="#B0BAC5" stroke-width="0.9" marker-end="url(#w4a)" />
+      <line x1="168" y1="99" x2="285" y2="110" stroke="#B0BAC5" stroke-width="0.9" marker-end="url(#w4a)" />
+      <line x1="168" y1="137" x2="285" y2="115" stroke="#B0BAC5" stroke-width="0.9" marker-end="url(#w4a)" />
+      <line x1="168" y1="175" x2="285" y2="120" stroke="#B0BAC5" stroke-width="0.9" marker-end="url(#w4a)" />
+
+      <!-- Center: Ritu consolidation node -->
+      <rect x="286" y="72" width="155" height="72" rx="5" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="2" />
+      <text x="363" y="96" text-anchor="middle" font-size="8" fill="#A32E24" font-family="Segoe UI,sans-serif"
+        font-weight="700">RITU PANWAR</text>
+      <text x="363" y="108" text-anchor="middle" font-size="7" fill="#A32E24" font-family="Segoe UI,sans-serif">Single
+        Consolidation Point</text>
+      <text x="363" y="120" text-anchor="middle" font-size="6.5" fill="#C0453A"
+        font-family="Segoe UI,sans-serif">Action: Manual Aggregation</text>
+      <text x="363" y="132" text-anchor="middle" font-size="6.5" fill="#C0453A" font-family="Segoe UI,sans-serif">8–10
+        sheets, real-time</text>
+
+      <!-- Arrows → output boxes -->
+      <line x1="441" y1="96" x2="468" y2="68" stroke="#92C7A3" stroke-width="1" marker-end="url(#w4g)" />
+      <line x1="441" y1="110" x2="468" y2="122" stroke="#92C7A3" stroke-width="1" marker-end="url(#w4g)" />
+
+      <!-- Output boxes -->
+      <rect x="470" y="44" width="180" height="44" rx="3" fill="#E9F4EC" stroke="#92C7A3" stroke-width="1" />
+      <text x="560" y="62" text-anchor="middle" font-size="7.2" fill="#276B3E" font-family="Segoe UI,sans-serif"
+        font-weight="700">BOD Monthly Report</text>
+      <text x="560" y="74" text-anchor="middle" font-size="6.5" fill="#276B3E" font-family="Segoe UI,sans-serif">Task:
+        Manual Export to CXOs</text>
+
+      <rect x="470" y="100" width="180" height="44" rx="3" fill="#EFF4FF" stroke="#93B4EB" stroke-width="1" />
+      <text x="560" y="118" text-anchor="middle" font-size="7.2" fill="#1B2A4A" font-family="Segoe UI,sans-serif"
+        font-weight="700">Project Status Tracking</text>
+      <text x="560" y="130" text-anchor="middle" font-size="6.5" fill="#4A6390" font-family="Segoe UI,sans-serif">Task:
+        Manual Status Review</text>
+
+      <!-- Risk label -->
+      <rect x="286" y="154" width="155" height="26" rx="3" fill="#FEF9EC" stroke="#E8D08A" stroke-width="1" />
+      <text x="363" y="164" text-anchor="middle" font-size="6.5" fill="#7C5E0A" font-family="Segoe UI,sans-serif"
+        font-weight="700">⚠ Risk: No cross-referencing</text>
+      <text x="363" y="174" text-anchor="middle" font-size="6.3" fill="#7C5E0A"
+        font-family="Segoe UI,sans-serif">between trackers — data silos persist</text>
+    </svg>
+    <div class="flow-note">
+      <p style="margin-top:0;"><strong>What is good:</strong> Department maintains detailed, real-time trackers for
+        every region and function.</p>
+      <p><strong>What needs to be fixed:</strong> Data is siloed across 8-10 disconnected Google Sheets. There is no
+        automated aggregation or cross-referencing between trackers.</p>
+      <p><strong>Bottlenecks:</strong> Ritu is the sole consolidation point. The manual aggregation of these sheets
+        delays project portfolio visibility.</p>
+      <p style="margin-bottom:0;"><strong>Dependencies:</strong> R&amp;D is dependent on timely updates from regional
+        staff and Production/QC to keep trackers accurate.</p>
+    </div>
+    <div class="doc-footer"><span>R&amp;D Audit Report · v1.0</span><span>Page 6</span></div>
+  </div>
+
+
+  <!-- ============ 03c WORKFLOWS (continued) ============ -->
+  <div class="page">
+    <div class="doc-header"><span><b>EF Polymer Private Limited</b> — R&amp;D &amp; Technical Department
+        Audit</span><span>Confidential</span></div>
+
+    <!-- WORKFLOW 5: Sales/BD Query Resolution -->
+    <h3>Sales &amp; BD → R&amp;D Query Resolution — <span class="chip-ref">P-07</span></h3>
+    <svg viewBox="0 0 740 206" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:10px 0 4px;">
+      <defs>
+        <marker id="w5a" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="6" markerHeight="6" orient="auto">
+          <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5" />
+        </marker>
+      </defs>
+
+      <!-- Header labels -->
+      <text x="8" y="12" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif" font-weight="700">QUERY
+        TYPE</text>
+      <text x="280" y="12" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif" font-weight="700">RESOLUTION
+        PROCESS</text>
+      <text x="620" y="12" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif" font-weight="700"
+        text-anchor="middle">SLA</text>
+
+      <!-- Row 1: Known crop / General -->
+      <rect x="8" y="18" width="188" height="40" rx="3" fill="#E9F4EC" stroke="#92C7A3" stroke-width="1" />
+      <text x="16" y="33" font-size="7.2" fill="#276B3E" font-family="Segoe UI,sans-serif" font-weight="700">General —
+        Known Crop Query</text>
+      <text x="16" y="45" font-size="6.5" fill="#276B3E" font-family="Segoe UI,sans-serif">e.g. dosage, application
+        rate, crop performance data</text>
+      <line x1="196" y1="38" x2="214" y2="38" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w5a)" />
+      <rect x="216" y="18" width="364" height="40" rx="3" fill="#F4F6F8" stroke="#D8DEE5" stroke-width="1" />
+      <text x="224" y="33" font-size="7" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Task: R&amp;D Exec</text>
+      <text x="224" y="45" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">Check trackers, locate data,
+        and respond directly to BD</text>
+      <line x1="580" y1="38" x2="594" y2="38" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w5a)" />
+      <rect x="596" y="18" width="136" height="40" rx="3" fill="#E9F4EC" stroke="#92C7A3" stroke-width="1.5" />
+      <text x="664" y="34" text-anchor="middle" font-size="8.5" fill="#276B3E" font-family="Segoe UI,sans-serif"
+        font-weight="700">1–2 hrs</text>
+      <text x="664" y="47" text-anchor="middle" font-size="6.5" fill="#276B3E" font-family="Segoe UI,sans-serif">Known
+        territory</text>
+
+      <!-- Row 2: Unexplored topic -->
+      <rect x="8" y="66" width="188" height="40" rx="3" fill="#FEF9EC" stroke="#E8D08A" stroke-width="1" />
+      <text x="16" y="81" font-size="7.2" fill="#7C5E0A" font-family="Segoe UI,sans-serif" font-weight="700">Unexplored
+        Topic Query</text>
+      <text x="16" y="93" font-size="6.5" fill="#7C5E0A" font-family="Segoe UI,sans-serif">e.g. saline conditions,
+        hydroponics, tissue culture</text>
+      <line x1="196" y1="86" x2="214" y2="86" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w5a)" />
+      <rect x="216" y="66" width="364" height="40" rx="3" fill="#F4F6F8" stroke="#D8DEE5" stroke-width="1" />
+      <text x="224" y="81" font-size="7" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Task: R&amp;D Exec</text>
+      <text x="224" y="93" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">Hypothesis-level research —
+        literature review, new scientific synthesis</text>
+      <line x1="580" y1="86" x2="594" y2="86" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w5a)" />
+      <rect x="596" y="66" width="136" height="40" rx="3" fill="#FEF9EC" stroke="#E8D08A" stroke-width="1.5" />
+      <text x="664" y="82" text-anchor="middle" font-size="8.5" fill="#7C5E0A" font-family="Segoe UI,sans-serif"
+        font-weight="700">3–4 hrs+</text>
+      <text x="664" y="95" text-anchor="middle" font-size="6.5" fill="#7C5E0A" font-family="Segoe UI,sans-serif">May
+        exceed 1 day</text>
+
+      <!-- Row 3: QC / Absorption level -->
+      <rect x="8" y="114" width="188" height="40" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1" />
+      <text x="16" y="129" font-size="7.2" fill="#A32E24" font-family="Segoe UI,sans-serif" font-weight="700">QC /
+        Absorption-Level Query</text>
+      <text x="16" y="141" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">e.g. why is the product not
+        absorbing water?</text>
+      <line x1="196" y1="134" x2="214" y2="134" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w5a)" />
+      <rect x="216" y="114" width="364" height="40" rx="3" fill="#F4E8FB" stroke="#A772D9" stroke-width="1.5" />
+      <text x="224" y="129" font-size="7" fill="#603487" font-family="Segoe UI,sans-serif">Action: QC Dept (External)
+        &amp; R&amp;D Exec</text>
+      <text x="224" y="141" font-size="6.5" fill="#814BAF" font-family="Segoe UI,sans-serif">Overnight QC lab test (24
+        hrs) + scientific report compilation (~4 hrs)</text>
+      <line x1="580" y1="134" x2="594" y2="134" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w5a)" />
+      <rect x="596" y="114" width="136" height="40" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
+      <text x="664" y="130" text-anchor="middle" font-size="8.5" fill="#A32E24" font-family="Segoe UI,sans-serif"
+        font-weight="700">28–30 hrs</text>
+      <text x="664" y="143" text-anchor="middle" font-size="6.5" fill="#A32E24"
+        font-family="Segoe UI,sans-serif">Minimum turnaround</text>
+
+      <!-- Row 4: Field trial POC -->
+      <rect x="8" y="162" width="188" height="40" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="2" />
+      <text x="16" y="177" font-size="7.2" fill="#A32E24" font-family="Segoe UI,sans-serif" font-weight="700">Field
+        Trial / POC Query</text>
+      <text x="16" y="189" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">e.g. test product on a new
+        crop or plantation type</text>
+      <line x1="196" y1="182" x2="214" y2="182" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w5a)" />
+      <rect x="216" y="162" width="364" height="40" rx="3" fill="#F4E8FB" stroke="#A772D9" stroke-width="1.5" />
+      <text x="224" y="177" font-size="7" fill="#603487" font-family="Segoe UI,sans-serif">Action: Agronomist &amp; BD
+        (External)</text>
+      <text x="224" y="189" font-size="6.5" fill="#814BAF" font-family="Segoe UI,sans-serif">Arrange field visit +
+        identify partner + deploy mini-POC pilot</text>
+      <line x1="580" y1="182" x2="594" y2="182" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w5a)" />
+      <rect x="596" y="162" width="136" height="40" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="2" />
+      <text x="664" y="178" text-anchor="middle" font-size="8.5" fill="#A32E24" font-family="Segoe UI,sans-serif"
+        font-weight="700">2–3 months</text>
+      <text x="664" y="191" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">Full
+        growing cycle</text>
+    </svg>
+    <div class="flow-note">
+      <p style="margin-top:0;"><strong>What is good:</strong> Query triage is naturally tiered by complexity and
+        required effort.</p>
+      <p><strong>What needs to be fixed:</strong> No self-serve knowledge base for Sales or BD. All query tiers are
+        routed directly to R&amp;D team members, disrupting focus time.</p>
+      <p><strong>Bottlenecks:</strong> Critical-tier queries (QC-level and Field POC) have response times measured in
+        days to months, stalling Sales closures.</p>
+      <p style="margin-bottom:0;"><strong>Dependencies:</strong> Sales is entirely dependent on R&amp;D for even basic
+        known-crop data retrieval.</p>
+    </div>
+
+    <!-- WORKFLOW 6: Monthly Reporting & BOD Aggregation -->
+    <h3>Monthly Reporting &amp; BOD Aggregation — <span class="chip-ref">P-08</span></h3>
+    <svg viewBox="0 0 740 108" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:10px 0 4px;">
+      <defs>
+        <marker id="w6a" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+          <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5" />
+        </marker>
+      </defs>
+
+      <!-- Box 1 -->
+      <rect x="8" y="20" width="108" height="52" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1" />
+      <text x="62" y="38" text-anchor="middle" font-size="7" fill="#A32E24" font-family="Segoe UI,sans-serif"
+        font-weight="700">Send Reminders</text>
+      <text x="62" y="50" text-anchor="middle" font-size="6.5" fill="#C0453A" font-family="Segoe UI,sans-serif">Task:
+        Ritu Panwar</text>
+      <text x="62" y="62" text-anchor="middle" font-size="6.5" fill="#C0453A" font-family="Segoe UI,sans-serif">Manual
+        emails to all</text>
+      <line x1="116" y1="46" x2="130" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w6a)" />
+
+      <!-- Box 2 -->
+      <rect x="132" y="20" width="108" height="52" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1" />
+      <text x="186" y="38" text-anchor="middle" font-size="7" fill="#A32E24" font-family="Segoe UI,sans-serif"
+        font-weight="700">Chase Follow-ups</text>
+      <text x="186" y="50" text-anchor="middle" font-size="6.5" fill="#C0453A" font-family="Segoe UI,sans-serif">Task:
+        Ritu Panwar</text>
+      <text x="186" y="62" text-anchor="middle" font-size="6.5" fill="#C0453A" font-family="Segoe UI,sans-serif">EU ·
+        USA · Japan</text>
+      <line x1="240" y1="46" x2="254" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w6a)" />
+
+      <!-- Box 3 -->
+      <rect x="256" y="20" width="108" height="52" rx="3" fill="#F4F6F8" stroke="#D8DEE5" stroke-width="1" />
+      <text x="310" y="38" text-anchor="middle" font-size="7" fill="#3F4B5C" font-family="Segoe UI,sans-serif"
+        font-weight="700">Collect Data</text>
+      <text x="310" y="50" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">Task:
+        R&amp;D Execs</text>
+      <text x="310" y="62" text-anchor="middle" font-size="6.5" fill="#6B7A8D"
+        font-family="Segoe UI,sans-serif">National &amp; India data</text>
+      <line x1="364" y1="46" x2="378" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w6a)" />
+
+      <!-- Box 4 -->
+      <rect x="380" y="20" width="108" height="52" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1" />
+      <text x="434" y="38" text-anchor="middle" font-size="7" fill="#A32E24" font-family="Segoe UI,sans-serif"
+        font-weight="700">Manual Aggregation</text>
+      <text x="434" y="50" text-anchor="middle" font-size="6.5" fill="#C0453A" font-family="Segoe UI,sans-serif">Action:
+        Ritu Panwar</text>
+      <text x="434" y="62" text-anchor="middle" font-size="6.5" fill="#C0453A" font-family="Segoe UI,sans-serif">All
+        sources merged</text>
+      <line x1="488" y1="46" x2="502" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w6a)" />
+
+      <!-- Box 5 -->
+      <rect x="504" y="20" width="108" height="52" rx="3" fill="#F4F6F8" stroke="#D8DEE5" stroke-width="1" />
+      <text x="558" y="38" text-anchor="middle" font-size="7" fill="#3F4B5C" font-family="Segoe UI,sans-serif"
+        font-weight="700">Compile BOD</text>
+      <text x="558" y="50" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">Task:
+        Ritu Panwar</text>
+      <text x="558" y="62" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">Tag
+        CXOs on key items</text>
+      <line x1="612" y1="46" x2="626" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w6a)" />
+
+      <!-- Box 6 -->
+      <rect x="628" y="20" width="104" height="52" rx="3" fill="#E9F4EC" stroke="#92C7A3" stroke-width="1" />
+      <text x="680" y="38" text-anchor="middle" font-size="7" fill="#276B3E" font-family="Segoe UI,sans-serif"
+        font-weight="700">Present to Board</text>
+      <text x="680" y="50" text-anchor="middle" font-size="6.5" fill="#3D8A5C" font-family="Segoe UI,sans-serif">Action:
+        Ritu Panwar</text>
+      <text x="680" y="62" text-anchor="middle" font-size="6.5" fill="#3D8A5C" font-family="Segoe UI,sans-serif">Monthly
+        cycle complete</text>
+
+      <!-- Red annotation boxes below steps 1 and 4 -->
+      <rect x="8" y="80" width="108" height="22" rx="2" fill="#FEF9EC" stroke="#E8D08A" stroke-width="1" />
+      <text x="62" y="92" text-anchor="middle" font-size="6.2" fill="#7C5E0A" font-family="Segoe UI,sans-serif">⚠ No
+        automation</text>
+      <text x="62" y="101" text-anchor="middle" font-size="6" fill="#7C5E0A" font-family="Segoe UI,sans-serif">fully
+        manual trigger</text>
+
+      <rect x="380" y="80" width="108" height="22" rx="2" fill="#FEF9EC" stroke="#E8D08A" stroke-width="1" />
+      <text x="434" y="92" text-anchor="middle" font-size="6.2" fill="#7C5E0A" font-family="Segoe UI,sans-serif">⚠ No
+        template</text>
+      <text x="434" y="101" text-anchor="middle" font-size="6" fill="#7C5E0A" font-family="Segoe UI,sans-serif">format
+        varies each month</text>
+    </svg>
+    <div class="flow-note">
+      <p style="margin-top:0;"><strong>What is good:</strong> Consolidated monthly updates provide full visibility to
+        the Board and CXOs.</p>
+      <p><strong>What needs to be fixed:</strong> The reporting cycle runs manually with no automated reminders, no
+        standardized aggregation template, and no pre-built BOD format.</p>
+      <p><strong>Bottlenecks:</strong> Ritu personally coordinates across at least 3 time zones to collect data before
+        she can begin compiling.</p>
+      <p style="margin-bottom:0;"><strong>Dependencies:</strong> Aggregation depends completely on agronomists sending
+        data on time; delays cascade down the line.</p>
+    </div>
+    <div class="doc-footer"><span>R&amp;D Audit Report · v1.0</span><span>Page 7</span></div>
+  </div>
+
+
+  <!-- ============ APPENDIX ============ -->
+  <div class="page">
+    <div class="doc-header"><span><b>EF Polymer Private Limited</b> — R&amp;D &amp; Technical Department
+        Audit</span><span>Confidential</span></div>
+
+    <div class="eyebrow">Appendix</div>
+    <h2>Cross-Department Dependencies</h2>
+    <div class="section-dek">Findings and recommendations that require action outside the R&amp;D Office to resolve
+    </div>
+
+    <style>
+      .dep-card {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--paper);
+        padding: 16px;
+        margin-bottom: 16px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      }
+
+      .dep-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 12px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .dep-title {
+        font-weight: 700;
+        font-size: 11pt;
+        color: var(--ink);
+      }
+
+      .dep-badge {
+        font-size: 7.5pt;
+        font-weight: 600;
+        padding: 3px 8px;
+        border-radius: 12px;
+        background: #f1f5f9;
+        color: #475569;
+        text-transform: uppercase;
+      }
+
+      .dep-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+
+      .dep-section {
+        background: #f8fafc;
+        border-radius: 6px;
+        padding: 12px;
+        border: 1px solid #e2e8f0;
+      }
+
+      .dep-section.bottleneck {
+        background: #fef2f2;
+        border-color: #fecaca;
+      }
+
+      .dep-section.data-sync {
+        background: #f0f9ff;
+        border-color: #bae6fd;
+      }
+
+      .dep-section-title {
+        font-size: 7.5pt;
+        font-weight: 700;
+        color: #64748b;
+        text-transform: uppercase;
+        margin-bottom: 6px;
+        letter-spacing: 0.5px;
+      }
+
+      .bottleneck .dep-section-title {
+        color: #b91c1c;
+      }
+
+      .data-sync .dep-section-title {
+        color: #0369a1;
+      }
+
+      .dep-section-content {
+        font-size: 8.5pt;
+        color: var(--ink);
+        line-height: 1.4;
+      }
+
+      .dep-person {
+        display: inline-block;
+        background: #f1f5f9;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-weight: 600;
+        font-size: 8pt;
+        margin-top: 4px;
+        border: 1px solid #cbd5e1;
+      }
+    </style>
+
+    <style>
+      .chip {
+        display: inline-block;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-size: 7pt;
+        font-weight: 700;
+        margin-left: 6px;
+        text-transform: none;
+        letter-spacing: normal;
+      }
+
+      .chip-data {
+        background: #e0f2fe;
+        color: #0284c7;
+        border: 1px solid #bae6fd;
+      }
+
+      .chip-approval {
+        background: #fef08a;
+        color: #a16207;
+        border: 1px solid #fde047;
+      }
+
+      .chip-info {
+        background: #e0e7ff;
+        color: #4338ca;
+        border: 1px solid #c7d2fe;
+      }
+    </style>
+
+    <!-- Sales & BD -->
+    <div class="dep-card">
+      <div class="dep-header">
+        <div class="dep-title">Sales &amp; Business Development</div>
+        <div class="dep-badge">Commercial Support</div>
+      </div>
+      <div class="dep-grid">
+        <div class="dep-section">
+          <div class="dep-section-title">Operations Dependency <span class="chip chip-info">Information Sharing</span>
+          </div>
+          <div class="dep-section-content">
+            Sales heavily depends on R&amp;D for technical inputs on B2B proposals and grants. R&amp;D needs structured
+            requests from Sales.
+            <div class="dep-person">👤 Key Person: Sales Head / BD Lead</div>
+          </div>
+        </div>
+        <div class="dep-section bottleneck">
+          <div class="dep-section-title">Critical Bottleneck</div>
+          <div class="dep-section-content">
+            Ad-hoc chat queries and unstructured proposal requests from Sales currently disrupt R&amp;D's core research
+            focus.
+          </div>
+        </div>
+        <div class="dep-section data-sync" style="grid-column: 1 / -1;">
+          <div class="dep-section-title">Data Transfer &amp; Updates Needed <span class="chip chip-data">Data
+              Flow</span></div>
+          <div class="dep-section-content">
+            Sales must adopt a standardized intake format for B2B requests. R&amp;D must continuously push updated
+            technical data to the SSOT Chatbot to enable Sales self-service.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Production & QC -->
+    <div class="dep-card">
+      <div class="dep-header">
+        <div class="dep-title">Production &amp; Quality Control (QC)</div>
+        <div class="dep-badge">Operational Handoff</div>
+      </div>
+      <div class="dep-grid">
+        <div class="dep-section">
+          <div class="dep-section-title">Operations Dependency <span class="chip chip-approval">Approval Flow</span>
+          </div>
+          <div class="dep-section-content">
+            R&amp;D trial validation requires a strict 3-department handoff (Production lot &rarr; QC 24-hr test &rarr;
+            R&amp;D log). Furthermore, R&amp;D relies on Production for raw material procurement (large-scale trials),
+            machinery procurement advice, and joint-approvals for registrations/certifications.
+            <div class="dep-person">👤 Key Person: Ritu Panwar (PD Manager)</div>
+          </div>
+        </div>
+        <div class="dep-section bottleneck">
+          <div class="dep-section-title">Critical Bottleneck</div>
+          <div class="dep-section-content">
+            No established workflow exists for cross-departmental requests regarding raw materials, machinery, or
+            certifications, causing breaks in the handoff chain and lost data.
+          </div>
+        </div>
+        <div class="dep-section data-sync" style="grid-column: 1 / -1;">
+          <div class="dep-section-title">Data Transfer &amp; Updates Needed <span class="chip chip-data">Data
+              Flow</span></div>
+          <div class="dep-section-content">
+            New workflows must be built into the dashboard to send pre-defined approval messages for raw materials and
+            machinery. Live status updates must be synced from Production/QC systems to track testing statuses in
+            real-time.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Finance & CXO Visibility -->
+    <div class="dep-card">
+      <div class="dep-header">
+        <div class="dep-title">Finance, HR &amp; CXO Visibility</div>
+        <div class="dep-badge">Admin &amp; Budget Support</div>
+      </div>
+      <div class="dep-grid">
+        <div class="dep-section">
+          <div class="dep-section-title">Operations Dependency <span class="chip chip-approval">Approval Flow</span>
+          </div>
+          <div class="dep-section-content">
+            R&amp;D teams (India &amp; International) require rapid budget approvals from Finance for operational
+            fieldwork. CXOs require top-down visibility into where these investments are going.
+            <div class="dep-person">👤 Key Persons: Shobha Shekhawat (Finance) / HR Manager</div>
+          </div>
+        </div>
+        <div class="dep-section bottleneck">
+          <div class="dep-section-title">Critical Bottleneck</div>
+          <div class="dep-section-content">
+            Delays in processing international payments stall fieldwork. Furthermore, CXOs lack immediate visibility
+            into R&amp;D's ROI and budget utilization.
+          </div>
+        </div>
+        <div class="dep-section data-sync" style="grid-column: 1 / -1;">
+          <div class="dep-section-title">Data Transfer &amp; Updates Needed <span class="chip chip-data">Data
+              Flow</span></div>
+          <div class="dep-section-content">
+            Budget requests and approvals must be directly integrated into the dashboard's visibility overview. This
+            allows R&amp;D Leads and CXOs to instantly track international budget allocations versus actual ROI
+            generation. HR also requires updated KPIs for role standardization in Phase 2.
+          </div>
+        </div>
+      </div>
+    </div>
+
+</body>
+
+</html>
+<div class="doc-footer"><span>R&amp;D Audit Report · v1.0</span><span>Page 8</span></div>
 </div>
 
-<!-- ============ 01 EXECUTIVE SUMMARY ============ -->
+
+<!-- ============ 02 PAIN POINTS ============ -->
 <div class="page">
-  <div class="doc-header"><span><b>EF Polymers</b> — R&amp;D Audit</span><span>Confidential</span></div>
+  <div class="doc-header"><span><b>EF Polymer Private Limited</b> — R&amp;D &amp; Technical Department
+      Audit</span><span>Confidential</span></div>
 
-  <div class="eyebrow">Section 01 — Executive Summary</div>
-  <h2>Department Overview</h2>
-  <div class="section-dek">Scope, current state, and headline findings</div>
+  <div class="eyebrow">Section 04 — Operational Pain Points</div>
+  <h2>Pain Points Register</h2>
+  <div class="section-dek">Ranked by operational impact. Each pain point is cross-referenced to its recommendation in
+    Section 04.</div>
 
-  <p class="lede">The R&amp;D team manages new product development, crop validation trials, regulatory registration, and international technical documentation. Operating across India, the US, EU, and Japan, the team forms the scientific backbone of EF Polymers.</p>
-
-  <p>The audit identified a severe key-person dependency on the Product Development Manager (Ritu Panwar), who single-handedly manages multi-stage protocol approvals and grant drafting for all regions. Additionally, research findings are fragmented across 8–10 independent Excel spreadsheets. This lack of a unified database leads to redundant testing and risks institutional knowledge loss.</p>
-
-  <div class="kpi-strip">
-    <div class="kpi-cell"><div class="kpi-num">18–20</div><div class="kpi-lbl">Peak Active Projects</div></div>
-    <div class="kpi-cell"><div class="kpi-num">8–10</div><div class="kpi-lbl">Excel Trackers</div></div>
-    <div class="kpi-cell"><div class="kpi-num">3</div><div class="kpi-lbl">Approval Stages</div></div>
-    <div class="kpi-cell"><div class="kpi-num">1.5 / 5.0</div><div class="kpi-lbl">Overall Maturity Score</div></div>
+  <div class="callout" style="margin-bottom:14px;border-left-color:#2563eb;background:#EFF4FF;">
+    <strong style="color:#1B2A4A;">Priority Focus Areas:</strong><br>
+    <span style="color:#1B2A4A;">&#9312; <b>Reporting &amp; Visibility</b> — Real-time visibility of team member
+      workloads, project timelines, and individual capacity is the most pressing gap. No system exists today to know who
+      is doing what and when they will be free.</span><br>
+    <span style="color:#1B2A4A;">&#9313; <b>Trial Data Monitoring &amp; Analysis</b> — No centralised tracking of
+      ongoing trials, costs, outcomes, and statuses means the department cannot prevent overspend or learn from previous
+      validation data.</span>
   </div>
 
+  <table>
+    <tr>
+      <th class="id">ID</th>
+      <th>Pain Point</th>
+      <th>Impact</th>
+      <th>Evidence from Audit</th>
+    </tr>
+    <tr>
+      <td class="id">P-01</td>
+      <td><b>Severe Key-Person Dependency.</b> All protocol approvals, grant writing, and international technical
+        sign-offs are bottlenecked on a single person — the PD Manager (Ritu Panwar).</td>
+      <td><span class="chip chip-crit">Critical</span></td>
+      <td>3-stage approval process is non-delegable as currently structured; international proposals require up to 3
+        rounds and 15–20 days, stalling BD and Sales pipelines.</td>
+    </tr>
+    <tr>
+      <td class="id">P-02</td>
+      <td><b>Scattered Trial &amp; Project Data.</b> Research, trial outcomes, and project status are fragmented across
+        8–10 disconnected Google Sheets with no cross-referencing or search.</td>
+      <td><span class="chip chip-crit">Critical</span></td>
+      <td>Causes redundant testing, data loss, and inability to retrieve past trial data — directly leading to
+        preventable validation cost overruns.</td>
+    </tr>
+    <tr>
+      <td class="id">P-03</td>
+      <td><b>No Trial Cost Monitoring or Spend Visibility.</b> Validation is the largest cost center, but there is no
+        centralised dashboard tracking trial costs, outcomes, and resource spend per project.</td>
+      <td><span class="chip chip-crit">Critical</span></td>
+      <td>Without visibility of previous trial data, the team risks repeating failed or inconclusive experiments —
+        directly inflating the validation budget. Ritu confirmed repeat trials are a known cost driver.</td>
+    </tr>
+    <tr>
+      <td class="id">P-04</td>
+      <td><b>No Project Management or Workload Tracking.</b> PM tools (Asana) were abandoned; the team reverts to manual
+        follow-up. No visibility of individual team member capacity or project timelines exists.</td>
+      <td><span class="chip chip-crit">Critical</span></td>
+      <td>Ritu confirmed she cannot know if a team member is overloaded before assigning new tasks. Cross-region data
+        submissions are missed without automated reminders.</td>
+    </tr>
+    <tr>
+      <td class="id">P-05</td>
+      <td><b>Repetitive Agronomical Documentation Load.</b> Back-to-back creation of national-side technical and
+        agronomical reports is consuming a disproportionate share of Ritu Panwar's own time with no reusable template or
+        delegation path.</td>
+      <td><span class="chip chip-med">High</span></td>
+      <td>Ritu cited documentation as one of her two largest personal time sinks, specifically national-side technical
+        insights and agronomical reports. These are written fresh each time with no standardised base template.</td>
+    </tr>
+    <tr>
+      <td class="id">P-06</td>
+      <td><b>Proposal Drafting Fragmentation Across Members.</b> B2B proposals (Arman), scientific proposals (Gaurav),
+        and all international / grant proposals (Ritu) are siloed with no shared template library or intake format.</td>
+      <td><span class="chip chip-med">High</span></td>
+      <td>Quarterly volume: 5–6 proposals in steady state, up to 20+ in a peak quarter. Each proposal requires a minimum
+        of 2–3 drafts. No standardised format or proposal bank exists to accelerate repeat work.</td>
+    </tr>
+    <tr>
+      <td class="id">P-07</td>
+      <td><b>Broken Information Flow to Sales &amp; BD.</b> Sales and BD teams regularly request technical data, crop
+        dosage guidance, and pitch support but there is no self-serve retrieval mechanism — every query hits R&amp;D
+        directly.</td>
+      <td><span class="chip chip-med">High</span></td>
+      <td>Simple queries take 1–2 hours; unexplored topics 3–4 hours; QC-level queries up to 30 hours. All routed
+        manually through team members with no shared knowledge base for Sales and BD to self-serve.</td>
+    </tr>
+    <tr>
+      <td class="id">P-08</td>
+      <td><b>Manual Reporting Reminders &amp; BOD Aggregation.</b> Monthly data collection from agronomists (including
+        cross-timezone international contacts) is done via manual email reminders. Compiling the BOD report from
+        multiple sources is entirely manual.</td>
+      <td><span class="chip chip-low">Medium</span></td>
+      <td>Ritu confirmed she manually chases international agronomists for monthly data. The combined monthly report for
+        CXOs, and the BOD-level summary, are assembled by hand each cycle with no automated aggregation.</td>
+    </tr>
+  </table>
+  <div class="doc-footer"><span>R&amp;D Audit Report · v1.0</span><span>Page 9</span></div>
+</div>
+
+
+<!-- ============ 07 TIME AND EFFORT ALLOCATION ============ -->
+<div class="page">
+  <div class="doc-header"><span><b>EF Polymer Private Limited</b> — R&amp;D & Technical Department
+      Audit</span><span>Confidential</span></div>
+  <div class="eyebrow">Section 05 — Time & Effort</div>
   <h3>Time &amp; Effort Allocation</h3>
-  <table>
-    <tr><th>Activity</th><th class="num" style="text-align:right">Share of Team Time</th></tr>
-    <tr><td>Technical &amp; Agronomical Report Documentation</td><td class="num">~35%</td></tr>
-    <tr><td>Excel Tracker Maintenance</td><td class="num">~25%</td></tr>
-    <tr><td>Grant &amp; B2B Proposal Drafting</td><td class="num">~20%</td></tr>
-    <tr><td>Protocol Auditing &amp; Approvals</td><td class="num">~15%</td></tr>
-    <tr><td>Board &amp; BOD Reporting Prep</td><td class="num">~5%</td></tr>
-  </table>
-
-  <h3>Tools in Use</h3>
-  <table>
-    <tr><th>Tool</th><th>Role</th></tr>
-    <tr><td>Excel &amp; Google Sheets</td><td>8-10 disjointed trackers holding critical scientific IP</td></tr>
-    <tr><td>Wisebase / AI</td><td>Topic synthesis and preliminary research compilation</td></tr>
-    <tr><td>Power BI</td><td>Active onboarding phase for centralized reporting</td></tr>
-  </table>
-
-  <div class="doc-footer"><span>R&amp;D Audit Report · v1.0</span><span>Page 2</span></div>
-</div>
-
-<!-- ============ 02 FINDINGS REGISTER ============ -->
-<div class="page">
-  <div class="doc-header"><span><b>EF Polymers</b> — R&amp;D Audit</span><span>Confidential</span></div>
-
-  <div class="eyebrow">Section 02 — Risk &amp; Control Findings</div>
-  <h2>Findings Register</h2>
-  <div class="section-dek">Ranked by risk rating. Each finding is cross-referenced to its recommendation in Section 04.</div>
-
+  <p style="font-size:8.5pt;color:var(--muted);margin-bottom:8px;">Based on a standard 8-hour workday. Hours shown are
+    estimates per team member per day, averaged across the team.</p>
   <table>
     <tr>
-      <th class="id">ID</th><th>Finding</th><th>Risk</th><th>Evidence / Impact</th><th>Linked Rec.</th>
+      <th>Activity</th>
+      <th class="num" style="text-align:right">Share of Team Time</th>
+      <th class="num" style="text-align:right">Est. Time / Day</th>
     </tr>
     <tr>
-      <td class="id">F-01</td>
-      <td><b>Severe Key-Person Dependency.</b> Protocol approvals, grant writing, and technical sign-offs for all regions are bottlenecked on the PD Manager.</td>
-      <td><span class="chip chip-crit">Critical</span></td>
-      <td>Creates a massive processing bottleneck; 15% of total time spent just on manual sign-offs.</td>
-      <td><span class="chip-ref">R-01</span></td>
+      <td>Technical, Agronomical &amp; Compliance Documentation</td>
+      <td class="num">~30%</td>
+      <td class="num">~2.4 hrs</td>
     </tr>
     <tr>
-      <td class="id">F-02</td>
-      <td><b>Scattered Scientific Data.</b> Research findings are fragmented across 8–10 disconnected spreadsheets.</td>
-      <td><span class="chip chip-crit">Critical</span></td>
-      <td>Causes redundant testing, data loss, and prevents cross-referencing past trials.</td>
-      <td><span class="chip-ref">R-02</span></td>
+      <td>Project Tracker Maintenance (Google Sheets)</td>
+      <td class="num">~20%</td>
+      <td class="num">~1.6 hrs</td>
     </tr>
     <tr>
-      <td class="id">F-03</td>
-      <td><b>Aborted Project Management Tooling.</b> Project tracking reverted to manual sheets after PM tools (Asana) were abandoned.</td>
-      <td><span class="chip chip-med">Medium</span></td>
-      <td>Tasks fall through the cracks without automated reminders or clear ownership tracking.</td>
-      <td><span class="chip-ref">R-03</span></td>
+      <td>Grant &amp; B2B Proposal Drafting</td>
+      <td class="num">~20%</td>
+      <td class="num">~1.6 hrs</td>
     </tr>
     <tr>
-      <td class="id">F-04</td>
-      <td><b>Task Ambiguity and Overload.</b> Lack of formal load balancing for secondary support roles has led to task imbalances.</td>
-      <td><span class="chip chip-low">Low</span></td>
-      <td>Inefficient utilization of newly onboarded executives and interns.</td>
-      <td><span class="chip-ref">R-04</span></td>
+      <td>New Product Acquisition &amp; Partner Evaluation</td>
+      <td class="num">~15%</td>
+      <td class="num">~1.2 hrs</td>
+    </tr>
+    <tr>
+      <td>Protocol Auditing &amp; Approvals</td>
+      <td class="num">~10%</td>
+      <td class="num">~48 min</td>
+    </tr>
+    <tr>
+      <td>Board &amp; BOD Reporting Prep</td>
+      <td class="num">~5%</td>
+      <td class="num">~24 min</td>
     </tr>
   </table>
-
-  <div class="callout">The two Critical findings jeopardize the company's core scientific IP and speed-to-market. F-01 (Key-Person Dependency) creates an unsustainable bottleneck where global approvals stall waiting for a single manager. F-02 (Scattered Data) is a major structural risk—legacy trial data across 8-10 Excel sheets leads to redundant re-testing and knowledge loss. Phase 1 targets both by enforcing an approval delegation matrix and migrating all disparate sheets into a unified Power BI relational database.</div>
-
-  <div class="doc-footer"><span>R&amp;D Audit Report · v1.0</span><span>Page 3</span></div>
+  <div class="doc-footer"><span>R&amp;D Audit Report · v1.0</span><span>Page 10</span></div>
 </div>
 
-<!-- ============ 03 WORKFLOWS ============ -->
-<div class="page">
-  <div class="doc-header"><span><b>EF Polymers</b> — R&amp;D Audit</span><span>Confidential</span></div>
-
-  <div class="eyebrow">Section 03 — Process Detail</div>
-  <h2>Current Workflows</h2>
-  <div class="section-dek">Where each finding sits inside the operational process</div>
-
-  <!-- WORKFLOW 1: Trial Lifecycle -->
-  <h3>Product Validation &amp; Trial Lifecycle</h3>
-  <svg viewBox="0 0 740 140" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:10px 0 4px;">
-    <defs>
-      <marker id="a1" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
-        <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5"/>
-      </marker>
-    </defs>
-    <rect x="10"  y="20" width="106" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
-    <text x="63"  y="40" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Formulation</text>
-    <text x="63"  y="52" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Ready</text>
-    <line x1="116" y1="44" x2="130" y2="44" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)"/>
-
-    <rect x="134" y="20" width="106" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
-    <text x="187" y="40" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Assign Lot (Prod)</text>
-    <text x="187" y="52" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">&amp; Perform QC</text>
-    <line x1="240" y1="44" x2="254" y2="44" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)"/>
-
-    <rect x="258" y="20" width="106" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
-    <text x="311" y="40" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Log Data to</text>
-    <text x="311" y="52" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">R&amp;D Drive</text>
-    <line x1="364" y1="44" x2="378" y2="44" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)"/>
-
-    <rect x="382" y="20" width="106" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
-    <text x="435" y="40" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Design Regional</text>
-    <text x="435" y="52" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Protocols</text>
-    <line x1="488" y1="44" x2="502" y2="44" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)"/>
-
-    <rect x="506" y="20" width="106" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
-    <text x="559" y="40" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Deploy Trial</text>
-    <text x="559" y="52" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">(2-4 Mo.)</text>
-
-    <!-- split to success / failure -->
-    <line x1="559" y1="68" x2="559" y2="100" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)"/>
-    <rect x="506" y="100" width="106" height="40" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1"/>
-    <text x="559" y="117" text-anchor="middle" font-size="7.5" fill="#A32E24" font-family="Segoe UI,sans-serif">Re-run Trial</text>
-    <text x="559" y="129" text-anchor="middle" font-size="7.5" fill="#A32E24" font-family="Segoe UI,sans-serif">(Data Loss/Fail)</text>
-
-    <line x1="612" y1="44" x2="626" y2="44" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)"/>
-    <rect x="630" y="20" width="106" height="48" rx="3" fill="#E9F4EC" stroke="#92C7A3" stroke-width="1"/>
-    <text x="683" y="40" text-anchor="middle" font-size="7.6" fill="#276B3E" font-family="Segoe UI,sans-serif">Successful Trial</text>
-    <text x="683" y="52" text-anchor="middle" font-size="7.6" fill="#276B3E" font-family="Segoe UI,sans-serif">Final Report</text>
-  </svg>
-  <p class="flow-note">Validation is R&amp;D's largest cost center. Untracked findings (due to scattered spreadsheets) lead to repeated trials and inflated validation budgets.</p>
-
-  <!-- WORKFLOW 2: Proposal Development -->
-  <h3>B2B Proposal &amp; Protocol Drafting — <span class="chip-ref">F-01</span></h3>
-  <svg viewBox="0 0 740 92" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:10px 0 4px;">
-    <defs>
-      <marker id="a2" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
-        <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5"/>
-      </marker>
-    </defs>
-    
-    <rect x="10" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
-    <text x="70" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Intake Novel</text>
-    <text x="70" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Use Case</text>
-    <line x1="130" y1="46" x2="150" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)"/>
-    
-    <rect x="150" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
-    <text x="210" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Case-by-case</text>
-    <text x="210" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Scientific Research</text>
-    <line x1="270" y1="46" x2="290" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)"/>
-    
-    <rect x="290" y="22" width="120" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5"/>
-    <text x="350" y="43" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">PD Manager Drafts</text>
-    <text x="350" y="55" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">B2B/Grant Proposal</text>
-    <line x1="410" y1="46" x2="430" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)"/>
-    
-    <rect x="430" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
-    <text x="490" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">3-Step Protocol</text>
-    <text x="490" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Auditing</text>
-    <line x1="550" y1="46" x2="570" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)"/>
-    
-    <rect x="570" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
-    <text x="630" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Multi-Round Review</text>
-    <text x="630" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">(Up to 20 days)</text>
-  </svg>
-  <p class="flow-note">All international proposals and scientific grants bottleneck at the PD Manager, causing delays for the BD team waiting on technical pitching materials.</p>
-
-  <div class="doc-footer"><span>R&amp;D Audit Report · v1.0</span><span>Page 4</span></div>
-</div>
 
 <!-- ============ 04 RECOMMENDATIONS ============ -->
 <div class="page">
-  <div class="doc-header"><span><b>EF Polymers</b> — R&amp;D Audit</span><span>Confidential</span></div>
+  <div class="doc-header"><span><b>EF Polymer Private Limited</b> — R&amp;D &amp; Technical Department
+      Audit</span><span>Confidential</span></div>
 
-  <div class="eyebrow">Section 04 — Corrective Action Plan</div>
-  <h2>Recommendations Register</h2>
-  <div class="section-dek">Ordered by priority. Effort and impact are directional estimates for planning purposes.</div>
+  <div class="eyebrow">Section 06 — Corrective Action Plan</div>
+  <h2>Recommended Solution Segment</h2>
+  <div class="section-dek">This section outlines the integrated technology solution proposed to resolve operational
+    bottlenecks, replacing the legacy recommendations register.</div>
 
-  <table>
-    <tr><th class="id">ID</th><th>Recommendation</th><th>Finding</th><th>Priority</th><th>Effort</th><th>Expected Impact</th></tr>
-    <tr>
-      <td class="id">R-01</td>
-      <td>Approval Delegation Framework — Draft clear rubrics allowing the PD Manager to delegate stage 1 &amp; 2 protocol approvals to senior executives, reserving her time for final sign-off.</td>
-      <td><span class="chip-ref">F-01</span></td>
-      <td><span class="chip chip-crit">P1</span></td>
-      <td>Medium</td>
-      <td>De-bottlenecks trial deployment and empowers mid-level scientific staff.</td>
-    </tr>
-    <tr>
-      <td class="id">R-02</td>
-      <td>Unified Master R&amp;D Database — Consolidate the 8-10 tracking sheets into a unified Power BI database or Zoho Creator app with relational search.</td>
-      <td><span class="chip-ref">F-02</span></td>
-      <td><span class="chip chip-crit">P1</span></td>
-      <td>High</td>
-      <td>Protects core scientific IP; prevents repeat trials due to lost legacy data.</td>
-    </tr>
-    <tr>
-      <td class="id">R-03</td>
-      <td>Low-Friction PM Tool Reboot — Reintroduce a simplified project management tool (e.g., Trello or Monday) for task assignment without heavy administrative bloat.</td>
-      <td><span class="chip-ref">F-03</span></td>
-      <td><span class="chip chip-med">P2</span></td>
-      <td>Low</td>
-      <td>Restores task accountability and automated deadline reminders.</td>
-    </tr>
-    <tr>
-      <td class="id">R-04</td>
-      <td>Role Standardization — Formally map out specific ownership domains for the new support hires to balance the reporting and tracking workload.</td>
-      <td><span class="chip-ref">F-04</span></td>
-      <td><span class="chip chip-med">P2</span></td>
-      <td>Low</td>
-      <td>Improves execution speed across the 18-20 peak active projects.</td>
-    </tr>
-  </table>
+  <h3>Implementation Required</h3>
 
-  <div class="doc-footer"><span>R&amp;D Audit Report · v1.0</span><span>Page 5</span></div>
-</div>
+  <p style="font-weight: 700; color: var(--ink); margin-top: 15px; margin-bottom: 10px; font-size: 9.5pt;">Solution
+    Modules to be Built:</p>
 
-<!-- ============ 05 MATURITY ============ -->
-<div class="page">
-  <div class="doc-header"><span><b>EF Polymers</b> — R&amp;D Audit</span><span>Confidential</span></div>
-
-  <div class="eyebrow">Section 05 — Benchmarking</div>
-  <h2>Department Maturity Assessment</h2>
-  <div class="section-dek">Scored 1 (ad hoc) to 5 (optimized) against five capability dimensions</div>
-
-  <div class="exhibit">
-    <div class="exhibit-chart">
-      <svg viewBox="0 0 400 350" xmlns="http://www.w3.org/2000/svg" style="width:100%;">
-        <g transform="translate(200,170)">
-          <polygon points="0,-120 114,-37 70,97 -70,97 -114,-37" fill="none" stroke="#E2E8F0" stroke-width="0.75"/>
-          <polygon points="0,-96 91,-30 56,78 -56,78 -91,-30"    fill="none" stroke="#E2E8F0" stroke-width="0.75"/>
-          <polygon points="0,-72 68,-22 42,58 -42,58 -68,-22"    fill="none" stroke="#E2E8F0" stroke-width="0.75"/>
-          <polygon points="0,-48 46,-15 28,39 -28,39 -46,-15"    fill="none" stroke="#E2E8F0" stroke-width="0.75"/>
-          <polygon points="0,-24 23,-7 14,19 -14,19 -23,-7"      fill="none" stroke="#E2E8F0" stroke-width="0.75"/>
-          <line x1="0" y1="0" x2="0"    y2="-120" stroke="#E2E8F0" stroke-width="0.75"/>
-          <line x1="0" y1="0" x2="114"  y2="-37"  stroke="#E2E8F0" stroke-width="0.75"/>
-          <line x1="0" y1="0" x2="70"   y2="97"   stroke="#E2E8F0" stroke-width="0.75"/>
-          <line x1="0" y1="0" x2="-70"  y2="97"   stroke="#E2E8F0" stroke-width="0.75"/>
-          <line x1="0" y1="0" x2="-114" y2="-37"  stroke="#E2E8F0" stroke-width="0.75"/>
-          
-          <!-- Target dashed: Process 3.0, Tech 3.0, Data 3.5, Docs 3.5, KM 3.0 -->
-          <polygon points="0,-72 68.4,-22.2 68.6,95 -68.6,95 -68.4,-22.2" fill="none" stroke="#B8C0C9" stroke-width="1" stroke-dasharray="5,3"/>
-          
-          <!-- Current: Process 2.0, Tech 1.5, Data 1.0, Docs 2.0, KM 1.0 -->
-          <polygon points="0,-48 34.2,-11.1 14,19.4 -40,55.2 -22.8,-7.4" fill="rgba(15,107,98,0.14)" stroke="#0F6B62" stroke-width="1.75"/>
-          <circle cx="0" cy="-48" r="3.2" fill="#0F6B62"/>
-          <circle cx="34.2" cy="-11.1" r="3.2" fill="#0F6B62"/>
-          <circle cx="14" cy="19.4" r="3.2" fill="#0F6B62"/>
-          <circle cx="-40" cy="55.2" r="3.2" fill="#0F6B62"/>
-          <circle cx="-22.8" cy="-7.4" r="3.2" fill="#0F6B62"/>
-          
-          <text x="0"    y="-132" text-anchor="middle" font-size="9" fill="#1B2A4A" font-weight="600">Process</text>
-          <text x="128"  y="-20"  text-anchor="start"  font-size="9" fill="#1B2A4A" font-weight="600">Technology</text>
-          <text x="78"   y="110"  text-anchor="start"  font-size="9" fill="#1B2A4A" font-weight="600">Data Quality</text>
-          <text x="-78"  y="110"  text-anchor="end"    font-size="9" fill="#1B2A4A" font-weight="600">Documentation</text>
-          <text x="-128" y="-16"  text-anchor="end"    font-size="9" fill="#1B2A4A" font-weight="600">Knowledge Mgmt.</text>
-        </g>
-      </svg>
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px;">
+    <!-- Module 1 -->
+    <div style="border: 1px solid var(--line); border-radius: 4px; padding: 12px; background: var(--paper);">
+      <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+        <div
+          style="background: #E9F4EC; color: #276B3E; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 10pt;">
+          1</div>
+        <div style="font-weight: 700; color: var(--ink); font-size: 9.5pt;">R&amp;D Frontend Dashboard</div>
+      </div>
+      <ul style="font-size: 8.5pt; color: var(--muted); line-height: 1.5; padding-left: 18px; margin: 0;">
+        <li style="margin-bottom: 6px;"><strong>Real-Time Data Sync:</strong> The dashboard links directly to your
+          existing Google Sheets. If someone edits a Google Sheet, the dashboard updates instantly. If you make a change
+          on the dashboard, it automatically saves back to the Google Sheet, meaning no data is ever out of sync.</li>
+        <li style="margin-bottom: 6px;"><strong>Centralised Approval System:</strong> A dedicated space where the
+          R&amp;D Head can instantly see all pending requests. You can request, review, approve, or reject trials and
+          documents with a single click, eliminating delays caused by lost emails or messages.</li>
+        <li><strong>Workload &amp; Capacity Tracking:</strong> A clear, visual breakdown of what every team member is
+          currently working on. It helps the manager foresee delays, balance task distribution, and track exactly how
+          much time is being spent on each project or trial.</li>
+      </ul>
     </div>
-    <div class="exhibit-note">
-      Solid line: current state. Dashed line: target state (post-roadmap).<br><br>
-      <b>R&amp;D scores 1.5 overall</b> — The department is a critical knowledge center, yet scores only 1.0 in Knowledge Management and Data Quality due to over-reliance on individual memory and 8-10 disparate Excel trackers.<br><br>
-      Migrating to a unified database and formally delegating approvals will structurally stabilize the department and preserve institutional IP.
+
+    <!-- Module 2 -->
+    <div style="border: 1px solid var(--line); border-radius: 4px; padding: 12px; background: var(--paper);">
+      <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+        <div
+          style="background: #E9F4EC; color: #276B3E; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 10pt;">
+          2</div>
+        <div style="font-weight: 700; color: var(--ink); font-size: 9.5pt;">AI &amp; Knowledge Systems</div>
+      </div>
+      <ul style="font-size: 8.5pt; color: var(--muted); line-height: 1.5; padding-left: 18px; margin: 0;">
+        <li style="margin-bottom: 6px;"><strong>Proposal Drafting Engine:</strong> A custom AI assistant built
+          specifically for your team that reads existing past proposals and templates securely stored on Google Drive.
+          It automatically drafts new proposals in the exact required format, saving hours of manual writing.
+          <em>Crucially, this system will live directly inside the new R&amp;D dashboard so the team doesn't have to
+            jump between multiple tools.</em>
+        </li>
+        <li><strong>Single Source of Truth (SSOT) Chatbot:</strong> We will upgrade the existing chatbot so it has
+          access to the entire R&amp;D knowledge base. Sales and BD teams can ask it questions and get instant, accurate
+          answers without interrupting the R&amp;D team's actual work.</li>
+      </ul>
+    </div>
+
+    <!-- Module 3 -->
+    <div
+      style="border: 1px solid var(--line); border-radius: 4px; padding: 12px; background: var(--paper); grid-column: 1 / -1;">
+      <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+        <div
+          style="background: #E9F4EC; color: #276B3E; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 10pt;">
+          3</div>
+        <div style="font-weight: 700; color: var(--ink); font-size: 9.5pt;">Automated Communications &amp; Operations
+        </div>
+      </div>
+      <ul style="font-size: 8.5pt; color: var(--muted); line-height: 1.5; padding-left: 18px; margin: 0;">
+        <li style="margin-bottom: 4px;"><strong>Reporting Reminders:</strong> Automated workflows via API (WhatsApp for
+          internal, Slack for international, Gmail for external partners).</li>
+        <li><strong>Unified OS integration:</strong> Integrates into the larger EF Polymer operating system, giving CXOs
+          role-based, one-click visibility.</li>
+      </ul>
     </div>
   </div>
 
-  <table>
-    <tr><th>Dimension</th><th class="num">Current</th><th class="num">Target</th><th class="num">Gap</th></tr>
-    <tr><td>Process Standardization</td><td class="num">2.0</td><td class="num">3.0</td><td class="num">1.0</td></tr>
-    <tr><td>Technology Utilization</td><td class="num">1.5</td><td class="num">3.0</td><td class="num">1.5</td></tr>
-    <tr><td>Data Quality &amp; Accessibility</td><td class="num">1.0</td><td class="num">3.5</td><td class="num">2.5</td></tr>
-    <tr><td>Documentation</td><td class="num">2.0</td><td class="num">3.5</td><td class="num">1.5</td></tr>
-    <tr><td>Knowledge Management</td><td class="num">1.0</td><td class="num">3.0</td><td class="num">2.0</td></tr>
-    <tr style="font-weight:700;"><td>Overall</td><td class="num">1.5</td><td class="num">3.2</td><td class="num">1.7</td></tr>
-  </table>
+  <!-- Data Strategy & Tech Stack Table -->
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px;">
+    <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 4px; padding: 12px;">
+      <p style="font-weight: 700; color: var(--ink); margin-bottom: 6px; font-size: 9pt;">What Remains the Same</p>
+      <ul style="font-size: 8.5pt; color: var(--muted); line-height: 1.5; padding-left: 18px; margin: 0;">
+        <li style="margin-bottom: 4px;"><strong>No New Backend Database:</strong> Google Sheets and Drive remain the
+          core sources.</li>
+        <li><strong>Familiar Workflows:</strong> The team can still update sheets manually without being forced to
+          change underlying habits.</li>
+      </ul>
+    </div>
+    <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 4px; padding: 12px;">
+      <p style="font-weight: 700; color: var(--ink); margin-bottom: 6px; font-size: 9pt;">Tech Stack Utilized</p>
+      <ul style="font-size: 8.5pt; color: var(--muted); line-height: 1.5; padding-left: 18px; margin: 0;">
+        <li style="margin-bottom: 2px;"><strong>Frontend:</strong> ReactJS + TypeScript</li>
+        <li style="margin-bottom: 2px;"><strong>APIs:</strong> Google Sheets, Drive, WhatsApp, Slack, Gmail</li>
+        <li style="margin-bottom: 2px;"><strong>AI:</strong> Gemini/LLMs for RAG &amp; Drafting</li>
+        <li><strong>Host:</strong> Google Cloud Platform</li>
+      </ul>
+    </div>
+  </div>
 
-  <div class="doc-footer"><span>R&amp;D Audit Report · v1.0</span><span>Page 6</span></div>
+  <!-- Problems Solved Box -->
+  <div style="background: #F0FDF4; border: 1px solid #BBF7D0; border-radius: 4px; padding: 12px; margin-bottom: 25px;">
+    <p style="font-weight: 700; color: #166534; margin-bottom: 6px; font-size: 9.5pt;">Key Operational Problems Solved
+    </p>
+    <ul style="font-size: 8.5pt; color: #15803D; line-height: 1.5; padding-left: 18px; margin: 0;">
+      <li style="margin-bottom: 4px;">Eliminates manual chasing of data and broken information flows across time zones.
+      </li>
+      <li style="margin-bottom: 4px;">Resolves the massive documentation and proposal drafting bottleneck (saving
+        significant PD Manager time).</li>
+      <li style="margin-bottom: 4px;">Centralizes tracking without forcing the team onto a new, complex PM tool.</li>
+      <li>Provides CXOs and department heads instant visibility via a unified approval flow.</li>
+    </ul>
+  </div>
+
+  <h3>Future Scope of Improvement / Enhancement</h3>
+  <ul style="font-size: 9pt; color: var(--muted); line-height: 1.5; padding-left: 20px; margin-bottom: 25px;">
+    <li><strong>AI Operations Agent:</strong> In the future, an AI agent could be added to actively monitor task/trial
+      data, identify bottlenecks, flag delays, and analyze team communications for proactive management. This is not
+      needed right now but is a planned future enhancement.</li>
+  </ul>
+
+  <h3>Next Steps for Team Adoption</h3>
+  <ul style="font-size: 9pt; color: var(--muted); line-height: 1.5; padding-left: 20px; margin-bottom: 15px;">
+    <li><strong>Mandatory Training:</strong> Team adoption and training sessions must be made compulsory to ensure all
+      team members understand how to use the dashboard and AI tools.</li>
+    <li><strong>Feedback Loop:</strong> Establish a continuous feedback loop to iterate on the solution on the ground,
+      ensuring it genuinely adapts to the team's operational reality and achieves actual adoption.</li>
+  </ul>
+  <div class="doc-footer"><span>R&amp;D Audit Report · v1.0</span><span>Page 11</span></div>
 </div>
+
 
 <!-- ============ 06 ROADMAP ============ -->
 <div class="page">
-  <div class="doc-header"><span><b>EF Polymers</b> — R&amp;D Audit</span><span>Confidential</span></div>
+  <div class="doc-header"><span><b>EF Polymer Private Limited</b> — R&amp;D &amp; Technical Department
+      Audit</span><span>Confidential</span></div>
 
-  <div class="eyebrow">Section 06 — Implementation Plan</div>
+  <div class="eyebrow">Section 07 — Implementation Plan</div>
   <h2>Phased Roadmap</h2>
   <div class="section-dek">Initiatives sequenced across three phases, with quantified ROI and scope of work</div>
 
   <table class="tl-table">
     <tr>
-      <th>Initiative</th><th class="id">Rec.</th>
-      <th class="num">Phase 1<br><span style="font-weight:400">Mo. 1–2</span></th>
-      <th class="num">Phase 2<br><span style="font-weight:400">Mo. 3–5</span></th>
-      <th class="num">Phase 3<br><span style="font-weight:400">Mo. 6+</span></th>
+      <th>Initiative</th>
+      <th class="id">Target</th>
+      <th class="num">Phase 1<br><span style="font-weight:400">Weeks 1–4</span></th>
+      <th class="num">Phase 2<br><span style="font-weight:400">Weeks 5–9</span></th>
+      <th class="num">Phase 3<br><span style="font-weight:400">Weeks 10–12</span></th>
     </tr>
-    <tr><td>Approval Delegation Framework</td><td class="id">R-01</td><td class="phase-mark p1">●</td><td></td><td></td></tr>
-    <tr><td>Unified Master R&amp;D Database</td><td class="id">R-02</td><td class="phase-mark p1">●</td><td></td><td></td></tr>
-    <tr><td>Low-Friction PM Tool Reboot</td><td class="id">R-03</td><td></td><td class="phase-mark p2">●</td><td></td></tr>
-    <tr><td>Role Standardization</td><td class="id">R-04</td><td></td><td class="phase-mark p2">●</td><td></td></tr>
+    <tr>
+      <td>R&amp;D Frontend Dashboard &amp; Sync</td>
+      <td class="id">Module 1</td>
+      <td class="phase-mark p1">●</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>AI Proposal Engine &amp; Chatbot</td>
+      <td class="id">Module 2</td>
+      <td></td>
+      <td class="phase-mark p2">●</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Automated Comms &amp; Unified OS</td>
+      <td class="id">Module 3</td>
+      <td></td>
+      <td></td>
+      <td class="phase-mark p3">●</td>
+    </tr>
   </table>
 
   <!-- PHASE 1 -->
   <div class="phase-block">
     <div class="phase-hd">
       <div class="phase-hd-left">
-        <span class="phase-hd-title">Phase 1 &mdash; Structural Stability</span>
-        <span class="phase-hd-timeline">Months 1&ndash;2 &middot; Eliminate Central Bottleneck</span>
+        <span class="phase-hd-title">Phase 1 &mdash; Core Infrastructure &amp; Dashboard</span>
+        <span class="phase-hd-timeline">Weeks 1&ndash;4 &middot; Centralizing Data &amp; Workflows</span>
       </div>
-      <span class="phase-maturity">Maturity 1.5 &rarr; 2.2</span>
+      <span class="phase-maturity p1">Maturity 1.5 &rarr; 2.5</span>
     </div>
     <div class="phase-sow">
-      <div class="col-label">Scope of Work</div>
-      <div class="sow-item"><span class="sow-dot"></span><span>Map 3-stage protocol approvals and formally delegate Stage 1 &amp; 2 authority to senior executives</span></div>
-      <div class="sow-item"><span class="sow-dot"></span><span>Merge the 8-10 disparate Excel trackers into a unified, searchable Power BI relational database</span></div>
-      <div class="sow-item"><span class="sow-dot"></span><span>Implement strict version control for international trial data to prevent legacy data loss</span></div>
-      <div class="sow-item"><span class="sow-dot"></span><span>Train all regional coordinators to input crop trial findings directly into the new central hub</span></div>
+      <div class="col-label">Scope of Work &amp; Dependencies</div>
+      <div class="sow-item"><span class="sow-dot p1"></span><span><strong>Build:</strong> Connect existing Google Sheets
+          to a new ReactJS Dashboard with Bi-Directional sync.</span></div>
+      <div class="sow-item"><span class="sow-dot p1"></span><span><strong>Build:</strong> Implement the Approval Flow
+          and Workload Management tracking modules.</span></div>
+      <div class="sow-item"><span class="sow-dot p1"></span><span><strong>Tech Stack &amp; Dependencies:</strong>
+          ReactJS, Google Sheets API. We require the team's current tracking sheets to act as base data points.</span>
+      </div>
+      <div class="sow-item"><span class="sow-dot p1"></span><span><strong>Team Adoption:</strong> Conduct initial
+          walkthrough sessions for the R&amp;D team to navigate the new UI.</span></div>
+      <div class="sow-item"><span class="sow-dot p1" style="background:#ef4444;"></span><span><strong>Client
+            To-Do:</strong> Provide read/write API access to the Google Workspace and map out the exact approval
+          hierarchy.</span></div>
     </div>
     <div class="phase-roi">
       <div class="roi-card">
-        <div class="roi-card-num">-15%</div>
-        <div class="roi-card-label">admin load</div>
-        <div class="roi-card-desc">Freed up for the PD Manager by delegating approvals</div>
+        <div class="roi-card-num">100%</div>
+        <div class="roi-card-label">Data Sync</div>
+        <div class="roi-card-desc">Eliminates manual copy-pasting across disparate sheets.</div>
       </div>
       <div class="roi-card">
-        <div class="roi-card-num">Single</div>
-        <div class="roi-card-label">source of truth</div>
-        <div class="roi-card-desc">Unified database ends the 8-10 fragmented Excel sheets</div>
+        <div class="roi-card-num">Days Saved</div>
+        <div class="roi-card-label">Centralised Approvals</div>
+        <div class="roi-card-desc">Removes the international approval bottleneck.</div>
       </div>
       <div class="roi-card">
-        <div class="roi-card-num">Zero</div>
-        <div class="roi-card-label">redundant trials</div>
-        <div class="roi-card-desc">Searchable legacy data prevents repeating failed experiments</div>
-      </div>
-      <div class="roi-card">
-        <div class="roi-card-num">&uarr; 2x</div>
-        <div class="roi-card-label">approval speed</div>
-        <div class="roi-card-desc">Delegation removes the 15-20 day international bottleneck</div>
+        <div class="roi-card-num">Live</div>
+        <div class="roi-card-label">Capacity Tracking</div>
+        <div class="roi-card-desc">Instant visibility into team workloads and reversions.</div>
       </div>
     </div>
   </div>
@@ -530,38 +2358,41 @@ td.num{ text-align:center; white-space:nowrap; }
   <div class="phase-block">
     <div class="phase-hd">
       <div class="phase-hd-left">
-        <span class="phase-hd-title">Phase 2 &mdash; Task Governance</span>
-        <span class="phase-hd-timeline">Months 3&ndash;5 &middot; Scaling Execution</span>
+        <span class="phase-hd-title">Phase 2 &mdash; AI &amp; Knowledge Systems</span>
+        <span class="phase-hd-timeline">Weeks 5&ndash;9 &middot; Automating Documentation</span>
       </div>
-      <span class="phase-maturity p2">Maturity 2.2 &rarr; 3.2</span>
+      <span class="phase-maturity p2">Maturity 2.5 &rarr; 2.9</span>
     </div>
     <div class="phase-sow">
-      <div class="col-label">Scope of Work</div>
-      <div class="sow-item"><span class="sow-dot p2"></span><span>Launch a lightweight project management tool (e.g., Trello) replacing heavy tools like Asana</span></div>
-      <div class="sow-item"><span class="sow-dot p2"></span><span>Formally map out specific ownership domains and KPIs for the two newly onboarded managers</span></div>
-      <div class="sow-item"><span class="sow-dot p2"></span><span>Set automated task reminders for cross-regional data submission deadlines</span></div>
-      <div class="sow-item"><span class="sow-dot p2"></span><span>Standardize the intake format for all B2B proposal requests submitted by the Sales team</span></div>
+      <div class="col-label">Scope of Work &amp; Dependencies</div>
+      <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Build:</strong> Deploy custom Proposal
+          Drafting Engine (via RAG over Google Drive) inside the dashboard.</span></div>
+      <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Build:</strong> Upgrade the existing RAG AI
+          bot to serve as a centralized SSOT Chatbot, giving R&amp;D, BD, Sales, and CXOs instant access to the full
+          knowledge base.</span></div>
+      <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Tech Stack &amp; Dependencies:</strong>
+          Gemini/LLMs, Google Drive API. Requires historic proposal files for model grounding.</span></div>
+      <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Team Adoption:</strong> Conduct
+          prompt-engineering training and distribute formal adoption playbooks.</span></div>
+      <div class="sow-item"><span class="sow-dot p2" style="background:#ef4444;"></span><span><strong>Client
+            To-Do:</strong> Organize Drive folders and provide raw historical proposals and templates to train the
+          engine.</span></div>
     </div>
     <div class="phase-roi">
       <div class="roi-card">
-        <div class="roi-card-num">100%</div>
-        <div class="roi-card-label">accountability</div>
-        <div class="roi-card-desc">Clear task ownership prevents steps falling through the cracks</div>
+        <div class="roi-card-num">&darr; 40-50%</div>
+        <div class="roi-card-label">Drafting Time</div>
+        <div class="roi-card-desc">Hours saved per proposal via GenAI automation.</div>
       </div>
       <div class="roi-card">
-        <div class="roi-card-num">Balanced</div>
-        <div class="roi-card-label">team workload</div>
-        <div class="roi-card-desc">Role standardization optimizes the new support hires</div>
+        <div class="roi-card-num">Zero</div>
+        <div class="roi-card-label">Sales Interruptions</div>
+        <div class="roi-card-desc">Chatbot handles standard queries instantly.</div>
       </div>
       <div class="roi-card">
-        <div class="roi-card-num">Automated</div>
-        <div class="roi-card-label">task reminders</div>
-        <div class="roi-card-desc">Reduces manual follow-ups for international data gathering</div>
-      </div>
-      <div class="roi-card">
-        <div class="roi-card-num">Scalable</div>
-        <div class="roi-card-label">B2B intake</div>
-        <div class="roi-card-desc">Standardized requests speed up technical grant writing</div>
+        <div class="roi-card-num">Unified</div>
+        <div class="roi-card-label">Tooling</div>
+        <div class="roi-card-desc">AI tools live inside the dashboard; no app-jumping.</div>
       </div>
     </div>
   </div>
@@ -570,74 +2401,107 @@ td.num{ text-align:center; white-space:nowrap; }
   <div class="phase-block">
     <div class="phase-hd">
       <div class="phase-hd-left">
-        <span class="phase-hd-title">Phase 3 &mdash; Strategic Scaling</span>
-        <span class="phase-hd-timeline">Month 6 onward &middot; Low effort</span>
+        <span class="phase-hd-title">Phase 3 &mdash; Automated Comms &amp; Operations</span>
+        <span class="phase-hd-timeline">Weeks 10&ndash;12 &middot; Scaling Visibility &amp; Reminders</span>
       </div>
-      <span class="phase-maturity p3">Maturity 3.2 &rarr; 3.5</span>
+      <span class="phase-maturity p3">Maturity 2.9 &rarr; 3.2</span>
     </div>
     <div class="phase-sow">
-      <div class="col-label">Scope of Work</div>
-      <div class="sow-item"><span class="sow-dot p3"></span><span>Integrate GIS database analytics into the master R&amp;D hub for spatial crop trial tracking</span></div>
-      <div class="sow-item"><span class="sow-dot p3"></span><span>Deploy AI workflows to fully automate the preliminary research phase of grant drafting</span></div>
-      <div class="sow-item"><span class="sow-dot p3"></span><span>Establish direct data-sharing API connections with partner university agricultural departments</span></div>
-      <div class="sow-item"><span class="sow-dot p3"></span><span>Automate monthly Board of Directors reporting generation directly from the Power BI dashboard</span></div>
+      <div class="col-label">Scope of Work &amp; Dependencies</div>
+      <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Build:</strong> Integrate WhatsApp, Slack, and
+          Gmail APIs for automated reporting and data collection reminders.</span></div>
+      <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Build:</strong> Connect the R&amp;D dashboard
+          into the broader EF Polymer OS for CXO-level access.</span></div>
+      <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Tech Stack &amp; Dependencies:</strong>
+          WhatsApp Business API, Slack API, Gmail API.</span></div>
+      <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Team Adoption:</strong> Establish a continuous
+          feedback loop on the ground to iterate and sustain adoption.</span></div>
+      <div class="sow-item"><span class="sow-dot p3" style="background:#ef4444;"></span><span><strong>Client
+            To-Do:</strong> Provide individual team member roadmaps, platform preferences, and contact details for API
+          mapping.</span></div>
     </div>
     <div class="phase-roi">
       <div class="roi-card">
-        <div class="roi-card-num">Spatial</div>
-        <div class="roi-card-label">data mapping</div>
-        <div class="roi-card-desc">GIS integration maps trial success against regional climates</div>
+        <div class="roi-card-num">Automated</div>
+        <div class="roi-card-label">Data Chasing</div>
+        <div class="roi-card-desc">Eliminates time zone delays via API reminders.</div>
       </div>
       <div class="roi-card">
-        <div class="roi-card-num">&darr; 50%</div>
-        <div class="roi-card-label">research time</div>
-        <div class="roi-card-desc">AI tools accelerate initial topic synthesis for proposals</div>
+        <div class="roi-card-num">1-Click</div>
+        <div class="roi-card-label">CXO Visibility</div>
+        <div class="roi-card-desc">Instant board-level metrics via the Unified OS.</div>
       </div>
       <div class="roi-card">
-        <div class="roi-card-num">Live</div>
-        <div class="roi-card-label">university sync</div>
-        <div class="roi-card-desc">API connections streamline external partnership data</div>
-      </div>
-      <div class="roi-card">
-        <div class="roi-card-num">3.5</div>
-        <div class="roi-card-label">maturity level</div>
-        <div class="roi-card-desc">Fully optimized R&amp;D data and trial management</div>
+        <div class="roi-card-num">Sustained</div>
+        <div class="roi-card-label">Usage</div>
+        <div class="roi-card-desc">Feedback loop ensures the solution adapts to reality.</div>
       </div>
     </div>
   </div>
-
-  <div class="doc-footer"><span>R&amp;D Audit Report · v1.0</span><span>Page 7</span></div>
+  <div class="doc-footer"><span>R&amp;D Audit Report · v1.0</span><span>Page 12</span></div>
 </div>
 
-<!-- ============ APPENDIX ============ -->
+
+<!-- ============ 10 RETURN ON INVESTMENT ============ -->
 <div class="page">
-  <div class="doc-header"><span><b>EF Polymers</b> — R&amp;D Audit</span><span>Confidential</span></div>
+  <div class="doc-header"><span><b>EF Polymer Private Limited</b> — R&amp;D & Technical Department
+      Audit</span><span>Confidential</span></div>
+  <div class="eyebrow">Section 08 — Return on Investment (ROI)</div>
+  <h2>System Impact: Before &amp; After</h2>
+  <div class="section-dek">Measurable improvements post-implementation</div>
 
-  <div class="eyebrow">Appendix</div>
-  <h2>Cross-Department Dependencies</h2>
-  <div class="section-dek">Findings and recommendations that require action outside the R&amp;D Office to resolve</div>
-
-  <table>
-    <tr><th>Finding / Rec.</th><th>Counterpart Department</th><th>Dependency</th></tr>
+  <table class="tl-table" style="margin-top:20px;">
     <tr>
-      <td><span class="chip-ref">R-02</span> Database Consolidation</td>
-      <td>IT / Operations</td>
-      <td>Requires IT support to architect the relational database backend and configure access permissions.</td>
+      <th style="width:25%;">Category</th>
+      <th style="width:35%; border-left: 1px solid #e2e8f0;">Before (Current State)</th>
+      <th style="width:40%; border-left: 1px solid #e2e8f0; background: #f8fafc;">After (Post-Implementation)</th>
     </tr>
     <tr>
-      <td><span class="chip-ref">R-04</span> Role Standardization</td>
-      <td>HR</td>
-      <td>HR must update Job Descriptions and align compensation metrics to the newly expanded responsibilities of delegated staff.</td>
+      <td><strong>Data Tracking &amp; Storage</strong></td>
+      <td style="border-left: 1px solid #e2e8f0;">8–10 scattered Google Sheets. High risk of data loss.</td>
+      <td style="border-left: 1px solid #e2e8f0; background: #f8fafc; color: #166534;"><strong>1 Centralised
+          Dashboard.</strong> Real-time bi-directional sync (Single Source of Truth).</td>
     </tr>
     <tr>
-      <td><span class="chip-ref">Operational</span> Budget Approvals</td>
-      <td>Finance</td>
-      <td>Delays in Finance processing international trial payments directly stall R&amp;D fieldwork deployments.</td>
+      <td><strong>Approval Workflows</strong></td>
+      <td style="border-left: 1px solid #e2e8f0;">Manual WhatsApp/Slack messages, causing 3-5 day delays.</td>
+      <td style="border-left: 1px solid #e2e8f0; background: #f8fafc; color: #166534;"><strong>1-Click Digital
+          Approvals.</strong> Notifications routed instantly, cutting delays by 80%.</td>
+    </tr>
+    <tr>
+      <td><strong>Proposal &amp; Grant Drafting</strong></td>
+      <td style="border-left: 1px solid #e2e8f0;">100% manual writing, consuming 20% of team bandwidth.</td>
+      <td style="border-left: 1px solid #e2e8f0; background: #f8fafc; color: #166534;"><strong>AI-Powered Drafting
+          Engine.</strong> Generates structured drafts instantly, saving hours per proposal.</td>
+    </tr>
+    <tr>
+      <td><strong>Sales/BD Inquiries</strong></td>
+      <td style="border-left: 1px solid #e2e8f0;">Ad-hoc interruptions to R&amp;D for technical data.</td>
+      <td style="border-left: 1px solid #e2e8f0; background: #f8fafc; color: #166534;"><strong>SSOT Chatbot.</strong>
+        Sales can self-serve technical answers securely without interrupting R&amp;D.</td>
+    </tr>
+    <tr>
+      <td><strong>Cross-Department Approvals</strong></td>
+      <td style="border-left: 1px solid #e2e8f0;">No established workflow for Production/QC handoffs.</td>
+      <td style="border-left: 1px solid #e2e8f0; background: #f8fafc; color: #166534;"><strong>Automated Status
+          Sync.</strong> Live status updates tracking lot assignments and QC tests.</td>
+    </tr>
+    <tr>
+      <td><strong>CXO &amp; Financial Visibility</strong></td>
+      <td style="border-left: 1px solid #e2e8f0;">Budget tracking relies on manual reporting.</td>
+      <td style="border-left: 1px solid #e2e8f0; background: #f8fafc; color: #166534;"><strong>Executive
+          Overview.</strong> Real-time dashboard visibility into ROI and budget allocation.</td>
+    </tr>
+    <tr>
+      <td><strong>Department Maturity Score</strong></td>
+      <td style="border-left: 1px solid #e2e8f0;">1.5 / 5.0 (Ad-hoc)</td>
+      <td style="border-left: 1px solid #e2e8f0; background: #f8fafc; color: #166534;"><strong>3.2 / 5.0
+          (Systematised)</strong></td>
     </tr>
   </table>
-
-  <div class="doc-footer"><span>R&amp;D Audit Report · v1.0</span><span>Page 8</span></div>
+  <div class="doc-footer"><span>R&amp;D Audit Report · v1.0</span><span>Page 13</span></div>
 </div>
 
 </body>
+
 </html>
