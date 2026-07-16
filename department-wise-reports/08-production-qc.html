@@ -6,6 +6,22 @@
 <title>Production & QC — Department Audit Report | EF Polymers</title>
 <style>
   @page{size:A4;margin:20mm 18mm}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:#1e293b;line-height:1.6;background:#fff;font-size:11pt}.page{page-break-after:always;min-height:100vh}.page:last-child{page-break-after:avoid}.cover{display:flex;flex-direction:column;justify-content:center;align-items:center;min-height:100vh;background:linear-gradient(135deg,#1B2A4A 0%,#0F766E 100%);color:#fff;text-align:center;padding:60px 40px}.cover-badge{font-size:10pt;letter-spacing:3px;text-transform:uppercase;opacity:.8;margin-bottom:16px;border:1px solid rgba(255,255,255,.3);padding:6px 20px;border-radius:20px}.cover h1{font-size:32pt;font-weight:700;margin:20px 0 10px}.cover h2{font-size:16pt;font-weight:300;opacity:.9;margin-bottom:40px}.cover-meta{font-size:10pt;opacity:.7;line-height:2}.cover-line{width:80px;height:3px;background:rgba(255,255,255,.5);margin:30px auto}.section{padding:40px 0}.section-num{font-size:9pt;color:#0F766E;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:4px}h2{font-size:18pt;color:#1B2A4A;margin-bottom:20px;padding-bottom:10px;border-bottom:2px solid #e2e8f0}h3{font-size:13pt;color:#1B2A4A;margin:24px 0 12px}h4{font-size:11pt;color:#334155;margin:16px 0 8px}p{margin-bottom:12px}table{width:100%;border-collapse:collapse;margin:16px 0 24px;font-size:10pt}th{background:#1B2A4A;color:#fff;padding:10px 12px;text-align:left;font-weight:600}td{padding:9px 12px;border-bottom:1px solid #e2e8f0}tr:nth-child(even){background:#f8fafc}.card{border:1px solid #e2e8f0;border-radius:8px;padding:20px;margin:16px 0}.card-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}.card-title{font-weight:700;font-size:11pt;color:#1B2A4A}.badge{display:inline-block;padding:3px 12px;border-radius:12px;font-size:8.5pt;font-weight:600}.badge-critical{background:#fef2f2;color:#dc2626;border:1px solid #fecaca}.badge-high{background:#fff7ed;color:#ea580c;border:1px solid #fed7aa}.badge-medium{background:#fffbeb;color:#d97706;border:1px solid #fde68a}.badge-low{background:#f0fdf4;color:#16a34a;border:1px solid #bbf7d0}.metrics-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:16px 0}.metric-box{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:14px;text-align:center}.metric-value{font-size:18pt;font-weight:700;color:#0F766E}.metric-label{font-size:8pt;color:#64748b;text-transform:uppercase;letter-spacing:1px;margin-top:4px}.flow-container{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:20px 0;justify-content:center}.flow-step{background:#f0fdfa;border:2px solid #0F766E;border-radius:8px;padding:12px 16px;font-size:9pt;font-weight:500;text-align:center;min-width:120px;max-width:180px}.flow-step.problem{border-color:#dc2626;background:#fef2f2}.flow-arrow{color:#94a3b8;font-size:18pt}.solution-card{border-left:4px solid #0F766E;background:#f0fdfa;border-radius:0 8px 8px 0;padding:16px 20px;margin:12px 0}.solution-card.suggestion{border-left-color:#6366f1;background:#eef2ff}.gap-item{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid #f1f5f9}.gap-icon{width:32px;height:32px;background:#fef3c7;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14pt;flex-shrink:0}.chart-container{display:flex;justify-content:center;margin:24px 0}.roadmap-phase{border-left:3px solid #0F766E;padding:16px 0 16px 24px;margin-left:12px;position:relative}.roadmap-phase::before{content:'';width:12px;height:12px;background:#0F766E;border-radius:50%;position:absolute;left:-7.5px;top:20px}.roadmap-phase.phase-2{border-left-color:#2563eb}.roadmap-phase.phase-2::before{background:#2563eb}.roadmap-phase.phase-3{border-left-color:#7c3aed}.roadmap-phase.phase-3::before{background:#7c3aed}.phase-label{font-size:9pt;font-weight:700;color:#0F766E;letter-spacing:1px;text-transform:uppercase}.phase-label.p2{color:#2563eb}.phase-label.p3{color:#7c3aed}.kpi-row{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}.kpi-tag{background:#f1f5f9;border-radius:6px;padding:4px 10px;font-size:9pt;color:#475569}@media print{body{font-size:10pt}.page{min-height:auto}.cover{min-height:100vh}}
+  /* True Flowchart Branching Styles */
+  .flow-step-wrapper { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+  .branch-arrow { display: flex; flex-direction: column; align-items: center; margin: 4px 0; position: relative; width: 100%; }
+  .branch-arrow-line { width: 2px; height: 16px; background: #cbd5e1; position: relative; }
+  .branch-arrow-line::after { content: ''; position: absolute; bottom: -3px; left: -2px; width: 0; height: 0; border-left: 3px solid transparent; border-right: 3px solid transparent; border-top: 4px solid #cbd5e1; }
+  .branch-label { background: #fff; padding: 0 6px; font-size: 7.5pt; color: #64748b; font-weight: 600; margin-top: -10px; margin-bottom: 2px; z-index: 1; white-space: nowrap; }
+  .branch-step { border: 2px dashed #cbd5e1; border-radius: 8px; padding: 8px 12px; font-size: 8.5pt; font-weight: 600; text-align: center; min-width: 130px; max-width: 180px; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
+  .branch-step.accounts { border-color: #3b82f6; background: #eff6ff; color: #1d4ed8; }
+  .branch-step.logistics { border-color: #f59e0b; background: #fffbeb; color: #b45309; }
+  .branch-step.production { border-color: #10b981; background: #ecfdf5; color: #047857; }
+  .branch-step.rd { border-color: #8b5cf6; background: #f5f3ff; color: #6d28d9; }
+  /* Color coding for standard steps crossing departments */
+  .flow-step.accounts { border-color: #3b82f6; background: #eff6ff; color: #1d4ed8; }
+  .flow-step.logistics { border-color: #f59e0b; background: #fffbeb; color: #b45309; }
+  .flow-step.production { border-color: #10b981; background: #ecfdf5; color: #047857; }
+  .flow-step.rd { border-color: #8b5cf6; background: #f5f3ff; color: #6d28d9; }
 </style>
 </head>
 <body>
@@ -48,7 +64,14 @@
 
     <h3>Workflow 1: Manufacturing Pipeline (Raw Material → Finished Goods)</h3>
     <div class="flow-container">
-      <div class="flow-step">Raw material procurement</div>
+      <div class="flow-step-wrapper">
+        <div class="flow-step">Raw material procurement</div>
+        <div class="branch-arrow">
+          <div class="branch-arrow-line"></div>
+          <div class="branch-label">Vendor billing</div>
+        </div>
+        <div class="branch-step accounts">Accounts: Release raw material payment</div>
+      </div>
       <div class="flow-arrow">→</div>
       <div class="flow-step">Granulation process</div>
       <div class="flow-arrow">→</div>
@@ -83,12 +106,26 @@
       <div class="flow-arrow">→</div>
       <div class="flow-step">Grade assignment (A/B/C)</div>
       <div class="flow-arrow">→</div>
-      <div class="flow-step">QC issues flagged to R&D PD Manager</div>
+      <div class="flow-step-wrapper">
+        <div class="flow-step">QC issues flagged to R&D PD Manager</div>
+        <div class="branch-arrow">
+          <div class="branch-arrow-line"></div>
+          <div class="branch-label">Escalation</div>
+        </div>
+        <div class="branch-step rd">R&D: Audit formulation parameters</div>
+      </div>
     </div>
 
     <h3>Workflow 4: Stock Availability Queries (Inbound)</h3>
     <div class="flow-container">
-      <div class="flow-step">Accounts needs stock info for invoicing</div>
+      <div class="flow-step-wrapper">
+        <div class="flow-step">Accounts needs stock info for invoicing</div>
+        <div class="branch-arrow">
+          <div class="branch-arrow-line"></div>
+          <div class="branch-label">Billing lookup</div>
+        </div>
+        <div class="branch-step accounts">Accounts: Validate pending sales orders</div>
+      </div>
       <div class="flow-arrow">→</div>
       <div class="flow-step problem">Phone call to Production Manager</div>
       <div class="flow-arrow">→</div>

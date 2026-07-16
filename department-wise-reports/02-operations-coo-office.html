@@ -60,6 +60,22 @@
   .kpi-row { display: flex; gap: 8px; flex-wrap: wrap; margin: 8px 0; }
   .kpi-tag { background: #f1f5f9; border-radius: 6px; padding: 4px 10px; font-size: 9pt; color: #475569; }
   @media print { body { font-size: 10pt; } .page { min-height: auto; } .cover { min-height: 100vh; } }
+  /* True Flowchart Branching Styles */
+  .flow-step-wrapper { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+  .branch-arrow { display: flex; flex-direction: column; align-items: center; margin: 4px 0; position: relative; width: 100%; }
+  .branch-arrow-line { width: 2px; height: 16px; background: #cbd5e1; position: relative; }
+  .branch-arrow-line::after { content: ''; position: absolute; bottom: -3px; left: -2px; width: 0; height: 0; border-left: 3px solid transparent; border-right: 3px solid transparent; border-top: 4px solid #cbd5e1; }
+  .branch-label { background: #fff; padding: 0 6px; font-size: 7.5pt; color: #64748b; font-weight: 600; margin-top: -10px; margin-bottom: 2px; z-index: 1; white-space: nowrap; }
+  .branch-step { border: 2px dashed #cbd5e1; border-radius: 8px; padding: 8px 12px; font-size: 8.5pt; font-weight: 600; text-align: center; min-width: 130px; max-width: 180px; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
+  .branch-step.accounts { border-color: #3b82f6; background: #eff6ff; color: #1d4ed8; }
+  .branch-step.logistics { border-color: #f59e0b; background: #fffbeb; color: #b45309; }
+  .branch-step.production { border-color: #10b981; background: #ecfdf5; color: #047857; }
+  .branch-step.rd { border-color: #8b5cf6; background: #f5f3ff; color: #6d28d9; }
+  /* Color coding for standard steps crossing departments */
+  .flow-step.accounts { border-color: #3b82f6; background: #eff6ff; color: #1d4ed8; }
+  .flow-step.logistics { border-color: #f59e0b; background: #fffbeb; color: #b45309; }
+  .flow-step.production { border-color: #10b981; background: #ecfdf5; color: #047857; }
+  .flow-step.rd { border-color: #8b5cf6; background: #f5f3ff; color: #6d28d9; }
 </style>
 </head>
 <body>
@@ -182,9 +198,16 @@
       <div class="flow-arrow">→</div>
       <div class="flow-step">Recurring reports delegated to ops team</div>
       <div class="flow-arrow">→</div>
-      <div class="flow-step">Team collects department data</div>
+      <div class="flow-step-wrapper">
+        <div class="flow-step">Team collects department data</div>
+        <div class="branch-arrow">
+          <div class="branch-arrow-line"></div>
+          <div class="branch-label">P&L compilation</div>
+        </div>
+        <div class="branch-step accounts">Accounts: Consolidate ledger & Books</div>
+      </div>
       <div class="flow-arrow">→</div>
-      <div class="flow-step">Finance compiles P&L</div>
+      <div class="flow-step accounts">Finance compiles P&L</div>
       <div class="flow-arrow">→</div>
       <div class="flow-step problem">Decks from verbal updates (not data)</div>
     </div>
