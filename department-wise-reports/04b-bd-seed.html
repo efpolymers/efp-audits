@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BD (Seed) — Department Audit Report | EF Polymers</title>
+<style>
+:root{
+  --ink:#1B2A4A;
+  --slate:#3F4B5C;
+  --muted:#6B7785;
+  --line:#D8DEE5;
+  --line-soft:#E9EDF1;
+  --paper:#FFFFFF;
+  --paper-alt:#F6F7F9;
+  --accent:#0F6B62;
+  --accent-soft:#EAF3F1;
+  --risk-crit-bg:#FCEBEA; --risk-crit-fg:#A32E24;
+  --risk-med-bg:#FBF1DF;  --risk-med-fg:#8A5A10;
+  --risk-low-bg:#E9F4EC;  --risk-low-fg:#276B3E;
+}
+@page{ size:A4; margin:22mm 18mm 20mm 18mm; }
+*{ margin:0; padding:0; box-sizing:border-box; }
+body{
+  font-family:'Segoe UI',system-ui,-apple-system,sans-serif;
+  color:var(--slate);
+  line-height:1.55;
+  background:#EDEFF1;
+  font-size:10.3pt;
+}
+.page{
+  background:var(--paper);
+  max-width:840px;
+  margin:0 auto 14px auto;
+  padding:26mm 20mm 20mm 20mm;
+  position:relative;
+  page-break-after:always;
+  min-height:1120px;
+}
+.page:last-child{ page-break-after:avoid; }
+
+/* ---- running header / footer ---- */
+.doc-header{
+  display:flex; justify-content:space-between; align-items:baseline;
+  font-size:7.8pt; letter-spacing:0.4px; text-transform:uppercase; color:var(--muted);
+  border-bottom:1px solid var(--line); padding-bottom:8px; margin-bottom:22px;
+}
+.doc-header b{ color:var(--ink); }
+.doc-footer{
+  position:absolute; bottom:10mm; left:20mm; right:20mm;
+  display:flex; justify-content:space-between;
+  font-size:7.5pt; color:var(--muted);
+  border-top:1px solid var(--line-soft); padding-top:6px;
+}
+
+/* ---- cover ---- */
+.cover{ display:flex; flex-direction:column; min-height:1080px; }
+.cover-top{ display:flex; justify-content:space-between; align-items:flex-start; }
+.cover-mark{ font-size:9pt; font-weight:700; letter-spacing:2px; color:var(--ink); }
+.cover-mark span{ color:var(--accent); }
+.cover-class{ font-size:7.8pt; text-transform:uppercase; letter-spacing:1.5px; color:var(--muted); border:1px solid var(--line); padding:4px 10px; }
+.cover-body{ flex:1; display:flex; flex-direction:column; justify-content:center; padding:60px 0; }
+.cover-eyebrow{ font-family:Georgia,'Times New Roman',serif; font-style:italic; font-size:11pt; color:var(--accent); margin-bottom:14px; }
+.cover-title{ font-family:Georgia,'Times New Roman',serif; font-size:34pt; color:var(--ink); font-weight:600; line-height:1.15; margin-bottom:10px; }
+.cover-sub{ font-size:13pt; color:var(--slate); font-weight:400; }
+.cover-rule{ width:52px; height:2px; background:var(--accent); margin:26px 0; }
+.cover-ctrl{ border:1px solid var(--line); }
+.cover-ctrl table{ width:100%; border-collapse:collapse; margin:0; }
+.cover-ctrl td{ padding:9px 14px; font-size:9pt; border-bottom:1px solid var(--line-soft); }
+.cover-ctrl tr:last-child td{ border-bottom:none; }
+.cover-ctrl td.label{ color:var(--muted); width:38%; text-transform:uppercase; font-size:7.8pt; letter-spacing:0.5px; }
+.cover-ctrl td.val{ color:var(--ink); font-weight:600; }
+
+/* ---- section furniture ---- */
+.eyebrow{ font-size:8pt; color:var(--accent); font-weight:700; letter-spacing:1.6px; text-transform:uppercase; margin-bottom:6px; }
+h2{ font-family:Georgia,'Times New Roman',serif; font-size:17pt; color:var(--ink); font-weight:600; margin-bottom:4px; }
+h2 + .section-dek{ color:var(--muted); font-size:9.3pt; margin-bottom:18px; padding-bottom:14px; border-bottom:1px solid var(--line); }
+h3{ font-family:Georgia,'Times New Roman',serif; font-size:12.5pt; color:var(--ink); font-weight:600; margin:22px 0 8px; }
+h4{ font-size:10pt; color:var(--ink); font-weight:700; margin:14px 0 4px; }
+p{ margin-bottom:10px; }
+.lede{ font-size:10.6pt; color:var(--slate); max-width:95%; }
+
+/* ---- tables ---- */
+table{ width:100%; border-collapse:collapse; margin:10px 0 20px; font-size:9pt; }
+th{ background:var(--ink); color:#fff; padding:8px 10px; text-align:left; font-weight:600; font-size:8.3pt; letter-spacing:0.3px; text-transform:uppercase; }
+td{ padding:8px 10px; border-bottom:1px solid var(--line-soft); vertical-align:top; }
+tr:nth-child(even) td{ background:var(--paper-alt); }
+td.id, th.id{ font-family:Georgia,serif; font-weight:700; color:var(--ink); white-space:nowrap; width:44px; }
+td.num{ text-align:center; white-space:nowrap; }
+
+/* ---- chips ---- */
+.chip{ display:inline-block; padding:2px 9px; border-radius:3px; font-size:7.8pt; font-weight:700; letter-spacing:0.3px; text-transform:uppercase; white-space:nowrap; }
+.chip-crit{ background:var(--risk-crit-bg); color:var(--risk-crit-fg); }
+.chip-med{  background:var(--risk-med-bg);  color:var(--risk-med-fg); }
+.chip-low{  background:var(--risk-low-bg);  color:var(--risk-low-fg); }
+.chip-ref{ display:inline-block; background:var(--accent-soft); color:var(--accent); font-family:Georgia,serif; font-weight:700; font-size:8pt; padding:1px 6px; border-radius:3px; margin:1px 2px 1px 0; }
+
+/* ---- KPI strip ---- */
+.kpi-strip{ display:flex; border:1px solid var(--line); margin:16px 0 22px; }
+.kpi-cell{ flex:1; padding:12px 14px; border-right:1px solid var(--line); }
+.kpi-cell:last-child{ border-right:none; }
+.kpi-num{ font-family:Georgia,serif; font-size:15pt; color:var(--ink); font-weight:700; }
+.kpi-lbl{ font-size:7.6pt; color:var(--muted); text-transform:uppercase; letter-spacing:0.5px; margin-top:2px; }
+
+/* ---- callout ---- */
+.callout{ border-left:3px solid var(--accent); background:var(--accent-soft); padding:10px 14px; font-size:9pt; color:var(--ink); margin:10px 0 20px; }
+
+/* ---- flow notes ---- */
+.flow-note{ font-size:8.6pt; color:var(--muted); margin:4px 0 18px; padding-left:2px; }
+
+@media print{
+  body{ background:#fff; }
+  .page{ box-shadow:none; margin:0; }
+}
+</style>
+</head>
+<body>
+<div class="page cover">
+<div class="cover-top">
+<div class="cover-mark">EF<span>·</span>POLYMERS</div>
+<div class="cover-class">Confidential — Executive Leadership Only</div>
+</div>
+<div class="cover-body">
+<div class="cover-eyebrow">Department Audit Report</div>
+<div class="cover-title">Business Development: Seed</div>
+<div class="cover-sub">Institutional Sales (Pan-India)</div>
+<div class="cover-rule"></div>
+<p style="max-width:70%;color:var(--muted);font-size:9.3pt;">
+      An independent operational review of the Business Development (Seed) vertical, assessing lead sourcing, proposal generation, and institutional demo workflows, prepared as part of the EF Polymers organization-wide operational audit.
+    </p>
+</div>
+<div class="cover-ctrl">
+<table>
+<tr><td class="label">Client</td><td class="val">EF Polymers Private Limited</td></tr>
+<tr><td class="label">Prepared by</td><td class="val">Creative Upaay Consulting</td></tr>
+<tr><td class="label">Document version</td><td class="val">1.0</td></tr>
+<tr><td class="label">Date issued</td><td class="val">July 2026</td></tr>
+<tr><td class="label">Review scope</td><td class="val">Business Development — Seed</td></tr>
+<tr><td class="label">Distribution</td><td class="val">Executive Leadership Only</td></tr>
+</table>
+</div>
+</div>
+
+<div class="page">
+<div class="doc-header"><span><b>EF Polymers</b> — BD (Seed) Audit</span><span>Confidential</span></div>
+<div class="eyebrow">Section 01 — Executive Summary</div>
+<h2>Vertical Overview — Seed</h2>
+<div class="section-dek">Scope, current state, and headline findings</div>
+<p class="lede">The Seed vertical is an institutional B2B sales division focused on pan-India delivery of polymer-based seed coatings and soil additives. Sales are heavily demo-led, requiring on-ground trials with seed companies, universities, and agricultural institutions.</p>
+<p>Run entirely by a single BD Manager (Sameer Vishnuji Mahiskar), the vertical operates under severe capacity constraints. The manager spends 15–20 days a month on physical travel, leaving minimal time for lead generation, which currently relies on manual ChatGPT and Google News searches. With no CRM, follow-ups depend on memory and local ad-hoc spreadsheets.</p>
+<div class="kpi-strip">
+<div class="kpi-cell"><div class="kpi-num">90 MT</div><div class="kpi-lbl">Annual Target</div></div>
+<div class="kpi-cell"><div class="kpi-num">15-20 Days</div><div class="kpi-lbl">Monthly Travel</div></div>
+<div class="kpi-cell"><div class="kpi-num">15-20%</div><div class="kpi-lbl">Stage Conversion</div></div>
+<div class="kpi-cell"><div class="kpi-num">1-2.5 Days</div><div class="kpi-lbl">Proposal Turnaround</div></div>
+</div>
+
+<h3>Team Structure &amp; Reporting</h3>
+<table>
+<tr><th>Member</th><th>Role</th><th>Primary Responsibilities</th></tr>
+<tr><td>Sameer Vishnuji Mahiskar</td><td>BD Manager</td><td>Single operator for Pan-India institutional accounts. Conducts field travel, proposals, and pipeline management.</td></tr>
+<tr><td>Dual Reporting Line</td><td>COO / CBDO</td><td>Reports to Puran Singh Rajput (COO) and Ankit Jain (CBDO) simultaneously.</td></tr>
+<tr><td>Vacant (Recruiting)</td><td>BD Executive</td><td>To support South India operations (previously covered by 2 interns).</td></tr>
+</table>
+<div class="doc-footer"><span>BD (Seed) Audit Report · v1.0</span><span>Page 2</span></div>
+</div>
+
+<div class="page">
+  <div class="doc-header"><span><b>EF Polymers</b> — BD (Seed) Audit</span><span>Confidential</span></div>
+  <div class="eyebrow">Section 02 — Risk &amp; Control Findings</div>
+  <h2>Findings Register</h2>
+  <div class="section-dek">Ranked by risk rating. Each finding is cross-referenced to its recommendation in Section 04.</div>
+  <table>
+    <tr><th class="id">ID</th><th>Finding</th><th>Risk</th><th>Evidence / Impact</th><th>Linked Rec.</th></tr>
+    <tr><td class="id">F-01</td><td><b>Lack of Follow-Up Cadence &amp; CRM.</b> Entire operation relies on local spreadsheets and memory.</td><td><span class="chip chip-crit">High</span></td><td>Given the solo operator model and heavy travel schedule, leads routinely slip through the cracks.</td><td><span class="chip-ref">R-01</span></td></tr>
+    <tr><td class="id">F-02</td><td><b>Dual Executive Reporting.</b> Reporting lines are split between the COO and CBDO.</td><td><span class="chip chip-med">Medium</span></td><td>Creates risk of task prioritization conflicts and misaligned goals.</td><td><span class="chip-ref">R-02</span></td></tr>
+    <tr><td class="id">F-03</td><td><b>Siloed Sourcing Inputs.</b> Lead generation relies on speculative, manual Google News and ChatGPT queries.</td><td><span class="chip chip-med">Medium</span></td><td>Low volume of low-intent leads. Time-consuming process with weak signal.</td><td><span class="chip-ref">R-03</span></td></tr>
+    <tr><td class="id">F-04</td><td><b>Single-Point Solo Operation.</b> The entire 90 MT pan-India target is managed by one person.</td><td><span class="chip chip-low">Low</span></td><td>Severe capacity limits and a single point of failure if the manager leaves.</td><td><span class="chip-ref">R-04</span></td></tr>
+  </table>
+  <div class="callout">A critical theme in this vertical is the failure to leverage existing internal data to accelerate sales. Proposal creation takes 1-2.5 days because the BD Manager manually pulls trial data from R&D’s shared Google Drive and builds custom slides. By establishing a direct, structured pipeline of R&D data into standardized sales templates—and formalizing cross-departmental alignment—this turnaround time could be reduced to hours.</div>
+  <div class="doc-footer"><span>BD (Seed) Audit Report · v1.0</span><span>Page 3</span></div>
+</div>
+
+<div class="page">
+<div class="doc-header"><span><b>EF Polymers</b> — BD (Seed) Audit</span><span>Confidential</span></div>
+<div class="eyebrow">Section 03 — Process Detail</div>
+<h2>Current Workflows</h2>
+<div class="section-dek">Analysis of current operational sequences</div>
+  
+  <h3>Demo &amp; Sales Lifecycle</h3>
+  <svg viewBox="0 0 740 92" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:10px 0 4px;">
+    <defs>
+      <marker id="a1" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+        <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5"/>
+      </marker>
+    </defs>
+    
+    <rect x="10" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="70" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Warm Intro &amp;</text>
+    <text x="70" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Soft Pitch</text>
+    <line x1="130" y1="46" x2="150" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)"/>
+    
+    <rect x="150" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="210" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">In-Person Demo</text>
+    <text x="210" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">(15-20 days travel)</text>
+    <line x1="270" y1="46" x2="290" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)"/>
+    
+    <rect x="290" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="350" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Sample Dispatch</text>
+    <text x="350" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">(Logistics Dependency)</text>
+    <line x1="410" y1="46" x2="430" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)"/>
+    
+    <rect x="430" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="490" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Sowing Timeline</text>
+    <text x="490" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Alignment</text>
+    <line x1="550" y1="46" x2="570" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)"/>
+    
+    <rect x="570" y="22" width="120" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5"/>
+    <text x="630" y="43" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">Untested Collections</text>
+    <text x="630" y="55" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">Process</text>
+  </svg>
+  <p class="flow-note">The manager operates alone, spending up to 20 days on the road. The final step (collections) is completely untested as no deals have closed yet.</p>
+<div class="doc-footer"><span>BD (Seed) Audit Report · v1.0</span><span>Page 4</span></div>
+</div>
+
+<div class="page">
+  <div class="doc-header"><span><b>EF Polymers</b> — BD (Seed) Audit</span><span>Confidential</span></div>
+  <div class="eyebrow">Section 04 — Corrective Action Plan</div>
+  <h2>Recommendations Register</h2>
+  <div class="section-dek">Ordered by priority. Effort and impact are directional estimates for planning purposes.</div>
+  <table>
+    <tr><th class="id">ID</th><th>Recommendation</th><th>Finding</th><th>Priority</th><th>Effort</th><th>Expected Impact</th></tr>
+    <tr><td class="id">R-01</td><td><b>Central CRM Deployment &amp; Follow-up Automation</b> — Implement Zoho CRM to log stages. Set automated follow-up cadences so the solo manager is prompted automatically, avoiding memory-reliant tracking.</td><td><span class="chip-ref">F-01</span></td><td><span class="chip chip-crit">P1</span></td><td>Medium</td><td>Secures 100% of pipeline visibility and prevents lead loss.</td></tr>
+    <tr><td class="id">R-02</td><td><b>R&amp;D Data Integration (Cross-Department)</b> — Build a standardized, accessible library mapping R&amp;D trial certificates directly to sales templates, reducing proposal generation time from days to hours.</td><td><span class="chip-ref">F-03</span></td><td><span class="chip chip-crit">P1</span></td><td>Medium</td><td>Radically accelerates pitch deployment.</td></tr>
+    <tr><td class="id">R-03</td><td><b>Reporting Alignment</b> — Formalize a primary reporting structure (either to COO or CBDO) to prevent priority clashes and ensure unified KPI tracking.</td><td><span class="chip-ref">F-02</span></td><td><span class="chip chip-med">P2</span></td><td>Low</td><td>Streamlines executive accountability.</td></tr>
+    <tr><td class="id">R-04</td><td><b>Accelerated Executive Onboarding</b> — Prioritize the hiring and onboarding of the South India executive to relieve the travel bottleneck.</td><td><span class="chip-ref">F-04</span></td><td><span class="chip chip-low">P3</span></td><td>High</td><td>Doubles capacity for field demos.</td></tr>
+  </table>
+  <div class="doc-footer"><span>BD (Seed) Audit Report · v1.0</span><span>Page 5</span></div>
+</div>
+
+<div class="page">
+  <div class="doc-header"><span><b>EF Polymers</b> — BD (Seed) Audit</span><span>Confidential</span></div>
+  <div class="eyebrow">Appendix</div>
+  <h2>Cross-Department Dependencies</h2>
+  <div class="section-dek">Findings and recommendations that require action outside the BD department to resolve, enforcing cross-departmental collaboration.</div>
+  <table>
+    <tr><th>Finding / Rec.</th><th>Counterpart Department</th><th>Dependency / Collaboration Required</th></tr>
+    <tr><td><span class="chip-ref">R-02</span> R&amp;D Data Integration</td><td>R&amp;D</td><td>R&amp;D must structure trial data in a way that is easily consumable by Sales, moving beyond a raw Google Drive dump to mapped, pitch-ready case studies.</td></tr>
+    <tr><td>Reporting Alignment</td><td>COO &amp; CBDO</td><td>Executive leadership must align on who manages the Seed vertical to avoid contradictory mandates.</td></tr>
+    <tr><td>Sample Logistics</td><td>Logistics</td><td>Logistics must provide reliable shipping windows to the BD manager on the road, ensuring samples arrive before precise sowing dates.</td></tr>
+  </table>
+  <div class="doc-footer"><span>BD (Seed) Audit Report · v1.0</span><span>Page 6</span></div>
+</div>
+
+<!-- ============ 05 MATURITY ============ -->
+<div class="page">
+<div class="doc-header"><span><b>EF Polymers</b> — BD (Seed) Audit</span><span>Confidential</span></div>
+<div class="eyebrow">Section 05 — Benchmarking</div>
+<h2>Department Maturity Assessment</h2>
+<div class="section-dek">Scored 1 (ad hoc) to 5 (optimized) against five capability dimensions</div>
+
+  <div class="exhibit">
+    <div class="exhibit-chart">
+      <svg viewBox="0 0 400 350" xmlns="http://www.w3.org/2000/svg" style="width:100%;">
+        <g transform="translate(200,170)">
+          <polygon points="0,-120 114,-37 70,97 -70,97 -114,-37" fill="none" stroke="#E2E8F0" stroke-width="0.75"/>
+          <polygon points="0,-96 91,-30 56,78 -56,78 -91,-30"    fill="none" stroke="#E2E8F0" stroke-width="0.75"/>
+          <polygon points="0,-72 68,-22 42,58 -42,58 -68,-22"    fill="none" stroke="#E2E8F0" stroke-width="0.75"/>
+          <polygon points="0,-48 46,-15 28,39 -28,39 -46,-15"    fill="none" stroke="#E2E8F0" stroke-width="0.75"/>
+          <polygon points="0,-24 23,-7 14,19 -14,19 -23,-7"      fill="none" stroke="#E2E8F0" stroke-width="0.75"/>
+          <line x1="0" y1="0" x2="0"    y2="-120" stroke="#E2E8F0" stroke-width="0.75"/>
+          <line x1="0" y1="0" x2="114"  y2="-37"  stroke="#E2E8F0" stroke-width="0.75"/>
+          <line x1="0" y1="0" x2="70"   y2="97"   stroke="#E2E8F0" stroke-width="0.75"/>
+          <line x1="0" y1="0" x2="-70"  y2="97"   stroke="#E2E8F0" stroke-width="0.75"/>
+          <line x1="0" y1="0" x2="-114" y2="-37"  stroke="#E2E8F0" stroke-width="0.75"/>
+          
+          <!-- Target dashed: Process 3.0, Tech 3.0, Data 3.5, Docs 3.0, KM 2.5 -->
+          <polygon points="0,-72 68.4,-22.2 49,67.9 -42,58.2 -57,-18.5" fill="none" stroke="#B8C0C9" stroke-width="1" stroke-dasharray="5,3"/>
+          
+          <!-- Current: Process 1.5, Tech 1.5, Data 1.0, Docs 1.5, KM 1.5 -->
+          <polygon points="0,-36 34.2,-11.1 14,19.4 -21,29.1 -34.2,-11.1" fill="rgba(15,107,98,0.14)" stroke="#0F6B62" stroke-width="1.75"/>
+          <circle cx="0" cy="-36" r="3.2" fill="#0F6B62"/>
+          <circle cx="34.2" cy="-11.1" r="3.2" fill="#0F6B62"/>
+          <circle cx="14" cy="19.4" r="3.2" fill="#0F6B62"/>
+          <circle cx="-21" cy="29.1" r="3.2" fill="#0F6B62"/>
+          <circle cx="-34.2" cy="-11.1" r="3.2" fill="#0F6B62"/>
+          
+          <text x="0"    y="-132" text-anchor="middle" font-size="9" fill="#1B2A4A" font-weight="600">Process</text>
+          <text x="128"  y="-20"  text-anchor="start"  font-size="9" fill="#1B2A4A" font-weight="600">Technology</text>
+          <text x="78"   y="110"  text-anchor="start"  font-size="9" fill="#1B2A4A" font-weight="600">Data Quality</text>
+          <text x="-78"  y="110"  text-anchor="end"    font-size="9" fill="#1B2A4A" font-weight="600">Documentation</text>
+          <text x="-128" y="-16"  text-anchor="end"    font-size="9" fill="#1B2A4A" font-weight="600">Knowledge Mgmt.</text>
+        </g>
+      </svg>
+    </div>
+    <div class="exhibit-note">
+      Solid line: current state. Dashed line: target state (post-roadmap).<br><br>
+      <b>Seed BD scores 1.4 overall</b> — The lack of a CRM for the solo manager, reliance on manual Google News/ChatGPT scraping, and unformalized reporting lines severely limit scalability. Deploying a CRM and integrating R&amp;D data directly into pitch templates will dramatically increase the manager's capacity.
+    </div>
+  </div>
+
+<table>
+  <tr><th>Dimension</th><th class="num">Current</th><th class="num">Target</th><th class="num">Gap</th></tr>
+  <tr><td>Process Standardization</td><td class="num">1.5</td><td class="num">3.0</td><td class="num">1.5</td></tr>
+  <tr><td>Technology Utilization</td><td class="num">1.5</td><td class="num">3.0</td><td class="num">1.5</td></tr>
+  <tr><td>Data Quality &amp; Accessibility</td><td class="num">1.0</td><td class="num">3.5</td><td class="num">2.5</td></tr>
+  <tr><td>Documentation</td><td class="num">1.5</td><td class="num">3.0</td><td class="num">1.5</td></tr>
+  <tr><td>Knowledge Management</td><td class="num">1.5</td><td class="num">2.5</td><td class="num">1.0</td></tr>
+  <tr style="font-weight:700;"><td>Overall</td><td class="num">1.4</td><td class="num">3.0</td><td class="num">1.6</td></tr>
+</table>
+<div class="doc-footer"><span>BD (Seed) Audit Report · v1.0</span><span>Page 7</span></div>
+</div>
+
+<!-- ============ 06 ROADMAP ============ -->
+<div class="page">
+  <div class="doc-header"><span><b>EF Polymers</b> — BD (Seed) Audit</span><span>Confidential</span></div>
+
+  <div class="eyebrow">Section 06 — Implementation Plan</div>
+  <h2>Phased Roadmap</h2>
+  <div class="section-dek">Initiatives sequenced across three phases, with quantified ROI and scope of work per phase</div>
+
+  <table class="tl-table">
+    <tr>
+      <th>Initiative</th><th class="id">Rec.</th>
+      <th class="num">Phase 1<br><span style="font-weight:400">Mo. 1–2</span></th>
+      <th class="num">Phase 2<br><span style="font-weight:400">Mo. 3–5</span></th>
+      <th class="num">Phase 3<br><span style="font-weight:400">Mo. 6+</span></th>
+    </tr>
+    <tr><td>CRM Deployment</td><td class="id">R-01</td><td class="phase-mark p1">●</td><td></td><td></td></tr>
+    <tr><td>Reporting Alignment</td><td class="id">R-03</td><td class="phase-mark p1">●</td><td></td><td></td></tr>
+    <tr><td>Follow-up Automation</td><td class="id">R-01</td><td></td><td class="phase-mark p2">●</td><td></td></tr>
+    <tr><td>R&amp;D Data Integration</td><td class="id">R-02</td><td></td><td class="phase-mark p2">●</td><td></td></tr>
+    <tr><td>Accelerated Onboarding</td><td class="id">R-04</td><td></td><td></td><td class="phase-mark p3">●</td></tr>
+  </table>
+
+  <!-- PHASE 1 -->
+  <div class="phase-block">
+    <div class="phase-hd">
+      <div class="phase-hd-left">
+        <span class="phase-hd-title">Phase 1 &mdash; Visibility &amp; Alignment</span>
+        <span class="phase-hd-timeline">Months 1&ndash;2 &middot; High priority</span>
+      </div>
+      <span class="phase-maturity">Maturity 1.4 &rarr; 1.8</span>
+    </div>
+    <div class="phase-sow">
+      <div class="col-label">Scope of Work</div>
+      <div class="sow-item"><span class="sow-dot"></span><span>Deploy Zoho CRM to log the 25-30 active leads and replace manual local spreadsheets.</span></div>
+      <div class="sow-item"><span class="sow-dot"></span><span>Clarify reporting lines between COO (Puran) and CBDO (Ankit) to avoid dual-reporting conflicts.</span></div>
+    </div>
+    <div class="phase-roi">
+      <div class="roi-card">
+        <div class="roi-card-num">100%</div>
+        <div class="roi-card-label">pipeline vis</div>
+        <div class="roi-card-desc">No dropped leads during the 15-20 days of travel.</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-card-num">Single</div>
+        <div class="roi-card-label">reporting line</div>
+        <div class="roi-card-desc">Clear task prioritization for the solo manager.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHASE 2 -->
+  <div class="phase-block">
+    <div class="phase-hd">
+      <div class="phase-hd-left">
+        <span class="phase-hd-title">Phase 2 &mdash; Scale &amp; Content</span>
+        <span class="phase-hd-timeline">Months 3&ndash;5 &middot; Operational discipline</span>
+      </div>
+      <span class="phase-maturity p2">Maturity 1.8 &rarr; 2.5</span>
+    </div>
+    <div class="phase-sow">
+      <div class="col-label">Scope of Work</div>
+      <div class="sow-item"><span class="sow-dot p2"></span><span>Establish automated follow-up cadences in the CRM to ping off-season contacts every 2-3 months without manual effort.</span></div>
+      <div class="sow-item"><span class="sow-dot p2"></span><span>Integrate R&amp;D trial certificates directly into Canva/PPT sales templates rather than relying on raw Google Drive dumps.</span></div>
+    </div>
+    <div class="phase-roi">
+      <div class="roi-card">
+        <div class="roi-card-num">&uarr; 2x</div>
+        <div class="roi-card-label">follow-ups</div>
+        <div class="roi-card-desc">Automated prompts save memory load.</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-card-num">&darr; 80%</div>
+        <div class="roi-card-label">proposal time</div>
+        <div class="roi-card-desc">Turnaround reduced from 2.5 days to hours.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHASE 3 -->
+  <div class="phase-block">
+    <div class="phase-hd">
+      <div class="phase-hd-left">
+        <span class="phase-hd-title">Phase 3 &mdash; Capacity Building</span>
+        <span class="phase-hd-timeline">Month 6+ &middot; Heavy effort</span>
+      </div>
+      <span class="phase-maturity p3">Maturity 2.5 &rarr; 3.0</span>
+    </div>
+    <div class="phase-sow">
+      <div class="col-label">Scope of Work</div>
+      <div class="sow-item"><span class="sow-dot p3"></span><span>Onboard and train the incoming South India BD Executive.</span></div>
+      <div class="sow-item"><span class="sow-dot p3"></span><span>Execute the first live payment collection workflow as early seed deals begin to close.</span></div>
+    </div>
+    <div class="phase-roi">
+      <div class="roi-card">
+        <div class="roi-card-num">&uarr; 200%</div>
+        <div class="roi-card-label">field capacity</div>
+        <div class="roi-card-desc">Two full-time executives managing Pan-India.</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-card-num">Tested</div>
+        <div class="roi-card-label">receivables</div>
+        <div class="roi-card-desc">Proven operational loop with Accounts.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="doc-footer"><span>BD (Seed) Audit Report · v1.0</span><span>Page 8</span></div>
+</div>
+
+</body>
+</html>
