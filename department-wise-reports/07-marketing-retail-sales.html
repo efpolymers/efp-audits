@@ -265,6 +265,13 @@ td.num{ text-align:center; white-space:nowrap; }
       <td>Risk of collateral stockouts during critical regional campaigns.</td>
       <td><span class="chip-ref">R-04</span></td>
     </tr>
+    <tr>
+      <td class="id">F-06</td>
+      <td><b>Absence of Retail CRM System.</b> Dealer and farmer interactions, tele-calling logs, and follow-ups are maintained manually in disparate Google Sheets.</td>
+      <td><span class="chip chip-med">Medium</span></td>
+      <td>Prevents systematic follow-ups, limits visibility into lead conversion, and scatters customer data.</td>
+      <td><span class="chip-ref">R-06</span></td>
+    </tr>
   </table>
 
   <div class="callout">The two Critical findings expose how analog tracking creates an unscalable operational ceiling. F-01 (Manual Geolocation) forces the HQ team to act as surveillance monitors rather than sales strategists, burning 6-8 hours daily. F-02 (Actuals Extraction) means MIS plans are perpetually backward-looking. Phase 1 targets the structural tracking gap by deploying an automated field force app and syncing actuals via API, instantly recovering massive HQ capacity.</div>
@@ -432,6 +439,14 @@ td.num{ text-align:center; white-space:nowrap; }
       <td><span class="chip chip-low">P3</span></td>
       <td>Low</td>
       <td>Prevents campaign delays due to stockouts of printed materials.</td>
+    </tr>
+    <tr>
+      <td class="id">R-06</td>
+      <td>Deploy Retail CRM — Implement a centralized CRM (e.g., HubSpot) for the tele-calling team to log dealer/farmer interactions, schedule follow-ups, and track pipeline conversions systematically.</td>
+      <td><span class="chip-ref">F-06</span></td>
+      <td><span class="chip chip-med">P2</span></td>
+      <td>Medium</td>
+      <td>Replaces scattered Google Sheets, ensuring a single source of truth for retail customer relationships.</td>
     </tr>
   </table>
 

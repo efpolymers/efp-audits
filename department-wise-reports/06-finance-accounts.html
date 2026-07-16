@@ -258,6 +258,13 @@ td.num{ text-align:center; white-space:nowrap; }
       <td>Accounts must download and manually compile volume metrics in Excel.</td>
       <td><span class="chip-ref">R-04</span></td>
     </tr>
+    <tr>
+      <td class="id">F-05</td>
+      <td><b>Manual Fixed Asset &amp; Depreciation Tracking.</b> Depreciation for machinery, equipment, and assets is calculated entirely manually outside the system because the company lacks an automated Asset Register.</td>
+      <td><span class="chip chip-med">Medium</span></td>
+      <td>Increases risk of calculation errors and requires manual journal entries into Zoho Books.</td>
+      <td><span class="chip-ref">R-06</span></td>
+    </tr>
   </table>
 
   <div class="callout">Two findings are rated Critical and both severely impact corporate decision-making and compliance. F-01 (COGS Volatility) distorts the fundamental profitability metrics used by executive leadership, as swings of 50–77% make margin analysis impossible. F-02 (Tax Compliance) is a massive resource drain, consuming 35% of the team's capacity on tasks that modern ERPs should automate. Phase 1 targets the immediate manual bottlenecks (tax reconciliation and stock checking) before addressing the more complex WIP costing architecture in Phase 2.</div>
@@ -424,6 +431,14 @@ td.num{ text-align:center; white-space:nowrap; }
       <td><span class="chip chip-low">P3</span></td>
       <td>High</td>
       <td>Prevents repetitive master data checking when raising invoices.</td>
+    </tr>
+    <tr>
+      <td class="id">R-06</td>
+      <td>Automated Fixed Asset Register — Implement an automated Fixed Asset Register system (either a Zoho extension or compatible software) to manage asset lifecycles and calculate depreciation automatically.</td>
+      <td><span class="chip-ref">F-05</span></td>
+      <td><span class="chip chip-med">P2</span></td>
+      <td>Medium</td>
+      <td>Removes manual spreadsheet calculations for machinery and equipment depreciation.</td>
     </tr>
   </table>
 

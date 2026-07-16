@@ -257,6 +257,20 @@ td.num{ text-align:center; white-space:nowrap; }
       <td>Risk of outright write-offs for 3-year old export inventory.</td>
       <td><span class="chip-ref">R-04</span></td>
     </tr>
+    <tr>
+      <td class="id">F-05</td>
+      <td><b>Manual Vendor Registration Process.</b> Vendor onboarding (GST, PAN, bank details) relies on disconnected forms and emails, forcing duplicate manual entry.</td>
+      <td><span class="chip chip-med">Medium</span></td>
+      <td>Creates data silos between Production's vendor list and Accounts' master ledger.</td>
+      <td><span class="chip-ref">R-05</span></td>
+    </tr>
+    <tr>
+      <td class="id">F-06</td>
+      <td><b>Undocumented Practical Training.</b> New floor hires receive verbal "practical training," lacking formalized, trackable digital records of SOP completion.</td>
+      <td><span class="chip chip-low">Low</span></td>
+      <td>Increases compliance risk during audits if safety/process training cannot be verified.</td>
+      <td><span class="chip-ref">R-06</span></td>
+    </tr>
   </table>
 
   <div class="callout">The two Critical findings highlight severe structural and financial risks. F-01 (Surplus Packaging) exposes the company to massive direct write-offs, with 68% of custom print runs turning into dead stock due to vendor MOQs. F-02 (Siloed WMS) breaks the core financial data flow, forcing manual Excel exports for basic COGS valuation. Phase 1 targets the immediate cash bleed by standardizing B2B packaging and enforcing forecasting, while Phase 2 bridges the critical software gap.</div>
@@ -416,6 +430,22 @@ td.num{ text-align:center; white-space:nowrap; }
       <td><span class="chip chip-low">P3</span></td>
       <td>Low</td>
       <td>Reduces final write-off exposure on slow-moving inventory.</td>
+    </tr>
+    <tr>
+      <td class="id">R-05</td>
+      <td>Centralized Vendor Portal — Digitize vendor registration via a self-serve portal (e.g., Zoho Creator) that feeds master data directly into Zoho Books.</td>
+      <td><span class="chip-ref">F-05</span></td>
+      <td><span class="chip chip-med">P2</span></td>
+      <td>Medium</td>
+      <td>Eliminates manual transcription and ensures data parity between Production and Accounts.</td>
+    </tr>
+    <tr>
+      <td class="id">R-06</td>
+      <td>Formalize SOP Training Records — Implement a digital sign-off system (e.g., Zoho Learn or digital forms) for new hires to confirm completion of process and safety SOPs.</td>
+      <td><span class="chip-ref">F-06</span></td>
+      <td><span class="chip chip-low">P3</span></td>
+      <td>Low</td>
+      <td>Provides verifiable compliance trails for factory safety and quality audits.</td>
     </tr>
   </table>
 
