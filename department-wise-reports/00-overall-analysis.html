@@ -1,0 +1,1542 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script src='auth.js'></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=880">
+  <title>Organisation-Wide Operational Audit — Overall Analysis | EF Polymer Private Limited</title>
+  <style>
+    :root {
+      --ink: #6b4fc8;
+      --slate: #3F4B5C;
+      --muted: #6B7785;
+      --line: #D8DEE5;
+      --line-soft: #E9EDF1;
+      --paper: #FFFFFF;
+      --paper-alt: #F6F7F9;
+      --accent: #c480e9;
+      --accent-soft: #F4EEFC;
+      --risk-crit-bg: #FCEBEA;
+      --risk-crit-fg: #A32E24;
+      --risk-med-bg: #FBF1DF;
+      --risk-med-fg: #8A5A10;
+      --risk-low-bg: #E9F4EC;
+      --risk-low-fg: #276B3E;
+      --p2: #2563eb;
+      --p3: #7c3aed;
+    }
+
+    @page {
+      size: A4;
+      margin: 22mm 18mm 20mm 18mm;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      color: var(--slate);
+      line-height: 1.55;
+      background: #EDEFF1;
+      font-size: 10.3pt;
+    }
+
+    .page {
+      background: var(--paper);
+      max-width: 840px;
+      margin: 0 auto 14px auto;
+      padding: 26mm 20mm 20mm 20mm;
+      position: relative;
+      page-break-after: always;
+      min-height: 1120px;
+    }
+
+    .page:last-child {
+      page-break-after: avoid;
+    }
+
+    .letterhead {
+      width: calc(100% + 40mm);
+      max-width: none;
+      height: auto;
+      margin-left: -20mm;
+      margin-top: -26mm;
+      margin-bottom: 22px;
+      display: block;
+    }
+
+    .doc-footer {
+      position: absolute;
+      bottom: 10mm;
+      left: 20mm;
+      right: 20mm;
+      display: flex;
+      justify-content: space-between;
+      font-size: 7.5pt;
+      color: var(--muted);
+      border-top: 1px solid var(--line-soft);
+      padding-top: 6px;
+    }
+
+    /* ---- cover ---- */
+    .cover {
+      display: flex;
+      flex-direction: column;
+      min-height: 1080px;
+    }
+
+    .cover-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 40px 0;
+    }
+
+    .cover-eyebrow {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-style: italic;
+      font-size: 12pt;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+
+    .cover-title {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 32pt;
+      color: var(--ink);
+      font-weight: 600;
+      line-height: 1.13;
+      margin-bottom: 10px;
+    }
+
+    .cover-sub {
+      font-size: 12.5pt;
+      color: var(--slate);
+      font-weight: 400;
+    }
+
+    .cover-rule {
+      width: 52px;
+      height: 2px;
+      background: var(--accent);
+      margin: 24px 0;
+    }
+
+    .cover-ctrl {
+      border: 1px solid var(--line);
+    }
+
+    .cover-ctrl table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0;
+    }
+
+    .cover-ctrl td {
+      padding: 9px 14px;
+      font-size: 9pt;
+      border-bottom: 1px solid var(--line-soft);
+    }
+
+    .cover-ctrl tr:last-child td {
+      border-bottom: none;
+    }
+
+    .cover-ctrl td.label {
+      color: var(--muted);
+      width: 38%;
+      text-transform: uppercase;
+      font-size: 7.8pt;
+      letter-spacing: 0.5px;
+    }
+
+    .cover-ctrl td.val {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    /* ---- section furniture ---- */
+    .eyebrow {
+      font-size: 8pt;
+      color: var(--accent);
+      font-weight: 700;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    h2 {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 16.5pt;
+      color: var(--ink);
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    h2+.section-dek {
+      color: var(--muted);
+      font-size: 9.2pt;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    h3 {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 12pt;
+      color: var(--ink);
+      font-weight: 600;
+      margin: 18px 0 7px;
+    }
+
+    h4 {
+      font-size: 9.8pt;
+      color: var(--ink);
+      font-weight: 700;
+      margin: 12px 0 4px;
+    }
+
+    p {
+      margin-bottom: 9px;
+    }
+
+    .lede {
+      font-size: 10.4pt;
+      color: var(--slate);
+      max-width: 95%;
+    }
+
+    /* ---- tables ---- */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 8px 0 16px;
+      font-size: 8.6pt;
+    }
+
+    th {
+      background: var(--ink);
+      color: #fff;
+      padding: 7px 9px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 7.9pt;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+    }
+
+    td {
+      padding: 7px 9px;
+      border-bottom: 1px solid var(--line-soft);
+      vertical-align: top;
+    }
+
+    tr:nth-child(even) td {
+      background: var(--paper-alt);
+    }
+
+    td.id,
+    th.id {
+      font-family: Georgia, serif;
+      font-weight: 700;
+      color: var(--ink);
+      white-space: nowrap;
+      width: 38px;
+    }
+
+    td.num,
+    th.num {
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    td strong, td b {
+      color: var(--ink);
+    }
+
+    /* ---- chips ---- */
+    .chip {
+      display: inline-block;
+      padding: 1.5px 8px;
+      border-radius: 3px;
+      font-size: 7.4pt;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .chip-crit { background: var(--risk-crit-bg); color: var(--risk-crit-fg); }
+    .chip-med { background: var(--risk-med-bg); color: var(--risk-med-fg); }
+    .chip-low { background: var(--risk-low-bg); color: var(--risk-low-fg); }
+
+    .chip-ref {
+      display: inline-block;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-family: Georgia, serif;
+      font-weight: 700;
+      font-size: 7.6pt;
+      padding: 1px 6px;
+      border-radius: 3px;
+      margin: 1px 2px 1px 0;
+      white-space: nowrap;
+    }
+
+    /* ---- KPI strip ---- */
+    .kpi-strip {
+      display: flex;
+      border: 1px solid var(--line);
+      margin: 14px 0 18px;
+    }
+
+    .kpi-cell {
+      flex: 1;
+      padding: 11px 13px;
+      border-right: 1px solid var(--line);
+    }
+
+    .kpi-cell:last-child { border-right: none; }
+
+    .kpi-num {
+      font-family: Georgia, serif;
+      font-size: 14.5pt;
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    .kpi-num.accent { color: var(--accent); }
+    .kpi-num.crit { color: var(--risk-crit-fg); }
+
+    .kpi-lbl {
+      font-size: 7.3pt;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 2px;
+    }
+
+    /* ---- callout ---- */
+    .callout {
+      border-left: 3px solid var(--accent);
+      background: var(--accent-soft);
+      padding: 10px 14px;
+      font-size: 8.8pt;
+      color: var(--ink);
+      margin: 10px 0 18px;
+    }
+
+    .callout.blue { border-left-color: var(--p2); background: #EFF4FF; color: #1B2A4A; }
+    .callout.red { border-left-color: var(--risk-crit-fg); background: var(--risk-crit-bg); color: var(--risk-crit-fg); }
+    .callout.green { border-left-color: var(--risk-low-fg); background: #F0FDF4; color: #166534; }
+
+    .callout strong { font-size: 9.2pt; }
+
+    /* ---- exhibit (svg + note) ---- */
+    .exhibit {
+      display: flex;
+      gap: 22px;
+      align-items: center;
+      margin: 10px 0 8px;
+    }
+
+    .exhibit-chart { flex: 0 0 300px; }
+    .exhibit-note { flex: 1; font-size: 9pt; color: var(--slate); }
+    .exhibit-note b { color: var(--ink); }
+
+    /* ---- maturity bar ---- */
+    .matbar-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+      font-size: 8.2pt;
+    }
+
+    .matbar-lbl {
+      width: 140px;
+      flex-shrink: 0;
+      color: var(--slate);
+      font-weight: 600;
+    }
+
+    .matbar-track {
+      flex: 1;
+      height: 13px;
+      background: var(--line-soft);
+      border-radius: 3px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .matbar-tgt {
+      position: absolute;
+      left: 0; top: 0;
+      height: 100%;
+      background: var(--accent);
+      opacity: 0.4;
+    }
+
+    .matbar-cur {
+      position: absolute;
+      left: 0; top: 0;
+      height: 100%;
+      background: var(--ink);
+      opacity: 0.92;
+    }
+
+    .matbar-cur-val { width: 28px; text-align: right; flex-shrink: 0; font-weight: 700; color: var(--ink); }
+    .matbar-arrow { color: var(--muted); font-size: 7.3pt; width: 12px; text-align: center; flex-shrink: 0; }
+    .matbar-tgt-val { width: 28px; text-align: left; flex-shrink: 0; font-weight: 700; color: var(--accent); }
+
+    .legend-inline {
+      font-size: 7.5pt;
+      color: var(--muted);
+      margin: -4px 0 14px 140px;
+    }
+
+    .legend-inline .sw {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 2px;
+      vertical-align: middle;
+      margin: 0 3px 0 10px;
+    }
+
+    /* ---- heatmap cell ---- */
+    .hm-cell {
+      display: inline-block;
+      padding: 2px 7px;
+      border-radius: 3px;
+      font-weight: 700;
+      font-size: 8pt;
+      color: #fff;
+    }
+    .hm-1 { background: #A32E24; }
+    .hm-2 { background: #C95C2E; }
+    .hm-3 { background: #D89536; }
+    .hm-4 { background: #5B9A4E; }
+    .hm-5 { background: #2E7D4F; }
+
+    /* ---- dep web ---- */
+    .dep-web-wrap {
+      background: var(--paper-alt);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 6px;
+      margin: 8px 0 14px;
+    }
+
+    /* ---- solution platform cards ---- */
+    .sol-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 13px;
+      margin: 12px 0 8px;
+    }
+
+    .sol-card {
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 13px;
+      background: var(--paper);
+    }
+
+    .sol-card-head {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 7px;
+    }
+
+    .sol-num {
+      background: var(--ink);
+      color: #fff;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 10pt;
+      flex-shrink: 0;
+      font-family: Georgia, serif;
+    }
+
+    .sol-card.t1 .sol-num { background: var(--risk-crit-fg); }
+    .sol-card.t3 .sol-num { background: var(--risk-med-fg); }
+
+    .sol-name {
+      font-weight: 700;
+      color: var(--ink);
+      font-size: 9.6pt;
+      line-height: 1.2;
+    }
+
+    .sol-type {
+      font-size: 7.2pt;
+      color: var(--accent);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      margin-bottom: 5px;
+    }
+
+    .sol-desc {
+      font-size: 8.3pt;
+      color: var(--muted);
+      line-height: 1.5;
+      margin-bottom: 8px;
+    }
+
+    .sol-solves {
+      font-size: 7pt;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 3px;
+    }
+
+    .sol-tags {
+      font-size: 7.5pt;
+      color: var(--slate);
+      line-height: 1.5;
+    }
+
+    /* ---- pain flag card ---- */
+    .pain-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 11px;
+      margin: 10px 0 16px;
+    }
+
+    .pain-card {
+      border: 1px solid var(--line);
+      border-left: 3px solid var(--ink);
+      border-radius: 4px;
+      padding: 10px 12px;
+      background: var(--paper);
+    }
+
+    .pain-card.crit { border-left-color: var(--risk-crit-fg); background: #FFFBFB; }
+    .pain-card.high { border-left-color: var(--risk-med-fg); }
+
+    .pain-card-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 8px;
+      margin-bottom: 5px;
+    }
+
+    .pain-title { font-weight: 700; color: var(--ink); font-size: 9pt; line-height: 1.25; }
+    .pain-body { font-size: 8.1pt; color: var(--slate); line-height: 1.45; margin-bottom: 5px; }
+    .pain-depts { font-size: 7.2pt; color: var(--muted); }
+    .pain-depts b { color: var(--ink); }
+
+    @media print {
+      body { background: #fff; }
+      .page { box-shadow: none; margin: 0; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============ COVER ============ -->
+  <div class="page cover">
+    <img src="../letterhead.png" alt="Letterhead" class="letterhead" />
+    <div class="cover-body">
+      <div class="cover-eyebrow">Organisation-Wide Operational Audit</div>
+      <div class="cover-title">Overall Analysis<br>&amp; Transformation Blueprint</div>
+      <div class="cover-sub">EF Polymer Private Limited — Consolidated Findings Across 15 Departments &amp; Sub-Verticals</div>
+      <div class="cover-rule"></div>
+      <p style="max-width:72%;color:var(--muted);font-size:9.2pt;">
+        A comprehensive, evidence-backed synthesis of the organisation-wide operational audit — consolidating the maturity
+        scorecard, cross-department dependency map, systemic red-flag register, operational truth gaps, technology &amp;
+        data-flow assessment, workflow bottlenecks, AI readiness, and the unified solution platform proposed to resolve
+        them. This report integrates the findings of the 15 individual department and sub-vertical audits into a single
+        strategic picture. Prepared by Creative Upaay (brand owned by Cinnovate Solutions (OPC) Private Limited).
+      </p>
+    </div>
+    <div class="cover-ctrl">
+      <table>
+        <tr><td class="label">Client</td><td class="val">EF Polymer Private Limited</td></tr>
+        <tr><td class="label">Prepared by</td><td class="val">Creative Upaay</td></tr>
+        <tr><td class="label">Document version</td><td class="val">2.0</td></tr>
+        <tr><td class="label">Date issued</td><td class="val">17th July 2026</td></tr>
+        <tr><td class="label">Classification</td><td class="val">Confidential — Executive Leadership Only</td></tr>
+        <tr><td class="label">Scope</td><td class="val">15 Departments &amp; Sub-Verticals · Org-Wide</td></tr>
+        <tr><td class="label">Companion documents</td><td class="val">15 Department-wise audit reports (01–11)</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- ============ 01 EXECUTIVE SUMMARY ============ -->
+  <div class="page">
+    <img src="../letterhead.png" alt="Letterhead" class="letterhead" />
+
+    <div class="eyebrow">Section 01 — Executive Summary</div>
+    <h2>The Organisation at a Glance</h2>
+    <div class="section-dek">Audit scope, key findings at a glance, and the critical observations that recur across all 15 units.</div>
+
+    <h3>Audit Scope &amp; Approach</h3>
+    <p class="lede">This report consolidates findings from <b>15 department-level operational audits</b> conducted across EF Polymers
+      (EFP), a bio-polymer manufacturing company specialising in agricultural soil-moisture-retention products and cocopeat
+      growing media. The audit covered the entire organisational value chain — from CEO and CXO offices through R&amp;D,
+      Production, Logistics, Finance, all five Business Development verticals (Cocopeat, Seed, NGO/CSR, Government,
+      B2B/RCM), MENA &amp; International Sales, Marketing &amp; Retail Sales, and HR &amp; Talent Management.</p>
+    <p style="font-size:9pt;">The methodology follows a six-layer thinking model (Understanding → Relationships → Constraints → Failure →
+      Optimization → Transformation) with evidence-backed conclusions rated by confidence level.</p>
+
+    <h3>Key Findings at a Glance</h3>
+    <table>
+      <tr><th>Dimension</th><th>Assessment</th><th class="num">Confidence</th></tr>
+      <tr><td><strong>Overall Business Maturity</strong></td><td>1.6 / 5 — Developing</td><td class="num">High</td></tr>
+      <tr><td><strong>Process Standardization</strong></td><td>1.8 / 5 — Initial/Developing</td><td class="num">High</td></tr>
+      <tr><td><strong>Technology Utilization</strong></td><td>1.4 / 5 — Initial (Zoho underutilised, no CRM)</td><td class="num">High</td></tr>
+      <tr><td><strong>Data Governance</strong></td><td>1.3 / 5 — Initial (spreadsheet-dependent)</td><td class="num">Confirmed</td></tr>
+      <tr><td><strong>Sales Operations</strong></td><td>1.0 / 5 — No CRM across any BD vertical</td><td class="num">Confirmed</td></tr>
+      <tr><td><strong>Automation Readiness</strong></td><td>1.5 / 5 — Emerging</td><td class="num">High</td></tr>
+      <tr><td><strong>AI Readiness</strong></td><td>1.0 / 5 — Not Ready (data fragmentation)</td><td class="num">High</td></tr>
+      <tr><td><strong>Scalability Readiness</strong></td><td>1.5 / 5 — Critical constraints at 2× growth</td><td class="num">High</td></tr>
+    </table>
+
+    <div class="kpi-strip">
+      <div class="kpi-cell"><div class="kpi-num">15</div><div class="kpi-lbl">Units Audited</div></div>
+      <div class="kpi-cell"><div class="kpi-num">1.6 / 5</div><div class="kpi-lbl">Avg. Org Maturity</div></div>
+      <div class="kpi-cell"><div class="kpi-num crit">30+</div><div class="kpi-lbl">Disconnected Sheets</div></div>
+      <div class="kpi-cell"><div class="kpi-num accent">~3,100 hrs</div><div class="kpi-lbl">Annual Hours Reclaimable</div></div>
+    </div>
+
+    <h3>Critical Observations</h3>
+    <ol style="font-size:8.7pt;padding-left:20px;line-height:1.5;">
+      <li style="margin-bottom:6px;"><strong>No Central CRM exists.</strong> All 5 BD verticals + MENA + Marketing/Retail operate on disconnected spreadsheets, WhatsApp, and personal memory. Every department report independently flagged CRM absence as a critical gap.</li>
+      <li style="margin-bottom:6px;"><strong>Spreadsheet Dependency is systemic.</strong> An estimated <b>30+ independent Excel/Google Sheets</b> serve as primary operational databases across the organisation, with zero integration.</li>
+      <li style="margin-bottom:6px;"><strong>Key-Person Dependencies are pervasive.</strong> R&amp;D (Ritu Panwar — sole protocol authority), Logistics (Nihal Paliwal — shared across domestic + international), Finance (Shobha Shekhawat), BD-Seed (Sameer Mahiskar — solo pan-India operator), and Marketing field-data (Kamakshi) each represent single points of failure.</li>
+      <li style="margin-bottom:6px;"><strong>WhatsApp is the de facto ERP.</strong> Order intake, field tracking, payment confirmations, customer communication, PO submissions, attendance verification, and task management flow through WhatsApp groups with no data capture. Marketing alone processes 10,000+ daily WhatsApp updates manually.</li>
+      <li style="margin-bottom:6px;"><strong>COGS is unreliable.</strong> Untraceable COGS margin volatility (50–77% swings) due to absent WIP valuation, no grade-based costing, and unallocated costs renders financial reporting unreliable for investor confidence.</li>
+      <li style="margin-bottom:6px;"><strong>Personal device dependency creates institutional risk.</strong> ~90% of BD-B2B/RCM and MENA communications run on personal WhatsApp numbers and SIMs. Employee turnover guarantees total loss of contact history and community access.</li>
+      <li><strong>HR operates without a unified ATS.</strong> Recruitment sourcing spans 6+ platforms with no centralised tracking, 30–45 day closing rates, and no AI pre-screening layer.</li>
+    </ol>
+
+    <div class="doc-footer"><span>Overall Analysis · EF Polymer · v2.0</span><span>Page 2</span></div>
+  </div>
+
+  <!-- ============ 02 COMPANY PROFILE ============ -->
+  <div class="page">
+    <img src="../letterhead.png" alt="Letterhead" class="letterhead" />
+
+    <div class="eyebrow">Section 02 — Company Profile &amp; Business Model</div>
+    <h2>Company Profile &amp; Business Model</h2>
+    <div class="section-dek">Understanding the business before diagnosing it — what EFP makes, sells, and through which channels.</div>
+
+    <h3>Business Overview</h3>
+    <table>
+      <tr><th style="width:32%;">Attribute</th><th>Detail</th></tr>
+      <tr><td><strong>Company</strong></td><td>EF Polymers (EFP) — EF Polymer Private Limited</td></tr>
+      <tr><td><strong>Industry</strong></td><td>Agri-tech / Bio-polymer Manufacturing</td></tr>
+      <tr><td><strong>Core Product</strong></td><td>Bio-polymer soil moisture retention granules</td></tr>
+      <tr><td><strong>Secondary Product</strong></td><td>Cocopeat (coconut husk soil-less growing media)</td></tr>
+      <tr><td><strong>Revenue Model</strong></td><td>B2B manufacturing + white-label + export + retail</td></tr>
+      <tr><td><strong>Manufacturing</strong></td><td>Udaipur (primary), Coimbatore (secondary / cocopeat)</td></tr>
+      <tr><td><strong>Markets</strong></td><td>India (pan-national), Middle East, Europe, Japan, USA, Africa, Australia</td></tr>
+      <tr><td><strong>Product Shelf Life</strong></td><td>3 years</td></tr>
+      <tr><td><strong>Estimated Headcount</strong></td><td>40–50+ personnel (across all departments)</td></tr>
+    </table>
+
+    <h3>Revenue Channels</h3>
+    <table>
+      <tr><th>Channel</th><th>Description</th><th>Owner / Vertical</th></tr>
+      <tr><td><strong>Retail (D2C/Dealer)</strong></td><td>Multi-tier distribution via RSMs → Dealers → Farmers</td><td>Marketing &amp; Retail Sales</td></tr>
+      <tr><td><strong>B2B White-Label</strong></td><td>Component supply to corporate partners (RCM)</td><td>BD-B2B/RCM (Jatin Jain)</td></tr>
+      <tr><td><strong>Institutional (Seed)</strong></td><td>Seed coating sales to seed companies &amp; universities</td><td>BD-Seed (Sameer Mahiskar)</td></tr>
+      <tr><td><strong>NGO/CSR</strong></td><td>Bulk contracts with NGOs and CSR programs</td><td>BD-NGO/CSR (Vikash Mehta)</td></tr>
+      <tr><td><strong>Government</strong></td><td>State/federal procurement tenders via Pradhans</td><td>BD-Government (Shailendra Singh)</td></tr>
+      <tr><td><strong>International Export</strong></td><td>Distributor-led B2B across MENA, Asia, Africa</td><td>MENA &amp; International (Neha Pathak)</td></tr>
+      <tr><td><strong>Cocopeat Export</strong></td><td>Container-load exports of soil-less media</td><td>BD-Cocopeat (Mohit Kumar Gupta)</td></tr>
+      <tr><td><strong>D2C Japan (Planned)</strong></td><td>Website-based direct-to-consumer launch</td><td>Mohit / Yoshida-san</td></tr>
+    </table>
+
+    <h3>Product Complexity Matrix</h3>
+    <table>
+      <tr><th style="width:32%;">Dimension</th><th>Variants</th></tr>
+      <tr><td><strong>Granule Sizes</strong></td><td>&lt;2mm (India), 2–4mm, 1.18–1.41mm (international)</td></tr>
+      <tr><td><strong>SKU Sizes</strong></td><td>50g, 100g, 200g, 500g, 1kg, 5kg, 20–25kg, 100kg, bulk sacks (1000–1400kg)</td></tr>
+      <tr><td><strong>Packaging Languages</strong></td><td>Hindi, English, Spanish, French, Japanese + custom</td></tr>
+      <tr><td><strong>Product Grades</strong></td><td>A, B, C (different quality tiers)</td></tr>
+      <tr><td><strong>Cocopeat Formats</strong></td><td>Open-top grow bags, cocopit grow bags, 5kg blocks, pellets/coins</td></tr>
+      <tr><td><strong>Custom Blends</strong></td><td>Perlite, NPK formulations per client spec</td></tr>
+    </table>
+
+    <div class="callout">
+      <strong>Operational Implication:</strong> This multi-variable product matrix (granule size × SKU × language × grade × blend)
+      creates significant packaging procurement complexity and inventory management burden — evidenced by the custom packaging
+      MOQ and vendor sourcing friction reported by Production.
+    </div>
+
+    <div class="doc-footer"><span>Overall Analysis · EF Polymer · v2.0</span><span>Page 3</span></div>
+  </div>
+
+  <!-- ============ 03 ORGANISATIONAL STRUCTURE ============ -->
+  <div class="page">
+    <img src="../letterhead.png" alt="Letterhead" class="letterhead" />
+
+    <div class="eyebrow">Section 03 — Organisational Structure</div>
+    <h2>Organisational Structure &amp; Reporting Lines</h2>
+    <div class="section-dek">Leadership hierarchy and headcount distribution across all 15 audited units.</div>
+
+    <h3>Leadership &amp; Reporting Lines</h3>
+    <svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:4px 0 10px;">
+      <!-- CEO -->
+      <rect x="297" y="10" width="130" height="42" rx="5" fill="#F4EEFC" stroke="#6b4fc8" stroke-width="1.6" />
+      <text x="362" y="28" text-anchor="middle" font-size="9" fill="#6b4fc8" font-weight="700">Narayan Lal Gurjar</text>
+      <text x="362" y="42" text-anchor="middle" font-size="7.5" fill="#6b4fc8">Founder &amp; CEO</text>
+      <!-- connectors down -->
+      <line x1="362" y1="52" x2="362" y2="70" stroke="#D8DEE5" />
+      <line x1="128" y1="70" x2="688" y2="70" stroke="#D8DEE5" />
+      <line x1="128" y1="70" x2="128" y2="88" stroke="#D8DEE5" />
+      <line x1="362" y1="70" x2="362" y2="88" stroke="#D8DEE5" />
+      <line x1="596" y1="70" x2="596" y2="88" stroke="#D8DEE5" />
+      <line x1="688" y1="70" x2="688" y2="88" stroke="#D8DEE5" />
+      <!-- COO -->
+      <rect x="68" y="88" width="120" height="42" rx="5" fill="#fff" stroke="#D8DEE5" />
+      <text x="128" y="106" text-anchor="middle" font-size="9" fill="#6b4fc8" font-weight="700">Puran Singh Rajput</text>
+      <text x="128" y="120" text-anchor="middle" font-size="7.5" fill="#6B7785">COO</text>
+      <!-- CBDO -->
+      <rect x="302" y="88" width="120" height="42" rx="5" fill="#fff" stroke="#D8DEE5" />
+      <text x="362" y="106" text-anchor="middle" font-size="9" fill="#6b4fc8" font-weight="700">Ankit Jain</text>
+      <text x="362" y="120" text-anchor="middle" font-size="7.5" fill="#6B7785">CBDO</text>
+      <!-- Production Mgr -->
+      <rect x="536" y="88" width="120" height="42" rx="5" fill="#fff" stroke="#D8DEE5" />
+      <text x="596" y="106" text-anchor="middle" font-size="9" fill="#6b4fc8" font-weight="700">Rishabh Doshi</text>
+      <text x="596" y="120" text-anchor="middle" font-size="7.5" fill="#6B7785">Production Manager</text>
+      <!-- Intl CXOs -->
+      <rect x="659" y="88" width="58" height="42" rx="5" fill="#fff" stroke="#D8DEE5" />
+      <text x="688" y="106" text-anchor="middle" font-size="7.5" fill="#6b4fc8" font-weight="700">Intl CXOs</text>
+      <text x="688" y="119" text-anchor="middle" font-size="5.8" fill="#6B7785">Japan/EU/USA</text>
+      <!-- COO branches -->
+      <line x1="128" y1="130" x2="128" y2="148" stroke="#D8DEE5" />
+      <line x1="50" y1="148" x2="206" y2="148" stroke="#D8DEE5" />
+      <line x1="50" y1="148" x2="50" y2="166" stroke="#D8DEE5" />
+      <line x1="128" y1="148" x2="128" y2="166" stroke="#D8DEE5" />
+      <line x1="206" y1="148" x2="206" y2="166" stroke="#D8DEE5" />
+      <rect x="13" y="166" width="74" height="34" rx="4" fill="#fff" stroke="#D8DEE5" />
+      <text x="50" y="182" text-anchor="middle" font-size="7.5" fill="#3F4B5C" font-weight="600">Finance</text>
+      <text x="50" y="193" text-anchor="middle" font-size="6.5" fill="#6B7785">Shobha Shekhawat</text>
+      <rect x="91" y="166" width="74" height="34" rx="4" fill="#fff" stroke="#D8DEE5" />
+      <text x="128" y="182" text-anchor="middle" font-size="7.5" fill="#3F4B5C" font-weight="600">HR &amp; Talent</text>
+      <text x="128" y="193" text-anchor="middle" font-size="6.5" fill="#6B7785">Dolly Mehta</text>
+      <rect x="169" y="166" width="74" height="34" rx="4" fill="#fff" stroke="#D8DEE5" />
+      <text x="206" y="182" text-anchor="middle" font-size="7.5" fill="#3F4B5C" font-weight="600">MENA / Retail</text>
+      <text x="206" y="193" text-anchor="middle" font-size="6.2" fill="#6B7785">Neha / Gaurav J.</text>
+      <!-- CBDO branches (5 BD verticals) -->
+      <line x1="362" y1="130" x2="362" y2="148" stroke="#D8DEE5" />
+      <line x1="284" y1="148" x2="440" y2="148" stroke="#D8DEE5" />
+      <line x1="284" y1="148" x2="284" y2="166" stroke="#D8DEE5" />
+      <line x1="362" y1="148" x2="362" y2="166" stroke="#D8DEE5" />
+      <line x1="440" y1="148" x2="440" y2="166" stroke="#D8DEE5" />
+      <rect x="247" y="166" width="74" height="30" rx="4" fill="#fff" stroke="#D8DEE5" />
+      <text x="284" y="179" text-anchor="middle" font-size="6" fill="#3F4B5C" font-weight="600">BD: Seed / NGO</text>
+      <text x="284" y="188" text-anchor="middle" font-size="6" fill="#3F4B5C" font-weight="600">/ Govt</text>
+      <rect x="325" y="166" width="74" height="30" rx="4" fill="#fff" stroke="#D8DEE5" />
+      <text x="362" y="185" text-anchor="middle" font-size="6.5" fill="#3F4B5C" font-weight="600">BD: B2B/RCM</text>
+      <rect x="403" y="166" width="74" height="30" rx="4" fill="#fff" stroke="#D8DEE5" />
+      <text x="440" y="185" text-anchor="middle" font-size="6.5" fill="#3F4B5C" font-weight="600">BD: Cocopeat</text>
+      <!-- Production branches -->
+      <line x1="596" y1="130" x2="596" y2="148" stroke="#D8DEE5" />
+      <line x1="518" y1="148" x2="674" y2="148" stroke="#D8DEE5" />
+      <line x1="518" y1="148" x2="518" y2="166" stroke="#D8DEE5" />
+      <line x1="596" y1="148" x2="596" y2="166" stroke="#D8DEE5" />
+      <line x1="674" y1="148" x2="674" y2="166" stroke="#D8DEE5" />
+      <rect x="481" y="166" width="74" height="30" rx="4" fill="#fff" stroke="#D8DEE5" />
+      <text x="518" y="185" text-anchor="middle" font-size="7" fill="#3F4B5C" font-weight="600">R&amp;D — Ritu</text>
+      <rect x="559" y="166" width="74" height="30" rx="4" fill="#fff" stroke="#D8DEE5" />
+      <text x="596" y="185" text-anchor="middle" font-size="7" fill="#3F4B5C" font-weight="600">Factory Ops</text>
+      <rect x="637" y="166" width="74" height="30" rx="4" fill="#fff" stroke="#D8DEE5" />
+      <text x="674" y="185" text-anchor="middle" font-size="7" fill="#3F4B5C" font-weight="600">Logistics — Nihal</text>
+      <!-- legend -->
+      <text x="10" y="245" font-size="7.5" fill="#6B7785" font-weight="700">Key-person risk zones:</text>
+      <text x="10" y="262" font-size="7" fill="#A32E24">● Finance, Logistics, R&amp;D, BD-Seed, and Marketing field-data each run on a single load-bearing person.</text>
+      <text x="10" y="276" font-size="7" fill="#8A5A10">● COO personally conducts 18–20 cultural-fit interviews &amp; processes 100+ expense reports monthly.</text>
+      <text x="10" y="290" font-size="7" fill="#6B7785">● 3 leadership vacancies: Marketing Manager, BD-Seed (South India), MENA Director.</text>
+    </svg>
+
+    <h3>Headcount Distribution</h3>
+    <table>
+      <tr><th>Department</th><th>Personnel</th><th>Status</th></tr>
+      <tr><td><strong>CEO Office</strong></td><td>1 (Narayan Lal Gurjar)</td><td>—</td></tr>
+      <tr><td><strong>COO Office</strong></td><td>1 + oversight</td><td>—</td></tr>
+      <tr><td><strong>CBDO Office</strong></td><td>1 + oversight</td><td>—</td></tr>
+      <tr><td><strong>R&amp;D</strong></td><td>4 active + 2 incoming + interns</td><td>Expanding</td></tr>
+      <tr><td><strong>Production &amp; QC</strong></td><td>3 core + 4 recent hires</td><td>Recently expanded</td></tr>
+      <tr><td><strong>Logistics</strong></td><td>2 FTE</td><td><span class="chip chip-crit">Lean / at capacity</span></td></tr>
+      <tr><td><strong>Finance &amp; Accounts</strong></td><td>3 FTE</td><td>Stable</td></tr>
+      <tr><td><strong>Marketing &amp; Retail Sales</strong></td><td>3 office + field RSMs</td><td><span class="chip chip-med">Under-resourced</span></td></tr>
+      <tr><td><strong>BD-Cocopeat</strong></td><td>4 active (Mohit, Ishwarya, Rajesh, Yoshida)</td><td>Stable</td></tr>
+      <tr><td><strong>BD-NGO/CSR</strong></td><td>4 active + 1 vacant</td><td><span class="chip chip-med">Hiring</span></td></tr>
+      <tr><td><strong>BD-Seed</strong></td><td>1 active + 1 planned hire</td><td><span class="chip chip-crit">Solo — under-resourced</span></td></tr>
+      <tr><td><strong>BD-B2B/RCM</strong></td><td>7 active → 10 planned</td><td>Expanding</td></tr>
+      <tr><td><strong>MENA International</strong></td><td>2 (Neha + 1 MT)</td><td><span class="chip chip-med">Lean</span></td></tr>
+      <tr><td><strong>HR &amp; Talent Management</strong></td><td>5 (across Hiring, Admin, HR/PMS)</td><td>Operational</td></tr>
+    </table>
+
+    <div class="callout red">
+      <strong>Key structural risks:</strong> BD-Seed operates as a <b>solo single-point operation</b> for a pan-India
+      institutional vertical with a 90 MT annual target. Logistics (2 FTE) is shared across all domestic, international, and
+      B2B dispatch operations with zero redundancy. Three leadership roles are vacant (Marketing Manager, BD-Seed South India,
+      MENA Director).
+    </div>
+
+    <div class="doc-footer"><span>Overall Analysis · EF Polymer · v2.0</span><span>Page 4</span></div>
+  </div>
+
+  <!-- ============ 04 DEPARTMENT MATURITY SCORECARD ============ -->
+  <div class="page">
+    <img src="../letterhead.png" alt="Letterhead" class="letterhead" />
+
+    <div class="eyebrow">Section 04 — Department Maturity Scorecard</div>
+    <h2>Department Maturity Scorecard</h2>
+    <div class="section-dek">5-level maturity model (1=Initial, 5=Optimised), scored across Process, Technology, Data Quality, Documentation &amp; Knowledge Management. Sourced directly from the 15 department audit reports.</div>
+
+    <div class="exhibit">
+      <div class="exhibit-chart">
+        <svg viewBox="0 0 360 320" xmlns="http://www.w3.org/2000/svg" style="width:100%;">
+          <g transform="translate(180,165)">
+            <polygon points="0,-120 95,-31 59,81 -59,81 -95,-31" fill="none" stroke="#E2E8F0" stroke-width="0.75" />
+            <polygon points="0,-96 76,-25 47,65 -47,65 -76,-25" fill="none" stroke="#E2E8F0" stroke-width="0.75" />
+            <polygon points="0,-72 57,-19 35,49 -35,49 -57,-19" fill="none" stroke="#E2E8F0" stroke-width="0.75" />
+            <polygon points="0,-48 38,-12 24,32 -24,32 -38,-12" fill="none" stroke="#E2E8F0" stroke-width="0.75" />
+            <polygon points="0,-24 19,-6 12,16 -12,16 -19,-6" fill="none" stroke="#E2E8F0" stroke-width="0.75" />
+            <line x1="0" y1="0" x2="0" y2="-120" stroke="#E2E8F0" stroke-width="0.75" />
+            <line x1="0" y1="0" x2="95" y2="-31" stroke="#E2E8F0" stroke-width="0.75" />
+            <line x1="0" y1="0" x2="59" y2="81" stroke="#E2E8F0" stroke-width="0.75" />
+            <line x1="0" y1="0" x2="-59" y2="81" stroke="#E2E8F0" stroke-width="0.75" />
+            <line x1="0" y1="0" x2="-95" y2="-31" stroke="#E2E8F0" stroke-width="0.75" />
+            <!-- target: Process 3.2, Tech 3.2, Data 3.4, Docs 3.1, KM 2.7 -->
+            <polygon points="0,-77 60.8,-19.8 40,92.5 -36.6,50.2 -51.3,-16.7" fill="none" stroke="#B8C0C9" stroke-width="1" stroke-dasharray="5,3" />
+            <!-- current: Process 1.8, Tech 1.4, Data 1.3, Docs 1.8, KM 1.4 -->
+            <polygon points="0,-43.2 13.3,-4.3 15.4,21.1 -21.2,29.2 -26.6,-8.7" fill="rgba(107,79,200,0.16)" stroke="#6b4fc8" stroke-width="1.75" />
+            <circle cx="0" cy="-43.2" r="3" fill="#6b4fc8" />
+            <circle cx="13.3" cy="-4.3" r="3" fill="#6b4fc8" />
+            <circle cx="15.4" cy="21.1" r="3" fill="#6b4fc8" />
+            <circle cx="-21.2" cy="29.2" r="3" fill="#6b4fc8" />
+            <circle cx="-26.6" cy="-8.7" r="3" fill="#6b4fc8" />
+            <text x="0" y="-132" text-anchor="middle" font-size="8.3" fill="#6b4fc8" font-weight="600">Process 1.8</text>
+            <text x="108" y="-18" text-anchor="start" font-size="8.3" fill="#6b4fc8" font-weight="600">Tech 1.4</text>
+            <text x="66" y="98" text-anchor="start" font-size="8.3" fill="#A32E24" font-weight="700">Data 1.3</text>
+            <text x="-66" y="98" text-anchor="end" font-size="8.3" fill="#6b4fc8" font-weight="600">Docs 1.8</text>
+            <text x="-108" y="-14" text-anchor="end" font-size="8.3" fill="#6b4fc8" font-weight="600">Knowledge 1.4</text>
+          </g>
+        </svg>
+      </div>
+      <div class="exhibit-note">
+        <b>Enterprise average: 1.6 / 5 — "Developing / Ad hoc".</b><br><br>
+        The collapse point is <b style="color:var(--risk-crit-fg);">Data Quality (1.3)</b> — the lowest dimension in 14 of 15
+        units. Data exists everywhere but is fragmented across sheets, personal WhatsApp, and tribal knowledge, so it cannot
+        be trusted or aggregated. Technology (1.4) and Knowledge Mgmt (1.4) are next-weakest.<br><br>
+        Dashed line = target state post-transformation (~3.1).
+      </div>
+    </div>
+
+    <table>
+      <tr>
+        <th>Department</th><th class="num">Process</th><th class="num">Tech</th><th class="num">Data</th><th class="num">Docs</th><th class="num">KM</th><th class="num">Overall</th>
+      </tr>
+      <tr><td><strong>CEO Office</strong></td><td class="num">2.0</td><td class="num">1.5</td><td class="num">1.5</td><td class="num">2.5</td><td class="num">2.0</td><td class="num"><strong>1.9</strong></td></tr>
+      <tr><td><strong>COO Office</strong></td><td class="num">1.5</td><td class="num">1.5</td><td class="num">1.0</td><td class="num">1.5</td><td class="num">2.0</td><td class="num"><strong>1.5</strong></td></tr>
+      <tr><td><strong>CBDO Office</strong></td><td class="num">1.5</td><td class="num">1.0</td><td class="num">1.0</td><td class="num">2.0</td><td class="num">1.0</td><td class="num"><strong>1.3</strong></td></tr>
+      <tr><td><strong>BD — Cocopeat</strong></td><td class="num">1.5</td><td class="num">1.0</td><td class="num">1.0</td><td class="num">1.5</td><td class="num">1.5</td><td class="num"><strong>1.3</strong></td></tr>
+      <tr><td><strong>BD — Seed</strong></td><td class="num">1.5</td><td class="num">1.5</td><td class="num">1.0</td><td class="num">1.5</td><td class="num">1.5</td><td class="num"><strong>1.4</strong></td></tr>
+      <tr><td><strong>BD — NGO/CSR</strong></td><td class="num">1.5</td><td class="num">1.0</td><td class="num">1.5</td><td class="num">1.5</td><td class="num">1.5</td><td class="num"><strong>1.4</strong></td></tr>
+      <tr><td><strong>BD — Government</strong></td><td class="num">1.5</td><td class="num">2.0</td><td class="num">2.0</td><td class="num">1.5</td><td class="num">1.5</td><td class="num"><strong>1.7</strong></td></tr>
+      <tr><td><strong>BD — B2B/RCM</strong></td><td class="num">1.5</td><td class="num">1.5</td><td class="num">1.0</td><td class="num">1.5</td><td class="num">1.0</td><td class="num"><strong>1.3</strong></td></tr>
+      <tr><td><strong>MENA International</strong></td><td class="num">2.0</td><td class="num">1.5</td><td class="num">2.0</td><td class="num">2.0</td><td class="num">1.5</td><td class="num"><strong>2.0</strong></td></tr>
+      <tr><td><strong>Finance &amp; Accounts</strong></td><td class="num">2.5</td><td class="num">2.5</td><td class="num">1.5</td><td class="num">2.5</td><td class="num">2.0</td><td class="num"><strong>2.2</strong></td></tr>
+      <tr><td><strong>Marketing / Retail</strong></td><td class="num">1.5</td><td class="num">1.0</td><td class="num">1.0</td><td class="num">2.0</td><td class="num">1.5</td><td class="num"><strong>1.4</strong></td></tr>
+      <tr><td><strong>Production &amp; QC</strong></td><td class="num">2.0</td><td class="num">1.0</td><td class="num">1.0</td><td class="num">1.5</td><td class="num">1.5</td><td class="num"><strong>1.5</strong></td></tr>
+      <tr><td><strong>R&amp;D</strong></td><td class="num">2.0</td><td class="num">1.5</td><td class="num">1.0</td><td class="num">2.0</td><td class="num">1.0</td><td class="num"><strong>1.5</strong></td></tr>
+      <tr><td><strong>Logistics</strong></td><td class="num">2.0</td><td class="num">1.0</td><td class="num">1.5</td><td class="num">2.0</td><td class="num">1.5</td><td class="num"><strong>1.6</strong></td></tr>
+      <tr><td><strong>HR &amp; Talent</strong></td><td class="num">2.0</td><td class="num">1.5</td><td class="num">1.5</td><td class="num">2.0</td><td class="num">1.0</td><td class="num"><strong>1.6</strong></td></tr>
+      <tr style="font-weight:700;"><td><strong>Enterprise Average</strong></td><td class="num">1.8</td><td class="num">1.4</td><td class="num">1.3</td><td class="num">1.8</td><td class="num">1.4</td><td class="num"><strong>1.6</strong></td></tr>
+    </table>
+
+    <div class="doc-footer"><span>Overall Analysis · EF Polymer · v2.0</span><span>Page 5</span></div>
+  </div>
+
+  <!-- ============ 05 ENTERPRISE MATURITY HEATMAP ============ -->
+  <div class="page">
+    <img src="../letterhead.png" alt="Letterhead" class="letterhead" />
+
+    <div class="eyebrow">Section 05 — Enterprise Maturity Heatmap</div>
+    <h2>Enterprise Maturity Heatmap</h2>
+    <div class="section-dek">Current vs target across 18 strategic dimensions. Cell colour shows current maturity band — red = critical gap, green = healthy.</div>
+
+    <table>
+      <tr><th>Category</th><th class="num">Current</th><th class="num">Target</th><th class="num">Gap</th><th class="num">Confidence</th></tr>
+      <tr><td>Leadership &amp; Governance</td><td class="num"><span class="hm-cell hm-3">2.0</span></td><td class="num">3.5</td><td class="num">1.5</td><td class="num">High</td></tr>
+      <tr><td>Strategy Alignment</td><td class="num"><span class="hm-cell hm-2">1.5</span></td><td class="num">3.0</td><td class="num">1.5</td><td class="num">High</td></tr>
+      <tr><td>Sales Operations</td><td class="num"><span class="hm-cell hm-1">1.0</span></td><td class="num">3.0</td><td class="num">2.0</td><td class="num">Confirmed</td></tr>
+      <tr><td>Customer Lifecycle</td><td class="num"><span class="hm-cell hm-2">1.5</span></td><td class="num">3.0</td><td class="num">1.5</td><td class="num">High</td></tr>
+      <tr><td>Operational Excellence</td><td class="num"><span class="hm-cell hm-3">2.0</span></td><td class="num">3.0</td><td class="num">1.0</td><td class="num">High</td></tr>
+      <tr><td>Process Standardization</td><td class="num"><span class="hm-cell hm-2">1.5</span></td><td class="num">3.0</td><td class="num">1.5</td><td class="num">High</td></tr>
+      <tr><td>Documentation</td><td class="num"><span class="hm-cell hm-3">1.8</span></td><td class="num">3.0</td><td class="num">1.2</td><td class="num">High</td></tr>
+      <tr><td>Knowledge Management</td><td class="num"><span class="hm-cell hm-2">1.4</span></td><td class="num">2.5</td><td class="num">1.1</td><td class="num">High</td></tr>
+      <tr><td>Technology Landscape</td><td class="num"><span class="hm-cell hm-2">1.4</span></td><td class="num">3.5</td><td class="num">2.1</td><td class="num">High</td></tr>
+      <tr><td>Data Quality</td><td class="num"><span class="hm-cell hm-1">1.3</span></td><td class="num">3.0</td><td class="num">1.7</td><td class="num">Confirmed</td></tr>
+      <tr><td>Reporting &amp; Analytics</td><td class="num"><span class="hm-cell hm-1">1.0</span></td><td class="num">3.0</td><td class="num">2.0</td><td class="num">High</td></tr>
+      <tr><td>Automation Readiness</td><td class="num"><span class="hm-cell hm-2">1.5</span></td><td class="num">2.5</td><td class="num">1.0</td><td class="num">High</td></tr>
+      <tr><td>AI Readiness</td><td class="num"><span class="hm-cell hm-1">1.0</span></td><td class="num">2.0</td><td class="num">1.0</td><td class="num">High</td></tr>
+      <tr><td>Compliance Readiness</td><td class="num"><span class="hm-cell hm-3">2.0</span></td><td class="num">3.0</td><td class="num">1.0</td><td class="num">Medium</td></tr>
+      <tr><td>Financial Operations</td><td class="num"><span class="hm-cell hm-3">2.0</span></td><td class="num">3.5</td><td class="num">1.5</td><td class="num">Confirmed</td></tr>
+      <tr><td>Scalability</td><td class="num"><span class="hm-cell hm-2">1.5</span></td><td class="num">3.0</td><td class="num">1.5</td><td class="num">High</td></tr>
+      <tr><td>HR &amp; Talent Operations</td><td class="num"><span class="hm-cell hm-3">1.6</span></td><td class="num">3.4</td><td class="num">1.8</td><td class="num">High</td></tr>
+      <tr><td>Change Readiness</td><td class="num"><span class="hm-cell hm-2">1.5</span></td><td class="num">3.0</td><td class="num">1.5</td><td class="num">Medium</td></tr>
+      <tr style="font-weight:700;"><td><strong>Overall Business Maturity</strong></td><td class="num"><span class="hm-cell hm-2">1.6</span></td><td class="num">3.0</td><td class="num">1.4</td><td class="num">High</td></tr>
+    </table>
+
+    <div style="font-size:7.6pt;color:var(--muted);margin:-8px 0 10px;">
+      <span class="hm-cell hm-1">1.0–1.4</span> Critical gap &nbsp;
+      <span class="hm-cell hm-2">1.5–1.9</span> Developing &nbsp;
+      <span class="hm-cell hm-3">2.0–2.4</span> Emerging &nbsp;
+      <span class="hm-cell hm-4">2.5–2.9</span> Standardised &nbsp;
+      <span class="hm-cell hm-5">3.0+</span> Managed/Optimised
+    </div>
+
+    <h3>Current vs Target by Unit</h3>
+    <div style="font-size:8.2pt;">
+      <div class="matbar-row"><span class="matbar-lbl">MENA &amp; Intl Sales</span><div class="matbar-track"><div class="matbar-tgt" style="width:62%"></div><div class="matbar-cur" style="width:40%"></div></div><span class="matbar-cur-val">2.0</span><span class="matbar-arrow">→</span><span class="matbar-tgt-val">3.1</span></div>
+      <div class="matbar-row"><span class="matbar-lbl">Finance &amp; Accounts</span><div class="matbar-track"><div class="matbar-tgt" style="width:66%"></div><div class="matbar-cur" style="width:44%"></div></div><span class="matbar-cur-val">2.2</span><span class="matbar-arrow">→</span><span class="matbar-tgt-val">3.3</span></div>
+      <div class="matbar-row"><span class="matbar-lbl">CEO Office</span><div class="matbar-track"><div class="matbar-tgt" style="width:62%"></div><div class="matbar-cur" style="width:38%"></div></div><span class="matbar-cur-val">1.9</span><span class="matbar-arrow">→</span><span class="matbar-tgt-val">3.1</span></div>
+      <div class="matbar-row"><span class="matbar-lbl">BD — Government</span><div class="matbar-track"><div class="matbar-tgt" style="width:60%"></div><div class="matbar-cur" style="width:34%"></div></div><span class="matbar-cur-val">1.7</span><span class="matbar-arrow">→</span><span class="matbar-tgt-val">3.0</span></div>
+      <div class="matbar-row"><span class="matbar-lbl">HR &amp; Talent</span><div class="matbar-track"><div class="matbar-tgt" style="width:68%"></div><div class="matbar-cur" style="width:32%"></div></div><span class="matbar-cur-val">1.6</span><span class="matbar-arrow">→</span><span class="matbar-tgt-val">3.4</span></div>
+      <div class="matbar-row"><span class="matbar-lbl">Logistics</span><div class="matbar-track"><div class="matbar-tgt" style="width:60%"></div><div class="matbar-cur" style="width:32%"></div></div><span class="matbar-cur-val">1.6</span><span class="matbar-arrow">→</span><span class="matbar-tgt-val">3.0</span></div>
+      <div class="matbar-row"><span class="matbar-lbl">Production &amp; QC</span><div class="matbar-track"><div class="matbar-tgt" style="width:64%"></div><div class="matbar-cur" style="width:30%"></div></div><span class="matbar-cur-val">1.5</span><span class="matbar-arrow">→</span><span class="matbar-tgt-val">3.2</span></div>
+      <div class="matbar-row"><span class="matbar-lbl">R&amp;D</span><div class="matbar-track"><div class="matbar-tgt" style="width:64%"></div><div class="matbar-cur" style="width:30%"></div></div><span class="matbar-cur-val">1.5</span><span class="matbar-arrow">→</span><span class="matbar-tgt-val">3.2</span></div>
+      <div class="matbar-row"><span class="matbar-lbl">COO Office</span><div class="matbar-track"><div class="matbar-tgt" style="width:60%"></div><div class="matbar-cur" style="width:30%"></div></div><span class="matbar-cur-val">1.5</span><span class="matbar-arrow">→</span><span class="matbar-tgt-val">3.0</span></div>
+      <div class="matbar-row"><span class="matbar-lbl">Marketing &amp; Retail</span><div class="matbar-track"><div class="matbar-tgt" style="width:62%"></div><div class="matbar-cur" style="width:28%"></div></div><span class="matbar-cur-val">1.4</span><span class="matbar-arrow">→</span><span class="matbar-tgt-val">3.1</span></div>
+      <div class="matbar-row"><span class="matbar-lbl">BD — Seed</span><div class="matbar-track"><div class="matbar-tgt" style="width:60%"></div><div class="matbar-cur" style="width:28%"></div></div><span class="matbar-cur-val">1.4</span><span class="matbar-arrow">→</span><span class="matbar-tgt-val">3.0</span></div>
+      <div class="matbar-row"><span class="matbar-lbl">BD — NGO/CSR</span><div class="matbar-track"><div class="matbar-tgt" style="width:60%"></div><div class="matbar-cur" style="width:28%"></div></div><span class="matbar-cur-val">1.4</span><span class="matbar-arrow">→</span><span class="matbar-tgt-val">3.0</span></div>
+      <div class="matbar-row"><span class="matbar-lbl">BD — B2B / RCM</span><div class="matbar-track"><div class="matbar-tgt" style="width:60%"></div><div class="matbar-cur" style="width:26%"></div></div><span class="matbar-cur-val">1.3</span><span class="matbar-arrow">→</span><span class="matbar-tgt-val">3.0</span></div>
+      <div class="matbar-row"><span class="matbar-lbl">CBDO Office</span><div class="matbar-track"><div class="matbar-tgt" style="width:60%"></div><div class="matbar-cur" style="width:26%"></div></div><span class="matbar-cur-val">1.3</span><span class="matbar-arrow">→</span><span class="matbar-tgt-val">3.0</span></div>
+      <div class="matbar-row"><span class="matbar-lbl">BD — Cocopeat</span><div class="matbar-track"><div class="matbar-tgt" style="width:54%"></div><div class="matbar-cur" style="width:26%"></div></div><span class="matbar-cur-val">1.3</span><span class="matbar-arrow">→</span><span class="matbar-tgt-val">2.7</span></div>
+    </div>
+    <div class="legend-inline">
+      <span class="sw" style="background:var(--ink);opacity:0.92;"></span> Current
+      <span class="sw" style="background:var(--accent);opacity:0.4;"></span> Target (post-transformation)
+    </div>
+
+    <div class="doc-footer"><span>Overall Analysis · EF Polymer · v2.0</span><span>Page 6</span></div>
+  </div>
+
+  <!-- ============ 06 CROSS-DEPARTMENT DEPENDENCY MAP ============ -->
+  <div class="page">
+    <img src="../letterhead.png" alt="Letterhead" class="letterhead" />
+
+    <div class="eyebrow">Section 06 — Cross-Department Dependency Map</div>
+    <h2>Cross-Department Dependency Map</h2>
+    <div class="section-dek">The organisation as a connected system. Node colour = how many other units depend on it. Red nodes are load-bearing single points of failure where a stall cascades across the value chain.</div>
+
+    <div class="dep-web-wrap">
+      <svg viewBox="0 0 760 440" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;">
+        <g stroke="#C9CDD4" stroke-width="1" fill="none" opacity="0.65">
+          <line x1="380" y1="215" x2="190" y2="110" />
+          <line x1="380" y1="215" x2="570" y2="110" />
+          <line x1="380" y1="215" x2="120" y2="215" />
+          <line x1="380" y1="215" x2="640" y2="215" />
+          <line x1="380" y1="215" x2="190" y2="330" />
+          <line x1="380" y1="215" x2="380" y2="365" />
+          <line x1="380" y1="215" x2="570" y2="330" />
+          <line x1="570" y1="110" x2="640" y2="215" />
+          <line x1="570" y1="110" x2="570" y2="330" />
+          <line x1="570" y1="110" x2="380" y2="365" />
+          <line x1="570" y1="110" x2="190" y2="330" />
+          <line x1="190" y1="110" x2="120" y2="215" />
+          <line x1="190" y1="110" x2="380" y2="365" />
+          <line x1="190" y1="110" x2="190" y2="330" />
+          <line x1="640" y1="215" x2="570" y2="330" />
+          <line x1="640" y1="215" x2="380" y2="365" />
+          <line x1="120" y1="215" x2="190" y2="330" />
+          <line x1="120" y1="215" x2="380" y2="215" stroke-dasharray="4,3" />
+        </g>
+        <g stroke="#EFB4B1" stroke-width="1.8" fill="none">
+          <line x1="380" y1="215" x2="640" y2="215" />
+          <line x1="380" y1="215" x2="570" y2="110" />
+          <line x1="380" y1="215" x2="190" y2="110" />
+          <line x1="570" y1="110" x2="380" y2="365" />
+        </g>
+        <g>
+          <rect x="60" y="198" width="120" height="34" rx="5" fill="#fff" stroke="#6b4fc8" stroke-width="1.4" />
+          <text x="120" y="213" text-anchor="middle" font-size="8.4" fill="#6b4fc8" font-weight="700">CEO Office</text>
+          <text x="120" y="225" text-anchor="middle" font-size="6.8" fill="#6B7785">Narayan L. Gurjar</text>
+        </g>
+        <g>
+          <rect x="130" y="88" width="120" height="44" rx="5" fill="#FCEBEA" stroke="#A32E24" stroke-width="1.7" />
+          <text x="190" y="106" text-anchor="middle" font-size="8.6" fill="#A32E24" font-weight="700">R&amp;D</text>
+          <text x="190" y="118" text-anchor="middle" font-size="6.8" fill="#A32E24">Ritu Panwar · depended on ×5</text>
+          <text x="190" y="127" text-anchor="middle" font-size="6.2" fill="#A32E24">proposals · trials · QC sign-off</text>
+        </g>
+        <g>
+          <rect x="320" y="191" width="120" height="48" rx="5" fill="#FCEBEA" stroke="#A32E24" stroke-width="1.7" />
+          <text x="380" y="208" text-anchor="middle" font-size="8.6" fill="#A32E24" font-weight="700">Finance &amp; Accounts</text>
+          <text x="380" y="220" text-anchor="middle" font-size="6.8" fill="#A32E24">Shobha Shekhawat · ×7</text>
+          <text x="380" y="230" text-anchor="middle" font-size="6.2" fill="#A32E24">CargoX · GST · COGS · collections</text>
+        </g>
+        <g>
+          <rect x="510" y="86" width="120" height="48" rx="5" fill="#FCEBEA" stroke="#A32E24" stroke-width="1.7" />
+          <text x="570" y="104" text-anchor="middle" font-size="8.6" fill="#A32E24" font-weight="700">Logistics</text>
+          <text x="570" y="116" text-anchor="middle" font-size="6.8" fill="#A32E24">Nihal Paliwal · ×6</text>
+          <text x="570" y="126" text-anchor="middle" font-size="6.2" fill="#A32E24">dispatch · export · samples</text>
+        </g>
+        <g>
+          <rect x="580" y="198" width="120" height="34" rx="5" fill="#fff" stroke="#8A5A10" stroke-width="1.3" />
+          <text x="640" y="213" text-anchor="middle" font-size="8.4" fill="#8A5A10" font-weight="700">HR &amp; Talent</text>
+          <text x="640" y="225" text-anchor="middle" font-size="6.8" fill="#6B7785">Dolly Mehta · ×4</text>
+        </g>
+        <g>
+          <rect x="130" y="312" width="120" height="36" rx="5" fill="#fff" stroke="#6b4fc8" stroke-width="1.3" />
+          <text x="190" y="327" text-anchor="middle" font-size="8.4" fill="#6b4fc8" font-weight="700">Production &amp; QC</text>
+          <text x="190" y="339" text-anchor="middle" font-size="6.8" fill="#6B7785">Rishabh Doshi</text>
+        </g>
+        <g>
+          <rect x="510" y="312" width="120" height="36" rx="5" fill="#fff" stroke="#6b4fc8" stroke-width="1.3" />
+          <text x="570" y="327" text-anchor="middle" font-size="8.4" fill="#6b4fc8" font-weight="700">Sales &amp; BD (CBDO)</text>
+          <text x="570" y="339" text-anchor="middle" font-size="6.8" fill="#6B7785">Ankit Jain · 5 verticals</text>
+        </g>
+        <g>
+          <rect x="320" y="350" width="120" height="30" rx="5" fill="#fff" stroke="#6b4fc8" stroke-width="1.2" />
+          <text x="380" y="369" text-anchor="middle" font-size="8" fill="#6b4fc8" font-weight="700">Marketing / Retail / COO</text>
+        </g>
+        <text x="14" y="418" font-size="7" fill="#6B7785" font-weight="700">Legend:</text>
+        <text x="60" y="418" font-size="7" fill="#A32E24">▮ Critical hub (depended on by 5–7 units)</text>
+        <text x="330" y="418" font-size="7" fill="#8A5A10">▮ High-traffic hub</text>
+        <text x="470" y="418" font-size="7" fill="#6B7785">▮ Standard dependency  ┄┄ reporting line</text>
+      </svg>
+    </div>
+
+    <div class="callout red">
+      <strong>Systemic bottleneck identified.</strong> Logistics (2 FTE) and Accounts (3 FTE) are the operational convergence
+      points for <b>all</b> revenue-generating activities. Every BD vertical, Marketing, and international sales must route
+      through these two departments for order fulfilment. On international dispatch days, <b>100% of logistics capacity is
+      consumed</b> — domestic orders are delayed. Finance, Logistics, and R&amp;D are run manually by single key persons with
+      no system of record.
+    </div>
+
+    <h3>Critical Dependency Matrix</h3>
+    <table>
+      <tr><th style="width:30%;">Source → Target</th><th>Nature</th><th class="num" style="width:14%;">Frequency</th><th class="num" style="width:14%;">Risk</th></tr>
+      <tr><td>All BD Verticals → <strong>Logistics</strong></td><td>Dispatch, freight, customs clearance</td><td class="num">Daily</td><td class="num"><span class="chip chip-crit">Critical</span></td></tr>
+      <tr><td>All BD Verticals → <strong>Accounts</strong></td><td>Invoicing, payment verification, GST data</td><td class="num">Per-shipment</td><td class="num"><span class="chip chip-crit">Critical</span></td></tr>
+      <tr><td>All BD Verticals → <strong>R&amp;D</strong></td><td>Technical data, trial reports, proposals</td><td class="num">Per-pitch</td><td class="num"><span class="chip chip-crit">Critical</span></td></tr>
+      <tr><td><strong>Marketing/Retail</strong> → <strong>Accounts</strong></td><td>Payment confirmation before dispatch</td><td class="num">Daily</td><td class="num"><span class="chip chip-crit">Critical</span></td></tr>
+      <tr><td><strong>Sales (all)</strong> → <strong>Logistics</strong></td><td>70–80% orders via WhatsApp, missing fields</td><td class="num">Daily</td><td class="num"><span class="chip chip-crit">Critical</span></td></tr>
+      <tr><td><strong>Logistics</strong> → <strong>Production</strong></td><td>Manufacturing completion, dispatch readiness</td><td class="num">Daily</td><td class="num"><span class="chip chip-crit">Critical</span></td></tr>
+      <tr><td><strong>Accounts</strong> → <strong>Production</strong></td><td>Stock availability (manual phone calls)</td><td class="num">Per-invoice</td><td class="num"><span class="chip chip-crit">Critical</span></td></tr>
+      <tr><td><strong>Production</strong> → <strong>Sales/BD</strong></td><td>Forecasting for min inventory &amp; packaging</td><td class="num">Reactive</td><td class="num"><span class="chip chip-crit">Critical</span></td></tr>
+      <tr><td><strong>BD-Cocopeat</strong> → <strong>Accounts</strong></td><td>CargoX export docs gated behind payment</td><td class="num">Per-container</td><td class="num"><span class="chip chip-crit">Critical</span></td></tr>
+      <tr><td><strong>BD-NGO/CSR</strong> → <strong>Accounts</strong></td><td>60–70 day receivables; manual dunning</td><td class="num">Per-invoice</td><td class="num"><span class="chip chip-crit">Critical</span></td></tr>
+      <tr><td><strong>MENA</strong> → <strong>Logistics</strong></td><td>Export dispatch windows shared with domestic</td><td class="num">Per-shipment</td><td class="num"><span class="chip chip-crit">Critical</span></td></tr>
+      <tr><td><strong>BD-Seed</strong> → <strong>Logistics</strong></td><td>Sample dispatch vs sowing window; no SLA</td><td class="num">Per-trial</td><td class="num"><span class="chip chip-med">High</span></td></tr>
+      <tr><td><strong>R&amp;D</strong> → <strong>QC / Production</strong></td><td>3-dept trial validation handoff</td><td class="num">Daily</td><td class="num"><span class="chip chip-med">High</span></td></tr>
+      <tr><td><strong>BD-Government</strong> → <strong>HR</strong></td><td>Calendar/leave sync for remote field teams</td><td class="num">Ongoing</td><td class="num"><span class="chip chip-med">Medium</span></td></tr>
+    </table>
+
+    <div class="doc-footer"><span>Overall Analysis · EF Polymer · v2.0</span><span>Page 7</span></div>
+  </div>
+
+  <!-- ============ 07 RED FLAGS REGISTER ============ -->
+  <div class="page">
+    <img src="../letterhead.png" alt="Letterhead" class="letterhead" />
+
+    <div class="eyebrow">Section 07 — Consolidated Red Flags &amp; Risk Register</div>
+    <h2>Consolidated Red Flags &amp; Risk Register</h2>
+    <div class="section-dek">The 16 critical-severity risks, each with root cause, business impact, and the evidence trail back to the source department audit.</div>
+
+    <h3>Severity Summary</h3>
+    <table>
+      <tr><th>Severity</th><th class="num">Count</th><th>Breakdown</th></tr>
+      <tr><td><span class="chip chip-crit">Critical</span></td><td class="num"><strong>16</strong></td><td>CRM absence, data fragmentation, key-person dependencies, financial opacity, WhatsApp dependency, personal device risk</td></tr>
+      <tr><td><span class="chip chip-med">Medium</span></td><td class="num"><strong>16</strong></td><td>Follow-up gaps, manual processes, dual reporting, communication risks, HR tracking gaps</td></tr>
+      <tr><td><span class="chip chip-low">Low / OK</span></td><td class="num"><strong>8</strong></td><td>Collateral tracking, community drop-off, late-night decision capture</td></tr>
+      <tr style="font-weight:700;"><td>Total</td><td class="num"><strong>40</strong></td><td>Across 15 departments</td></tr>
+    </table>
+
+    <h3>Critical Risk Register</h3>
+    <table>
+      <tr><th class="id">#</th><th>Risk</th><th>Department(s)</th><th>Root Cause</th><th>Business Impact</th></tr>
+      <tr><td class="id">R01</td><td><strong>No Central CRM</strong> — pipeline &amp; lead ownership invisible</td><td>CBDO, All BD, MENA, Marketing</td><td>No system of record; ad-hoc sheets &amp; memory</td><td>Revenue leakage, missed follow-ups, leads slip</td></tr>
+      <tr><td class="id">R02</td><td><strong>COGS Margin Volatility</strong> (50–77% swings)</td><td>Finance</td><td>No WIP valuation, no grade-based costing</td><td>Unreliable P&amp;L, investor confidence risk</td></tr>
+      <tr><td class="id">R03</td><td><strong>Key-Person: R&amp;D</strong> — all approvals on one person</td><td>R&amp;D</td><td>3-stage non-delegable approval; single authority</td><td>15–20 day international proposals; trial backlogs</td></tr>
+      <tr><td class="id">R04</td><td><strong>Key-Person: Logistics</strong> — one mgr, all dispatch</td><td>Logistics, MENA, All BD</td><td>2 FTE for all shipment types; 100% on intl days</td><td>Export SLA breaches, demurrage, domestic delay</td></tr>
+      <tr><td class="id">R05</td><td><strong>Key-Person: BD-Seed</strong> — 90 MT on one person</td><td>BD-Seed</td><td>Solo operator, 15–20 travel days/month</td><td>Missed sowing windows; no coverage</td></tr>
+      <tr><td class="id">R06</td><td><strong>WhatsApp Overload</strong> — 10,000+ daily, one extractor</td><td>Marketing/Retail</td><td>All ops data via WA; single-point extraction</td><td>6–8 hrs/day; zero redundancy</td></tr>
+      <tr><td class="id">R07</td><td><strong>Scattered Inventory</strong> — 5+ sheets, WMS abandoned</td><td>Production, Accounts</td><td>Zoho WMS abandoned; no live stock view</td><td>Phone-call stock checks; month-end aggregation</td></tr>
+      <tr><td class="id">R08</td><td><strong>CargoX Gating</strong> — 10-day upload window</td><td>BD-Cocopeat</td><td>Finance approval dependency on remittance</td><td>Demurrage fees; relationship damage</td></tr>
+      <tr><td class="id">R09</td><td><strong>Incomplete WhatsApp Orders</strong> — 70–80% missing fields</td><td>Logistics, All BD</td><td>No structured intake form</td><td>10–25 min/order chasing; shipment delays</td></tr>
+      <tr><td class="id">R10</td><td><strong>Disconnected Invoicing/Shipping</strong> — 3 silos</td><td>Logistics</td><td>Zoho Books ↔ Sheets ↔ Drive disconnected</td><td>~30% daily time on double-entry</td></tr>
+      <tr><td class="id">R11</td><td><strong>Scattered R&amp;D Data</strong> — 8–10 sheets</td><td>R&amp;D</td><td>No centralised research database</td><td>Redundant testing, proposal bottleneck</td></tr>
+      <tr><td class="id">R12</td><td><strong>Manual GST/TDS Recon</strong> — 1–2 months</td><td>Finance</td><td>Manual portal-to-Books matching</td><td>35% of team capacity; compliance overhead</td></tr>
+      <tr><td class="id">R13</td><td><strong>Tertiary Sales Blind</strong> (RCM) — 0 below depot</td><td>BD-B2B/RCM</td><td>No API/data sharing with RCM retail layer</td><td>Demand blind spot; reactive 40kg alerts</td></tr>
+      <tr><td class="id">R14</td><td><strong>Personal WhatsApp Risk</strong> — ~90% on personal #s</td><td>B2B/RCM, MENA, NGO/CSR</td><td>No company SIMs/virtual numbers</td><td>Contact loss &amp; community access on exit</td></tr>
+      <tr><td class="id">R15</td><td><strong>Extended Receivables</strong> — 60–70 day cycle</td><td>BD-NGO/CSR</td><td>No automated dunning; no Finance integration</td><td>15–20% of lead time chasing payments</td></tr>
+      <tr><td class="id">R16</td><td><strong>No Unified Recruitment</strong> — 6+ platforms</td><td>HR</td><td>No ATS across LinkedIn/Naukri/Indeed/Apollo</td><td>30–45 day closing; no AI pre-screening</td></tr>
+    </table>
+
+    <div class="doc-footer"><span>Overall Analysis · EF Polymer · v2.0</span><span>Page 8</span></div>
+  </div>
+
+  <!-- ============ 08 OPERATIONAL TRUTH GAPS ============ -->
+  <div class="page">
+    <img src="../letterhead.png" alt="Letterhead" class="letterhead" />
+
+    <div class="eyebrow">Section 08 — Operational Truth Gaps</div>
+    <h2>Operational Truth Gaps</h2>
+    <div class="section-dek">Where the documented / stated process diverges from how the work actually gets done. Shadow processes and tribal knowledge that don't appear in any SOP.</div>
+
+    <table>
+      <tr><th style="width:16%;">Area</th><th>Stated / Intended Process</th><th>Actual Observed Process</th><th class="num" style="width:16%;">Gap Type</th></tr>
+      <tr><td><strong>Order Intake</strong></td><td>Structured PO with complete specs → billing → dispatch</td><td>70–80% via WhatsApp text with missing fields → 10–25 min manual chase per order</td><td class="num"><span class="chip chip-crit">Shadow</span></td></tr>
+      <tr><td><strong>Inventory Mgmt</strong></td><td>Zoho Inventory / WMS as system of record</td><td>Zoho WMS abandoned; 5+ Google Sheets; manual phone calls to Production Manager</td><td class="num"><span class="chip chip-crit">Tool Abandoned</span></td></tr>
+      <tr><td><strong>Sales Pipeline</strong></td><td>Vertical leads track pipeline stages</td><td>Memory-based follow-ups every 4–5 days from unstructured sheets; 4 disconnected sheets (NGO/CSR)</td><td class="num"><span class="chip chip-med">Tribal Knowledge</span></td></tr>
+      <tr><td><strong>Field Compliance</strong></td><td>Mobile app-based geolocation tracking</td><td>WhatsApp location sharing + manual address cross-referencing 3×/day by Kamakshi</td><td class="num"><span class="chip chip-crit">Shadow</span></td></tr>
+      <tr><td><strong>Payment Confirmation</strong></td><td>Zoho Books bank reconciliation</td><td>WhatsApp screenshot of payment receipt → manual verification call to Accounts</td><td class="num"><span class="chip chip-crit">Shadow</span></td></tr>
+      <tr><td><strong>COGS Calculation</strong></td><td>System-computed cost of goods</td><td>Manual spreadsheet averaging without WIP, grade-based, or overhead allocation</td><td class="num"><span class="chip chip-crit">Process Gap</span></td></tr>
+      <tr><td><strong>Customer Master Data</strong></td><td>Shared customer database</td><td>Accounts, Sales, Logistics each maintain separate records; repeated data requests</td><td class="num"><span class="chip chip-med">Data Duplication</span></td></tr>
+      <tr><td><strong>Export Documentation</strong></td><td>Integrated invoicing + shipping</td><td>Zoho Books + manual logistics spreadsheet (disconnected); CargoX gated manually</td><td class="num"><span class="chip chip-crit">System Fragment</span></td></tr>
+      <tr><td><strong>Field Data Capture</strong></td><td>Digital forms</td><td>Paper diaries manually transcribed to Excel (B2B/RCM); WhatsApp photos re-uploaded to Drive (Govt)</td><td class="num"><span class="chip chip-crit">Shadow</span></td></tr>
+      <tr><td><strong>Recruitment Pipeline</strong></td><td>Unified applicant tracking</td><td>6+ disconnected platforms tracked on Google Sheets; 10 min manual review per candidate</td><td class="num"><span class="chip chip-med">System Fragment</span></td></tr>
+      <tr><td><strong>Task Management</strong></td><td>Persistent task tracking</td><td>All tasks managed entirely through WhatsApp groups; no audit trail outside chat threads</td><td class="num"><span class="chip chip-crit">Shadow</span></td></tr>
+      <tr><td><strong>Cross-Border Remittance</strong></td><td>Automated payment notifications</td><td>BD manually warns Accounts before each international dispatch; ~30 min per shipment</td><td class="num"><span class="chip chip-med">Missing Process</span></td></tr>
+    </table>
+
+    <div class="callout">
+      <strong>Pattern:</strong> The majority of operational work happens in <b>shadow processes</b> — undocumented WhatsApp
+      workflows that work in practice but leave no audit trail, no aggregatable data, and no continuity when a key person is
+      absent. Every one of these gaps is a target for the "extend, don't replace" solution platform in Section 14.
+    </div>
+
+    <div class="doc-footer"><span>Overall Analysis · EF Polymer · v2.0</span><span>Page 9</span></div>
+  </div>
+
+  <!-- ============ 09 TECHNOLOGY LANDSCAPE ============ -->
+  <div class="page">
+    <img src="../letterhead.png" alt="Letterhead" class="letterhead" />
+
+    <div class="eyebrow">Section 09 — Technology Landscape Assessment</div>
+    <h2>Technology Landscape Assessment</h2>
+    <div class="section-dek">What tools exist today, how well they're used, and where they're disconnected. Abandoned tools flagged.</div>
+
+    <h3>Current Technology Inventory</h3>
+    <table>
+      <tr><th>System</th><th>Category</th><th>Users</th><th>Utilization</th><th>Integration</th></tr>
+      <tr><td><strong>Zoho Books</strong></td><td>Accounting/ERP</td><td>Accounts, Logistics, Marketing</td><td>Moderate</td><td>Bank feeds (auto); no live inventory link</td></tr>
+      <tr><td><strong>Zoho Inventory</strong></td><td>Inventory Mgmt</td><td>Accounts, Production</td><td>Low</td><td>Linked to Books; lacks grade-based costing</td></tr>
+      <tr><td><strong>Zoho Expense</strong></td><td>Expense Mgmt</td><td>All employees</td><td>Moderate</td><td>3-level approval flow active</td></tr>
+      <tr><td><strong>Zoho Payroll</strong></td><td>Payroll</td><td>HR/Finance</td><td>Moderate</td><td>Linked to Zoho People</td></tr>
+      <tr><td><strong>Zoho People</strong></td><td>HRMS</td><td>HR/Finance (20 paid seats)</td><td>Low</td><td>Temp staff, KRA, L&amp;D not activated</td></tr>
+      <tr><td><strong>Custom Zoho WMS</strong></td><td>Warehouse Mgmt</td><td>Production</td><td><span class="chip chip-crit">Abandoned</span></td><td><span class="chip chip-crit">Disconnected</span></td></tr>
+      <tr><td><strong>Google Sheets</strong></td><td>Tracking (everything)</td><td>All departments</td><td><span class="chip chip-med">Overextended</span></td><td><span class="chip chip-crit">No integrations</span></td></tr>
+      <tr><td><strong>Google Drive</strong></td><td>Document Storage</td><td>R&amp;D, Marketing, Field</td><td>Moderate</td><td>Manual upload only</td></tr>
+      <tr><td><strong>WhatsApp</strong></td><td>Communications</td><td>All</td><td><span class="chip chip-med">De facto ERP</span></td><td><span class="chip chip-crit">No data capture</span></td></tr>
+      <tr><td><strong>Slack</strong></td><td>Internal comms</td><td>BD-B2B, MENA, Japan</td><td>Low–Moderate</td><td>Japan has approval bot; India doesn't</td></tr>
+      <tr><td><strong>CargoX</strong></td><td>Export compliance</td><td>BD-Cocopeat, Logistics</td><td>Active</td><td>Manual upload</td></tr>
+      <tr><td><strong>Naukri/Indeed/SalesIQ</strong></td><td>Recruitment</td><td>HR</td><td>Active</td><td><span class="chip chip-crit">No unified ATS</span></td></tr>
+      <tr><td><strong>Canva</strong></td><td>Design/Proposals</td><td>BD-NGO/CSR, BD-Seed</td><td>Active</td><td>—</td></tr>
+    </table>
+
+    <h3>Digital Maturity Index</h3>
+    <table>
+      <tr><th>Dimension</th><th class="num">Score (1–5)</th><th>Evidence</th></tr>
+      <tr><td>Cloud Adoption</td><td class="num"><span class="hm-cell hm-3">2.5</span></td><td>Zoho suite is cloud-based; most data still in local spreadsheets</td></tr>
+      <tr><td>System Integration</td><td class="num"><span class="hm-cell hm-1">1.0</span></td><td>Zoho WMS abandoned &amp; disconnected; Sheets disconnected from everything</td></tr>
+      <tr><td>Data Accessibility</td><td class="num"><span class="hm-cell hm-2">1.5</span></td><td>Data trapped in 30+ spreadsheets and personal devices</td></tr>
+      <tr><td>Process Digitization</td><td class="num"><span class="hm-cell hm-2">1.5</span></td><td>Paper POs, WhatsApp photos, paper field diaries</td></tr>
+      <tr><td>Reporting Capability</td><td class="num"><span class="hm-cell hm-1">1.0</span></td><td>No live dashboards; manual month-end compilation</td></tr>
+      <tr><td>API Readiness</td><td class="num"><span class="hm-cell hm-2">1.5</span></td><td>Zoho has APIs but none utilised; no RCM ERP integration</td></tr>
+      <tr style="font-weight:700;"><td>Digital Maturity Index</td><td class="num"><span class="hm-cell hm-2">1.5</span></td><td><strong>Emerging</strong></td></tr>
+    </table>
+
+    <div class="doc-footer"><span>Overall Analysis · EF Polymer · v2.0</span><span>Page 10</span></div>
+  </div>
+
+  <!-- ============ 10 DATA FLOW & GOVERNANCE ============ -->
+  <div class="page">
+    <img src="../letterhead.png" alt="Letterhead" class="letterhead" />
+
+    <div class="eyebrow">Section 10 — Data Flow &amp; Source-of-Truth</div>
+    <h2>Data Flow &amp; Source-of-Truth Assessment</h2>
+    <div class="section-dek">For each data domain: where the truth is <em>supposed</em> to live vs where it <em>actually</em> lives. Conflicts flagged.</div>
+
+    <h3>Source-of-Truth Analysis</h3>
+    <table>
+      <tr><th style="width:18%;">Data Domain</th><th>Intended SoT</th><th>Actual SoT</th><th class="num" style="width:20%;">Conflict</th></tr>
+      <tr><td><strong>Customer Master</strong></td><td>Zoho Books</td><td>Scattered across BD spreadsheets, WhatsApp, email</td><td class="num"><span class="chip chip-crit">Multiple competing</span></td></tr>
+      <tr><td><strong>Inventory/Stock</strong></td><td>Zoho Inventory / WMS</td><td>5+ Google Sheets; Production Manager's knowledge; WMS abandoned</td><td class="num"><span class="chip chip-crit">No real-time source</span></td></tr>
+      <tr><td><strong>Sales Pipeline</strong></td><td>None designated</td><td>5+ separate department spreadsheets; 4 sequential sheets for NGO/CSR alone</td><td class="num"><span class="chip chip-crit">No SoT exists</span></td></tr>
+      <tr><td><strong>Financial (COGS)</strong></td><td>Zoho Books</td><td>Manual spreadsheet averaging; no WIP or grade-based costing</td><td class="num"><span class="chip chip-crit">Unreliable SoT</span></td></tr>
+      <tr><td><strong>R&amp;D Trial Data</strong></td><td>Google Drive</td><td>8–10 disconnected Excel files</td><td class="num"><span class="chip chip-crit">Fragmented SoT</span></td></tr>
+      <tr><td><strong>Logistics/Dispatch</strong></td><td>Zoho Books</td><td>Parallel manual tracking spreadsheet; double entry per shipment</td><td class="num"><span class="chip chip-crit">Dual systems</span></td></tr>
+      <tr><td><strong>Field Compliance</strong></td><td>Field tracking app</td><td>WhatsApp location shares; manual 3×/day extraction</td><td class="num"><span class="chip chip-med">Parallel tracking</span></td></tr>
+      <tr><td><strong>Farmer/Pradhan Data</strong></td><td>None designated</td><td>Manual Google Sheets on Drive; paper diaries for B2B/RCM</td><td class="num"><span class="chip chip-crit">Data loss risk</span></td></tr>
+      <tr><td><strong>Tertiary Sales (RCM)</strong></td><td>RCM's ERP</td><td>No data access; only reactive 40kg depot threshold alerts</td><td class="num"><span class="chip chip-crit">Complete blind spot</span></td></tr>
+      <tr><td><strong>Recruitment Pipeline</strong></td><td>None designated</td><td>6+ platforms tracked on disconnected Google Sheets</td><td class="num"><span class="chip chip-crit">No SoT exists</span></td></tr>
+    </table>
+
+    <h3>Data Quality Score</h3>
+    <table>
+      <tr><th>Dimension</th><th class="num">Score (1–5)</th><th>Key Issues</th></tr>
+      <tr><td>Accuracy</td><td class="num"><span class="hm-cell hm-3">2.0</span></td><td>COGS volatility; manual transcription errors from WhatsApp &amp; paper diaries</td></tr>
+      <tr><td>Completeness</td><td class="num"><span class="hm-cell hm-2">1.5</span></td><td>Missing fields in 70–80% of order intakes; no tertiary sales data; no trial cost tracking</td></tr>
+      <tr><td>Consistency</td><td class="num"><span class="hm-cell hm-1">1.0</span></td><td>Same data entered differently across spreadsheets; customer data duplicated across departments</td></tr>
+      <tr><td>Timeliness</td><td class="num"><span class="hm-cell hm-2">1.5</span></td><td>Retrospective monthly reporting only; no real-time dashboards</td></tr>
+      <tr><td>Uniqueness</td><td class="num"><span class="hm-cell hm-2">1.5</span></td><td>Customer &amp; vendor data duplicated across departments</td></tr>
+      <tr style="font-weight:700;"><td>Overall Data Quality</td><td class="num"><span class="hm-cell hm-2">1.5</span></td><td><strong>—</strong></td></tr>
+    </table>
+
+    <div class="doc-footer"><span>Overall Analysis · EF Polymer · v2.0</span><span>Page 11</span></div>
+  </div>
+
+  <!-- ============ 11 WORKFLOW BOTTLENECK ANALYSIS ============ -->
+  <div class="page">
+    <img src="../letterhead.png" alt="Letterhead" class="letterhead" />
+
+    <div class="eyebrow">Section 11 — Workflow Bottleneck Analysis</div>
+    <h2>Workflow Bottleneck Analysis</h2>
+    <div class="section-dek">Where in the order-to-cash flow time is lost, how much, and the root cause — distinct from the risk register (severity) and truth gaps (stated vs actual).</div>
+
+    <h3>End-to-End Order Fulfilment (Current State)</h3>
+    <svg viewBox="0 0 740 60" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:6px 0 4px;">
+      <defs>
+        <marker id="mf" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+          <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5" />
+        </marker>
+      </defs>
+      <rect x="6" y="18" width="120" height="34" rx="3" fill="#FCEBEA" stroke="#EFB4B1" />
+      <text x="66" y="33" text-anchor="middle" font-size="7" font-weight="700" fill="#A32E24">ORDER INTAKE</text>
+      <text x="66" y="44" text-anchor="middle" font-size="6.5" fill="#A32E24">WhatsApp, 70-80% incomplete</text>
+      <line x1="126" y1="35" x2="146" y2="35" stroke="#B0BAC5" marker-end="url(#mf)" />
+      <rect x="148" y="18" width="120" height="34" rx="3" fill="#FCEBEA" stroke="#EFB4B1" />
+      <text x="208" y="33" text-anchor="middle" font-size="7" font-weight="700" fill="#A32E24">STOCK CHECK</text>
+      <text x="208" y="44" text-anchor="middle" font-size="6.5" fill="#A32E24">Manual phone calls</text>
+      <line x1="268" y1="35" x2="288" y2="35" stroke="#B0BAC5" marker-end="url(#mf)" />
+      <rect x="290" y="18" width="120" height="34" rx="3" fill="#FCEBEA" stroke="#EFB4B1" />
+      <text x="350" y="33" text-anchor="middle" font-size="7" font-weight="700" fill="#A32E24">INVOICING</text>
+      <text x="350" y="44" text-anchor="middle" font-size="6.5" fill="#A32E24">Manual GST lookup</text>
+      <line x1="410" y1="35" x2="430" y2="35" stroke="#B0BAC5" marker-end="url(#mf)" />
+      <rect x="432" y="18" width="120" height="34" rx="3" fill="#FCEBEA" stroke="#EFB4B1" />
+      <text x="492" y="33" text-anchor="middle" font-size="7" font-weight="700" fill="#A32E24">DISPATCH</text>
+      <text x="492" y="44" text-anchor="middle" font-size="6.5" fill="#A32E24">Double-entry tracking</text>
+      <line x1="552" y1="35" x2="572" y2="35" stroke="#B0BAC5" marker-end="url(#mf)" />
+      <rect x="574" y="18" width="120" height="34" rx="3" fill="#FBF1DF" stroke="#E8C97A" />
+      <text x="634" y="33" text-anchor="middle" font-size="7" font-weight="700" fill="#8A5A10">PAYMENT</text>
+      <text x="634" y="44" text-anchor="middle" font-size="6.5" fill="#8A5A10">WA screenshot verify</text>
+    </svg>
+    <div style="font-size:7.4pt;color:var(--muted);margin:0 0 10px;">Red stages = manual bottleneck. Yellow = partially manual.</div>
+
+    <h3>Identified Bottlenecks</h3>
+    <table>
+      <tr><th class="id">#</th><th>Bottleneck</th><th style="width:18%;">Workflow Stage</th><th class="num" style="width:16%;">Time Waste</th><th style="width:18%;">Department</th></tr>
+      <tr><td class="id">B01</td><td>Incomplete order data from WhatsApp</td><td>Order Intake</td><td class="num">10–25 min/order</td><td>Logistics</td></tr>
+      <tr><td class="id">B02</td><td>Manual stock verification phone calls</td><td>Pre-Invoicing</td><td class="num">10–15 min/invoice</td><td>Accounts, Production</td></tr>
+      <tr><td class="id">B03</td><td>Manual GST/GSTIN data lookup</td><td>Invoicing</td><td class="num">5–10 min/customer</td><td>Accounts</td></tr>
+      <tr><td class="id">B04</td><td>Disconnected logistics tracking</td><td>Post-Dispatch</td><td class="num">Double entry/shipment</td><td>Logistics</td></tr>
+      <tr><td class="id">B05</td><td>Manual WhatsApp extraction &amp; field tracking</td><td>Sales Monitoring</td><td class="num">6–8 hrs/day</td><td>Marketing</td></tr>
+      <tr><td class="id">B06</td><td>Manual target vs actual reconciliation</td><td>Sales Reporting</td><td class="num">3–4 hrs/week</td><td>Accounts, Marketing</td></tr>
+      <tr><td class="id">B07</td><td>Paper PO → manual entry</td><td>Field Sales</td><td class="num">15–20 min/PO</td><td>Marketing</td></tr>
+      <tr><td class="id">B08</td><td>WhatsApp-based payment confirmation</td><td>Payment Clearance</td><td class="num">10–20 min/payment</td><td>Marketing, Accounts</td></tr>
+      <tr><td class="id">B09</td><td>Manual R&amp;D data extraction for proposals</td><td>BD Proposal Creation</td><td class="num">1–2.5 days/proposal</td><td>BD-Seed, NGO/CSR</td></tr>
+      <tr><td class="id">B10</td><td>Manual email-by-email cold outreach</td><td>BD Lead Generation</td><td class="num">Hours/day/exec</td><td>BD-Cocopeat, NGO/CSR</td></tr>
+      <tr><td class="id">B11</td><td>Paper-based field data capture &amp; transcription</td><td>Field Operations</td><td class="num">~20% team capacity</td><td>BD-B2B/RCM</td></tr>
+      <tr><td class="id">B12</td><td>Manual dunning for extended receivables</td><td>Post-Sale Collections</td><td class="num">15–20% of lead time</td><td>BD-NGO/CSR</td></tr>
+      <tr><td class="id">B13</td><td>Multi-platform recruitment sourcing</td><td>HR Pipeline</td><td class="num">6+ platforms; 10 min/candidate</td><td>HR</td></tr>
+      <tr><td class="id">B14</td><td>COO communication saturation</td><td>Executive Operations</td><td class="num">50–80 emails/day; 100+ expenses</td><td>COO Office</td></tr>
+    </table>
+
+    <div class="doc-footer"><span>Overall Analysis · EF Polymer · v2.0</span><span>Page 12</span></div>
+  </div>
+
+  <!-- ============ 12 AI & AUTOMATION READINESS ============ -->
+  <div class="page">
+    <img src="../letterhead.png" alt="Letterhead" class="letterhead" />
+
+    <div class="eyebrow">Section 12 — AI &amp; Automation Readiness</div>
+    <h2>AI &amp; Automation Readiness</h2>
+    <div class="section-dek">Which manual workflows are ripe for automation now, where AI adds value, and the critical caveat: data foundations must come first.</div>
+
+    <h3>Automation Readiness by Workflow</h3>
+    <table>
+      <tr><th>Workflow</th><th class="num">Manual Effort</th><th class="num">Frequency</th><th class="num">Rule-Based</th><th>Classification</th></tr>
+      <tr><td>Order intake data capture</td><td class="num">High</td><td class="num">Daily</td><td class="num">Yes</td><td>Automate After Standardization</td></tr>
+      <tr><td>Invoice generation from PO</td><td class="num">Medium</td><td class="num">Daily</td><td class="num">Yes</td><td><span class="chip chip-low">Automate Immediately</span></td></tr>
+      <tr><td>Stock availability check</td><td class="num">High</td><td class="num">Per-invoice</td><td class="num">Yes</td><td><span class="chip chip-low">Automate Immediately</span></td></tr>
+      <tr><td>GST/TDS reconciliation</td><td class="num">Very High</td><td class="num">Monthly</td><td class="num">Partial</td><td>Automate After Standardization</td></tr>
+      <tr><td>Field force geo-tracking &amp; extraction</td><td class="num">Very High</td><td class="num">3×/day</td><td class="num">Yes</td><td><span class="chip chip-low">Automate Immediately</span></td></tr>
+      <tr><td>Payment confirmation alerts</td><td class="num">Medium</td><td class="num">Per-payment</td><td class="num">Yes</td><td><span class="chip chip-low">Automate Immediately</span></td></tr>
+      <tr><td>Cold email outreach</td><td class="num">High</td><td class="num">Daily</td><td class="num">Yes</td><td><span class="chip chip-low">Automate Immediately</span></td></tr>
+      <tr><td>Lead follow-up reminders</td><td class="num">High</td><td class="num">Every 4–5 days</td><td class="num">Yes</td><td><span class="chip chip-low">Automate Immediately</span></td></tr>
+      <tr><td>WhatsApp data extraction (Marketing)</td><td class="num">Very High</td><td class="num">Daily</td><td class="num">Partial</td><td><span class="chip chip-low">Automate Immediately</span></td></tr>
+      <tr><td>Paper diary transcription (B2B/RCM)</td><td class="num">High</td><td class="num">Daily</td><td class="num">Yes</td><td><span class="chip chip-low">Automate Immediately</span></td></tr>
+      <tr><td>Recruitment screening</td><td class="num">High</td><td class="num">Daily</td><td class="num">Partial</td><td><span class="chip chip-low">Automate Immediately</span></td></tr>
+      <tr><td>NGO receivables dunning</td><td class="num">Medium</td><td class="num">Per-invoice (30/45/60)</td><td class="num">Yes</td><td><span class="chip chip-low">Automate Immediately</span></td></tr>
+      <tr><td>Board report compilation</td><td class="num">High</td><td class="num">Monthly</td><td class="num">Partial</td><td>Monitor</td></tr>
+    </table>
+
+    <h3>AI Opportunity Register</h3>
+    <table>
+      <tr><th class="id">#</th><th>Opportunity</th><th>Dept</th><th>AI Use Case</th><th class="num">Readiness</th></tr>
+      <tr><td class="id">AI-01</td><td><strong>R&amp;D SSOT Chatbot</strong></td><td>R&amp;D, All BD</td><td>Centralised trial DB with AI search; auto case-study cards</td><td class="num"><span class="chip chip-med">Medium</span></td></tr>
+      <tr><td class="id">AI-02</td><td><strong>AI Lead Discovery &amp; Enrichment</strong></td><td>All BD, MENA</td><td>Company profiling, LinkedIn feed scanning, contact enrichment</td><td class="num"><span class="chip chip-low">Ready</span></td></tr>
+      <tr><td class="id">AI-03</td><td><strong>AI Proposal Drafting Engine</strong></td><td>NGO/CSR, Seed</td><td>Gemini reads past proposals, generates custom first drafts</td><td class="num"><span class="chip chip-med">Medium</span></td></tr>
+      <tr><td class="id">AI-04</td><td><strong>WhatsApp Community Bot</strong></td><td>B2B/RCM, Marketing</td><td>FAQ handling, QC feedback polls, retarget 1,800 inactive</td><td class="num"><span class="chip chip-med">Medium</span></td></tr>
+      <tr><td class="id">AI-05</td><td><strong>WhatsApp Data Extraction Bot</strong></td><td>Marketing/Retail</td><td>Auto-extract CRM data from group messages into Sheets</td><td class="num"><span class="chip chip-low">Ready</span></td></tr>
+      <tr><td class="id">AI-06</td><td><strong>AI Recruitment Screening</strong></td><td>HR</td><td>Pre-screen matching candidate profiles against JD across 6+ platforms</td><td class="num"><span class="chip chip-low">Ready</span></td></tr>
+      <tr><td class="id">AI-07</td><td><strong>Demand Forecasting</strong></td><td>Production, B2B/RCM</td><td>Predictive inventory planning from historical sales</td><td class="num"><span class="chip chip-crit">Not Ready</span></td></tr>
+      <tr><td class="id">AI-08</td><td><strong>COGS Anomaly Detection</strong></td><td>Finance</td><td>AI exception flagging for GST/TDS recon &amp; cost fluctuations</td><td class="num"><span class="chip chip-med">Medium</span></td></tr>
+      <tr><td class="id">AI-09</td><td><strong>HR Policy Assistant</strong></td><td>HR</td><td>AI policy knowledge system for self-serve employee queries</td><td class="num"><span class="chip chip-med">Medium</span></td></tr>
+    </table>
+
+    <div class="callout blue">
+      <strong>Recommendation:</strong> AI initiatives should <b>NOT</b> be prioritised before the operational foundations (CRM,
+      data consolidation, process standardisation) are in place. Each department's solution roadmap builds the data
+      infrastructure that makes the AI layers above viable. <em>Overall AI Readiness: 1.6 / 5 — Not Ready.</em>
+    </div>
+
+    <div class="doc-footer"><span>Overall Analysis · EF Polymer · v2.0</span><span>Page 13</span></div>
+  </div>
+
+  <!-- ============ 13 UNIFIED SOLUTION PLATFORM — TIER 1 ============ -->
+  <div class="page">
+    <img src="../letterhead.png" alt="Letterhead" class="letterhead" />
+
+    <div class="eyebrow">Section 13 — The Unified Solution Platform</div>
+    <h2>The Unified Solution Platform</h2>
+    <div class="section-dek">Where multiple departments share the same core problem, the solution is proposed <em>once</em> as a unified platform solving all department-specific use cases — not 15 separate tools. Built from the actual module names in each department report.</div>
+
+    <div class="callout green">
+      <strong>Design Principle — Extend, Don't Replace.</strong> Adoption over architecture. Google Sheets, Zoho Books, and
+      WhatsApp stay as the tools teams already use; we wrap intelligence (visibility, alerts, analysis, AI) around them via
+      APIs. The ground team's daily workflow changes as little as possible — complexity is absorbed by the integration &amp;
+      AI layer.
+    </div>
+
+    <h3>Tier 1 — Foundational Shared Platforms (Critical)</h3>
+    <div class="sol-grid">
+      <div class="sol-card t1">
+        <div class="sol-card-head"><div class="sol-num">S1</div><div class="sol-name">Custom React CRM &amp; Pipeline Dashboard</div></div>
+        <div class="sol-type">Technology · serves 10 units</div>
+        <div class="sol-desc">Unified CRM (React + TypeScript) across all BD verticals, MENA &amp; retail — vertical-specific layouts, one shared data model. Replaces the 4–10 disconnected sheets per team. Includes automated follow-up cadences, sowing-window SLA alerts, deal-stage visibility, leadership dashboards &amp; customer master DB.</div>
+        <div class="sol-solves">Resolves R01, R05, R15 · Bottlenecks B09, B10, B12</div>
+        <div class="sol-tags"><span class="chip-ref">CBDO</span><span class="chip-ref">Seed</span><span class="chip-ref">NGO/CSR</span><span class="chip-ref">B2B/RCM</span><span class="chip-ref">Cocopeat</span><span class="chip-ref">MENA</span><span class="chip-ref">Marketing</span></div>
+      </div>
+
+      <div class="sol-card t1">
+        <div class="sol-card-head"><div class="sol-num">S2</div><div class="sol-name">Production Ops &amp; Inventory Dashboard</div></div>
+        <div class="sol-type">Technology · serves 4 units</div>
+        <div class="sol-desc">Bi-directional real-time sync to existing Google Sheets; stock &amp; WIP visibility with red alerts; vendor directory with AI MOQ optimiser; overtime &amp; COGS calculator syncing to Accounts; role-based CXO/Accounts access. Wraps Sheets rather than migrating.</div>
+        <div class="sol-solves">Resolves R02, R07 · Bottleneck B02</div>
+        <div class="sol-tags"><span class="chip-ref">Production</span><span class="chip-ref">Accounts</span><span class="chip-ref">Logistics</span><span class="chip-ref">All BD</span></div>
+      </div>
+
+      <div class="sol-card t1">
+        <div class="sol-card-head"><div class="sol-num">S3</div><div class="sol-name">Logistics &amp; Supply Chain Dashboard</div></div>
+        <div class="sol-type">Technology · serves 4 units</div>
+        <div class="sol-desc">Structured order intake form (replaces WhatsApp); centralised shipment dashboard with RBAC; Zoho Books API sync (ends double-entry); carrier/vessel tracking; WhatsApp alert bot for pending invoices &amp; delivery red flags; export-priority routing for MENA.</div>
+        <div class="sol-solves">Resolves R04, R09, R10 · Bottlenecks B01, B04</div>
+        <div class="sol-tags"><span class="chip-ref">Logistics</span><span class="chip-ref">All BD</span><span class="chip-ref">Accounts</span><span class="chip-ref">MENA</span></div>
+      </div>
+
+      <div class="sol-card t1">
+        <div class="sol-card-head"><div class="sol-num">S4</div><div class="sol-name">Finance Automation &amp; CXO Dashboard</div></div>
+        <div class="sol-type">Technology + AI · serves 3 units</div>
+        <div class="sol-desc">Accounts frontend dashboard (real-time stock/WIP sync, unified CXO P&amp;L view, automated tonnage calc); AI GST/TDS recon bot; smart bill scanner (OCR via WhatsApp/Drive); vendor &amp; client MDM with GST gates. Resolves the 1–2 month recon cycle &amp; COGS opacity.</div>
+        <div class="sol-solves">Resolves R02, R12 · Bottleneck B06</div>
+        <div class="sol-tags"><span class="chip-ref">Finance</span><span class="chip-ref">CEO</span><span class="chip-ref">COO</span></div>
+      </div>
+    </div>
+
+    <div class="doc-footer"><span>Overall Analysis · EF Polymer · v2.0</span><span>Page 14</span></div>
+  </div>
+
+  <!-- ============ 13b UNIFIED SOLUTION PLATFORM — TIER 2 & 3 ============ -->
+  <div class="page">
+    <img src="../letterhead.png" alt="Letterhead" class="letterhead" />
+
+    <div class="eyebrow">Section 13 — The Unified Solution Platform (continued)</div>
+    <h2>Department-Specific &amp; Governance Solutions</h2>
+    <div class="section-dek">Tier 2 builds on the Tier 1 platforms with department-specific capability. Tier 3 is the governance &amp; change-management layer that makes adoption stick.</div>
+
+    <h3>Tier 2 — Department-Specific Solutions</h3>
+    <div class="sol-grid">
+      <div class="sol-card">
+        <div class="sol-card-head"><div class="sol-num">S5</div><div class="sol-name">WhatsApp Bot — Marketing &amp; Retail</div></div>
+        <div class="sol-type">AI / Automation</div>
+        <div class="sol-desc">AI agent that parses the 10,000+ daily WhatsApp updates into structured CRM data; auto-marks attendance via location detection; digital PO form replacing hand-written images. Eliminates the single-person extraction bottleneck.</div>
+        <div class="sol-solves">Resolves R06 · Bottlenecks B05, B07</div>
+        <div class="sol-tags"><span class="chip-ref">Marketing</span><span class="chip-ref">COO</span></div>
+      </div>
+
+      <div class="sol-card">
+        <div class="sol-card-head"><div class="sol-num">S6</div><div class="sol-name">R&amp;D SSOT &amp; Knowledge Database</div></div>
+        <div class="sol-type">Technology + AI</div>
+        <div class="sol-desc">Centralised trial database (consolidates 8–10 sheets) with AI chatbot interface; pitch-ready case-study cards; standardised R&amp;D request intake form. Self-service for BD reduces 1–2.5 day proposal turnaround to hours.</div>
+        <div class="sol-solves">Resolves R03, R11 · Bottleneck B09</div>
+        <div class="sol-tags"><span class="chip-ref">R&amp;D</span><span class="chip-ref">Seed</span><span class="chip-ref">NGO/CSR</span><span class="chip-ref">MENA</span></div>
+      </div>
+
+      <div class="sol-card">
+        <div class="sol-card-head"><div class="sol-num">S7</div><div class="sol-name">Digital Field Ops — BD-B2B/RCM</div></div>
+        <div class="sol-type">Technology + AI</div>
+        <div class="sol-desc">Offline mobile forms replacing paper diaries; company-owned virtual business lines (replaces personal WhatsApp); AI WhatsApp community bot for FAQ &amp; retargeting 1,800 inactive contacts; RCM ERP API bridge for tertiary visibility.</div>
+        <div class="sol-solves">Resolves R13, R14 · Bottleneck B11</div>
+        <div class="sol-tags"><span class="chip-ref">B2B/RCM</span></div>
+      </div>
+
+      <div class="sol-card">
+        <div class="sol-card-head"><div class="sol-num">S8</div><div class="sol-name">HR ATS &amp; Admin Operations Portal</div></div>
+        <div class="sol-type">Technology + AI</div>
+        <div class="sol-desc">Unified recruitment dashboard aggregating 6+ platforms; AI pre-screening against JD criteria; admin ticketing with slab-based budget routing; AI policy assistant; monthly KPI/KRA dashboard with incentive automation; field-attendance AI agent.</div>
+        <div class="sol-solves">Resolves R16 · Bottleneck B13</div>
+        <div class="sol-tags"><span class="chip-ref">HR</span><span class="chip-ref">All Depts</span></div>
+      </div>
+
+      <div class="sol-card">
+        <div class="sol-card-head"><div class="sol-num">S9</div><div class="sol-name">MENA Ops &amp; Finance Automation</div></div>
+        <div class="sol-type">Integration</div>
+        <div class="sol-desc">Zoho Books API cross-border remittance alerts; logistics dispatch scheduler (export vs domestic capacity); company-owned virtual business numbers for Middle East/China (replaces personal SIM/WeChat); standardised R&amp;D trial intake form.</div>
+        <div class="sol-solves">Resolves R04, R14</div>
+        <div class="sol-tags"><span class="chip-ref">MENA</span><span class="chip-ref">Logistics</span><span class="chip-ref">Accounts</span></div>
+      </div>
+
+      <div class="sol-card">
+        <div class="sol-card-head"><div class="sol-num">S10</div><div class="sol-name">BD-Government Operations Centre</div></div>
+        <div class="sol-type">Technology</div>
+        <div class="sol-desc">Centralised task board (replaces WhatsApp task mgmt); unified PO/invoice flow; mobile photo upload forms (ends WhatsApp re-upload loop); auto-sync calendar for remote field teams; farmer/Pradhan CRM; DAM via RAG bot to remove design bottleneck.</div>
+        <div class="sol-solves">WhatsApp task mgmt, manual handoffs</div>
+        <div class="sol-tags"><span class="chip-ref">Government</span></div>
+      </div>
+
+      <div class="sol-card">
+        <div class="sol-card-head"><div class="sol-num">S11</div><div class="sol-name">COO Operations Dashboard</div></div>
+        <div class="sol-type">Technology</div>
+        <div class="sol-desc">Consolidated approval dashboard (expenses/offers/travel); real-time department KPIs across Finance, HR, Marketing, Retail &amp; MENA; automated board report compilation; LLM investor report generation; gamified PMS &amp; L&amp;D ecosystem.</div>
+        <div class="sol-solves">Bottleneck B14</div>
+        <div class="sol-tags"><span class="chip-ref">COO</span><span class="chip-ref">All Depts</span></div>
+      </div>
+
+      <div class="sol-card">
+        <div class="sol-card-head"><div class="sol-num">S12</div><div class="sol-name">Cocopeat Export &amp; Outbound Engine</div></div>
+        <div class="sol-type">Technology + AI</div>
+        <div class="sol-desc">Cross-department clearance &amp; export documentation dashboard (CargoX real-time clearance, regulatory buffer engine); CRM migration &amp; automated lead pipeline (&lt;5 min response); outbound domain protection &amp; deliverability monitoring.</div>
+        <div class="sol-solves">Resolves R08 · Bottleneck B10</div>
+        <div class="sol-tags"><span class="chip-ref">Cocopeat</span><span class="chip-ref">Finance</span><span class="chip-ref">Logistics</span></div>
+      </div>
+    </div>
+
+    <h3>Tier 3 — Governance &amp; Change Management</h3>
+    <div class="sol-grid">
+      <div class="sol-card t3">
+        <div class="sol-card-head"><div class="sol-num">S13</div><div class="sol-name">Device / SIM Ownership Policy</div></div>
+        <div class="sol-type">Governance</div>
+        <div class="sol-desc">Company-owned virtual business numbers for all customer-facing roles. Eliminates the institutional risk of contact-history &amp; community-access loss on employee exit.</div>
+        <div class="sol-solves">Resolves R14 (governance side)</div>
+        <div class="sol-tags"><span class="chip-ref">B2B/RCM</span><span class="chip-ref">MENA</span><span class="chip-ref">NGO/CSR</span></div>
+      </div>
+
+      <div class="sol-card t3">
+        <div class="sol-card-head"><div class="sol-num">S14</div><div class="sol-name">CRM Adoption &amp; Change Management</div></div>
+        <div class="sol-type">Change Mgmt</div>
+        <div class="sol-desc">Structured training &amp; champion model for CRM rollout across legacy BD teams; formalise single reporting line for BD-Seed (resolve dual COO/CBDO reporting). Without this, even the best platform won't be adopted.</div>
+        <div class="sol-solves">Legacy team resistance</div>
+        <div class="sol-tags"><span class="chip-ref">CBDO</span><span class="chip-ref">All BD</span></div>
+      </div>
+    </div>
+
+    <div class="doc-footer"><span>Overall Analysis · EF Polymer · v2.0</span><span>Page 15</span></div>
+  </div>
+
+  <!-- ============ 13c PRIORITY MATRIX + IMPACT ============ -->
+  <div class="page">
+    <img src="../letterhead.png" alt="Letterhead" class="letterhead" />
+
+    <div class="eyebrow">Section 13 — Priority Matrix &amp; Shared Stack</div>
+    <h2>Initiative Priority &amp; Shared Technology</h2>
+    <div class="section-dek">Each initiative scored on business value, urgency, effort &amp; risk-reduction — yielding an overall priority tier. No timelines here; the time-phased roadmap is a separate companion document.</div>
+
+    <h3>Initiative Priority Matrix</h3>
+    <table>
+      <tr><th>Initiative</th><th class="num">Business Value</th><th class="num">Urgency</th><th class="num">Effort</th><th class="num">Risk Reduction</th><th class="num">Overall Priority</th></tr>
+      <tr><td>S1: Custom React CRM</td><td class="num">10</td><td class="num">10</td><td class="num">7</td><td class="num">10</td><td class="num"><span class="chip chip-crit">P1 Critical</span></td></tr>
+      <tr><td>S2: Production Ops Dashboard</td><td class="num">9</td><td class="num">9</td><td class="num">5</td><td class="num">8</td><td class="num"><span class="chip chip-crit">P1 Critical</span></td></tr>
+      <tr><td>S3: Logistics Dashboard</td><td class="num">8</td><td class="num">9</td><td class="num">5</td><td class="num">8</td><td class="num"><span class="chip chip-crit">P1 Critical</span></td></tr>
+      <tr><td>S4: Finance Automation</td><td class="num">9</td><td class="num">8</td><td class="num">6</td><td class="num">9</td><td class="num"><span class="chip chip-crit">P1 Critical</span></td></tr>
+      <tr><td>S5: WhatsApp Bot (Marketing)</td><td class="num">8</td><td class="num">9</td><td class="num">5</td><td class="num">8</td><td class="num"><span class="chip chip-crit">P1 Critical</span></td></tr>
+      <tr><td>S6: R&amp;D SSOT &amp; Knowledge DB</td><td class="num">8</td><td class="num">7</td><td class="num">6</td><td class="num">8</td><td class="num"><span class="chip chip-med">P2 High</span></td></tr>
+      <tr><td>S7: B2B/RCM Digital Ops</td><td class="num">7</td><td class="num">7</td><td class="num">5</td><td class="num">8</td><td class="num"><span class="chip chip-med">P2 High</span></td></tr>
+      <tr><td>S8: HR ATS &amp; Admin Portal</td><td class="num">7</td><td class="num">6</td><td class="num">5</td><td class="num">6</td><td class="num"><span class="chip chip-med">P2 High</span></td></tr>
+      <tr><td>S9: MENA Ops Automation</td><td class="num">7</td><td class="num">7</td><td class="num">4</td><td class="num">7</td><td class="num"><span class="chip chip-med">P2 High</span></td></tr>
+      <tr><td>S12: Cocopeat Export Engine</td><td class="num">7</td><td class="num">7</td><td class="num">5</td><td class="num">7</td><td class="num"><span class="chip chip-med">P2 High</span></td></tr>
+      <tr><td>S10: BD-Govt Ops Centre</td><td class="num">6</td><td class="num">5</td><td class="num">5</td><td class="num">6</td><td class="num"><span class="chip chip-low">P3 Medium</span></td></tr>
+      <tr><td>S11: COO Dashboard</td><td class="num">6</td><td class="num">5</td><td class="num">5</td><td class="num">6</td><td class="num"><span class="chip chip-low">P3 Medium</span></td></tr>
+      <tr><td>S13: Device/SIM Policy</td><td class="num">6</td><td class="num">6</td><td class="num">2</td><td class="num">7</td><td class="num"><span class="chip chip-med">P2 High</span></td></tr>
+      <tr><td>S14: CRM Change Management</td><td class="num">8</td><td class="num">8</td><td class="num">4</td><td class="num">7</td><td class="num"><span class="chip chip-crit">P1 Critical</span></td></tr>
+    </table>
+
+    <h3>Shared Technology Stack</h3>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:8px 0 14px;">
+      <div style="background:#F0FDF4;border:1px solid #BBF7D0;border-radius:6px;padding:13px;">
+        <p style="font-weight:700;color:#166534;margin-bottom:7px;font-size:9pt;">What Stays the Same (Extend)</p>
+        <ul style="font-size:8.3pt;color:#15803D;line-height:1.55;padding-left:16px;margin:0;">
+          <li style="margin-bottom:3px;"><b>Google Sheets</b> remain the system of record — we connect, we don't migrate</li>
+          <li style="margin-bottom:3px;"><b>Zoho Books</b> stays for finance; we add API alerts, not a new ERP</li>
+          <li style="margin-bottom:3px;"><b>WhatsApp &amp; Slack</b> stay as daily channels; intelligence is layered on top</li>
+          <li><b>Ground-team workflow</b> changes minimally — AI ingests their existing inputs</li>
+        </ul>
+      </div>
+      <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:6px;padding:13px;">
+        <p style="font-weight:700;color:var(--ink);margin-bottom:7px;font-size:9pt;">Approved Stack (Build)</p>
+        <ul style="font-size:8.3pt;color:var(--muted);line-height:1.55;padding-left:16px;margin:0;">
+          <li style="margin-bottom:3px;"><b>Application:</b> React.js + TypeScript</li>
+          <li style="margin-bottom:3px;"><b>Backend:</b> Node.js</li>
+          <li style="margin-bottom:3px;"><b>Integrations:</b> Google Sheets/Drive, Zoho, WhatsApp Business &amp; Slack APIs</li>
+          <li style="margin-bottom:3px;"><b>AI layer:</b> Gemini LLM + LangGraph (agentic WA flows, RAG)</li>
+          <li><b>Infrastructure:</b> Google Cloud Platform</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Organisation-Wide Impact: Before &amp; After</h3>
+    <div class="kpi-strip" style="margin:8px 0 14px;">
+      <div class="kpi-cell"><div class="kpi-num">1.6 → 3.1</div><div class="kpi-lbl">Maturity Lift</div></div>
+      <div class="kpi-cell"><div class="kpi-num accent">~3,100</div><div class="kpi-lbl">Annual Hours Reclaimed</div></div>
+      <div class="kpi-cell"><div class="kpi-num">~390</div><div class="kpi-lbl">Working Days Freed</div></div>
+      <div class="kpi-cell"><div class="kpi-num">15</div><div class="kpi-lbl">Units Lifted Together</div></div>
+    </div>
+
+    <div class="callout green">
+      <strong>The compounding case.</strong> Because the modules share one data layer, they compound — the CRM feeds the
+      dashboard, the WhatsApp agent feeds the CRM, the drafting engines read from the same Drive. Building them as a
+      connected platform (not 15 siloed projects) is what delivers the organisation-wide lift from <b>1.6 → 3.1 maturity</b>
+      and reclaims ~3,100 staff-hours per year for strategic work.
+    </div>
+
+    <p style="font-size:8.6pt;color:var(--muted);margin-top:12px;">
+      A detailed <strong>time-phased implementation roadmap</strong> — sequencing these initiatives across phases with
+      scope-of-work, per-department dependencies, and ROI modelling — is provided as a separate companion document.
+    </p>
+
+    <div class="doc-footer"><span>Overall Analysis · EF Polymer · v2.0</span><span>Page 16</span></div>
+  </div>
+
+</body>
+
+</html>
