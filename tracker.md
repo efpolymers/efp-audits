@@ -1,12 +1,15 @@
 01-ceo-office.html                              PENDING_TO_CHECK
-02-operations-coo-office.html                   FINAL
+02-operations-coo-office.html                   DONE_WITH_VOICE_NOTE
 03-sales-bd-cbdo-office.html                    PENDING_TO_CHECK
+
 04a-bd-cocopeat.html                            PENDING_TO_CHECK
 04b-bd-seed.html                                PENDING_TO_CHECK
 04c-bd-ngo-csr.html                             PENDING_TO_CHECK
 04d-bd-government.html                          PENDING_TO_CHECK
 04e-bd-b2b-rcm.html                             PENDING_TO_CHECK
+
 05-mena-international-sales.html                PENDING_TO_CHECK
+
 06-finance-accounts.html                        DONE_WITH_VOICE_NOTE
 07-marketing-retail-sales.html                  FINAL
 08-production-qc.html                           DONE_WITH_VOICE_NOTE
