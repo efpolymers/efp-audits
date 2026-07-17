@@ -804,6 +804,96 @@
         margin: 0;
       }
     }
+    .dep-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+      padding: 16px;
+      margin-bottom: 16px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    .dep-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .dep-title {
+      font-weight: 700;
+      font-size: 11pt;
+      color: var(--ink);
+    }
+
+    .dep-badge {
+      font-size: 7.5pt;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 12px;
+      background: #f1f5f9;
+      color: #475569;
+      text-transform: uppercase;
+    }
+
+    .dep-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .dep-section {
+      background: #f8fafc;
+      border-radius: 6px;
+      padding: 12px;
+      border: 1px solid #e2e8f0;
+    }
+
+    .dep-section.bottleneck {
+      background: #fef2f2;
+      border-color: #fecaca;
+    }
+
+    .dep-section.data-sync {
+      background: #f0f9ff;
+      border-color: #bae6fd;
+    }
+
+    .dep-section-title {
+      font-size: 7.5pt;
+      font-weight: 700;
+      color: #64748b;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      letter-spacing: 0.5px;
+    }
+
+    .bottleneck .dep-section-title {
+      color: #b91c1c;
+    }
+
+    .data-sync .dep-section-title {
+      color: #0369a1;
+    }
+
+    .dep-section-content {
+      font-size: 8.5pt;
+      color: var(--slate);
+      line-height: 1.4;
+    }
+
+    .dep-person {
+      display: inline-block;
+      background: #f1f5f9;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 8pt;
+      margin-top: 4px;
+      border: 1px solid #cbd5e1;
+    }
   </style>
 </head>
 
@@ -1394,15 +1484,6 @@
       <p style="margin-bottom:0;"><strong>Dependencies:</strong> Accounts and Sales are dependent on Production's manual
         exports to calculate COGS and dispatch status.</p>
     </div>
-    <div class="doc-footer"><span>Production Audit Report · v1.0</span><span>Page 6</span></div>
-  </div>
-
-
-  <!-- ============ 03c WORKFLOWS (continued) ============ -->
-  <div class="page">
-    <img src="../letterhead.png" alt="Letterhead"
-      style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
-
     <!-- WORKFLOW 4: Quality Control & Cross-Verification -->
     <h3>Quality Control &amp; Cross-Verification Flow — <span class="chip-ref">P-04</span></h3>
     <svg viewBox="0 0 740 108" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:10px 0 4px;">
@@ -1490,7 +1571,7 @@
       <p style="margin-bottom:0;"><strong>Dependencies:</strong> Dispatch is entirely dependent on manual sign-offs,
         risking compliance during external audits.</p>
     </div>
-    <div class="doc-footer"><span>Production Audit Report · v1.0</span><span>Page 7</span></div>
+    <div class="doc-footer"><span>Production Audit Report · v1.0</span><span>Page 6</span></div>
   </div>
 
 
@@ -1601,7 +1682,7 @@
         </div>
       </div>
     </div>
-    <div class="doc-footer"><span>Production Audit Report · v1.0</span><span>Page 8</span></div>
+    <div class="doc-footer"><span>Production Audit Report · v1.0</span><span>Page 7</span></div>
   </div>
 
 
@@ -1680,7 +1761,7 @@
           ledger.</td>
       </tr>
     </table>
-    <div class="doc-footer"><span>Production Audit Report · v1.0</span><span>Page 9</span></div>
+    <div class="doc-footer"><span>Production Audit Report · v1.0</span><span>Page 8</span></div>
   </div>
 
 
@@ -1724,7 +1805,7 @@
         <td class="num">~1.2 hrs</td>
       </tr>
     </table>
-    <div class="doc-footer"><span>Production Audit Report · v1.0</span><span>Page 10</span></div>
+    <div class="doc-footer"><span>Production Audit Report · v1.0</span><span>Page 9</span></div>
   </div>
 
 
@@ -1858,7 +1939,7 @@
       <li><strong>Feedback Loop:</strong> Establish a continuous feedback loop to iterate on the solution on the ground,
         ensuring it genuinely adapts to the team's operational reality and achieves actual adoption.</li>
     </ul>
-    <div class="doc-footer"><span>Production Audit Report · v1.0</span><span>Page 11</span></div>
+    <div class="doc-footer"><span>Production Audit Report · v1.0</span><span>Page 10</span></div>
   </div>
 
 
@@ -2026,7 +2107,7 @@
         </div>
       </div>
     </div>
-    <div class="doc-footer"><span>Production Audit Report · v1.0</span><span>Page 12</span></div>
+    <div class="doc-footer"><span>Production Audit Report · v1.0</span><span>Page 11</span></div>
   </div>
 
 
@@ -2125,7 +2206,7 @@
       </ul>
     </div>
 
-    <div class="doc-footer"><span>Production Audit Report · v1.0</span><span>Page 13</span></div>
+    <div class="doc-footer"><span>Production Audit Report · v1.0</span><span>Page 12</span></div>
   </div>
 
 </body>
