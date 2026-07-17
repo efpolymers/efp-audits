@@ -1,6 +1,6 @@
 01-ceo-office.html                              PENDING_TO_CHECK
-02-operations-coo-office.html                   DONE_WITH_VOICE_NOTE
-03-sales-bd-cbdo-office.html                    FINAL
+02-operations-coo-office.html                   FINAL
+03-sales-bd-cbdo-office.html                    PENDING_TO_CHECK
 04a-bd-cocopeat.html                            PENDING_TO_CHECK
 04b-bd-seed.html                                PENDING_TO_CHECK
 04c-bd-ngo-csr.html                             PENDING_TO_CHECK
