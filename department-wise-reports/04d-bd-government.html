@@ -831,6 +831,45 @@
       border: 1px solid #cbd5e1;
     }
 
+    .chip-data {
+      background: #e0f2fe;
+      color: #0284c7;
+      border: 1px solid #bae6fd;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 7pt;
+      font-weight: 700;
+      margin-left: 6px;
+      text-transform: none;
+      letter-spacing: normal;
+    }
+
+    .chip-approval {
+      background: #fef08a;
+      color: #a16207;
+      border: 1px solid #fde047;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 7pt;
+      font-weight: 700;
+      margin-left: 6px;
+      text-transform: none;
+      letter-spacing: normal;
+    }
+
+    .chip-info {
+      background: #e0e7ff;
+      color: #4338ca;
+      border: 1px solid #c7d2fe;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 7pt;
+      font-weight: 700;
+      margin-left: 6px;
+      text-transform: none;
+      letter-spacing: normal;
+    }
+
     @media print {
       body {
         background: #fff;
@@ -892,7 +931,8 @@
     <div class="eyebrow">Section 01 — Executive Summary</div>
     <h2>Report Overview — Government, B2B &amp; Startups</h2>
     <div class="section-dek">Scope, current state, and headline findings</div>
-    <p class="lede">The Government &amp; B2B vertical manages Pan-India government-sponsored crop trials (e.g., UK Govt
+    <p class="lede">The Government &amp; B2B vertical manages Pan-India government-sponsored crop trials (e.g.,
+      Utrakhand Govt
       Project), institutional B2B accounts, and startup collaborations. It is responsible for tracking billing
       compliance, collecting Pradhan and Farmer data from the ground, preparing Demand Drafts, processing new orders,
       and maintaining custom trial tracking software built in collaboration with an external developer.</p>
@@ -1061,12 +1101,22 @@
         <div class="org-sub-branch">
           <div class="org-connector-top"></div>
           <div class="org-node">
-            <div class="org-name">Jatin Jain &amp; Shailendra Singh</div>
-            <div class="org-role">AM-BD &amp; BD Executive<br>Govt trials, project execution,<br>field workflows &amp;
+            <div class="org-name">Shailendra Singh</div>
+            <div class="org-role">BD Executive<br>Govt trials, project execution,<br>field workflows &amp;
               billings</div>
+          </div>
+          <div class="org-connector-top"></div>
+          <div class="org-node secondary">
+            <div class="org-name">Field Staff</div>
+            <div class="org-role">On-ground trials,<br>farmer data collection &amp;<br>media uploads</div>
           </div>
         </div>
         <div class="org-sub-branch">
+          <div class="org-connector-top"></div>
+          <div class="org-node">
+            <div class="org-name">Gaurav Jain</div>
+            <div class="org-role">Marketing Manager<br>(Only approvals route<br>through him right now)</div>
+          </div>
           <div class="org-connector-top"></div>
           <div class="org-node secondary">
             <div class="org-name">Vandana Jain</div>
@@ -1219,7 +1269,15 @@
       <p><strong>Bottlenecks:</strong> Lack of automated HR sync for travel/leave causes scheduling conflicts — worsened
         by network unavailability in remote field areas. A documentation gap also exists: Demand Drafts are submitted
         via three distinct methods, but only one has been captured in this audit.</p>
-      <p style="margin-bottom:0;"><strong>Dependencies:</strong> Invoice handoffs to Accounts and Logistics are manual
+      <p><strong>Detailed Workflow Steps:</strong>
+        <br>1. <strong>On-Ground Activity:</strong> Field staff conduct government trials, capture Pradhan/Farmer data and photos.
+        <br>2. <strong>WhatsApp Relay:</strong> Photos and data are shared via WhatsApp to BD Executive (Shailendra Singh).
+        <br>3. <strong>Manual Drive Upload:</strong> BD Executive manually downloads photos and uploads them to per-Pradhan/per-executive folders on Google Drive.
+        <br>4. <strong>Database Entry:</strong> Farmer profiles, billings, and Pradhan data are compiled into shared Google Sheets.
+        <br>5. <strong>CBDO Review:</strong> Tracker and billings are shared with CBDO (Ankit Jain) for review and sign-off.
+      </p>
+      <p><strong>Cross-Department Involvement:</strong> <strong>Field Staff</strong> (On-ground data capture), <strong>Shailendra Singh (BD Executive)</strong> (WhatsApp relay &amp; manual Drive upload), <strong>CBDO Office / Ankit Jain</strong> (Review &amp; task assignment), and <strong>Marketing / Vandana Jain</strong> (Design collateral on project basis).</p>
+      <p style="margin-bottom:0;"><strong>Dependencies &amp; Bottlenecks:</strong> Invoice handoffs to Accounts and Logistics are manual
         and prone to human error. Design collateral for government events is routed to Vandana and retrieved from Google
         Drive without a structured DAM.</p>
     </div>
@@ -1291,7 +1349,15 @@
       <p><strong>Bottlenecks:</strong> BD team members must manually call Logistics every time they need a status update
         on a shipment. Travel reimbursements follow the same WhatsApp-only pattern — compiled and submitted manually at
         month end.</p>
-      <p style="margin-bottom:0;"><strong>Dependencies:</strong> Dispatch is blocked until Accounts confirms payment. BD
+      <p><strong>Detailed Workflow Steps:</strong>
+        <br>1. <strong>Order Initiation:</strong> BD receives Purchase Order (PO) from government client.
+        <br>2. <strong>WhatsApp Handoff:</strong> BD shares PO and invoice details with Accounts via WhatsApp call.
+        <br>3. <strong>Payment Clearance:</strong> Accounts team confirms payment clearance (no shared platform).
+        <br>4. <strong>Dispatch:</strong> Logistics dispatches items once payment is confirmed.
+        <br>5. <strong>Tracking Follow-up:</strong> BD manually calls Logistics for shipment status updates.
+      </p>
+      <p><strong>Cross-Department Involvement:</strong> <strong>Shailendra Singh (BD Executive)</strong> (PO intake &amp; WhatsApp relay), <strong>Finance &amp; Accounts</strong> (Shobha Shekhawat — Payment confirmation), <strong>Logistics</strong> (Dispatch &amp; tracking), and <strong>CBDO Office</strong> (Reimbursement review).</p>
+      <p style="margin-bottom:0;"><strong>Dependencies &amp; Bottlenecks:</strong> Dispatch is blocked until Accounts confirms payment. BD
         has no visibility into this confirmation except through manual follow-up. A unified Accounts + Logistics form
         with a WhatsApp bot for status queries would resolve this end-to-end.</p>
     </div>
@@ -1312,7 +1378,7 @@
       </div>
       <div class="dep-grid">
         <div class="dep-section">
-          <div class="dep-section-title">Operations Dependency</div>
+          <div class="dep-section-title">Operations Dependency <span class="chip chip-approval">Approval Flow</span></div>
           <div class="dep-section-content">New order POs, invoice details, and tracking requests are shared manually via
             calls and WhatsApp. Travel reimbursements across all BD team members are compiled manually and submitted to
             Accounts on a fixed date each month.</div>
@@ -1324,7 +1390,7 @@
             unstructured, with no automation or single upload point.</div>
         </div>
         <div class="dep-section data-sync" style="grid-column:1/-1;">
-          <div class="dep-section-title">Data Transfer &amp; Updates Needed</div>
+          <div class="dep-section-title">Data Transfer &amp; Action Needed <span class="chip chip-data">Data Flow</span></div>
           <div class="dep-section-content">Build a unified Accounts &amp; Logistics form/dashboard. Connect a
             centralized reimbursement upload flow where invoices are submitted once and amounts are auto-fetched. A
             WhatsApp bot should be connected to this system to answer BD queries about invoice status and package
@@ -1339,10 +1405,10 @@
       </div>
       <div class="dep-grid">
         <div class="dep-section">
-          <div class="dep-section-title">Operations Dependency</div>
+          <div class="dep-section-title">Operations Dependency <span class="chip chip-info">Information Sharing</span></div>
           <div class="dep-section-content">Dispatch is triggered only after payment clearance from Accounts. BD has no
             direct visibility into dispatch status and must manually request tracking updates from Logistics via calls
-            and WhatsApp.<div class="dep-person">👤 Key Person: Logistics Coordinator</div>
+            and WhatsApp.<div class="dep-person">👤 Key Person: Nihal Paliwal (Logistics Coordinator)</div>
           </div>
         </div>
         <div class="dep-section bottleneck">
@@ -1351,7 +1417,7 @@
             requires a live phone call or WhatsApp message to Logistics, consuming time on both sides.</div>
         </div>
         <div class="dep-section data-sync" style="grid-column:1/-1;">
-          <div class="dep-section-title">Data Transfer &amp; Updates Needed</div>
+          <div class="dep-section-title">Data Transfer &amp; Action Needed <span class="chip chip-data">Data Flow</span></div>
           <div class="dep-section-content">Logistics must push tracking updates to the unified dashboard. A WhatsApp bot
             connected to this system must be able to answer BD queries (e.g., "What is the tracking status of order
             #XYZ?") without requiring any manual intervention from the Logistics team.</div>
@@ -1365,11 +1431,11 @@
       </div>
       <div class="dep-grid">
         <div class="dep-section">
-          <div class="dep-section-title">Operations Dependency</div>
+          <div class="dep-section-title">Operations Dependency <span class="chip chip-info">Information Sharing</span></div>
           <div class="dep-section-content">Attendance and travel locations are logged on Zoho People, but HR has no
             real-time visibility into field staff calendar availability. Leave and travel schedules are not reflected on
             shared Google Calendars, especially as the team operates in remote areas with limited network connectivity.
-            <div class="dep-person">👤 Key Person: HR Manager</div>
+            <div class="dep-person">👤 Key Person: Dolly Mehta (HR Manager)</div>
           </div>
         </div>
         <div class="dep-section bottleneck">
@@ -1379,7 +1445,7 @@
             remote trial locations.</div>
         </div>
         <div class="dep-section data-sync" style="grid-column:1/-1;">
-          <div class="dep-section-title">Data Transfer &amp; Updates Needed</div>
+          <div class="dep-section-title">Data Transfer &amp; Action Needed <span class="chip chip-data">Data Flow</span></div>
           <div class="dep-section-content">Integrate Google Calendar on team members' mobile phones so travel plans and
             leaves auto-sync. HR should see a real-time availability dashboard to manage field team capacity
             effectively, without relying on manual updates from the BD team.</div>
@@ -1393,21 +1459,20 @@
       </div>
       <div class="dep-grid">
         <div class="dep-section">
-          <div class="dep-section-title">Operations Dependency</div>
+          <div class="dep-section-title">Operations Dependency <span class="chip chip-approval">Approval Flow</span></div>
           <div class="dep-section-content">All design requirements for government event banners, posters, and marketing
-            collaterals are conveyed to Vandana. Final designs are stored on and retrieved from Google Drive, requiring
-            direct communication each time a specific asset is needed.<div class="dep-person">👤 Key Person: Vandana
-              Jain (Marketing Executive)</div>
+            collaterals are conveyed to Vandana via Gaurav Jain (Marketing Manager), who routes approvals. Final designs are stored on and retrieved from Google Drive, requiring
+            direct communication each time a specific asset is needed.<div class="dep-person">👤 Key Person: Gaurav Jain (Marketing Manager) → Vandana Jain (Marketing Executive)</div>
           </div>
         </div>
         <div class="dep-section bottleneck">
-          <div class="dep-section-title">Current Bottleneck</div>
+          <div class="dep-section-title">Critical Bottleneck</div>
           <div class="dep-section-content">No structured DAM exists. BD team members cannot self-serve common assets
             from Drive without asking Vandana for folder locations or asset details, adding unnecessary friction to
-            field operations.</div>
+            field operations. All approvals currently route through Gaurav Jain manually.</div>
         </div>
         <div class="dep-section data-sync" style="grid-column:1/-1;">
-          <div class="dep-section-title">Data Transfer &amp; Updates Needed</div>
+          <div class="dep-section-title">Data Transfer &amp; Action Needed <span class="chip chip-data">Data Flow</span></div>
           <div class="dep-section-content">Connect all marketing collaterals (banners, posters, government event
             materials stored on Drive) to a RAG bot on the common company dashboard. BD team members should be able to
             search and retrieve specific assets by typing natural language queries, reducing dependency on Vandana for
