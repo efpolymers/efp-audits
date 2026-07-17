@@ -24,6 +24,7 @@ REPORT_NAMES = {
     "09-research-development.html": "Research & Development",
     "10-logistics.html": "Logistics",
     "11-hr-talent-management.html": "HR & Talent Management",
+    "roadmap.html": "Unified 1-Year Transformation Roadmap",
 }
 
 # 1. Handle .env and get passcode
@@ -113,11 +114,15 @@ reports = glob.glob(os.path.join(REPORTS_DIR, "*.html"))
 reports = [os.path.basename(r) for r in reports if not os.path.basename(r) == "index.html"]
 reports.sort()
 
-list_html = ""
-for r in reports:
+# Move roadmap to the top
+if "roadmap.html" in reports:
+    reports.remove("roadmap.html")
+    reports.insert(0, "roadmap.html")
+
+def generate_item_html(r):
     title = REPORT_NAMES.get(r, r.replace('.html', ''))
-    
-    list_html += f"""
+    r_link = r.replace('.html', '')
+    return f"""
         <div class="list-item">
             <div class="item-info">
                 <div class="item-icon">
@@ -132,19 +137,30 @@ for r in reports:
                 <div class="item-title">{title}</div>
             </div>
             <div class="item-actions">
-                <button class="btn btn-secondary" onclick="copyLink('{r}', this)">
+                <button class="btn btn-secondary" onclick="copyLink('{r_link}', this)">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
                         <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
                     </svg>
                     Copy Link
                 </button>
-                <button class="btn btn-primary" onclick="window.open('{r}', '_blank')">
+                <button class="btn btn-primary" onclick="window.open('{r_link}', '_blank')">
                     Open Report
                 </button>
             </div>
         </div>
 """
+
+list_html = '<h2 style="font-size: 14px; color: var(--muted); padding: 16px 20px 4px; margin: 0; text-transform: uppercase; letter-spacing: 0.5px;">Overall</h2>'
+overall_files = ["roadmap.html", "00-overall-analysis.html"]
+for r in overall_files:
+    if r in reports:
+        list_html += generate_item_html(r)
+        reports.remove(r)
+
+list_html += '<h2 style="font-size: 14px; color: var(--muted); padding: 16px 20px 4px; margin: 0; border-top: 1px solid var(--line); text-transform: uppercase; letter-spacing: 0.5px;">Department Wise Reports</h2>'
+for r in reports:
+    list_html += generate_item_html(r)
 
 index_html_content = f"""<!DOCTYPE html>
 <html lang="en">
@@ -285,14 +301,20 @@ with open(os.path.join(REPORTS_DIR, "index.html"), "w") as f:
 
 
 # 4. Clean up and inject auth script into all report HTML files
-for r_name in reports:
-    filepath = os.path.join(REPORTS_DIR, r_name)
+all_reports_files = glob.glob(os.path.join(REPORTS_DIR, "*.html"))
+for filepath in all_reports_files:
+    r_name = os.path.basename(filepath)
+    if r_name == "index.html": continue
+    
     with open(filepath, "r") as f:
         content = f.read()
     
     # Remove any messed up \\n literal if it exists
     content = content.replace("<head>\\n  <script src='auth.js'></script>", "<head>")
     content = content.replace("<head>\\n  <script src=\"auth.js\"></script>", "<head>")
+    
+    # Fix letterhead path (no longer in parent dir)
+    content = content.replace("../letterhead.png", "letterhead.png")
     
     # Force desktop-like fixed width viewport for PDF-like zooming on mobile
     content = content.replace('<meta name="viewport" content="width=device-width, initial-scale=1.0">', '<meta name="viewport" content="width=880">')
