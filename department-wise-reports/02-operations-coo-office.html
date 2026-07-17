@@ -1,1016 +1,1967 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Operations & Finance (COO) — Department Audit Report | EF Polymer Private Limited</title>
-<style>
-:root{
-  --ink:#1B2A4A;
-  --slate:#3F4B5C;
-  --muted:#6B7785;
-  --line:#D8DEE5;
-  --line-soft:#E9EDF1;
-  --paper:#FFFFFF;
-  --paper-alt:#F6F7F9;
-  --accent:#0F6B62;
-  --accent-soft:#EAF3F1;
-  --risk-crit-bg:#FCEBEA; --risk-crit-fg:#A32E24;
-  --risk-med-bg:#FBF1DF;  --risk-med-fg:#8A5A10;
-  --risk-low-bg:#E9F4EC;  --risk-low-fg:#276B3E;
-}
-@page{ size:A4; margin:22mm 18mm 20mm 18mm; }
-*{ margin:0; padding:0; box-sizing:border-box; }
-body{
-  font-family:'Segoe UI',system-ui,-apple-system,sans-serif;
-  color:var(--slate);
-  line-height:1.55;
-  background:#EDEFF1;
-  font-size:10.3pt;
-}
-.page{
-  background:var(--paper);
-  max-width:840px;
-  margin:0 auto 14px auto;
-  padding:26mm 20mm 20mm 20mm;
-  position:relative;
-  page-break-after:always;
-  min-height:1120px;
-}
-.page:last-child{ page-break-after:avoid; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Operations & Finance (COO) — Department Audit Report | EF Polymer Private Limited</title>
+  <style>
+    :root {
+      --ink: #6b4fc8;
+      --slate: #3F4B5C;
+      --muted: #6B7785;
+      --line: #D8DEE5;
+      --line-soft: #E9EDF1;
+      --paper: #FFFFFF;
+      --paper-alt: #F6F7F9;
+      --accent: #c480e9;
+      --accent-soft: #EAF3F1;
+      --risk-crit-bg: #FCEBEA;
+      --risk-crit-fg: #A32E24;
+      --risk-med-bg: #FBF1DF;
+      --risk-med-fg: #8A5A10;
+      --risk-low-bg: #E9F4EC;
+      --risk-low-fg: #276B3E;
+    }
 
-/* ---- running header / footer ---- */
-.doc-header{
-  display:flex; justify-content:space-between; align-items:baseline;
-  font-size:7.8pt; letter-spacing:0.4px; text-transform:uppercase; color:var(--muted);
-  border-bottom:1px solid var(--line); padding-bottom:8px; margin-bottom:22px;
-}
-.doc-header b{ color:var(--ink); }
-.doc-footer{
-  position:absolute; bottom:10mm; left:20mm; right:20mm;
-  display:flex; justify-content:space-between;
-  font-size:7.5pt; color:var(--muted);
-  border-top:1px solid var(--line-soft); padding-top:6px;
-}
+    @page {
+      size: A4;
+      margin: 22mm 18mm 20mm 18mm;
+    }
 
-/* ---- cover ---- */
-.cover{ display:flex; flex-direction:column; min-height:1080px; }
-.cover-top{ display:flex; justify-content:space-between; align-items:flex-start; }
-.cover-mark{ font-size:9pt; font-weight:700; letter-spacing:2px; color:var(--ink); }
-.cover-mark span{ color:var(--accent); }
-.cover-class{ font-size:7.8pt; text-transform:uppercase; letter-spacing:1.5px; color:var(--muted); border:1px solid var(--line); padding:4px 10px; }
-.cover-body{ flex:1; display:flex; flex-direction:column; justify-content:center; padding:60px 0; }
-.cover-eyebrow{ font-family:Georgia,'Times New Roman',serif; font-style:italic; font-size:11pt; color:var(--accent); margin-bottom:14px; }
-.cover-title{ font-family:Georgia,'Times New Roman',serif; font-size:34pt; color:var(--ink); font-weight:600; line-height:1.15; margin-bottom:10px; }
-.cover-sub{ font-size:13pt; color:var(--slate); font-weight:400; }
-.cover-rule{ width:52px; height:2px; background:var(--accent); margin:26px 0; }
-.cover-ctrl{ border:1px solid var(--line); }
-.cover-ctrl table{ width:100%; border-collapse:collapse; margin:0; }
-.cover-ctrl td{ padding:9px 14px; font-size:9pt; border-bottom:1px solid var(--line-soft); }
-.cover-ctrl tr:last-child td{ border-bottom:none; }
-.cover-ctrl td.label{ color:var(--muted); width:38%; text-transform:uppercase; font-size:7.8pt; letter-spacing:0.5px; }
-.cover-ctrl td.val{ color:var(--ink); font-weight:600; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-/* ---- section furniture ---- */
-.eyebrow{ font-size:8pt; color:var(--accent); font-weight:700; letter-spacing:1.6px; text-transform:uppercase; margin-bottom:6px; }
-h2{ font-family:Georgia,'Times New Roman',serif; font-size:17pt; color:var(--ink); font-weight:600; margin-bottom:4px; }
-h2 + .section-dek{ color:var(--muted); font-size:9.3pt; margin-bottom:18px; padding-bottom:14px; border-bottom:1px solid var(--line); }
-h3{ font-family:Georgia,'Times New Roman',serif; font-size:12.5pt; color:var(--ink); font-weight:600; margin:22px 0 8px; }
-h4{ font-size:10pt; color:var(--ink); font-weight:700; margin:14px 0 4px; }
-p{ margin-bottom:10px; }
-.lede{ font-size:10.6pt; color:var(--slate); max-width:95%; }
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      color: var(--slate);
+      line-height: 1.55;
+      background: #EDEFF1;
+      font-size: 10.3pt;
+    }
 
-/* ---- tables ---- */
-table{ width:100%; border-collapse:collapse; margin:10px 0 20px; font-size:9pt; }
-th{ background:var(--ink); color:#fff; padding:8px 10px; text-align:left; font-weight:600; font-size:8.3pt; letter-spacing:0.3px; text-transform:uppercase; }
-td{ padding:8px 10px; border-bottom:1px solid var(--line-soft); vertical-align:top; }
-tr:nth-child(even) td{ background:var(--paper-alt); }
-td.id, th.id{ font-family:Georgia,serif; font-weight:700; color:var(--ink); white-space:nowrap; width:44px; }
-td.num{ text-align:center; white-space:nowrap; }
+    .page {
+      background: var(--paper);
+      max-width: 840px;
+      margin: 0 auto 14px auto;
+      padding: 26mm 20mm 20mm 20mm;
+      position: relative;
+      page-break-after: always;
+      min-height: 1120px;
+    }
 
-/* ---- chips ---- */
-.chip{ display:inline-block; padding:2px 9px; border-radius:3px; font-size:7.8pt; font-weight:700; letter-spacing:0.3px; text-transform:uppercase; white-space:nowrap; }
-.chip-crit{ background:var(--risk-crit-bg); color:var(--risk-crit-fg); }
-.chip-med{  background:var(--risk-med-bg);  color:var(--risk-med-fg); }
-.chip-low{  background:var(--risk-low-bg);  color:var(--risk-low-fg); }
-.chip-ref{ display:inline-block; background:var(--accent-soft); color:var(--accent); font-family:Georgia,serif; font-weight:700; font-size:8pt; padding:1px 6px; border-radius:3px; margin:1px 2px 1px 0; }
+    .page:last-child {
+      page-break-after: avoid;
+    }
 
-/* ---- KPI strip ---- */
-.kpi-strip{ display:flex; border:1px solid var(--line); margin:16px 0 22px; }
-.kpi-cell{ flex:1; padding:12px 14px; border-right:1px solid var(--line); }
-.kpi-cell:last-child{ border-right:none; }
-.kpi-num{ font-family:Georgia,serif; font-size:15pt; color:var(--ink); font-weight:700; }
-.kpi-lbl{ font-size:7.6pt; color:var(--muted); text-transform:uppercase; letter-spacing:0.5px; margin-top:2px; }
+    /* ---- running header / footer ---- */
+    .doc-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: 7.8pt;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      color: var(--muted);
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 8px;
+      margin-bottom: 22px;
+    }
 
-/* ---- callout ---- */
-.callout{ border-left:3px solid var(--accent); background:var(--accent-soft); padding:10px 14px; font-size:9pt; color:var(--ink); margin:10px 0 20px; }
+    .doc-header b {
+      color: var(--ink);
+    }
 
-/* ---- flow notes ---- */
-.flow-note{ font-size:8.6pt; color:var(--muted); margin:4px 0 18px; padding-left:2px; }
-.flow-note b{ color:var(--risk-crit-fg); }
+    .doc-footer {
+      position: absolute;
+      bottom: 10mm;
+      left: 20mm;
+      right: 20mm;
+      display: flex;
+      justify-content: space-between;
+      font-size: 7.5pt;
+      color: var(--muted);
+      border-top: 1px solid var(--line-soft);
+      padding-top: 6px;
+    }
 
-/* ---- maturity legend ---- */
-.maturity-legend{ background:var(--paper-alt); border:1px solid var(--line); border-radius:4px; padding:10px 14px; margin:4px 0 0; font-size:8pt; }
-.maturity-legend-title{ font-weight:700; color:var(--ink); font-size:8pt; margin-bottom:6px; }
-.maturity-bar-wrap{ display:flex; align-items:center; gap:8px; margin-bottom:4px; }
-.maturity-bar-track{ flex:1; height:7px; background:var(--line); border-radius:4px; position:relative; overflow:visible; }
-.maturity-bar-fill{ position:absolute; left:0; top:0; height:100%; width:34%; background:var(--accent); border-radius:4px; }
-.maturity-bar-marker{ position:absolute; top:-3px; width:2px; height:13px; background:var(--ink); border-radius:1px; }
-.maturity-bar-marker.target{ left:60%; background:#2563eb; }
-.maturity-bar-lbl{ font-size:7pt; color:var(--muted); white-space:nowrap; }
-.maturity-legend-notes{ display:flex; gap:14px; margin-top:6px; font-size:7.2pt; color:var(--muted); }
-.maturity-legend-notes span b{ color:var(--ink); }
+    /* ---- cover ---- */
+    .cover {
+      display: flex;
+      flex-direction: column;
+      min-height: 1080px;
+    }
 
-/* ---- team structure ---- */
-.team-structure{ margin:0 0 20px; }
-.org-chart{ display:flex; flex-direction:column; align-items:center; gap:0; margin:14px 0; font-size:8.3pt; }
-.org-level{ display:flex; justify-content:center; align-items:flex-start; gap:14px; width:100%; position:relative; }
-.org-connector-top{ width:1px; height:18px; background:var(--line); margin:0 auto; }
-.org-connector-row{ position:relative; display:flex; justify-content:center; gap:14px; width:100%; }
-.org-connector-row::before{ content:''; position:absolute; top:0; left:50%; transform:translateX(-50%); width:1px; height:18px; background:var(--line); }
-.org-node{ background:var(--paper); border:1px solid var(--line); border-radius:4px; padding:8px 10px; min-width:110px; max-width:140px; text-align:center; flex-shrink:0; }
-.org-node.lead{ border-color:var(--accent); background:var(--accent-soft); border-width:1.5px; }
-.org-node.secondary{ background:var(--paper-alt); }
-.org-name{ font-weight:700; color:var(--ink); font-size:8.2pt; margin-bottom:3px; }
-.org-role{ font-size:7pt; color:var(--muted); line-height:1.3; }
-.org-tag{ display:inline-block; background:var(--accent-soft); color:var(--accent); font-size:6.5pt; font-weight:700; padding:1px 5px; border-radius:2px; margin-top:4px; text-transform:uppercase; letter-spacing:0.3px; }
+    .cover-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
 
-/* ---- tools grid ---- */
-.tools-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:10px; margin:12px 0 20px; }
-.tool-card{ border:1px solid var(--line); border-radius:4px; padding:10px 12px; display:flex; gap:10px; align-items:flex-start; background:var(--paper); }
-.tool-icon{ font-size:18pt; line-height:1; flex-shrink:0; margin-top:1px; }
-.tool-name{ font-weight:700; color:var(--ink); font-size:8.5pt; margin-bottom:2px; }
-.tool-desc{ font-size:7.5pt; color:var(--muted); line-height:1.4; }
+    .cover-mark {
+      font-size: 9pt;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--ink);
+    }
 
-/* ---- roadmap table ---- */
-.tl-table td.phase-mark{ text-align:center; font-weight:700; }
-.tl-table td.phase-mark.p1{ color:var(--accent); }
-.tl-table td.phase-mark.p2{ color:#2563eb; }
-.tl-table td.phase-mark.p3{ color:#7c3aed; }
+    .cover-mark span {
+      color: var(--accent);
+    }
 
-/* ---- phase blocks ---- */
-.phase-block{ border:1px solid var(--line); margin:14px 0; overflow:hidden; }
-.phase-hd{ display:flex; justify-content:space-between; align-items:center; padding:10px 14px; border-bottom:1px solid var(--line); background:var(--paper-alt); gap:16px; }
-.phase-hd-left{ display:flex; flex-direction:column; gap:2px; }
-.phase-hd-title{ font-family:Georgia,serif; font-size:11pt; font-weight:700; color:var(--ink); }
-.phase-hd-timeline{ font-size:7.8pt; color:var(--muted); }
-.phase-maturity{ font-size:8.5pt; font-weight:700; color:var(--accent); border:1px solid var(--accent); border-radius:3px; padding:3px 10px; white-space:nowrap; flex-shrink:0; }
-.phase-maturity.p2{ color:#2563eb; border-color:#2563eb; }
-.phase-maturity.p3{ color:#7c3aed; border-color:#7c3aed; }
-.phase-sow{ padding:11px 14px 14px; }
-.col-label{ font-size:7.4pt; color:var(--muted); text-transform:uppercase; letter-spacing:0.8px; margin-bottom:8px; font-weight:700; }
-.sow-item{ display:flex; gap:8px; margin-bottom:5px; font-size:8.5pt; color:var(--slate); line-height:1.4; }
-.sow-dot{ width:4px; height:4px; background:var(--accent); border-radius:50%; margin-top:5px; flex-shrink:0; }
-.sow-dot.p2{ background:#2563eb; }
-.sow-dot.p3{ background:#7c3aed; }
-.phase-roi{ display:flex; border-top:1px solid var(--line); background:var(--paper-alt); }
-.roi-card{ flex:1; padding:10px 12px; border-right:1px solid var(--line); text-align:center; }
-.roi-card:last-child{ border-right:none; }
-.roi-card-num{ font-family:Georgia,serif; font-size:13pt; font-weight:700; color:var(--ink); line-height:1.1; margin-bottom:3px; }
-.roi-card-label{ font-size:7.5pt; color:var(--ink); font-weight:700; text-transform:uppercase; letter-spacing:0.3px; margin-bottom:3px; }
-.roi-card-desc{ font-size:7pt; color:var(--muted); line-height:1.35; }
+    .cover-class {
+      font-size: 7.8pt;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--muted);
+      border: 1px solid var(--line);
+      padding: 4px 10px;
+    }
 
-/* ---- maturity exhibit ---- */
-.exhibit{ display:flex; gap:26px; align-items:center; margin:14px 0 6px; }
-.exhibit-chart{ flex:0 0 220px; }
-.exhibit-note{ flex:1; font-size:9.2pt; color:var(--slate); }
-.exhibit-note b{ color:var(--ink); }
+    .cover-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 60px 0;
+    }
 
-/* ---- dep cards ---- */
-.dep-card{ border:1px solid var(--line); border-radius:8px; background:var(--paper); padding:16px; margin-bottom:16px; }
-.dep-header{ display:flex; align-items:center; justify-content:space-between; margin-bottom:12px; padding-bottom:8px; border-bottom:1px solid var(--line); }
-.dep-title{ font-weight:700; font-size:11pt; color:var(--ink); }
-.dep-badge{ font-size:7.5pt; font-weight:600; padding:3px 8px; border-radius:12px; background:#f1f5f9; color:#475569; text-transform:uppercase; }
-.dep-grid{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
-.dep-section{ background:#f8fafc; border-radius:6px; padding:12px; border:1px solid #e2e8f0; }
-.dep-section.bottleneck{ background:#fef2f2; border-color:#fecaca; }
-.dep-section.data-sync{ background:#f0f9ff; border-color:#bae6fd; }
-.dep-section-title{ font-size:7.5pt; font-weight:700; color:#64748b; text-transform:uppercase; margin-bottom:6px; letter-spacing:0.5px; }
-.bottleneck .dep-section-title{ color:#b91c1c; }
-.data-sync .dep-section-title{ color:#0369a1; }
-.dep-section-content{ font-size:8.5pt; color:var(--ink); line-height:1.4; }
-.dep-person{ display:inline-block; background:#f1f5f9; padding:2px 6px; border-radius:4px; font-weight:600; font-size:8pt; margin-top:4px; border:1px solid #cbd5e1; }
+    .cover-eyebrow {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-style: italic;
+      font-size: 11pt;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
 
-@media print{
-  body{ background:#fff; }
-  .page{ box-shadow:none; margin:0; }
-}
-</style>
+    .cover-title {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 34pt;
+      color: var(--ink);
+      font-weight: 600;
+      line-height: 1.15;
+      margin-bottom: 10px;
+    }
+
+    .cover-sub {
+      font-size: 13pt;
+      color: var(--slate);
+      font-weight: 400;
+    }
+
+    .cover-rule {
+      width: 52px;
+      height: 2px;
+      background: var(--accent);
+      margin: 26px 0;
+    }
+
+    .cover-ctrl {
+      border: 1px solid var(--line);
+    }
+
+    .cover-ctrl table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0;
+    }
+
+    .cover-ctrl td {
+      padding: 9px 14px;
+      font-size: 9pt;
+      border-bottom: 1px solid var(--line-soft);
+    }
+
+    .cover-ctrl tr:last-child td {
+      border-bottom: none;
+    }
+
+    .cover-ctrl td.label {
+      color: var(--muted);
+      width: 38%;
+      text-transform: uppercase;
+      font-size: 7.8pt;
+      letter-spacing: 0.5px;
+    }
+
+    .cover-ctrl td.val {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    /* ---- section furniture ---- */
+    .eyebrow {
+      font-size: 8pt;
+      color: var(--accent);
+      font-weight: 700;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    h2 {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 17pt;
+      color: var(--ink);
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    h2+.section-dek {
+      color: var(--muted);
+      font-size: 9.3pt;
+      margin-bottom: 18px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    h3 {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 12.5pt;
+      color: var(--ink);
+      font-weight: 600;
+      margin: 22px 0 8px;
+    }
+
+    h4 {
+      font-size: 10pt;
+      color: var(--ink);
+      font-weight: 700;
+      margin: 14px 0 4px;
+    }
+
+    p {
+      margin-bottom: 10px;
+    }
+
+    .lede {
+      font-size: 10.6pt;
+      color: var(--slate);
+      max-width: 95%;
+    }
+
+    /* ---- tables ---- */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 10px 0 20px;
+      font-size: 9pt;
+    }
+
+    th {
+      background: var(--ink);
+      color: #fff;
+      padding: 8px 10px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 8.3pt;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+    }
+
+    td {
+      padding: 8px 10px;
+      border-bottom: 1px solid var(--line-soft);
+      vertical-align: top;
+    }
+
+    tr:nth-child(even) td {
+      background: var(--paper-alt);
+    }
+
+    td.id,
+    th.id {
+      font-family: Georgia, serif;
+      font-weight: 700;
+      color: var(--ink);
+      white-space: nowrap;
+      width: 44px;
+    }
+
+    td.num {
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    /* ---- chips ---- */
+    .chip {
+      display: inline-block;
+      padding: 2px 9px;
+      border-radius: 3px;
+      font-size: 7.8pt;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .chip-crit {
+      background: var(--risk-crit-bg);
+      color: var(--risk-crit-fg);
+    }
+
+    .chip-med {
+      background: var(--risk-med-bg);
+      color: var(--risk-med-fg);
+    }
+
+    .chip-low {
+      background: var(--risk-low-bg);
+      color: var(--risk-low-fg);
+    }
+
+    .chip-ref {
+      display: inline-block;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-family: Georgia, serif;
+      font-weight: 700;
+      font-size: 8pt;
+      padding: 1px 6px;
+      border-radius: 3px;
+      margin: 1px 2px 1px 0;
+    }
+
+    /* ---- KPI strip ---- */
+    .kpi-strip {
+      display: flex;
+      border: 1px solid var(--line);
+      margin: 16px 0 22px;
+    }
+
+    .kpi-cell {
+      flex: 1;
+      padding: 12px 14px;
+      border-right: 1px solid var(--line);
+    }
+
+    .kpi-cell:last-child {
+      border-right: none;
+    }
+
+    .kpi-num {
+      font-family: Georgia, serif;
+      font-size: 15pt;
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    .kpi-lbl {
+      font-size: 7.6pt;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 2px;
+    }
+
+    /* ---- callout ---- */
+    .callout {
+      border-left: 3px solid var(--accent);
+      background: var(--accent-soft);
+      padding: 10px 14px;
+      font-size: 9pt;
+      color: var(--ink);
+      margin: 10px 0 20px;
+    }
+
+    /* ---- flow notes ---- */
+    .flow-note {
+      font-size: 8.6pt;
+      color: var(--muted);
+      margin: 4px 0 18px;
+      padding-left: 2px;
+    }
+
+    .flow-note b {
+      color: var(--risk-crit-fg);
+    }
+
+    /* ---- maturity legend ---- */
+    .maturity-legend {
+      background: var(--paper-alt);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 10px 14px;
+      margin: 4px 0 0;
+      font-size: 8pt;
+    }
+
+    .maturity-legend-title {
+      font-weight: 700;
+      color: var(--ink);
+      font-size: 8pt;
+      margin-bottom: 6px;
+    }
+
+    .maturity-bar-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+
+    .maturity-bar-track {
+      flex: 1;
+      height: 7px;
+      background: var(--line);
+      border-radius: 4px;
+      position: relative;
+      overflow: visible;
+    }
+
+    .maturity-bar-fill {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 34%;
+      background: var(--accent);
+      border-radius: 4px;
+    }
+
+    .maturity-bar-marker {
+      position: absolute;
+      top: -3px;
+      width: 2px;
+      height: 13px;
+      background: var(--ink);
+      border-radius: 1px;
+    }
+
+    .maturity-bar-marker.target {
+      left: 60%;
+      background: #2563eb;
+    }
+
+    .maturity-bar-lbl {
+      font-size: 7pt;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .maturity-legend-notes {
+      display: flex;
+      gap: 14px;
+      margin-top: 6px;
+      font-size: 7.2pt;
+      color: var(--muted);
+    }
+
+    .maturity-legend-notes span b {
+      color: var(--ink);
+    }
+
+    /* ---- team structure ---- */
+    .team-structure {
+      margin: 0 0 20px;
+    }
+
+    .org-chart {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      margin: 14px 0;
+      font-size: 8.3pt;
+    }
+
+    .org-level {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 14px;
+      width: 100%;
+      position: relative;
+    }
+
+    .org-connector-top {
+      width: 1px;
+      height: 18px;
+      background: var(--line);
+      margin: 0 auto;
+    }
+
+    .org-connector-row {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      width: 100%;
+    }
+
+    .org-connector-row::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1px;
+      height: 18px;
+      background: var(--line);
+    }
+
+    .org-node {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 8px 10px;
+      min-width: 110px;
+      max-width: 140px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .org-node.lead {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+      border-width: 1.5px;
+    }
+
+    .org-node.secondary {
+      background: var(--paper-alt);
+    }
+
+    .org-name {
+      font-weight: 700;
+      color: var(--ink);
+      font-size: 8.2pt;
+      margin-bottom: 3px;
+    }
+
+    .org-role {
+      font-size: 7pt;
+      color: var(--muted);
+      line-height: 1.3;
+    }
+
+    .org-tag {
+      display: inline-block;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 6.5pt;
+      font-weight: 700;
+      padding: 1px 5px;
+      border-radius: 2px;
+      margin-top: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    /* ---- tools grid ---- */
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin: 12px 0 20px;
+    }
+
+    .tool-card {
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 10px 12px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      background: var(--paper);
+    }
+
+    .tool-icon {
+      font-size: 18pt;
+      line-height: 1;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .tool-name {
+      font-weight: 700;
+      color: var(--ink);
+      font-size: 8.5pt;
+      margin-bottom: 2px;
+    }
+
+    .tool-desc {
+      font-size: 7.5pt;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    /* ---- roadmap table ---- */
+    .tl-table td.phase-mark {
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .tl-table td.phase-mark.p1 {
+      color: var(--accent);
+    }
+
+    .tl-table td.phase-mark.p2 {
+      color: #2563eb;
+    }
+
+    .tl-table td.phase-mark.p3 {
+      color: #7c3aed;
+    }
+
+    /* ---- phase blocks ---- */
+    .phase-block {
+      border: 1px solid var(--line);
+      margin: 14px 0;
+      overflow: hidden;
+    }
+
+    .phase-hd {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--line);
+      background: var(--paper-alt);
+      gap: 16px;
+    }
+
+    .phase-hd-left {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .phase-hd-title {
+      font-family: Georgia, serif;
+      font-size: 11pt;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .phase-hd-timeline {
+      font-size: 7.8pt;
+      color: var(--muted);
+    }
+
+    .phase-maturity {
+      font-size: 8.5pt;
+      font-weight: 700;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      border-radius: 3px;
+      padding: 3px 10px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .phase-maturity.p2 {
+      color: #2563eb;
+      border-color: #2563eb;
+    }
+
+    .phase-maturity.p3 {
+      color: #7c3aed;
+      border-color: #7c3aed;
+    }
+
+    .phase-sow {
+      padding: 11px 14px 14px;
+    }
+
+    .col-label {
+      font-size: 7.4pt;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+
+    .sow-item {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 5px;
+      font-size: 8.5pt;
+      color: var(--slate);
+      line-height: 1.4;
+    }
+
+    .sow-dot {
+      width: 4px;
+      height: 4px;
+      background: var(--accent);
+      border-radius: 50%;
+      margin-top: 5px;
+      flex-shrink: 0;
+    }
+
+    .sow-dot.p2 {
+      background: #2563eb;
+    }
+
+    .sow-dot.p3 {
+      background: #7c3aed;
+    }
+
+    .phase-roi {
+      display: flex;
+      border-top: 1px solid var(--line);
+      background: var(--paper-alt);
+    }
+
+    .roi-card {
+      flex: 1;
+      padding: 10px 12px;
+      border-right: 1px solid var(--line);
+      text-align: center;
+    }
+
+    .roi-card:last-child {
+      border-right: none;
+    }
+
+    .roi-card-num {
+      font-family: Georgia, serif;
+      font-size: 13pt;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.1;
+      margin-bottom: 3px;
+    }
+
+    .roi-card-label {
+      font-size: 7.5pt;
+      color: var(--ink);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      margin-bottom: 3px;
+    }
+
+    .roi-card-desc {
+      font-size: 7pt;
+      color: var(--muted);
+      line-height: 1.35;
+    }
+
+    /* ---- maturity exhibit ---- */
+    .exhibit {
+      display: flex;
+      gap: 26px;
+      align-items: center;
+      margin: 14px 0 6px;
+    }
+
+    .exhibit-chart {
+      flex: 0 0 220px;
+    }
+
+    .exhibit-note {
+      flex: 1;
+      font-size: 9.2pt;
+      color: var(--slate);
+    }
+
+    .exhibit-note b {
+      color: var(--ink);
+    }
+
+    /* ---- dep cards ---- */
+    .dep-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .dep-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .dep-title {
+      font-weight: 700;
+      font-size: 11pt;
+      color: var(--ink);
+    }
+
+    .dep-badge {
+      font-size: 7.5pt;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 12px;
+      background: #f1f5f9;
+      color: #475569;
+      text-transform: uppercase;
+    }
+
+    .dep-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .dep-section {
+      background: #f8fafc;
+      border-radius: 6px;
+      padding: 12px;
+      border: 1px solid #e2e8f0;
+    }
+
+    .dep-section.bottleneck {
+      background: #fef2f2;
+      border-color: #fecaca;
+    }
+
+    .dep-section.data-sync {
+      background: #f0f9ff;
+      border-color: #bae6fd;
+    }
+
+    .dep-section-title {
+      font-size: 7.5pt;
+      font-weight: 700;
+      color: #64748b;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      letter-spacing: 0.5px;
+    }
+
+    .bottleneck .dep-section-title {
+      color: #b91c1c;
+    }
+
+    .data-sync .dep-section-title {
+      color: #0369a1;
+    }
+
+    .dep-section-content {
+      font-size: 8.5pt;
+      color: var(--slate);
+      line-height: 1.4;
+    }
+
+    .dep-person {
+      display: inline-block;
+      background: #f1f5f9;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 8pt;
+      margin-top: 4px;
+      border: 1px solid #cbd5e1;
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .page {
+        box-shadow: none;
+        margin: 0;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<!-- ============ COVER ============ -->
-<div class="page cover">
-  <div class="cover-top">
-    <div class="cover-mark">EF POLYMER PRIVATE LIMITED</div>
-    <div class="cover-class">Confidential — Executive Leadership Only</div>
+  <!-- ============ COVER ============ -->
+  <div class="page cover">
+    <img src="../letterhead.png" alt="Letterhead"
+      style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
+    <div class="cover-body">
+      <div class="cover-eyebrow">Department Wise Audit Report</div>
+      <div class="cover-title">Operations &amp; Finance (COO)</div>
+      <div class="cover-sub">Comprehensive Operational Audit: HR, Finance, Retail, MENA &amp; Marketing — Puran Singh
+        Rajput</div>
+      <div class="cover-rule"></div>
+      <p style="max-width:70%;color:var(--muted);font-size:9.3pt;">
+        An independent review of executive communication saturation, manual HR &amp; Finance bottlenecks, retail field
+        force tracking, and MENA CRM oversight managed by the COO, prepared as part of the EF Polymer Private Limited
+        organization-wide operational audit by Creative Upaay.
+      </p>
+    </div>
+    <div class="cover-ctrl">
+      <table>
+        <tr>
+          <td class="label">Client</td>
+          <td class="val">EF Polymer Private Limited</td>
+        </tr>
+        <tr>
+          <td class="label">Prepared by</td>
+          <td class="val">Creative Upaay</td>
+        </tr>
+        <tr>
+          <td class="label">Document version</td>
+          <td class="val">1.1 (Expanded Scope)</td>
+        </tr>
+        <tr>
+          <td class="label">Date issued</td>
+          <td class="val">17th July 2026</td>
+        </tr>
+        <tr>
+          <td class="label">Review scope</td>
+          <td class="val">COO Office Operations (HR, Finance, Retail, MENA)</td>
+        </tr>
+      </table>
+    </div>
   </div>
-  <div class="cover-body">
-    <div class="cover-eyebrow">Department Wise Audit Report</div>
-    <div class="cover-title">Operations &amp; Finance (COO)</div>
-    <div class="cover-sub">Comprehensive Operational Audit: HR, Finance, Retail, MENA &amp; Marketing — Puran Singh Rajput</div>
-    <div class="cover-rule"></div>
-    <p style="max-width:70%;color:var(--muted);font-size:9.3pt;">
-      An independent review of executive communication saturation, manual HR &amp; Finance bottlenecks, retail field force tracking, and MENA CRM oversight managed by the COO, prepared as part of the EF Polymer Private Limited organization-wide operational audit by Creative Upaay.
-    </p>
+
+  <!-- ============ 01 EXECUTIVE SUMMARY ============ -->
+  <div class="page">
+    <img src="../letterhead.png" alt="Letterhead"
+      style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
+
+    <div class="eyebrow">Section 01 — Executive Summary</div>
+    <h2>Department Overview</h2>
+    <div class="section-dek">Scope, current state, and headline findings</div>
+
+    <p class="lede">The COO Office exercises broad strategic oversight spanning Finance, HR, Marketing, Retail Sales,
+      and MENA business development. While direct execution is delegated, the COO actively dictates annual planning,
+      manually reconciles finance reports, takes 60-80 cultural fit interviews per role, and resolves daily operational
+      friction across fragmented tools.</p>
+
+    <p>The audit uncovered severe operational saturation. The COO manages 50–80 daily emails and 150+ WhatsApp groups
+      without a unified dashboard. In HR, critical processes like PMS, L&D, and offer approvals are buried in email and
+      Google Sheets. In Finance, monthly reporting requires manual extraction from Zoho Books rather than real-time
+      dashboard visibility. Retail Sales data is entirely haywired on WhatsApp, and MENA lacks a centralized CRM to
+      track complex trial lifecycles.</p>
+
+    <div class="kpi-strip">
+      <div class="kpi-cell">
+        <div class="kpi-num">60–80</div>
+        <div class="kpi-lbl">HR Interviews per Role</div>
+      </div>
+      <div class="kpi-cell">
+        <div class="kpi-num">100+</div>
+        <div class="kpi-lbl">Monthly Expense Reports</div>
+      </div>
+      <div class="kpi-cell">
+        <div class="kpi-num">150+</div>
+        <div class="kpi-lbl">Shared WA Groups</div>
+      </div>
+      <div class="kpi-cell">
+        <div class="kpi-num">1.5 / 5.0</div>
+        <div class="kpi-lbl">Overall Maturity Score</div>
+      </div>
+    </div>
+
+    <div class="maturity-legend">
+      <div class="maturity-legend-title">About the Maturity Score</div>
+      <div style="font-size:7.5pt;color:var(--muted);margin-bottom:8px;">A 1–5 scale measuring how systematised,
+        documented, and independently operable the department is. Scored across five dimensions: Process, Technology,
+        Data Quality, Documentation &amp; Knowledge Management.</div>
+      <div class="maturity-bar-wrap">
+        <span class="maturity-bar-lbl">1 — Ad hoc</span>
+        <div class="maturity-bar-track">
+          <div class="maturity-bar-fill" style="width:30%;"></div>
+          <div class="maturity-bar-marker target"></div>
+        </div>
+        <span class="maturity-bar-lbl">5 — Optimised</span>
+      </div>
+      <div class="maturity-legend-notes">
+        <span>&#9632; <b>1.5</b> Current state</span>
+        <span style="color:#2563eb;">&#9646; <b>3.0</b> Post-roadmap target</span>
+        <span>&#9711; <b>5.0</b> Best-in-class benchmark</span>
+      </div>
+    </div>
+
+    <div class="doc-footer"><span>Operations Audit Report · v1.1</span><span>Page 2</span></div>
   </div>
-  <div class="cover-ctrl">
+
+  <!-- ============ 02 BENCHMARKING ============ -->
+  <div class="page">
+    <img src="../letterhead.png" alt="Letterhead"
+      style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
+
+    <div class="eyebrow">Section 02 — Benchmarking</div>
+    <h2>Department Maturity Assessment</h2>
+    <div class="section-dek">Scored 1 (ad hoc) to 5 (optimized) against five capability dimensions</div>
+
+    <div class="exhibit">
+      <div class="exhibit-chart">
+        <svg viewBox="0 0 400 350" xmlns="http://www.w3.org/2000/svg" style="width:100%;">
+          <g transform="translate(200,170)">
+            <polygon points="0,-120 114,-37 70,97 -70,97 -114,-37" fill="none" stroke="#E2E8F0" stroke-width="0.75" />
+            <polygon points="0,-96 91,-30 56,78 -56,78 -91,-30" fill="none" stroke="#E2E8F0" stroke-width="0.75" />
+            <polygon points="0,-72 68,-22 42,58 -42,58 -68,-22" fill="none" stroke="#E2E8F0" stroke-width="0.75" />
+            <polygon points="0,-48 46,-15 28,39 -28,39 -46,-15" fill="none" stroke="#E2E8F0" stroke-width="0.75" />
+            <polygon points="0,-24 23,-7 14,19 -14,19 -23,-7" fill="none" stroke="#E2E8F0" stroke-width="0.75" />
+            <line x1="0" y1="0" x2="0" y2="-120" stroke="#E2E8F0" stroke-width="0.75" />
+            <line x1="0" y1="0" x2="114" y2="-37" stroke="#E2E8F0" stroke-width="0.75" />
+            <line x1="0" y1="0" x2="70" y2="97" stroke="#E2E8F0" stroke-width="0.75" />
+            <line x1="0" y1="0" x2="-70" y2="97" stroke="#E2E8F0" stroke-width="0.75" />
+            <line x1="0" y1="0" x2="-114" y2="-37" stroke="#E2E8F0" stroke-width="0.75" />
+
+            <polygon points="0,-72 68.4,-22.2 49,67.9 -42,58.2 -57,-18.5" fill="none" stroke="#B8C0C9" stroke-width="1"
+              stroke-dasharray="5,3" />
+            <polygon points="0,-36 34.2,-11.1 14,19.4 -14,19.4 -22.8,-7.4" fill="rgba(15,107,98,0.14)" stroke="#0F6B62"
+              stroke-width="1.75" />
+            <circle cx="0" cy="-36" r="3.2" fill="#0F6B62" />
+            <circle cx="34.2" cy="-11.1" r="3.2" fill="#0F6B62" />
+            <circle cx="14" cy="19.4" r="3.2" fill="#0F6B62" />
+            <circle cx="-14" cy="19.4" r="3.2" fill="#0F6B62" />
+            <circle cx="-22.8" cy="-7.4" r="3.2" fill="#0F6B62" />
+
+            <text x="0" y="-132" text-anchor="middle" font-size="9" fill="#1B2A4A" font-weight="600">Process</text>
+            <text x="128" y="-20" text-anchor="start" font-size="9" fill="#1B2A4A" font-weight="600">Technology</text>
+            <text x="78" y="110" text-anchor="start" font-size="9" fill="#1B2A4A" font-weight="600">Data Quality</text>
+            <text x="-78" y="110" text-anchor="end" font-size="9" fill="#1B2A4A" font-weight="600">Documentation</text>
+            <text x="-128" y="-16" text-anchor="end" font-size="9" fill="#1B2A4A" font-weight="600">Knowledge
+              Mgmt.</text>
+          </g>
+        </svg>
+      </div>
+      <div class="exhibit-note">
+        Solid line: current state. Dashed line: target state (post-roadmap).<br><br>
+        <b>Operations &amp; Finance scores 1.5 overall</b> — Dragged heavily by manual approaches to HR (PMS, L&D) and
+        Finance (report reconciliation, tax calculations). Reliance on scattered WhatsApp groups and email approvals
+        kills executive capacity. A unified CXO dashboard with an integrated knowledge layer is critical.
+      </div>
+    </div>
+
     <table>
-      <tr><td class="label">Client</td><td class="val">EF Polymer Private Limited</td></tr>
-      <tr><td class="label">Prepared by</td><td class="val">Creative Upaay</td></tr>
-      <tr><td class="label">Document version</td><td class="val">1.1 (Expanded Scope)</td></tr>
-      <tr><td class="label">Date issued</td><td class="val">17th July 2026</td></tr>
-      <tr><td class="label">Review scope</td><td class="val">COO Office Operations (HR, Finance, Retail, MENA)</td></tr>
+      <tr>
+        <th>Dimension</th>
+        <th class="num">Current</th>
+        <th class="num">Target</th>
+        <th class="num">Gap</th>
+      </tr>
+      <tr>
+        <td>Process Standardization</td>
+        <td class="num">1.5</td>
+        <td class="num">3.0</td>
+        <td class="num">1.5</td>
+      </tr>
+      <tr>
+        <td>Technology Utilization</td>
+        <td class="num">1.5</td>
+        <td class="num">3.0</td>
+        <td class="num">1.5</td>
+      </tr>
+      <tr>
+        <td>Data Quality &amp; Accessibility</td>
+        <td class="num">1.0</td>
+        <td class="num">3.5</td>
+        <td class="num">2.5</td>
+      </tr>
+      <tr>
+        <td>Documentation</td>
+        <td class="num">1.5</td>
+        <td class="num">3.0</td>
+        <td class="num">1.5</td>
+      </tr>
+      <tr>
+        <td>Knowledge Management</td>
+        <td class="num">2.0</td>
+        <td class="num">2.5</td>
+        <td class="num">0.5</td>
+      </tr>
+      <tr style="font-weight:700;">
+        <td>Overall</td>
+        <td class="num">1.5</td>
+        <td class="num">3.0</td>
+        <td class="num">1.5</td>
+      </tr>
     </table>
-  </div>
-</div>
 
-<!-- ============ 01 EXECUTIVE SUMMARY ============ -->
-<div class="page">
-  <div class="doc-header"><span><b>EF Polymer Private Limited</b> — Operations Audit</span><span>Confidential</span></div>
-
-  <div class="eyebrow">Section 01 — Executive Summary</div>
-  <h2>Department Overview</h2>
-  <div class="section-dek">Scope, current state, and headline findings</div>
-
-  <p class="lede">The COO Office exercises broad strategic oversight spanning Finance, HR, Marketing, Retail Sales, and MENA business development. While direct execution is delegated, the COO actively dictates annual planning, manually reconciles finance reports, takes 60-80 cultural fit interviews per role, and resolves daily operational friction across fragmented tools.</p>
-
-  <p>The audit uncovered severe operational saturation. The COO manages 50–80 daily emails and 150+ WhatsApp groups without a unified dashboard. In HR, critical processes like PMS, L&D, and offer approvals are buried in email and Google Sheets. In Finance, monthly reporting requires manual extraction from Zoho Books rather than real-time dashboard visibility. Retail Sales data is entirely haywired on WhatsApp, and MENA lacks a centralized CRM to track complex trial lifecycles.</p>
-
-  <div class="kpi-strip">
-    <div class="kpi-cell"><div class="kpi-num">60–80</div><div class="kpi-lbl">HR Interviews per Role</div></div>
-    <div class="kpi-cell"><div class="kpi-num">100+</div><div class="kpi-lbl">Monthly Expense Reports</div></div>
-    <div class="kpi-cell"><div class="kpi-num">150+</div><div class="kpi-lbl">Shared WA Groups</div></div>
-    <div class="kpi-cell"><div class="kpi-num">1.5 / 5.0</div><div class="kpi-lbl">Overall Maturity Score</div></div>
-  </div>
-  
-  <div class="maturity-legend">
-    <div class="maturity-legend-title">About the Maturity Score</div>
-    <div style="font-size:7.5pt;color:var(--muted);margin-bottom:8px;">A 1–5 scale measuring how systematised, documented, and independently operable the department is. Scored across five dimensions: Process, Technology, Data Quality, Documentation &amp; Knowledge Management.</div>
-    <div class="maturity-bar-wrap">
-      <span class="maturity-bar-lbl">1 — Ad hoc</span>
-      <div class="maturity-bar-track">
-        <div class="maturity-bar-fill" style="width:30%;"></div>
-        <div class="maturity-bar-marker target"></div>
-      </div>
-      <span class="maturity-bar-lbl">5 — Optimised</span>
-    </div>
-    <div class="maturity-legend-notes">
-      <span>&#9632; <b>1.5</b> Current state</span>
-      <span style="color:#2563eb;">&#9646; <b>3.0</b> Post-roadmap target</span>
-      <span>&#9711; <b>5.0</b> Best-in-class benchmark</span>
-    </div>
+    <div class="doc-footer"><span>Operations Audit Report · v1.1</span><span>Page 3</span></div>
   </div>
 
-  <div class="doc-footer"><span>Operations Audit Report · v1.1</span><span>Page 2</span></div>
-</div>
+  <!-- ============ 03 TEAM STRUCTURE & TOOLS ============ -->
+  <div class="page">
+    <img src="../letterhead.png" alt="Letterhead"
+      style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
 
-<!-- ============ 02 BENCHMARKING ============ -->
-<div class="page">
-  <div class="doc-header"><span><b>EF Polymer Private Limited</b> — Operations Audit</span><span>Confidential</span></div>
-
-  <div class="eyebrow">Section 02 — Benchmarking</div>
-  <h2>Department Maturity Assessment</h2>
-  <div class="section-dek">Scored 1 (ad hoc) to 5 (optimized) against five capability dimensions</div>
-
-  <div class="exhibit">
-    <div class="exhibit-chart">
-      <svg viewBox="0 0 400 350" xmlns="http://www.w3.org/2000/svg" style="width:100%;">
-        <g transform="translate(200,170)">
-          <polygon points="0,-120 114,-37 70,97 -70,97 -114,-37" fill="none" stroke="#E2E8F0" stroke-width="0.75"/>
-          <polygon points="0,-96 91,-30 56,78 -56,78 -91,-30"    fill="none" stroke="#E2E8F0" stroke-width="0.75"/>
-          <polygon points="0,-72 68,-22 42,58 -42,58 -68,-22"    fill="none" stroke="#E2E8F0" stroke-width="0.75"/>
-          <polygon points="0,-48 46,-15 28,39 -28,39 -46,-15"    fill="none" stroke="#E2E8F0" stroke-width="0.75"/>
-          <polygon points="0,-24 23,-7 14,19 -14,19 -23,-7"      fill="none" stroke="#E2E8F0" stroke-width="0.75"/>
-          <line x1="0" y1="0" x2="0"    y2="-120" stroke="#E2E8F0" stroke-width="0.75"/>
-          <line x1="0" y1="0" x2="114"  y2="-37"  stroke="#E2E8F0" stroke-width="0.75"/>
-          <line x1="0" y1="0" x2="70"   y2="97"   stroke="#E2E8F0" stroke-width="0.75"/>
-          <line x1="0" y1="0" x2="-70"  y2="97"   stroke="#E2E8F0" stroke-width="0.75"/>
-          <line x1="0" y1="0" x2="-114" y2="-37"  stroke="#E2E8F0" stroke-width="0.75"/>
-          
-          <polygon points="0,-72 68.4,-22.2 49,67.9 -42,58.2 -57,-18.5" fill="none" stroke="#B8C0C9" stroke-width="1" stroke-dasharray="5,3"/>
-          <polygon points="0,-36 34.2,-11.1 14,19.4 -14,19.4 -22.8,-7.4" fill="rgba(15,107,98,0.14)" stroke="#0F6B62" stroke-width="1.75"/>
-          <circle cx="0" cy="-36" r="3.2" fill="#0F6B62"/>
-          <circle cx="34.2" cy="-11.1" r="3.2" fill="#0F6B62"/>
-          <circle cx="14" cy="19.4" r="3.2" fill="#0F6B62"/>
-          <circle cx="-14" cy="19.4" r="3.2" fill="#0F6B62"/>
-          <circle cx="-22.8" cy="-7.4" r="3.2" fill="#0F6B62"/>
-          
-          <text x="0"    y="-132" text-anchor="middle" font-size="9" fill="#1B2A4A" font-weight="600">Process</text>
-          <text x="128"  y="-20"  text-anchor="start"  font-size="9" fill="#1B2A4A" font-weight="600">Technology</text>
-          <text x="78"   y="110"  text-anchor="start"  font-size="9" fill="#1B2A4A" font-weight="600">Data Quality</text>
-          <text x="-78"  y="110"  text-anchor="end"    font-size="9" fill="#1B2A4A" font-weight="600">Documentation</text>
-          <text x="-128" y="-16"  text-anchor="end"    font-size="9" fill="#1B2A4A" font-weight="600">Knowledge Mgmt.</text>
-        </g>
-      </svg>
-    </div>
-    <div class="exhibit-note">
-      Solid line: current state. Dashed line: target state (post-roadmap).<br><br>
-      <b>Operations &amp; Finance scores 1.5 overall</b> — Dragged heavily by manual approaches to HR (PMS, L&D) and Finance (report reconciliation, tax calculations). Reliance on scattered WhatsApp groups and email approvals kills executive capacity. A unified CXO dashboard with an integrated knowledge layer is critical.
-    </div>
-  </div>
-
-  <table>
-    <tr><th>Dimension</th><th class="num">Current</th><th class="num">Target</th><th class="num">Gap</th></tr>
-    <tr><td>Process Standardization</td><td class="num">1.5</td><td class="num">3.0</td><td class="num">1.5</td></tr>
-    <tr><td>Technology Utilization</td><td class="num">1.5</td><td class="num">3.0</td><td class="num">1.5</td></tr>
-    <tr><td>Data Quality &amp; Accessibility</td><td class="num">1.0</td><td class="num">3.5</td><td class="num">2.5</td></tr>
-    <tr><td>Documentation</td><td class="num">1.5</td><td class="num">3.0</td><td class="num">1.5</td></tr>
-    <tr><td>Knowledge Management</td><td class="num">2.0</td><td class="num">2.5</td><td class="num">0.5</td></tr>
-    <tr style="font-weight:700;"><td>Overall</td><td class="num">1.5</td><td class="num">3.0</td><td class="num">1.5</td></tr>
-  </table>
-
-  <div class="doc-footer"><span>Operations Audit Report · v1.1</span><span>Page 3</span></div>
-</div>
-
-<!-- ============ 03 TEAM STRUCTURE & TOOLS ============ -->
-<div class="page">
-  <div class="doc-header"><span><b>EF Polymer Private Limited</b> — Operations Audit</span><span>Confidential</span></div>
-  
-  <h3>Team Structure</h3>
-  <p style="font-size:8.5pt;color:var(--muted);margin-bottom:4px;">Reporting hierarchy and current responsibility domains within Operations &amp; Finance.</p>
-  <div class="org-chart">
-    <div class="org-level">
-      <div class="org-node lead">
-        <div class="org-name">Puran Singh Rajput</div>
-        <div class="org-role">COO &amp; Operations Lead<br>Finance, HR, Retail, MENA, Mktg</div>
-        <span class="org-tag">Lead</span>
-      </div>
-    </div>
-    <div class="org-connector-top"></div>
-    <div style="width:88%;border-top:1px solid var(--line);margin:0 auto;"></div>
-    <div style="display:flex;justify-content:center;gap:14px;width:100%;margin-top:0;">
-      
-      <div class="org-sub-branch">
-        <div class="org-connector-top"></div>
-        <div class="org-node">
-          <div class="org-name">Finance &amp; Accounts</div>
-          <div class="org-role">Budgeting, Payroll, Tax, Expenses</div>
+    <h3>Team Structure</h3>
+    <p style="font-size:8.5pt;color:var(--muted);margin-bottom:4px;">Reporting hierarchy and current responsibility
+      domains within Operations &amp; Finance.</p>
+    <div class="org-chart">
+      <div class="org-level">
+        <div class="org-node lead">
+          <div class="org-name">Puran Singh Rajput</div>
+          <div class="org-role">COO &amp; Operations Lead<br>Finance, HR, Retail, MENA, Mktg</div>
+          <span class="org-tag">Lead</span>
         </div>
       </div>
-      <div class="org-sub-branch">
-        <div class="org-connector-top"></div>
-        <div class="org-node">
-          <div class="org-name">HR Team</div>
-          <div class="org-role">Hiring, PMS, L&D, Onboarding</div>
+      <div class="org-connector-top"></div>
+      <div style="width:88%;border-top:1px solid var(--line);margin:0 auto;"></div>
+      <div style="display:flex;justify-content:center;gap:14px;width:100%;margin-top:0;">
+
+        <div class="org-sub-branch">
+          <div class="org-connector-top"></div>
+          <div class="org-node">
+            <div class="org-name">Finance &amp; Accounts</div>
+            <div class="org-role">Budgeting, Payroll, Tax, Expenses</div>
+          </div>
         </div>
-      </div>
-      <div class="org-sub-branch">
-        <div class="org-connector-top"></div>
-        <div class="org-node">
-          <div class="org-name">Retail Sales</div>
-          <div class="org-role">Field Force &amp; Distributors</div>
+        <div class="org-sub-branch">
+          <div class="org-connector-top"></div>
+          <div class="org-node">
+            <div class="org-name">HR Team</div>
+            <div class="org-role">Hiring, PMS, L&D, Onboarding</div>
+          </div>
         </div>
-      </div>
-      <div class="org-sub-branch">
-        <div class="org-connector-top"></div>
-        <div class="org-node">
-          <div class="org-name">MENA Sales</div>
-          <div class="org-role">Intl. Trials &amp; Biz Dev</div>
+        <div class="org-sub-branch">
+          <div class="org-connector-top"></div>
+          <div class="org-node">
+            <div class="org-name">Retail Sales</div>
+            <div class="org-role">Field Force &amp; Distributors</div>
+          </div>
         </div>
-      </div>
-      <div class="org-sub-branch">
-        <div class="org-connector-top"></div>
-        <div class="org-node">
-          <div class="org-name">Marketing</div>
-          <div class="org-role">Online/Offline Campaigns</div>
+        <div class="org-sub-branch">
+          <div class="org-connector-top"></div>
+          <div class="org-node">
+            <div class="org-name">MENA Sales</div>
+            <div class="org-role">Intl. Trials &amp; Biz Dev</div>
+          </div>
+        </div>
+        <div class="org-sub-branch">
+          <div class="org-connector-top"></div>
+          <div class="org-node">
+            <div class="org-name">Marketing</div>
+            <div class="org-role">Online/Offline Campaigns</div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <h3>Tools in Use</h3>
-  <div class="tools-grid">
-    <div class="tool-card">
-      <div class="tool-icon"><img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" width="24" height="24" style="display:block; object-fit:contain;" alt="WhatsApp" /></div>
-      <div>
-        <div class="tool-name">WhatsApp</div>
-        <div class="tool-desc">Primary channel for Retail Sales tracking & MENA pipeline (highly unstructured)</div>
-      </div>
-    </div>
-    <div class="tool-card">
-      <div class="tool-icon"><img src="https://img.icons8.com/color/48/000000/google-sheets.png" width="24" height="24" style="display:block; object-fit:contain;" alt="Google Sheets" /></div>
-      <div>
-        <div class="tool-name">Google Sheets &amp; Forms</div>
-        <div class="tool-desc">Manual tracking for HR hiring funnels, PMS, and finance reconciliations</div>
-      </div>
-    </div>
-    <div class="tool-card">
-      <div class="tool-icon"><img src="https://cdn.worldvectorlogo.com/logos/zoho-1.svg" width="24" height="24" style="display:block; object-fit:contain;" alt="Zoho Suite" /></div>
-      <div>
-        <div class="tool-name">Zoho Suite</div>
-        <div class="tool-desc">Books, Expenses, Payroll. Uses Zia chatbot for policy (subpar experience)</div>
-      </div>
-    </div>
-    <div class="tool-card">
-      <div class="tool-icon"><img src="https://img.icons8.com/color/48/000000/gmail--v1.png" width="24" height="24" style="display:block; object-fit:contain;" alt="Gmail" /></div>
-      <div>
-        <div class="tool-name">Email (Gmail)</div>
-        <div class="tool-desc">Used for all approvals (offers, expenses, policy changes). No unified dashboard</div>
-      </div>
-    </div>
-    <div class="tool-card">
-      <div class="tool-icon"><img src="https://img.icons8.com/color/48/000000/slack-new.png" width="24" height="24" style="display:block; object-fit:contain;" alt="Slack" /></div>
-      <div>
-        <div class="tool-name">Slack</div>
-        <div class="tool-desc">Internal operational communication and team alignment</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="doc-footer"><span>Operations Audit Report · v1.1</span><span>Page 4</span></div>
-</div>
-
-<!-- ============ 03 WORKFLOWS - PART 1 ============ -->
-<div class="page">
-  <div class="doc-header"><span><b>EF Polymer Private Limited</b> — Operations Audit</span><span>Confidential</span></div>
-
-  <div class="eyebrow">Section 03 — Process Detail (Part 1)</div>
-  <h2>Current Workflows: HR &amp; Finance</h2>
-  <div class="section-dek">Where each finding sits inside the operational process</div>
-
-  <!-- WORKFLOW 1 -->
-  <h3>HR Hiring &amp; Cultural Fit Funnel — <span class="chip-ref">P-04</span></h3>
-  <svg viewBox="0 0 740 92" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:10px 0 4px;">
-    <defs>
-      <marker id="a1" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
-        <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5"/>
-      </marker>
-    </defs>
-    <rect x="10"  y="22" width="130" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
-    <text x="75"  y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Dept Shares Req</text>
-    <text x="75"  y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">via Google Form</text>
-    <line x1="140" y1="46" x2="160" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)"/>
-
-    <rect x="160" y="22" width="130" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
-    <text x="225" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">HR Screens 60-80</text>
-    <text x="225" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Profiles</text>
-    <line x1="290" y1="46" x2="310" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)"/>
-
-    <rect x="310" y="22" width="130" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
-    <text x="375" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">HODs Interview</text>
-    <text x="375" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Shortlist 15-20</text>
-    <line x1="440" y1="46" x2="460" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)"/>
-
-    <rect x="460" y="22" width="130" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5"/>
-    <text x="525" y="43" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">COO takes 15-20</text>
-    <text x="525" y="55" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">30-40 Min Interviews</text>
-    <line x1="590" y1="46" x2="610" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)"/>
-
-    <rect x="610" y="22" width="120" height="48" rx="3" fill="#FBF1DF" stroke="#E8C97A" stroke-width="1.5"/>
-    <text x="670" y="43" text-anchor="middle" font-size="7.6" fill="#8A5A10" font-family="Segoe UI,sans-serif">Offer Approved on</text>
-    <text x="670" y="55" text-anchor="middle" font-size="7.6" fill="#8A5A10" font-family="Segoe UI,sans-serif">Email</text>
-  </svg>
-  <div class="flow-note">
-    <p style="margin-top:0;"><strong>What needs to be fixed:</strong> The COO spends massive bandwidth conducting 15-20 final interviews per role (30-40 mins each) and manually approving offer letters over email. There is no dashboard visibility for pending JDs, interview notes, or offer approvals.</p>
-  </div>
-
-  <!-- WORKFLOW 2 -->
-  <h3>Finance &amp; Expense Reconciliation — <span class="chip-ref">P-05</span></h3>
-  <svg viewBox="0 0 740 92" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:10px 0 4px;">
-    <defs>
-      <marker id="a2" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
-        <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5"/>
-      </marker>
-    </defs>
-    <rect x="10"  y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
-    <text x="70"  y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">100+ Expenses</text>
-    <text x="70"  y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Submitted Monthly</text>
-    <line x1="130" y1="46" x2="150" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)"/>
-
-    <rect x="150" y="22" width="120" height="48" rx="3" fill="#FBF1DF" stroke="#E8C97A" stroke-width="1.5"/>
-    <text x="210" y="43" text-anchor="middle" font-size="7.6" fill="#8A5A10" font-family="Segoe UI,sans-serif">Mgr/Accounts</text>
-    <text x="210" y="55" text-anchor="middle" font-size="7.6" fill="#8A5A10" font-family="Segoe UI,sans-serif">Approve (No Visibility)</text>
-    <line x1="270" y1="46" x2="290" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)"/>
-
-    <rect x="290" y="22" width="120" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5"/>
-    <text x="350" y="43" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">Zoho Books</text>
-    <text x="350" y="55" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">Raw Export</text>
-    <line x1="410" y1="46" x2="430" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)"/>
-
-    <rect x="430" y="22" width="120" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5"/>
-    <text x="490" y="43" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">Manual Recalc &amp;</text>
-    <text x="490" y="55" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">Reconciliation</text>
-    <line x1="550" y1="46" x2="570" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)"/>
-
-    <rect x="570" y="22" width="160" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
-    <text x="650" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Manual P&L / Board</text>
-    <text x="650" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Deck Preparation</text>
-  </svg>
-  <div class="flow-note">
-    <p style="margin-top:0;"><strong>What needs to be fixed:</strong> No real-time finance dashboard. Team manually downloads Zoho reports and recalculates. Expense approvals lack policy checks at the input level, causing over-expenditure. Tax calculations are manual and lack LLM-based alerts for government policy changes.</p>
-  </div>
-
-  <div class="doc-footer"><span>Operations Audit Report · v1.1</span><span>Page 5</span></div>
-</div>
-
-<!-- ============ 03 WORKFLOWS - PART 2 ============ -->
-<div class="page">
-  <div class="doc-header"><span><b>EF Polymer Private Limited</b> — Operations Audit</span><span>Confidential</span></div>
-
-  <div class="eyebrow">Section 03 — Process Detail (Part 2)</div>
-  <h2>Current Workflows: Retail, MENA &amp; Board</h2>
-
-  <!-- WORKFLOW 3 -->
-  <h3>Retail Field Tracking via WhatsApp — <span class="chip-ref">P-02</span></h3>
-  <svg viewBox="0 0 740 92" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:10px 0 4px;">
-    <defs>
-      <marker id="a3" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
-        <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5"/>
-      </marker>
-    </defs>
-    <rect x="10"  y="22" width="140" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
-    <text x="80"  y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">RSM Daily Work</text>
-    <text x="80"  y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">(Travel, Meetings)</text>
-    <line x1="150" y1="46" x2="170" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a3)"/>
-
-    <rect x="170" y="22" width="140" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5"/>
-    <text x="240" y="43" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">Random Images &amp;</text>
-    <text x="240" y="55" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">Text sent to WA Group</text>
-    <line x1="310" y1="46" x2="330" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a3)"/>
-
-    <rect x="330" y="22" width="140" height="48" rx="3" fill="#FBF1DF" stroke="#E8C97A" stroke-width="1.5"/>
-    <text x="400" y="43" text-anchor="middle" font-size="7.6" fill="#8A5A10" font-family="Segoe UI,sans-serif">Unstructured Data</text>
-    <text x="400" y="55" text-anchor="middle" font-size="7.6" fill="#8A5A10" font-family="Segoe UI,sans-serif">No Templatization</text>
-    <line x1="470" y1="46" x2="490" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a3)"/>
-
-    <rect x="490" y="22" width="140" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
-    <text x="560" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Farmer Data &amp; ROI</text>
-    <text x="560" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Lost in Chat</text>
-  </svg>
-  <div class="flow-note">
-    <p style="margin-top:0;"><strong>What needs to be fixed:</strong> Entire retail force operates on WhatsApp. No tracking of travel KM, expenses, or farmer data in a structured format. An AI WhatsApp bot is required to parse haywired text/images and auto-populate dashboards for CXO visibility.</p>
-  </div>
-
-  <!-- WORKFLOW 4 -->
-  <h3>MENA Pipeline &amp; Trial Lifecycle — <span class="chip-ref">P-06</span></h3>
-  <svg viewBox="0 0 740 92" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:10px 0 4px;">
-    <defs>
-      <marker id="a4" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
-        <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5"/>
-      </marker>
-    </defs>
-    <rect x="10"  y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
-    <text x="70"  y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Lead Gen &amp;</text>
-    <text x="70"  y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Trial Request</text>
-    <line x1="130" y1="46" x2="150" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a4)"/>
-
-    <rect x="150" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
-    <text x="210" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Demo Product</text>
-    <text x="210" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Dispatch</text>
-    <line x1="270" y1="46" x2="290" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a4)"/>
-
-    <rect x="290" y="22" width="120" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5"/>
-    <text x="350" y="43" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">Tracked on WA</text>
-    <text x="350" y="55" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">No CRM Stages</text>
-    <line x1="410" y1="46" x2="430" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a4)"/>
-
-    <rect x="430" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
-    <text x="490" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">R&D Trial Data</text>
-    <text x="490" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Assessment</text>
-    <line x1="550" y1="46" x2="570" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a4)"/>
-
-    <rect x="570" y="22" width="160" height="48" rx="3" fill="#FBF1DF" stroke="#E8C97A" stroke-width="1.5"/>
-    <text x="650" y="43" text-anchor="middle" font-size="7.6" fill="#8A5A10" font-family="Segoe UI,sans-serif">Follow-ups &amp; Negotiations</text>
-    <text x="650" y="55" text-anchor="middle" font-size="7.6" fill="#8A5A10" font-family="Segoe UI,sans-serif">Untracked</text>
-  </svg>
-  <div class="flow-note">
-    <p style="margin-top:0;"><strong>What needs to be fixed:</strong> Complex MENA B2B trials (parent accounts, multi-crop demos) are managed entirely on WhatsApp. A centralized CRM with department partitions is urgently needed so CXOs can query live trial stages and R&D handoffs.</p>
-  </div>
-
-  <!-- WORKFLOW 5 -->
-  <h3>Board/Investor Reporting Prep — <span class="chip-ref">P-01</span></h3>
-  <svg viewBox="0 0 740 92" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:10px 0 4px;">
-    <defs>
-      <marker id="a5" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
-        <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5"/>
-      </marker>
-    </defs>
-    <rect x="10"  y="22" width="140" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
-    <text x="80"  y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Investors Request</text>
-    <text x="80"  y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Statistics</text>
-    <line x1="150" y1="46" x2="170" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a5)"/>
-
-    <rect x="170" y="22" width="140" height="48" rx="3" fill="#FBF1DF" stroke="#E8C97A" stroke-width="1.5"/>
-    <text x="240" y="43" text-anchor="middle" font-size="7.6" fill="#8A5A10" font-family="Segoe UI,sans-serif">COO Asks Dept</text>
-    <text x="240" y="55" text-anchor="middle" font-size="7.6" fill="#8A5A10" font-family="Segoe UI,sans-serif">Heads for Data</text>
-    <line x1="310" y1="46" x2="330" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a5)"/>
-
-    <rect x="330" y="22" width="140" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5"/>
-    <text x="400" y="43" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">Manual Combination</text>
-    <text x="400" y="55" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">of Datasets</text>
-    <line x1="470" y1="46" x2="490" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a5)"/>
-
-    <rect x="490" y="22" width="140" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
-    <text x="560" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Static Board Deck</text>
-    <text x="560" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Created</text>
-  </svg>
-  <div class="flow-note">
-    <p style="margin-top:0;"><strong>What needs to be fixed:</strong> Board prep is a massive manual drain. The COO combines data from multiple sheets to create static decks. Needs a live dashboard reflecting actuals vs. projected sales/expenses, with an LLM agent to auto-generate investor reports.</p>
-  </div>
-
-  <div class="doc-footer"><span>Operations Audit Report · v1.1</span><span>Page 6</span></div>
-</div>
-
-<!-- ============ APPENDIX ============ -->
-<div class="page">
-  <div class="doc-header"><span><b>EF Polymer Private Limited</b> — Operations Audit</span><span>Confidential</span></div>
-
-  <div class="eyebrow">Appendix</div>
-  <h2>Cross-Department Dependencies</h2>
-  <div class="section-dek">Findings and recommendations that require action outside the COO Office to resolve</div>
-
-  <!-- HR & Talent -->
-  <div class="dep-card">
-    <div class="dep-header">
-      <div class="dep-title">HR &amp; Talent</div>
-      <div class="dep-badge">PMS &amp; L&D Infrastructure</div>
-    </div>
-    <div class="dep-grid">
-      <div class="dep-section">
-        <div class="dep-section-title">Operations Dependency</div>
-        <div class="dep-section-content">
-          HR must implement a gamified PMS and L&D portal connected to HRMS. The COO cannot track 1-month/3-month evaluations or annual KPIs without a transparent system.
-          <div class="dep-person">👤 Key Person: HR Manager</div>
+    <h3>Tools in Use</h3>
+    <div class="tools-grid">
+      <div class="tool-card">
+        <div class="tool-icon"><img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" width="24" height="24"
+            style="display:block; object-fit:contain;" alt="WhatsApp" /></div>
+        <div>
+          <div class="tool-name">WhatsApp</div>
+          <div class="tool-desc">Primary channel for Retail Sales tracking & MENA pipeline (highly unstructured)</div>
         </div>
       </div>
-      <div class="dep-section bottleneck">
-        <div class="dep-section-title">Critical Bottleneck</div>
-        <div class="dep-section-content">Without a PMS, appraisal discussions are opaque. Without L&D, team skill mapping is non-existent. Offer letters and policy changes rely on manual email approvals.</div>
-      </div>
-      <div class="dep-section data-sync" style="grid-column:1/-1;">
-        <div class="dep-section-title">Data Transfer &amp; Updates Needed</div>
-        <div class="dep-section-content">HR must digitize all SOPs into a knowledge layer (replacing subpar Zoho Zia) and automate offer letter/NDA e-signing directly into the HRMS.</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Finance & Accounts -->
-  <div class="dep-card">
-    <div class="dep-header">
-      <div class="dep-title">Finance &amp; Accounts</div>
-      <div class="dep-badge">Real-time Reporting</div>
-    </div>
-    <div class="dep-grid">
-      <div class="dep-section">
-        <div class="dep-section-title">Operations Dependency</div>
-        <div class="dep-section-content">
-          Finance must stop manual reconciliation of Zoho Books exports. Needs to establish live API feeds for sales, expenses, and inventory into a unified CXO dashboard.
-          <div class="dep-person">👤 Key Person: Accounts Team</div>
+      <div class="tool-card">
+        <div class="tool-icon"><img src="https://img.icons8.com/color/48/000000/google-sheets.png" width="24"
+            height="24" style="display:block; object-fit:contain;" alt="Google Sheets" /></div>
+        <div>
+          <div class="tool-name">Google Sheets &amp; Forms</div>
+          <div class="tool-desc">Manual tracking for HR hiring funnels, PMS, and finance reconciliations</div>
         </div>
       </div>
-      <div class="dep-section bottleneck">
-        <div class="dep-section-title">Critical Bottleneck</div>
-        <div class="dep-section-content">Manual tax calculation and lack of policy checks at the expense input level cause over-expenditure and prediction errors for the COO.</div>
+      <div class="tool-card">
+        <div class="tool-icon"><img src="https://cdn.worldvectorlogo.com/logos/zoho-1.svg" width="24" height="24"
+            style="display:block; object-fit:contain;" alt="Zoho Suite" /></div>
+        <div>
+          <div class="tool-name">Zoho Suite</div>
+          <div class="tool-desc">Books, Expenses, Payroll. Uses Zia chatbot for policy (subpar experience)</div>
+        </div>
       </div>
-      <div class="dep-section data-sync" style="grid-column:1/-1;">
-        <div class="dep-section-title">Data Transfer &amp; Updates Needed</div>
-        <div class="dep-section-content">Implement an LLM agent to track government tax policy changes and alert finance. Create department-wise budget tracking visible to the CXO in real-time.</div>
+      <div class="tool-card">
+        <div class="tool-icon"><img src="https://img.icons8.com/color/48/000000/gmail--v1.png" width="24" height="24"
+            style="display:block; object-fit:contain;" alt="Gmail" /></div>
+        <div>
+          <div class="tool-name">Email (Gmail)</div>
+          <div class="tool-desc">Used for all approvals (offers, expenses, policy changes). No unified dashboard</div>
+        </div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-icon"><img src="https://img.icons8.com/color/48/000000/slack-new.png" width="24" height="24"
+            style="display:block; object-fit:contain;" alt="Slack" /></div>
+        <div>
+          <div class="tool-name">Slack</div>
+          <div class="tool-desc">Internal operational communication and team alignment</div>
+        </div>
       </div>
     </div>
+
+    <div class="doc-footer"><span>Operations Audit Report · v1.1</span><span>Page 4</span></div>
   </div>
 
-  <div class="doc-footer"><span>Operations Audit Report · v1.1</span><span>Page 7</span></div>
-</div>
+  <!-- ============ 03 WORKFLOWS - PART 1 ============ -->
+  <div class="page">
+    <img src="../letterhead.png" alt="Letterhead"
+      style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
 
-<!-- ============ 04 PAIN POINTS ============ -->
-<div class="page">
-  <div class="doc-header"><span><b>EF Polymer Private Limited</b> — Operations Audit</span><span>Confidential</span></div>
+    <div class="eyebrow">Section 03 — Process Detail (Part 1)</div>
+    <h2>Current Workflows: HR &amp; Finance</h2>
+    <div class="section-dek">Where each finding sits inside the operational process</div>
 
-  <div class="eyebrow">Section 04 — Operational Pain Points</div>
-  <h2>Pain Points Register</h2>
-  <div class="section-dek">Ranked by operational impact. Each pain point is cross-referenced to its recommendation.</div>
+    <!-- WORKFLOW 1 -->
+    <h3>HR Hiring &amp; Cultural Fit Funnel — <span class="chip-ref">P-04</span></h3>
+    <svg viewBox="0 0 740 92" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:10px 0 4px;">
+      <defs>
+        <marker id="a1" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+          <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5" />
+        </marker>
+      </defs>
+      <rect x="10" y="22" width="130" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <text x="75" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Dept
+        Shares Req</text>
+      <text x="75" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">via
+        Google Form</text>
+      <line x1="140" y1="46" x2="160" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)" />
 
-  <div class="callout" style="margin-bottom:14px;border-left-color:#2563eb;background:#EFF4FF;">
-    <strong style="color:#1B2A4A;">Priority Focus Areas:</strong><br>
-    <span style="color:#1B2A4A;">&#9312; <b>Manual Approvals & Email Saturation</b> — COO manages 50-80 emails/day, 100+ expense reports, and offer letter approvals manually without a unified dashboard.</span><br>
-    <span style="color:#1B2A4A;">&#9313; <b>Haywired Retail & MENA Data</b> — Critical sales pipelines and field tracking are trapped in unstructured WhatsApp groups.</span><br>
+      <rect x="160" y="22" width="130" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <text x="225" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">HR
+        Screens 60-80</text>
+      <text x="225" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C"
+        font-family="Segoe UI,sans-serif">Profiles</text>
+      <line x1="290" y1="46" x2="310" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)" />
+
+      <rect x="310" y="22" width="130" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <text x="375" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">HODs
+        Interview</text>
+      <text x="375" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C"
+        font-family="Segoe UI,sans-serif">Shortlist 15-20</text>
+      <line x1="440" y1="46" x2="460" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)" />
+
+      <rect x="460" y="22" width="130" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
+      <text x="525" y="43" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">COO
+        takes 15-20</text>
+      <text x="525" y="55" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">30-40
+        Min Interviews</text>
+      <line x1="590" y1="46" x2="610" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)" />
+
+      <rect x="610" y="22" width="120" height="48" rx="3" fill="#FBF1DF" stroke="#E8C97A" stroke-width="1.5" />
+      <text x="670" y="43" text-anchor="middle" font-size="7.6" fill="#8A5A10" font-family="Segoe UI,sans-serif">Offer
+        Approved on</text>
+      <text x="670" y="55" text-anchor="middle" font-size="7.6" fill="#8A5A10"
+        font-family="Segoe UI,sans-serif">Email</text>
+    </svg>
+    <div class="flow-note">
+      <p style="margin-top:0;"><strong>What needs to be fixed:</strong> The COO spends massive bandwidth conducting
+        15-20 final interviews per role (30-40 mins each) and manually approving offer letters over email. There is no
+        dashboard visibility for pending JDs, interview notes, or offer approvals.</p>
+    </div>
+
+    <!-- WORKFLOW 2 -->
+    <h3>Finance &amp; Expense Reconciliation — <span class="chip-ref">P-05</span></h3>
+    <svg viewBox="0 0 740 92" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:10px 0 4px;">
+      <defs>
+        <marker id="a2" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+          <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5" />
+        </marker>
+      </defs>
+      <rect x="10" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <text x="70" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">100+
+        Expenses</text>
+      <text x="70" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C"
+        font-family="Segoe UI,sans-serif">Submitted Monthly</text>
+      <line x1="130" y1="46" x2="150" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)" />
+
+      <rect x="150" y="22" width="120" height="48" rx="3" fill="#FBF1DF" stroke="#E8C97A" stroke-width="1.5" />
+      <text x="210" y="43" text-anchor="middle" font-size="7.6" fill="#8A5A10"
+        font-family="Segoe UI,sans-serif">Mgr/Accounts</text>
+      <text x="210" y="55" text-anchor="middle" font-size="7.6" fill="#8A5A10" font-family="Segoe UI,sans-serif">Approve
+        (No Visibility)</text>
+      <line x1="270" y1="46" x2="290" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)" />
+
+      <rect x="290" y="22" width="120" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
+      <text x="350" y="43" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">Zoho
+        Books</text>
+      <text x="350" y="55" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">Raw
+        Export</text>
+      <line x1="410" y1="46" x2="430" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)" />
+
+      <rect x="430" y="22" width="120" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
+      <text x="490" y="43" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">Manual
+        Recalc &amp;</text>
+      <text x="490" y="55" text-anchor="middle" font-size="7.6" fill="#A32E24"
+        font-family="Segoe UI,sans-serif">Reconciliation</text>
+      <line x1="550" y1="46" x2="570" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)" />
+
+      <rect x="570" y="22" width="160" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <text x="650" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Manual
+        P&L / Board</text>
+      <text x="650" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Deck
+        Preparation</text>
+    </svg>
+    <div class="flow-note">
+      <p style="margin-top:0;"><strong>What needs to be fixed:</strong> No real-time finance dashboard. Team manually
+        downloads Zoho reports and recalculates. Expense approvals lack policy checks at the input level, causing
+        over-expenditure. Tax calculations are manual and lack LLM-based alerts for government policy changes.</p>
+    </div>
+
+    <div class="doc-footer"><span>Operations Audit Report · v1.1</span><span>Page 5</span></div>
   </div>
 
-  <table>
-    <tr>
-      <th class="id">ID</th><th>Pain Point</th><th>Impact</th><th>Evidence from Audit</th>
-    </tr>
-    <tr>
-      <td class="id">P-01</td>
-      <td><b>Manual Board Prep & Communication Saturation.</b> COO combines data manually for investor decks; 50–80 emails/day triaged using "unread" filters.</td>
-      <td><span class="chip chip-crit">Critical</span></td>
-      <td>Massive operational load on the COO; tasks are lost; no live dashboard for actual vs. projected numbers.</td>
-    </tr>
-    <tr>
-      <td class="id">P-02</td>
-      <td><b>Retail WhatsApp Chaos.</b> Entire retail force operates on WhatsApp with no tracking app, sending unstructured images and text.</td>
-      <td><span class="chip chip-crit">Critical</span></td>
-      <td>No visibility into travel KM, expenses, farmer data, or ROI. Data is lost in chat history.</td>
-    </tr>
-    <tr>
-      <td class="id">P-03</td>
-      <td><b>Marketing Accountability Gap.</b> No dedicated Marketing Manager; budget execution is handled as a side-task by BD staff.</td>
-      <td><span class="chip chip-med">High</span></td>
-      <td>Execution lag post-budget approval; 25-50% of revenue is spent on marketing with zero ROI tracking.</td>
-    </tr>
-    <tr>
-      <td class="id">P-04</td>
-      <td><b>HR Interview & Approval Overhead.</b> COO conducts 15-20 final interviews (30-40 mins each) per role; approvals done via email.</td>
-      <td><span class="chip chip-med">High</span></td>
-      <td>Drains executive time. Lack of PMS, L&D, and centralized documentation for onboarding and policy FAQs.</td>
-    </tr>
-    <tr>
-      <td class="id">P-05</td>
-      <td><b>Finance Reconciliation & Policy Blindspot.</b> 100+ monthly expenses lack input-level policy checks. Manual Zoho exports for reporting.</td>
-      <td><span class="chip chip-med">High</span></td>
-      <td>Over-expenditure due to lack of system checks. No real-time visibility into department budgets or inventory quantities.</td>
-    </tr>
-    <tr>
-      <td class="id">P-06</td>
-      <td><b>MENA Pipeline Fragmentation.</b> Complex B2B trial cycles managed entirely on WhatsApp without a CRM.</td>
-      <td><span class="chip chip-low">Medium</span></td>
-      <td>Inability to track stage-by-stage trial progress, R&D handoffs, or trigger timely follow-ups for international sales.</td>
-    </tr>
-  </table>
+  <!-- ============ 03 WORKFLOWS - PART 2 ============ -->
+  <div class="page">
+    <img src="../letterhead.png" alt="Letterhead"
+      style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
 
-  <div class="doc-footer"><span>Operations Audit Report · v1.1</span><span>Page 8</span></div>
-</div>
+    <div class="eyebrow">Section 03 — Process Detail (Part 2)</div>
+    <h2>Current Workflows: Retail, MENA &amp; Board</h2>
 
-<!-- ============ 05 TIME & EFFORT ============ -->
-<div class="page">
-  <div class="doc-header"><span><b>EF Polymer Private Limited</b> — Operations Audit</span><span>Confidential</span></div>
+    <!-- WORKFLOW 3 -->
+    <h3>Retail Field Tracking via WhatsApp — <span class="chip-ref">P-02</span></h3>
+    <svg viewBox="0 0 740 92" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:10px 0 4px;">
+      <defs>
+        <marker id="a3" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+          <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5" />
+        </marker>
+      </defs>
+      <rect x="10" y="22" width="140" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <text x="80" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">RSM
+        Daily Work</text>
+      <text x="80" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">(Travel,
+        Meetings)</text>
+      <line x1="150" y1="46" x2="170" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a3)" />
 
-  <div class="eyebrow">Section 05 — Time &amp; Effort</div>
-  <h3>Time &amp; Effort Allocation</h3>
-  <div class="section-dek">Estimated breakdown of weekly bandwidth based on workflow analysis</div>
-  <p style="font-size:8.5pt;color:var(--muted);margin-bottom:8px;">Based on a standard 8-hour workday. Hours shown are estimates per the COO's daily allocation, averaged across a typical week.</p>
+      <rect x="170" y="22" width="140" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
+      <text x="240" y="43" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">Random
+        Images &amp;</text>
+      <text x="240" y="55" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">Text
+        sent to WA Group</text>
+      <line x1="310" y1="46" x2="330" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a3)" />
 
-  <table>
-    <tr><th>Activity</th><th class="num" style="text-align:right">Share of COO Time</th><th class="num" style="text-align:right">Est. Time / Day</th></tr>
-    <tr><td>HR (Interviews, PMS, Approvals, Resignations)</td><td class="num">~25%</td><td class="num">~2.0 hrs</td></tr>
-    <tr><td>Finance (Reconciliation, Board Prep, Approvals)</td><td class="num">~20%</td><td class="num">~1.6 hrs</td></tr>
-    <tr><td>Communication &amp; Operational Triage (Email/WA)</td><td class="num">~20%</td><td class="num">~1.6 hrs</td></tr>
-    <tr><td>Retail Sales &amp; MENA Oversight (WhatsApp tracking)</td><td class="num">~20%</td><td class="num">~1.6 hrs</td></tr>
-    <tr><td>Marketing Projections &amp; Budgeting</td><td class="num">~15%</td><td class="num">~1.2 hrs</td></tr>
-  </table>
+      <rect x="330" y="22" width="140" height="48" rx="3" fill="#FBF1DF" stroke="#E8C97A" stroke-width="1.5" />
+      <text x="400" y="43" text-anchor="middle" font-size="7.6" fill="#8A5A10"
+        font-family="Segoe UI,sans-serif">Unstructured Data</text>
+      <text x="400" y="55" text-anchor="middle" font-size="7.6" fill="#8A5A10" font-family="Segoe UI,sans-serif">No
+        Templatization</text>
+      <line x1="470" y1="46" x2="490" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a3)" />
 
-  <div class="doc-footer"><span>Operations Audit Report · v1.1</span><span>Page 9</span></div>
-</div>
+      <rect x="490" y="22" width="140" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <text x="560" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Farmer
+        Data &amp; ROI</text>
+      <text x="560" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Lost in
+        Chat</text>
+    </svg>
+    <div class="flow-note">
+      <p style="margin-top:0;"><strong>What needs to be fixed:</strong> Entire retail force operates on WhatsApp. No
+        tracking of travel KM, expenses, or farmer data in a structured format. An AI WhatsApp bot is required to parse
+        haywired text/images and auto-populate dashboards for CXO visibility.</p>
+    </div>
 
-<!-- ============ 06 CORRECTIVE ACTION PLAN ============ -->
-<div class="page">
-  <div class="doc-header"><span><b>EF Polymer Private Limited</b> — Operations Audit</span><span>Confidential</span></div>
+    <!-- WORKFLOW 4 -->
+    <h3>MENA Pipeline &amp; Trial Lifecycle — <span class="chip-ref">P-06</span></h3>
+    <svg viewBox="0 0 740 92" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:10px 0 4px;">
+      <defs>
+        <marker id="a4" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+          <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5" />
+        </marker>
+      </defs>
+      <rect x="10" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <text x="70" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Lead Gen
+        &amp;</text>
+      <text x="70" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Trial
+        Request</text>
+      <line x1="130" y1="46" x2="150" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a4)" />
 
-  <div class="eyebrow">Section 06 — Corrective Action Plan</div>
-  <h2>Recommended Solution Segment</h2>
-  <div class="section-dek">Integrated technology solutions proposed to resolve operational bottlenecks across all COO domains.</div>
-  
-  <h3>Implementation Required</h3>
+      <rect x="150" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <text x="210" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Demo
+        Product</text>
+      <text x="210" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C"
+        font-family="Segoe UI,sans-serif">Dispatch</text>
+      <line x1="270" y1="46" x2="290" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a4)" />
 
-  <p style="font-weight: 700; color: var(--ink); margin-top: 15px; margin-bottom: 10px; font-size: 9.5pt;">Solution Modules to be Built:</p>
+      <rect x="290" y="22" width="120" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
+      <text x="350" y="43" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">Tracked
+        on WA</text>
+      <text x="350" y="55" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">No CRM
+        Stages</text>
+      <line x1="410" y1="46" x2="430" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a4)" />
 
-  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px;">
-    <!-- Module 1 -->
-    <div style="border: 1px solid var(--line); border-radius: 4px; padding: 12px; background: var(--paper);">
-      <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
-        <div style="background: #E9F4EC; color: #276B3E; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 10pt;">1</div>
-        <div style="font-weight: 700; color: var(--ink); font-size: 9.5pt;">Unified CXO Dashboard & AI Assistant</div>
+      <rect x="430" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <text x="490" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">R&D
+        Trial Data</text>
+      <text x="490" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C"
+        font-family="Segoe UI,sans-serif">Assessment</text>
+      <line x1="550" y1="46" x2="570" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a4)" />
+
+      <rect x="570" y="22" width="160" height="48" rx="3" fill="#FBF1DF" stroke="#E8C97A" stroke-width="1.5" />
+      <text x="650" y="43" text-anchor="middle" font-size="7.6" fill="#8A5A10"
+        font-family="Segoe UI,sans-serif">Follow-ups &amp; Negotiations</text>
+      <text x="650" y="55" text-anchor="middle" font-size="7.6" fill="#8A5A10"
+        font-family="Segoe UI,sans-serif">Untracked</text>
+    </svg>
+    <div class="flow-note">
+      <p style="margin-top:0;"><strong>What needs to be fixed:</strong> Complex MENA B2B trials (parent accounts,
+        multi-crop demos) are managed entirely on WhatsApp. A centralized CRM with department partitions is urgently
+        needed so CXOs can query live trial stages and R&D handoffs.</p>
+    </div>
+
+    <!-- WORKFLOW 5 -->
+    <h3>Board/Investor Reporting Prep — <span class="chip-ref">P-01</span></h3>
+    <svg viewBox="0 0 740 92" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:10px 0 4px;">
+      <defs>
+        <marker id="a5" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+          <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5" />
+        </marker>
+      </defs>
+      <rect x="10" y="22" width="140" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <text x="80" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C"
+        font-family="Segoe UI,sans-serif">Investors Request</text>
+      <text x="80" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C"
+        font-family="Segoe UI,sans-serif">Statistics</text>
+      <line x1="150" y1="46" x2="170" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a5)" />
+
+      <rect x="170" y="22" width="140" height="48" rx="3" fill="#FBF1DF" stroke="#E8C97A" stroke-width="1.5" />
+      <text x="240" y="43" text-anchor="middle" font-size="7.6" fill="#8A5A10" font-family="Segoe UI,sans-serif">COO
+        Asks Dept</text>
+      <text x="240" y="55" text-anchor="middle" font-size="7.6" fill="#8A5A10" font-family="Segoe UI,sans-serif">Heads
+        for Data</text>
+      <line x1="310" y1="46" x2="330" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a5)" />
+
+      <rect x="330" y="22" width="140" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
+      <text x="400" y="43" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">Manual
+        Combination</text>
+      <text x="400" y="55" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">of
+        Datasets</text>
+      <line x1="470" y1="46" x2="490" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a5)" />
+
+      <rect x="490" y="22" width="140" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <text x="560" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Static
+        Board Deck</text>
+      <text x="560" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C"
+        font-family="Segoe UI,sans-serif">Created</text>
+    </svg>
+    <div class="flow-note">
+      <p style="margin-top:0;"><strong>What needs to be fixed:</strong> Board prep is a massive manual drain. The COO
+        combines data from multiple sheets to create static decks. Needs a live dashboard reflecting actuals vs.
+        projected sales/expenses, with an LLM agent to auto-generate investor reports.</p>
+    </div>
+
+    <div class="doc-footer"><span>Operations Audit Report · v1.1</span><span>Page 6</span></div>
+  </div>
+
+  <!-- ============ APPENDIX ============ -->
+  <div class="page">
+    <img src="../letterhead.png" alt="Letterhead"
+      style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
+
+    <div class="eyebrow">Appendix</div>
+    <h2>Cross-Department Dependencies</h2>
+    <div class="section-dek">Findings and recommendations that require action outside the COO Office to resolve</div>
+
+    <!-- HR & Talent -->
+    <div class="dep-card">
+      <div class="dep-header">
+        <div class="dep-title">HR &amp; Talent</div>
+        <div class="dep-badge">PMS &amp; L&D Infrastructure</div>
       </div>
-      <ul style="font-size: 8.5pt; color: var(--muted); line-height: 1.5; padding-left: 18px; margin: 0;">
-        <li style="margin-bottom: 6px;"><strong>Centralized Approvals:</strong> Digitize all HR (offers, policies) and Finance (expenses, budgets) approvals. Real-time visibility into pending/overdue items.</li>
-        <li style="margin-bottom: 6px;"><strong>Knowledge Layer Chatbot:</strong> Connect all department sheets/dashboards. Replaces subpar Zoho Zia. Answers situational policy/FAQ queries instantly.</li>
-        <li><strong>Email & Board Automation:</strong> AI Chrome extension to segregate inbox, flag red alerts, and suggest replies. Auto-generate investor reports via LLM based on live data.</li>
+      <div class="dep-grid">
+        <div class="dep-section">
+          <div class="dep-section-title">Operations Dependency</div>
+          <div class="dep-section-content">
+            HR must implement a gamified PMS and L&D portal connected to HRMS. The COO cannot track 1-month/3-month
+            evaluations or annual KPIs without a transparent system.
+            <div class="dep-person">👤 Key Person: HR Manager</div>
+          </div>
+        </div>
+        <div class="dep-section bottleneck">
+          <div class="dep-section-title">Critical Bottleneck</div>
+          <div class="dep-section-content">Without a PMS, appraisal discussions are opaque. Without L&D, team skill
+            mapping is non-existent. Offer letters and policy changes rely on manual email approvals.</div>
+        </div>
+        <div class="dep-section data-sync" style="grid-column:1/-1;">
+          <div class="dep-section-title">Data Transfer &amp; Updates Needed</div>
+          <div class="dep-section-content">HR must digitize all SOPs into a knowledge layer (replacing subpar Zoho Zia)
+            and automate offer letter/NDA e-signing directly into the HRMS.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Finance & Accounts -->
+    <div class="dep-card">
+      <div class="dep-header">
+        <div class="dep-title">Finance &amp; Accounts</div>
+        <div class="dep-badge">Real-time Reporting</div>
+      </div>
+      <div class="dep-grid">
+        <div class="dep-section">
+          <div class="dep-section-title">Operations Dependency</div>
+          <div class="dep-section-content">
+            Finance must stop manual reconciliation of Zoho Books exports. Needs to establish live API feeds for sales,
+            expenses, and inventory into a unified CXO dashboard.
+            <div class="dep-person">👤 Key Person: Accounts Team</div>
+          </div>
+        </div>
+        <div class="dep-section bottleneck">
+          <div class="dep-section-title">Critical Bottleneck</div>
+          <div class="dep-section-content">Manual tax calculation and lack of policy checks at the expense input level
+            cause over-expenditure and prediction errors for the COO.</div>
+        </div>
+        <div class="dep-section data-sync" style="grid-column:1/-1;">
+          <div class="dep-section-title">Data Transfer &amp; Updates Needed</div>
+          <div class="dep-section-content">Implement an LLM agent to track government tax policy changes and alert
+            finance. Create department-wise budget tracking visible to the CXO in real-time.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="doc-footer"><span>Operations Audit Report · v1.1</span><span>Page 7</span></div>
+  </div>
+
+  <!-- ============ 04 PAIN POINTS ============ -->
+  <div class="page">
+    <img src="../letterhead.png" alt="Letterhead"
+      style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
+
+    <div class="eyebrow">Section 04 — Operational Pain Points</div>
+    <h2>Pain Points Register</h2>
+    <div class="section-dek">Ranked by operational impact. Each pain point is cross-referenced to its recommendation.
+    </div>
+
+    <div class="callout" style="margin-bottom:14px;border-left-color:#2563eb;background:#EFF4FF;">
+      <strong style="color:#1B2A4A;">Priority Focus Areas:</strong><br>
+      <span style="color:#1B2A4A;">&#9312; <b>Manual Approvals & Email Saturation</b> — COO manages 50-80 emails/day,
+        100+ expense reports, and offer letter approvals manually without a unified dashboard.</span><br>
+      <span style="color:#1B2A4A;">&#9313; <b>Haywired Retail & MENA Data</b> — Critical sales pipelines and field
+        tracking are trapped in unstructured WhatsApp groups.</span><br>
+    </div>
+
+    <table>
+      <tr>
+        <th class="id">ID</th>
+        <th>Pain Point</th>
+        <th>Impact</th>
+        <th>Evidence from Audit</th>
+      </tr>
+      <tr>
+        <td class="id">P-01</td>
+        <td><b>Manual Board Prep & Communication Saturation.</b> COO combines data manually for investor decks; 50–80
+          emails/day triaged using "unread" filters.</td>
+        <td><span class="chip chip-crit">Critical</span></td>
+        <td>Massive operational load on the COO; tasks are lost; no live dashboard for actual vs. projected numbers.
+        </td>
+      </tr>
+      <tr>
+        <td class="id">P-02</td>
+        <td><b>Retail WhatsApp Chaos.</b> Entire retail force operates on WhatsApp with no tracking app, sending
+          unstructured images and text.</td>
+        <td><span class="chip chip-crit">Critical</span></td>
+        <td>No visibility into travel KM, expenses, farmer data, or ROI. Data is lost in chat history.</td>
+      </tr>
+      <tr>
+        <td class="id">P-03</td>
+        <td><b>Marketing Accountability Gap.</b> No dedicated Marketing Manager; budget execution is handled as a
+          side-task by BD staff.</td>
+        <td><span class="chip chip-med">High</span></td>
+        <td>Execution lag post-budget approval; 25-50% of revenue is spent on marketing with zero ROI tracking.</td>
+      </tr>
+      <tr>
+        <td class="id">P-04</td>
+        <td><b>HR Interview & Approval Overhead.</b> COO conducts 15-20 final interviews (30-40 mins each) per role;
+          approvals done via email.</td>
+        <td><span class="chip chip-med">High</span></td>
+        <td>Drains executive time. Lack of PMS, L&D, and centralized documentation for onboarding and policy FAQs.</td>
+      </tr>
+      <tr>
+        <td class="id">P-05</td>
+        <td><b>Finance Reconciliation & Policy Blindspot.</b> 100+ monthly expenses lack input-level policy checks.
+          Manual Zoho exports for reporting.</td>
+        <td><span class="chip chip-med">High</span></td>
+        <td>Over-expenditure due to lack of system checks. No real-time visibility into department budgets or inventory
+          quantities.</td>
+      </tr>
+      <tr>
+        <td class="id">P-06</td>
+        <td><b>MENA Pipeline Fragmentation.</b> Complex B2B trial cycles managed entirely on WhatsApp without a CRM.
+        </td>
+        <td><span class="chip chip-low">Medium</span></td>
+        <td>Inability to track stage-by-stage trial progress, R&D handoffs, or trigger timely follow-ups for
+          international sales.</td>
+      </tr>
+    </table>
+
+    <div class="doc-footer"><span>Operations Audit Report · v1.1</span><span>Page 8</span></div>
+  </div>
+
+  <!-- ============ 05 TIME & EFFORT ============ -->
+  <div class="page">
+    <img src="../letterhead.png" alt="Letterhead"
+      style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
+
+    <div class="eyebrow">Section 05 — Time &amp; Effort</div>
+    <h3>Time &amp; Effort Allocation</h3>
+    <div class="section-dek">Estimated breakdown of weekly bandwidth based on workflow analysis</div>
+    <p style="font-size:8.5pt;color:var(--muted);margin-bottom:8px;">Based on a standard 8-hour workday. Hours shown are
+      estimates per the COO's daily allocation, averaged across a typical week.</p>
+
+    <table>
+      <tr>
+        <th>Activity</th>
+        <th class="num" style="text-align:right">Share of COO Time</th>
+        <th class="num" style="text-align:right">Est. Time / Day</th>
+      </tr>
+      <tr>
+        <td>HR (Interviews, PMS, Approvals, Resignations)</td>
+        <td class="num">~25%</td>
+        <td class="num">~2.0 hrs</td>
+      </tr>
+      <tr>
+        <td>Finance (Reconciliation, Board Prep, Approvals)</td>
+        <td class="num">~20%</td>
+        <td class="num">~1.6 hrs</td>
+      </tr>
+      <tr>
+        <td>Communication &amp; Operational Triage (Email/WA)</td>
+        <td class="num">~20%</td>
+        <td class="num">~1.6 hrs</td>
+      </tr>
+      <tr>
+        <td>Retail Sales &amp; MENA Oversight (WhatsApp tracking)</td>
+        <td class="num">~20%</td>
+        <td class="num">~1.6 hrs</td>
+      </tr>
+      <tr>
+        <td>Marketing Projections &amp; Budgeting</td>
+        <td class="num">~15%</td>
+        <td class="num">~1.2 hrs</td>
+      </tr>
+    </table>
+
+    <div class="doc-footer"><span>Operations Audit Report · v1.1</span><span>Page 9</span></div>
+  </div>
+
+  <!-- ============ 06 CORRECTIVE ACTION PLAN ============ -->
+  <div class="page">
+    <img src="../letterhead.png" alt="Letterhead"
+      style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
+
+    <div class="eyebrow">Section 06 — Corrective Action Plan</div>
+    <h2>Recommended Solution Segment</h2>
+    <div class="section-dek">Integrated technology solutions proposed to resolve operational bottlenecks across all COO
+      domains.</div>
+
+    <h3>Implementation Required</h3>
+
+    <p style="font-weight: 700; color: var(--ink); margin-top: 15px; margin-bottom: 10px; font-size: 9.5pt;">Solution
+      Modules to be Built:</p>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px;">
+      <!-- Module 1 -->
+      <div style="border: 1px solid var(--line); border-radius: 4px; padding: 12px; background: var(--paper);">
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+          <div
+            style="background: #E9F4EC; color: #276B3E; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 10pt;">
+            1</div>
+          <div style="font-weight: 700; color: var(--ink); font-size: 9.5pt;">Unified CXO Dashboard & AI Assistant</div>
+        </div>
+        <ul style="font-size: 8.5pt; color: var(--muted); line-height: 1.5; padding-left: 18px; margin: 0;">
+          <li style="margin-bottom: 6px;"><strong>Centralized Approvals:</strong> Digitize all HR (offers, policies) and
+            Finance (expenses, budgets) approvals. Real-time visibility into pending/overdue items.</li>
+          <li style="margin-bottom: 6px;"><strong>Knowledge Layer Chatbot:</strong> Connect all department
+            sheets/dashboards. Replaces subpar Zoho Zia. Answers situational policy/FAQ queries instantly.</li>
+          <li><strong>Email & Board Automation:</strong> AI Chrome extension to segregate inbox, flag red alerts, and
+            suggest replies. Auto-generate investor reports via LLM based on live data.</li>
+        </ul>
+      </div>
+
+      <!-- Module 2 -->
+      <div style="border: 1px solid var(--line); border-radius: 4px; padding: 12px; background: var(--paper);">
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+          <div
+            style="background: #E9F4EC; color: #276B3E; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 10pt;">
+            2</div>
+          <div style="font-weight: 700; color: var(--ink); font-size: 9.5pt;">Gamified HR & PMS Ecosystem</div>
+        </div>
+        <ul style="font-size: 8.5pt; color: var(--muted); line-height: 1.5; padding-left: 18px; margin: 0;">
+          <li style="margin-bottom: 6px;"><strong>Performance Management:</strong> Connect KPIs/KRAs to a gamified PMS.
+            Track 1-month/3-month evals and annual performance transparently for appraisals.</li>
+          <li style="margin-bottom: 6px;"><strong>L&D Portal:</strong> Skill-mapping directory, training requests, and
+            assessment criteria. Team members can find internal skill holders.</li>
+          <li><strong>Automated Onboarding:</strong> Centralized e-signing for offers/NDAs. Auto-create profiles across
+            department platforms to eliminate manual HR work.</li>
+        </ul>
+      </div>
+
+      <!-- Module 3 -->
+      <div style="border: 1px solid var(--line); border-radius: 4px; padding: 12px; background: var(--paper);">
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+          <div
+            style="background: #E9F4EC; color: #276B3E; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 10pt;">
+            3</div>
+          <div style="font-weight: 700; color: var(--ink); font-size: 9.5pt;">WhatsApp AI Bot & Retail CRM</div>
+        </div>
+        <ul style="font-size: 8.5pt; color: var(--muted); line-height: 1.5; padding-left: 18px; margin: 0;">
+          <li style="margin-bottom: 6px;"><strong>WA AI Agent:</strong> Parses haywired retail text/images (travel,
+            expenses, farmer data) into templatized dashboard data for RSMs and CXOs.</li>
+          <li><strong>Target Tracking:</strong> Field managers can query the bot for individual geography/distributor
+            target progress.</li>
+          <li><strong>Automated Onboarding:</strong> Distributor/RSM onboarding documentation handled via simple WA
+            forms.</li>
+        </ul>
+      </div>
+
+      <!-- Module 4 -->
+      <div style="border: 1px solid var(--line); border-radius: 4px; padding: 12px; background: var(--paper);">
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+          <div
+            style="background: #E9F4EC; color: #276B3E; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 10pt;">
+            4</div>
+          <div style="font-weight: 700; color: var(--ink); font-size: 9.5pt;">Finance Automation & MENA CRM</div>
+        </div>
+        <ul style="font-size: 8.5pt; color: var(--muted); line-height: 1.5; padding-left: 18px; margin: 0;">
+          <li style="margin-bottom: 6px;"><strong>Expense Policy Bot:</strong> System check at input level to verify
+            receipts/amounts against policies. Reduces manager verification load.</li>
+          <li style="margin-bottom: 6px;"><strong>Tax LLM Alert:</strong> AI agent tracks government tax policy changes
+            and alerts finance for reconciliation.</li>
+          <li><strong>Unified CRM:</strong> Single CRM divided by departments. MENA gets trial tracking (R&D handoffs,
+            follow-ups) visible to CXOs.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div
+      style="background: #F0FDF4; border: 1px solid #BBF7D0; border-radius: 4px; padding: 12px; margin-bottom: 25px;">
+      <p style="font-weight: 700; color: #166534; margin-bottom: 6px; font-size: 9.5pt;">Key Operational Problems Solved
+      </p>
+      <ul style="font-size: 8.5pt; color: #15803D; line-height: 1.5; padding-left: 18px; margin: 0;">
+        <li style="margin-bottom: 4px;">Eliminates manual email approvals and board deck preparation through live CXO
+          dashboards and LLM reporting.</li>
+        <li style="margin-bottom: 4px;">Transforms WhatsApp chaos into structured retail data and target tracking via AI
+          parsing.</li>
+        <li style="margin-bottom: 4px;">Secures transparent appraisals and skill development through a gamified PMS/L&D
+          ecosystem.</li>
+        <li>Stops over-expenditure with input-level policy checks and provides live MENA trial visibility.</li>
       </ul>
     </div>
 
-    <!-- Module 2 -->
-    <div style="border: 1px solid var(--line); border-radius: 4px; padding: 12px; background: var(--paper);">
-      <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
-        <div style="background: #E9F4EC; color: #276B3E; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 10pt;">2</div>
-        <div style="font-weight: 700; color: var(--ink); font-size: 9.5pt;">Gamified HR & PMS Ecosystem</div>
-      </div>
-      <ul style="font-size: 8.5pt; color: var(--muted); line-height: 1.5; padding-left: 18px; margin: 0;">
-        <li style="margin-bottom: 6px;"><strong>Performance Management:</strong> Connect KPIs/KRAs to a gamified PMS. Track 1-month/3-month evals and annual performance transparently for appraisals.</li>
-        <li style="margin-bottom: 6px;"><strong>L&D Portal:</strong> Skill-mapping directory, training requests, and assessment criteria. Team members can find internal skill holders.</li>
-        <li><strong>Automated Onboarding:</strong> Centralized e-signing for offers/NDAs. Auto-create profiles across department platforms to eliminate manual HR work.</li>
-      </ul>
-    </div>
-
-    <!-- Module 3 -->
-    <div style="border: 1px solid var(--line); border-radius: 4px; padding: 12px; background: var(--paper);">
-      <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
-        <div style="background: #E9F4EC; color: #276B3E; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 10pt;">3</div>
-        <div style="font-weight: 700; color: var(--ink); font-size: 9.5pt;">WhatsApp AI Bot & Retail CRM</div>
-      </div>
-      <ul style="font-size: 8.5pt; color: var(--muted); line-height: 1.5; padding-left: 18px; margin: 0;">
-        <li style="margin-bottom: 6px;"><strong>WA AI Agent:</strong> Parses haywired retail text/images (travel, expenses, farmer data) into templatized dashboard data for RSMs and CXOs.</li>
-        <li><strong>Target Tracking:</strong> Field managers can query the bot for individual geography/distributor target progress.</li>
-        <li><strong>Automated Onboarding:</strong> Distributor/RSM onboarding documentation handled via simple WA forms.</li>
-      </ul>
-    </div>
-
-    <!-- Module 4 -->
-    <div style="border: 1px solid var(--line); border-radius: 4px; padding: 12px; background: var(--paper);">
-      <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
-        <div style="background: #E9F4EC; color: #276B3E; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 10pt;">4</div>
-        <div style="font-weight: 700; color: var(--ink); font-size: 9.5pt;">Finance Automation & MENA CRM</div>
-      </div>
-      <ul style="font-size: 8.5pt; color: var(--muted); line-height: 1.5; padding-left: 18px; margin: 0;">
-        <li style="margin-bottom: 6px;"><strong>Expense Policy Bot:</strong> System check at input level to verify receipts/amounts against policies. Reduces manager verification load.</li>
-        <li style="margin-bottom: 6px;"><strong>Tax LLM Alert:</strong> AI agent tracks government tax policy changes and alerts finance for reconciliation.</li>
-        <li><strong>Unified CRM:</strong> Single CRM divided by departments. MENA gets trial tracking (R&D handoffs, follow-ups) visible to CXOs.</li>
-      </ul>
-    </div>
+    <div class="doc-footer"><span>Operations Audit Report · v1.1</span><span>Page 10</span></div>
   </div>
 
-  <div style="background: #F0FDF4; border: 1px solid #BBF7D0; border-radius: 4px; padding: 12px; margin-bottom: 25px;">
-    <p style="font-weight: 700; color: #166534; margin-bottom: 6px; font-size: 9.5pt;">Key Operational Problems Solved</p>
-    <ul style="font-size: 8.5pt; color: #15803D; line-height: 1.5; padding-left: 18px; margin: 0;">
-      <li style="margin-bottom: 4px;">Eliminates manual email approvals and board deck preparation through live CXO dashboards and LLM reporting.</li>
-      <li style="margin-bottom: 4px;">Transforms WhatsApp chaos into structured retail data and target tracking via AI parsing.</li>
-      <li style="margin-bottom: 4px;">Secures transparent appraisals and skill development through a gamified PMS/L&D ecosystem.</li>
-      <li>Stops over-expenditure with input-level policy checks and provides live MENA trial visibility.</li>
-    </ul>
+  <!-- ============ 07 IMPLEMENTATION PLAN ============ -->
+  <div class="page">
+    <img src="../letterhead.png" alt="Letterhead"
+      style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
+
+    <div class="eyebrow">Section 07 — Implementation Plan</div>
+    <h2>Phased Roadmap</h2>
+    <div class="section-dek">Initiatives sequenced across three phases, with quantified ROI and scope of work</div>
+
+    <table class="tl-table">
+      <tr>
+        <th>Initiative</th>
+        <th class="id">Target</th>
+        <th class="num">Phase 1<br><span style="font-weight:400">Mo. 1–2</span></th>
+        <th class="num">Phase 2<br><span style="font-weight:400">Mo. 3–5</span></th>
+        <th class="num">Phase 3<br><span style="font-weight:400">Mo. 6+</span></th>
+      </tr>
+      <tr>
+        <td>Unified CXO Dashboard & AI Assistant</td>
+        <td class="id">Module 1</td>
+        <td class="phase-mark p1">●</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Gamified HR & PMS Ecosystem</td>
+        <td class="id">Module 2</td>
+        <td></td>
+        <td class="phase-mark p2">●</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>WhatsApp AI Bot & Retail CRM</td>
+        <td class="id">Module 3</td>
+        <td></td>
+        <td class="phase-mark p2">●</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Finance Automation & MENA CRM</td>
+        <td class="id">Module 4</td>
+        <td></td>
+        <td></td>
+        <td class="phase-mark p3">●</td>
+      </tr>
+    </table>
+
+    <!-- PHASE 1 -->
+    <div class="phase-block">
+      <div class="phase-hd">
+        <div class="phase-hd-left">
+          <span class="phase-hd-title">Phase 1 &mdash; Executive Relief</span>
+          <span class="phase-hd-timeline">Months 1&ndash;2 &middot; Medium effort &middot; Immediate Relief</span>
+        </div>
+        <span class="phase-maturity">Maturity 1.5 &rarr; 2.2</span>
+      </div>
+      <div class="phase-sow">
+        <div class="col-label">Scope of Work &amp; Dependencies</div>
+        <div class="sow-item"><span class="sow-dot"></span><span><strong>Build:</strong> Deploy a Unified CXO Dashboard
+            for approvals (HR offers, Finance expenses) replacing email triage.</span></div>
+        <div class="sow-item"><span class="sow-dot"></span><span><strong>Build:</strong> Implement AI Knowledge Layer
+            chatbot to answer situational policy/SOP queries, replacing Zoho Zia.</span></div>
+        <div class="sow-item"><span class="sow-dot"></span><span><strong>Build:</strong> Chrome extension for inbox
+            management, flagging urgent approvals and suggesting replies.</span></div>
+        <div class="sow-item"><span class="sow-dot"></span><span><strong>Tech Stack &amp; Dependencies:</strong> LLM
+            APIs, Custom Dashboard UI, Zoho/Google Sheet integrations.</span></div>
+        <div class="sow-item"><span class="sow-dot" style="background:#ef4444;"></span><span><strong>Client
+              To-Do:</strong> Define approval thresholds and map all current SOPs into the knowledge layer
+            database.</span></div>
+      </div>
+      <div class="phase-roi">
+        <div class="roi-card">
+          <div class="roi-card-num">&darr; 60%</div>
+          <div class="roi-card-label">email triage time</div>
+          <div class="roi-card-desc">Automated approvals and inbox segregation</div>
+        </div>
+        <div class="roi-card">
+          <div class="roi-card-num">0</div>
+          <div class="roi-card-label">lost approvals</div>
+          <div class="roi-card-desc">Centralized dashboard tracking</div>
+        </div>
+        <div class="roi-card">
+          <div class="roi-card-num">1-Click</div>
+          <div class="roi-card-label">policy queries</div>
+          <div class="roi-card-desc">Instant answers via AI Knowledge Layer</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PHASE 2 -->
+    <div class="phase-block">
+      <div class="phase-hd">
+        <div class="phase-hd-left">
+          <span class="phase-hd-title">Phase 2 &mdash; Field &amp; People Infrastructure</span>
+          <span class="phase-hd-timeline">Months 3&ndash;5 &middot; High effort</span>
+        </div>
+        <span class="phase-maturity p2">Maturity 2.2 &rarr; 2.8</span>
+      </div>
+      <div class="phase-sow">
+        <div class="col-label">Scope of Work &amp; Dependencies</div>
+        <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Build:</strong> Deploy WhatsApp AI Bot for
+            Retail. Parse unstructured RSM updates (KM, expenses, farmer data) into structured dashboards.</span></div>
+        <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Build:</strong> Launch Gamified PMS and L&D
+            portal. Connect to HRMS for automated 1-month/3-month performance tracking and skill mapping.</span></div>
+        <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Tech Stack &amp; Dependencies:</strong>
+            WhatsApp Business API, AI OCR/Text parsing, Gamification logic, HRMS API.</span></div>
+        <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Team Adoption:</strong> Train HR to manage
+            L&D portal. Train retail field force to use standard WA formats recognized by the bot.</span></div>
+      </div>
+      <div class="phase-roi">
+        <div class="roi-card">
+          <div class="roi-card-num">100%</div>
+          <div class="roi-card-label">retail data structured</div>
+          <div class="roi-card-desc">Unstructured WA text converted to dashboard metrics</div>
+        </div>
+        <div class="roi-card">
+          <div class="roi-card-num">Transparent</div>
+          <div class="roi-card-label">appraisals</div>
+          <div class="roi-card-desc">PMS tracks KPIs/KRAs without manual reconciliation</div>
+        </div>
+        <div class="roi-card">
+          <div class="roi-card-num">Live</div>
+          <div class="roi-card-label">target tracking</div>
+          <div class="roi-card-desc">RSMs query bot for geography/distributor progress</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PHASE 3 -->
+    <div class="phase-block">
+      <div class="phase-hd">
+        <div class="phase-hd-left">
+          <span class="phase-hd-title">Phase 3 &mdash; Financial & B2B Scaling</span>
+          <span class="phase-hd-timeline">Month 6 onward &middot; Medium effort</span>
+        </div>
+        <span class="phase-maturity p3">Maturity 2.8 &rarr; 3.2</span>
+      </div>
+      <div class="phase-sow">
+        <div class="col-label">Scope of Work &amp; Dependencies</div>
+        <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Build:</strong> Deploy Unified CRM
+            (partitioned by dept) with MENA trial lifecycle tracking (R&D handoffs, follow-ups).</span></div>
+        <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Build:</strong> Implement Finance
+            Automation: Expense policy bot at input level, real-time budget vs actuals dashboard, and Tax LLM
+            alerts.</span></div>
+        <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Build:</strong> LLM agent for Board/Investor
+            reporting to auto-generate statistics and narrative reports from live data.</span></div>
+        <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Tech Stack &amp; Dependencies:</strong>
+            Custom CRM module, Zoho Books API, Government tax feed/LLM.</span></div>
+        <div class="sow-item"><span class="sow-dot p3" style="background:#ef4444;"></span><span><strong>Client
+              To-Do:</strong> HR must hire dedicated Marketing Manager to ensure marketing ROI is tracked within the new
+            dashboards.</span></div>
+      </div>
+      <div class="phase-roi">
+        <div class="roi-card">
+          <div class="roi-card-num">100%</div>
+          <div class="roi-card-label">MENA trial visibility</div>
+          <div class="roi-card-desc">Parent/child account tracking across borders</div>
+        </div>
+        <div class="roi-card">
+          <div class="roi-card-num">0</div>
+          <div class="roi-card-label">policy breaches</div>
+          <div class="roi-card-desc">System checks reject over-expenses at input</div>
+        </div>
+        <div class="roi-card">
+          <div class="roi-card-num">Auto</div>
+          <div class="roi-card-label">investor reports</div>
+          <div class="roi-card-desc">LLM generates decks from live actuals vs projected</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="doc-footer"><span>Operations Audit Report · v1.1</span><span>Page 11</span></div>
   </div>
 
-  <div class="doc-footer"><span>Operations Audit Report · v1.1</span><span>Page 10</span></div>
-</div>
+  <!-- ============ 08 ROI ============ -->
+  <div class="page">
+    <img src="../letterhead.png" alt="Letterhead"
+      style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
 
-<!-- ============ 07 IMPLEMENTATION PLAN ============ -->
-<div class="page">
-  <div class="doc-header"><span><b>EF Polymer Private Limited</b> — Operations Audit</span><span>Confidential</span></div>
+    <div class="eyebrow">Section 08 — Return on Investment (ROI)</div>
+    <h2>System Impact: Before &amp; After</h2>
+    <div class="section-dek">Measurable improvements post-implementation</div>
 
-  <div class="eyebrow">Section 07 — Implementation Plan</div>
-  <h2>Phased Roadmap</h2>
-  <div class="section-dek">Initiatives sequenced across three phases, with quantified ROI and scope of work</div>
+    <table class="tl-table" style="margin-top:20px;">
+      <tr>
+        <th style="width:25%;">Category</th>
+        <th style="width:35%; border-left: 1px solid #e2e8f0;">Before (Current State)</th>
+        <th style="width:40%; border-left: 1px solid #e2e8f0; background: #f8fafc; color: var(--ink);">After
+          (Post-Implementation)</th>
+      </tr>
+      <tr>
+        <td><strong>Executive Approvals & Communications</strong></td>
+        <td style="border-left: 1px solid #e2e8f0;">50–80 emails/day. Offer letters and expenses approved manually via
+          email.</td>
+        <td style="border-left: 1px solid #e2e8f0; background: #f8fafc; color: #166534;"><strong>Unified CXO
+            Dashboard.</strong> Real-time visibility of pending/overdue items. AI inbox segregation flags only critical
+          items.</td>
+      </tr>
+      <tr>
+        <td><strong>HR Performance & Hiring</strong></td>
+        <td style="border-left: 1px solid #e2e8f0;">15-20 COO interviews per role. No PMS. Appraisals based on memory.
+          Onboarding manual.</td>
+        <td style="border-left: 1px solid #e2e8f0; background: #f8fafc; color: #166534;"><strong>Gamified PMS &
+            L&D.</strong> Transparent KPI tracking. Automated NDA/offer e-signing. Centralized skill directory.</td>
+      </tr>
+      <tr>
+        <td><strong>Retail Sales Tracking</strong></td>
+        <td style="border-left: 1px solid #e2e8f0;">Haywired WhatsApp updates. Travel, expenses, and farmer data lost in
+          chat.</td>
+        <td style="border-left: 1px solid #e2e8f0; background: #f8fafc; color: #166534;"><strong>WhatsApp AI
+            Bot.</strong> Unstructured text auto-templated into dashboards. RSMs query bot for target progress.</td>
+      </tr>
+      <tr>
+        <td><strong>Finance & Board Reporting</strong></td>
+        <td style="border-left: 1px solid #e2e8f0;">Manual Zoho exports and reconciliation. 100+ expenses lack policy
+          checks. Tax updates missed.</td>
+        <td style="border-left: 1px solid #e2e8f0; background: #f8fafc; color: #166534;"><strong>Automated Finance
+            Engine.</strong> Input-level policy bots. LLM generates live board reports. Tax policy alerts automated.
+        </td>
+      </tr>
+      <tr>
+        <td><strong>MENA B2B Pipeline</strong></td>
+        <td style="border-left: 1px solid #e2e8f0;">Complex trial cycles managed entirely on WhatsApp. No CRM tracking.
+        </td>
+        <td style="border-left: 1px solid #e2e8f0; background: #f8fafc; color: #166534;"><strong>Unified Department
+            CRM.</strong> Live stage-by-stage trial visibility. Seamless R&D data handoffs.</td>
+      </tr>
+      <tr>
+        <td><strong>Department Maturity Score</strong></td>
+        <td style="border-left: 1px solid #e2e8f0;">1.5 / 5.0 (Reactive/Ad hoc)</td>
+        <td style="border-left: 1px solid #e2e8f0; background: #f8fafc; color: #166534;"><strong>3.2 / 5.0 (Systematised
+            & Automated)</strong></td>
+      </tr>
+    </table>
 
-  <table class="tl-table">
-    <tr>
-      <th>Initiative</th><th class="id">Target</th>
-      <th class="num">Phase 1<br><span style="font-weight:400">Mo. 1–2</span></th>
-      <th class="num">Phase 2<br><span style="font-weight:400">Mo. 3–5</span></th>
-      <th class="num">Phase 3<br><span style="font-weight:400">Mo. 6+</span></th>
-    </tr>
-    <tr><td>Unified CXO Dashboard & AI Assistant</td><td class="id">Module 1</td><td class="phase-mark p1">●</td><td></td><td></td></tr>
-    <tr><td>Gamified HR & PMS Ecosystem</td><td class="id">Module 2</td><td></td><td class="phase-mark p2">●</td><td></td></tr>
-    <tr><td>WhatsApp AI Bot & Retail CRM</td><td class="id">Module 3</td><td></td><td class="phase-mark p2">●</td><td></td></tr>
-    <tr><td>Finance Automation & MENA CRM</td><td class="id">Module 4</td><td></td><td></td><td class="phase-mark p3">●</td></tr>
-  </table>
-
-  <!-- PHASE 1 -->
-  <div class="phase-block">
-    <div class="phase-hd">
-      <div class="phase-hd-left">
-        <span class="phase-hd-title">Phase 1 &mdash; Executive Relief</span>
-        <span class="phase-hd-timeline">Months 1&ndash;2 &middot; Medium effort &middot; Immediate Relief</span>
-      </div>
-      <span class="phase-maturity">Maturity 1.5 &rarr; 2.2</span>
-    </div>
-    <div class="phase-sow">
-      <div class="col-label">Scope of Work &amp; Dependencies</div>
-      <div class="sow-item"><span class="sow-dot"></span><span><strong>Build:</strong> Deploy a Unified CXO Dashboard for approvals (HR offers, Finance expenses) replacing email triage.</span></div>
-      <div class="sow-item"><span class="sow-dot"></span><span><strong>Build:</strong> Implement AI Knowledge Layer chatbot to answer situational policy/SOP queries, replacing Zoho Zia.</span></div>
-      <div class="sow-item"><span class="sow-dot"></span><span><strong>Build:</strong> Chrome extension for inbox management, flagging urgent approvals and suggesting replies.</span></div>
-      <div class="sow-item"><span class="sow-dot"></span><span><strong>Tech Stack &amp; Dependencies:</strong> LLM APIs, Custom Dashboard UI, Zoho/Google Sheet integrations.</span></div>
-      <div class="sow-item"><span class="sow-dot" style="background:#ef4444;"></span><span><strong>Client To-Do:</strong> Define approval thresholds and map all current SOPs into the knowledge layer database.</span></div>
-    </div>
-    <div class="phase-roi">
-      <div class="roi-card">
-        <div class="roi-card-num">&darr; 60%</div>
-        <div class="roi-card-label">email triage time</div>
-        <div class="roi-card-desc">Automated approvals and inbox segregation</div>
-      </div>
-      <div class="roi-card">
-        <div class="roi-card-num">0</div>
-        <div class="roi-card-label">lost approvals</div>
-        <div class="roi-card-desc">Centralized dashboard tracking</div>
-      </div>
-      <div class="roi-card">
-        <div class="roi-card-num">1-Click</div>
-        <div class="roi-card-label">policy queries</div>
-        <div class="roi-card-desc">Instant answers via AI Knowledge Layer</div>
-      </div>
-    </div>
+    <div class="doc-footer"><span>Operations Audit Report · v1.1</span><span>Page 12</span></div>
   </div>
-
-  <!-- PHASE 2 -->
-  <div class="phase-block">
-    <div class="phase-hd">
-      <div class="phase-hd-left">
-        <span class="phase-hd-title">Phase 2 &mdash; Field &amp; People Infrastructure</span>
-        <span class="phase-hd-timeline">Months 3&ndash;5 &middot; High effort</span>
-      </div>
-      <span class="phase-maturity p2">Maturity 2.2 &rarr; 2.8</span>
-    </div>
-    <div class="phase-sow">
-      <div class="col-label">Scope of Work &amp; Dependencies</div>
-      <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Build:</strong> Deploy WhatsApp AI Bot for Retail. Parse unstructured RSM updates (KM, expenses, farmer data) into structured dashboards.</span></div>
-      <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Build:</strong> Launch Gamified PMS and L&D portal. Connect to HRMS for automated 1-month/3-month performance tracking and skill mapping.</span></div>
-      <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Tech Stack &amp; Dependencies:</strong> WhatsApp Business API, AI OCR/Text parsing, Gamification logic, HRMS API.</span></div>
-      <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Team Adoption:</strong> Train HR to manage L&D portal. Train retail field force to use standard WA formats recognized by the bot.</span></div>
-    </div>
-    <div class="phase-roi">
-      <div class="roi-card">
-        <div class="roi-card-num">100%</div>
-        <div class="roi-card-label">retail data structured</div>
-        <div class="roi-card-desc">Unstructured WA text converted to dashboard metrics</div>
-      </div>
-      <div class="roi-card">
-        <div class="roi-card-num">Transparent</div>
-        <div class="roi-card-label">appraisals</div>
-        <div class="roi-card-desc">PMS tracks KPIs/KRAs without manual reconciliation</div>
-      </div>
-      <div class="roi-card">
-        <div class="roi-card-num">Live</div>
-        <div class="roi-card-label">target tracking</div>
-        <div class="roi-card-desc">RSMs query bot for geography/distributor progress</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- PHASE 3 -->
-  <div class="phase-block">
-    <div class="phase-hd">
-      <div class="phase-hd-left">
-        <span class="phase-hd-title">Phase 3 &mdash; Financial & B2B Scaling</span>
-        <span class="phase-hd-timeline">Month 6 onward &middot; Medium effort</span>
-      </div>
-      <span class="phase-maturity p3">Maturity 2.8 &rarr; 3.2</span>
-    </div>
-    <div class="phase-sow">
-      <div class="col-label">Scope of Work &amp; Dependencies</div>
-      <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Build:</strong> Deploy Unified CRM (partitioned by dept) with MENA trial lifecycle tracking (R&D handoffs, follow-ups).</span></div>
-      <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Build:</strong> Implement Finance Automation: Expense policy bot at input level, real-time budget vs actuals dashboard, and Tax LLM alerts.</span></div>
-      <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Build:</strong> LLM agent for Board/Investor reporting to auto-generate statistics and narrative reports from live data.</span></div>
-      <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Tech Stack &amp; Dependencies:</strong> Custom CRM module, Zoho Books API, Government tax feed/LLM.</span></div>
-      <div class="sow-item"><span class="sow-dot p3" style="background:#ef4444;"></span><span><strong>Client To-Do:</strong> HR must hire dedicated Marketing Manager to ensure marketing ROI is tracked within the new dashboards.</span></div>
-    </div>
-    <div class="phase-roi">
-      <div class="roi-card">
-        <div class="roi-card-num">100%</div>
-        <div class="roi-card-label">MENA trial visibility</div>
-        <div class="roi-card-desc">Parent/child account tracking across borders</div>
-      </div>
-      <div class="roi-card">
-        <div class="roi-card-num">0</div>
-        <div class="roi-card-label">policy breaches</div>
-        <div class="roi-card-desc">System checks reject over-expenses at input</div>
-      </div>
-      <div class="roi-card">
-        <div class="roi-card-num">Auto</div>
-        <div class="roi-card-label">investor reports</div>
-        <div class="roi-card-desc">LLM generates decks from live actuals vs projected</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="doc-footer"><span>Operations Audit Report · v1.1</span><span>Page 11</span></div>
-</div>
-
-<!-- ============ 08 ROI ============ -->
-<div class="page">
-  <div class="doc-header"><span><b>EF Polymer Private Limited</b> — Operations Audit</span><span>Confidential</span></div>
-
-  <div class="eyebrow">Section 08 — Return on Investment (ROI)</div>
-  <h2>System Impact: Before &amp; After</h2>
-  <div class="section-dek">Measurable improvements post-implementation</div>
-
-  <table class="tl-table" style="margin-top:20px;">
-    <tr>
-      <th style="width:25%;">Category</th>
-      <th style="width:35%; border-left: 1px solid #e2e8f0;">Before (Current State)</th>
-      <th style="width:40%; border-left: 1px solid #e2e8f0; background: #f8fafc; color: var(--ink);">After (Post-Implementation)</th>
-    </tr>
-    <tr>
-      <td><strong>Executive Approvals & Communications</strong></td>
-      <td style="border-left: 1px solid #e2e8f0;">50–80 emails/day. Offer letters and expenses approved manually via email.</td>
-      <td style="border-left: 1px solid #e2e8f0; background: #f8fafc; color: #166534;"><strong>Unified CXO Dashboard.</strong> Real-time visibility of pending/overdue items. AI inbox segregation flags only critical items.</td>
-    </tr>
-    <tr>
-      <td><strong>HR Performance & Hiring</strong></td>
-      <td style="border-left: 1px solid #e2e8f0;">15-20 COO interviews per role. No PMS. Appraisals based on memory. Onboarding manual.</td>
-      <td style="border-left: 1px solid #e2e8f0; background: #f8fafc; color: #166534;"><strong>Gamified PMS & L&D.</strong> Transparent KPI tracking. Automated NDA/offer e-signing. Centralized skill directory.</td>
-    </tr>
-    <tr>
-      <td><strong>Retail Sales Tracking</strong></td>
-      <td style="border-left: 1px solid #e2e8f0;">Haywired WhatsApp updates. Travel, expenses, and farmer data lost in chat.</td>
-      <td style="border-left: 1px solid #e2e8f0; background: #f8fafc; color: #166534;"><strong>WhatsApp AI Bot.</strong> Unstructured text auto-templated into dashboards. RSMs query bot for target progress.</td>
-    </tr>
-    <tr>
-      <td><strong>Finance & Board Reporting</strong></td>
-      <td style="border-left: 1px solid #e2e8f0;">Manual Zoho exports and reconciliation. 100+ expenses lack policy checks. Tax updates missed.</td>
-      <td style="border-left: 1px solid #e2e8f0; background: #f8fafc; color: #166534;"><strong>Automated Finance Engine.</strong> Input-level policy bots. LLM generates live board reports. Tax policy alerts automated.</td>
-    </tr>
-    <tr>
-      <td><strong>MENA B2B Pipeline</strong></td>
-      <td style="border-left: 1px solid #e2e8f0;">Complex trial cycles managed entirely on WhatsApp. No CRM tracking.</td>
-      <td style="border-left: 1px solid #e2e8f0; background: #f8fafc; color: #166534;"><strong>Unified Department CRM.</strong> Live stage-by-stage trial visibility. Seamless R&D data handoffs.</td>
-    </tr>
-    <tr>
-      <td><strong>Department Maturity Score</strong></td>
-      <td style="border-left: 1px solid #e2e8f0;">1.5 / 5.0 (Reactive/Ad hoc)</td>
-      <td style="border-left: 1px solid #e2e8f0; background: #f8fafc; color: #166534;"><strong>3.2 / 5.0 (Systematised & Automated)</strong></td>
-    </tr>
-  </table>
-
-  <div class="doc-footer"><span>Operations Audit Report · v1.1</span><span>Page 12</span></div>
-</div>
 
 </body>
+
 </html>

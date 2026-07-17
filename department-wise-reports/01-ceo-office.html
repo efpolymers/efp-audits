@@ -1,962 +1,1909 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CEO Office — Department Audit Report | EF Polymer Private Limited</title>
-<style>
-:root{
-  --ink:#1B2A4A;
-  --slate:#3F4B5C;
-  --muted:#6B7785;
-  --line:#D8DEE5;
-  --line-soft:#E9EDF1;
-  --paper:#FFFFFF;
-  --paper-alt:#F6F7F9;
-  --accent:#0F6B62;
-  --accent-soft:#EAF3F1;
-  --risk-crit-bg:#FCEBEA; --risk-crit-fg:#A32E24;
-  --risk-med-bg:#FBF1DF;  --risk-med-fg:#8A5A10;
-  --risk-low-bg:#E9F4EC;  --risk-low-fg:#276B3E;
-}
-@page{ size:A4; margin:22mm 18mm 20mm 18mm; }
-*{ margin:0; padding:0; box-sizing:border-box; }
-body{
-  font-family:'Segoe UI',system-ui,-apple-system,sans-serif;
-  color:var(--slate);
-  line-height:1.55;
-  background:#EDEFF1;
-  font-size:10.3pt;
-}
-.page{
-  background:var(--paper);
-  max-width:840px;
-  margin:0 auto 14px auto;
-  padding:26mm 20mm 20mm 20mm;
-  position:relative;
-  page-break-after:always;
-  min-height:1120px;
-}
-.page:last-child{ page-break-after:avoid; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CEO Office — Department Audit Report | EF Polymer Private Limited</title>
+  <style>
+    :root {
+      --ink: #6b4fc8;
+      --slate: #3F4B5C;
+      --muted: #6B7785;
+      --line: #D8DEE5;
+      --line-soft: #E9EDF1;
+      --paper: #FFFFFF;
+      --paper-alt: #F6F7F9;
+      --accent: #c480e9;
+      --accent-soft: #EAF3F1;
+      --risk-crit-bg: #FCEBEA;
+      --risk-crit-fg: #A32E24;
+      --risk-med-bg: #FBF1DF;
+      --risk-med-fg: #8A5A10;
+      --risk-low-bg: #E9F4EC;
+      --risk-low-fg: #276B3E;
+    }
 
-/* ---- running header / footer ---- */
-.doc-header{
-  display:flex; justify-content:space-between; align-items:baseline;
-  font-size:7.8pt; letter-spacing:0.4px; text-transform:uppercase; color:var(--muted);
-  border-bottom:1px solid var(--line); padding-bottom:8px; margin-bottom:22px;
-}
-.doc-header b{ color:var(--ink); }
-.doc-footer{
-  position:absolute; bottom:10mm; left:20mm; right:20mm;
-  display:flex; justify-content:space-between;
-  font-size:7.5pt; color:var(--muted);
-  border-top:1px solid var(--line-soft); padding-top:6px;
-}
+    @page {
+      size: A4;
+      margin: 22mm 18mm 20mm 18mm;
+    }
 
-/* ---- cover ---- */
-.cover{ display:flex; flex-direction:column; min-height:1080px; }
-.cover-top{ display:flex; justify-content:space-between; align-items:flex-start; }
-.cover-mark{ font-size:9pt; font-weight:700; letter-spacing:2px; color:var(--ink); }
-.cover-mark span{ color:var(--accent); }
-.cover-class{ font-size:7.8pt; text-transform:uppercase; letter-spacing:1.5px; color:var(--muted); border:1px solid var(--line); padding:4px 10px; }
-.cover-body{ flex:1; display:flex; flex-direction:column; justify-content:center; padding:60px 0; }
-.cover-eyebrow{ font-family:Georgia,'Times New Roman',serif; font-style:italic; font-size:11pt; color:var(--accent); margin-bottom:14px; }
-.cover-title{ font-family:Georgia,'Times New Roman',serif; font-size:34pt; color:var(--ink); font-weight:600; line-height:1.15; margin-bottom:10px; }
-.cover-sub{ font-size:13pt; color:var(--slate); font-weight:400; }
-.cover-rule{ width:52px; height:2px; background:var(--accent); margin:26px 0; }
-.cover-ctrl{ border:1px solid var(--line); }
-.cover-ctrl table{ width:100%; border-collapse:collapse; margin:0; }
-.cover-ctrl td{ padding:9px 14px; font-size:9pt; border-bottom:1px solid var(--line-soft); }
-.cover-ctrl tr:last-child td{ border-bottom:none; }
-.cover-ctrl td.label{ color:var(--muted); width:38%; text-transform:uppercase; font-size:7.8pt; letter-spacing:0.5px; }
-.cover-ctrl td.val{ color:var(--ink); font-weight:600; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-/* ---- section furniture ---- */
-.eyebrow{ font-size:8pt; color:var(--accent); font-weight:700; letter-spacing:1.6px; text-transform:uppercase; margin-bottom:6px; }
-h2{ font-family:Georgia,'Times New Roman',serif; font-size:17pt; color:var(--ink); font-weight:600; margin-bottom:4px; }
-h2 + .section-dek{ color:var(--muted); font-size:9.3pt; margin-bottom:18px; padding-bottom:14px; border-bottom:1px solid var(--line); }
-h3{ font-family:Georgia,'Times New Roman',serif; font-size:12.5pt; color:var(--ink); font-weight:600; margin:22px 0 8px; }
-h4{ font-size:10pt; color:var(--ink); font-weight:700; margin:14px 0 4px; }
-p{ margin-bottom:10px; }
-.lede{ font-size:10.6pt; color:var(--slate); max-width:95%; }
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      color: var(--slate);
+      line-height: 1.55;
+      background: #EDEFF1;
+      font-size: 10.3pt;
+    }
 
-/* ---- tables ---- */
-table{ width:100%; border-collapse:collapse; margin:10px 0 20px; font-size:9pt; }
-th{ background:var(--ink); color:#fff; padding:8px 10px; text-align:left; font-weight:600; font-size:8.3pt; letter-spacing:0.3px; text-transform:uppercase; }
-td{ padding:8px 10px; border-bottom:1px solid var(--line-soft); vertical-align:top; }
-tr:nth-child(even) td{ background:var(--paper-alt); }
-td.id, th.id{ font-family:Georgia,serif; font-weight:700; color:var(--ink); white-space:nowrap; width:44px; }
-td.num{ text-align:center; white-space:nowrap; }
+    .page {
+      background: var(--paper);
+      max-width: 840px;
+      margin: 0 auto 14px auto;
+      padding: 26mm 20mm 20mm 20mm;
+      position: relative;
+      page-break-after: always;
+      min-height: 1120px;
+    }
 
-/* ---- chips ---- */
-.chip{ display:inline-block; padding:2px 9px; border-radius:3px; font-size:7.8pt; font-weight:700; letter-spacing:0.3px; text-transform:uppercase; white-space:nowrap; }
-.chip-crit{ background:var(--risk-crit-bg); color:var(--risk-crit-fg); }
-.chip-med{  background:var(--risk-med-bg);  color:var(--risk-med-fg); }
-.chip-low{  background:var(--risk-low-bg);  color:var(--risk-low-fg); }
-.chip-ref{ display:inline-block; background:var(--accent-soft); color:var(--accent); font-family:Georgia,serif; font-weight:700; font-size:8pt; padding:1px 6px; border-radius:3px; margin:1px 2px 1px 0; }
+    .page:last-child {
+      page-break-after: avoid;
+    }
 
-/* ---- KPI strip ---- */
-.kpi-strip{ display:flex; border:1px solid var(--line); margin:16px 0 22px; }
-.kpi-cell{ flex:1; padding:12px 14px; border-right:1px solid var(--line); }
-.kpi-cell:last-child{ border-right:none; }
-.kpi-num{ font-family:Georgia,serif; font-size:15pt; color:var(--ink); font-weight:700; }
-.kpi-lbl{ font-size:7.6pt; color:var(--muted); text-transform:uppercase; letter-spacing:0.5px; margin-top:2px; }
+    /* ---- running header / footer ---- */
+    .doc-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: 7.8pt;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      color: var(--muted);
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 8px;
+      margin-bottom: 22px;
+    }
 
-/* ---- callout ---- */
-.callout{ border-left:3px solid var(--accent); background:var(--accent-soft); padding:10px 14px; font-size:9pt; color:var(--ink); margin:10px 0 20px; }
+    .doc-header b {
+      color: var(--ink);
+    }
 
-/* ---- flow notes ---- */
-.flow-note{ font-size:8.6pt; color:var(--muted); margin:4px 0 18px; padding-left:2px; }
-.flow-note b{ color:var(--risk-crit-fg); }
+    .doc-footer {
+      position: absolute;
+      bottom: 10mm;
+      left: 20mm;
+      right: 20mm;
+      display: flex;
+      justify-content: space-between;
+      font-size: 7.5pt;
+      color: var(--muted);
+      border-top: 1px solid var(--line-soft);
+      padding-top: 6px;
+    }
 
-/* ---- maturity legend (static, PDF-safe) ---- */
-.maturity-legend{ background:var(--paper-alt); border:1px solid var(--line); border-radius:4px; padding:10px 14px; margin:4px 0 0; font-size:8pt; }
-.maturity-legend-title{ font-weight:700; color:var(--ink); font-size:8pt; margin-bottom:6px; }
-.maturity-bar-wrap{ display:flex; align-items:center; gap:8px; margin-bottom:4px; }
-.maturity-bar-track{ flex:1; height:7px; background:var(--line); border-radius:4px; position:relative; overflow:visible; }
-.maturity-bar-fill{ position:absolute; left:0; top:0; height:100%; width:38%; background:var(--accent); border-radius:4px; }
-.maturity-bar-marker{ position:absolute; top:-3px; width:2px; height:13px; background:var(--ink); border-radius:1px; }
-.maturity-bar-marker.target{ left:62%; background:#2563eb; }
-.maturity-bar-lbl{ font-size:7pt; color:var(--muted); white-space:nowrap; }
-.maturity-legend-notes{ display:flex; gap:14px; margin-top:6px; font-size:7.2pt; color:var(--muted); }
-.maturity-legend-notes span b{ color:var(--ink); }
+    /* ---- cover ---- */
+    .cover {
+      display: flex;
+      flex-direction: column;
+      min-height: 1080px;
+    }
 
-/* ---- team structure ---- */
-.team-structure{ margin:0 0 20px; }
-.org-chart{ display:flex; flex-direction:column; align-items:center; gap:0; margin:14px 0; font-size:8.3pt; }
-.org-level{ display:flex; justify-content:center; align-items:flex-start; gap:14px; width:100%; position:relative; }
-.org-connector-top{ width:1px; height:18px; background:var(--line); margin:0 auto; }
-.org-connector-row{ position:relative; display:flex; justify-content:center; gap:14px; width:100%; }
-.org-connector-row::before{ content:''; position:absolute; top:0; left:50%; transform:translateX(-50%); width:1px; height:18px; background:var(--line); }
-.org-node{ background:var(--paper); border:1px solid var(--line); border-radius:4px; padding:8px 10px; min-width:120px; max-width:160px; text-align:center; flex-shrink:0; }
-.org-node.lead{ border-color:var(--accent); background:var(--accent-soft); border-width:1.5px; }
-.org-node.secondary{ background:var(--paper-alt); }
-.org-name{ font-weight:700; color:var(--ink); font-size:8.2pt; margin-bottom:3px; }
-.org-role{ font-size:7pt; color:var(--muted); line-height:1.3; }
-.org-tag{ display:inline-block; background:var(--accent-soft); color:var(--accent); font-size:6.5pt; font-weight:700; padding:1px 5px; border-radius:2px; margin-top:4px; text-transform:uppercase; letter-spacing:0.3px; }
+    .cover-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
 
-/* ---- tools grid ---- */
-.tools-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:10px; margin:12px 0 20px; }
-.tool-card{ border:1px solid var(--line); border-radius:4px; padding:10px 12px; display:flex; gap:10px; align-items:flex-start; background:var(--paper); }
-.tool-icon{ font-size:18pt; line-height:1; flex-shrink:0; margin-top:1px; }
-.tool-name{ font-weight:700; color:var(--ink); font-size:8.5pt; margin-bottom:2px; }
-.tool-desc{ font-size:7.5pt; color:var(--muted); line-height:1.4; }
+    .cover-mark {
+      font-size: 9pt;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--ink);
+    }
 
-/* ---- maturity exhibit ---- */
-.exhibit{ display:flex; gap:26px; align-items:center; margin:14px 0 6px; }
-.exhibit-chart{ flex:0 0 220px; }
-.exhibit-note{ flex:1; font-size:9.2pt; color:var(--slate); }
-.exhibit-note b{ color:var(--ink); }
+    .cover-mark span {
+      color: var(--accent);
+    }
 
-/* ---- roadmap table ---- */
-.tl-table td.phase-mark{ text-align:center; font-weight:700; }
-.tl-table td.phase-mark.p1{ color:var(--accent); }
-.tl-table td.phase-mark.p2{ color:#2563eb; }
-.tl-table td.phase-mark.p3{ color:#7c3aed; }
+    .cover-class {
+      font-size: 7.8pt;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--muted);
+      border: 1px solid var(--line);
+      padding: 4px 10px;
+    }
 
-/* ---- phase blocks ---- */
-.phase-block{ border:1px solid var(--line); margin:14px 0; overflow:hidden; }
-.phase-hd{ display:flex; justify-content:space-between; align-items:center; padding:10px 14px; border-bottom:1px solid var(--line); background:var(--paper-alt); gap:16px; }
-.phase-hd-left{ display:flex; flex-direction:column; gap:2px; }
-.phase-hd-title{ font-family:Georgia,serif; font-size:11pt; font-weight:700; color:var(--ink); }
-.phase-hd-timeline{ font-size:7.8pt; color:var(--muted); }
-.phase-maturity{ font-size:8.5pt; font-weight:700; color:var(--accent); border:1px solid var(--accent); border-radius:3px; padding:3px 10px; white-space:nowrap; flex-shrink:0; }
-.phase-maturity.p2{ color:#2563eb; border-color:#2563eb; }
-.phase-maturity.p3{ color:#7c3aed; border-color:#7c3aed; }
-.phase-sow{ padding:11px 14px 14px; }
-.col-label{ font-size:7.4pt; color:var(--muted); text-transform:uppercase; letter-spacing:0.8px; margin-bottom:8px; font-weight:700; }
-.sow-item{ display:flex; gap:8px; margin-bottom:5px; font-size:8.5pt; color:var(--slate); line-height:1.4; }
-.sow-dot{ width:4px; height:4px; background:var(--accent); border-radius:50%; margin-top:5px; flex-shrink:0; }
-.sow-dot.p2{ background:#2563eb; }
-.sow-dot.p3{ background:#7c3aed; }
-.phase-roi{ display:flex; border-top:1px solid var(--line); background:var(--paper-alt); }
-.roi-card{ flex:1; padding:10px 12px; border-right:1px solid var(--line); text-align:center; }
-.roi-card:last-child{ border-right:none; }
-.roi-card-num{ font-family:Georgia,serif; font-size:13pt; font-weight:700; color:var(--ink); line-height:1.1; margin-bottom:3px; }
-.roi-card-label{ font-size:7.5pt; color:var(--ink); font-weight:700; text-transform:uppercase; letter-spacing:0.3px; margin-bottom:3px; }
-.roi-card-desc{ font-size:7pt; color:var(--muted); line-height:1.35; }
+    .cover-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 60px 0;
+    }
 
-/* ---- maturity exhibit ---- */
-.exhibit{ display:flex; gap:26px; align-items:center; margin:14px 0 6px; }
-.exhibit-chart{ flex:0 0 220px; }
-.exhibit-note{ flex:1; font-size:9.2pt; color:var(--slate); }
-.exhibit-note b{ color:var(--ink); }
+    .cover-eyebrow {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-style: italic;
+      font-size: 11pt;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
 
-/* ---- dep cards (cross-dept appendix) ---- */
-.dep-card{ border:1px solid var(--line); border-radius:8px; background:var(--paper); padding:16px; margin-bottom:16px; }
-.dep-header{ display:flex; align-items:center; justify-content:space-between; margin-bottom:12px; padding-bottom:8px; border-bottom:1px solid var(--line); }
-.dep-title{ font-weight:700; font-size:11pt; color:var(--ink); }
-.dep-badge{ font-size:7.5pt; font-weight:600; padding:3px 8px; border-radius:12px; background:#f1f5f9; color:#475569; text-transform:uppercase; }
-.dep-grid{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
-.dep-section{ background:#f8fafc; border-radius:6px; padding:12px; border:1px solid #e2e8f0; }
-.dep-section.bottleneck{ background:#fef2f2; border-color:#fecaca; }
-.dep-section.data-sync{ background:#f0f9ff; border-color:#bae6fd; }
-.dep-section-title{ font-size:7.5pt; font-weight:700; color:#64748b; text-transform:uppercase; margin-bottom:6px; letter-spacing:0.5px; }
-.bottleneck .dep-section-title{ color:#b91c1c; }
-.data-sync .dep-section-title{ color:#0369a1; }
-.dep-section-content{ font-size:8.5pt; color:var(--ink); line-height:1.4; }
-.dep-person{ display:inline-block; background:#f1f5f9; padding:2px 6px; border-radius:4px; font-weight:600; font-size:8pt; margin-top:4px; border:1px solid #cbd5e1; }
+    .cover-title {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 34pt;
+      color: var(--ink);
+      font-weight: 600;
+      line-height: 1.15;
+      margin-bottom: 10px;
+    }
 
-@media print{
-  body{ background:#fff; }
-  .page{ box-shadow:none; margin:0; }
-}
-</style>
+    .cover-sub {
+      font-size: 13pt;
+      color: var(--slate);
+      font-weight: 400;
+    }
+
+    .cover-rule {
+      width: 52px;
+      height: 2px;
+      background: var(--accent);
+      margin: 26px 0;
+    }
+
+    .cover-ctrl {
+      border: 1px solid var(--line);
+    }
+
+    .cover-ctrl table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0;
+    }
+
+    .cover-ctrl td {
+      padding: 9px 14px;
+      font-size: 9pt;
+      border-bottom: 1px solid var(--line-soft);
+    }
+
+    .cover-ctrl tr:last-child td {
+      border-bottom: none;
+    }
+
+    .cover-ctrl td.label {
+      color: var(--muted);
+      width: 38%;
+      text-transform: uppercase;
+      font-size: 7.8pt;
+      letter-spacing: 0.5px;
+    }
+
+    .cover-ctrl td.val {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    /* ---- section furniture ---- */
+    .eyebrow {
+      font-size: 8pt;
+      color: var(--accent);
+      font-weight: 700;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    h2 {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 17pt;
+      color: var(--ink);
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    h2+.section-dek {
+      color: var(--muted);
+      font-size: 9.3pt;
+      margin-bottom: 18px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    h3 {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 12.5pt;
+      color: var(--ink);
+      font-weight: 600;
+      margin: 22px 0 8px;
+    }
+
+    h4 {
+      font-size: 10pt;
+      color: var(--ink);
+      font-weight: 700;
+      margin: 14px 0 4px;
+    }
+
+    p {
+      margin-bottom: 10px;
+    }
+
+    .lede {
+      font-size: 10.6pt;
+      color: var(--slate);
+      max-width: 95%;
+    }
+
+    /* ---- tables ---- */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 10px 0 20px;
+      font-size: 9pt;
+    }
+
+    th {
+      background: var(--ink);
+      color: #fff;
+      padding: 8px 10px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 8.3pt;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+    }
+
+    td {
+      padding: 8px 10px;
+      border-bottom: 1px solid var(--line-soft);
+      vertical-align: top;
+    }
+
+    tr:nth-child(even) td {
+      background: var(--paper-alt);
+    }
+
+    td.id,
+    th.id {
+      font-family: Georgia, serif;
+      font-weight: 700;
+      color: var(--ink);
+      white-space: nowrap;
+      width: 44px;
+    }
+
+    td.num {
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    /* ---- chips ---- */
+    .chip {
+      display: inline-block;
+      padding: 2px 9px;
+      border-radius: 3px;
+      font-size: 7.8pt;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .chip-crit {
+      background: var(--risk-crit-bg);
+      color: var(--risk-crit-fg);
+    }
+
+    .chip-med {
+      background: var(--risk-med-bg);
+      color: var(--risk-med-fg);
+    }
+
+    .chip-low {
+      background: var(--risk-low-bg);
+      color: var(--risk-low-fg);
+    }
+
+    .chip-ref {
+      display: inline-block;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-family: Georgia, serif;
+      font-weight: 700;
+      font-size: 8pt;
+      padding: 1px 6px;
+      border-radius: 3px;
+      margin: 1px 2px 1px 0;
+    }
+
+    /* ---- KPI strip ---- */
+    .kpi-strip {
+      display: flex;
+      border: 1px solid var(--line);
+      margin: 16px 0 22px;
+    }
+
+    .kpi-cell {
+      flex: 1;
+      padding: 12px 14px;
+      border-right: 1px solid var(--line);
+    }
+
+    .kpi-cell:last-child {
+      border-right: none;
+    }
+
+    .kpi-num {
+      font-family: Georgia, serif;
+      font-size: 15pt;
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    .kpi-lbl {
+      font-size: 7.6pt;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 2px;
+    }
+
+    /* ---- callout ---- */
+    .callout {
+      border-left: 3px solid var(--accent);
+      background: var(--accent-soft);
+      padding: 10px 14px;
+      font-size: 9pt;
+      color: var(--ink);
+      margin: 10px 0 20px;
+    }
+
+    /* ---- flow notes ---- */
+    .flow-note {
+      font-size: 8.6pt;
+      color: var(--muted);
+      margin: 4px 0 18px;
+      padding-left: 2px;
+    }
+
+    .flow-note b {
+      color: var(--risk-crit-fg);
+    }
+
+    /* ---- maturity legend (static, PDF-safe) ---- */
+    .maturity-legend {
+      background: var(--paper-alt);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 10px 14px;
+      margin: 4px 0 0;
+      font-size: 8pt;
+    }
+
+    .maturity-legend-title {
+      font-weight: 700;
+      color: var(--ink);
+      font-size: 8pt;
+      margin-bottom: 6px;
+    }
+
+    .maturity-bar-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+
+    .maturity-bar-track {
+      flex: 1;
+      height: 7px;
+      background: var(--line);
+      border-radius: 4px;
+      position: relative;
+      overflow: visible;
+    }
+
+    .maturity-bar-fill {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 38%;
+      background: var(--accent);
+      border-radius: 4px;
+    }
+
+    .maturity-bar-marker {
+      position: absolute;
+      top: -3px;
+      width: 2px;
+      height: 13px;
+      background: var(--ink);
+      border-radius: 1px;
+    }
+
+    .maturity-bar-marker.target {
+      left: 62%;
+      background: #2563eb;
+    }
+
+    .maturity-bar-lbl {
+      font-size: 7pt;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .maturity-legend-notes {
+      display: flex;
+      gap: 14px;
+      margin-top: 6px;
+      font-size: 7.2pt;
+      color: var(--muted);
+    }
+
+    .maturity-legend-notes span b {
+      color: var(--ink);
+    }
+
+    /* ---- team structure ---- */
+    .team-structure {
+      margin: 0 0 20px;
+    }
+
+    .org-chart {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      margin: 14px 0;
+      font-size: 8.3pt;
+    }
+
+    .org-level {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 14px;
+      width: 100%;
+      position: relative;
+    }
+
+    .org-connector-top {
+      width: 1px;
+      height: 18px;
+      background: var(--line);
+      margin: 0 auto;
+    }
+
+    .org-connector-row {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      width: 100%;
+    }
+
+    .org-connector-row::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1px;
+      height: 18px;
+      background: var(--line);
+    }
+
+    .org-node {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 8px 10px;
+      min-width: 120px;
+      max-width: 160px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .org-node.lead {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+      border-width: 1.5px;
+    }
+
+    .org-node.secondary {
+      background: var(--paper-alt);
+    }
+
+    .org-name {
+      font-weight: 700;
+      color: var(--ink);
+      font-size: 8.2pt;
+      margin-bottom: 3px;
+    }
+
+    .org-role {
+      font-size: 7pt;
+      color: var(--muted);
+      line-height: 1.3;
+    }
+
+    .org-tag {
+      display: inline-block;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 6.5pt;
+      font-weight: 700;
+      padding: 1px 5px;
+      border-radius: 2px;
+      margin-top: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    /* ---- tools grid ---- */
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin: 12px 0 20px;
+    }
+
+    .tool-card {
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 10px 12px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      background: var(--paper);
+    }
+
+    .tool-icon {
+      font-size: 18pt;
+      line-height: 1;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .tool-name {
+      font-weight: 700;
+      color: var(--ink);
+      font-size: 8.5pt;
+      margin-bottom: 2px;
+    }
+
+    .tool-desc {
+      font-size: 7.5pt;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    /* ---- maturity exhibit ---- */
+    .exhibit {
+      display: flex;
+      gap: 26px;
+      align-items: center;
+      margin: 14px 0 6px;
+    }
+
+    .exhibit-chart {
+      flex: 0 0 220px;
+    }
+
+    .exhibit-note {
+      flex: 1;
+      font-size: 9.2pt;
+      color: var(--slate);
+    }
+
+    .exhibit-note b {
+      color: var(--ink);
+    }
+
+    /* ---- roadmap table ---- */
+    .tl-table td.phase-mark {
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .tl-table td.phase-mark.p1 {
+      color: var(--accent);
+    }
+
+    .tl-table td.phase-mark.p2 {
+      color: #2563eb;
+    }
+
+    .tl-table td.phase-mark.p3 {
+      color: #7c3aed;
+    }
+
+    /* ---- phase blocks ---- */
+    .phase-block {
+      border: 1px solid var(--line);
+      margin: 14px 0;
+      overflow: hidden;
+    }
+
+    .phase-hd {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--line);
+      background: var(--paper-alt);
+      gap: 16px;
+    }
+
+    .phase-hd-left {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .phase-hd-title {
+      font-family: Georgia, serif;
+      font-size: 11pt;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .phase-hd-timeline {
+      font-size: 7.8pt;
+      color: var(--muted);
+    }
+
+    .phase-maturity {
+      font-size: 8.5pt;
+      font-weight: 700;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      border-radius: 3px;
+      padding: 3px 10px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .phase-maturity.p2 {
+      color: #2563eb;
+      border-color: #2563eb;
+    }
+
+    .phase-maturity.p3 {
+      color: #7c3aed;
+      border-color: #7c3aed;
+    }
+
+    .phase-sow {
+      padding: 11px 14px 14px;
+    }
+
+    .col-label {
+      font-size: 7.4pt;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+
+    .sow-item {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 5px;
+      font-size: 8.5pt;
+      color: var(--slate);
+      line-height: 1.4;
+    }
+
+    .sow-dot {
+      width: 4px;
+      height: 4px;
+      background: var(--accent);
+      border-radius: 50%;
+      margin-top: 5px;
+      flex-shrink: 0;
+    }
+
+    .sow-dot.p2 {
+      background: #2563eb;
+    }
+
+    .sow-dot.p3 {
+      background: #7c3aed;
+    }
+
+    .phase-roi {
+      display: flex;
+      border-top: 1px solid var(--line);
+      background: var(--paper-alt);
+    }
+
+    .roi-card {
+      flex: 1;
+      padding: 10px 12px;
+      border-right: 1px solid var(--line);
+      text-align: center;
+    }
+
+    .roi-card:last-child {
+      border-right: none;
+    }
+
+    .roi-card-num {
+      font-family: Georgia, serif;
+      font-size: 13pt;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.1;
+      margin-bottom: 3px;
+    }
+
+    .roi-card-label {
+      font-size: 7.5pt;
+      color: var(--ink);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      margin-bottom: 3px;
+    }
+
+    .roi-card-desc {
+      font-size: 7pt;
+      color: var(--muted);
+      line-height: 1.35;
+    }
+
+    /* ---- maturity exhibit ---- */
+    .exhibit {
+      display: flex;
+      gap: 26px;
+      align-items: center;
+      margin: 14px 0 6px;
+    }
+
+    .exhibit-chart {
+      flex: 0 0 220px;
+    }
+
+    .exhibit-note {
+      flex: 1;
+      font-size: 9.2pt;
+      color: var(--slate);
+    }
+
+    .exhibit-note b {
+      color: var(--ink);
+    }
+
+    /* ---- dep cards (cross-dept appendix) ---- */
+    .dep-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .dep-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .dep-title {
+      font-weight: 700;
+      font-size: 11pt;
+      color: var(--ink);
+    }
+
+    .dep-badge {
+      font-size: 7.5pt;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 12px;
+      background: #f1f5f9;
+      color: #475569;
+      text-transform: uppercase;
+    }
+
+    .dep-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .dep-section {
+      background: #f8fafc;
+      border-radius: 6px;
+      padding: 12px;
+      border: 1px solid #e2e8f0;
+    }
+
+    .dep-section.bottleneck {
+      background: #fef2f2;
+      border-color: #fecaca;
+    }
+
+    .dep-section.data-sync {
+      background: #f0f9ff;
+      border-color: #bae6fd;
+    }
+
+    .dep-section-title {
+      font-size: 7.5pt;
+      font-weight: 700;
+      color: #64748b;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      letter-spacing: 0.5px;
+    }
+
+    .bottleneck .dep-section-title {
+      color: #b91c1c;
+    }
+
+    .data-sync .dep-section-title {
+      color: #0369a1;
+    }
+
+    .dep-section-content {
+      font-size: 8.5pt;
+      color: var(--slate);
+      line-height: 1.4;
+    }
+
+    .dep-person {
+      display: inline-block;
+      background: #f1f5f9;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 8pt;
+      margin-top: 4px;
+      border: 1px solid #cbd5e1;
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .page {
+        box-shadow: none;
+        margin: 0;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<!-- ============ COVER ============ -->
-<div class="page cover">
-  <div class="cover-top">
-    <div class="cover-mark">EF POLYMER PRIVATE LIMITED</div>
-    <div class="cover-class">Confidential</div>
+  <!-- ============ COVER ============ -->
+  <div class="page cover">
+    <img src="../letterhead.png" alt="Letterhead"
+      style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
+    <div class="cover-body">
+      <div class="cover-eyebrow">Department Wise Audit Report</div>
+      <div class="cover-title">CEO Office</div>
+      <div class="cover-sub">Strategic Planning &amp; Corporate Oversight — Narayan Lal Gurjar</div>
+      <div class="cover-rule"></div>
+      <p style="max-width:70%;color:var(--muted);font-size:9.3pt;">
+        An independent operational review of the CEO's administrative workflows, corporate governance bandwidth, data
+        visibility pipelines, and strategic policy management, prepared as part of the EF Polymer Private Limited
+        organization-wide operational audit by Creative Upaay (brand owned by Cinnovate Solutions (OPC) Private
+        Limited).
+      </p>
+    </div>
+    <div class="cover-ctrl">
+      <table>
+        <tr>
+          <td class="label">Client</td>
+          <td class="val">EF Polymer Private Limited</td>
+        </tr>
+        <tr>
+          <td class="label">Prepared by</td>
+          <td class="val">Creative Upaay</td>
+        </tr>
+        <tr>
+          <td class="label">Document version</td>
+          <td class="val">1.0</td>
+        </tr>
+        <tr>
+          <td class="label">Date issued</td>
+          <td class="val">17th July 2026</td>
+        </tr>
+        <tr>
+          <td class="label">Review scope</td>
+          <td class="val">CEO Office</td>
+        </tr>
+      </table>
+    </div>
   </div>
-  <div class="cover-body">
-    <div class="cover-eyebrow">Department Wise Audit Report</div>
-    <div class="cover-title">CEO Office</div>
-    <div class="cover-sub">Strategic Planning &amp; Corporate Oversight — Narayan Lal Gurjar</div>
-    <div class="cover-rule"></div>
-    <p style="max-width:70%;color:var(--muted);font-size:9.3pt;">
-      An independent operational review of the CEO's administrative workflows, corporate governance bandwidth, data visibility pipelines, and strategic policy management, prepared as part of the EF Polymer Private Limited organization-wide operational audit by Creative Upaay (brand owned by Cinnovate Solutions (OPC) Private Limited).
-    </p>
+
+  <!-- ============ 01 EXECUTIVE SUMMARY ============ -->
+  <div class="page">
+    <img src="../letterhead.png" alt="Letterhead"
+      style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
+
+    <div class="eyebrow">Section 01 — Executive Summary</div>
+    <h2>Department Overview</h2>
+    <div class="section-dek">Scope, current state, and headline findings</div>
+
+    <p class="lede">The CEO Office acts as the corporate nerve center, responsible for strategic planning, financial
+      oversight, and international subsidiary coordination across India, Japan, the US, and EU. While daily execution is
+      delegated to department heads, the CEO retains final approval authority on strategic policies, budgets, and all
+      Manager+ hires.</p>
+
+    <p>The audit revealed significant bottlenecks stemming from disconnected operational data. Short forecasting runways
+      (3–4 months) limit manufacturing and sales strategy, and the absence of a unified BI dashboard forces the CEO into
+      manual, time-consuming data collection to monitor region-wise P&amp;L. Additionally, fragmented expense approval
+      loops in India and MENA contrast sharply with the automated Slack-based workflows successfully pioneered by the
+      Japan subsidiary.</p>
+
+    <div class="kpi-strip">
+      <div class="kpi-cell">
+        <div class="kpi-num">3–4 mo</div>
+        <div class="kpi-lbl">Forecast Runway</div>
+      </div>
+      <div class="kpi-cell">
+        <div class="kpi-num">4 + 2</div>
+        <div class="kpi-lbl">Direct Report Lines</div>
+      </div>
+      <div class="kpi-cell">
+        <div class="kpi-num">Mgr+</div>
+        <div class="kpi-lbl">Hiring Approval Floor</div>
+      </div>
+      <div class="kpi-cell">
+        <div class="kpi-num">1.9 / 5.0</div>
+        <div class="kpi-lbl">Overall Maturity Score</div>
+      </div>
+    </div>
+
+    <div class="maturity-legend">
+      <div class="maturity-legend-title">About the Maturity Score</div>
+      <div style="font-size:7.5pt;color:var(--muted);margin-bottom:8px;">A 1–5 scale measuring how systematised,
+        documented, and independently operable the department is. Scored across five dimensions: Process, Technology,
+        Data Quality, Documentation &amp; Knowledge Management.</div>
+      <div class="maturity-bar-wrap">
+        <span class="maturity-bar-lbl">1 — Ad hoc</span>
+        <div class="maturity-bar-track">
+          <div class="maturity-bar-fill"></div>
+          <div class="maturity-bar-marker target"></div>
+        </div>
+        <span class="maturity-bar-lbl">5 — Optimised</span>
+      </div>
+      <div class="maturity-legend-notes">
+        <span>&#9632; <b>1.9</b> Current state</span>
+        <span style="color:#2563eb;">&#9646; <b>3.1</b> Post-roadmap target</span>
+        <span>&#9711; <b>5.0</b> Best-in-class benchmark</span>
+      </div>
+    </div>
+
+    <div class="doc-footer"><span>CEO Office Audit Report · v1.0</span><span>Page 2</span></div>
   </div>
-  <div class="cover-ctrl">
+
+  <!-- ============ 02 BENCHMARKING ============ -->
+  <div class="page">
+    <img src="../letterhead.png" alt="Letterhead"
+      style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
+
+    <div class="eyebrow">Section 02 — Benchmarking</div>
+    <h2>Department Maturity Assessment</h2>
+    <div class="section-dek">Scored 1 (ad hoc) to 5 (optimized) against five capability dimensions</div>
+
+    <div class="exhibit">
+      <div class="exhibit-chart">
+        <svg viewBox="0 0 400 350" xmlns="http://www.w3.org/2000/svg" style="width:100%;">
+          <g transform="translate(200,170)">
+            <polygon points="0,-120 114,-37 70,97 -70,97 -114,-37" fill="none" stroke="#E2E8F0" stroke-width="0.75" />
+            <polygon points="0,-96 91,-30 56,78 -56,78 -91,-30" fill="none" stroke="#E2E8F0" stroke-width="0.75" />
+            <polygon points="0,-72 68,-22 42,58 -42,58 -68,-22" fill="none" stroke="#E2E8F0" stroke-width="0.75" />
+            <polygon points="0,-48 46,-15 28,39 -28,39 -46,-15" fill="none" stroke="#E2E8F0" stroke-width="0.75" />
+            <polygon points="0,-24 23,-7 14,19 -14,19 -23,-7" fill="none" stroke="#E2E8F0" stroke-width="0.75" />
+            <line x1="0" y1="0" x2="0" y2="-120" stroke="#E2E8F0" stroke-width="0.75" />
+            <line x1="0" y1="0" x2="114" y2="-37" stroke="#E2E8F0" stroke-width="0.75" />
+            <line x1="0" y1="0" x2="70" y2="97" stroke="#E2E8F0" stroke-width="0.75" />
+            <line x1="0" y1="0" x2="-70" y2="97" stroke="#E2E8F0" stroke-width="0.75" />
+            <line x1="0" y1="0" x2="-114" y2="-37" stroke="#E2E8F0" stroke-width="0.75" />
+
+            <!-- Target dashed: Process 3.0, Tech 3.5, Data 3.5, Docs 3.0, KM 2.5 -->
+            <polygon points="0,-72 79.8,-25.9 49,67.9 -42,58.2 -57,-18.5" fill="none" stroke="#B8C0C9" stroke-width="1"
+              stroke-dasharray="5,3" />
+
+            <!-- Current: Process 2.0, Tech 1.5, Data 1.5, Docs 2.5, KM 2.0 -->
+            <polygon points="0,-48 34.2,-11.1 21,29.1 -35,48.5 -45.6,-14.8" fill="rgba(15,107,98,0.14)" stroke="#0F6B62"
+              stroke-width="1.75" />
+            <circle cx="0" cy="-48" r="3.2" fill="#0F6B62" />
+            <circle cx="34.2" cy="-11.1" r="3.2" fill="#0F6B62" />
+            <circle cx="21" cy="29.1" r="3.2" fill="#0F6B62" />
+            <circle cx="-35" cy="48.5" r="3.2" fill="#0F6B62" />
+            <circle cx="-45.6" cy="-14.8" r="3.2" fill="#0F6B62" />
+
+            <text x="0" y="-132" text-anchor="middle" font-size="9" fill="#1B2A4A" font-weight="600">Process</text>
+            <text x="128" y="-20" text-anchor="start" font-size="9" fill="#1B2A4A" font-weight="600">Technology</text>
+            <text x="78" y="110" text-anchor="start" font-size="9" fill="#1B2A4A" font-weight="600">Data Quality</text>
+            <text x="-78" y="110" text-anchor="end" font-size="9" fill="#1B2A4A" font-weight="600">Documentation</text>
+            <text x="-128" y="-16" text-anchor="end" font-size="9" fill="#1B2A4A" font-weight="600">Knowledge
+              Mgmt.</text>
+          </g>
+        </svg>
+      </div>
+      <div class="exhibit-note">
+        Solid line: current state. Dashed line: target state (post-roadmap).<br><br>
+        <b>CEO Office scores 1.9 overall</b> — Currently heavily reliant on unstructured data flow and ad-hoc
+        communication channels (Slack/Emails). The "Technology" and "Data Quality" dimensions drag the score down due to
+        the lack of an integrated BI dashboard.<br><br>
+        Automating basic operational workflows (expenses/travel) and uniting financial data into a live dashboard will
+        rapidly lift the core maturity metrics.
+      </div>
+    </div>
+
     <table>
-      <tr><td class="label">Client</td><td class="val">EF Polymer Private Limited</td></tr>
-      <tr><td class="label">Prepared by</td><td class="val">Creative Upaay</td></tr>
-      <tr><td class="label">Document version</td><td class="val">1.0</td></tr>
-      <tr><td class="label">Date issued</td><td class="val">17th July 2026</td></tr>
-      <tr><td class="label">Review scope</td><td class="val">CEO Office</td></tr>
+      <tr>
+        <th>Dimension</th>
+        <th class="num">Current</th>
+        <th class="num">Target</th>
+        <th class="num">Gap</th>
+      </tr>
+      <tr>
+        <td>Process Standardization</td>
+        <td class="num">2.0</td>
+        <td class="num">3.0</td>
+        <td class="num">1.0</td>
+      </tr>
+      <tr>
+        <td>Technology Utilization</td>
+        <td class="num">1.5</td>
+        <td class="num">3.5</td>
+        <td class="num">2.0</td>
+      </tr>
+      <tr>
+        <td>Data Quality &amp; Accessibility</td>
+        <td class="num">1.5</td>
+        <td class="num">3.5</td>
+        <td class="num">2.0</td>
+      </tr>
+      <tr>
+        <td>Documentation</td>
+        <td class="num">2.5</td>
+        <td class="num">3.0</td>
+        <td class="num">0.5</td>
+      </tr>
+      <tr>
+        <td>Knowledge Management</td>
+        <td class="num">2.0</td>
+        <td class="num">2.5</td>
+        <td class="num">0.5</td>
+      </tr>
+      <tr style="font-weight:700;">
+        <td>Overall</td>
+        <td class="num">1.9</td>
+        <td class="num">3.1</td>
+        <td class="num">1.2</td>
+      </tr>
     </table>
-  </div>
-</div>
 
-<!-- ============ 01 EXECUTIVE SUMMARY ============ -->
-<div class="page">
-  <div class="doc-header"><span><b>EF Polymer Private Limited</b> — CEO Office Audit</span><span>Confidential</span></div>
-
-  <div class="eyebrow">Section 01 — Executive Summary</div>
-  <h2>Department Overview</h2>
-  <div class="section-dek">Scope, current state, and headline findings</div>
-
-  <p class="lede">The CEO Office acts as the corporate nerve center, responsible for strategic planning, financial oversight, and international subsidiary coordination across India, Japan, the US, and EU. While daily execution is delegated to department heads, the CEO retains final approval authority on strategic policies, budgets, and all Manager+ hires.</p>
-
-  <p>The audit revealed significant bottlenecks stemming from disconnected operational data. Short forecasting runways (3–4 months) limit manufacturing and sales strategy, and the absence of a unified BI dashboard forces the CEO into manual, time-consuming data collection to monitor region-wise P&amp;L. Additionally, fragmented expense approval loops in India and MENA contrast sharply with the automated Slack-based workflows successfully pioneered by the Japan subsidiary.</p>
-
-  <div class="kpi-strip">
-    <div class="kpi-cell"><div class="kpi-num">3–4 mo</div><div class="kpi-lbl">Forecast Runway</div></div>
-    <div class="kpi-cell"><div class="kpi-num">4 + 2</div><div class="kpi-lbl">Direct Report Lines</div></div>
-    <div class="kpi-cell"><div class="kpi-num">Mgr+</div><div class="kpi-lbl">Hiring Approval Floor</div></div>
-    <div class="kpi-cell"><div class="kpi-num">1.9 / 5.0</div><div class="kpi-lbl">Overall Maturity Score</div></div>
-  </div>
-  
-  <div class="maturity-legend">
-    <div class="maturity-legend-title">About the Maturity Score</div>
-    <div style="font-size:7.5pt;color:var(--muted);margin-bottom:8px;">A 1–5 scale measuring how systematised, documented, and independently operable the department is. Scored across five dimensions: Process, Technology, Data Quality, Documentation &amp; Knowledge Management.</div>
-    <div class="maturity-bar-wrap">
-      <span class="maturity-bar-lbl">1 — Ad hoc</span>
-      <div class="maturity-bar-track">
-        <div class="maturity-bar-fill"></div>
-        <div class="maturity-bar-marker target"></div>
-      </div>
-      <span class="maturity-bar-lbl">5 — Optimised</span>
-    </div>
-    <div class="maturity-legend-notes">
-      <span>&#9632; <b>1.9</b> Current state</span>
-      <span style="color:#2563eb;">&#9646; <b>3.1</b> Post-roadmap target</span>
-      <span>&#9711; <b>5.0</b> Best-in-class benchmark</span>
-    </div>
+    <div class="doc-footer"><span>CEO Office Audit Report · v1.0</span><span>Page 3</span></div>
   </div>
 
-  <div class="doc-footer"><span>CEO Office Audit Report · v1.0</span><span>Page 2</span></div>
-</div>
+  <!-- ============ 03 TEAM STRUCTURE & TOOLS ============ -->
+  <div class="page">
+    <img src="../letterhead.png" alt="Letterhead"
+      style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
 
-<!-- ============ 02 BENCHMARKING ============ -->
-<div class="page">
-  <div class="doc-header"><span><b>EF Polymer Private Limited</b> — CEO Office Audit</span><span>Confidential</span></div>
-
-  <div class="eyebrow">Section 02 — Benchmarking</div>
-  <h2>Department Maturity Assessment</h2>
-  <div class="section-dek">Scored 1 (ad hoc) to 5 (optimized) against five capability dimensions</div>
-
-  <div class="exhibit">
-    <div class="exhibit-chart">
-      <svg viewBox="0 0 400 350" xmlns="http://www.w3.org/2000/svg" style="width:100%;">
-        <g transform="translate(200,170)">
-          <polygon points="0,-120 114,-37 70,97 -70,97 -114,-37" fill="none" stroke="#E2E8F0" stroke-width="0.75"/>
-          <polygon points="0,-96 91,-30 56,78 -56,78 -91,-30"    fill="none" stroke="#E2E8F0" stroke-width="0.75"/>
-          <polygon points="0,-72 68,-22 42,58 -42,58 -68,-22"    fill="none" stroke="#E2E8F0" stroke-width="0.75"/>
-          <polygon points="0,-48 46,-15 28,39 -28,39 -46,-15"    fill="none" stroke="#E2E8F0" stroke-width="0.75"/>
-          <polygon points="0,-24 23,-7 14,19 -14,19 -23,-7"      fill="none" stroke="#E2E8F0" stroke-width="0.75"/>
-          <line x1="0" y1="0" x2="0"    y2="-120" stroke="#E2E8F0" stroke-width="0.75"/>
-          <line x1="0" y1="0" x2="114"  y2="-37"  stroke="#E2E8F0" stroke-width="0.75"/>
-          <line x1="0" y1="0" x2="70"   y2="97"   stroke="#E2E8F0" stroke-width="0.75"/>
-          <line x1="0" y1="0" x2="-70"  y2="97"   stroke="#E2E8F0" stroke-width="0.75"/>
-          <line x1="0" y1="0" x2="-114" y2="-37"  stroke="#E2E8F0" stroke-width="0.75"/>
-          
-          <!-- Target dashed: Process 3.0, Tech 3.5, Data 3.5, Docs 3.0, KM 2.5 -->
-          <polygon points="0,-72 79.8,-25.9 49,67.9 -42,58.2 -57,-18.5" fill="none" stroke="#B8C0C9" stroke-width="1" stroke-dasharray="5,3"/>
-          
-          <!-- Current: Process 2.0, Tech 1.5, Data 1.5, Docs 2.5, KM 2.0 -->
-          <polygon points="0,-48 34.2,-11.1 21,29.1 -35,48.5 -45.6,-14.8" fill="rgba(15,107,98,0.14)" stroke="#0F6B62" stroke-width="1.75"/>
-          <circle cx="0" cy="-48" r="3.2" fill="#0F6B62"/>
-          <circle cx="34.2" cy="-11.1" r="3.2" fill="#0F6B62"/>
-          <circle cx="21" cy="29.1" r="3.2" fill="#0F6B62"/>
-          <circle cx="-35" cy="48.5" r="3.2" fill="#0F6B62"/>
-          <circle cx="-45.6" cy="-14.8" r="3.2" fill="#0F6B62"/>
-          
-          <text x="0"    y="-132" text-anchor="middle" font-size="9" fill="#1B2A4A" font-weight="600">Process</text>
-          <text x="128"  y="-20"  text-anchor="start"  font-size="9" fill="#1B2A4A" font-weight="600">Technology</text>
-          <text x="78"   y="110"  text-anchor="start"  font-size="9" fill="#1B2A4A" font-weight="600">Data Quality</text>
-          <text x="-78"  y="110"  text-anchor="end"    font-size="9" fill="#1B2A4A" font-weight="600">Documentation</text>
-          <text x="-128" y="-16"  text-anchor="end"    font-size="9" fill="#1B2A4A" font-weight="600">Knowledge Mgmt.</text>
-        </g>
-      </svg>
-    </div>
-    <div class="exhibit-note">
-      Solid line: current state. Dashed line: target state (post-roadmap).<br><br>
-      <b>CEO Office scores 1.9 overall</b> — Currently heavily reliant on unstructured data flow and ad-hoc communication channels (Slack/Emails). The "Technology" and "Data Quality" dimensions drag the score down due to the lack of an integrated BI dashboard.<br><br>
-      Automating basic operational workflows (expenses/travel) and uniting financial data into a live dashboard will rapidly lift the core maturity metrics.
-    </div>
-  </div>
-
-  <table>
-    <tr><th>Dimension</th><th class="num">Current</th><th class="num">Target</th><th class="num">Gap</th></tr>
-    <tr><td>Process Standardization</td><td class="num">2.0</td><td class="num">3.0</td><td class="num">1.0</td></tr>
-    <tr><td>Technology Utilization</td><td class="num">1.5</td><td class="num">3.5</td><td class="num">2.0</td></tr>
-    <tr><td>Data Quality &amp; Accessibility</td><td class="num">1.5</td><td class="num">3.5</td><td class="num">2.0</td></tr>
-    <tr><td>Documentation</td><td class="num">2.5</td><td class="num">3.0</td><td class="num">0.5</td></tr>
-    <tr><td>Knowledge Management</td><td class="num">2.0</td><td class="num">2.5</td><td class="num">0.5</td></tr>
-    <tr style="font-weight:700;"><td>Overall</td><td class="num">1.9</td><td class="num">3.1</td><td class="num">1.2</td></tr>
-  </table>
-
-  <div class="doc-footer"><span>CEO Office Audit Report · v1.0</span><span>Page 3</span></div>
-</div>
-
-<!-- ============ 03 TEAM STRUCTURE & TOOLS ============ -->
-<div class="page">
-  <div class="doc-header"><span><b>EF Polymer Private Limited</b> — CEO Office Audit</span><span>Confidential</span></div>
-  
-  <h3>Team Structure</h3>
-  <p style="font-size:8.5pt;color:var(--muted);margin-bottom:4px;">Reporting hierarchy and current responsibility domains within the CEO Office.</p>
-  <div class="org-chart">
-    <!-- Lead -->
-    <div class="org-level">
-      <div class="org-node lead">
-        <div class="org-name">Narayan Lal Gurjar</div>
-        <div class="org-role">Founder &amp; CEO<br>Strategic Planning &amp; Corporate Oversight</div>
-        <span class="org-tag">Lead</span>
-      </div>
-    </div>
-    <div class="org-connector-top"></div>
-    <!-- Horizontal line -->
-    <div style="width:78%;border-top:1px solid var(--line);margin:0 auto;"></div>
-    <!-- Level 2 -->
-    <div style="display:flex;justify-content:center;gap:14px;width:100%;margin-top:0;">
-      <!-- MENA branch -->
-      <div class="org-sub-branch">
-        <div class="org-connector-top"></div>
-        <div class="org-node">
-          <div class="org-name">Puran Sir</div>
-          <div class="org-role">MENA &amp; India Ops</div>
+    <h3>Team Structure</h3>
+    <p style="font-size:8.5pt;color:var(--muted);margin-bottom:4px;">Reporting hierarchy and current responsibility
+      domains within the CEO Office.</p>
+    <div class="org-chart">
+      <!-- Lead -->
+      <div class="org-level">
+        <div class="org-node lead">
+          <div class="org-name">Narayan Lal Gurjar</div>
+          <div class="org-role">Founder &amp; CEO<br>Strategic Planning &amp; Corporate Oversight</div>
+          <span class="org-tag">Lead</span>
         </div>
       </div>
-      <!-- Prod & R&D branch -->
-      <div class="org-sub-branch">
-        <div class="org-connector-top"></div>
-        <div class="org-node">
-          <div class="org-name">Rishabh / Ritu</div>
-          <div class="org-role">Production &amp; R&amp;D</div>
+      <div class="org-connector-top"></div>
+      <!-- Horizontal line -->
+      <div style="width:78%;border-top:1px solid var(--line);margin:0 auto;"></div>
+      <!-- Level 2 -->
+      <div style="display:flex;justify-content:center;gap:14px;width:100%;margin-top:0;">
+        <!-- MENA branch -->
+        <div class="org-sub-branch">
+          <div class="org-connector-top"></div>
+          <div class="org-node">
+            <div class="org-name">Puran Sir</div>
+            <div class="org-role">MENA &amp; India Ops</div>
+          </div>
         </div>
-      </div>
-      <!-- Sales & BD branch -->
-      <div class="org-sub-branch">
-        <div class="org-connector-top"></div>
-        <div class="org-node">
-          <div class="org-name">Ankit Jain</div>
-          <div class="org-role">B2B Sales &amp; BD</div>
+        <!-- Prod & R&D branch -->
+        <div class="org-sub-branch">
+          <div class="org-connector-top"></div>
+          <div class="org-node">
+            <div class="org-name">Rishabh / Ritu</div>
+            <div class="org-role">Production &amp; R&amp;D</div>
+          </div>
         </div>
-      </div>
-      <!-- Intl branch -->
-      <div class="org-sub-branch">
-        <div class="org-connector-top"></div>
-        <div class="org-node">
-          <div class="org-name">Intl Subsidiaries</div>
-          <div class="org-role">Japan, US, EU</div>
+        <!-- Sales & BD branch -->
+        <div class="org-sub-branch">
+          <div class="org-connector-top"></div>
+          <div class="org-node">
+            <div class="org-name">Ankit Jain</div>
+            <div class="org-role">B2B Sales &amp; BD</div>
+          </div>
+        </div>
+        <!-- Intl branch -->
+        <div class="org-sub-branch">
+          <div class="org-connector-top"></div>
+          <div class="org-node">
+            <div class="org-name">Intl Subsidiaries</div>
+            <div class="org-role">Japan, US, EU</div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <h3>Tools in Use</h3>
-  <div class="tools-grid">
-    <div class="tool-card">
-      <div class="tool-icon"><img src="https://img.icons8.com/color/48/000000/slack-new.png" width="24" height="24" style="display:block; object-fit:contain;" alt="Slack" /></div>
-      <div class="tool-info">
-        <div class="tool-name">Slack</div>
-        <div class="tool-desc">Primary internal communication; Japan subsidiary uses it for automated workflows</div>
-      </div>
-    </div>
-    <div class="tool-card">
-      <div class="tool-icon"><img src="https://img.icons8.com/color/48/000000/google-sheets.png" width="24" height="24" style="display:block; object-fit:contain;" alt="Google Sheets" /></div>
-      <div class="tool-info">
-        <div class="tool-name">Google Sheets</div>
-        <div class="tool-desc">Ad-hoc departmental updates, revenue tracking, expense registers</div>
-      </div>
-    </div>
-        <div class="tool-card">
-      <div class="tool-icon"><img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" width="24" height="24" style="display:block; object-fit:contain;" alt="WhatsApp" /></div>
-      <div>
-        <div class="tool-name">WhatsApp</div>
-        <div class="tool-desc">Urgent administrative follow-ups and fast external communication</div>
-      </div>
-    </div>
-    <div class="tool-card">
-      <div class="tool-icon"><img src="https://img.icons8.com/color/48/000000/gmail-new.png" width="24" height="24" style="display:block; object-fit:contain;" alt="Email" /></div>
-      <div>
-        <div class="tool-name">Email</div>
-        <div class="tool-desc">Formal external communication and administrative records</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="doc-footer"><span>CEO Office Audit Report · v1.0</span><span>Page 4</span></div>
-</div>
-
-<!-- ============ 03 WORKFLOWS ============ -->
-<div class="page">
-  <div class="doc-header"><span><b>EF Polymer Private Limited</b> — CEO Office Audit</span><span>Confidential</span></div>
-
-  <div class="eyebrow">Section 03 — Process Detail</div>
-  <h2>Current Workflows</h2>
-  <div class="section-dek">Where each finding sits inside the operational process</div>
-
-  <!-- WORKFLOW 1 -->
-  <h3>Manual Administrative Approvals — <span class="chip-ref">P-03</span> <span class="chip-ref">P-05</span></h3>
-  <svg viewBox="0 0 740 92" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:10px 0 4px;">
-    <defs>
-      <marker id="a2" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
-        <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5"/>
-      </marker>
-    </defs>
-    
-    <rect x="10" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
-    <text x="70" y="43" text-anchor="middle" font-size="8" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Employee Requests</text>
-    <text x="70" y="55" text-anchor="middle" font-size="8" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Expense / Travel</text>
-    <line x1="130" y1="46" x2="160" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)"/>
-    
-    <rect x="162" y="22" width="120" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1"/>
-    <text x="222" y="43" text-anchor="middle" font-size="8" fill="#A32E24" font-family="Segoe UI,sans-serif">Scattered Comms</text>
-    <text x="222" y="55" text-anchor="middle" font-size="8" fill="#A32E24" font-family="Segoe UI,sans-serif">Emails / Slack DMs</text>
-    <line x1="282" y1="46" x2="312" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)"/>
-    
-    <rect x="314" y="22" width="120" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5"/>
-    <text x="374" y="43" text-anchor="middle" font-size="8" fill="#A32E24" font-family="Segoe UI,sans-serif">CEO Bottleneck</text>
-    <text x="374" y="55" text-anchor="middle" font-size="8" fill="#A32E24" font-family="Segoe UI,sans-serif">Manual Review</text>
-    <line x1="434" y1="46" x2="464" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)"/>
-
-    <rect x="466" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
-    <text x="526" y="43" text-anchor="middle" font-size="8" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Accounts notified</text>
-    <text x="526" y="55" text-anchor="middle" font-size="8" fill="#3F4B5C" font-family="Segoe UI,sans-serif">for disbursement</text>
-  </svg>
-  <div class="flow-note">
-    <p style="margin-top:0;"><strong>What is good:</strong> CEO retains strict cost-control oversight on administrative spend.</p>
-    <p><strong>What needs to be fixed:</strong> Unstandardized approval channels lead to lost requests and audit friction. This problem was already solved in Japan using automated Slack apps, but the solution hasn't been unified globally.</p>
-    <p><strong>Bottlenecks:</strong> CEO acts as the sole bottleneck for trivial approvals.</p>
-    <p style="margin-bottom:0;"><strong>Dependencies:</strong> Finance depends on forwarded emails and DMs from CEO for disbursement.</p>
-  </div>
-
-  <!-- WORKFLOW 2 -->
-  <h3>Strategic Data Consolidation — <span class="chip-ref">P-02</span></h3>
-  <svg viewBox="0 0 740 92" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:10px 0 4px;">
-    <defs>
-      <marker id="a3" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
-        <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5"/>
-      </marker>
-    </defs>
-    <rect x="10" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
-    <text x="70" y="43" text-anchor="middle" font-size="8" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Department Silos</text>
-    <text x="70" y="55" text-anchor="middle" font-size="8" fill="#3F4B5C" font-family="Segoe UI,sans-serif">(Zoho, Sheets)</text>
-    <line x1="130" y1="46" x2="160" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a3)"/>
-    
-    <text x="222" y="14" text-anchor="middle" font-size="7" fill="#A32E24" font-weight="700" font-family="Segoe UI,sans-serif" letter-spacing="0.4">NO NATIVE SYNC</text>
-    <rect x="162" y="22" width="120" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5"/>
-    <text x="222" y="43" text-anchor="middle" font-size="8" fill="#A32E24" font-family="Segoe UI,sans-serif">Manual Extraction</text>
-    <text x="222" y="55" text-anchor="middle" font-size="8" fill="#A32E24" font-family="Segoe UI,sans-serif">&amp; Harvesting</text>
-    <line x1="282" y1="46" x2="312" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a3)"/>
-    
-    <rect x="314" y="22" width="120" height="48" rx="3" fill="#FBF1DF" stroke="#E8C97A" stroke-width="1.5"/>
-    <text x="374" y="43" text-anchor="middle" font-size="8" fill="#8A5A10" font-family="Segoe UI,sans-serif">Data Consolidation</text>
-    <text x="374" y="55" text-anchor="middle" font-size="8" fill="#8A5A10" font-family="Segoe UI,sans-serif">by CEO Office</text>
-    <line x1="434" y1="46" x2="464" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a3)"/>
-
-    <rect x="466" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"/>
-    <text x="526" y="43" text-anchor="middle" font-size="8" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Delayed Visibility</text>
-    <text x="526" y="55" text-anchor="middle" font-size="8" fill="#3F4B5C" font-family="Segoe UI,sans-serif">on Global P&amp;L</text>
-  </svg>
-  <div class="flow-note">
-    <p style="margin-top:0;"><strong>What is good:</strong> Data exists in departmental silos (Zoho, Sheets).</p>
-    <p><strong>What needs to be fixed:</strong> The lack of a unified BI dashboard forces the CEO into an administrative role to compile region-wise performance metrics.</p>
-    <p><strong>Bottlenecks:</strong> Manual extraction and harvesting delays strategic decision-making.</p>
-    <p style="margin-bottom:0;"><strong>Dependencies:</strong> CEO is completely dependent on Heads of Departments providing timely spreadsheet updates.</p>
-  </div>
-
-  <div class="doc-footer"><span>CEO Office Audit Report · v1.0</span><span>Page 5</span></div>
-</div>
-
-<!-- ============ APPENDIX ============ -->
-<div class="page">
-  <div class="doc-header"><span><b>EF Polymer Private Limited</b> — CEO Office Audit</span><span>Confidential</span></div>
-
-  <div class="eyebrow">Appendix</div>
-  <h2>Cross-Department Dependencies</h2>
-  <div class="section-dek">Findings and recommendations that require action outside the CEO Office to resolve</div>
-
-  <!-- Sales & Production -->
-  <div class="dep-card">
-    <div class="dep-header">
-      <div class="dep-title">Sales &amp; Production</div>
-      <div class="dep-badge">Forecast Integration</div>
-    </div>
-    <div class="dep-grid">
-      <div class="dep-section">
-        <div class="dep-section-title">Operations Dependency</div>
-        <div class="dep-section-content">
-          Forecasting extension requires Sales and Production to unify their projection schedules and data methodologies. Without aligned inputs from both, the runway cannot be extended beyond 3–4 months.
-          <div class="dep-person">👤 Key Persons: Ankit Jain (Sales) / Rishabh Doshi (Production)</div>
+    <h3>Tools in Use</h3>
+    <div class="tools-grid">
+      <div class="tool-card">
+        <div class="tool-icon"><img src="https://img.icons8.com/color/48/000000/slack-new.png" width="24" height="24"
+            style="display:block; object-fit:contain;" alt="Slack" /></div>
+        <div class="tool-info">
+          <div class="tool-name">Slack</div>
+          <div class="tool-desc">Primary internal communication; Japan subsidiary uses it for automated workflows</div>
         </div>
       </div>
-      <div class="dep-section bottleneck">
-        <div class="dep-section-title">Critical Bottleneck</div>
-        <div class="dep-section-content">Sales demand projections and Production scheduling currently operate independently with no shared data model. The CEO cannot bridge this gap alone.</div>
-      </div>
-      <div class="dep-section data-sync" style="grid-column:1/-1;">
-        <div class="dep-section-title">Data Transfer &amp; Updates Needed</div>
-        <div class="dep-section-content">Sales and Production must establish a monthly forecast review cadence to validate and extend projection accuracy, feeding consolidated data directly into the CEO's dashboard.</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Finance & Accounts -->
-  <div class="dep-card">
-    <div class="dep-header">
-      <div class="dep-title">Finance &amp; Accounts</div>
-      <div class="dep-badge">BI Dashboard Data</div>
-    </div>
-    <div class="dep-grid">
-      <div class="dep-section">
-        <div class="dep-section-title">Operations Dependency</div>
-        <div class="dep-section-content">
-          The data powering the executive BI dashboard must be accurately maintained and tagged in Zoho Books by the Accounts team. Region-wise revenue and P&amp;L visibility depends entirely on data quality at the Finance entry point.
-          <div class="dep-person">👤 Key Person: Shobha Shekhawat (Finance)</div>
+      <div class="tool-card">
+        <div class="tool-icon"><img src="https://img.icons8.com/color/48/000000/google-sheets.png" width="24"
+            height="24" style="display:block; object-fit:contain;" alt="Google Sheets" /></div>
+        <div class="tool-info">
+          <div class="tool-name">Google Sheets</div>
+          <div class="tool-desc">Ad-hoc departmental updates, revenue tracking, expense registers</div>
         </div>
       </div>
-      <div class="dep-section bottleneck">
-        <div class="dep-section-title">Critical Bottleneck</div>
-        <div class="dep-section-content">If Accounts data is incomplete or inconsistently tagged, the CEO dashboard will reflect inaccurate metrics, undermining strategic decision-making.</div>
-      </div>
-      <div class="dep-section data-sync" style="grid-column:1/-1;">
-        <div class="dep-section-title">Data Transfer &amp; Updates Needed</div>
-        <div class="dep-section-content">Accounts must maintain standardized tagging conventions in Zoho Books for region, client, and expense categories. Live data feeds must be configured to pull directly into the BI dashboard.</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- HR / Admin / Finance -->
-  <div class="dep-card">
-    <div class="dep-header">
-      <div class="dep-title">HR / Admin / Finance</div>
-      <div class="dep-badge">Approval Workflows</div>
-    </div>
-    <div class="dep-grid">
-      <div class="dep-section">
-        <div class="dep-section-title">Operations Dependency</div>
-        <div class="dep-section-content">
-          Standardized Slack-based approval workflows require company-wide adoption. HR must enforce the policy that emails/Slack DMs will no longer be valid channels for expense or travel requests.
-          <div class="dep-person">👤 Key Person: HR Manager / Dolly Mehta</div>
+      <div class="tool-card">
+        <div class="tool-icon"><img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" width="24" height="24"
+            style="display:block; object-fit:contain;" alt="WhatsApp" /></div>
+        <div>
+          <div class="tool-name">WhatsApp</div>
+          <div class="tool-desc">Urgent administrative follow-ups and fast external communication</div>
         </div>
       </div>
-      <div class="dep-section bottleneck">
-        <div class="dep-section-title">Critical Bottleneck</div>
-        <div class="dep-section-content">Without HR enforcement, employees will continue to default to email and DM channels, recreating the very bottleneck the automated workflow is designed to eliminate.</div>
-      </div>
-      <div class="dep-section data-sync" style="grid-column:1/-1;">
-        <div class="dep-section-title">Data Transfer &amp; Updates Needed</div>
-        <div class="dep-section-content">HR must document and communicate the new approval SOP company-wide, retiring email-based submissions within 30 days. Finance must configure disbursement triggers from the Slack workflow app.</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Marketing / R&D -->
-  <div class="dep-card">
-    <div class="dep-header">
-      <div class="dep-title">Marketing / R&amp;D</div>
-      <div class="dep-badge">Usecase Data Loops</div>
-    </div>
-    <div class="dep-grid">
-      <div class="dep-section">
-        <div class="dep-section-title">Operations Dependency</div>
-        <div class="dep-section-content">
-          The marketing team must design the intake methodology for field-level farmer feedback, while R&amp;D must build capacity to process the incoming empirical field data for formulation improvements.
-          <div class="dep-person">👤 Key Person: Ritu Panwar (R&amp;D Lead)</div>
+      <div class="tool-card">
+        <div class="tool-icon"><img src="https://img.icons8.com/color/48/000000/gmail-new.png" width="24" height="24"
+            style="display:block; object-fit:contain;" alt="Email" /></div>
+        <div>
+          <div class="tool-name">Email</div>
+          <div class="tool-desc">Formal external communication and administrative records</div>
         </div>
       </div>
-      <div class="dep-section bottleneck">
-        <div class="dep-section-title">Critical Bottleneck</div>
-        <div class="dep-section-content">Neither Marketing nor R&amp;D currently has a structured process to receive, categorize, or act upon field-level agricultural efficacy data. The feedback loop is entirely absent.</div>
+    </div>
+
+    <div class="doc-footer"><span>CEO Office Audit Report · v1.0</span><span>Page 4</span></div>
+  </div>
+
+  <!-- ============ 03 WORKFLOWS ============ -->
+  <div class="page">
+    <img src="../letterhead.png" alt="Letterhead"
+      style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
+
+    <div class="eyebrow">Section 03 — Process Detail</div>
+    <h2>Current Workflows</h2>
+    <div class="section-dek">Where each finding sits inside the operational process</div>
+
+    <!-- WORKFLOW 1 -->
+    <h3>Manual Administrative Approvals — <span class="chip-ref">P-03</span> <span class="chip-ref">P-05</span></h3>
+    <svg viewBox="0 0 740 92" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:10px 0 4px;">
+      <defs>
+        <marker id="a2" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+          <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5" />
+        </marker>
+      </defs>
+
+      <rect x="10" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <text x="70" y="43" text-anchor="middle" font-size="8" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Employee
+        Requests</text>
+      <text x="70" y="55" text-anchor="middle" font-size="8" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Expense /
+        Travel</text>
+      <line x1="130" y1="46" x2="160" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)" />
+
+      <rect x="162" y="22" width="120" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1" />
+      <text x="222" y="43" text-anchor="middle" font-size="8" fill="#A32E24" font-family="Segoe UI,sans-serif">Scattered
+        Comms</text>
+      <text x="222" y="55" text-anchor="middle" font-size="8" fill="#A32E24" font-family="Segoe UI,sans-serif">Emails /
+        Slack DMs</text>
+      <line x1="282" y1="46" x2="312" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)" />
+
+      <rect x="314" y="22" width="120" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
+      <text x="374" y="43" text-anchor="middle" font-size="8" fill="#A32E24" font-family="Segoe UI,sans-serif">CEO
+        Bottleneck</text>
+      <text x="374" y="55" text-anchor="middle" font-size="8" fill="#A32E24" font-family="Segoe UI,sans-serif">Manual
+        Review</text>
+      <line x1="434" y1="46" x2="464" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)" />
+
+      <rect x="466" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <text x="526" y="43" text-anchor="middle" font-size="8" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Accounts
+        notified</text>
+      <text x="526" y="55" text-anchor="middle" font-size="8" fill="#3F4B5C" font-family="Segoe UI,sans-serif">for
+        disbursement</text>
+    </svg>
+    <div class="flow-note">
+      <p style="margin-top:0;"><strong>What is good:</strong> CEO retains strict cost-control oversight on
+        administrative spend.</p>
+      <p><strong>What needs to be fixed:</strong> Unstandardized approval channels lead to lost requests and audit
+        friction. This problem was already solved in Japan using automated Slack apps, but the solution hasn't been
+        unified globally.</p>
+      <p><strong>Bottlenecks:</strong> CEO acts as the sole bottleneck for trivial approvals.</p>
+      <p style="margin-bottom:0;"><strong>Dependencies:</strong> Finance depends on forwarded emails and DMs from CEO
+        for disbursement.</p>
+    </div>
+
+    <!-- WORKFLOW 2 -->
+    <h3>Strategic Data Consolidation — <span class="chip-ref">P-02</span></h3>
+    <svg viewBox="0 0 740 92" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:10px 0 4px;">
+      <defs>
+        <marker id="a3" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+          <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5" />
+        </marker>
+      </defs>
+      <rect x="10" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <text x="70" y="43" text-anchor="middle" font-size="8" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Department
+        Silos</text>
+      <text x="70" y="55" text-anchor="middle" font-size="8" fill="#3F4B5C" font-family="Segoe UI,sans-serif">(Zoho,
+        Sheets)</text>
+      <line x1="130" y1="46" x2="160" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a3)" />
+
+      <text x="222" y="14" text-anchor="middle" font-size="7" fill="#A32E24" font-weight="700"
+        font-family="Segoe UI,sans-serif" letter-spacing="0.4">NO NATIVE SYNC</text>
+      <rect x="162" y="22" width="120" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
+      <text x="222" y="43" text-anchor="middle" font-size="8" fill="#A32E24" font-family="Segoe UI,sans-serif">Manual
+        Extraction</text>
+      <text x="222" y="55" text-anchor="middle" font-size="8" fill="#A32E24" font-family="Segoe UI,sans-serif">&amp;
+        Harvesting</text>
+      <line x1="282" y1="46" x2="312" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a3)" />
+
+      <rect x="314" y="22" width="120" height="48" rx="3" fill="#FBF1DF" stroke="#E8C97A" stroke-width="1.5" />
+      <text x="374" y="43" text-anchor="middle" font-size="8" fill="#8A5A10" font-family="Segoe UI,sans-serif">Data
+        Consolidation</text>
+      <text x="374" y="55" text-anchor="middle" font-size="8" fill="#8A5A10" font-family="Segoe UI,sans-serif">by CEO
+        Office</text>
+      <line x1="434" y1="46" x2="464" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a3)" />
+
+      <rect x="466" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <text x="526" y="43" text-anchor="middle" font-size="8" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Delayed
+        Visibility</text>
+      <text x="526" y="55" text-anchor="middle" font-size="8" fill="#3F4B5C" font-family="Segoe UI,sans-serif">on Global
+        P&amp;L</text>
+    </svg>
+    <div class="flow-note">
+      <p style="margin-top:0;"><strong>What is good:</strong> Data exists in departmental silos (Zoho, Sheets).</p>
+      <p><strong>What needs to be fixed:</strong> The lack of a unified BI dashboard forces the CEO into an
+        administrative role to compile region-wise performance metrics.</p>
+      <p><strong>Bottlenecks:</strong> Manual extraction and harvesting delays strategic decision-making.</p>
+      <p style="margin-bottom:0;"><strong>Dependencies:</strong> CEO is completely dependent on Heads of Departments
+        providing timely spreadsheet updates.</p>
+    </div>
+
+    <div class="doc-footer"><span>CEO Office Audit Report · v1.0</span><span>Page 5</span></div>
+  </div>
+
+  <!-- ============ APPENDIX ============ -->
+  <div class="page">
+    <img src="../letterhead.png" alt="Letterhead"
+      style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
+
+    <div class="eyebrow">Appendix</div>
+    <h2>Cross-Department Dependencies</h2>
+    <div class="section-dek">Findings and recommendations that require action outside the CEO Office to resolve</div>
+
+    <!-- Sales & Production -->
+    <div class="dep-card">
+      <div class="dep-header">
+        <div class="dep-title">Sales &amp; Production</div>
+        <div class="dep-badge">Forecast Integration</div>
       </div>
-      <div class="dep-section data-sync" style="grid-column:1/-1;">
-        <div class="dep-section-title">Data Transfer &amp; Updates Needed</div>
-        <div class="dep-section-content">A structured CRM feedback form must capture crop type, region, climate, and application method. Collected data must route directly to R&amp;D for formulation review and to Marketing for case-study generation.</div>
+      <div class="dep-grid">
+        <div class="dep-section">
+          <div class="dep-section-title">Operations Dependency</div>
+          <div class="dep-section-content">
+            Forecasting extension requires Sales and Production to unify their projection schedules and data
+            methodologies. Without aligned inputs from both, the runway cannot be extended beyond 3–4 months.
+            <div class="dep-person">👤 Key Persons: Ankit Jain (Sales) / Rishabh Doshi (Production)</div>
+          </div>
+        </div>
+        <div class="dep-section bottleneck">
+          <div class="dep-section-title">Critical Bottleneck</div>
+          <div class="dep-section-content">Sales demand projections and Production scheduling currently operate
+            independently with no shared data model. The CEO cannot bridge this gap alone.</div>
+        </div>
+        <div class="dep-section data-sync" style="grid-column:1/-1;">
+          <div class="dep-section-title">Data Transfer &amp; Updates Needed</div>
+          <div class="dep-section-content">Sales and Production must establish a monthly forecast review cadence to
+            validate and extend projection accuracy, feeding consolidated data directly into the CEO's dashboard.</div>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="doc-footer"><span>CEO Office Audit Report · v1.0</span><span>Page 6</span></div>
-</div>
-
-<!-- ============ 04 PAIN POINTS ============ -->
-<div class="page">
-  <div class="doc-header"><span><b>EF Polymer Private Limited</b> — CEO Office Audit</span><span>Confidential</span></div>
-
-  <div class="eyebrow">Section 04 — Operational Pain Points</div>
-  <h2>Pain Points Register</h2>
-  <div class="section-dek">Ranked by operational impact. Each pain point is cross-referenced to its recommendation in Section 06.</div>
-
-  <div class="callout" style="margin-bottom:14px;border-left-color:#2563eb;background:#EFF4FF;">
-    <strong style="color:#1B2A4A;">Priority Focus Areas:</strong><br>
-    <span style="color:#1B2A4A;">&#9312; <b>Real-time Data Visibility</b> — No unified dashboard exists for monitoring region-wise revenue, client P&amp;L, and expense compliance. The CEO is forced into a manual data-harvesting role across disconnected Google Sheets and departmental silos.</span><br>
-    <span style="color:#1B2A4A;">&#9313; <b>Forecast Extension</b> — A short 3–4 month forecasting runway limits manufacturing planning, raw material procurement, and global sales strategy. Without consolidated data, forecasts cannot be reliably extended.</span><br>
-  </div>
-
-  <table>
-    <tr>
-      <th class="id">ID</th><th>Pain Point</th><th>Impact</th><th>Evidence from Audit</th>
-    </tr>
-    <tr>
-      <td class="id">P-01</td>
-      <td><b>Short-Term Forecast Visibility.</b> Projections and demand forecasting are constrained to a 3–4 month runway.</td>
-      <td><span class="chip chip-crit">Critical</span></td>
-      <td>Creates severe operational planning and raw material procurement risks for manufacturing and global sales execution.</td>
-    </tr>
-    <tr>
-      <td class="id">P-02</td>
-      <td><b>Data Management &amp; Real-time Visibility Gap.</b> No single consolidated dashboard exists for monitoring region-wise revenue, client P&amp;L, and expense compliance.</td>
-      <td><span class="chip chip-crit">Critical</span></td>
-      <td>CEO must conduct manual checks across disjointed Google Sheets and departmental silos, delaying strategic decisions.</td>
-    </tr>
-    <tr>
-      <td class="id">P-03</td>
-      <td><b>Fragmented Travel &amp; Expense Approvals.</b> Approvals in India and MENA are handled via unstructured email threads and Slack DMs.</td>
-      <td><span class="chip chip-med">High</span></td>
-      <td>Lack of database visibility; creates frequent administrative bottlenecks for both the CEO and the Accounts team.</td>
-    </tr>
-    <tr>
-      <td class="id">P-04</td>
-      <td><b>Siloed Ground-Level Farmer Feedback.</b> Agricultural usecase and crop efficacy data from the ground are not systematically aggregated.</td>
-      <td><span class="chip chip-med">High</span></td>
-      <td>Missed opportunities for R&amp;D refinement and strategic marketing messaging based on real-world farmer outcomes.</td>
-    </tr>
-    <tr>
-      <td class="id">P-05</td>
-      <td><b>Unstandardized Workflow Software.</b> Japan subsidiary successfully uses free Slack approval apps; these have not been deployed in India/MENA.</td>
-      <td><span class="chip chip-low">Medium</span></td>
-      <td>Unnecessary manual effort wasted on workflows that have already been solved and tested in another geography.</td>
-    </tr>
-  </table>
-
-  <div class="doc-footer"><span>CEO Office Audit Report · v1.0</span><span>Page 7</span></div>
-</div>
-
-<!-- ============ 05 TIME & EFFORT ============ -->
-<div class="page">
-  <div class="doc-header"><span><b>EF Polymer Private Limited</b> — CEO Office Audit</span><span>Confidential</span></div>
-
-  <div class="eyebrow">Section 05 — Time &amp; Effort</div>
-  <h3>Time &amp; Effort Allocation</h3>
-  <div class="section-dek">Estimated breakdown of weekly bandwidth based on workflow analysis</div>
-  <p style="font-size:8.5pt;color:var(--muted);margin-bottom:8px;">Based on a standard 8-hour workday. Hours shown are estimates per the CEO's daily allocation, averaged across a typical week.</p>
-
-  <table>
-    <tr><th>Activity</th><th class="num" style="text-align:right">Share of CEO Time</th><th class="num" style="text-align:right">Est. Time / Day</th></tr>
-    <tr><td>Strategic Planning &amp; Policy Formulation</td><td class="num">~30%</td><td class="num">~2.4 hrs</td></tr>
-    <tr><td>Financial Oversight &amp; Performance Reviews</td><td class="num">~25%</td><td class="num">~2.0 hrs</td></tr>
-    <tr><td>Internal Coordination &amp; Issue Resolution</td><td class="num">~20%</td><td class="num">~1.6 hrs</td></tr>
-    <tr><td>International Expansion &amp; Subsidiary Reporting</td><td class="num">~15%</td><td class="num">~1.2 hrs</td></tr>
-    <tr><td>High-Level Talent Approvals (Manager &amp; above)</td><td class="num">~10%</td><td class="num">~48 min</td></tr>
-  </table>
-  <div class="doc-footer"><span>CEO Office Audit Report · v1.0</span><span>Page 8</span></div>
-</div>
-
-<!-- ============ 06 CORRECTIVE ACTION PLAN ============ -->
-<div class="page">
-  <div class="doc-header"><span><b>EF Polymer Private Limited</b> — CEO Office Audit</span><span>Confidential</span></div>
-
-  <div class="eyebrow">Section 06 — Corrective Action Plan</div>
-  <h2>Recommended Solution Segment</h2>
-  <div class="section-dek">This section outlines the integrated technology solution proposed to resolve operational bottlenecks, replacing the legacy recommendations register.</div>
-  
-  <h3>Implementation Required</h3>
-
-  <p style="font-weight: 700; color: var(--ink); margin-top: 15px; margin-bottom: 10px; font-size: 9.5pt;">Solution Modules to be Built:</p>
-
-  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px;">
-    <!-- Module 1 -->
-    <div style="border: 1px solid var(--line); border-radius: 4px; padding: 12px; background: var(--paper);">
-      <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
-        <div style="background: #E9F4EC; color: #276B3E; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 10pt;">1</div>
-        <div style="font-weight: 700; color: var(--ink); font-size: 9.5pt;">Real-time Reporting &amp; Forecast Integration</div>
+    <!-- Finance & Accounts -->
+    <div class="dep-card">
+      <div class="dep-header">
+        <div class="dep-title">Finance &amp; Accounts</div>
+        <div class="dep-badge">BI Dashboard Data</div>
       </div>
-      <ul style="font-size: 8.5pt; color: var(--muted); line-height: 1.5; padding-left: 18px; margin: 0;">
-        <li style="margin-bottom: 6px;"><strong>CEO-Level Dashboard:</strong> Connect Zoho Analytics (or equivalent BI) to pull live region-wise revenue and P&amp;L from Zoho Books and CRM. This gives instant visibility into India revenue, MENA pipeline, and international subsidiary P&amp;L.</li>
-        <li><strong>Forecast Integration Review:</strong> Align Sales demand projections with Production scheduling to extend the forecasting model beyond the current 3-4 month window, securing supply chain stability.</li>
+      <div class="dep-grid">
+        <div class="dep-section">
+          <div class="dep-section-title">Operations Dependency</div>
+          <div class="dep-section-content">
+            The data powering the executive BI dashboard must be accurately maintained and tagged in Zoho Books by the
+            Accounts team. Region-wise revenue and P&amp;L visibility depends entirely on data quality at the Finance
+            entry point.
+            <div class="dep-person">👤 Key Person: Shobha Shekhawat (Finance)</div>
+          </div>
+        </div>
+        <div class="dep-section bottleneck">
+          <div class="dep-section-title">Critical Bottleneck</div>
+          <div class="dep-section-content">If Accounts data is incomplete or inconsistently tagged, the CEO dashboard
+            will reflect inaccurate metrics, undermining strategic decision-making.</div>
+        </div>
+        <div class="dep-section data-sync" style="grid-column:1/-1;">
+          <div class="dep-section-title">Data Transfer &amp; Updates Needed</div>
+          <div class="dep-section-content">Accounts must maintain standardized tagging conventions in Zoho Books for
+            region, client, and expense categories. Live data feeds must be configured to pull directly into the BI
+            dashboard.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HR / Admin / Finance -->
+    <div class="dep-card">
+      <div class="dep-header">
+        <div class="dep-title">HR / Admin / Finance</div>
+        <div class="dep-badge">Approval Workflows</div>
+      </div>
+      <div class="dep-grid">
+        <div class="dep-section">
+          <div class="dep-section-title">Operations Dependency</div>
+          <div class="dep-section-content">
+            Standardized Slack-based approval workflows require company-wide adoption. HR must enforce the policy that
+            emails/Slack DMs will no longer be valid channels for expense or travel requests.
+            <div class="dep-person">👤 Key Person: HR Manager / Dolly Mehta</div>
+          </div>
+        </div>
+        <div class="dep-section bottleneck">
+          <div class="dep-section-title">Critical Bottleneck</div>
+          <div class="dep-section-content">Without HR enforcement, employees will continue to default to email and DM
+            channels, recreating the very bottleneck the automated workflow is designed to eliminate.</div>
+        </div>
+        <div class="dep-section data-sync" style="grid-column:1/-1;">
+          <div class="dep-section-title">Data Transfer &amp; Updates Needed</div>
+          <div class="dep-section-content">HR must document and communicate the new approval SOP company-wide, retiring
+            email-based submissions within 30 days. Finance must configure disbursement triggers from the Slack workflow
+            app.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Marketing / R&D -->
+    <div class="dep-card">
+      <div class="dep-header">
+        <div class="dep-title">Marketing / R&amp;D</div>
+        <div class="dep-badge">Usecase Data Loops</div>
+      </div>
+      <div class="dep-grid">
+        <div class="dep-section">
+          <div class="dep-section-title">Operations Dependency</div>
+          <div class="dep-section-content">
+            The marketing team must design the intake methodology for field-level farmer feedback, while R&amp;D must
+            build capacity to process the incoming empirical field data for formulation improvements.
+            <div class="dep-person">👤 Key Person: Ritu Panwar (R&amp;D Lead)</div>
+          </div>
+        </div>
+        <div class="dep-section bottleneck">
+          <div class="dep-section-title">Critical Bottleneck</div>
+          <div class="dep-section-content">Neither Marketing nor R&amp;D currently has a structured process to receive,
+            categorize, or act upon field-level agricultural efficacy data. The feedback loop is entirely absent.</div>
+        </div>
+        <div class="dep-section data-sync" style="grid-column:1/-1;">
+          <div class="dep-section-title">Data Transfer &amp; Updates Needed</div>
+          <div class="dep-section-content">A structured CRM feedback form must capture crop type, region, climate, and
+            application method. Collected data must route directly to R&amp;D for formulation review and to Marketing
+            for case-study generation.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="doc-footer"><span>CEO Office Audit Report · v1.0</span><span>Page 6</span></div>
+  </div>
+
+  <!-- ============ 04 PAIN POINTS ============ -->
+  <div class="page">
+    <img src="../letterhead.png" alt="Letterhead"
+      style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
+
+    <div class="eyebrow">Section 04 — Operational Pain Points</div>
+    <h2>Pain Points Register</h2>
+    <div class="section-dek">Ranked by operational impact. Each pain point is cross-referenced to its recommendation in
+      Section 06.</div>
+
+    <div class="callout" style="margin-bottom:14px;border-left-color:#2563eb;background:#EFF4FF;">
+      <strong style="color:#1B2A4A;">Priority Focus Areas:</strong><br>
+      <span style="color:#1B2A4A;">&#9312; <b>Real-time Data Visibility</b> — No unified dashboard exists for monitoring
+        region-wise revenue, client P&amp;L, and expense compliance. The CEO is forced into a manual data-harvesting
+        role across disconnected Google Sheets and departmental silos.</span><br>
+      <span style="color:#1B2A4A;">&#9313; <b>Forecast Extension</b> — A short 3–4 month forecasting runway limits
+        manufacturing planning, raw material procurement, and global sales strategy. Without consolidated data,
+        forecasts cannot be reliably extended.</span><br>
+    </div>
+
+    <table>
+      <tr>
+        <th class="id">ID</th>
+        <th>Pain Point</th>
+        <th>Impact</th>
+        <th>Evidence from Audit</th>
+      </tr>
+      <tr>
+        <td class="id">P-01</td>
+        <td><b>Short-Term Forecast Visibility.</b> Projections and demand forecasting are constrained to a 3–4 month
+          runway.</td>
+        <td><span class="chip chip-crit">Critical</span></td>
+        <td>Creates severe operational planning and raw material procurement risks for manufacturing and global sales
+          execution.</td>
+      </tr>
+      <tr>
+        <td class="id">P-02</td>
+        <td><b>Data Management &amp; Real-time Visibility Gap.</b> No single consolidated dashboard exists for
+          monitoring region-wise revenue, client P&amp;L, and expense compliance.</td>
+        <td><span class="chip chip-crit">Critical</span></td>
+        <td>CEO must conduct manual checks across disjointed Google Sheets and departmental silos, delaying strategic
+          decisions.</td>
+      </tr>
+      <tr>
+        <td class="id">P-03</td>
+        <td><b>Fragmented Travel &amp; Expense Approvals.</b> Approvals in India and MENA are handled via unstructured
+          email threads and Slack DMs.</td>
+        <td><span class="chip chip-med">High</span></td>
+        <td>Lack of database visibility; creates frequent administrative bottlenecks for both the CEO and the Accounts
+          team.</td>
+      </tr>
+      <tr>
+        <td class="id">P-04</td>
+        <td><b>Siloed Ground-Level Farmer Feedback.</b> Agricultural usecase and crop efficacy data from the ground are
+          not systematically aggregated.</td>
+        <td><span class="chip chip-med">High</span></td>
+        <td>Missed opportunities for R&amp;D refinement and strategic marketing messaging based on real-world farmer
+          outcomes.</td>
+      </tr>
+      <tr>
+        <td class="id">P-05</td>
+        <td><b>Unstandardized Workflow Software.</b> Japan subsidiary successfully uses free Slack approval apps; these
+          have not been deployed in India/MENA.</td>
+        <td><span class="chip chip-low">Medium</span></td>
+        <td>Unnecessary manual effort wasted on workflows that have already been solved and tested in another geography.
+        </td>
+      </tr>
+    </table>
+
+    <div class="doc-footer"><span>CEO Office Audit Report · v1.0</span><span>Page 7</span></div>
+  </div>
+
+  <!-- ============ 05 TIME & EFFORT ============ -->
+  <div class="page">
+    <img src="../letterhead.png" alt="Letterhead"
+      style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
+
+    <div class="eyebrow">Section 05 — Time &amp; Effort</div>
+    <h3>Time &amp; Effort Allocation</h3>
+    <div class="section-dek">Estimated breakdown of weekly bandwidth based on workflow analysis</div>
+    <p style="font-size:8.5pt;color:var(--muted);margin-bottom:8px;">Based on a standard 8-hour workday. Hours shown are
+      estimates per the CEO's daily allocation, averaged across a typical week.</p>
+
+    <table>
+      <tr>
+        <th>Activity</th>
+        <th class="num" style="text-align:right">Share of CEO Time</th>
+        <th class="num" style="text-align:right">Est. Time / Day</th>
+      </tr>
+      <tr>
+        <td>Strategic Planning &amp; Policy Formulation</td>
+        <td class="num">~30%</td>
+        <td class="num">~2.4 hrs</td>
+      </tr>
+      <tr>
+        <td>Financial Oversight &amp; Performance Reviews</td>
+        <td class="num">~25%</td>
+        <td class="num">~2.0 hrs</td>
+      </tr>
+      <tr>
+        <td>Internal Coordination &amp; Issue Resolution</td>
+        <td class="num">~20%</td>
+        <td class="num">~1.6 hrs</td>
+      </tr>
+      <tr>
+        <td>International Expansion &amp; Subsidiary Reporting</td>
+        <td class="num">~15%</td>
+        <td class="num">~1.2 hrs</td>
+      </tr>
+      <tr>
+        <td>High-Level Talent Approvals (Manager &amp; above)</td>
+        <td class="num">~10%</td>
+        <td class="num">~48 min</td>
+      </tr>
+    </table>
+    <div class="doc-footer"><span>CEO Office Audit Report · v1.0</span><span>Page 8</span></div>
+  </div>
+
+  <!-- ============ 06 CORRECTIVE ACTION PLAN ============ -->
+  <div class="page">
+    <img src="../letterhead.png" alt="Letterhead"
+      style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
+
+    <div class="eyebrow">Section 06 — Corrective Action Plan</div>
+    <h2>Recommended Solution Segment</h2>
+    <div class="section-dek">This section outlines the integrated technology solution proposed to resolve operational
+      bottlenecks, replacing the legacy recommendations register.</div>
+
+    <h3>Implementation Required</h3>
+
+    <p style="font-weight: 700; color: var(--ink); margin-top: 15px; margin-bottom: 10px; font-size: 9.5pt;">Solution
+      Modules to be Built:</p>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px;">
+      <!-- Module 1 -->
+      <div style="border: 1px solid var(--line); border-radius: 4px; padding: 12px; background: var(--paper);">
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+          <div
+            style="background: #E9F4EC; color: #276B3E; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 10pt;">
+            1</div>
+          <div style="font-weight: 700; color: var(--ink); font-size: 9.5pt;">Real-time Reporting &amp; Forecast
+            Integration</div>
+        </div>
+        <ul style="font-size: 8.5pt; color: var(--muted); line-height: 1.5; padding-left: 18px; margin: 0;">
+          <li style="margin-bottom: 6px;"><strong>CEO-Level Dashboard:</strong> Connect Zoho Analytics (or equivalent
+            BI) to pull live region-wise revenue and P&amp;L from Zoho Books and CRM. This gives instant visibility into
+            India revenue, MENA pipeline, and international subsidiary P&amp;L.</li>
+          <li><strong>Forecast Integration Review:</strong> Align Sales demand projections with Production scheduling to
+            extend the forecasting model beyond the current 3-4 month window, securing supply chain stability.</li>
+        </ul>
+      </div>
+
+      <!-- Module 2 -->
+      <div style="border: 1px solid var(--line); border-radius: 4px; padding: 12px; background: var(--paper);">
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+          <div
+            style="background: #E9F4EC; color: #276B3E; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 10pt;">
+            2</div>
+          <div style="font-weight: 700; color: var(--ink); font-size: 9.5pt;">Automated Approval Workflows</div>
+        </div>
+        <ul style="font-size: 8.5pt; color: var(--muted); line-height: 1.5; padding-left: 18px; margin: 0;">
+          <li style="margin-bottom: 6px;"><strong>Standardized Workflow Apps:</strong> Roll out the automated
+            Slack-based approval apps (currently used in Japan) across India and MENA for travel and expenses.</li>
+          <li><strong>Role-based Routing:</strong> Removes the CEO bottleneck on trivial approvals by configuring
+            approval chains—CEO approval required only for Manager+ hires and policy exceptions.</li>
+        </ul>
+      </div>
+
+      <!-- Module 3 -->
+      <div
+        style="border: 1px solid var(--line); border-radius: 4px; padding: 12px; background: var(--paper); grid-column: 1 / -1;">
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+          <div
+            style="background: #E9F4EC; color: #276B3E; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 10pt;">
+            3</div>
+          <div style="font-weight: 700; color: var(--ink); font-size: 9.5pt;">Usecase Data Loops</div>
+        </div>
+        <ul style="font-size: 8.5pt; color: var(--muted); line-height: 1.5; padding-left: 18px; margin: 0;">
+          <li style="margin-bottom: 4px;"><strong>CRM Feedback Process:</strong> Implement structured field-feedback
+            forms in the CRM to systematically compile ground-level farmer insights.</li>
+          <li><strong>Cross-Department Routing:</strong> Route collected feedback directly to R&amp;D for formulation
+            improvements and to Marketing for case-study generation.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Data Strategy & Tech Stack Table -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px;">
+      <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 4px; padding: 12px;">
+        <p style="font-weight: 700; color: var(--ink); margin-bottom: 6px; font-size: 9pt;">What Remains the Same</p>
+        <ul style="font-size: 8.5pt; color: var(--muted); line-height: 1.5; padding-left: 18px; margin: 0;">
+          <li style="margin-bottom: 4px;"><strong>Core Financial Systems:</strong> Financial and sales data entry
+            remains within Zoho Books and CRM.</li>
+          <li><strong>Communication Channels:</strong> Approval workflows leverage Slack, fitting into the team's
+            existing habits without new external software.</li>
+        </ul>
+      </div>
+      <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 4px; padding: 12px;">
+        <p style="font-weight: 700; color: var(--ink); margin-bottom: 6px; font-size: 9pt;">Tech Stack Utilized</p>
+        <ul style="font-size: 8.5pt; color: var(--muted); line-height: 1.5; padding-left: 18px; margin: 0;">
+          <li style="margin-bottom: 2px;"><strong>Frontend:</strong> Zoho BI / Custom Dashboard</li>
+          <li style="margin-bottom: 2px;"><strong>APIs:</strong> Zoho Suite, Slack</li>
+          <li style="margin-bottom: 2px;"><strong>Automation:</strong> Slack Workflow Builder</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Problems Solved Box -->
+    <div
+      style="background: #F0FDF4; border: 1px solid #BBF7D0; border-radius: 4px; padding: 12px; margin-bottom: 25px;">
+      <p style="font-weight: 700; color: #166534; margin-bottom: 6px; font-size: 9.5pt;">Key Operational Problems Solved
+      </p>
+      <ul style="font-size: 8.5pt; color: #15803D; line-height: 1.5; padding-left: 18px; margin: 0;">
+        <li style="margin-bottom: 4px;">Secures supply chain stability and enables long-term volume negotiations with
+          raw material vendors.</li>
+        <li style="margin-bottom: 4px;">Eliminates weekly manual data harvesting for the CEO, accelerating strategic
+          decision making.</li>
+        <li style="margin-bottom: 4px;">Removes the CEO bottleneck on trivial approvals while ensuring a full database
+          audit trail for Finance.</li>
+        <li>Accelerates R&amp;D formulation improvements based on actual field efficacy data.</li>
       </ul>
     </div>
 
-    <!-- Module 2 -->
-    <div style="border: 1px solid var(--line); border-radius: 4px; padding: 12px; background: var(--paper);">
-      <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
-        <div style="background: #E9F4EC; color: #276B3E; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 10pt;">2</div>
-        <div style="font-weight: 700; color: var(--ink); font-size: 9.5pt;">Automated Approval Workflows</div>
-      </div>
-      <ul style="font-size: 8.5pt; color: var(--muted); line-height: 1.5; padding-left: 18px; margin: 0;">
-        <li style="margin-bottom: 6px;"><strong>Standardized Workflow Apps:</strong> Roll out the automated Slack-based approval apps (currently used in Japan) across India and MENA for travel and expenses.</li>
-        <li><strong>Role-based Routing:</strong> Removes the CEO bottleneck on trivial approvals by configuring approval chains—CEO approval required only for Manager+ hires and policy exceptions.</li>
-      </ul>
-    </div>
-
-    <!-- Module 3 -->
-    <div style="border: 1px solid var(--line); border-radius: 4px; padding: 12px; background: var(--paper); grid-column: 1 / -1;">
-      <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
-        <div style="background: #E9F4EC; color: #276B3E; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 10pt;">3</div>
-        <div style="font-weight: 700; color: var(--ink); font-size: 9.5pt;">Usecase Data Loops</div>
-      </div>
-      <ul style="font-size: 8.5pt; color: var(--muted); line-height: 1.5; padding-left: 18px; margin: 0;">
-        <li style="margin-bottom: 4px;"><strong>CRM Feedback Process:</strong> Implement structured field-feedback forms in the CRM to systematically compile ground-level farmer insights.</li>
-        <li><strong>Cross-Department Routing:</strong> Route collected feedback directly to R&amp;D for formulation improvements and to Marketing for case-study generation.</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- Data Strategy & Tech Stack Table -->
-  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px;">
-    <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 4px; padding: 12px;">
-      <p style="font-weight: 700; color: var(--ink); margin-bottom: 6px; font-size: 9pt;">What Remains the Same</p>
-      <ul style="font-size: 8.5pt; color: var(--muted); line-height: 1.5; padding-left: 18px; margin: 0;">
-        <li style="margin-bottom: 4px;"><strong>Core Financial Systems:</strong> Financial and sales data entry remains within Zoho Books and CRM.</li>
-        <li><strong>Communication Channels:</strong> Approval workflows leverage Slack, fitting into the team's existing habits without new external software.</li>
-      </ul>
-    </div>
-    <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 4px; padding: 12px;">
-      <p style="font-weight: 700; color: var(--ink); margin-bottom: 6px; font-size: 9pt;">Tech Stack Utilized</p>
-      <ul style="font-size: 8.5pt; color: var(--muted); line-height: 1.5; padding-left: 18px; margin: 0;">
-        <li style="margin-bottom: 2px;"><strong>Frontend:</strong> Zoho BI / Custom Dashboard</li>
-        <li style="margin-bottom: 2px;"><strong>APIs:</strong> Zoho Suite, Slack</li>
-        <li style="margin-bottom: 2px;"><strong>Automation:</strong> Slack Workflow Builder</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- Problems Solved Box -->
-  <div style="background: #F0FDF4; border: 1px solid #BBF7D0; border-radius: 4px; padding: 12px; margin-bottom: 25px;">
-    <p style="font-weight: 700; color: #166534; margin-bottom: 6px; font-size: 9.5pt;">Key Operational Problems Solved</p>
-    <ul style="font-size: 8.5pt; color: #15803D; line-height: 1.5; padding-left: 18px; margin: 0;">
-      <li style="margin-bottom: 4px;">Secures supply chain stability and enables long-term volume negotiations with raw material vendors.</li>
-      <li style="margin-bottom: 4px;">Eliminates weekly manual data harvesting for the CEO, accelerating strategic decision making.</li>
-      <li style="margin-bottom: 4px;">Removes the CEO bottleneck on trivial approvals while ensuring a full database audit trail for Finance.</li>
-      <li>Accelerates R&amp;D formulation improvements based on actual field efficacy data.</li>
+    <h3>Future Scope of Improvement / Enhancement</h3>
+    <ul style="font-size: 9pt; color: var(--muted); line-height: 1.5; padding-left: 20px; margin-bottom: 25px;">
+      <li><strong>AI Predictive Modeling:</strong> In the future, predictive AI could be integrated into the forecasting
+        model to analyze global demand trends and climate variables for strategic resource allocation.</li>
     </ul>
+
+    <h3>Next Steps for Team Adoption</h3>
+    <ul style="font-size: 9pt; color: var(--muted); line-height: 1.5; padding-left: 20px; margin-bottom: 15px;">
+      <li><strong>Mandatory SOP Rollout:</strong> Document and communicate the new approval SOP company-wide, ensuring
+        all members use Slack rather than emails/DMs.</li>
+      <li><strong>Executive Dashboard Review:</strong> Establish a continuous feedback loop between the CEO and IT to
+        refine dashboard views (India, MENA, P&amp;L, etc.) until they perfectly align with daily needs.</li>
+    </ul>
+
+    <div class="doc-footer"><span>CEO Office Audit Report · v1.0</span><span>Page 9</span></div>
   </div>
 
-  <h3>Future Scope of Improvement / Enhancement</h3>
-  <ul style="font-size: 9pt; color: var(--muted); line-height: 1.5; padding-left: 20px; margin-bottom: 25px;">
-    <li><strong>AI Predictive Modeling:</strong> In the future, predictive AI could be integrated into the forecasting model to analyze global demand trends and climate variables for strategic resource allocation.</li>
-  </ul>
+  <!-- ============ 07 IMPLEMENTATION PLAN ============ -->
+  <div class="page">
+    <img src="../letterhead.png" alt="Letterhead"
+      style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
 
-  <h3>Next Steps for Team Adoption</h3>
-  <ul style="font-size: 9pt; color: var(--muted); line-height: 1.5; padding-left: 20px; margin-bottom: 15px;">
-    <li><strong>Mandatory SOP Rollout:</strong> Document and communicate the new approval SOP company-wide, ensuring all members use Slack rather than emails/DMs.</li>
-    <li><strong>Executive Dashboard Review:</strong> Establish a continuous feedback loop between the CEO and IT to refine dashboard views (India, MENA, P&amp;L, etc.) until they perfectly align with daily needs.</li>
-  </ul>
+    <div class="eyebrow">Section 07 — Implementation Plan</div>
+    <h2>Phased Roadmap</h2>
+    <div class="section-dek">Initiatives sequenced across three phases, with quantified ROI and scope of work</div>
 
-  <div class="doc-footer"><span>CEO Office Audit Report · v1.0</span><span>Page 9</span></div>
-</div>
+    <table class="tl-table">
+      <tr>
+        <th>Initiative</th>
+        <th class="id">Target</th>
+        <th class="num">Phase 1<br><span style="font-weight:400">Mo. 1–2</span></th>
+        <th class="num">Phase 2<br><span style="font-weight:400">Mo. 3–5</span></th>
+        <th class="num">Phase 3<br><span style="font-weight:400">Mo. 6+</span></th>
+      </tr>
+      <tr>
+        <td>Automated Approval Workflows</td>
+        <td class="id">Module 2</td>
+        <td class="phase-mark p1">●</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Real-time Reporting Dashboard</td>
+        <td class="id">Module 1</td>
+        <td></td>
+        <td class="phase-mark p2">●</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Forecast Integration Review</td>
+        <td class="id">Module 1</td>
+        <td></td>
+        <td class="phase-mark p2">●</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Usecase Data Loops</td>
+        <td class="id">Module 3</td>
+        <td></td>
+        <td></td>
+        <td class="phase-mark p3">●</td>
+      </tr>
+    </table>
 
-<!-- ============ 07 IMPLEMENTATION PLAN ============ -->
-<div class="page">
-  <div class="doc-header"><span><b>EF Polymer Private Limited</b> — CEO Office Audit</span><span>Confidential</span></div>
-
-  <div class="eyebrow">Section 07 — Implementation Plan</div>
-  <h2>Phased Roadmap</h2>
-  <div class="section-dek">Initiatives sequenced across three phases, with quantified ROI and scope of work</div>
-
-  <table class="tl-table">
-    <tr>
-      <th>Initiative</th><th class="id">Target</th>
-      <th class="num">Phase 1<br><span style="font-weight:400">Mo. 1–2</span></th>
-      <th class="num">Phase 2<br><span style="font-weight:400">Mo. 3–5</span></th>
-      <th class="num">Phase 3<br><span style="font-weight:400">Mo. 6+</span></th>
-    </tr>
-    <tr><td>Automated Approval Workflows</td><td class="id">Module 2</td><td class="phase-mark p1">●</td><td></td><td></td></tr>
-    <tr><td>Real-time Reporting Dashboard</td><td class="id">Module 1</td><td></td><td class="phase-mark p2">●</td><td></td></tr>
-    <tr><td>Forecast Integration Review</td><td class="id">Module 1</td><td></td><td class="phase-mark p2">●</td><td></td></tr>
-    <tr><td>Usecase Data Loops</td><td class="id">Module 3</td><td></td><td></td><td class="phase-mark p3">●</td></tr>
-  </table>
-
-  <!-- PHASE 1 -->
-  <div class="phase-block">
-    <div class="phase-hd">
-      <div class="phase-hd-left">
-        <span class="phase-hd-title">Phase 1 &mdash; Quick Wins</span>
-        <span class="phase-hd-timeline">Months 1&ndash;2 &middot; Low effort &middot; Zero technology cost</span>
+    <!-- PHASE 1 -->
+    <div class="phase-block">
+      <div class="phase-hd">
+        <div class="phase-hd-left">
+          <span class="phase-hd-title">Phase 1 &mdash; Quick Wins</span>
+          <span class="phase-hd-timeline">Months 1&ndash;2 &middot; Low effort &middot; Zero technology cost</span>
+        </div>
+        <span class="phase-maturity">Maturity 1.9 &rarr; 2.2</span>
       </div>
-      <span class="phase-maturity">Maturity 1.9 &rarr; 2.2</span>
+      <div class="phase-sow">
+        <div class="col-label">Scope of Work &amp; Dependencies</div>
+        <div class="sow-item"><span class="sow-dot"></span><span><strong>Build:</strong> Configure Slack workflow apps
+            (currently used by Japan subsidiary) for global deployment across India and MENA for travel and expense
+            approvals.</span></div>
+        <div class="sow-item"><span class="sow-dot"></span><span><strong>Build:</strong> Set up role-based approval
+            routing chains — CEO approval required only for Manager+ hires and policy exceptions.</span></div>
+        <div class="sow-item"><span class="sow-dot"></span><span><strong>Tech Stack &amp; Dependencies:</strong> Slack
+            Workflow Builder (free tier). Requires HR to document the approval hierarchy and expense thresholds.</span>
+        </div>
+        <div class="sow-item"><span class="sow-dot"></span><span><strong>Team Adoption:</strong> Conduct rollout
+            sessions to transition all employees from email/DM-based submissions to the Slack workflow app.</span></div>
+        <div class="sow-item"><span class="sow-dot" style="background:#ef4444;"></span><span><strong>Client
+              To-Do:</strong> HR must formally retire email-based expense submissions within 30 days and enforce the new
+            SOP company-wide.</span></div>
+      </div>
+      <div class="phase-roi">
+        <div class="roi-card">
+          <div class="roi-card-num">100%</div>
+          <div class="roi-card-label">digital audit trail</div>
+          <div class="roi-card-desc">For all administrative approvals &mdash; no more lost email threads</div>
+        </div>
+        <div class="roi-card">
+          <div class="roi-card-num">&curren;0</div>
+          <div class="roi-card-label">technology cost</div>
+          <div class="roi-card-desc">Leveraging existing free Slack apps already proven in Japan</div>
+        </div>
+        <div class="roi-card">
+          <div class="roi-card-num">&darr; 60%</div>
+          <div class="roi-card-label">CEO admin load</div>
+          <div class="roi-card-desc">Trivial approvals no longer require manual CEO review</div>
+        </div>
+      </div>
     </div>
-    <div class="phase-sow">
-      <div class="col-label">Scope of Work &amp; Dependencies</div>
-      <div class="sow-item"><span class="sow-dot"></span><span><strong>Build:</strong> Configure Slack workflow apps (currently used by Japan subsidiary) for global deployment across India and MENA for travel and expense approvals.</span></div>
-      <div class="sow-item"><span class="sow-dot"></span><span><strong>Build:</strong> Set up role-based approval routing chains — CEO approval required only for Manager+ hires and policy exceptions.</span></div>
-      <div class="sow-item"><span class="sow-dot"></span><span><strong>Tech Stack &amp; Dependencies:</strong> Slack Workflow Builder (free tier). Requires HR to document the approval hierarchy and expense thresholds.</span></div>
-      <div class="sow-item"><span class="sow-dot"></span><span><strong>Team Adoption:</strong> Conduct rollout sessions to transition all employees from email/DM-based submissions to the Slack workflow app.</span></div>
-      <div class="sow-item"><span class="sow-dot" style="background:#ef4444;"></span><span><strong>Client To-Do:</strong> HR must formally retire email-based expense submissions within 30 days and enforce the new SOP company-wide.</span></div>
+
+    <!-- PHASE 2 -->
+    <div class="phase-block">
+      <div class="phase-hd">
+        <div class="phase-hd-left">
+          <span class="phase-hd-title">Phase 2 &mdash; Data Foundation</span>
+          <span class="phase-hd-timeline">Months 3&ndash;5 &middot; Medium effort &middot; High Strategic ROI</span>
+        </div>
+        <span class="phase-maturity p2">Maturity 2.2 &rarr; 2.8</span>
+      </div>
+      <div class="phase-sow">
+        <div class="col-label">Scope of Work &amp; Dependencies</div>
+        <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Build:</strong> Configure Zoho Analytics (or
+            equivalent BI) to pull live region-wise revenue and P&amp;L from Zoho Books and CRM.</span></div>
+        <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Build:</strong> Build CEO-level dashboard
+            with 4 views: India revenue, MENA pipeline, international subsidiary P&amp;L, and expense compliance.</span>
+        </div>
+        <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Tech Stack &amp; Dependencies:</strong> Zoho
+            Analytics / Custom Dashboard (ReactJS + TypeScript). Requires read/write API access to Zoho Books and
+            CRM.</span></div>
+        <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Team Adoption:</strong> Establish monthly
+            forecast review cadence with Sales and Production heads to validate and extend projection accuracy.</span>
+        </div>
+        <div class="sow-item"><span class="sow-dot p2" style="background:#ef4444;"></span><span><strong>Client
+              To-Do:</strong> Finance must maintain standardized tagging conventions in Zoho Books for region, client,
+            and expense categories. Sales &amp; Production must align their projection schedules.</span></div>
+      </div>
+      <div class="phase-roi">
+        <div class="roi-card">
+          <div class="roi-card-num">Live</div>
+          <div class="roi-card-label">P&amp;L visibility</div>
+          <div class="roi-card-desc">No manual data harvesting required &mdash; real-time region-wise metrics</div>
+        </div>
+        <div class="roi-card">
+          <div class="roi-card-num">6+ mo</div>
+          <div class="roi-card-label">forecast runway</div>
+          <div class="roi-card-desc">Stabilizing manufacturing and raw material procurement cycles</div>
+        </div>
+        <div class="roi-card">
+          <div class="roi-card-num">&darr; 80%</div>
+          <div class="roi-card-label">manual harvesting</div>
+          <div class="roi-card-desc">CEO no longer compiles data from scattered Google Sheets</div>
+        </div>
+      </div>
     </div>
-    <div class="phase-roi">
-      <div class="roi-card">
-        <div class="roi-card-num">100%</div>
-        <div class="roi-card-label">digital audit trail</div>
-        <div class="roi-card-desc">For all administrative approvals &mdash; no more lost email threads</div>
+
+    <!-- PHASE 3 -->
+    <div class="phase-block">
+      <div class="phase-hd">
+        <div class="phase-hd-left">
+          <span class="phase-hd-title">Phase 3 &mdash; Strategic Scaling</span>
+          <span class="phase-hd-timeline">Month 6 onward &middot; High effort</span>
+        </div>
+        <span class="phase-maturity p3">Maturity 2.8 &rarr; 3.1</span>
       </div>
-      <div class="roi-card">
-        <div class="roi-card-num">&curren;0</div>
-        <div class="roi-card-label">technology cost</div>
-        <div class="roi-card-desc">Leveraging existing free Slack apps already proven in Japan</div>
+      <div class="phase-sow">
+        <div class="col-label">Scope of Work &amp; Dependencies</div>
+        <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Build:</strong> Implement structured
+            field-feedback forms in the CRM to capture agricultural efficacy data from farmers (crop type, region,
+            climate, application method).</span></div>
+        <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Build:</strong> Create automated routing
+            pipelines — collected feedback goes directly to R&amp;D for formulation improvements and to Marketing for
+            case-study generation.</span></div>
+        <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Tech Stack &amp; Dependencies:</strong> CRM
+            feedback module, ReactJS + TypeScript frontend, Google Sheets API for data storage. Requires R&amp;D and
+            Marketing to define feedback taxonomy.</span></div>
+        <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Team Adoption:</strong> Design quarterly
+            CEO-level usecase review — aggregating field data into actionable product and market insights.</span></div>
+        <div class="sow-item"><span class="sow-dot p3" style="background:#ef4444;"></span><span><strong>Client
+              To-Do:</strong> Marketing must design the intake methodology for field-level feedback. R&amp;D must build
+            capacity to process incoming empirical data for formulation review.</span></div>
       </div>
-      <div class="roi-card">
-        <div class="roi-card-num">&darr; 60%</div>
-        <div class="roi-card-label">CEO admin load</div>
-        <div class="roi-card-desc">Trivial approvals no longer require manual CEO review</div>
+      <div class="phase-roi">
+        <div class="roi-card">
+          <div class="roi-card-num">100%</div>
+          <div class="roi-card-label">data capture</div>
+          <div class="roi-card-desc">Systematic aggregation of ground-level farmer insights</div>
+        </div>
+        <div class="roi-card">
+          <div class="roi-card-num">Direct</div>
+          <div class="roi-card-label">R&amp;D loop</div>
+          <div class="roi-card-desc">Accelerates formulation improvements with actual efficacy data</div>
+        </div>
+        <div class="roi-card">
+          <div class="roi-card-num">3.1</div>
+          <div class="roi-card-label">maturity level</div>
+          <div class="roi-card-desc">Achieving a highly structured and scalable CEO office</div>
+        </div>
       </div>
     </div>
+
+    <div class="doc-footer"><span>CEO Office Audit Report · v1.0</span><span>Page 10</span></div>
   </div>
 
-  <!-- PHASE 2 -->
-  <div class="phase-block">
-    <div class="phase-hd">
-      <div class="phase-hd-left">
-        <span class="phase-hd-title">Phase 2 &mdash; Data Foundation</span>
-        <span class="phase-hd-timeline">Months 3&ndash;5 &middot; Medium effort &middot; High Strategic ROI</span>
-      </div>
-      <span class="phase-maturity p2">Maturity 2.2 &rarr; 2.8</span>
-    </div>
-    <div class="phase-sow">
-      <div class="col-label">Scope of Work &amp; Dependencies</div>
-      <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Build:</strong> Configure Zoho Analytics (or equivalent BI) to pull live region-wise revenue and P&amp;L from Zoho Books and CRM.</span></div>
-      <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Build:</strong> Build CEO-level dashboard with 4 views: India revenue, MENA pipeline, international subsidiary P&amp;L, and expense compliance.</span></div>
-      <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Tech Stack &amp; Dependencies:</strong> Zoho Analytics / Custom Dashboard (ReactJS + TypeScript). Requires read/write API access to Zoho Books and CRM.</span></div>
-      <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Team Adoption:</strong> Establish monthly forecast review cadence with Sales and Production heads to validate and extend projection accuracy.</span></div>
-      <div class="sow-item"><span class="sow-dot p2" style="background:#ef4444;"></span><span><strong>Client To-Do:</strong> Finance must maintain standardized tagging conventions in Zoho Books for region, client, and expense categories. Sales &amp; Production must align their projection schedules.</span></div>
-    </div>
-    <div class="phase-roi">
-      <div class="roi-card">
-        <div class="roi-card-num">Live</div>
-        <div class="roi-card-label">P&amp;L visibility</div>
-        <div class="roi-card-desc">No manual data harvesting required &mdash; real-time region-wise metrics</div>
-      </div>
-      <div class="roi-card">
-        <div class="roi-card-num">6+ mo</div>
-        <div class="roi-card-label">forecast runway</div>
-        <div class="roi-card-desc">Stabilizing manufacturing and raw material procurement cycles</div>
-      </div>
-      <div class="roi-card">
-        <div class="roi-card-num">&darr; 80%</div>
-        <div class="roi-card-label">manual harvesting</div>
-        <div class="roi-card-desc">CEO no longer compiles data from scattered Google Sheets</div>
-      </div>
-    </div>
+  <!-- ============ 08 ROI ============ -->
+  <div class="page">
+    <img src="../letterhead.png" alt="Letterhead"
+      style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
+
+    <div class="eyebrow">Section 08 — Return on Investment (ROI)</div>
+    <h2>System Impact: Before &amp; After</h2>
+    <div class="section-dek">Measurable improvements post-implementation</div>
+
+    <table class="tl-table" style="margin-top:20px;">
+      <tr>
+        <th style="width:25%;">Category</th>
+        <th style="width:35%; border-left: 1px solid #e2e8f0;">Before (Current State)</th>
+        <th style="width:40%; border-left: 1px solid #e2e8f0; background: #f8fafc; color: var(--ink);">After
+          (Post-Implementation)</th>
+      </tr>
+      <tr>
+        <td><strong>Forecast Runway</strong></td>
+        <td style="border-left: 1px solid #e2e8f0;">3-4 months visibility, risking supply chain shocks.</td>
+        <td style="border-left: 1px solid #e2e8f0; background: #f8fafc; color: #166534;"><strong>6+ Months Stable
+            Visibility.</strong> Synchronized Sales and Production models.</td>
+      </tr>
+      <tr>
+        <td><strong>Financial Data Consolidation</strong></td>
+        <td style="border-left: 1px solid #e2e8f0;">Manual harvesting across disjointed Google Sheets.</td>
+        <td style="border-left: 1px solid #e2e8f0; background: #f8fafc; color: #166534;"><strong>Live P&amp;L
+            Dashboard.</strong> Real-time region-wise metrics via Zoho Analytics.</td>
+      </tr>
+      <tr>
+        <td><strong>Administrative Approvals</strong></td>
+        <td style="border-left: 1px solid #e2e8f0;">CEO bottleneck via fragmented emails and DMs.</td>
+        <td style="border-left: 1px solid #e2e8f0; background: #f8fafc; color: #166534;"><strong>1-Click Slack
+            Automations.</strong> 60% reduction in CEO admin load with full audit trails.</td>
+      </tr>
+      <tr>
+        <td><strong>Farmer Efficacy Feedback</strong></td>
+        <td style="border-left: 1px solid #e2e8f0;">No systematic capture mechanism.</td>
+        <td style="border-left: 1px solid #e2e8f0; background: #f8fafc; color: #166534;"><strong>Direct CRM Feedback
+            Loop.</strong> Ground-level data directly drives R&amp;D formulation.</td>
+      </tr>
+      <tr>
+        <td><strong>Department Maturity Score</strong></td>
+        <td style="border-left: 1px solid #e2e8f0;">1.9 / 5.0 (Reactive)</td>
+        <td style="border-left: 1px solid #e2e8f0; background: #f8fafc; color: #166534;"><strong>3.1 / 5.0
+            (Systematised)</strong></td>
+      </tr>
+    </table>
+
+    <div class="doc-footer"><span>CEO Office Audit Report · v1.0</span><span>Page 11</span></div>
   </div>
-
-  <!-- PHASE 3 -->
-  <div class="phase-block">
-    <div class="phase-hd">
-      <div class="phase-hd-left">
-        <span class="phase-hd-title">Phase 3 &mdash; Strategic Scaling</span>
-        <span class="phase-hd-timeline">Month 6 onward &middot; High effort</span>
-      </div>
-      <span class="phase-maturity p3">Maturity 2.8 &rarr; 3.1</span>
-    </div>
-    <div class="phase-sow">
-      <div class="col-label">Scope of Work &amp; Dependencies</div>
-      <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Build:</strong> Implement structured field-feedback forms in the CRM to capture agricultural efficacy data from farmers (crop type, region, climate, application method).</span></div>
-      <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Build:</strong> Create automated routing pipelines — collected feedback goes directly to R&amp;D for formulation improvements and to Marketing for case-study generation.</span></div>
-      <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Tech Stack &amp; Dependencies:</strong> CRM feedback module, ReactJS + TypeScript frontend, Google Sheets API for data storage. Requires R&amp;D and Marketing to define feedback taxonomy.</span></div>
-      <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Team Adoption:</strong> Design quarterly CEO-level usecase review — aggregating field data into actionable product and market insights.</span></div>
-      <div class="sow-item"><span class="sow-dot p3" style="background:#ef4444;"></span><span><strong>Client To-Do:</strong> Marketing must design the intake methodology for field-level feedback. R&amp;D must build capacity to process incoming empirical data for formulation review.</span></div>
-    </div>
-    <div class="phase-roi">
-      <div class="roi-card">
-        <div class="roi-card-num">100%</div>
-        <div class="roi-card-label">data capture</div>
-        <div class="roi-card-desc">Systematic aggregation of ground-level farmer insights</div>
-      </div>
-      <div class="roi-card">
-        <div class="roi-card-num">Direct</div>
-        <div class="roi-card-label">R&amp;D loop</div>
-        <div class="roi-card-desc">Accelerates formulation improvements with actual efficacy data</div>
-      </div>
-      <div class="roi-card">
-        <div class="roi-card-num">3.1</div>
-        <div class="roi-card-label">maturity level</div>
-        <div class="roi-card-desc">Achieving a highly structured and scalable CEO office</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="doc-footer"><span>CEO Office Audit Report · v1.0</span><span>Page 10</span></div>
-</div>
-
-<!-- ============ 08 ROI ============ -->
-<div class="page">
-  <div class="doc-header"><span><b>EF Polymer Private Limited</b> — CEO Office Audit</span><span>Confidential</span></div>
-
-  <div class="eyebrow">Section 08 — Return on Investment (ROI)</div>
-  <h2>System Impact: Before &amp; After</h2>
-  <div class="section-dek">Measurable improvements post-implementation</div>
-
-  <table class="tl-table" style="margin-top:20px;">
-    <tr>
-      <th style="width:25%;">Category</th>
-      <th style="width:35%; border-left: 1px solid #e2e8f0;">Before (Current State)</th>
-      <th style="width:40%; border-left: 1px solid #e2e8f0; background: #f8fafc; color: var(--ink);">After (Post-Implementation)</th>
-    </tr>
-    <tr>
-      <td><strong>Forecast Runway</strong></td>
-      <td style="border-left: 1px solid #e2e8f0;">3-4 months visibility, risking supply chain shocks.</td>
-      <td style="border-left: 1px solid #e2e8f0; background: #f8fafc; color: #166534;"><strong>6+ Months Stable Visibility.</strong> Synchronized Sales and Production models.</td>
-    </tr>
-    <tr>
-      <td><strong>Financial Data Consolidation</strong></td>
-      <td style="border-left: 1px solid #e2e8f0;">Manual harvesting across disjointed Google Sheets.</td>
-      <td style="border-left: 1px solid #e2e8f0; background: #f8fafc; color: #166534;"><strong>Live P&amp;L Dashboard.</strong> Real-time region-wise metrics via Zoho Analytics.</td>
-    </tr>
-    <tr>
-      <td><strong>Administrative Approvals</strong></td>
-      <td style="border-left: 1px solid #e2e8f0;">CEO bottleneck via fragmented emails and DMs.</td>
-      <td style="border-left: 1px solid #e2e8f0; background: #f8fafc; color: #166534;"><strong>1-Click Slack Automations.</strong> 60% reduction in CEO admin load with full audit trails.</td>
-    </tr>
-    <tr>
-      <td><strong>Farmer Efficacy Feedback</strong></td>
-      <td style="border-left: 1px solid #e2e8f0;">No systematic capture mechanism.</td>
-      <td style="border-left: 1px solid #e2e8f0; background: #f8fafc; color: #166534;"><strong>Direct CRM Feedback Loop.</strong> Ground-level data directly drives R&amp;D formulation.</td>
-    </tr>
-    <tr>
-      <td><strong>Department Maturity Score</strong></td>
-      <td style="border-left: 1px solid #e2e8f0;">1.9 / 5.0 (Reactive)</td>
-      <td style="border-left: 1px solid #e2e8f0; background: #f8fafc; color: #166534;"><strong>3.1 / 5.0 (Systematised)</strong></td>
-    </tr>
-  </table>
-
-  <div class="doc-footer"><span>CEO Office Audit Report · v1.0</span><span>Page 11</span></div>
-</div>
 
 </body>
+
 </html>
