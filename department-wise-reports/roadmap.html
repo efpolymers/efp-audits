@@ -1,0 +1,2444 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EF Polymer — Unified 1-Year Transformation Roadmap | EF Polymer Private Limited</title>
+  <style>
+    :root {
+      --ink: #6b4fc8;
+      --slate: #3F4B5C;
+      --muted: #6B7785;
+      --line: #D8DEE5;
+      --line-soft: #E9EDF1;
+      --paper: #FFFFFF;
+      --paper-alt: #F6F7F9;
+      --accent: #c480e9;
+      --accent-soft: #F4EEFC;
+      --risk-crit-bg: #FCEBEA;
+      --risk-crit-fg: #A32E24;
+      --risk-med-bg: #FBF1DF;
+      --risk-med-fg: #8A5A10;
+      --risk-low-bg: #E9F4EC;
+      --risk-low-fg: #276B3E;
+      --p1: #c480e9;
+      --p2: #2563eb;
+      --p3: #7c3aed;
+      --p4: #0d9488;
+    }
+
+    @page {
+      size: A4;
+      margin: 22mm 18mm 20mm 18mm;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      color: var(--slate);
+      line-height: 1.55;
+      background: #EDEFF1;
+      font-size: 10.3pt;
+    }
+
+    .page {
+      background: var(--paper);
+      max-width: 840px;
+      margin: 0 auto 14px auto;
+      padding: 26mm 20mm 20mm 20mm;
+      position: relative;
+      page-break-after: always;
+      min-height: 1120px;
+    }
+
+    .page:last-child {
+      page-break-after: avoid;
+    }
+
+    /* ---- running header / footer ---- */
+    .doc-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: 7.8pt;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      color: var(--muted);
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 8px;
+      margin-bottom: 22px;
+    }
+
+    .doc-header b {
+      color: var(--ink);
+    }
+
+    .doc-footer {
+      position: absolute;
+      bottom: 10mm;
+      left: 20mm;
+      right: 20mm;
+      display: flex;
+      justify-content: space-between;
+      font-size: 7.5pt;
+      color: var(--muted);
+      border-top: 1px solid var(--line-soft);
+      padding-top: 6px;
+    }
+
+    /* ---- cover ---- */
+    .cover {
+      display: flex;
+      flex-direction: column;
+      min-height: 1080px;
+    }
+
+    .cover-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .cover-mark {
+      font-size: 9pt;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--ink);
+    }
+
+    .cover-mark span {
+      color: var(--accent);
+    }
+
+    .cover-class {
+      font-size: 7.8pt;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--muted);
+      border: 1px solid var(--line);
+      padding: 4px 10px;
+    }
+
+    .cover-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 60px 0;
+    }
+
+    .cover-eyebrow {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-style: italic;
+      font-size: 11pt;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+
+    .cover-title {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 34pt;
+      color: var(--ink);
+      font-weight: 600;
+      line-height: 1.15;
+      margin-bottom: 10px;
+    }
+
+    .cover-sub {
+      font-size: 13pt;
+      color: var(--slate);
+      font-weight: 400;
+    }
+
+    .cover-rule {
+      width: 52px;
+      height: 2px;
+      background: var(--accent);
+      margin: 26px 0;
+    }
+
+    .cover-ctrl {
+      border: 1px solid var(--line);
+    }
+
+    .cover-ctrl table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0;
+    }
+
+    .cover-ctrl td {
+      padding: 9px 14px;
+      font-size: 9pt;
+      border-bottom: 1px solid var(--line-soft);
+    }
+
+    .cover-ctrl tr:last-child td {
+      border-bottom: none;
+    }
+
+    .cover-ctrl td.label {
+      color: var(--muted);
+      width: 38%;
+      text-transform: uppercase;
+      font-size: 7.8pt;
+      letter-spacing: 0.5px;
+    }
+
+    .cover-ctrl td.val {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    /* ---- section furniture ---- */
+    .eyebrow {
+      font-size: 8pt;
+      color: var(--accent);
+      font-weight: 700;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    h2 {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 17pt;
+      color: var(--ink);
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    h2+.section-dek {
+      color: var(--muted);
+      font-size: 9.3pt;
+      margin-bottom: 18px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    h3 {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 12.5pt;
+      color: var(--ink);
+      font-weight: 600;
+      margin: 22px 0 8px;
+    }
+
+    h4 {
+      font-size: 10pt;
+      color: var(--ink);
+      font-weight: 700;
+      margin: 14px 0 4px;
+    }
+
+    p {
+      margin-bottom: 10px;
+    }
+
+    .lede {
+      font-size: 10.6pt;
+      color: var(--slate);
+      max-width: 95%;
+    }
+
+    /* ---- tables ---- */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 10px 0 20px;
+      font-size: 9pt;
+    }
+
+    th {
+      background: var(--ink);
+      color: #fff;
+      padding: 8px 10px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 8.3pt;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+    }
+
+    td {
+      padding: 8px 10px;
+      border-bottom: 1px solid var(--line-soft);
+      vertical-align: top;
+    }
+
+    tr:nth-child(even) td {
+      background: var(--paper-alt);
+    }
+
+    td.id,
+    th.id {
+      font-family: Georgia, serif;
+      font-weight: 700;
+      color: var(--ink);
+      white-space: nowrap;
+      width: 44px;
+    }
+
+    td.num,
+    th.num {
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    /* ---- chips ---- */
+    .chip {
+      display: inline-block;
+      padding: 2px 9px;
+      border-radius: 3px;
+      font-size: 7.8pt;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .chip-crit {
+      background: var(--risk-crit-bg);
+      color: var(--risk-crit-fg);
+    }
+
+    .chip-med {
+      background: var(--risk-med-bg);
+      color: var(--risk-med-fg);
+    }
+
+    .chip-low {
+      background: var(--risk-low-bg);
+      color: var(--risk-low-fg);
+    }
+
+    .chip-q1 { background: var(--accent-soft); color: var(--accent); }
+    .chip-q2 { background: #DBEAFE; color: #1d4ed8; }
+    .chip-q3 { background: #EDE9FE; color: #6d28d9; }
+    .chip-q4 { background: #CCFBF1; color: #0f766e; }
+
+    .chip-ref {
+      display: inline-block;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-family: Georgia, serif;
+      font-weight: 700;
+      font-size: 8pt;
+      padding: 1px 6px;
+      border-radius: 3px;
+      margin: 1px 2px 1px 0;
+    }
+
+    /* ---- KPI strip ---- */
+    .kpi-strip {
+      display: flex;
+      border: 1px solid var(--line);
+      margin: 16px 0 22px;
+    }
+
+    .kpi-cell {
+      flex: 1;
+      padding: 12px 14px;
+      border-right: 1px solid var(--line);
+    }
+
+    .kpi-cell:last-child {
+      border-right: none;
+    }
+
+    .kpi-num {
+      font-family: Georgia, serif;
+      font-size: 15pt;
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    .kpi-lbl {
+      font-size: 7.6pt;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 2px;
+    }
+
+    /* ---- callout ---- */
+    .callout {
+      border-left: 3px solid var(--accent);
+      background: var(--accent-soft);
+      padding: 10px 14px;
+      font-size: 9pt;
+      color: var(--ink);
+      margin: 10px 0 20px;
+    }
+
+    .callout b { color: var(--ink); }
+
+    /* ---- maturity legend ---- */
+    .maturity-legend {
+      background: var(--paper-alt);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 10px 14px;
+      margin: 4px 0 0;
+      font-size: 8pt;
+    }
+
+    .maturity-legend-title {
+      font-weight: 700;
+      color: var(--ink);
+      font-size: 8pt;
+      margin-bottom: 6px;
+    }
+
+    .maturity-bar-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+
+    .maturity-bar-track {
+      flex: 1;
+      height: 7px;
+      background: var(--line);
+      border-radius: 4px;
+      position: relative;
+      overflow: visible;
+    }
+
+    .maturity-bar-fill {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      background: var(--accent);
+      border-radius: 4px;
+    }
+
+    .maturity-bar-marker {
+      position: absolute;
+      top: -3px;
+      width: 2px;
+      height: 13px;
+      background: var(--ink);
+      border-radius: 1px;
+    }
+
+    .maturity-bar-lbl {
+      font-size: 7pt;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .maturity-legend-notes {
+      display: flex;
+      gap: 14px;
+      margin-top: 6px;
+      font-size: 7.2pt;
+      color: var(--muted);
+    }
+
+    .maturity-legend-notes span b {
+      color: var(--ink);
+    }
+
+    /* ---- pillar / platform cards ---- */
+    .pillar-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 12px 0 20px;
+    }
+
+    .pillar-card {
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 14px;
+      background: var(--paper);
+      position: relative;
+    }
+
+    .pillar-card .pillar-tag {
+      display: inline-block;
+      font-family: Georgia, serif;
+      font-weight: 700;
+      color: var(--accent);
+      font-size: 8pt;
+      margin-bottom: 4px;
+    }
+
+    .pillar-title {
+      font-family: Georgia, serif;
+      font-size: 11.5pt;
+      color: var(--ink);
+      font-weight: 700;
+      margin-bottom: 6px;
+      line-height: 1.25;
+    }
+
+    .pillar-desc {
+      font-size: 8.3pt;
+      color: var(--slate);
+      line-height: 1.45;
+      margin-bottom: 8px;
+    }
+
+    .pillar-verts {
+      font-size: 7.4pt;
+      color: var(--muted);
+      border-top: 1px solid var(--line-soft);
+      padding-top: 6px;
+    }
+
+    .pillar-verts b {
+      color: var(--ink);
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      font-size: 7pt;
+    }
+
+    /* ---- tools grid ---- */
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin: 12px 0 20px;
+    }
+
+    .tool-card {
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 10px 12px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      background: var(--paper);
+    }
+
+    .tool-icon {
+      font-size: 16pt;
+      line-height: 1;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .tool-name {
+      font-weight: 700;
+      color: var(--ink);
+      font-size: 8.5pt;
+      margin-bottom: 2px;
+    }
+
+    .tool-desc {
+      font-size: 7.5pt;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    /* ---- quarter blocks ---- */
+    .phase-block {
+      border: 1px solid var(--line);
+      margin: 16px 0;
+      overflow: hidden;
+      border-radius: 4px;
+    }
+
+    .phase-hd {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--line);
+      background: var(--paper-alt);
+      gap: 16px;
+    }
+
+    .phase-hd-left {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .phase-hd-title {
+      font-family: Georgia, serif;
+      font-size: 12pt;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .phase-hd-timeline {
+      font-size: 7.8pt;
+      color: var(--muted);
+    }
+
+    .phase-maturity {
+      font-size: 8.5pt;
+      font-weight: 700;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      border-radius: 3px;
+      padding: 4px 10px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .phase-maturity.q2 { color: #2563eb; border-color: #2563eb; }
+    .phase-maturity.q3 { color: #7c3aed; border-color: #7c3aed; }
+    .phase-maturity.q4 { color: #0d9488; border-color: #0d9488; }
+
+    .phase-sow {
+      padding: 12px 16px 16px;
+    }
+
+    .phase-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .col-label {
+      font-size: 7.4pt;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+
+    .sow-item {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 6px;
+      font-size: 8.5pt;
+      color: var(--slate);
+      line-height: 1.4;
+    }
+
+    .sow-dot {
+      width: 5px;
+      height: 5px;
+      background: var(--accent);
+      border-radius: 50%;
+      margin-top: 6px;
+      flex-shrink: 0;
+    }
+
+    .sow-dot.q2 { background: #2563eb; }
+    .sow-dot.q3 { background: #7c3aed; }
+    .sow-dot.q4 { background: #0d9488; }
+
+    .sow-item b { color: var(--ink); }
+
+    .phase-roi {
+      display: flex;
+      border-top: 1px solid var(--line);
+      background: var(--paper-alt);
+    }
+
+    .roi-card {
+      flex: 1;
+      padding: 10px 12px;
+      border-right: 1px solid var(--line);
+      text-align: center;
+    }
+
+    .roi-card:last-child {
+      border-right: none;
+    }
+
+    .roi-card-num {
+      font-family: Georgia, serif;
+      font-size: 13pt;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.1;
+      margin-bottom: 3px;
+    }
+
+    .roi-card-label {
+      font-size: 7.5pt;
+      color: var(--ink);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      margin-bottom: 3px;
+    }
+
+    .roi-card-desc {
+      font-size: 7pt;
+      color: var(--muted);
+      line-height: 1.35;
+    }
+
+    /* ---- dep cards ---- */
+    .dep-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+
+    .dep-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--line);
+      gap: 10px;
+    }
+
+    .dep-title {
+      font-weight: 700;
+      font-size: 10.5pt;
+      color: var(--ink);
+    }
+
+    .dep-badge {
+      font-size: 7pt;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 12px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      white-space: nowrap;
+    }
+
+    .dep-body {
+      font-size: 8.4pt;
+      color: var(--slate);
+      line-height: 1.45;
+    }
+
+    .dep-body b { color: var(--ink); }
+
+    .dep-row {
+      display: flex;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .dep-row .chip-ref { margin: 0; }
+
+    /* ---- architecture diagram ---- */
+    .arch-layer {
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 12px;
+      margin-bottom: 10px;
+      background: var(--paper);
+    }
+
+    .arch-layer-title {
+      font-size: 7.4pt;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+
+    .arch-nodes {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .arch-node {
+      flex: 1;
+      min-width: 110px;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 8px 10px;
+      background: var(--paper-alt);
+      text-align: center;
+      font-size: 7.8pt;
+      color: var(--ink);
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .arch-node small {
+      display: block;
+      font-weight: 400;
+      color: var(--muted);
+      font-size: 7pt;
+      margin-top: 2px;
+    }
+
+    .arch-node.accent {
+      background: var(--accent-soft);
+      border-color: var(--accent);
+    }
+
+    .arch-node.blue {
+      background: #DBEAFE;
+      border-color: #93c5fd;
+    }
+
+    .arch-node.teal {
+      background: #CCFBF1;
+      border-color: #5eead4;
+    }
+
+    .arch-connector {
+      text-align: center;
+      color: var(--line);
+      font-size: 12pt;
+      margin: 2px 0;
+      letter-spacing: 8px;
+      line-height: 1;
+    }
+
+    /* ---- exhibit ---- */
+    .exhibit {
+      display: flex;
+      gap: 26px;
+      align-items: center;
+      margin: 14px 0 6px;
+    }
+
+    .exhibit-chart {
+      flex: 0 0 320px;
+    }
+
+    .exhibit-note {
+      flex: 1;
+      font-size: 9.2pt;
+      color: var(--slate);
+    }
+
+    .exhibit-note b {
+      color: var(--ink);
+    }
+
+    /* ---- quarter color dots in headings ---- */
+    .qdot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-right: 5px;
+      vertical-align: middle;
+    }
+
+    /* ---- risk matrix ---- */
+    .risk-cell {
+      font-size: 8pt;
+      padding: 6px;
+    }
+    .risk-high { background: var(--risk-crit-bg); color: var(--risk-crit-fg); }
+    .risk-mid { background: var(--risk-med-bg); color: var(--risk-med-fg); }
+    .risk-low { background: var(--risk-low-bg); color: var(--risk-low-fg); }
+
+    /* ---- appendix cards ---- */
+    .appx-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 4px;
+    }
+
+    .appx-card {
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 10px 12px;
+      background: var(--paper);
+    }
+
+    .appx-head {
+      font-family: Georgia, serif;
+      font-size: 9.6pt;
+      color: var(--ink);
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .appx-lead {
+      font-size: 7.3pt;
+      color: var(--muted);
+      margin: 1px 0 6px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid var(--line-soft);
+    }
+
+    .appx-lead b { color: var(--ink); }
+
+    .appx-list {
+      list-style: none;
+      margin: 0 0 6px;
+      padding: 0;
+    }
+
+    .appx-list li {
+      font-size: 7.7pt;
+      color: var(--slate);
+      line-height: 1.35;
+      padding-left: 9px;
+      position: relative;
+      margin-bottom: 3px;
+    }
+
+    .appx-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 5px;
+      width: 3px;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    .appx-list li b { color: var(--ink); }
+
+    .appx-tools {
+      font-size: 6.9pt;
+      color: var(--muted);
+      line-height: 1.35;
+      border-top: 1px solid var(--line-soft);
+      padding-top: 5px;
+    }
+
+    .appx-tools b {
+      color: var(--ink);
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      font-size: 6.6pt;
+    }
+
+    /* ---- connection graph ---- */
+    .graph-wrap {
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #FCFAFE;
+      padding: 4px 8px 6px;
+      margin: 8px 0 12px;
+    }
+
+    .graph-wrap svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .graph-legend {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      font-size: 7.4pt;
+      color: var(--muted);
+      padding: 6px 4px 0;
+      border-top: 1px dashed var(--line);
+      margin-top: 4px;
+    }
+
+    .graph-legend span b { color: var(--ink); }
+
+    .conn-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 7px 18px;
+      margin: 8px 0 4px;
+    }
+
+    .conn-item {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      font-size: 7.85pt;
+      line-height: 1.38;
+      color: var(--slate);
+    }
+
+    .conn-num {
+      flex-shrink: 0;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-size: 7pt;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1px;
+    }
+
+    .conn-num.accent { background: var(--accent); }
+    .conn-num.blue { background: var(--p2); }
+    .conn-num.teal { background: var(--p4); }
+
+    .conn-item b { color: var(--ink); }
+
+    .flow-chip {
+      display: inline-block;
+      font-size: 6.6pt;
+      font-weight: 700;
+      padding: 1px 5px;
+      border-radius: 8px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+      vertical-align: middle;
+      margin: 0 1px;
+    }
+
+    .flow-chip.live { background: #CCFBF1; color: #0f766e; }
+    .flow-chip.api { background: #DBEAFE; color: #1d4ed8; }
+    .flow-chip.rag { background: #FCE7F3; color: #be185d; }
+
+    /* data-flow sequence */
+    .flow-seq {
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 11px 14px;
+      background: var(--paper);
+      margin: 10px 0 6px;
+    }
+
+    .flow-seq-title {
+      font-family: Georgia, serif;
+      font-size: 10pt;
+      color: var(--ink);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .flow-steps {
+      display: flex;
+      align-items: stretch;
+      gap: 0;
+      margin: 6px 0 8px;
+      flex-wrap: wrap;
+    }
+
+    .flow-step {
+      flex: 1 1 0;
+      min-width: 78px;
+      text-align: center;
+      font-size: 7.3pt;
+      color: var(--ink);
+      font-weight: 600;
+      padding: 6px 4px;
+      border: 1px solid var(--line);
+      background: var(--paper-alt);
+      border-radius: 4px;
+    }
+
+    .flow-step small {
+      display: block;
+      font-weight: 400;
+      color: var(--muted);
+      font-size: 6.6pt;
+      margin-top: 1px;
+    }
+
+    .flow-step.hub {
+      background: var(--accent-soft);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .flow-arrow {
+      flex: 0 0 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      font-size: 10pt;
+      font-weight: 700;
+    }
+
+    .flow-note {
+      font-size: 7.6pt;
+      color: var(--muted);
+      line-height: 1.4;
+      border-top: 1px solid var(--line-soft);
+      padding-top: 6px;
+    }
+
+    .flow-note b { color: var(--ink); }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .page {
+        box-shadow: none;
+        margin: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============ COVER ============ -->
+  <div class="page cover">
+    <img src="../letterhead.png" alt="Letterhead"
+      style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
+    <div class="cover-body">
+      <div class="cover-eyebrow">Enterprise-Wide Unified Transformation Roadmap</div>
+      <div class="cover-title">1-Year Roadmap</div>
+      <div class="cover-sub">Consolidating 15 departmental audits into one connected operating system for EF Polymer</div>
+      <div class="cover-rule"></div>
+      <p style="max-width:78%;color:var(--muted);font-size:9.3pt;">
+        This roadmap consolidates the findings and proposed solutions from the CXO &amp; department-level operational
+        audit of all 15 functions &mdash; spanning the CEO, COO &amp; CBDO offices, five Business Development verticals,
+        MENA/International Sales, Finance, Marketing &amp; Retail Sales, Production, R&amp;D, Logistics and HR. Where the
+        same solution surfaces across multiple departments, it is built once as a shared platform and rolled out
+        company-wide, so that every system is interconnected through one company knowledge brain sitting on top of the
+        spreadsheets already in use. Prepared as part of the EF Polymer Private Limited organisation-wide operational
+        audit by Creative Upaay (brand owned by Cinnovate Solutions (OPC) Private Limited).
+      </p>
+    </div>
+    <div class="cover-ctrl">
+      <table>
+        <tr>
+          <td class="label">Client</td>
+          <td class="val">EF Polymer Private Limited</td>
+        </tr>
+        <tr>
+          <td class="label">Prepared by</td>
+          <td class="val">Creative Upaay</td>
+        </tr>
+        <tr>
+          <td class="label">Document version</td>
+          <td class="val">1.0</td>
+        </tr>
+        <tr>
+          <td class="label">Date issued</td>
+          <td class="val">17th July 2026</td>
+        </tr>
+        <tr>
+          <td class="label">Roadmap horizon</td>
+          <td class="val">12 Months &mdash; Q1 to Q4 (FY 2026&ndash;27)</td>
+        </tr>
+        <tr>
+          <td class="label">Scope</td>
+          <td class="val">3 CXO Offices + 12 Departments / Verticals</td>
+        </tr>
+        <tr>
+          <td class="label">Maturity trajectory</td>
+          <td class="val">1.6 (org. avg.) &rarr; 3.2 (target)</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- ============ 01 EXECUTIVE SUMMARY ============ -->
+  <div class="page">
+    <img src="../letterhead.png" alt="Letterhead"
+      style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
+
+    <div class="eyebrow">Section 01 — Executive Summary</div>
+    <h2>From 15 Siloed Reports to One Operating System</h2>
+    <p class="lede">The audit of all 15 functions revealed a single root cause behind the company's operational drag:
+      every department runs on disconnected spreadsheets, WhatsApp groups and email threads, with data moving only when a
+      person carries it manually from one tool to the next. Each report proposed its own fixes &mdash; but on closer
+      reading, the same handful of solutions surface again and again across departments.</p>
+
+    <p>This roadmap does not build 15 separate systems. It builds <b>seven shared platforms</b> once, then layers each
+      department's specific needs on top. A CXO dashboard, a unified CRM, a company knowledge brain, an HR/L&amp;D
+      platform, a WhatsApp agent, a vendor-production-logistics ERP and a finance engine &mdash; all connected through
+      one backend that sits on the spreadsheets the teams already use today, with Google Drive as the document directory
+      and WhatsApp, Slack &amp; in-app notifications as the communication layer.</p>
+
+    <div class="section-dek"><strong>Headline Numbers Driving This Roadmap</strong></div>
+    <div class="kpi-strip">
+      <div class="kpi-cell">
+        <div class="kpi-num">15</div>
+        <div class="kpi-lbl">Audited Functions</div>
+      </div>
+      <div class="kpi-cell">
+        <div class="kpi-num">7</div>
+        <div class="kpi-lbl">Shared Platforms</div>
+      </div>
+      <div class="kpi-cell">
+        <div class="kpi-num">~3,000 hrs</div>
+        <div class="kpi-lbl">Capacity Reclaimed / Yr</div>
+      </div>
+      <div class="kpi-cell">
+        <div class="kpi-num">1.6 &rarr; 3.2</div>
+        <div class="kpi-lbl">Org. Maturity (Avg.)</div>
+      </div>
+    </div>
+
+    <div class="maturity-legend">
+      <div class="maturity-legend-title">Organisational Maturity Trajectory</div>
+      <div style="font-size:7.5pt;color:var(--muted);margin-bottom:8px;">The 1&ndash;5 scale from the departmental audits,
+        averaged across all 15 functions. Today the company sits in the <b>"ad hoc / manual"</b> band; the roadmap lifts
+        it to <b>"defined &amp; integrated"</b> within 12 months.</div>
+      <div class="maturity-bar-wrap">
+        <span class="maturity-bar-lbl">1 — Ad hoc</span>
+        <div class="maturity-bar-track">
+          <div class="maturity-bar-fill" style="width:32%;"></div>
+          <div class="maturity-bar-marker" style="left:32%;"></div>
+          <div class="maturity-bar-marker target" style="left:64%;background:#0d9488;"></div>
+        </div>
+        <span class="maturity-bar-lbl">5 — Optimised</span>
+      </div>
+      <div class="maturity-legend-notes">
+        <span>&#9632; <b>1.6</b> Current (org. avg.)</span>
+        <span style="color:#0d9488;">&#9646; <b>3.2</b> End-of-year target</span>
+        <span>&#9711; <b>5.0</b> Best-in-class benchmark</span>
+      </div>
+    </div>
+
+    <div class="callout">
+      <b>Design principle &mdash; "extend, don't replace."</b> Google Sheets, Zoho Books and WhatsApp stay as the systems
+      of record that teams already trust. Intelligence (dashboards, AI, automation) is wrapped <i>around</i> them rather
+      than forcing a disruptive migration. This is the same approach the Japan subsidiary already proved with its
+      Slack approval bot.
+    </div>
+
+    <div class="doc-footer"><span>EF Polymer — Unified 1-Year Roadmap · v1.0</span><span>Page 2</span></div>
+  </div>
+
+  <!-- ============ 02 THE SEVEN SHARED PLATFORMS ============ -->
+  <div class="page">
+    <img src="../letterhead.png" alt="Letterhead"
+      style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
+
+    <div class="eyebrow">Section 02 — The Architecture</div>
+    <h2>Seven Shared Platforms, Built Once</h2>
+    <div class="section-dek">Across 15 audits, the same solutions recurred. Consolidating them removes duplication, cuts
+      cost and guarantees that every department speaks the same data language.</div>
+
+    <p>The table below maps the recurring solutions found in the department reports to <b>seven shared platforms</b>.
+      Each platform is built once and then configured (with role-based access control) for the departments that need it.
+      A department-specific solution that no other function needs is still delivered &mdash; but as a module <i>on</i>
+      the relevant shared platform, not as a standalone tool.</p>
+
+    <table>
+      <tr>
+        <th style="width:20%;">Shared Platform</th>
+        <th>What It Does</th>
+        <th style="width:34%;">Departments It Replaces Work For</th>
+      </tr>
+      <tr>
+        <td><b>1. EF OS — CXO Dashboard</b><br><span class="chip chip-q1">Q1</span></td>
+        <td>Single executive cockpit. Live P&amp;L, sales pipeline, runway, approvals, budget-vs-actual, inventory &
+          R&amp;D ROI &mdash; one-click, role-based views for CEO, COO, CBDO.</td>
+        <td>CEO, COO, CBDO + every dept head (the top of every dashboard built downstream rolls up here).</td>
+      </tr>
+      <tr>
+        <td><b>2. Unified CRM</b><br><span class="chip chip-q1">Q1</span> <span class="chip chip-q2">Q2</span></td>
+        <td>One CRM, partitioned per BD/sales vertical with vertical-specific fields, pipelines &amp; RBAC. WhatsApp API
+          lead capture, stalled-deal alerts, receivables view. CXOs see all; reps see their book.</td>
+        <td>BD Cocopeat, BD Seed, BD NGO/CSR, BD Govt, BD B2B/RCM, MENA, Marketing/Retail, R&amp;D trial pipeline.</td>
+      </tr>
+      <tr>
+        <td><b>3. Company Knowledge Brain</b><br><span class="chip chip-q2">Q2</span> <span class="chip chip-q3">Q3</span></td>
+        <td>RAG AI assistant over all product specs, SOPs, R&amp;D trials, past proposals &amp; policy docs. Self-serve
+          answers for Sales/BD/CXOs; proposal &amp; report drafting engine; replaces sub-par Zoho Zia.</td>
+        <td>All 15 &mdash; product knowledge, proposals, policy Q&amp;A, technical support, onboarding.</td>
+      </tr>
+      <tr>
+        <td><b>4. WhatsApp Agent</b><br><span class="chip chip-q1">Q1</span> <span class="chip chip-q2">Q2</span></td>
+        <td>One WhatsApp Business AI agent sitting in every company group &mdash; parses field updates, marks attendance,
+          ingests bills/POs, broadcasts, dunning, status queries, approval routing. No change to team behaviour.</td>
+        <td>Retail/Marketing, BD B2B/RCM, BD Govt, MENA, HR attendance, Finance bills, Production/Logistics alerts.</td>
+      </tr>
+      <tr>
+        <td><b>5. Vendor–Production–Logistics ERP</b><br><span class="chip chip-q2">Q2</span> <span class="chip chip-q3">Q3</span></td>
+        <td>One operational ERP over the existing sheets: vendor directory + MOQ optimiser, WIP/stock sync, structured
+          order intake, shipment tracking, dispatch scheduler, vessel alerts. Single source of truth for materials,
+          production &amp; inventory.</td>
+        <td>Production, QC, Logistics, Finance (COGS/invoicing), Sales (dispatch readiness), BD (packaging lead times).</td>
+      </tr>
+      <tr>
+        <td><b>6. HR / Admin / L&amp;D Platform</b><br><span class="chip chip-q2">Q2</span> <span class="chip chip-q3">Q3</span></td>
+        <td>Connected to HRMS: ATS + AI pre-screening, gamified PMS &amp; incentives, admin ticket management, anonymous
+          feedback &amp; polling, L&amp;D request portal + skills matrix, e-sign onboarding.</td>
+        <td>HR (owns), every HOD (hiring/PMS), BD/Sales (policy consumers), CXOs (approvals &amp; talent visibility).</td>
+      </tr>
+      <tr>
+        <td><b>7. Finance Automation Engine</b><br><span class="chip chip-q2">Q2</span> <span class="chip chip-q4">Q4</span></td>
+        <td>Accounts frontend + AI recon: GST/TDS bot, smart bill scanner, vendor/client MDM, automated dunning,
+          input-level expense policy bot, tax-change alerts, tonnage calc &mdash; all feeding EF OS.</td>
+        <td>Finance (owns), Sales/BD (collections &amp; billing), Production (COGS), CXOs (investor reporting).</td>
+      </tr>
+    </table>
+
+    <h3>The Backend That Connects Everything</h3>
+    <p style="font-size:9.2pt;">All seven platforms sit on top of <b>one company knowledge brain</b> &mdash; a unified
+      data layer that treats the company's existing spreadsheets as the backend of record (no disruptive database
+      migration). <b>Google Drive</b> is the document directory (auto-organised, RAG-indexed). Communications &amp;
+      notifications flow through three channels already in use &mdash; <b>WhatsApp</b> (ground/domestic field),
+      <b>Slack</b> (HQ &amp; international) and <b>in-app dashboard notifications</b>. This is what makes "build once,
+      use everywhere" possible.</p>
+
+    <div class="doc-footer"><span>EF Polymer — Unified 1-Year Roadmap · v1.0</span><span>Page 3</span></div>
+  </div>
+
+  <!-- ============ 03 SYSTEM ARCHITECTURE ============ -->
+  <div class="page">
+    <img src="../letterhead.png" alt="Letterhead"
+      style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
+
+    <div class="eyebrow">Section 03 — Target System Architecture</div>
+    <h2>How the Seven Platforms Connect</h2>
+    <div class="section-dek">A layered architecture. The bottom layer is what teams already use; each layer above adds
+      intelligence without ripping out what works.</div>
+
+    <div class="arch-layer">
+      <div class="arch-layer-title">&#9650; Experience Layer — who sees what (RBAC)</div>
+      <div class="arch-nodes">
+        <div class="arch-node accent">CXO Cockpit<small>CEO · COO · CBDO</small></div>
+        <div class="arch-node">Dept Head Views<small>Production · Finance · HR · R&amp;D</small></div>
+        <div class="arch-node">Field / Rep Views<small>BD · Retail · Logistics · MENA</small></div>
+        <div class="arch-node">Self-serve<small>Knowledge Brain chatbot</small></div>
+      </div>
+    </div>
+
+    <div class="arch-layer">
+      <div class="arch-layer-title">&#9670; Platform Layer — the seven shared systems</div>
+      <div class="arch-nodes">
+        <div class="arch-node accent">EF OS<small>CXO Dashboard</small></div>
+        <div class="arch-node blue">Unified CRM<small>5 BD + MENA + Retail</small></div>
+        <div class="arch-node teal">Knowledge Brain<small>RAG AI assistant</small></div>
+        <div class="arch-node">WhatsApp Agent<small>groups &amp; broadcasts</small></div>
+        <div class="arch-node blue">Prod–Logi ERP<small>materials · WIP · dispatch</small></div>
+        <div class="arch-node">HR / Admin / L&amp;D<small>ATS · PMS · tickets</small></div>
+        <div class="arch-node teal">Finance Engine<small>recon · MDM · dunning</small></div>
+      </div>
+    </div>
+
+    <div class="arch-connector">&#9650;</div>
+
+    <div class="arch-layer">
+      <div class="arch-layer-title">&#9679; Intelligence Layer — AI that does the work</div>
+      <div class="arch-nodes">
+        <div class="arch-node">Gemini / LLM<small>proposal &amp; report drafting</small></div>
+        <div class="arch-node">RAG + Vector DB<small>knowledge retrieval</small></div>
+        <div class="arch-node">OCR Bill Scanner<small>auto Zoho Expense entry</small></div>
+        <div class="arch-node">GST/TDS Recon Bot<small>portal reconciliation</small></div>
+        <div class="arch-node">AI Pre-Screening<small>recruitment</small></div>
+        <div class="arch-node">Forecasting<small>sales · demand · COGS</small></div>
+      </div>
+    </div>
+
+    <div class="arch-connector">&#9650;</div>
+
+    <div class="arch-layer">
+      <div class="arch-layer-title">&#9650; Backend of Record — "company knowledge brain" (no migration)</div>
+      <div class="arch-nodes">
+        <div class="arch-node accent">Google Sheets<small>system of record (live bi-directional sync)</small></div>
+        <div class="arch-node accent">Zoho Books / Expense / Payroll<small>ledger &amp; HRMS</small></div>
+        <div class="arch-node accent">Google Drive<small>document directory (RAG-indexed)</small></div>
+        <div class="arch-node">CRM DB<small>contact &amp; pipeline store</small></div>
+      </div>
+    </div>
+
+    <div class="arch-connector">&#9650;</div>
+
+    <div class="arch-layer">
+      <div class="arch-layer-title">&#9742; Channels &amp; Notifications — meet teams where they already are</div>
+      <div class="arch-nodes">
+        <div class="arch-node">WhatsApp Business API<small>ground / domestic field</small></div>
+        <div class="arch-node">Slack<small>HQ &amp; international (Japan/EU)</small></div>
+        <div class="arch-node">In-app Notifications<small>dashboards &amp; approvals</small></div>
+        <div class="arch-node">Gmail<small>formal external</small></div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <b>Why this works:</b> every dashboard in every department report is really a <i>view</i> onto this shared stack.
+      Marketing's Sales Dashboard, Finance's Accounts Frontend, Production's Inventory Dashboard and the BD pipeline
+      views all read from the same Sheets/Zoho layer and write back to it &mdash; so a sale logged in CRM instantly
+      updates Production demand, Finance invoicing and the CXO cockpit with zero manual hand-off.
+    </div>
+
+    <div class="doc-footer"><span>EF Polymer — Unified 1-Year Roadmap · v1.0</span><span>Page 4</span></div>
+  </div>
+
+  <!-- ============ 04 SYSTEM CONNECTIONS & DATA FLOW ============ -->
+  <div class="page">
+    <img src="../letterhead.png" alt="Letterhead"
+      style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
+
+    <div class="eyebrow">Section 04 — System Connections &amp; Data Flow</div>
+    <h2>The Spider-Web: How the Seven Platforms Interconnect</h2>
+    <div class="section-dek">Every line is a live data path &mdash; not an export or a manual copy. Numbered chips map
+      to the connection notes below.</div>
+
+    <div class="graph-wrap">
+      <svg viewBox="0 0 760 470" xmlns="http://www.w3.org/2000/svg">
+        <!-- ===== connection lines (drawn first, under nodes) ===== -->
+        <g stroke-width="1.4" fill="none">
+          <!-- 1: EF OS <-> Knowledge Brain -->
+          <line x1="290" y1="190" x2="470" y2="190" stroke="#c480e9"/>
+          <circle cx="380" cy="190" r="9" fill="#6b4fc8"/>
+          <text x="380" y="193.5" text-anchor="middle" font-size="9" fill="#fff" font-weight="700">1</text>
+
+          <!-- 2: EF OS <-> Unified CRM -->
+          <line x1="290" y1="190" x2="170" y2="300" stroke="#c480e9"/>
+          <circle cx="218" cy="252" r="9" fill="#6b4fc8"/>
+          <text x="218" y="255.5" text-anchor="middle" font-size="9" fill="#fff" font-weight="700">2</text>
+
+          <!-- 3: EF OS <-> Finance Engine -->
+          <line x1="290" y1="190" x2="590" y2="300" stroke="#c480e9"/>
+          <circle cx="452" cy="252" r="9" fill="#6b4fc8"/>
+          <text x="452" y="255.5" text-anchor="middle" font-size="9" fill="#fff" font-weight="700">3</text>
+
+          <!-- 4: CRM <-> Prod-Logi ERP -->
+          <line x1="170" y1="300" x2="590" y2="300" stroke="#2563eb" stroke-dasharray="5,3"/>
+          <circle cx="380" cy="300" r="9" fill="#2563eb"/>
+          <text x="380" y="303.5" text-anchor="middle" font-size="9" fill="#fff" font-weight="700">4</text>
+
+          <!-- 5: ERP <-> Finance -->
+          <line x1="590" y1="300" x2="590" y2="410" stroke="#0d9488"/>
+          <circle cx="590" cy="355" r="9" fill="#0d9488"/>
+          <text x="590" y="358.5" text-anchor="middle" font-size="9" fill="#fff" font-weight="700">5</text>
+
+          <!-- 6: WhatsApp Agent -> all platforms (hub spokes) -->
+          <line x1="170" y1="410" x2="170" y2="300" stroke="#c480e9"/>
+          <line x1="170" y1="410" x2="380" y2="300" stroke="#c480e9"/>
+          <line x1="170" y1="410" x2="590" y2="300" stroke="#c480e9"/>
+          <circle cx="170" cy="355" r="9" fill="#6b4fc8"/>
+          <text x="170" y="358.5" text-anchor="middle" font-size="9" fill="#fff" font-weight="700">6</text>
+
+          <!-- 7: Knowledge Brain -> backend (down) -->
+          <line x1="470" y1="190" x2="470" y2="410" stroke="#c480e9"/>
+          <circle cx="470" cy="355" r="9" fill="#6b4fc8"/>
+          <text x="470" y="358.5" text-anchor="middle" font-size="9" fill="#fff" font-weight="700">7</text>
+
+          <!-- 8: HR/Admin <-> EF OS -->
+          <line x1="290" y1="190" x2="380" y2="70" stroke="#c480e9"/>
+          <circle cx="330" cy="122" r="9" fill="#6b4fc8"/>
+          <text x="330" y="125.5" text-anchor="middle" font-size="9" fill="#fff" font-weight="700">8</text>
+
+          <!-- 9: HR <-> WhatsApp Agent -->
+          <line x1="380" y1="70" x2="170" y2="410" stroke="#c480e9" stroke-dasharray="2,3" opacity="0.45"/>
+
+          <!-- 10: channels -> WhatsApp Agent -->
+          <line x1="680" y1="80" x2="170" y2="410" stroke="#94a3b8" stroke-dasharray="2,3" opacity="0.5"/>
+        </g>
+
+        <!-- ===== nodes ===== -->
+        <!-- HR / Admin / L&D -->
+        <g>
+          <rect x="322" y="44" width="116" height="42" rx="6" fill="#F4EEFC" stroke="#c480e9" stroke-width="1.3"/>
+          <text x="380" y="62" text-anchor="middle" font-size="9.5" fill="#6b4fc8" font-weight="700">HR / Admin / L&amp;D</text>
+          <text x="380" y="75" text-anchor="middle" font-size="6.8" fill="#6B7785">ATS · PMS · Tickets</text>
+        </g>
+
+        <!-- EF OS (center) -->
+        <g>
+          <rect x="226" y="166" width="128" height="48" rx="7" fill="#6b4fc8" stroke="#6b4fc8" stroke-width="1.5"/>
+          <text x="290" y="187" text-anchor="middle" font-size="10.5" fill="#fff" font-weight="700">EF OS</text>
+          <text x="290" y="201" text-anchor="middle" font-size="7" fill="#F4EEFC">CXO Dashboard (hub)</text>
+        </g>
+
+        <!-- Knowledge Brain -->
+        <g>
+          <rect x="406" y="166" width="128" height="48" rx="7" fill="#FCE7F3" stroke="#be185d" stroke-width="1.3"/>
+          <text x="470" y="187" text-anchor="middle" font-size="10" fill="#be185d" font-weight="700">Knowledge Brain</text>
+          <text x="470" y="201" text-anchor="middle" font-size="6.8" fill="#6B7785">RAG AI assistant</text>
+        </g>
+
+        <!-- Unified CRM -->
+        <g>
+          <rect x="106" y="276" width="128" height="48" rx="7" fill="#DBEAFE" stroke="#2563eb" stroke-width="1.3"/>
+          <text x="170" y="297" text-anchor="middle" font-size="10" fill="#1d4ed8" font-weight="700">Unified CRM</text>
+          <text x="170" y="311" text-anchor="middle" font-size="6.8" fill="#6B7785">5 BD · MENA · Retail</text>
+        </g>
+
+        <!-- Prod-Logi ERP -->
+        <g>
+          <rect x="316" y="276" width="128" height="48" rx="7" fill="#CCFBF1" stroke="#0d9488" stroke-width="1.3"/>
+          <text x="380" y="297" text-anchor="middle" font-size="10" fill="#0f766e" font-weight="700">Prod–Logi ERP</text>
+          <text x="380" y="311" text-anchor="middle" font-size="6.8" fill="#6B7785">materials · WIP · dispatch</text>
+        </g>
+
+        <!-- Finance Engine -->
+        <g>
+          <rect x="526" y="276" width="128" height="48" rx="7" fill="#FCEBEA" stroke="#A32E24" stroke-width="1.3"/>
+          <text x="590" y="297" text-anchor="middle" font-size="10" fill="#A32E24" font-weight="700">Finance Engine</text>
+          <text x="590" y="311" text-anchor="middle" font-size="6.8" fill="#6B7785">recon · MDM · dunning</text>
+        </g>
+
+        <!-- WhatsApp Agent -->
+        <g>
+          <rect x="106" y="388" width="128" height="44" rx="7" fill="#F4EEFC" stroke="#c480e9" stroke-width="1.3"/>
+          <text x="170" y="407" text-anchor="middle" font-size="9.5" fill="#6b4fc8" font-weight="700">WhatsApp Agent</text>
+          <text x="170" y="420" text-anchor="middle" font-size="6.8" fill="#6B7785">field ingestion hub</text>
+        </g>
+
+        <!-- Backend (knowledge brain / sheets) -->
+        <g>
+          <rect x="386" y="388" width="168" height="44" rx="7" fill="#F6F7F9" stroke="#6B7785" stroke-width="1.3" stroke-dasharray="4,2"/>
+          <text x="470" y="406" text-anchor="middle" font-size="9" fill="#3F4B5C" font-weight="700">Backend of Record</text>
+          <text x="470" y="420" text-anchor="middle" font-size="6.6" fill="#6B7785">Sheets · Zoho · Drive · CRM DB</text>
+        </g>
+
+        <!-- Channels -->
+        <g>
+          <rect x="620" y="56" width="120" height="48" rx="7" fill="#fff" stroke="#94a3b8" stroke-width="1.1" stroke-dasharray="3,2"/>
+          <text x="680" y="76" text-anchor="middle" font-size="9" fill="#3F4B5C" font-weight="700">Channels</text>
+          <text x="680" y="90" text-anchor="middle" font-size="6.6" fill="#6B7785">WhatsApp · Slack · In-app · Gmail</text>
+        </g>
+      </svg>
+      <div class="graph-legend">
+        <span>&#9608; <b style="color:#6b4fc8;">EF OS hub path</b></span>
+        <span>&#9608; <b style="color:#2563eb;">Cross-platform flow</b></span>
+        <span>&#9608; <b style="color:#0d9488;">Operational data</b></span>
+        <span>&#9642; <b>number = see note below</b></span>
+        <span>&#8943; dashed = async / event-driven</span>
+      </div>
+    </div>
+
+    <h3 style="margin-top:6px;">Connection Notes</h3>
+    <div class="conn-grid">
+      <div class="conn-item"><div class="conn-num">1</div><div><b>EF OS &harr; Knowledge Brain.</b> CXO asks a question in natural language; the RAG brain pulls the answer from Sheets, Drive, Zoho &amp; CRM and renders it inside the cockpit. <span class="flow-chip rag">RAG</span></div></div>
+      <div class="conn-item"><div class="conn-num">2</div><div><b>EF OS &harr; Unified CRM.</b> Live sales pipeline, stalled-deal alerts &amp; receivables roll up into the CXO view. <span class="flow-chip live">live</span></div></div>
+      <div class="conn-item"><div class="conn-num">3</div><div><b>EF OS &harr; Finance Engine.</b> Real-time P&amp;L, budget-vs-actual &amp; runway drawn from Zoho Books/Expense/Payroll. <span class="flow-chip api">Zoho API</span></div></div>
+      <div class="conn-item"><div class="conn-num blue">4</div><div><b>CRM &harr; Prod–Logi ERP.</b> A closed sale writes demand into production planning &amp; triggers dispatch readiness &mdash; no manual hand-off. <span class="flow-chip api">event</span></div></div>
+      <div class="conn-item"><div class="conn-num teal">5</div><div><b>ERP &harr; Finance Engine.</b> WIP, stock &amp; overtime flow into COGS valuation &amp; invoicing; stock-check before billing replaces phone calls. <span class="flow-chip live">bi-sync</span></div></div>
+      <div class="conn-item"><div class="conn-num accent">6</div><div><b>WhatsApp Agent &rarr; CRM · ERP · Finance.</b> One agent ingests from every group: parses field updates into CRM, bills/POs into Finance, attendance/status into HR &amp; ERP. No team behaviour change. <span class="flow-chip">parse</span></div></div>
+      <div class="conn-item"><div class="conn-num">7</div><div><b>Knowledge Brain &harr; Backend.</b> RAG indexes Sheets, Drive docs, Zoho &amp; CRM DB as the single retrieval layer for every platform. <span class="flow-chip rag">RAG</span></div></div>
+      <div class="conn-item"><div class="conn-num">8</div><div><b>HR/Admin/L&amp;D &harr; EF OS.</b> Hiring pipeline, PMS, budget utilisation &amp; approvals surface in the cockpit; CXO approvals route back through HR. <span class="flow-chip live">live</span></div></div>
+    </div>
+
+    <div class="callout" style="margin-top:10px;">
+      <b>Read the web, not the boxes.</b> The power is in the <i>lines</i>: because every platform shares one backend,
+      a single field update propagates everywhere. There is no "integration project" per department &mdash; integration
+      is a property of the architecture, built once in Q1.
+    </div>
+
+    <div class="doc-footer"><span>EF Polymer — Unified 1-Year Roadmap · v1.0</span><span>Page 5</span></div>
+  </div>
+
+  <!-- ============ 04b DATA FLOW WALKTHROUGH ============ -->
+  <div class="page">
+    <img src="../letterhead.png" alt="Letterhead"
+      style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
+
+    <div class="eyebrow">Section 04 — System Connections &amp; Data Flow (contd.)</div>
+    <h2>How Data Actually Moves — Three End-to-End Flows</h2>
+    <div class="section-dek">The spider-web made concrete. Each step is automated; the only human action is the first
+      one.</div>
+
+    <!-- FLOW 1: a sale -->
+    <div class="flow-seq">
+      <div class="flow-seq-title">&#9651; Flow 1 &mdash; A sale, from WhatsApp to CXO cockpit</div>
+      <div class="flow-steps">
+        <div class="flow-step">Rep / Farmer<small>WhatsApp message</small></div>
+        <div class="flow-arrow">&rarr;</div>
+        <div class="flow-step hub">WhatsApp Agent<small>parses to structured data</small></div>
+        <div class="flow-arrow">&rarr;</div>
+        <div class="flow-step">Unified CRM<small>deal + contact logged</small></div>
+        <div class="flow-arrow">&rarr;</div>
+        <div class="flow-step">Prod–Logi ERP<small>adds demand / stock reservation</small></div>
+        <div class="flow-arrow">&rarr;</div>
+        <div class="flow-step">Finance Engine<small>invoice + COGS</small></div>
+        <div class="flow-arrow">&rarr;</div>
+        <div class="flow-step hub">EF OS<small>cockpit updates live</small></div>
+      </div>
+      <div class="flow-note"><b>Zero manual hand-off.</b> Today this chain is 4&ndash;5 WhatsApp messages &amp; phone calls
+        across Sales &rarr; Production &rarr; Logistics &rarr; Accounts. Here, connection <b>6</b> ingests the message,
+        <b>4</b> carries demand to the ERP, <b>5</b> values it, and <b>2</b>/<b>3</b> roll it up to the CXO. <span class="flow-chip live">event-driven</span></div>
+    </div>
+
+    <!-- FLOW 2: an approval -->
+    <div class="flow-seq">
+      <div class="flow-seq-title">&#9651; Flow 2 &mdash; An expense / travel approval</div>
+      <div class="flow-steps">
+        <div class="flow-step">Employee<small>submits via WhatsApp/form</small></div>
+        <div class="flow-arrow">&rarr;</div>
+        <div class="flow-step hub">WhatsApp Agent<small>routes by RBAC + slab</small></div>
+        <div class="flow-arrow">&rarr;</div>
+        <div class="flow-step">EF OS<small>CXO 1-click approve</small></div>
+        <div class="flow-arrow">&rarr;</div>
+        <div class="flow-step">Finance Engine<small>Zoho Expense + payout</small></div>
+        <div class="flow-arrow">&rarr;</div>
+        <div class="flow-step">HR/Admin<small>auto-logged to record</small></div>
+      </div>
+      <div class="flow-note">Extends the <b>Japan Slack-bot model</b> company-wide (CEO finding P-03). Slab-based routing
+        auto-decides who approves by amount; payout triggers Zoho disbursement. <span class="flow-chip api">Slack + WA API</span></div>
+    </div>
+
+    <!-- FLOW 3: a knowledge query -->
+    <div class="flow-seq">
+      <div class="flow-seq-title">&#9651; Flow 3 &mdash; A technical / policy question</div>
+      <div class="flow-steps">
+        <div class="flow-step">BD / Sales / CXO<small>asks in WhatsApp or cockpit</small></div>
+        <div class="flow-arrow">&rarr;</div>
+        <div class="flow-step hub">Knowledge Brain<small>RAG over backend</small></div>
+        <div class="flow-arrow">&harr;</div>
+        <div class="flow-step">Backend<small>Sheets · Drive · Zoho · CRM</small></div>
+        <div class="flow-arrow">&rarr;</div>
+        <div class="flow-step">Answer<small>instant, self-serve</small></div>
+      </div>
+      <div class="flow-note">Replaces the 28&ndash;30 hr R&amp;D query loop and HR policy DMs (connections <b>1</b> &amp; <b>7</b>).
+        Same brain drafts proposals &amp; investor reports. <span class="flow-chip rag">Gemini RAG</span></div>
+    </div>
+
+    <h3>Why the Web Beats the Silos</h3>
+    <table style="font-size:8.2pt;">
+      <tr><th style="width:34%;">Data event</th><th>Systems updated automatically</th><th style="width:18%;">Today</th></tr>
+      <tr><td>New lead / sale logged</td><td>CRM &rarr; ERP (demand) &rarr; Finance (invoice) &rarr; EF OS</td><td><span class="chip chip-crit" style="font-size:6.5pt;">4&ndash;5 manual hops</span></td></tr>
+      <tr><td>Production batch ready</td><td>ERP &rarr; CRM (dispatch-ready) &rarr; Finance (WIP&rarr;FG) &rarr; EF OS</td><td><span class="chip chip-crit" style="font-size:6.5pt;">Phone call</span></td></tr>
+      <tr><td>Payment clears (Zoho)</td><td>Finance &rarr; CRM (receivable cleared) &rarr; WhatsApp Agent (alert) &rarr; EF OS</td><td><span class="chip chip-crit" style="font-size:6.5pt;">Manual BD warning</span></td></tr>
+      <tr><td>Field WhatsApp message</td><td>Agent &rarr; CRM/Attendance/Drive &rarr; EF OS</td><td><span class="chip chip-crit" style="font-size:6.5pt;">Manual data entry</span></td></tr>
+      <tr><td>Expense submitted</td><td>Agent &rarr; EF OS (approve) &rarr; Finance (payout) &rarr; HR (log)</td><td><span class="chip chip-crit" style="font-size:6.5pt;">Email thread</span></td></tr>
+      <tr><td>Policy / technical query</td><td>Knowledge Brain &harr; Backend &rarr; answer</td><td><span class="chip chip-crit" style="font-size:6.5pt;">28&ndash;30 hr wait</span></td></tr>
+    </table>
+
+    <div class="callout">
+      <b>The one rule that makes it all work:</b> <i>nothing is copied between systems by a person.</i> Every arrow above
+      is an API call, an event, or a RAG retrieval. That single discipline is what turns 15 spreadsheets into one
+      operating system &mdash; and it is why the backend is built <b>first in Q1</b>, before any department dashboard.
+    </div>
+
+    <div class="doc-footer"><span>EF Polymer — Unified 1-Year Roadmap · v1.0</span><span>Page 6</span></div>
+  </div>
+
+  <!-- ============ 04 THE 1-YEAR ROADMAP (QUARTERLY) ============ -->
+  <div class="page">
+    <img src="../letterhead.png" alt="Letterhead"
+      style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
+
+    <div class="eyebrow">Section 05 — The 1-Year Roadmap</div>
+    <h2>Four Quarters, Four Maturity Jumps</h2>
+    <div class="section-dek">Each quarter delivers working software &mdash; not slideware. Sequencing follows dependency:
+      data foundation first, then the platforms that consume it, then intelligence, then scale.</div>
+
+    <p style="font-size:9.2pt;">The roadmap is sequenced so that each quarter unlocks the next. <b>Q1</b> stops the
+      bleeding (approvals, data capture, knowledge brain MVP, ERP foundation). <b>Q2</b> builds the core platforms on
+      top of that foundation (CRM, dashboards, HR/Finance). <b>Q3</b> layers in AI &amp; cross-department automation.
+      <b>Q4</b> scales, optimises and rolls out to MENA/international expansion.</p>
+
+    <!-- ===== Q1 ===== -->
+    <div class="phase-block">
+      <div class="phase-hd">
+        <div class="phase-hd-left">
+          <div class="phase-hd-title"><span class="qdot" style="background:var(--p1);"></span>Quarter 1 — Foundation &amp; Quick Wins</div>
+          <div class="phase-hd-timeline">Months 1&ndash;3 · "Stop the bleeding" · Build the backbone</div>
+        </div>
+        <div class="phase-maturity">Org. 1.6 &rarr; 2.2</div>
+      </div>
+      <div class="phase-sow">
+        <div class="phase-cols">
+          <div>
+            <div class="col-label">What we build</div>
+            <div class="sow-item"><div class="sow-dot"></div><div><b>Multi-channel Approval Engine</b> (EF OS Module 1) — extend the Japan Slack-bot model company-wide via Slack + WhatsApp API + dashboard. RBAC routing; auto-log to trackers; triggers Finance disbursement. <i>(CEO, COO, CBDO, HR, all BD)</i></div></div>
+            <div class="sow-item"><div class="sow-dot"></div><div><b>Company Knowledge Brain — MVP</b> — RAG assistant over product specs, SOPs &amp; policy docs. Leverages the already 60–70%-built Creative Upaay chatbot. Self-serve Q&amp;A for Sales/BD; replaces sub-par Zoho Zia. <i>(All depts)</i></div></div>
+            <div class="sow-item"><div class="sow-dot"></div><div><b>WhatsApp Agent v1</b> — deployed into Retail &amp; BD B2B/RCM groups: auto-extract CRM data, mark attendance from location shares, ingest bills/POs to Drive. <i>(Marketing, BD B2B/RCM, HR attendance)</i></div></div>
+            <div class="sow-item"><div class="sow-dot"></div><div><b>Production–Logistics ERP foundation</b> — bi-directional sync of the 5+ inventory sheets into one Inventory Dashboard with WIP/stock visibility &amp; red alerts. Structured order-intake form (kills WhatsApp-order chaos). <i>(Production, Logistics, Finance)</i></div></div>
+          </div>
+          <div>
+            <div class="col-label">Client to-dos &amp; dependencies</div>
+            <div class="sow-item"><div class="sow-dot"></div><div>HR + Finance retire email/DM expense &amp; travel submissions within 14 days; define approval thresholds &amp; budget slabs.</div></div>
+            <div class="sow-item"><div class="sow-dot"></div><div>Provide Google Workspace + WhatsApp Business API + Zoho Books API access; share home/field coordinate file for attendance.</div></div>
+            <div class="sow-item"><div class="sow-dot"></div><div>Organise Drive folders for RAG grounding (policies, product specs, SOPs); CXOs confirm RBAC roles.</div></div>
+            <div class="sow-item"><div class="sow-dot"></div><div>CBDO issues top-down mandate: legacy BD verticals adopt standard pipeline tracker as CRM stop-gap (P1 discipline prep).</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="phase-roi">
+        <div class="roi-card"><div class="roi-card-num">&#8595; 60%</div><div class="roi-card-label">Email Triage</div><div class="roi-card-desc">CEO/COO inbox load cut</div></div>
+        <div class="roi-card"><div class="roi-card-num">6–8 hrs/day</div><div class="roi-card-label">Reclaimed</div><div class="roi-card-desc">Retail manual WhatsApp entry</div></div>
+        <div class="roi-card"><div class="roi-card-num">100%</div><div class="roi-card-label">Approval Audit Trail</div><div class="roi-card-desc">Zero lost approvals</div></div>
+        <div class="roi-card"><div class="roi-card-num">Live</div><div class="roi-card-label">WIP / Stock</div><div class="roi-card-desc">No more phone-call stock checks</div></div>
+      </div>
+    </div>
+
+    <div class="doc-footer"><span>EF Polymer — Unified 1-Year Roadmap · v1.0</span><span>Page 7</span></div>
+  </div>
+
+  <!-- ============ Q2 ============ -->
+  <div class="page">
+    <img src="../letterhead.png" alt="Letterhead"
+      style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
+
+    <div class="eyebrow">Section 05 — The 1-Year Roadmap (contd.)</div>
+    <h2 style="margin-bottom:14px;">Quarter 2 — Core Platforms Roll-Out</h2>
+
+    <div class="phase-block">
+      <div class="phase-hd">
+        <div class="phase-hd-left">
+          <div class="phase-hd-title"><span class="qdot" style="background:var(--p2);"></span>Quarter 2 — Core Platforms Roll-Out</div>
+          <div class="phase-hd-timeline">Months 4&ndash;6 · Build the systems the foundation enables · Highest-impact quarter</div>
+        </div>
+        <div class="phase-maturity q2">Org. 2.2 &rarr; 2.8</div>
+      </div>
+      <div class="phase-sow">
+        <div class="phase-cols">
+          <div>
+            <div class="col-label">What we build</div>
+            <div class="sow-item"><div class="sow-dot q2"></div><div><b>Unified CRM launch</b> (React + Node) — partitioned per BD vertical (Cocopeat, Seed, NGO/CSR, Govt, B2B/RCM) + MENA + Retail, each with vertical-specific fields &amp; RBAC views. Migrate spreadsheets; WhatsApp API lead insertion; corporate ownership of all contacts (kills data-leakage risk). <i>(All 5 BD, MENA, Marketing)</i></div></div>
+            <div class="sow-item"><div class="sow-dot q2"></div><div><b>EF OS — CXO Dashboard full launch</b> — live P&amp;L, sales pipeline, runway (6+ month forecast), budget-vs-actual, dispatch &amp; R&amp;D ROI. Zoho Books + Expense + Payroll + CRM + Production/Logistics sheets all feed in. <i>(CEO, COO, CBDO)</i></div></div>
+            <div class="sow-item"><div class="sow-dot q2"></div><div><b>Finance Automation Engine</b> — Accounts Frontend Dashboard (real-time stock/WIP, tonnage calc, unified CXO view), GST/TDS Recon Bot, Smart Bill Scanner (OCR → Zoho Expense), Vendor/Client MDM with GST gates. <i>(Finance, Sales, Production)</i></div></div>
+            <div class="sow-item"><div class="sow-dot q2"></div><div><b>HR / Admin / L&amp;D Platform (Phase 1)</b> — WhatsApp-native admin ticketing (LangGraph), slab-based budget approval routing, ATS connecting LinkedIn/Naukri/Indeed/Apollo, AI pre-screening, onboarding automation &amp; e-sign. <i>(HR + all HODs)</i></div></div>
+            <div class="sow-item"><div class="sow-dot q2"></div><div><b>Logistics Dispatch Scheduler + Zoho Books API</b> — structured intake, auto doc generation to Drive, carrier/vessel tracking. Sales mandated to order via form only. <i>(Logistics, Accounts, BD)</i></div></div>
+          </div>
+          <div>
+            <div class="col-label">Client to-dos &amp; dependencies</div>
+            <div class="sow-item"><div class="sow-dot q2"></div><div>Finance: standardise Zoho Books tagging (region, client, expense category) — it is the data-quality gate for <i>every</i> dashboard.</div></div>
+            <div class="sow-item"><div class="sow-dot q2"></div><div>HR: design mandatory CRM/knowledge-hub adoption programs; link CRM data hygiene to sales PMS (change management is the #1 adoption risk).</div></div>
+            <div class="sow-item"><div class="sow-dot q2"></div><div>R&amp;D: structure trial data into standardised case-study cards; co-design MENA/R&amp;D trial intake form.</div></div>
+            <div class="sow-item"><div class="sow-dot q2"></div><div>Logistics Manager commits to priority export routing windows; provides historical GST recon sheets &amp; sample invoices to train AI.</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="phase-roi">
+        <div class="roi-card"><div class="roi-card-num">0%</div><div class="roi-card-label">Lead Leakage</div><div class="roi-card-desc">Corporate-owned contacts</div></div>
+        <div class="roi-card"><div class="roi-card-num">6+ mo</div><div class="roi-card-label">Forecast Runway</div><div class="roi-card-desc">From 1–2 months today</div></div>
+        <div class="roi-card"><div class="roi-card-num">&#8595; 90%</div><div class="roi-card-label">GST Recon Time</div><div class="roi-card-desc">1–2 months → hours</div></div>
+        <div class="roi-card"><div class="roi-card-num">Live</div><div class="roi-card-label">P&amp;L Visibility</div><div class="roi-card-desc">No more 30-day delay</div></div>
+      </div>
+    </div>
+
+    <div class="doc-footer"><span>EF Polymer — Unified 1-Year Roadmap · v1.0</span><span>Page 8</span></div>
+  </div>
+
+  <!-- ============ Q3 + Q4 ============ -->
+  <div class="page">
+    <img src="../letterhead.png" alt="Letterhead"
+      style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
+
+    <div class="eyebrow">Section 05 — The 1-Year Roadmap (contd.)</div>
+    <h2 style="margin-bottom:14px;">Quarters 3 &amp; 4 — Intelligence, Automation &amp; Scale</h2>
+
+    <!-- ===== Q3 ===== -->
+    <div class="phase-block">
+      <div class="phase-hd">
+        <div class="phase-hd-left">
+          <div class="phase-hd-title"><span class="qdot" style="background:var(--p3);"></span>Quarter 3 — AI &amp; Cross-Department Automation</div>
+          <div class="phase-hd-timeline">Months 7&ndash;9 · Layer intelligence on top of the core platforms</div>
+        </div>
+        <div class="phase-maturity q3">Org. 2.8 &rarr; 3.1</div>
+      </div>
+      <div class="phase-sow">
+        <div class="phase-cols">
+          <div>
+            <div class="col-label">What we build</div>
+            <div class="sow-item"><div class="sow-dot q3"></div><div><b>Knowledge Brain → full SSOT</b> — proposal &amp; report drafting engine (RAG over Drive), AI lead discovery (LinkedIn feed scanner), DAM for marketing collaterals, single-source-of-truth technical answers for BD/Sales. <i>(R&amp;D, BD, Marketing, CEO)</i></div></div>
+            <div class="sow-item"><div class="sow-dot q3"></div><div><b>WhatsApp Agent v2</b> — Gemini community bot (FAQs, retargeting, dunning, status queries), CargoX/export-doc clearance alerts, payment-clearance triggers to Logistics, policy chatbot on WhatsApp + Slack. <i>(Finance dunning, BD, MENA, HR)</i></div></div>
+            <div class="sow-item"><div class="sow-dot q3"></div><div><b>ERP intelligence</b> — AI vendor MOQ optimiser &amp; custom-packaging forecasting, overtime/COGS auto-calc to Accounts, predictive inventory sync (replaces RCM 40kg reactive alerts), carrier API vessel alerts. <i>(Production, Logistics, Finance, BD)</i></div></div>
+            <div class="sow-item"><div class="sow-dot q3"></div><div><b>HR Phase 2 — PMS &amp; L&amp;D</b> — gamified monthly KPI/KRA dashboard, 0–5 rating digitisation, incentive automation, skills-matrix directory, L&amp;D request portal, anonymous feedback &amp; polling. <i>(HR, all depts)</i></div></div>
+          </div>
+          <div>
+            <div class="col-label">Client to-dos &amp; dependencies</div>
+            <div class="sow-item"><div class="sow-dot q3"></div><div>BD/Sales: provide past proposals &amp; collateral to ground the RAG drafting engine; confirm target regions for outbound.</div></div>
+            <div class="sow-item"><div class="sow-dot q3"></div><div>Finance: own &amp; configure dunning cadence (30/45/60-day); approve Virtual Business Lines for MENA/China comms migration.</div></div>
+            <div class="sow-item"><div class="sow-dot q3"></div><div>R&amp;D: sign off trial-request fields; feed continuous product/formulation data to the Knowledge Brain.</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="phase-roi">
+        <div class="roi-card"><div class="roi-card-num">&#8595; 40–50%</div><div class="roi-card-label">Proposal Drafting</div><div class="roi-card-desc">Days → hours</div></div>
+        <div class="roi-card"><div class="roi-card-num">3&times;</div><div class="roi-card-label">Lead Sourcing</div><div class="roi-card-desc">AI feed scanner</div></div>
+        <div class="roi-card"><div class="roi-card-num">&#8595; 15–20%</div><div class="roi-card-label">BD Time on Collections</div><div class="roi-card-desc">Automated dunning</div></div>
+        <div class="roi-card"><div class="roi-card-num">100%</div><div class="roi-card-label">Policy Q&amp;A Self-serve</div><div class="roi-card-desc">No more HR DMs</div></div>
+      </div>
+    </div>
+
+    <!-- ===== Q4 ===== -->
+    <div class="phase-block">
+      <div class="phase-hd">
+        <div class="phase-hd-left">
+          <div class="phase-hd-title"><span class="qdot" style="background:var(--p4);"></span>Quarter 4 — Scale, Integration &amp; International Expansion</div>
+          <div class="phase-hd-timeline">Months 10&ndash;12 · Connect everything into EF OS · Scale to MENA/Japan/EU</div>
+        </div>
+        <div class="phase-maturity q4">Org. 3.1 &rarr; 3.2</div>
+      </div>
+      <div class="phase-sow">
+        <div class="phase-cols">
+          <div>
+            <div class="col-label">What we build</div>
+            <div class="sow-item"><div class="sow-dot q4"></div><div><b>Full EF OS integration</b> — every department dashboard rolls up into one role-based cockpit. Enterprise RAG AI agent over Sheets/WhatsApp/Gmail/R&amp;D logs answers CEO operational queries; LLM board/investor report auto-generated from live data. <i>(CEO, COO, CBDO)</i></div></div>
+            <div class="sow-item"><div class="sow-dot q4"></div><div><b>MENA &amp; International scale</b> — Virtual Business Lines live (company-owned, not personal SIM/WeChat), region case studies, Apollo/Sales Navigator outbound, CargoX regulatory buffer engine, Japan D2C launch integration. <i>(MENA, BD Cocopeat)</i></div></div>
+            <div class="sow-item"><div class="sow-dot q4"></div><div><b>External Vendor &amp; Partnership Portal</b> — vendor onboarding, contract milestones, meeting logs (shared HR + Finance + Production). RCM ERP API bridge (or spreadsheet fallback) for tertiary retail visibility. <i>(COO, Production, BD B2B/RCM)</i></div></div>
+            <div class="sow-item"><div class="sow-dot q4"></div><div><b>Predictive &amp; governance layer</b> — AI sales/demand &amp; COGS forecasting (90-day production forecasts), AI deal scoring, predictive attrition analytics, automated asset register. <i>(CXO-level)</i></div></div>
+          </div>
+          <div>
+            <div class="col-label">Client to-dos &amp; dependencies</div>
+            <div class="sow-item"><div class="sow-dot q4"></div><div>CXOs: finalise org-wide RBAC matrix; ratify the unified OS as the single system of intelligence.</div></div>
+            <div class="sow-item"><div class="sow-dot q4"></div><div>MENA: HR formalises comms &amp; device-ownership policy; complete migration to Virtual Business Lines.</div></div>
+            <div class="sow-item"><div class="sow-dot q4"></div><div>Finance: complete sustained-usage review; agree quarterly data-quality audits to keep dashboards accurate.</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="phase-roi">
+        <div class="roi-card"><div class="roi-card-num">~300 hrs</div><div class="roi-card-label">CEO Hrs/Yr</div><div class="roi-card-desc">Reclaimed for strategy</div></div>
+        <div class="roi-card"><div class="roi-card-num">~252 hrs</div><div class="roi-card-label">COO Hrs/Yr</div><div class="roi-card-desc">Reclaimed from triage</div></div>
+        <div class="roi-card"><div class="roi-card-num">~1,680 hrs</div><div class="roi-card-label">Retail/Yr</div><div class="roi-card-desc">Field ops admin reclaimed</div></div>
+        <div class="roi-card"><div class="roi-card-num">3.2 / 5</div><div class="roi-card-label">Org. Maturity</div><div class="roi-card-desc">Defined &amp; integrated</div></div>
+      </div>
+    </div>
+
+    <div class="doc-footer"><span>EF Polymer — Unified 1-Year Roadmap · v1.0</span><span>Page 9</span></div>
+  </div>
+
+  <!-- ============ 05 PLATFORM-TO-DEPARTMENT MATRIX ============ -->
+  <div class="page">
+    <img src="../letterhead.png" alt="Letterhead"
+      style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
+
+    <div class="eyebrow">Section 06 — Coverage Matrix</div>
+    <h2>Which Platform Solves Which Department's Problems</h2>
+    <div class="section-dek">Every "&check;" is a finding from that department's audit addressed by a shared platform —
+      proving the "build once, use everywhere" logic. Quarter of delivery is shown for each.</div>
+
+    <table style="font-size:7.8pt;">
+      <tr>
+        <th style="width:21%;">Department</th>
+        <th>EF OS</th>
+        <th>CRM</th>
+        <th>Know.<br>Brain</th>
+        <th>WhatsApp<br>Agent</th>
+        <th>Prod–Logi<br>ERP</th>
+        <th>HR/Admin<br>/L&amp;D</th>
+        <th>Finance<br>Engine</th>
+      </tr>
+      <tr><td><b>CEO Office</b></td><td class="num">&#10003; Q1</td><td class="num">&#10003; Q2</td><td class="num">&#10003; Q3</td><td class="num">&#10003; Q1</td><td class="num">&#10003; Q1</td><td class="num">&#10003; Q2</td><td class="num">&#10003; Q2</td></tr>
+      <tr><td><b>COO Office</b></td><td class="num">&#10003; Q1</td><td class="num">&#10003; Q2</td><td class="num">&#10003; Q1</td><td class="num">&#10003; Q2</td><td class="num">&#10003; Q1</td><td class="num">&#10003; Q2</td><td class="num">&#10003; Q2</td></tr>
+      <tr><td><b>CBDO Office</b></td><td class="num">&#10003; Q2</td><td class="num">&#10003; Q2</td><td class="num">&#10003; Q1</td><td class="num">&#10003; Q1</td><td class="num">&mdash;</td><td class="num">&#10003; Q2</td><td class="num">&#10003; Q2</td></tr>
+      <tr><td><b>BD — Cocopeat</b></td><td class="num">&#10003; Q2</td><td class="num">&#10003; Q2</td><td class="num">&#10003; Q3</td><td class="num">&#10003; Q1</td><td class="num">&#10003; Q2</td><td class="num">&mdash;</td><td class="num">&#10003; Q3</td></tr>
+      <tr><td><b>BD — Seed</b></td><td class="num">&#10003; Q2</td><td class="num">&#10003; Q2</td><td class="num">&#10003; Q3</td><td class="num">&#10003; Q1</td><td class="num">&#10003; Q2</td><td class="num">&mdash;</td><td class="num">&#10003; Q3</td></tr>
+      <tr><td><b>BD — NGO/CSR</b></td><td class="num">&#10003; Q2</td><td class="num">&#10003; Q2</td><td class="num">&#10003; Q3</td><td class="num">&#10003; Q1</td><td class="num">&#10003; Q2</td><td class="num">&mdash;</td><td class="num">&#10003; Q3</td></tr>
+      <tr><td><b>BD — Government</b></td><td class="num">&#10003; Q2</td><td class="num">&#10003; Q2</td><td class="num">&#10003; Q3</td><td class="num">&#10003; Q1</td><td class="num">&#10003; Q2</td><td class="num">&#10003; Q2</td><td class="num">&#10003; Q3</td></tr>
+      <tr><td><b>BD — B2B/RCM</b></td><td class="num">&#10003; Q2</td><td class="num">&#10003; Q2</td><td class="num">&#10003; Q3</td><td class="num">&#10003; Q1</td><td class="num">&#10003; Q2</td><td class="num">&#10003; Q2</td><td class="num">&#10003; Q3</td></tr>
+      <tr><td><b>MENA / Intl Sales</b></td><td class="num">&#10003; Q2</td><td class="num">&#10003; Q2</td><td class="num">&#10003; Q3</td><td class="num">&#10003; Q1</td><td class="num">&#10003; Q2</td><td class="num">&mdash;</td><td class="num">&#10003; Q3</td></tr>
+      <tr><td><b>Finance &amp; Accounts</b></td><td class="num">&#10003; Q2</td><td class="num">&mdash;</td><td class="num">&#10003; Q3</td><td class="num">&#10003; Q2</td><td class="num">&#10003; Q1</td><td class="num">&#10003; Q2</td><td class="num">&#10003; Q2</td></tr>
+      <tr><td><b>Marketing / Retail</b></td><td class="num">&#10003; Q2</td><td class="num">&#10003; Q2</td><td class="num">&#10003; Q3</td><td class="num">&#10003; Q1</td><td class="num">&#10003; Q2</td><td class="num">&#10003; Q3</td><td class="num">&#10003; Q2</td></tr>
+      <tr><td><b>Production / QC</b></td><td class="num">&#10003; Q2</td><td class="num">&mdash;</td><td class="num">&#10003; Q3</td><td class="num">&#10003; Q3</td><td class="num">&#10003; Q1</td><td class="num">&#10003; Q3</td><td class="num">&#10003; Q3</td></tr>
+      <tr><td><b>R&amp;D</b></td><td class="num">&#10003; Q2</td><td class="num">&#10003; Q3</td><td class="num">&#10003; Q3</td><td class="num">&#10003; Q3</td><td class="num">&#10003; Q2</td><td class="num">&#10003; Q3</td><td class="num">&#10003; Q3</td></tr>
+      <tr><td><b>Logistics</b></td><td class="num">&#10003; Q2</td><td class="num">&mdash;</td><td class="num">&#10003; Q3</td><td class="num">&#10003; Q3</td><td class="num">&#10003; Q1</td><td class="num">&mdash;</td><td class="num">&#10003; Q2</td></tr>
+      <tr><td><b>HR / Talent</b></td><td class="num">&#10003; Q2</td><td class="num">&#10003; Q3</td><td class="num">&#10003; Q2</td><td class="num">&#10003; Q2</td><td class="num">&mdash;</td><td class="num">&#10003; Q2</td><td class="num">&#10003; Q2</td></tr>
+    </table>
+
+    <div class="callout">
+      <b>Read this matrix top-to-bottom:</b> no department is left without coverage, and no platform is a one-off &mdash;
+      the average platform serves <b>11 of 15</b> departments. That is the economic and operational case for building
+      shared instead of siloed.
+    </div>
+
+    <div class="doc-footer"><span>EF Polymer — Unified 1-Year Roadmap · v1.0</span><span>Page 10</span></div>
+  </div>
+
+  <!-- ============ 06 DEPARTMENT MATURITY TRAJECTORY ============ -->
+  <div class="page">
+    <img src="../letterhead.png" alt="Letterhead"
+      style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
+
+    <div class="eyebrow">Section 07 — Maturity Trajectory by Department</div>
+    <h2>Where Each Function Lands After 12 Months</h2>
+    <div class="section-dek">Current and target maturity scores pulled directly from each department's audit report.
+      The roadmap lifts the lowest functions the most.</div>
+
+    <table>
+      <tr>
+        <th>Department / Function</th>
+        <th class="num">Current</th>
+        <th class="num">Target</th>
+        <th class="num">Gap</th>
+        <th>Primary Platform(s) Driving the Lift</th>
+      </tr>
+      <tr><td>CEO Office</td><td class="num">1.9</td><td class="num">3.1</td><td class="num">1.2</td><td>EF OS · Knowledge Brain</td></tr>
+      <tr><td>COO Office</td><td class="num">1.5</td><td class="num">3.2</td><td class="num">1.7</td><td>EF OS · HR/Admin · Finance</td></tr>
+      <tr><td>CBDO / Sales</td><td class="num">1.3</td><td class="num">3.0</td><td class="num">1.7</td><td>Unified CRM · EF OS</td></tr>
+      <tr><td>BD — Cocopeat</td><td class="num">1.3</td><td class="num">2.7</td><td class="num">1.4</td><td>Unified CRM · Finance Engine</td></tr>
+      <tr><td>BD — Seed</td><td class="num">1.4</td><td class="num">3.0</td><td class="num">1.6</td><td>Unified CRM · Knowledge Brain</td></tr>
+      <tr><td>BD — NGO/CSR</td><td class="num">1.4</td><td class="num">3.0</td><td class="num">1.6</td><td>Unified CRM · Finance Engine</td></tr>
+      <tr><td>BD — Government</td><td class="num">1.7</td><td class="num">3.0</td><td class="num">1.3</td><td>WhatsApp Agent · HR/Admin</td></tr>
+      <tr><td>BD — B2B/RCM</td><td class="num">1.3</td><td class="num">3.0</td><td class="num">1.7</td><td>Unified CRM · WhatsApp Agent</td></tr>
+      <tr><td>MENA / International</td><td class="num">2.0</td><td class="num">3.1</td><td class="num">1.1</td><td>Unified CRM · Prod–Logi ERP</td></tr>
+      <tr><td>Finance &amp; Accounts</td><td class="num">2.2</td><td class="num">3.3</td><td class="num">1.1</td><td>Finance Engine · Prod–Logi ERP</td></tr>
+      <tr><td>Marketing / Retail</td><td class="num">1.4</td><td class="num">3.1</td><td class="num">1.7</td><td>WhatsApp Agent · Unified CRM</td></tr>
+      <tr><td>Production / QC</td><td class="num">1.5</td><td class="num">3.2</td><td class="num">1.7</td><td>Prod–Logi ERP · Finance Engine</td></tr>
+      <tr><td>R&amp;D</td><td class="num">1.5</td><td class="num">3.2</td><td class="num">1.7</td><td>Knowledge Brain · EF OS</td></tr>
+      <tr><td>Logistics</td><td class="num">1.6</td><td class="num">3.0</td><td class="num">1.4</td><td>Prod–Logi ERP · Finance Engine</td></tr>
+      <tr><td>HR / Talent</td><td class="num">1.6</td><td class="num">3.4</td><td class="num">1.8</td><td>HR/Admin/L&amp;D · Knowledge Brain</td></tr>
+      <tr style="font-weight:700;"><td>Organisation average</td><td class="num">1.6</td><td class="num">3.1</td><td class="num">1.5</td><td>All seven shared platforms</td></tr>
+    </table>
+
+    <h3>The Five Maturity Dimensions (Org. Average)</h3>
+    <div class="exhibit">
+      <div class="exhibit-chart">
+        <svg viewBox="0 0 400 350" xmlns="http://www.w3.org/2000/svg" style="width:100%;">
+          <g transform="translate(200,175)">
+            <polygon points="0,-120 114,-37 70,97 -70,97 -114,-37" fill="none" stroke="#E2E8F0" stroke-width="0.75" />
+            <polygon points="0,-96 91,-30 56,78 -56,78 -91,-30" fill="none" stroke="#E2E8F0" stroke-width="0.75" />
+            <polygon points="0,-72 68,-22 42,58 -42,58 -68,-22" fill="none" stroke="#E2E8F0" stroke-width="0.75" />
+            <polygon points="0,-48 46,-15 28,39 -28,39 -46,-15" fill="none" stroke="#E2E8F0" stroke-width="0.75" />
+            <polygon points="0,-24 23,-7 14,19 -14,19 -23,-7" fill="none" stroke="#E2E8F0" stroke-width="0.75" />
+            <line x1="0" y1="0" x2="0" y2="-120" stroke="#E2E8F0" stroke-width="0.75" />
+            <line x1="0" y1="0" x2="114" y2="-37" stroke="#E2E8F0" stroke-width="0.75" />
+            <line x1="0" y1="0" x2="70" y2="97" stroke="#E2E8F0" stroke-width="0.75" />
+            <line x1="0" y1="0" x2="-70" y2="97" stroke="#E2E8F0" stroke-width="0.75" />
+            <line x1="0" y1="0" x2="-114" y2="-37" stroke="#E2E8F0" stroke-width="0.75" />
+            <!-- Target dashed: Process 3.3, Tech 3.3, Data 3.4, Docs 3.2, KM 2.7 -->
+            <polygon points="0,-79 75.2,-24.4 47.6,65.96 -44.8,62.08 -61.6,-20" fill="none" stroke="#B8C0C9" stroke-width="1" stroke-dasharray="5,3" />
+            <!-- Current: Process 1.8, Tech 1.4, Data 1.4, Docs 1.9, KM 1.5 -->
+            <polygon points="0,-43.2 31.9,-10.36 19.6,27.16 -26.6,36.86 -34.2,-11.1" fill="rgba(107,79,200,0.14)" stroke="#6b4fc8" stroke-width="1.75" />
+            <circle cx="0" cy="-43.2" r="3.2" fill="#6b4fc8" />
+            <circle cx="31.9" cy="-10.36" r="3.2" fill="#6b4fc8" />
+            <circle cx="19.6" cy="27.16" r="3.2" fill="#6b4fc8" />
+            <circle cx="-26.6" cy="36.86" r="3.2" fill="#6b4fc8" />
+            <circle cx="-34.2" cy="-11.1" r="3.2" fill="#6b4fc8" />
+            <text x="0" y="-134" text-anchor="middle" font-size="9" fill="#6b4fc8" font-weight="600">Process</text>
+            <text x="128" y="-20" text-anchor="start" font-size="9" fill="#6b4fc8" font-weight="600">Technology</text>
+            <text x="78" y="112" text-anchor="start" font-size="9" fill="#6b4fc8" font-weight="600">Data Quality</text>
+            <text x="-78" y="112" text-anchor="end" font-size="9" fill="#6b4fc8" font-weight="600">Documentation</text>
+            <text x="-128" y="-16" text-anchor="end" font-size="9" fill="#6b4fc8" font-weight="600">Knowledge</text>
+          </g>
+        </svg>
+      </div>
+      <div class="exhibit-note">
+        Solid = current org. average. Dashed = post-roadmap target.<br><br>
+        <b>Technology Utilization and Data Quality are the two most broken dimensions today</b> (both ~1.4/5) &mdash;
+        the direct result of spreadsheet silos and manual data movement. The shared-platform architecture targets both
+        at ~3.4, which is where the largest, fastest gains come from: every dashboard, CRM and ERP rollout in Q1&ndash;Q2
+        attacks exactly these two dimensions.<br><br>
+        Knowledge Management (1.5 &rarr; 2.7) is lifted last, by the Knowledge Brain RAG rollout in Q3.
+      </div>
+    </div>
+
+    <div class="doc-footer"><span>EF Polymer — Unified 1-Year Roadmap · v1.0</span><span>Page 11</span></div>
+  </div>
+
+  <!-- ============ 07 DEPENDENCIES & CRITICAL PATH ============ -->
+  <div class="page">
+    <img src="../letterhead.png" alt="Letterhead"
+      style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
+
+    <div class="eyebrow">Section 08 — Dependencies &amp; Critical Path</div>
+    <h2>Who Unblocks Whom</h2>
+    <div class="section-dek">The platforms are interconnected, and so are the departments. Three people are the critical
+      path for the whole programme.</div>
+
+    <div class="dep-card">
+      <div class="dep-header">
+        <div class="dep-title">1 · Finance (Shobha Shekhawat) — the data-quality gate</div>
+        <div class="dep-badge">Critical path</div>
+      </div>
+      <div class="dep-body">
+        Zoho Books is the source of truth for P&amp;L, invoicing, COGS and collections. <b>Every dashboard in the
+        company reads from it.</b> If Finance does not standardise tagging (region, client, expense category) and grant
+        API access early, EF OS, the Finance Engine and the BD receivables views all degrade. Finance also owns
+        automated dunning (NGO/CSR's 60–70 day receivables), CargoX clearance alerts (Cocopeat export) and the Smart
+        Bill Scanner.
+        <div class="dep-row"><span class="chip-ref">EF OS</span><span class="chip-ref">Finance Engine</span><span class="chip-ref">BD Collections</span><span class="chip-ref">Prod–Logi COGS</span></div>
+      </div>
+    </div>
+
+    <div class="dep-card">
+      <div class="dep-header">
+        <div class="dep-title">2 · HR (Dolly Mehta) — the adoption gate</div>
+        <div class="dep-badge">Critical path</div>
+      </div>
+      <div class="dep-body">
+        New tools fail without change management. HR must drive CRM/knowledge-hub adoption programs, retire email/DM
+        expense submissions, link CRM data hygiene &amp; pipeline health to the sales PMS, and formalise the
+        device/comms-ownership policy for MENA migration. The audit flagged <b>"legacy team resistance to tech
+        adoption"</b> as a Critical risk in the CBDO report &mdash; HR is the mitigation.
+        <div class="dep-row"><span class="chip-ref">CRM Adoption</span><span class="chip-ref">PMS Linkage</span><span class="chip-ref">HR/Admin/L&amp;D</span><span class="chip-ref">MENA Migration</span></div>
+      </div>
+    </div>
+
+    <div class="dep-card">
+      <div class="dep-header">
+        <div class="dep-title">3 · Operations chain — Sales → Production → QC → Logistics → Accounts</div>
+        <div class="dep-badge">Operational chain</div>
+      </div>
+      <div class="dep-body">
+        A sale logged in CRM must flow to Production (demand), QC (lot assignment), Logistics (dispatch) and Accounts
+        (invoicing) with <b>zero manual hand-off</b>. Today each link is a WhatsApp message or phone call. The
+        Prod–Logi ERP + structured intake form + Zoho Books API close this loop. Logistics (Nihal Paliwal) is the
+        single-point bottleneck cited in <b>5 of 5 BD reports + MENA</b> &mdash; the Dispatch Scheduler directly
+        unblocks him.
+        <div class="dep-row"><span class="chip-ref">Prod–Logi ERP</span><span class="chip-ref">Unified CRM</span><span class="chip-ref">Structured Intake</span><span class="chip-ref">Zoho API</span></div>
+      </div>
+    </div>
+
+    <div class="dep-card">
+      <div class="dep-header">
+        <div class="dep-title">4 · R&amp;D (Ritu Panwar) — the knowledge &amp; trial feed</div>
+        <div class="dep-badge">Enabler</div>
+      </div>
+      <div class="dep-body">
+        R&amp;D is a dependency for BD (technical inputs &amp; proposal case-studies), Marketing (collateral), the
+        CEO's field-efficacy loop and MENA (trial intake form). Structuring trial data into standard case-study cards
+        and feeding the Knowledge Brain turns R&amp;D from a 28&ndash;30-hour query bottleneck into a self-serve
+        resource.
+        <div class="dep-row"><span class="chip-ref">Knowledge Brain</span><span class="chip-ref">Proposal Engine</span><span class="chip-ref">Trial Intake</span></div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <b>Sequencing rule:</b> Q1 builds the shared foundation (approvals, knowledge-brain MVP, ERP data layer,
+      WhatsApp capture) <i>before</i> any department-specific dashboard &mdash; because every downstream dashboard
+      depends on that data being clean and flowing. Skipping Q1 to jump straight to a department view replicates
+      today's silo problem in a newer tool.
+    </div>
+
+    <div class="doc-footer"><span>EF Polymer — Unified 1-Year Roadmap · v1.0</span><span>Page 12</span></div>
+  </div>
+
+  <!-- ============ 08 RISKS & MITIGATIONS ============ -->
+  <div class="page">
+    <img src="../letterhead.png" alt="Letterhead"
+      style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
+
+    <div class="eyebrow">Section 09 — Risks &amp; Mitigations</div>
+    <h2>What Could Derail This &mdash; and How We Prevent It</h2>
+    <div class="section-dek">Risks surfaced directly from the departmental audits, with the mitigation baked into the
+      roadmap design.</div>
+
+    <table>
+      <tr>
+        <th style="width:20%;">Risk</th>
+        <th style="width:12%;">Severity</th>
+        <th>Source</th>
+        <th>Mitigation in this roadmap</th>
+      </tr>
+      <tr>
+        <td><b>Legacy team resistance to new tools</b></td>
+        <td><span class="chip chip-crit">Critical</span></td>
+        <td>CBDO report (P-05); Production (abandoned Zoho WMS); R&amp;D (abandoned Asana)</td>
+        <td>"Extend, don't replace" &mdash; teams keep Sheets/WhatsApp; intelligence wraps around them. HR-led adoption programs + PMS-linked data-hygiene metrics. Q1 stop-gap tracker before CRM to build habit.</td>
+      </tr>
+      <tr>
+        <td><b>Single-point-person dependencies</b></td>
+        <td><span class="chip chip-crit">Critical</span></td>
+        <td>Logistics (Nihal); BD Seed (Sameer solo); Marketing data (Kamakshi); R&amp;D (Ritu)</td>
+        <td>Shared platforms de-personalise knowledge &amp; data &mdash; WhatsApp Agent captures field data, Knowledge Brain holds R&amp;D IP, ERP holds logistics state. Corporate-owned Virtual Business Lines protect contacts.</td>
+      </tr>
+      <tr>
+        <td><b>Finance data quality gates every dashboard</b></td>
+        <td><span class="chip chip-crit">Critical</span></td>
+        <td>CEO P-02; COO; Finance P-01/P-06</td>
+        <td>Finance standardisation is a Q1 client to-do, ahead of the Q2 EF OS launch. AI GST/TDS Recon Bot + Smart Bill Scanner enforce input-level quality.</td>
+      </tr>
+      <tr>
+        <td><b>WhatsApp as unaudited single channel</b></td>
+        <td><span class="chip chip-med">High</span></td>
+        <td>5/5 BD reports; Marketing (10,000+ msgs/day); MENA (personal SIM)</td>
+        <td>WhatsApp Agent ingests from inside the groups &mdash; no behaviour change for ground teams &mdash; while structuring data into the backend. Virtual Business Lines migrate personal contacts to company ownership.</td>
+      </tr>
+      <tr>
+        <td><b>Implementation bandwidth</b></td>
+        <td><span class="chip chip-med">High</span></td>
+        <td>Cross-cutting (15 functions, lean teams)</td>
+        <td>Build-once shared platforms (not 15 bespoke systems); phased quarterly delivery with working software each quarter; client to-dos clearly scoped per quarter.</td>
+      </tr>
+      <tr>
+        <td><b>Data continuity / IP walk-out</b></td>
+        <td><span class="chip chip-med">High</span></td>
+        <td>BD B2B/RCM (90% on personal WhatsApp); MENA (personal SIM/WeChat)</td>
+        <td>Unified CRM = corporate ownership of all contacts; Virtual Business Lines; WhatsApp Agent auto-logs every interaction to the backend.</td>
+      </tr>
+      <tr>
+        <td><b>Seasonal / vessel-window misses</b></td>
+        <td><span class="chip chip-low">Medium</span></td>
+        <td>BD Seed (sowing window); Logistics/Cocopeat (vessel cutoff, CargoX 10-day)</td>
+        <td>Seasonal-window &amp; vessel alerts baked into CRM &amp; ERP; CargoX regulatory buffer engine; structured intake enforces mandatory fields up front.</td>
+      </tr>
+    </table>
+
+    <div class="callout">
+      <b>The biggest risk is not technical &mdash; it is adoption.</b> Two prior tools (Zoho WMS in Production, Asana
+      in R&amp;D) were built and then abandoned. This roadmap is deliberately designed around the tools teams already
+      use, with HR-anchored change management and PMS-linked accountability, precisely to avoid a third abandonment.
+    </div>
+
+    <div class="doc-footer"><span>EF Polymer — Unified 1-Year Roadmap · v1.0</span><span>Page 13</span></div>
+  </div>
+
+  <!-- ============ 09 AGGREGATE ROI ============ -->
+  <div class="page">
+    <img src="../letterhead.png" alt="Letterhead"
+      style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
+
+    <div class="eyebrow">Section 10 — Aggregate ROI</div>
+    <h2>Capacity Reclaimed Across the Company</h2>
+    <div class="section-dek">Hours-per-year figures summed from each department's stated ROI. This is leadership
+      bandwidth and operational capacity returned to the business &mdash; not just time saved.</div>
+
+    <div class="kpi-strip">
+      <div class="kpi-cell">
+        <div class="kpi-num">~3,000</div>
+        <div class="kpi-lbl">Hours / Year Reclaimed</div>
+      </div>
+      <div class="kpi-cell">
+        <div class="kpi-num">~375</div>
+        <div class="kpi-lbl">Working Days / Year</div>
+      </div>
+      <div class="kpi-cell">
+        <div class="kpi-num">7</div>
+        <div class="kpi-lbl">Shared Platforms (not 15)</div>
+      </div>
+      <div class="kpi-cell">
+        <div class="kpi-num">1.6 &rarr; 3.2</div>
+        <div class="kpi-lbl">Maturity Lift (org. avg.)</div>
+      </div>
+    </div>
+
+    <h3>Where the Hours Come Back</h3>
+    <table>
+      <tr>
+        <th>Function</th>
+        <th class="num">Hrs/Yr Reclaimed</th>
+        <th>Primary time drain removed</th>
+      </tr>
+      <tr><td>CEO Office</td><td class="num">~300</td><td>Manual data harvesting for P&amp;L &amp; approvals</td></tr>
+      <tr><td>COO Office</td><td class="num">~252</td><td>Email triage (50–80/day) &amp; 150+ WhatsApp groups</td></tr>
+      <tr><td>Marketing / Retail</td><td class="num">~1,680</td><td>WhatsApp data entry &amp; manual attendance (6–8 hrs/day)</td></tr>
+      <tr><td>Finance &amp; Accounts</td><td class="num">~300</td><td>Manual GST/TDS recon &amp; tonnage compilation</td></tr>
+      <tr><td>HR / Talent</td><td class="num">~420</td><td>Manual CV screening &amp; admin tickets on WhatsApp</td></tr>
+      <tr><td>Production / QC</td><td class="num">~384</td><td>Inventory sheet reconciliation &amp; CXO reporting</td></tr>
+      <tr><td>R&amp;D</td><td class="num">~264</td><td>Proposal drafting &amp; approval delays</td></tr>
+      <tr><td>Logistics</td><td class="num">~240</td><td>Chasing missing order fields &amp; double data entry</td></tr>
+      <tr><td>BD — NGO/CSR</td><td class="num">~216</td><td>Manual dunning &amp; 4-sheet pipeline assembly</td></tr>
+      <tr><td>BD — B2B/RCM</td><td class="num">~192</td><td>Paper-diary transcription &amp; reactive inventory</td></tr>
+      <tr><td>BD — Seed</td><td class="num">~168</td><td>Manual R&amp;D data extraction for proposals</td></tr>
+      <tr><td>MENA / International</td><td class="num">~144</td><td>Manual payment warnings &amp; trial setup</td></tr>
+      <tr><td>BD — Cocopeat</td><td class="num">~120</td><td>Siloed lead pipeline &amp; CargoX chasing</td></tr>
+    </table>
+
+    <div class="callout">
+      <b>The strategic point:</b> ~375 working days a year of capacity is roughly <b>1.5 full-time executives</b> worth
+      of bandwidth &mdash; redirected from data-shuffling to revenue generation, international expansion, R&amp;D and
+      investor relations. For the CEO alone, that is ~37.5 working days/year moved from admin to strategy.
+    </div>
+
+    <div class="doc-footer"><span>EF Polymer — Unified 1-Year Roadmap · v1.0</span><span>Page 14</span></div>
+  </div>
+
+  <!-- ============ APPENDIX A — DEPARTMENT FINDINGS (1 of 3) ============ -->
+  <div class="page">
+    <img src="../letterhead.png" alt="Letterhead"
+      style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
+
+    <div class="eyebrow">Appendix A — Per-Department Findings (1 of 3)</div>
+    <h2>CXO &amp; BD Vertical Findings</h2>
+    <div class="section-dek">The specific pain points, people and tools the synthesis compressed &mdash; one card per
+      function, drawn verbatim from each audit report.</div>
+
+    <div class="appx-grid">
+      <div class="appx-card">
+        <div class="appx-head">CEO Office</div>
+        <div class="appx-lead"><b>Narayan Lal Gurjar.</b> 1.9 &rarr; 3.1</div>
+        <ul class="appx-list">
+          <li><b>1&ndash;2 mo forecast runway</b> &rarr; target 6+ mo; cripples procurement &amp; manufacturing planning.</li>
+          <li><b>No unified dashboard</b> &mdash; manual data-harvesting across Sheets/Zoho for region P&amp;L.</li>
+          <li><b>Travel/expense approvals</b> unstructured email/DMs in India &amp; MENA; Japan already runs a Slack bot.</li>
+          <li><b>Siloed farmer/field feedback</b> not reaching R&amp;D or marketing.</li>
+        </ul>
+        <div class="appx-tools"><b>Tools:</b> Slack · Google Sheets · Google Drive · WhatsApp · Gmail · Zoho Books</div>
+      </div>
+
+      <div class="appx-card">
+        <div class="appx-head">COO Office</div>
+        <div class="appx-lead"><b>Puran Singh Rajput.</b> 1.5 &rarr; 3.2</div>
+        <ul class="appx-list">
+          <li><b>50&ndash;80 emails/day + 150+ WhatsApp groups</b> &mdash; ~2 hrs/day triage, largest time drain.</li>
+          <li><b>PMS "non-existent"</b>; appraisals by memory; incentives manual in Sheets.</li>
+          <li><b>18&ndash;20 (up to 60&ndash;80) cultural-fit interviews/role.</b></li>
+          <li><b>Zoho Zia chatbot flagged "subpar."</b> Board decks assembled manually from sheets.</li>
+        </ul>
+        <div class="appx-tools"><b>Tools:</b> WhatsApp · Google Sheets/Forms · Zoho (Books/Expense/Payroll/People) · Gmail · Slack</div>
+      </div>
+
+      <div class="appx-card">
+        <div class="appx-head">CBDO / Sales</div>
+        <div class="appx-lead"><b>Ankit Jain.</b> 1.3 &rarr; 3.0 (lowest baseline)</div>
+        <ul class="appx-list">
+          <li><b>No CRM at all</b> &mdash; lead ownership invisible; manual meetings to find account owners.</li>
+          <li><b>WhatsApp siloed per employee</b> &mdash; no client history capture; turnover = leakage.</li>
+          <li><b>Retrospective monthly reporting</b> only; no live pipeline view.</li>
+          <li><b>Legacy team "massive behavioral resistance"</b> to even Google Sheets. <span class="chip chip-crit" style="font-size:6pt;padding:0 4px;">Critical</span></li>
+          <li>Existing <b>Creative Upaay chatbot 60&ndash;70% built</b> (product/CRM knowledge hub).</li>
+        </ul>
+        <div class="appx-tools"><b>Tools:</b> Google Sheets (Cocopeat only) · WhatsApp (primary) · Slack · Gmail</div>
+      </div>
+
+      <div class="appx-card">
+        <div class="appx-head">BD &mdash; Cocopeat</div>
+        <div class="appx-lead"><b>Mohit Kumar Gupta.</b> 1.3 &rarr; 2.7. Export (UK/EU/ME) + Japan D2C</div>
+        <ul class="appx-list">
+          <li><b>CargoX 10-day export-doc window</b> gated behind manual Accounts payment clearance &rarr; demurrage risk.</li>
+          <li><b>Country permits (Egypt ACID, Peru, Spain)</b> &mdash; 20&ndash;25 day embassy wait.</li>
+          <li><b>6&ndash;10 hr ad-to-lead lag</b> (timezone gaps).</li>
+          <li><b>Cold outbound on primary domain</b> &mdash; blacklisting risk.</li>
+          <li>Rajesh Balu only 10&ndash;20% on BD; 80&ndash;90% logistics/product. ~5% response rate.</li>
+        </ul>
+        <div class="appx-tools"><b>Tools:</b> Google Sheets/Excel · Gmail · LinkedIn + Dripify (lapsed) · WeChat · LINE · CargoX · Google/LinkedIn Ads (Obverse)</div>
+      </div>
+
+      <div class="appx-card">
+        <div class="appx-head">BD &mdash; Seed</div>
+        <div class="appx-lead"><b>Sameer Vishnuji Mahiskar.</b> 1.4 &rarr; 3.0. Institutional pan-India, 90 MT</div>
+        <ul class="appx-list">
+          <li><b>Dual reporting line</b> &mdash; reports to both COO &amp; CBDO (conflicting priorities). <i>Process fix, not software.</i></li>
+          <li><b>Solo-person operation</b> &mdash; entire 90 MT on one person; South India role vacant. <i>Headcount fix.</i></li>
+          <li><b>Memory-based follow-up</b>; 25&ndash;30 leads on local Sheets; traveling 15&ndash;20 days/mo.</li>
+          <li><b>1&ndash;2.5 day proposal creation</b> &mdash; manual R&amp;D data extraction from unstructured Drive.</li>
+          <li><b>Sample dispatch SLA with Logistics missing</b>; sowing-window miss = 6&ndash;12 mo loss.</li>
+        </ul>
+        <div class="appx-tools"><b>Tools:</b> Google Sheets · ChatGPT · Google News · Canva/PowerPoint · WhatsApp · Gmail · Drive (R&amp;D, unstructured)</div>
+      </div>
+
+      <div class="appx-card">
+        <div class="appx-head">BD &mdash; NGO &amp; CSR</div>
+        <div class="appx-lead"><b>Vikash Mehta &amp; Gaurav Dwivedi.</b> 1.4 &rarr; 3.0. Bulk supply, 100 MT</div>
+        <ul class="appx-list">
+          <li><b>60&ndash;70 day receivables</b>; Vikash spends <b>15&ndash;20% of time chasing payments</b> &mdash; biggest drain.</li>
+          <li><b>4-sheet disconnected pipeline</b> (Generated&rarr;Emailed&rarr;Responded&rarr;Meetings); monthly metrics assembled by hand.</li>
+          <li><b>LinkedIn feed-only sourcing</b> (~9,500 connections); no Sales Navigator/keyword search.</li>
+          <li><b>Manual 1-by-1 WhatsApp broadcasts</b> to 20&ndash;30 contacts; no tracking.</li>
+          <li>Custom Canva/PPT per NGO (~20% BD time); no template library.</li>
+        </ul>
+        <div class="appx-tools"><b>Tools:</b> 4-tab Google Sheets · LinkedIn · Contactout · Apollo AI · Canva/PPT · Gmail · WhatsApp · Google Meet</div>
+      </div>
+    </div>
+
+    <div class="doc-footer"><span>EF Polymer — Unified 1-Year Roadmap · v1.0</span><span>Appendix A · Page 15</span></div>
+  </div>
+
+  <!-- ============ APPENDIX A — DEPARTMENT FINDINGS (2 of 3) ============ -->
+  <div class="page">
+    <img src="../letterhead.png" alt="Letterhead"
+      style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
+
+    <div class="eyebrow">Appendix A — Per-Department Findings (2 of 3)</div>
+    <h2>BD Verticals, Sales &amp; Finance Findings</h2>
+
+    <div class="appx-grid">
+      <div class="appx-card">
+        <div class="appx-head">BD &mdash; Government</div>
+        <div class="appx-lead"><b>Shailendra Singh &amp; Ankit Jain.</b> 1.7 &rarr; 3.0 (highest BD baseline)</div>
+        <ul class="appx-list">
+          <li><b>CBDO tasks managed entirely via WhatsApp groups</b> &mdash; no persistent task trail; slips through cracks.</li>
+          <li><b>3 Demand- Draft methods</b>, only 1 documented in audit.</li>
+          <li><b>Per-Pradhan &amp; per-exec photo capture</b> &rarr; WhatsApp &rarr; manual download/re-upload to Drive (~25% capacity).</li>
+          <li><b>Leave/travel not on Google Calendar</b>; manual infeasible in low-network areas.</li>
+          <li>External custom trial-tracking software (separate dev) in use.</li>
+        </ul>
+        <div class="appx-tools"><b>Tools:</b> Google Sheets ("replaces CRM") · Google Drive · Calendar (no Zoho link) · Zoho People · Canva/PPT (Vandana) · WhatsApp</div>
+      </div>
+
+      <div class="appx-card">
+        <div class="appx-head">BD &mdash; B2B &amp; RCM</div>
+        <div class="appx-lead"><b>Jatin Jain.</b> 1.3 &rarr; 3.0. Corporate + white-label + RCM (~10,000 retail stores), 40 MT</div>
+        <ul class="appx-list">
+          <li><b>Tertiary invisibility</b> below RCM depot tier (~10k stores); no RCM ERP API; reactive 40kg alerts.</li>
+          <li><b>Paper-diary field data</b> &rarr; manual transcription by Back Office (Anil); ~20% capacity.</li>
+          <li><b>~90% comms on personal WhatsApp</b> &mdash; "corporate IP walking out the door daily."</li>
+          <li><b>90% WhatsApp-funnel drop-off</b> (200 active of 2,000); no retargeting/FAQ automation.</li>
+        </ul>
+        <div class="appx-tools"><b>Tools:</b> WhatsApp (personal, 90%) · Paper diaries · Google Sheets (back-office transcription)</div>
+      </div>
+
+      <div class="appx-card">
+        <div class="appx-head">MENA &amp; International Sales</div>
+        <div class="appx-lead"><b>Neha Pathak.</b> 2.0 &rarr; 3.1</div>
+        <ul class="appx-list">
+          <li><b>Single-point Logistics constraint</b> &mdash; export days consume 100% of Nihal's capacity; factory&rarr;port min 1 week.</li>
+          <li><b>No CRM</b> &mdash; distributor pipeline in Google Sheets; no stage-gating; no COO visibility above SPOC.</li>
+          <li><b>No automated remittance alerts</b> &mdash; Neha manually warns Accounts before dispatch (~30 min/shipment).</li>
+          <li><b>Relationships on personal SIM &amp; WeChat</b> (China) &mdash; company has no contact record on exit.</li>
+          <li>Manual email/LinkedIn outbound; no scraping/nurturing.</li>
+        </ul>
+        <div class="appx-tools"><b>Tools:</b> Google Sheets (dual trackers) · Gmail · Slack (ME) · WeChat (personal) · WhatsApp (personal)</div>
+      </div>
+
+      <div class="appx-card">
+        <div class="appx-head">Finance &amp; Accounts</div>
+        <div class="appx-lead"><b>Shobha Shekhawat.</b> 2.2 &rarr; 3.3. 3-person team</div>
+        <ul class="appx-list">
+          <li><b>50&ndash;77% COGS margin swings</b> &mdash; Zoho Inventory can't value WIP/grade costs; manual FIFO in Sheets (~15% time).</li>
+          <li><b>GST/TDS recon vs portals</b> for 100+ claims takes 1&ndash;2 months (~35% monthly capacity).</li>
+          <li><b>No real-time stock visibility</b> &mdash; phone calls to Production before every invoice.</li>
+          <li><b>Zoho Books reports value not tonnage/SKU</b> &mdash; manual KG/MT mapping in Excel.</li>
+          <li>Manual fixed-asset/depreciation journals; 30-day CXO decision delay.</li>
+        </ul>
+        <div class="appx-tools"><b>Tools:</b> Zoho Books/Expense/Payroll/People · Google Sheets · WhatsApp (bills) · Drive · Govt GST/TDS portals</div>
+      </div>
+    </div>
+
+    <div class="doc-footer"><span>EF Polymer — Unified 1-Year Roadmap · v1.0</span><span>Appendix A · Page 16</span></div>
+  </div>
+
+  <!-- ============ APPENDIX A — DEPARTMENT FINDINGS (3 of 3) ============ -->
+  <div class="page">
+    <img src="../letterhead.png" alt="Letterhead"
+      style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
+
+    <div class="eyebrow">Appendix A — Per-Department Findings (3 of 3)</div>
+    <h2>Marketing, Production, R&amp;D, Logistics &amp; HR Findings</h2>
+
+    <div class="appx-grid">
+      <div class="appx-card">
+        <div class="appx-head">Marketing &amp; Retail Sales</div>
+        <div class="appx-lead"><b>Gaurav Jain.</b> 1.4 &rarr; 3.1 (largest gap)</div>
+        <ul class="appx-list">
+          <li><b>10,000+ WhatsApp msgs/day managed by one person</b> (Kamakshi) &rarr; manual transfer to Sheets/Drive. Single point of failure.</li>
+          <li><b>Manual attendance</b> &mdash; RSM/ASM location drops 3&times;/day; Kamakshi reads coords, types to Excel (6&ndash;8 hrs/day).</li>
+          <li><b>Hand-written PO images</b> on WhatsApp; Kamakshi creates bill manually &rarr; Logistics + Accounts.</li>
+          <li><b>Payment screenshots verified via WhatsApp</b> &mdash; 3 manual steps, no structured handoff.</li>
+          <li>Vandana (brand/social) checks LinkedIn/FB/IG separately; no unified analytics.</li>
+        </ul>
+        <div class="appx-tools"><b>Tools:</b> WhatsApp (4+ groups) · 6+ Google Sheets trackers · Drive · Zoho Books (read-only) · LinkedIn/FB/IG · Gmail</div>
+      </div>
+
+      <div class="appx-card">
+        <div class="appx-head">Production &amp; QC</div>
+        <div class="appx-lead"><b>Rishabh Doshi.</b> 1.5 &rarr; 3.2. Produce-to-Stock + SFG model</div>
+        <ul class="appx-list">
+          <li><b>Abandoned custom Zoho WMS</b> (failed adoption) &mdash; reverted to 5+ Sheets; real-time visibility "non-existent."</li>
+          <li><b>Custom-packaging MOQ friction</b> &mdash; low-MOQ orders wait to combine &rarr; dead-stock surplus.</li>
+          <li><b>Last-minute sales orders &rarr; unplanned overtime</b>; overtime not in COGS.</li>
+          <li><b>QC cross-verification scattered</b> across Drive/Sheets; verbal sign-offs, no audit trail.</li>
+          <li>Packaging design approval lost in WhatsApp/Email threads.</li>
+        </ul>
+        <div class="appx-tools"><b>Tools:</b> Google Sheets (system of record) · Drive · WhatsApp · Slack/Email (intl/auditors) · <s>Zoho WMS (abandoned)</s></div>
+      </div>
+
+      <div class="appx-card">
+        <div class="appx-head">Research &amp; Development</div>
+        <div class="appx-lead"><b>Ritu Panwar.</b> 1.5 &rarr; 3.2. India/US/EU/Japan</div>
+        <ul class="appx-list">
+          <li><b>Severe key-person dependency</b> &mdash; all approvals/grants/intl sign-offs bottleneck on Ritu alone.</li>
+          <li><b>Trial data across 8&ndash;10 disconnected Sheets</b>; redundant testing, data loss.</li>
+          <li><b>No trial-cost monitoring</b> &mdash; validation is largest cost center, untracked.</li>
+          <li><b>Asana abandoned</b>; PM reverted to manual follow-up; can't see team workload.</li>
+          <li>Info flow to Sales/BD broken &mdash; QC queries take 28&ndash;30 hrs; Field POC 2&ndash;3 months.</li>
+        </ul>
+        <div class="appx-tools"><b>Tools:</b> Google Sheets (8&ndash;10) · Docs/Slides · Drive · Power BI (onboarding, Shubham) · Paper AI · <s>Asana (abandoned)</s> · WhatsApp/Slack/Gmail</div>
+      </div>
+
+      <div class="appx-card">
+        <div class="appx-head">Logistics &amp; Dispatch</div>
+        <div class="appx-lead"><b>Nihal M Paliwal.</b> 1.6 &rarr; 3.0. Domestic B2B + 10&ndash;15 intl/mo</div>
+        <ul class="appx-list">
+          <li><b>70&ndash;80% domestic orders via WhatsApp</b> missing fields (pin, GST, SKU, packaging) &mdash; <b>10&ndash;25 min/order</b> chasing Sales.</li>
+          <li><b>Zoho Books / Sheets / Drive = 3 silos</b>, zero automation; double data entry (~30% daily time).</li>
+          <li><b>No real-time vessel visibility</b>; prepone/postpone unpredictable &rarr; vessel misses.</li>
+          <li><b>Unforecasted custom-packaging delays</b> (15&ndash;20 days + MOQ); reactive ordering.</li>
+          <li><b>CXOs call Nihal for every shipment status</b>; no searchable tracking record.</li>
+        </ul>
+        <div class="appx-tools"><b>Tools:</b> WhatsApp (70&ndash;80%) · Google Sheets (manual) · Zoho Books (Accounts-operated) · Drive · Email · Slack · physical gate passes</div>
+      </div>
+
+      <div class="appx-card">
+        <div class="appx-head">Human Resources</div>
+        <div class="appx-lead"><b>Dolly Mehta.</b> 1.6 &rarr; 3.4 (highest target). 5-member, 3 verticals</div>
+        <ul class="appx-list">
+          <li><b>Sourcing across 6+ platforms</b> (LinkedIn/Naukri/Indeed/Apollo/SalesIQ + GPT/Perplexity) on disconnected Sheets; 30&ndash;45 day close.</li>
+          <li><b>Manual pre-screening ~10 min/profile</b>; 30&ndash;40/day &mdash; largest time sink.</li>
+          <li><b>Admin tickets on WhatsApp/email, zero tracking</b> &mdash; client stated <b>admin &amp; engagement = #1 priority</b>.</li>
+          <li><b>Subjective manual PMS</b>; "cannot automate incentives"; decoupled from ops data.</li>
+          <li><b>No policy self-serve</b> &mdash; BD/Sales DM HR on travel/stay/reimbursements; client requested AI chatbot.</li>
+          <li>No e-signature; field-attendance tracking failed (now WhatsApp location &rarr; manual Sheets).</li>
+        </ul>
+        <div class="appx-tools"><b>Tools:</b> Zoho People (20 paid seats only)/Payroll · 5+ Google Sheets · Drive · WhatsApp · LinkedIn/Naukri/Indeed · Apollo/SalesIQ · GPT/Perplexity</div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top:14px;">
+      <b>Note on items the software cannot fix alone:</b> dual reporting line (BD Seed), solo-person coverage (BD Seed,
+      Logistics, Retail-data), vacant roles (Marketing Mgr, South India BD), and headcount vs temp-seat limits
+      (Zoho People) require <b>process or hiring decisions</b>, not just the shared platforms. They are called out so
+      they are not lost in the build.
+    </div>
+
+    <div class="doc-footer"><span>EF Polymer — Unified 1-Year Roadmap · v1.0</span><span>Appendix A · Page 17</span></div>
+  </div>
+
+  <!-- ============ 10 CLOSING ============ -->
+  <div class="page">
+    <img src="../letterhead.png" alt="Letterhead"
+      style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
+
+    <div class="eyebrow">Section 11 — Closing</div>
+    <h2>One Company, One Operating System</h2>
+    <div class="section-dek">The 15 audits told 15 versions of the same story. This roadmap writes the single ending.</div>
+
+    <p class="lede">Every department's pain &mdash; the CEO's manual data harvesting, the COO's inbox saturation, the
+      CBDO's missing CRM, Finance's COGS blindness, Retail's WhatsApp chaos, Production's abandoned WMS, R&amp;D's
+      scattered trials, Logistics' phone-call tracking, HR's manual screening &mdash; traces back to the same root
+      cause: <b>data that moves only when a person carries it.</b></p>
+
+    <p>The seven shared platforms in this roadmap fix that root cause once, for everyone. A sale entered in the CRM
+    updates Production demand, triggers Finance invoicing, surfaces on the CXO cockpit and informs the next forecast
+    &mdash; automatically. A WhatsApp message in a field group becomes a structured CRM record, an attendance entry and
+    a Drive document &mdash; automatically. A policy question gets an instant answer from the Knowledge Brain &mdash;
+    automatically.</p>
+
+    <p>Delivered in four quarters, with working software every three months, the company moves from a 1.6 "ad hoc"
+    maturity to a 3.2 "defined &amp; integrated" maturity &mdash; while reclaiming roughly <b>375 working days of
+    capacity per year</b> and lifting every audited function without building 15 disconnected systems.</p>
+
+    <div class="callout">
+      <b>Next step:</b> approve the Q1 scope (Approval Engine, Knowledge Brain MVP, WhatsApp Agent v1, Prod–Logi ERP
+      foundation) and the client to-do list, so the foundation quarter can begin. Every subsequent quarter is gated on
+      the prior quarter's foundation being live.
+    </div>
+
+    <h3>Roadmap at a Glance</h3>
+    <table>
+      <tr>
+        <th>Quarter</th>
+        <th class="num">Maturity</th>
+        <th>Theme</th>
+        <th>Headline deliverables</th>
+      </tr>
+      <tr>
+        <td><span class="qdot" style="background:var(--p1);"></span><b>Q1</b> · Months 1–3</td>
+        <td class="num">1.6 → 2.2</td>
+        <td>Foundation &amp; quick wins</td>
+        <td>Approval Engine · Knowledge Brain MVP · WhatsApp Agent v1 · Prod–Logi ERP foundation</td>
+      </tr>
+      <tr>
+        <td><span class="qdot" style="background:var(--p2);"></span><b>Q2</b> · Months 4–6</td>
+        <td class="num">2.2 → 2.8</td>
+        <td>Core platforms roll-out</td>
+        <td>Unified CRM · EF OS CXO Dashboard · Finance Engine · HR/Admin/L&amp;D Phase 1 · Logistics scheduler</td>
+      </tr>
+      <tr>
+        <td><span class="qdot" style="background:var(--p3);"></span><b>Q3</b> · Months 7–9</td>
+        <td class="num">2.8 → 3.1</td>
+        <td>AI &amp; cross-dept automation</td>
+        <td>Knowledge Brain SSOT · WhatsApp Agent v2 · ERP intelligence · HR PMS &amp; L&amp;D</td>
+      </tr>
+      <tr>
+        <td><span class="qdot" style="background:var(--p4);"></span><b>Q4</b> · Months 10–12</td>
+        <td class="num">3.1 → 3.2</td>
+        <td>Scale &amp; international</td>
+        <td>Full EF OS integration · MENA/international scale · Vendor portal · Predictive &amp; governance layer</td>
+      </tr>
+    </table>
+
+    <br>
+    <p style="font-size:8.2pt;color:var(--muted);border-top:1px solid var(--line);padding-top:10px;">
+      Prepared by <b style="color:var(--ink);">Creative Upaay</b> (brand owned by Cinnovate Solutions (OPC) Private
+      Limited) for EF Polymer Private Limited. This roadmap consolidates the findings and solutions of the 15 CXO &amp;
+      department-level operational audit reports issued on 17th July 2026 (v1.0). All maturity scores, ROI figures,
+      findings and cross-department dependencies are drawn from those reports; the consolidation into seven shared
+      platforms and the four-quarter sequencing are the audit team's synthesis.
+    </p>
+
+    <div class="doc-footer"><span>EF Polymer — Unified 1-Year Roadmap · v1.0</span><span>Page 18</span></div>
+  </div>
+
+</body>
+
+</html>
