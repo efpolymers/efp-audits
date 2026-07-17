@@ -396,7 +396,7 @@ Color: Red borders for disconnected systems, green for connected
 
 | Gap | Impact | Recommended Action |
 |---|---|---|
-| **No CRM** | Pipeline invisible; revenue leakage | Implement Zoho CRM (aligns with existing Zoho stack) |
+| **No CRM** | Pipeline invisible; revenue leakage | Implement Custom React JS CRM (unified across all BD verticals) |
 | **Zoho WMS ↔ Books disconnect** | Manual cost reconciliation | API integration or rebuild within Zoho ecosystem |
 | **No structured order intake** | Shipment delays from incomplete data | Digital order form integrated with Zoho |
 | **No real-time inventory visibility** | Phone-call-based stock checks | Zoho Inventory live API to Accounts |
@@ -573,11 +573,11 @@ Annotations: Highlight that this compounds across 10-20 orders/day
 
 | # | Recommendation | Type | Impacted Depts | Priority | Expected Outcome |
 |---|---|---|---|---|---|
-| S01 | **Implement Zoho CRM** across all BD verticals, MENA, and Marketing | Technology | All BD, MENA, Marketing, CBDO | 🔴 Critical | Unified pipeline; real-time executive visibility |
+| S01 | **Implement Custom React JS CRM** across all BD verticals, MENA, and Marketing (centralized) | Technology | All BD, MENA, Marketing, CBDO | 🔴 Critical | Unified pipeline; real-time executive visibility |
 | S02 | **Integrate Zoho WMS ↔ Zoho Books** via API or rebuild | Technology | Production, Accounts | 🔴 Critical | Eliminate manual cost reconciliation |
 | S03 | **Implement structured digital order intake form** (replace WhatsApp text orders) | Process | Logistics, All BD | 🔴 Critical | Reduce per-order waste by 30–45 min |
 | S04 | **Enable real-time Zoho Inventory visibility for Accounts** | Technology | Accounts, Production | 🔴 Critical | Eliminate manual stock-check phone calls |
-| S05 | **Establish shared Customer Master Database** in Zoho CRM | Data | Accounts, BD, Logistics | 🔴 Critical | Single source of truth for all customer data |
+| S05 | **Establish shared Customer Master Database** in Custom React CRM | Data | Accounts, BD, Logistics | 🔴 Critical | Single source of truth for all customer data |
 | S06 | **Implement grade-based WIP costing methodology** | Process/Finance | Accounts, Production | 🔴 Critical | Resolve COGS volatility |
 | S07 | **Deploy automated field force tracking** (Zoho FSM or equivalent) | Technology | Marketing/Retail | 🟡 High | Recover 6–8 hrs/day of manual tracking effort |
 
@@ -627,7 +627,7 @@ Phase 1: Quick Wins (Month 1)
   - S13: Device/SIM ownership policy
 
 Phase 2: Operational Foundation (Months 2–3)
-  - S01: Zoho CRM implementation (all BD verticals)
+  - S01: Custom React JS CRM implementation (all BD verticals)
   - S05: Customer Master Database setup
   - S02: Zoho WMS ↔ Books integration
   - S06: WIP costing methodology design
@@ -659,7 +659,7 @@ Milestones (diamonds):
 
 | Initiative | Business Value | Urgency | Effort | Risk Reduction | Strategic Alignment | Overall Priority |
 |---|---|---|---|---|---|---|
-| S01: Zoho CRM | 10 | 10 | 6 | 9 | 10 | **P1 — Critical** |
+| S01: Custom React CRM | 10 | 10 | 6 | 9 | 10 | **P1 — Critical** |
 | S02: WMS Integration | 8 | 8 | 5 | 8 | 8 | **P1 — Critical** |
 | S03: Digital Order Intake | 7 | 9 | 3 | 7 | 7 | **P1 — Quick Win** |
 | S04: Live Inventory | 8 | 9 | 3 | 7 | 8 | **P1 — Quick Win** |

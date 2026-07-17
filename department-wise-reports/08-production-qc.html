@@ -281,7 +281,8 @@
       width: 44px;
     }
 
-    td.num {
+    td.num,
+    th.num {
       text-align: center;
       white-space: nowrap;
     }
@@ -626,7 +627,7 @@
     }
 
     .exhibit-chart {
-      flex: 0 0 220px;
+      flex: 0 0 320px;
     }
 
     .exhibit-note {
@@ -921,7 +922,6 @@
 
     <div class="eyebrow">Section 02 — Benchmarking</div>
     <h2>Department Maturity Assessment</h2>
-    <div class="section-dek">Scored 1 (ad hoc) to 5 (optimized) against five capability dimensions</div>
 
     <div class="exhibit">
       <div class="exhibit-chart">
@@ -1022,57 +1022,47 @@
     <img src="../letterhead.png" alt="Letterhead"
       style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
     <h3>Team Structure</h3>
-    <p style="font-size:8.5pt;color:var(--muted);margin-bottom:4px;">Reporting hierarchy and current responsibility
-      domains within the Production department.</p>
+    <p style="font-size:8.5pt;color:var(--muted);margin-bottom:4px;">Reporting hierarchy within the Production Division, led by Rishabh Doshi (Production Manager) reporting directly to Narayan Lal Gurjar (Founder &amp; CEO).</p>
     <div class="org-chart">
       <!-- Lead -->
       <div class="org-level">
         <div class="org-node lead">
           <div class="org-name">Rishabh Doshi</div>
-          <div class="org-role">Production Head<br>Reports to CXOs (Narayan Sir)</div>
-          <span class="org-tag">Lead</span>
+          <div class="org-role">Production Manager<br>Reports to Narayan Lal Gurjar (CEO)</div>
+          <span class="org-tag">Division Head</span>
         </div>
       </div>
       <div class="org-connector-top"></div>
       <!-- Horizontal line -->
-      <div style="width:78%;border-top:1px solid var(--line);margin:0 auto;"></div>
+      <div style="width:90%;border-top:1px solid var(--line);margin:0 auto;"></div>
       <!-- Level 2 -->
-      <div style="display:flex;justify-content:center;gap:14px;width:100%;margin-top:0;">
-        <!-- Arshid branch -->
+      <div style="display:flex;justify-content:center;gap:10px;width:100%;margin-top:0;">
         <div class="org-sub-branch">
           <div class="org-connector-top"></div>
           <div class="org-node">
-            <div class="org-name">Arshid Sharma</div>
-            <div class="org-role">Procurement Head<br>Vendor &amp; Raw Material Sourcing</div>
+            <div class="org-name">Ritu Panwar</div>
+            <div class="org-role">Product Dev Manager<br>R&amp;D &amp; Field Trials</div>
           </div>
         </div>
-        <!-- Manufacturing -->
         <div class="org-sub-branch">
           <div class="org-connector-top"></div>
           <div class="org-node">
-            <div class="org-name">Factory Managers</div>
-            <div class="org-role">Manufacturing &amp; Labor<br>Semi-Finished Goods (SFG)</div>
-          </div>
-          <div class="org-connector-top"></div>
-          <div class="org-node intern" style="max-width:140px;">
-            <div class="org-name">Machine Operators &amp; Labor</div>
-            <div class="org-role">Floor Operations<br>Shift Execution</div>
+            <div class="org-name">Nihal Paliwal</div>
+            <div class="org-role">Logistics Manager<br>Dispatch &amp; Planning</div>
           </div>
         </div>
-        <!-- Quality Control -->
         <div class="org-sub-branch">
           <div class="org-connector-top"></div>
           <div class="org-node">
-            <div class="org-name">QA / QC Execs</div>
-            <div class="org-role">Quality Assurance &amp; Control<br>Raw, In-Process, Packaging</div>
+            <div class="org-name">Udaipur Factory Ops</div>
+            <div class="org-role">Production, QC &amp; Warehousing</div>
           </div>
         </div>
-        <!-- Logistics & Dispatch -->
         <div class="org-sub-branch">
           <div class="org-connector-top"></div>
-          <div class="org-node secondary">
-            <div class="org-name">Logistics Team</div>
-            <div class="org-role">Dispatch &amp; Warehousing<br>Gate Passes, E-Challans</div>
+          <div class="org-node">
+            <div class="org-name">Rajsamand Factory Ops</div>
+            <div class="org-role">Operations Head &amp; Staff</div>
           </div>
         </div>
       </div>
@@ -1150,48 +1140,50 @@
         </marker>
       </defs>
 
-      <rect x="10" y="20" width="106" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
-      <text x="63" y="35" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Raw Material</text>
-      <text x="63" y="47" text-anchor="middle" font-size="6.5" fill="#6B7A8D"
-        font-family="Segoe UI,sans-serif">Procurement</text>
-      <line x1="116" y1="44" x2="130" y2="44" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)" />
+      <rect x="10" y="26" width="106" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <rect x="25" y="18" width="76" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75" />
+      <text x="63" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">PROCUREMENT</text>
+      <text x="63" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Raw Material</text>
+      <text x="63" y="59.0" text-anchor="middle" font-size="7.5" fill="#6B7785" font-family="Segoe UI,sans-serif">Procurement</text>
+      <line x1="116" y1="50" x2="130" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)" />
 
-      <rect x="134" y="20" width="106" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
-      <text x="187" y="35" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Manufacturing</text>
-      <text x="187" y="47" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">SFG
+      <rect x="134" y="26" width="106" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <rect x="149" y="18" width="76" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75" />
+      <text x="187" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">PRODUCTION</text>
+      <text x="187" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Manufacturing</text>
+      <text x="187" y="59.0" text-anchor="middle" font-size="7.5" fill="#6B7785" font-family="Segoe UI,sans-serif">SFG
         Created</text>
-      <line x1="240" y1="44" x2="254" y2="44" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)" />
+      <line x1="240" y1="50" x2="254" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)" />
 
-      <rect x="258" y="20" width="106" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
-      <text x="311" y="35" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif"
-        font-weight="bold">SFG Storage</text>
-      <text x="311" y="47" text-anchor="middle" font-size="6.5" fill="#6B7A8D"
-        font-family="Segoe UI,sans-serif">Maintain Min Qty</text>
-      <line x1="364" y1="44" x2="378" y2="44" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)" />
+      <rect x="258" y="26" width="106" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <rect x="273" y="18" width="76" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75" />
+      <text x="311" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">INVENTORY</text>
+      <text x="311" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">SFG Storage</text>
+      <text x="311" y="59.0" text-anchor="middle" font-size="7.5" fill="#6B7785" font-family="Segoe UI,sans-serif">Maintain Min Qty</text>
+      <line x1="364" y1="50" x2="378" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)" />
 
-      <rect x="382" y="20" width="106" height="48" rx="3" fill="#F4E8FB" stroke="#A772D9" stroke-width="1.5" />
-      <text x="435" y="32" text-anchor="middle" font-size="7.6" fill="#603487" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Sales Order</text>
-      <text x="435" y="44" text-anchor="middle" font-size="6.5" fill="#814BAF" font-family="Segoe UI,sans-serif">Action:
+      <rect x="382" y="26" width="106" height="48" rx="3" fill="#F4EEFC" stroke="#6b4fc8" stroke-width="1.5" />
+      <rect x="397" y="18" width="76" height="15" rx="3" fill="#6b4fc8" stroke="#6b4fc8" stroke-width="0.75" />
+      <text x="435" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">ORDER INTAKE</text>
+      <text x="435" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#6b4fc8" font-family="Segoe UI,sans-serif">Sales Order</text>
+      <text x="435" y="56.0" text-anchor="middle" font-size="6.5" fill="#6b4fc8" font-family="Segoe UI,sans-serif">Action:
         BD / Sales</text>
-      <text x="435" y="55" text-anchor="middle" font-size="6.5" fill="#814BAF"
-        font-family="Segoe UI,sans-serif">Trigger</text>
-      <line x1="488" y1="44" x2="502" y2="44" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)" />
+      <text x="435" y="67.0" text-anchor="middle" font-size="6.5" fill="#6b4fc8" font-family="Segoe UI,sans-serif">Trigger</text>
+      <line x1="488" y1="50" x2="502" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)" />
 
-      <rect x="506" y="20" width="106" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
-      <text x="559" y="32" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Packaging & Finish</text>
-      <text x="559" y="44" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">As per
+      <rect x="506" y="26" width="106" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <rect x="521" y="18" width="76" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75" />
+      <text x="559" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">PRODUCTION</text>
+      <text x="559" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Packaging & Finish</text>
+      <text x="559" y="59.0" text-anchor="middle" font-size="7.5" fill="#6B7785" font-family="Segoe UI,sans-serif">As per
         SKU / Language</text>
 
-      <line x1="612" y1="44" x2="626" y2="44" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)" />
-      <rect x="630" y="20" width="106" height="48" rx="3" fill="#E9F4EC" stroke="#92C7A3" stroke-width="1" />
-      <text x="683" y="35" text-anchor="middle" font-size="7.6" fill="#276B3E" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Dispatch</text>
-      <text x="683" y="47" text-anchor="middle" font-size="6.5" fill="#276B3E"
-        font-family="Segoe UI,sans-serif">Logistics</text>
+      <line x1="612" y1="50" x2="626" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)" />
+      <rect x="630" y="26" width="106" height="48" rx="3" fill="#E9F4EC" stroke="#92C7A3" stroke-width="1.5" />
+      <rect x="645" y="18" width="76" height="15" rx="3" fill="#276B3E" stroke="#276B3E" stroke-width="0.75" />
+      <text x="683" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">LOGISTICS</text>
+      <text x="683" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#276B3E" font-family="Segoe UI,sans-serif">Dispatch</text>
+      <text x="683" y="59.0" text-anchor="middle" font-size="7.5" fill="#276B3E" font-family="Segoe UI,sans-serif">Logistics</text>
     </svg>
     <div class="flow-note">
       <p style="margin-top:0;"><strong>What is good:</strong> The "Produce to Stock" model using Semi-Finished Goods
@@ -1221,54 +1213,58 @@
       </defs>
 
       <!-- Box 1: Request -->
-      <rect x="8" y="18" width="110" height="52" rx="3" fill="#F4E8FB" stroke="#A772D9" stroke-width="1.5" />
-      <text x="63" y="34" text-anchor="middle" font-size="7.5" fill="#603487" font-family="Segoe UI,sans-serif"
-        font-weight="700">Custom Design Req.</text>
-      <text x="63" y="46" text-anchor="middle" font-size="6.5" fill="#814BAF" font-family="Segoe UI,sans-serif">Action:
+      <rect x="8" y="26" width="110" height="52" rx="3" fill="#F4EEFC" stroke="#6b4fc8" stroke-width="1.5" />
+      <rect x="23" y="18" width="80" height="15" rx="3" fill="#6b4fc8" stroke="#6b4fc8" stroke-width="0.75" />
+      <text x="63" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">CLIENT REQ</text>
+      <text x="63" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#6b4fc8" font-family="Segoe UI,sans-serif">Custom Design Req.</text>
+      <text x="63" y="56.0" text-anchor="middle" font-size="6.5" fill="#6b4fc8" font-family="Segoe UI,sans-serif">Action:
         BD / Client</text>
-      <text x="63" y="57" text-anchor="middle" font-size="6.5" fill="#814BAF"
-        font-family="Segoe UI,sans-serif">(External)</text>
-      <line x1="118" y1="44" x2="136" y2="44" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w3a)" />
+      <text x="63" y="67.0" text-anchor="middle" font-size="6.5" fill="#6b4fc8" font-family="Segoe UI,sans-serif">(External)</text>
+      <line x1="118" y1="50" x2="136" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w3a)" />
 
       <!-- Box 2: Design -->
-      <rect x="138" y="18" width="120" height="52" rx="3" fill="#EFF4FF" stroke="#93B4EB" stroke-width="1.5" />
-      <text x="198" y="32" text-anchor="middle" font-size="6.8" fill="#1B2A4A" font-family="Segoe UI,sans-serif"
-        font-weight="700">Design Draft</text>
-      <text x="198" y="44" text-anchor="middle" font-size="6.5" fill="#4A6390" font-family="Segoe UI,sans-serif">Action:
+      <rect x="138" y="26" width="120" height="52" rx="3" fill="#EFF4FF" stroke="#93B4EB" stroke-width="1.5" />
+      <rect x="153" y="18" width="90" height="15" rx="3" fill="#2B5B84" stroke="#2B5B84" stroke-width="0.75" />
+      <text x="198" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">CREATIVE</text>
+      <text x="198" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#2B5B84" font-family="Segoe UI,sans-serif">Design Draft</text>
+      <text x="198" y="56.0" text-anchor="middle" font-size="6.5" fill="#2B5B84" font-family="Segoe UI,sans-serif">Action:
         Vandana (Mktg)</text>
-      <text x="198" y="55" text-anchor="middle" font-size="6.5" fill="#4A6390" font-family="Segoe UI,sans-serif">Manual
+      <text x="198" y="67.0" text-anchor="middle" font-size="6.5" fill="#2B5B84" font-family="Segoe UI,sans-serif">Manual
         Revisions</text>
-      <line x1="258" y1="44" x2="276" y2="44" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w3a)" />
+      <line x1="258" y1="50" x2="276" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w3a)" />
 
       <!-- Box 3: Approve -->
-      <rect x="278" y="18" width="120" height="52" rx="3" fill="#EFF4FF" stroke="#93B4EB" stroke-width="1.5" />
-      <text x="338" y="32" text-anchor="middle" font-size="6.8" fill="#1B2A4A" font-family="Segoe UI,sans-serif"
-        font-weight="700">Client Approval</text>
-      <text x="338" y="44" text-anchor="middle" font-size="6.5" fill="#4A6390" font-family="Segoe UI,sans-serif">Action:
+      <rect x="278" y="26" width="120" height="52" rx="3" fill="#EFF4FF" stroke="#93B4EB" stroke-width="1.5" />
+      <rect x="293" y="18" width="90" height="15" rx="3" fill="#2B5B84" stroke="#2B5B84" stroke-width="0.75" />
+      <text x="338" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">VERIFICATION</text>
+      <text x="338" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#2B5B84" font-family="Segoe UI,sans-serif">Client Approval</text>
+      <text x="338" y="56.0" text-anchor="middle" font-size="6.5" fill="#2B5B84" font-family="Segoe UI,sans-serif">Action:
         BD shares link</text>
-      <text x="338" y="55" text-anchor="middle" font-size="6.5" fill="#4A6390" font-family="Segoe UI,sans-serif">via
+      <text x="338" y="67.0" text-anchor="middle" font-size="6.5" fill="#2B5B84" font-family="Segoe UI,sans-serif">via
         WhatsApp/Email</text>
-      <line x1="398" y1="44" x2="416" y2="44" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w3a)" />
+      <line x1="398" y1="50" x2="416" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w3a)" />
 
       <!-- Box 4: MOQ Check -->
-      <rect x="418" y="18" width="120" height="52" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
-      <text x="478" y="32" text-anchor="middle" font-size="6.8" fill="#A32E24" font-family="Segoe UI,sans-serif"
-        font-weight="700">Production MOQ Check</text>
-      <text x="478" y="44" text-anchor="middle" font-size="6.5" fill="#C0453A" font-family="Segoe UI,sans-serif">Action:
+      <rect x="418" y="26" width="120" height="52" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
+      <rect x="433" y="18" width="90" height="15" rx="3" fill="#A32E24" stroke="#A32E24" stroke-width="0.75" />
+      <text x="478" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">BOTTLENECK</text>
+      <text x="478" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#A32E24" font-family="Segoe UI,sans-serif">Production MOQ Check</text>
+      <text x="478" y="56.0" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">Action:
         Production</text>
-      <text x="478" y="55" text-anchor="middle" font-size="6.5" fill="#C0453A" font-family="Segoe UI,sans-serif">Find
+      <text x="478" y="67.0" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">Find
         Vendor / Combine?</text>
 
       <!-- Approved path -->
-      <line x1="538" y1="44" x2="556" y2="44" stroke="#92C7A3" stroke-width="1.2" marker-end="url(#w3g)" />
-      <rect x="558" y="18" width="112" height="52" rx="3" fill="#E9F4EC" stroke="#92C7A3" stroke-width="1.5" />
-      <text x="614" y="37" text-anchor="middle" font-size="7" fill="#276B3E" font-family="Segoe UI,sans-serif"
-        font-weight="700">Dispatch to Vendor</text>
-      <text x="614" y="49" text-anchor="middle" font-size="6.5" fill="#276B3E" font-family="Segoe UI,sans-serif">Action:
+      <line x1="538" y1="50" x2="556" y2="50" stroke="#92C7A3" stroke-width="1.2" marker-end="url(#w3g)" />
+      <rect x="558" y="26" width="112" height="52" rx="3" fill="#E9F4EC" stroke="#92C7A3" stroke-width="1.5" />
+      <rect x="573" y="18" width="82" height="15" rx="3" fill="#276B3E" stroke="#276B3E" stroke-width="0.75" />
+      <text x="614" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">COMPLETE</text>
+      <text x="614" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#276B3E" font-family="Segoe UI,sans-serif">Dispatch to Vendor</text>
+      <text x="614" y="59.0" text-anchor="middle" font-size="7.5" fill="#276B3E" font-family="Segoe UI,sans-serif">Action:
         Production</text>
 
       <!-- Rejected path (drop from MOQ Check) -->
-      <line x1="478" y1="70" x2="478" y2="102" stroke="#EFB4B1" stroke-width="1.2" marker-end="url(#w3r)" />
+      <line x1="478" y1="78" x2="478" y2="102" stroke="#EFB4B1" stroke-width="1.2" marker-end="url(#w3r)" />
       <rect x="418" y="104" width="120" height="40" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1" />
       <text x="478" y="120" text-anchor="middle" font-size="7" fill="#A32E24" font-family="Segoe UI,sans-serif"
         font-weight="700">Surplus Dead Stock</text>
@@ -1353,14 +1349,14 @@
       <line x1="168" y1="175" x2="285" y2="120" stroke="#B0BAC5" stroke-width="0.9" marker-end="url(#w4a)" />
 
       <!-- Center: Consolidation node -->
-      <rect x="286" y="72" width="155" height="72" rx="5" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="2" />
-      <text x="363" y="96" text-anchor="middle" font-size="8" fill="#A32E24" font-family="Segoe UI,sans-serif"
-        font-weight="700">RISHABH DOSHI</text>
-      <text x="363" y="108" text-anchor="middle" font-size="7" fill="#A32E24" font-family="Segoe UI,sans-serif">Single
+      <rect x="286" y="72" width="155" height="72" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
+      <rect x="301" y="64" width="125" height="15" rx="3" fill="#A32E24" stroke="#A32E24" stroke-width="0.75" />
+      <text x="364" y="74.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">BOTTLENECK</text>
+      <text x="364" y="90.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#A32E24" font-family="Segoe UI,sans-serif">RISHABH DOSHI</text>
+      <text x="364" y="102.0" text-anchor="middle" font-size="7.4" fill="#A32E24" font-family="Segoe UI,sans-serif">Single
         Consolidation Point</text>
-      <text x="363" y="120" text-anchor="middle" font-size="6.5" fill="#C0453A"
-        font-family="Segoe UI,sans-serif">Action: Manual Aggregation</text>
-      <text x="363" y="132" text-anchor="middle" font-size="6.5" fill="#C0453A" font-family="Segoe UI,sans-serif">5+
+      <text x="364" y="113.0" text-anchor="middle" font-size="7.4" fill="#A32E24" font-family="Segoe UI,sans-serif">Action: Manual Aggregation</text>
+      <text x="364" y="113.0" text-anchor="middle" font-size="7.4" fill="#A32E24" font-family="Segoe UI,sans-serif">5+
         sheets, end of month</text>
 
       <!-- Arrows → output boxes -->
@@ -1368,10 +1364,11 @@
       <line x1="441" y1="110" x2="468" y2="122" stroke="#92C7A3" stroke-width="1" marker-end="url(#w4g)" />
 
       <!-- Output boxes -->
-      <rect x="470" y="44" width="180" height="44" rx="3" fill="#E9F4EC" stroke="#92C7A3" stroke-width="1" />
-      <text x="560" y="62" text-anchor="middle" font-size="7.2" fill="#276B3E" font-family="Segoe UI,sans-serif"
-        font-weight="700">CXO / Management Report</text>
-      <text x="560" y="74" text-anchor="middle" font-size="6.5" fill="#276B3E" font-family="Segoe UI,sans-serif">Task:
+      <rect x="470" y="44" width="180" height="44" rx="3" fill="#E9F4EC" stroke="#92C7A3" stroke-width="1.5" />
+      <rect x="485" y="36" width="150" height="15" rx="3" fill="#276B3E" stroke="#276B3E" stroke-width="0.75" />
+      <text x="560" y="46.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">COMPLETE</text>
+      <text x="560" y="65.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#276B3E" font-family="Segoe UI,sans-serif">CXO / Management Report</text>
+      <text x="560" y="77.0" text-anchor="middle" font-size="7.5" fill="#276B3E" font-family="Segoe UI,sans-serif">Task:
         Manual Export (Delayed)</text>
 
       <rect x="470" y="100" width="180" height="44" rx="3" fill="#EFF4FF" stroke="#93B4EB" stroke-width="1" />
@@ -1416,60 +1413,64 @@
       </defs>
 
       <!-- Box 1 -->
-      <rect x="8" y="20" width="108" height="52" rx="3" fill="#F4F6F8" stroke="#D8DEE5" stroke-width="1" />
-      <text x="62" y="38" text-anchor="middle" font-size="7" fill="#3F4B5C" font-family="Segoe UI,sans-serif"
-        font-weight="700">Raw Material QC</text>
-      <text x="62" y="50" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">Task: QA
+      <rect x="8" y="26" width="108" height="52" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <rect x="23" y="18" width="78" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75" />
+      <text x="62" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">QC CHECK</text>
+      <text x="62" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Raw Material QC</text>
+      <text x="62" y="56.0" text-anchor="middle" font-size="6.5" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Task: QA
         Exec</text>
-      <text x="62" y="62" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">External
+      <text x="62" y="67.0" text-anchor="middle" font-size="6.5" fill="#3F4B5C" font-family="Segoe UI,sans-serif">External
         Lab</text>
-      <line x1="116" y1="46" x2="130" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w5a)" />
+      <line x1="116" y1="50" x2="130" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w5a)" />
 
       <!-- Box 2 -->
-      <rect x="132" y="20" width="108" height="52" rx="3" fill="#F4F6F8" stroke="#D8DEE5" stroke-width="1" />
-      <text x="186" y="38" text-anchor="middle" font-size="7" fill="#3F4B5C" font-family="Segoe UI,sans-serif"
-        font-weight="700">Manufacturing QC</text>
-      <text x="186" y="50" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">Task:
+      <rect x="132" y="26" width="108" height="52" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <rect x="147" y="18" width="78" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75" />
+      <text x="186" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">QC CHECK</text>
+      <text x="186" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Manufacturing QC</text>
+      <text x="186" y="56.0" text-anchor="middle" font-size="6.5" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Task:
         QA Exec</text>
-      <text x="186" y="62" text-anchor="middle" font-size="6.5" fill="#6B7A8D"
-        font-family="Segoe UI,sans-serif">In-Process Check</text>
-      <line x1="240" y1="46" x2="254" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w5a)" />
+      <text x="186" y="67.0" text-anchor="middle" font-size="6.5" fill="#3F4B5C" font-family="Segoe UI,sans-serif">In-Process Check</text>
+      <line x1="240" y1="50" x2="254" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w5a)" />
 
       <!-- Box 3 -->
-      <rect x="256" y="20" width="108" height="52" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1" />
-      <text x="310" y="38" text-anchor="middle" font-size="7" fill="#A32E24" font-family="Segoe UI,sans-serif"
-        font-weight="700">Packaging QI</text>
-      <text x="310" y="50" text-anchor="middle" font-size="6.5" fill="#C0453A" font-family="Segoe UI,sans-serif">Task:
+      <rect x="256" y="26" width="108" height="52" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
+      <rect x="271" y="18" width="78" height="15" rx="3" fill="#A32E24" stroke="#A32E24" stroke-width="0.75" />
+      <text x="310" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">QC CHECK</text>
+      <text x="310" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#A32E24" font-family="Segoe UI,sans-serif">Packaging QI</text>
+      <text x="310" y="56.0" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">Task:
         Production</text>
-      <text x="310" y="62" text-anchor="middle" font-size="6.5" fill="#C0453A"
-        font-family="Segoe UI,sans-serif">Dimensions & Seals</text>
-      <line x1="364" y1="46" x2="378" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w5a)" />
+      <text x="310" y="67.0" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">Dimensions & Seals</text>
+      <line x1="364" y1="50" x2="378" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w5a)" />
 
       <!-- Box 4 -->
-      <rect x="380" y="20" width="108" height="52" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1" />
-      <text x="434" y="38" text-anchor="middle" font-size="7" fill="#A32E24" font-family="Segoe UI,sans-serif"
-        font-weight="700">Multi-Member Verify</text>
-      <text x="434" y="50" text-anchor="middle" font-size="6.5" fill="#C0453A" font-family="Segoe UI,sans-serif">Action:
+      <rect x="380" y="26" width="108" height="52" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
+      <rect x="395" y="18" width="78" height="15" rx="3" fill="#A32E24" stroke="#A32E24" stroke-width="0.75" />
+      <text x="434" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">BOTTLENECK</text>
+      <text x="434" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#A32E24" font-family="Segoe UI,sans-serif">Multi-Member Verify</text>
+      <text x="434" y="56.0" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">Action:
         Cross-Verify</text>
-      <text x="434" y="62" text-anchor="middle" font-size="6.5" fill="#C0453A" font-family="Segoe UI,sans-serif">No
+      <text x="434" y="67.0" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">No
         Single Platform</text>
-      <line x1="488" y1="46" x2="502" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w5a)" />
+      <line x1="488" y1="50" x2="502" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w5a)" />
 
       <!-- Box 5 -->
-      <rect x="504" y="20" width="108" height="52" rx="3" fill="#F4F6F8" stroke="#D8DEE5" stroke-width="1" />
-      <text x="558" y="38" text-anchor="middle" font-size="7" fill="#3F4B5C" font-family="Segoe UI,sans-serif"
-        font-weight="700">Manual Record</text>
-      <text x="558" y="50" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">Task:
+      <rect x="504" y="26" width="108" height="52" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <rect x="519" y="18" width="78" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75" />
+      <text x="558" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">DATA ENTRY</text>
+      <text x="558" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Manual Record</text>
+      <text x="558" y="56.0" text-anchor="middle" font-size="6.5" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Task:
         Upload to Drive</text>
-      <text x="558" y="62" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">Update
+      <text x="558" y="67.0" text-anchor="middle" font-size="6.5" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Update
         Sheet</text>
-      <line x1="612" y1="46" x2="626" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w5a)" />
+      <line x1="612" y1="50" x2="626" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w5a)" />
 
       <!-- Box 6 -->
-      <rect x="628" y="20" width="104" height="52" rx="3" fill="#E9F4EC" stroke="#92C7A3" stroke-width="1" />
-      <text x="680" y="38" text-anchor="middle" font-size="7" fill="#276B3E" font-family="Segoe UI,sans-serif"
-        font-weight="700">Batch Release</text>
-      <text x="680" y="50" text-anchor="middle" font-size="6.5" fill="#3D8A5C" font-family="Segoe UI,sans-serif">Action:
+      <rect x="628" y="26" width="104" height="52" rx="3" fill="#E9F4EC" stroke="#92C7A3" stroke-width="1.5" />
+      <rect x="643" y="18" width="74" height="15" rx="3" fill="#276B3E" stroke="#276B3E" stroke-width="0.75" />
+      <text x="680" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">COMPLETE</text>
+      <text x="680" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#276B3E" font-family="Segoe UI,sans-serif">Batch Release</text>
+      <text x="680" y="59.0" text-anchor="middle" font-size="7.5" fill="#276B3E" font-family="Segoe UI,sans-serif">Action:
         Dispatch</text>
 
       <!-- Red annotation boxes -->
@@ -1503,127 +1504,7 @@
     <div class="section-dek">Findings and recommendations that require action outside the Production Office to resolve
     </div>
 
-    <style>
-      .dep-card {
-        border: 1px solid var(--line);
-        border-radius: 8px;
-        background: var(--paper);
-        padding: 16px;
-        margin-bottom: 16px;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-      }
 
-      .dep-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 12px;
-        padding-bottom: 8px;
-        border-bottom: 1px solid var(--line);
-      }
-
-      .dep-title {
-        font-weight: 700;
-        font-size: 11pt;
-        color: var(--ink);
-      }
-
-      .dep-badge {
-        font-size: 7.5pt;
-        font-weight: 600;
-        padding: 3px 8px;
-        border-radius: 12px;
-        background: #f1f5f9;
-        color: #475569;
-        text-transform: uppercase;
-      }
-
-      .dep-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 12px;
-      }
-
-      .dep-section {
-        background: #f8fafc;
-        border-radius: 6px;
-        padding: 12px;
-        border: 1px solid #e2e8f0;
-      }
-
-      .dep-section.bottleneck {
-        background: #fef2f2;
-        border-color: #fecaca;
-      }
-
-      .dep-section.data-sync {
-        background: #f0f9ff;
-        border-color: #bae6fd;
-      }
-
-      .dep-section-title {
-        font-size: 7.5pt;
-        font-weight: 700;
-        color: #64748b;
-        text-transform: uppercase;
-        margin-bottom: 6px;
-        letter-spacing: 0.5px;
-      }
-
-      .bottleneck .dep-section-title {
-        color: #b91c1c;
-      }
-
-      .data-sync .dep-section-title {
-        color: #0369a1;
-      }
-
-      .dep-section-content {
-        font-size: 8.5pt;
-        color: var(--slate);
-        line-height: 1.4;
-      }
-
-      .dep-person {
-        display: inline-block;
-        background: #f1f5f9;
-        padding: 2px 6px;
-        border-radius: 4px;
-        font-weight: 600;
-        font-size: 8pt;
-        margin-top: 4px;
-        border: 1px solid #cbd5e1;
-      }
-
-      .chip {
-        display: inline-block;
-        padding: 2px 6px;
-        border-radius: 4px;
-        font-size: 7pt;
-        font-weight: 700;
-        margin-left: 6px;
-        text-transform: none;
-        letter-spacing: normal;
-      }
-
-      .chip-data {
-        background: #e0f2fe;
-        color: #0284c7;
-        border: 1px solid #bae6fd;
-      }
-
-      .chip-approval {
-        background: #fef08a;
-        color: #a16207;
-        border: 1px solid #fde047;
-      }
-
-      .chip-info {
-        background: #e0e7ff;
-        color: #4338ca;
-        border: 1px solid #c7d2fe;
-      }
-    </style>
 
     <!-- Sales & BD -->
     <div class="dep-card">
@@ -1633,8 +1514,7 @@
       </div>
       <div class="dep-grid">
         <div class="dep-section">
-          <div class="dep-section-title">Operations Dependency <span class="chip chip-info">Information Sharing</span>
-          </div>
+          <div class="dep-section-title">Operations Dependency</div>
           <div class="dep-section-content">
             Production heavily depends on Sales for advance forecasting to maintain minimum inventory. Sales depends on
             Production for dispatch readiness.
@@ -1649,8 +1529,7 @@
           </div>
         </div>
         <div class="dep-section data-sync" style="grid-column: 1 / -1;">
-          <div class="dep-section-title">Data Transfer &amp; Updates Needed <span class="chip chip-data">Data
-              Flow</span></div>
+          <div class="dep-section-title">Data Transfer &amp; Updates Needed</div>
           <div class="dep-section-content">
             Sales must adopt a unified intake format for custom designs. AI forecasting will pull historical sales data
             to generate seasonal predictions, allowing Production to maintain stock without manual cross-team chasing.
@@ -1667,8 +1546,7 @@
       </div>
       <div class="dep-grid">
         <div class="dep-section">
-          <div class="dep-section-title">Operations Dependency <span class="chip chip-approval">Approval Flow</span>
-          </div>
+          <div class="dep-section-title">Operations Dependency</div>
           <div class="dep-section-content">
             Production requires Accounts for vendor payments, invoicing, and e-challans. Accounts requires Production
             for dispatch notes and stock valuation.
@@ -1683,8 +1561,7 @@
           </div>
         </div>
         <div class="dep-section data-sync" style="grid-column: 1 / -1;">
-          <div class="dep-section-title">Data Transfer &amp; Updates Needed <span class="chip chip-data">Data
-              Flow</span></div>
+          <div class="dep-section-title">Data Transfer &amp; Updates Needed</div>
           <div class="dep-section-content">
             A vendor onboarding form will automatically dispatch verified documents to Accounts. Overtime calculations
             will be computed automatically and synced to the Accounts ledger.
@@ -1701,8 +1578,7 @@
       </div>
       <div class="dep-grid">
         <div class="dep-section">
-          <div class="dep-section-title">Operations Dependency <span class="chip chip-info">Reporting</span>
-          </div>
+          <div class="dep-section-title">Operations Dependency</div>
           <div class="dep-section-content">
             CXOs (Narayan Sir) rely on Rishabh Doshi for top-down visibility into production capacity, inventory status,
             and major machinery investments.
@@ -1717,8 +1593,7 @@
           </div>
         </div>
         <div class="dep-section data-sync" style="grid-column: 1 / -1;">
-          <div class="dep-section-title">Data Transfer &amp; Updates Needed <span class="chip chip-data">Data
-              Flow</span></div>
+          <div class="dep-section-title">Data Transfer &amp; Updates Needed</div>
           <div class="dep-section-content">
             The new Production Dashboard will provide role-based, 1-click visibility to CXOs directly from Google Sheets
             in real-time, eliminating the manual reporting cycle.
@@ -2044,9 +1919,7 @@
         <div class="sow-item"><span class="sow-dot p1"></span><span><strong>Build:</strong> Implement role-based
             visibility for CXOs, Accounts, and Production managers. Configure red alerts for minimum inventory
             breaches.</span></div>
-        <div class="sow-item"><span class="sow-dot p1"></span><span><strong>Tech Stack &amp; Dependencies:</strong>
-            ReactJS, Google Sheets API. We require the team's current tracking sheets to act as base data points.</span>
-        </div>
+        <div class="sow-item"><span class="sow-dot p1"></span><span><strong>Tech Stack &amp; Badges:</strong> <span class="chip-ref">React.js Dashboard</span> <span class="chip-ref">Google Sheets API</span>.</span></div>
         <div class="sow-item"><span class="sow-dot p1"></span><span><strong>Team Adoption:</strong> Conduct initial
             walkthrough sessions for the Production team to navigate the new UI.</span></div>
         <div class="sow-item"><span class="sow-dot p1" style="background:#ef4444;"></span><span><strong>Client
@@ -2087,8 +1960,7 @@
             AI MOQ matching to find best pricing or suggest combining orders.</span></div>
         <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Build:</strong> Overtime & COGS Calculator
             that syncs labor shift data directly to Accounts for accurate product costing.</span></div>
-        <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Tech Stack &amp; Dependencies:</strong>
-            Gemini/LLMs, Google Sheets API. Requires vendor data and historical labor cost data.</span></div>
+        <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Tech Stack &amp; Badges:</strong> <span class="chip-ref">Gemini LLM</span> <span class="chip-ref">Google Sheets API</span>.</span></div>
         <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Team Adoption:</strong> Train Procurement
             head (Arshid) on utilizing the smart directory for quotations.</span></div>
         <div class="sow-item"><span class="sow-dot p2" style="background:#ef4444;"></span><span><strong>Client
@@ -2129,8 +2001,7 @@
             API for low inventory alerts, QC verification requests, and dispatch approvals.</span></div>
         <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Build:</strong> Unified Design Approval link
             connecting BD, Designer, Client, and Production. Vendor onboarding self-serve forms.</span></div>
-        <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Tech Stack &amp; Dependencies:</strong>
-            WhatsApp Business API, LangGraph for agentic workflows.</span></div>
+        <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Tech Stack &amp; Badges:</strong> <span class="chip-ref">WhatsApp Business API</span> <span class="chip-ref">LangGraph Workflows</span>.</span></div>
         <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Team Adoption:</strong> Establish a
             continuous feedback loop on the ground to iterate and sustain adoption.</span></div>
         <div class="sow-item"><span class="sow-dot p3" style="background:#ef4444;"></span><span><strong>Client
@@ -2222,6 +2093,38 @@
             (Systematised)</strong></td>
       </tr>
     </table>
+
+    <h3>Quantified Executive Time Savings</h3>
+    <p style="font-size:8.8pt;color:var(--muted);margin-bottom:10px;">Estimated annual bandwidth reclaimed for the Production Manager (Rishabh Doshi &amp; team) by eliminating manual inventory reconciliation and stock checks.</p>
+
+    <div class="kpi-strip" style="margin: 14px 0 16px;">
+      <div class="kpi-cell">
+        <div class="kpi-num">1.6 hrs/day</div>
+        <div class="kpi-lbl">Inventory Recon Saved</div>
+      </div>
+      <div class="kpi-cell">
+        <div class="kpi-num">100%</div>
+        <div class="kpi-lbl">Real-Time WIP Sync</div>
+      </div>
+      <div class="kpi-cell">
+        <div class="kpi-num">32 hrs</div>
+        <div class="kpi-lbl">Monthly Time Saved</div>
+      </div>
+      <div class="kpi-cell">
+        <div class="kpi-num" style="color:var(--accent);">384 hrs</div>
+        <div class="kpi-lbl">Annual Hours Saved</div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top:10px;margin-bottom:15px;border-left-color:var(--accent);background:var(--accent-soft);">
+      <strong style="color:var(--ink);font-size:9.5pt;">Bandwidth Reinvestment Breakdown:</strong><br>
+      <ul style="font-size:8.5pt;color:var(--slate);padding-left:16px;margin-top:4px;line-height:1.45;">
+        <li><strong>Current Friction:</strong> Production team spends ~1.6 hours daily manually cross-checking raw, SFG, and packaging Google Sheets with Accounts and Logistics.</li>
+        <li><strong>Automated Efficiency:</strong> Unified Inventory Dashboard bi-directionally syncs with Sheets, giving real-time WIP and stock levels without manual copy-pasting.</li>
+        <li><strong>Strategic Impact:</strong> Reclaims <strong>384 Production hours per year (~48 full working days)</strong> to focus on manufacturing yield optimization, factory QA governance, and plant scaling.</li>
+      </ul>
+    </div>
+
     <div class="doc-footer"><span>Production Audit Report · v1.0</span><span>Page 13</span></div>
   </div>
 

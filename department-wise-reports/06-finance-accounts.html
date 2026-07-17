@@ -281,7 +281,8 @@
       width: 44px;
     }
 
-    td.num {
+    td.num,
+    th.num {
       text-align: center;
       white-space: nowrap;
     }
@@ -616,7 +617,7 @@
     }
 
     .exhibit-chart {
-      flex: 0 0 220px;
+      flex: 0 0 320px;
     }
 
     .exhibit-note {
@@ -1028,7 +1029,6 @@
 
     <div class="eyebrow">Section 02 — Benchmarking</div>
     <h2>Department Maturity Assessment</h2>
-    <div class="section-dek">Scored 1 (ad hoc) to 5 (optimized) against five capability dimensions</div>
 
     <div class="exhibit">
       <div class="exhibit-chart">
@@ -1130,15 +1130,21 @@
     <img src="../letterhead.png" alt="Letterhead"
       style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
     <h3>Team Structure</h3>
-    <p style="font-size:8.5pt;color:var(--muted);margin-bottom:4px;">Reporting hierarchy and current responsibility
-      domains within the Finance &amp; Accounts department.</p>
+    <p style="font-size:8.5pt;color:var(--muted);margin-bottom:4px;">Reporting hierarchy within Finance &amp; Accounts, operating under Puran Singh Rajput (Co-Founder &amp; COO).</p>
     <div class="org-chart">
+      <div class="org-level">
+        <div class="org-node secondary">
+          <div class="org-name">Puran Singh Rajput</div>
+          <div class="org-role">Co-Founder &amp; COO<br>Executive Division Head</div>
+        </div>
+      </div>
+      <div class="org-connector-top"></div>
       <!-- Lead -->
       <div class="org-level">
         <div class="org-node lead">
           <div class="org-name">Shobha Shekhawat</div>
-          <div class="org-role">Accounts Team Manager<br>Finance Head</div>
-          <span class="org-tag">Lead</span>
+          <div class="org-role">Finance Head<br>Accounting &amp; Financial Ops</div>
+          <span class="org-tag">Department Lead</span>
         </div>
       </div>
       <div class="org-connector-top"></div>
@@ -1150,14 +1156,14 @@
           <div class="org-connector-top"></div>
           <div class="org-node">
             <div class="org-name">Senior Account Manager</div>
-            <div class="org-role">Tax Compliance, Reconciliation<br>&amp; CXO Reporting</div>
+            <div class="org-role">Tax Compliance, Reconciliation<br>&amp; Financial Reporting</div>
           </div>
         </div>
         <div class="org-sub-branch">
           <div class="org-connector-top"></div>
           <div class="org-node">
             <div class="org-name">Junior Account Manager</div>
-            <div class="org-role">Invoicing, PO Checks<br>Expense Processing</div>
+            <div class="org-role">Invoicing, PO Verification<br>&amp; Accounts Operations</div>
           </div>
         </div>
       </div>
@@ -1247,46 +1253,54 @@
           <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5" />
         </marker>
       </defs>
-      <rect x="10" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
-      <text x="70" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Sales
+      <rect x="10" y="26" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <rect x="25" y="18" width="90" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75" />
+      <text x="70" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">ORDER INTAKE</text>
+      <text x="70" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Sales
         Submits PO</text>
-      <text x="70" y="55" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">Action:
+      <text x="70" y="59.0" text-anchor="middle" font-size="7.5" fill="#6B7785" font-family="Segoe UI,sans-serif">Action:
         BD / Sales</text>
-      <line x1="130" y1="46" x2="150" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)" />
+      <line x1="130" y1="50" x2="150" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)" />
 
-      <rect x="150" y="22" width="120" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
-      <text x="210" y="37" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">Call
+      <rect x="150" y="26" width="120" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
+      <rect x="165" y="18" width="90" height="15" rx="3" fill="#A32E24" stroke="#A32E24" stroke-width="0.75" />
+      <text x="210" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">BOTTLENECK</text>
+      <text x="210" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#A32E24" font-family="Segoe UI,sans-serif">Call
         Prod Manager</text>
-      <text x="210" y="49" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">to
+      <text x="210" y="56.0" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">to
         check stock</text>
-      <text x="210" y="60" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">Manual
+      <text x="210" y="67.0" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">Manual
         Phone Call</text>
-      <line x1="270" y1="46" x2="290" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)" />
+      <line x1="270" y1="50" x2="290" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)" />
 
-      <rect x="290" y="22" width="120" height="48" rx="3" fill="#FBF1DF" stroke="#E8C97A" stroke-width="1.5" />
-      <text x="350" y="37" text-anchor="middle" font-size="7.6" fill="#8A5A10" font-family="Segoe UI,sans-serif">Verify
+      <rect x="290" y="26" width="120" height="48" rx="3" fill="#FEF9EC" stroke="#E8D08A" stroke-width="1.5" />
+      <rect x="305" y="18" width="90" height="15" rx="3" fill="#8A5A10" stroke="#8A5A10" stroke-width="0.75" />
+      <text x="350" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">VERIFICATION</text>
+      <text x="350" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#8A5A10" font-family="Segoe UI,sans-serif">Verify
         Customer</text>
-      <text x="350" y="49" text-anchor="middle" font-size="7.6" fill="#8A5A10" font-family="Segoe UI,sans-serif">GST
+      <text x="350" y="56.0" text-anchor="middle" font-size="6.5" fill="#8A5A10" font-family="Segoe UI,sans-serif">GST
         Details</text>
-      <text x="350" y="60" text-anchor="middle" font-size="6.5" fill="#8A5A10" font-family="Segoe UI,sans-serif">Manual
+      <text x="350" y="67.0" text-anchor="middle" font-size="6.5" fill="#8A5A10" font-family="Segoe UI,sans-serif">Manual
         Sheets Lookup</text>
-      <line x1="410" y1="46" x2="430" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)" />
+      <line x1="410" y1="50" x2="430" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)" />
 
-      <rect x="430" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
-      <text x="490" y="37" text-anchor="middle" font-size="7.6" fill="#3F4B5C"
-        font-family="Segoe UI,sans-serif">Generate Zoho</text>
-      <text x="490" y="49" text-anchor="middle" font-size="7.6" fill="#3F4B5C"
-        font-family="Segoe UI,sans-serif">Invoice</text>
-      <text x="490" y="60" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">Task:
+      <rect x="430" y="26" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <rect x="445" y="18" width="90" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75" />
+      <text x="490" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">FINANCE</text>
+      <text x="490" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Generate Zoho</text>
+      <text x="490" y="56.0" text-anchor="middle" font-size="6.5" fill="#6B7785" font-family="Segoe UI,sans-serif">Invoice</text>
+      <text x="490" y="67.0" text-anchor="middle" font-size="6.5" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Task:
         Accounts Exec</text>
-      <line x1="550" y1="46" x2="570" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)" />
+      <line x1="550" y1="50" x2="570" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)" />
 
-      <rect x="570" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
-      <text x="630" y="37" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Forward
+      <rect x="570" y="26" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <rect x="585" y="18" width="90" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75" />
+      <text x="630" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">FINANCE</text>
+      <text x="630" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Forward
         Invoice</text>
-      <text x="630" y="49" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">to
+      <text x="630" y="56.0" text-anchor="middle" font-size="6.5" fill="#6B7785" font-family="Segoe UI,sans-serif">to
         Logistics</text>
-      <text x="630" y="60" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">Action:
+      <text x="630" y="67.0" text-anchor="middle" font-size="6.5" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Action:
         Sales / Prod</text>
     </svg>
     <div class="flow-note">
@@ -1308,48 +1322,54 @@
           <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5" />
         </marker>
       </defs>
-      <rect x="10" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
-      <text x="70" y="37" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Raw
+      <rect x="10" y="26" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <rect x="25" y="18" width="90" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75" />
+      <text x="70" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">PROCESS STEP</text>
+      <text x="70" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Raw
         Material Intake</text>
-      <text x="70" y="49" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">(Zoho
+      <text x="70" y="56.0" text-anchor="middle" font-size="6.5" fill="#6B7785" font-family="Segoe UI,sans-serif">(Zoho
         Inventory)</text>
-      <text x="70" y="60" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">Action:
+      <text x="70" y="67.0" text-anchor="middle" font-size="6.5" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Action:
         Logistics</text>
-      <line x1="130" y1="46" x2="150" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)" />
+      <line x1="130" y1="50" x2="150" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)" />
 
-      <rect x="150" y="22" width="120" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
-      <text x="210" y="37" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">Factory
+      <rect x="150" y="26" width="120" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
+      <rect x="165" y="18" width="90" height="15" rx="3" fill="#A32E24" stroke="#A32E24" stroke-width="0.75" />
+      <text x="210" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">BOTTLENECK</text>
+      <text x="210" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#A32E24" font-family="Segoe UI,sans-serif">Factory
         Production</text>
-      <text x="210" y="49" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">(No WIP
+      <text x="210" y="56.0" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">(No WIP
         Visibility)</text>
-      <text x="210" y="60" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">Data
+      <text x="210" y="67.0" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">Data
         Missing</text>
-      <line x1="270" y1="46" x2="290" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)" />
+      <line x1="270" y1="50" x2="290" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)" />
 
-      <rect x="290" y="22" width="120" height="48" rx="3" fill="#FBF1DF" stroke="#E8C97A" stroke-width="1.5" />
-      <text x="350" y="37" text-anchor="middle" font-size="7.6" fill="#8A5A10" font-family="Segoe UI,sans-serif">Manual
+      <rect x="290" y="26" width="120" height="48" rx="3" fill="#FEF9EC" stroke="#E8D08A" stroke-width="1.5" />
+      <rect x="305" y="18" width="90" height="15" rx="3" fill="#8A5A10" stroke="#8A5A10" stroke-width="0.75" />
+      <text x="350" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">ACTION REQUIRED</text>
+      <text x="350" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#8A5A10" font-family="Segoe UI,sans-serif">Manual
         Averaging</text>
-      <text x="350" y="49" text-anchor="middle" font-size="7.6" fill="#8A5A10" font-family="Segoe UI,sans-serif">in
+      <text x="350" y="56.0" text-anchor="middle" font-size="6.5" fill="#8A5A10" font-family="Segoe UI,sans-serif">in
         Spreadsheet</text>
-      <text x="350" y="60" text-anchor="middle" font-size="6.5" fill="#8A5A10" font-family="Segoe UI,sans-serif">FIFO
+      <text x="350" y="67.0" text-anchor="middle" font-size="6.5" fill="#8A5A10" font-family="Segoe UI,sans-serif">FIFO
         Method</text>
-      <line x1="410" y1="46" x2="430" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)" />
+      <line x1="410" y1="50" x2="430" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)" />
 
-      <rect x="430" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
-      <text x="490" y="37" text-anchor="middle" font-size="7.6" fill="#3F4B5C"
-        font-family="Segoe UI,sans-serif">Packaging Material</text>
-      <text x="490" y="49" text-anchor="middle" font-size="7.6" fill="#3F4B5C"
-        font-family="Segoe UI,sans-serif">Expensed in Bulk</text>
-      <text x="490" y="60" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">Not
+      <rect x="430" y="26" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <rect x="445" y="18" width="90" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75" />
+      <text x="490" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">PROCESS STEP</text>
+      <text x="490" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Packaging Material</text>
+      <text x="490" y="56.0" text-anchor="middle" font-size="6.5" fill="#6B7785" font-family="Segoe UI,sans-serif">Expensed in Bulk</text>
+      <text x="490" y="67.0" text-anchor="middle" font-size="6.5" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Not
         Grade-Mapped</text>
-      <line x1="550" y1="46" x2="570" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)" />
+      <line x1="550" y1="50" x2="570" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)" />
 
-      <rect x="570" y="22" width="120" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
-      <text x="630" y="37" text-anchor="middle" font-size="7.6" fill="#A32E24"
-        font-family="Segoe UI,sans-serif">Volatile COGS Margin</text>
-      <text x="630" y="49" text-anchor="middle" font-size="7.6" fill="#A32E24"
-        font-family="Segoe UI,sans-serif">Reported to CXOs</text>
-      <text x="630" y="60" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">P&L
+      <rect x="570" y="26" width="120" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
+      <rect x="585" y="18" width="90" height="15" rx="3" fill="#A32E24" stroke="#A32E24" stroke-width="0.75" />
+      <text x="630" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">BOTTLENECK</text>
+      <text x="630" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#A32E24" font-family="Segoe UI,sans-serif">Volatile COGS Margin</text>
+      <text x="630" y="56.0" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">Reported to CXOs</text>
+      <text x="630" y="67.0" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">P&L
         Distortion</text>
     </svg>
     <div class="flow-note">
@@ -1379,48 +1399,51 @@
           <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5" />
         </marker>
       </defs>
-      <rect x="8" y="20" width="130" height="52" rx="3" fill="#F4E8FB" stroke="#A772D9" stroke-width="1.5" />
-      <text x="73" y="35" text-anchor="middle" font-size="7.5" fill="#603487" font-family="Segoe UI,sans-serif"
-        font-weight="700">Employee Submits Claim</text>
-      <text x="73" y="46" text-anchor="middle" font-size="6.5" fill="#814BAF" font-family="Segoe UI,sans-serif">Action:
+      <rect x="8" y="26" width="130" height="52" rx="3" fill="#F4EEFC" stroke="#6b4fc8" stroke-width="1.5" />
+      <rect x="23" y="18" width="100" height="15" rx="3" fill="#6b4fc8" stroke="#6b4fc8" stroke-width="0.75" />
+      <text x="73" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">TOOL</text>
+      <text x="73" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#6b4fc8" font-family="Segoe UI,sans-serif">Employee Submits Claim</text>
+      <text x="73" y="56.0" text-anchor="middle" font-size="6.5" fill="#6b4fc8" font-family="Segoe UI,sans-serif">Action:
         BD / Sales</text>
-      <text x="73" y="57" text-anchor="middle" font-size="6.5" fill="#814BAF"
-        font-family="Segoe UI,sans-serif">(WhatsApp / Drive)</text>
-      <line x1="138" y1="46" x2="156" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w3a)" />
+      <text x="73" y="67.0" text-anchor="middle" font-size="6.5" fill="#6b4fc8" font-family="Segoe UI,sans-serif">(WhatsApp / Drive)</text>
+      <line x1="138" y1="50" x2="156" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w3a)" />
 
-      <rect x="158" y="20" width="130" height="52" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
-      <text x="223" y="35" text-anchor="middle" font-size="7.5" fill="#3F4B5C" font-family="Segoe UI,sans-serif"
-        font-weight="700">Manager Verifies</text>
-      <text x="223" y="46" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">Action:
+      <rect x="158" y="26" width="130" height="52" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <rect x="173" y="18" width="100" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75" />
+      <text x="223" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">PROCESS STEP</text>
+      <text x="223" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Manager Verifies</text>
+      <text x="223" y="56.0" text-anchor="middle" font-size="6.5" fill="#6B7785" font-family="Segoe UI,sans-serif">Action:
         HOD</text>
-      <text x="223" y="57" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">(Zoho
+      <text x="223" y="67.0" text-anchor="middle" font-size="6.5" fill="#3F4B5C" font-family="Segoe UI,sans-serif">(Zoho
         Expense)</text>
-      <line x1="288" y1="46" x2="306" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w3a)" />
+      <line x1="288" y1="50" x2="306" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w3a)" />
 
-      <rect x="308" y="20" width="130" height="52" rx="3" fill="#FBF1DF" stroke="#E8C97A" stroke-width="1.5" />
-      <text x="373" y="35" text-anchor="middle" font-size="7.5" fill="#8A5A10" font-family="Segoe UI,sans-serif"
-        font-weight="700">Manual Mileage Check</text>
-      <text x="373" y="46" text-anchor="middle" font-size="6.5" fill="#8A5A10" font-family="Segoe UI,sans-serif">Task:
+      <rect x="308" y="26" width="130" height="52" rx="3" fill="#FEF9EC" stroke="#E8D08A" stroke-width="1.5" />
+      <rect x="323" y="18" width="100" height="15" rx="3" fill="#8A5A10" stroke="#8A5A10" stroke-width="0.75" />
+      <text x="373" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">ACTION REQUIRED</text>
+      <text x="373" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#8A5A10" font-family="Segoe UI,sans-serif">Manual Mileage Check</text>
+      <text x="373" y="56.0" text-anchor="middle" font-size="6.5" fill="#8A5A10" font-family="Segoe UI,sans-serif">Task:
         Accounts Exec</text>
-      <text x="373" y="57" text-anchor="middle" font-size="6.5" fill="#8A5A10"
-        font-family="Segoe UI,sans-serif">(Odometer / Maps)</text>
-      <line x1="438" y1="46" x2="456" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w3a)" />
+      <text x="373" y="67.0" text-anchor="middle" font-size="6.5" fill="#8A5A10" font-family="Segoe UI,sans-serif">(Odometer / Maps)</text>
+      <line x1="438" y1="50" x2="456" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w3a)" />
 
-      <rect x="458" y="20" width="130" height="52" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
-      <text x="523" y="35" text-anchor="middle" font-size="7.5" fill="#A32E24" font-family="Segoe UI,sans-serif"
-        font-weight="700">Manual GST/TDS Recon</text>
-      <text x="523" y="46" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">Task:
+      <rect x="458" y="26" width="130" height="52" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
+      <rect x="473" y="18" width="100" height="15" rx="3" fill="#A32E24" stroke="#A32E24" stroke-width="0.75" />
+      <text x="523" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">BOTTLENECK</text>
+      <text x="523" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#A32E24" font-family="Segoe UI,sans-serif">Manual GST/TDS Recon</text>
+      <text x="523" y="56.0" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">Task:
         Accounts Exec</text>
-      <text x="523" y="57" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">(Zoho
+      <text x="523" y="67.0" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">(Zoho
         vs Portal)</text>
-      <line x1="588" y1="46" x2="606" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w3a)" />
+      <line x1="588" y1="50" x2="606" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w3a)" />
 
-      <rect x="608" y="20" width="124" height="52" rx="3" fill="#E9F4EC" stroke="#92C7A3" stroke-width="1.5" />
-      <text x="670" y="35" text-anchor="middle" font-size="7.5" fill="#276B3E" font-family="Segoe UI,sans-serif"
-        font-weight="700">Batch Processed</text>
-      <text x="670" y="46" text-anchor="middle" font-size="6.5" fill="#276B3E" font-family="Segoe UI,sans-serif">Action:
+      <rect x="608" y="26" width="124" height="52" rx="3" fill="#E9F4EC" stroke="#92C7A3" stroke-width="1.5" />
+      <rect x="623" y="18" width="94" height="15" rx="3" fill="#276B3E" stroke="#276B3E" stroke-width="0.75" />
+      <text x="670" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">SUCCESS</text>
+      <text x="670" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#276B3E" font-family="Segoe UI,sans-serif">Batch Processed</text>
+      <text x="670" y="56.0" text-anchor="middle" font-size="6.5" fill="#276B3E" font-family="Segoe UI,sans-serif">Action:
         Accounts Mgr</text>
-      <text x="670" y="57" text-anchor="middle" font-size="6.5" fill="#276B3E" font-family="Segoe UI,sans-serif">(1-2
+      <text x="670" y="67.0" text-anchor="middle" font-size="6.5" fill="#276B3E" font-family="Segoe UI,sans-serif">(1-2
         Month Delay)</text>
     </svg>
     <div class="flow-note">
@@ -1443,49 +1466,53 @@
           <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5" />
         </marker>
       </defs>
-      <rect x="8" y="20" width="130" height="52" rx="3" fill="#F4F6F8" stroke="#D8DEE5" stroke-width="1" />
-      <text x="73" y="35" text-anchor="middle" font-size="7.5" fill="#3F4B5C" font-family="Segoe UI,sans-serif"
-        font-weight="700">Fetch Zoho Data</text>
-      <text x="73" y="46" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">Task:
+      <rect x="8" y="26" width="130" height="52" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <rect x="23" y="18" width="100" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75" />
+      <text x="73" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">PROCESS STEP</text>
+      <text x="73" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Fetch Zoho Data</text>
+      <text x="73" y="56.0" text-anchor="middle" font-size="6.5" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Task:
         Accounts Exec</text>
-      <text x="73" y="57" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">(Value
+      <text x="73" y="67.0" text-anchor="middle" font-size="6.5" fill="#3F4B5C" font-family="Segoe UI,sans-serif">(Value
         Only)</text>
-      <line x1="138" y1="46" x2="156" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w4a)" />
+      <line x1="138" y1="50" x2="156" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w4a)" />
 
-      <rect x="158" y="20" width="130" height="52" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
-      <text x="223" y="35" text-anchor="middle" font-size="7.5" fill="#A32E24" font-family="Segoe UI,sans-serif"
-        font-weight="700">Manual Qty Mapping</text>
-      <text x="223" y="46" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">Task:
+      <rect x="158" y="26" width="130" height="52" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
+      <rect x="173" y="18" width="100" height="15" rx="3" fill="#A32E24" stroke="#A32E24" stroke-width="0.75" />
+      <text x="223" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">BOTTLENECK</text>
+      <text x="223" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#A32E24" font-family="Segoe UI,sans-serif">Manual Qty Mapping</text>
+      <text x="223" y="56.0" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">Task:
         Accounts Exec</text>
-      <text x="223" y="57" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">(Calc.
+      <text x="223" y="67.0" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">(Calc.
         KG / Tons)</text>
-      <line x1="288" y1="46" x2="306" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w4a)" />
+      <line x1="288" y1="50" x2="306" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w4a)" />
 
-      <rect x="308" y="20" width="130" height="52" rx="3" fill="#FBF1DF" stroke="#E8C97A" stroke-width="1.5" />
-      <text x="373" y="35" text-anchor="middle" font-size="7.5" fill="#8A5A10" font-family="Segoe UI,sans-serif"
-        font-weight="700">Reconcile COGS</text>
-      <text x="373" y="46" text-anchor="middle" font-size="6.5" fill="#8A5A10" font-family="Segoe UI,sans-serif">Task:
+      <rect x="308" y="26" width="130" height="52" rx="3" fill="#FEF9EC" stroke="#E8D08A" stroke-width="1.5" />
+      <rect x="323" y="18" width="100" height="15" rx="3" fill="#8A5A10" stroke="#8A5A10" stroke-width="0.75" />
+      <text x="373" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">ACTION REQUIRED</text>
+      <text x="373" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#8A5A10" font-family="Segoe UI,sans-serif">Reconcile COGS</text>
+      <text x="373" y="56.0" text-anchor="middle" font-size="6.5" fill="#8A5A10" font-family="Segoe UI,sans-serif">Task:
         Accounts Exec</text>
-      <text x="373" y="57" text-anchor="middle" font-size="6.5" fill="#8A5A10" font-family="Segoe UI,sans-serif">(Excel
+      <text x="373" y="67.0" text-anchor="middle" font-size="6.5" fill="#8A5A10" font-family="Segoe UI,sans-serif">(Excel
         Averaging)</text>
-      <line x1="438" y1="46" x2="456" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w4a)" />
+      <line x1="438" y1="50" x2="456" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w4a)" />
 
-      <rect x="458" y="20" width="130" height="52" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
-      <text x="523" y="35" text-anchor="middle" font-size="7.5" fill="#3F4B5C" font-family="Segoe UI,sans-serif"
-        font-weight="700">Compile P&amp;L Report</text>
-      <text x="523" y="46" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">Action:
+      <rect x="458" y="26" width="130" height="52" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <rect x="473" y="18" width="100" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75" />
+      <text x="523" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">PROCESS STEP</text>
+      <text x="523" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Compile P&amp;L Report</text>
+      <text x="523" y="56.0" text-anchor="middle" font-size="6.5" fill="#6B7785" font-family="Segoe UI,sans-serif">Action:
         Accounts Mgr</text>
-      <text x="523" y="57" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">(Manual
+      <text x="523" y="67.0" text-anchor="middle" font-size="6.5" fill="#3F4B5C" font-family="Segoe UI,sans-serif">(Manual
         Format)</text>
-      <line x1="588" y1="46" x2="606" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w4a)" />
+      <line x1="588" y1="50" x2="606" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w4a)" />
 
-      <rect x="608" y="20" width="124" height="52" rx="3" fill="#E9F4EC" stroke="#92C7A3" stroke-width="1.5" />
-      <text x="670" y="35" text-anchor="middle" font-size="7.5" fill="#276B3E" font-family="Segoe UI,sans-serif"
-        font-weight="700">Present to Board</text>
-      <text x="670" y="46" text-anchor="middle" font-size="6.5" fill="#276B3E" font-family="Segoe UI,sans-serif">Action:
+      <rect x="608" y="26" width="124" height="52" rx="3" fill="#E9F4EC" stroke="#92C7A3" stroke-width="1.5" />
+      <rect x="623" y="18" width="94" height="15" rx="3" fill="#276B3E" stroke="#276B3E" stroke-width="0.75" />
+      <text x="670" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">SUCCESS</text>
+      <text x="670" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#276B3E" font-family="Segoe UI,sans-serif">Present to Board</text>
+      <text x="670" y="56.0" text-anchor="middle" font-size="6.5" fill="#276B3E" font-family="Segoe UI,sans-serif">Action:
         Accounts Mgr</text>
-      <text x="670" y="57" text-anchor="middle" font-size="6.5" fill="#276B3E"
-        font-family="Segoe UI,sans-serif">(Monthly Cycle)</text>
+      <text x="670" y="67.0" text-anchor="middle" font-size="6.5" fill="#276B3E" font-family="Segoe UI,sans-serif">(Monthly Cycle)</text>
     </svg>
     <div class="flow-note">
       <p style="margin-top:0;"><strong>What is good:</strong> The team maintains a rigorous monthly schedule for P&amp;L
@@ -1519,9 +1546,7 @@
       </div>
       <div class="dep-grid">
         <div class="dep-section">
-          <div class="dep-section-title">Operations Dependency <span class="mini-chip chip-info">Information
-              Sharing</span>
-          </div>
+          <div class="dep-section-title">Operations Dependency</div>
           <div class="dep-section-content">
             Sales submits POs to Accounts but frequently lacks complete GST and billing details. Accounts must manually
             chase Sales for client documentation before invoicing.
@@ -1536,8 +1561,7 @@
           </div>
         </div>
         <div class="dep-section data-sync" style="grid-column: 1 / -1;">
-          <div class="dep-section-title">Data Transfer &amp; Updates Needed <span class="mini-chip chip-data">Data
-              Flow</span></div>
+          <div class="dep-section-title">Data Transfer &amp; Updates Needed</div>
           <div class="dep-section-content">
             Sales must adopt a standardized intake format for client GST/Address data before requesting invoices. Field
             staff must transition to the Zoho Expense app for automated mileage capture and bill uploads.
@@ -1554,9 +1578,7 @@
       </div>
       <div class="dep-grid">
         <div class="dep-section">
-          <div class="dep-section-title">Operations Dependency <span class="mini-chip chip-approval">Approval
-              Flow</span>
-          </div>
+          <div class="dep-section-title">Operations Dependency</div>
           <div class="dep-section-content">
             Accounts relies on Production for real-time stock availability and WIP data, and Logistics for
             transit/dispatch status. Currently, this data is shared manually via phone calls or WhatsApp.
@@ -1571,8 +1593,7 @@
           </div>
         </div>
         <div class="dep-section data-sync" style="grid-column: 1 / -1;">
-          <div class="dep-section-title">Data Transfer &amp; Updates Needed <span class="mini-chip chip-data">Data
-              Flow</span></div>
+          <div class="dep-section-title">Data Transfer &amp; Updates Needed</div>
           <div class="dep-section-content">
             Production and Logistics must update their Google Sheets (or a unified tracker) with grade-wise WIP,
             transit, and dispatch data. Accounts will connect to this sheet via API to automate COGS valuation and stock
@@ -1590,9 +1611,7 @@
       </div>
       <div class="dep-grid">
         <div class="dep-section">
-          <div class="dep-section-title">Operations Dependency <span class="mini-chip chip-approval">Reporting
-              Flow</span>
-          </div>
+          <div class="dep-section-title">Operations Dependency</div>
           <div class="dep-section-content">
             CXOs and investors require monthly P&amp;L, sales achievements, and budget utilization reports. Currently
             compiled manually at month-end.
@@ -1607,8 +1626,7 @@
           </div>
         </div>
         <div class="dep-section data-sync" style="grid-column: 1 / -1;">
-          <div class="dep-section-title">Data Transfer &amp; Updates Needed <span class="mini-chip chip-data">Data
-              Flow</span></div>
+          <div class="dep-section-title">Data Transfer &amp; Updates Needed</div>
           <div class="dep-section-content">
             A unified dashboard must be built to pull live data from Zoho Books, Payroll, and Expense, giving CXOs
             real-time access to financial metrics without manual compilation.
@@ -1617,9 +1635,6 @@
       </div>
     </div>
 
-</body>
-
-</html>
 <div class="doc-footer"><span>Finance &amp; Accounts Audit Report · v1.0</span><span>Page 7</span></div>
 </div>
 
@@ -1928,9 +1943,7 @@
           Google Sheets to a new ReactJS Dashboard for real-time WIP &amp; stock visibility.</span></div>
       <div class="sow-item"><span class="sow-dot p1"></span><span><strong>Build:</strong> Implement unified CXO P&amp;L
           view by connecting Zoho Books &amp; Expense APIs.</span></div>
-      <div class="sow-item"><span class="sow-dot p1"></span><span><strong>Tech Stack &amp; Dependencies:</strong>
-          ReactJS, Google Sheets API, Zoho APIs. We require read access to the factory's tracking sheets.</span>
-      </div>
+      <div class="sow-item"><span class="sow-dot p1"></span><span><strong>Tech Stack &amp; Badges:</strong> <span class="chip-ref">React.js Dashboard</span> <span class="chip-ref">Google Sheets API</span> <span class="chip-ref">Zoho Suite APIs</span>.</span></div>
       <div class="sow-item"><span class="sow-dot p1"></span><span><strong>Team Adoption:</strong> Conduct initial
           walkthrough sessions for the Accounts team to navigate the new UI.</span></div>
       <div class="sow-item"><span class="sow-dot p1" style="background:#ef4444;"></span><span><strong>Client
@@ -1971,9 +1984,7 @@
           compare Zoho data against portal exports and flag mismatches.</span></div>
       <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Build:</strong> Smart Bill Scanner AI that
           reads WhatsApp/Drive images and auto-populates Zoho Expense &amp; Vendor Directory.</span></div>
-      <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Tech Stack &amp; Dependencies:</strong>
-          Gemini/LLMs, OCR API, WhatsApp Business API. Requires sample historical bills for model grounding.</span>
-      </div>
+      <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Tech Stack &amp; Badges:</strong> <span class="chip-ref">Gemini LLMs</span> <span class="chip-ref">OCR API</span> <span class="chip-ref">WhatsApp Business API</span>.</span></div>
       <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Team Adoption:</strong> Train field staff to
           submit bills via the designated WhatsApp bot number.</span></div>
       <div class="sow-item"><span class="sow-dot p2" style="background:#ef4444;"></span><span><strong>Client
@@ -2013,8 +2024,7 @@
           Vendor/Client MDM with mandatory GST/Address gates before invoice requests.</span></div>
       <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Build:</strong> Integrate WhatsApp API for
           automated alerts to Sales/Logistics when invoices are cleared.</span></div>
-      <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Tech Stack &amp; Dependencies:</strong>
-          WhatsApp Business API, ReactJS. Requires mapping of approval hierarchies.</span></div>
+      <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Tech Stack &amp; Badges:</strong> <span class="chip-ref">WhatsApp Business API</span> <span class="chip-ref">React.js MDM</span>.</span></div>
       <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Team Adoption:</strong> Establish a continuous
           feedback loop on the ground to iterate and sustain adoption.</span></div>
       <div class="sow-item"><span class="sow-dot p3" style="background:#ef4444;"></span><span><strong>Client
@@ -2103,6 +2113,38 @@
           (Systematised)</strong></td>
     </tr>
   </table>
+
+  <h3>Quantified Executive Time Savings</h3>
+  <p style="font-size:8.8pt;color:var(--muted);margin-bottom:10px;">Estimated annual bandwidth reclaimed for the Finance &amp; Accounts Head (Shobha Shekhawat &amp; team) by automating GST/TDS recon and expense bill processing.</p>
+
+  <div class="kpi-strip" style="margin: 14px 0 16px;">
+    <div class="kpi-cell">
+      <div class="kpi-num">90%</div>
+      <div class="kpi-lbl">Recon Time Saved</div>
+    </div>
+    <div class="kpi-cell">
+      <div class="kpi-num">100%</div>
+      <div class="kpi-lbl">Auto Bill Extraction</div>
+    </div>
+    <div class="kpi-cell">
+      <div class="kpi-num">25 hrs</div>
+      <div class="kpi-lbl">Monthly Time Saved</div>
+    </div>
+    <div class="kpi-cell">
+      <div class="kpi-num" style="color:var(--accent);">300 hrs</div>
+      <div class="kpi-lbl">Annual Hours Saved</div>
+    </div>
+  </div>
+
+  <div class="callout" style="margin-top:10px;margin-bottom:15px;border-left-color:var(--accent);background:var(--accent-soft);">
+    <strong style="color:var(--ink);font-size:9.5pt;">Bandwidth Reinvestment Breakdown:</strong><br>
+    <ul style="font-size:8.5pt;color:var(--slate);padding-left:16px;margin-top:4px;line-height:1.45;">
+      <li><strong>Current Friction:</strong> Finance team spends 1–2 months manually reconciling GST/TDS portal exports and manually typing WhatsApp expense images into Zoho Books.</li>
+      <li><strong>Automated Efficiency:</strong> AI Recon Bot flags only exception mismatches and Smart Bill Scanner ingests images to auto-populate Zoho Expense instantly.</li>
+      <li><strong>Strategic Impact:</strong> Reclaims <strong>300 Finance hours per year (~37.5 full working days)</strong> to focus on tax optimization, strategic financial forecasting, and investor P&amp;L reporting.</li>
+    </ul>
+  </div>
+
   <div class="doc-footer"><span>Finance &amp; Accounts Audit Report · v1.0</span><span>Page 12</span></div>
 </div>
 

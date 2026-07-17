@@ -277,7 +277,8 @@
       width: 44px;
     }
 
-    td.num {
+    td.num,
+    th.num {
       text-align: center;
       white-space: nowrap;
     }
@@ -558,7 +559,7 @@
     }
 
     .exhibit-chart {
-      flex: 0 0 220px;
+      flex: 0 0 320px;
     }
 
     .exhibit-note {
@@ -907,10 +908,6 @@
           <td class="label">Review scope</td>
           <td class="val">MENA &amp; International Sales</td>
         </tr>
-        <tr>
-          <td class="label">Distribution</td>
-          <td class="val">Executive Leadership Only</td>
-        </tr>
       </table>
     </div>
   </div>
@@ -920,7 +917,7 @@
     <img src="../letterhead.png" alt="Letterhead"
       style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
     <div class="eyebrow">Section 01 — Executive Summary</div>
-    <h2>Vertical Overview — MENA &amp; International</h2>
+    <h2>Report Overview — MENA &amp; International</h2>
     <div class="section-dek">Scope, current state, and headline findings</div>
     <p class="lede">The MENA &amp; International Sales vertical manages B2B distributor relationships across Asia,
       Africa, and Australia. Operating as a distributor/importer-led model, the vertical is led by Neha Pathak, who acts
@@ -980,7 +977,6 @@
       style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
     <div class="eyebrow">Section 02 — Benchmarking</div>
     <h2>Department Maturity Assessment</h2>
-    <div class="section-dek">Scored 1 (ad hoc) to 5 (optimized) against five capability dimensions</div>
     <div class="exhibit">
       <div class="exhibit-chart">
         <svg viewBox="0 0 400 350" xmlns="http://www.w3.org/2000/svg" style="width:100%;">
@@ -1077,42 +1073,48 @@
     <img src="../letterhead.png" alt="Letterhead"
       style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
     <h3>Team Structure</h3>
-    <p style="font-size:8.5pt;color:var(--muted);margin-bottom:4px;">Reporting hierarchy and current responsibility
-      domains within the MENA &amp; International Sales vertical.</p>
+    <p style="font-size:8.5pt;color:var(--muted);margin-bottom:4px;">Reporting hierarchy within MENA Business, operating
+      under Puran Singh Rajput (Co-Founder &amp; COO).</p>
     <div class="org-chart">
-      <div class="org-node lead">
-        <div class="org-name">Neha Pathak</div>
-        <div class="org-role">BD Manager<br>SPOC for all Intl. Distributors<br>Trials, Contracts &amp; Ops</div>
-        <span class="org-tag">Lead</span>
+      <div class="org-level">
+        <div class="org-node secondary">
+          <div class="org-name">Puran Singh Rajput</div>
+          <div class="org-role">Co-Founder &amp; COO<br>Executive Division Head</div>
+        </div>
       </div>
       <div class="org-connector-top"></div>
-      <div style="width:78%;border-top:1px solid var(--line);margin:0 auto;"></div>
+      <div class="org-node vacant">
+        <div class="org-name">Position Vacant</div>
+        <div class="org-role">Director &ndash; MENA<br>Intl Sales &amp; BD Head</div>
+        <span class="org-tag vacant-tag">Hiring</span>
+      </div>
+      <div class="org-connector-top"></div>
+      <div style="width:82%;border-top:1px solid var(--line);margin:0 auto;"></div>
       <div style="display:flex;justify-content:center;gap:14px;width:100%;margin-top:0;">
         <div class="org-sub-branch">
           <div class="org-connector-top"></div>
+          <div class="org-node lead">
+            <div class="org-name">Neha Pathak</div>
+            <div class="org-role">BD Manager &amp; SPOC<br>Intl. Distributors &amp; Ops</div>
+            <span class="org-tag">Lead SPOC</span>
+          </div>
+        </div>
+        <div class="org-sub-branch">
+          <div class="org-connector-top"></div>
           <div class="org-node">
-            <div class="org-name">COO</div>
-            <div class="org-role">Executive Oversight<br>Monthly pipeline review</div>
+            <div class="org-name">Agronomy Support</div>
+            <div class="org-role">Field Trial Protocols<br>&amp; Technical Reports</div>
           </div>
         </div>
         <div class="org-sub-branch">
           <div class="org-connector-top"></div>
           <div class="org-node secondary">
-            <div class="org-name">Logistics Manager</div>
-            <div class="org-role">Shared Resource<br>Export &amp; Domestic dispatch</div>
-          </div>
-        </div>
-        <div class="org-sub-branch">
-          <div class="org-connector-top"></div>
-          <div class="org-node secondary">
-            <div class="org-name">R&amp;D / Accounts</div>
-            <div class="org-role">Internal Routing via SPOC<br>Trials &amp; Invoicing</div>
+            <div class="org-name">Management Trainees</div>
+            <div class="org-role">BD Operations &amp; Sourcing Support</div>
           </div>
         </div>
       </div>
     </div>
-    <div style="text-align:center;font-size:7.5pt;color:var(--muted);margin-top:6px;">↑ All international customers
-      route exclusively through Neha; internal teams do not contact distributors directly.</div>
 
     <h3>Tools in Use</h3>
     <div class="tools-grid">
@@ -1177,58 +1179,63 @@
           <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5" />
         </marker>
       </defs>
-      <rect x="10" y="22" width="80" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
-      <text x="50" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Inbound Lead</text>
-      <text x="50" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">/
+      <rect x="10" y="26" width="80" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <rect x="25" y="18" width="50" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75" />
+      <text x="50" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">LEAD INTAKE</text>
+      <text x="50" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Inbound Lead</text>
+      <text x="50" y="59.0" text-anchor="middle" font-size="7.5" fill="#6B7785" font-family="Segoe UI,sans-serif">/
         Inquiry</text>
-      <line x1="90" y1="46" x2="105" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#m1)" />
+      <line x1="90" y1="50" x2="105" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#m1)" />
 
-      <rect x="105" y="22" width="80" height="48" rx="3" fill="#F4E8FB" stroke="#A772D9" stroke-width="1.5" />
-      <text x="145" y="43" text-anchor="middle" font-size="7.6" fill="#603487" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Execute MNDA</text>
-      <text x="145" y="55" text-anchor="middle" font-size="7.6" fill="#603487" font-family="Segoe UI,sans-serif">Action:
+      <rect x="105" y="26" width="80" height="48" rx="3" fill="#F4EEFC" stroke="#6b4fc8" stroke-width="1.5" />
+      <rect x="120" y="18" width="50" height="15" rx="3" fill="#6b4fc8" stroke="#6b4fc8" stroke-width="0.75" />
+      <text x="145" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">VERIFICATION</text>
+      <text x="145" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#6b4fc8" font-family="Segoe UI,sans-serif">Execute MNDA</text>
+      <text x="145" y="59.0" text-anchor="middle" font-size="7.5" fill="#6b4fc8" font-family="Segoe UI,sans-serif">Action:
         Legal</text>
-      <line x1="185" y1="46" x2="200" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#m1)" />
+      <line x1="185" y1="50" x2="200" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#m1)" />
 
-      <rect x="200" y="22" width="80" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
-      <text x="240" y="39" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif"
-        font-weight="bold">R&amp;D Custom</text>
-      <text x="240" y="50" text-anchor="middle" font-size="7.6" fill="#3F4B5C"
-        font-family="Segoe UI,sans-serif">Questionnaire</text>
-      <line x1="280" y1="46" x2="295" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#m1)" />
+      <rect x="200" y="26" width="80" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <rect x="215" y="18" width="50" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75" />
+      <text x="240" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">R&D</text>
+      <text x="240" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">R&amp;D Custom</text>
+      <text x="240" y="59.0" text-anchor="middle" font-size="7.5" fill="#6B7785" font-family="Segoe UI,sans-serif">Questionnaire</text>
+      <line x1="280" y1="50" x2="295" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#m1)" />
 
-      <rect x="295" y="22" width="80" height="48" rx="3" fill="#F4E8FB" stroke="#A772D9" stroke-width="1.5" />
-      <text x="335" y="43" text-anchor="middle" font-size="7.6" fill="#603487" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Dispatch</text>
-      <text x="335" y="55" text-anchor="middle" font-size="7.6" fill="#603487"
-        font-family="Segoe UI,sans-serif">Sample</text>
-      <line x1="375" y1="46" x2="390" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#m1)" />
+      <rect x="295" y="26" width="80" height="48" rx="3" fill="#F4EEFC" stroke="#6b4fc8" stroke-width="1.5" />
+      <rect x="310" y="18" width="50" height="15" rx="3" fill="#6b4fc8" stroke="#6b4fc8" stroke-width="0.75" />
+      <text x="335" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">LOGISTICS</text>
+      <text x="335" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#6b4fc8" font-family="Segoe UI,sans-serif">Dispatch</text>
+      <text x="335" y="59.0" text-anchor="middle" font-size="7.5" fill="#6b4fc8" font-family="Segoe UI,sans-serif">Sample</text>
+      <line x1="375" y1="50" x2="390" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#m1)" />
 
-      <rect x="390" y="22" width="80" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
-      <text x="430" y="39" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Monitor Crop</text>
-      <text x="430" y="50" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Cycle
+      <rect x="390" y="26" width="80" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <rect x="405" y="18" width="50" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75" />
+      <text x="430" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">TRIAL</text>
+      <text x="430" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Monitor Crop</text>
+      <text x="430" y="59.0" text-anchor="middle" font-size="7.5" fill="#6B7785" font-family="Segoe UI,sans-serif">Cycle
         (2-4 mo)</text>
-      <line x1="470" y1="46" x2="485" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#m1)" />
+      <line x1="470" y1="50" x2="485" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#m1)" />
 
-      <rect x="485" y="22" width="80" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
-      <text x="525" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Compile</text>
-      <text x="525" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Trial
+      <rect x="485" y="26" width="80" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <rect x="500" y="18" width="50" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75" />
+      <text x="525" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">DATA ENTRY</text>
+      <text x="525" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Compile</text>
+      <text x="525" y="59.0" text-anchor="middle" font-size="7.5" fill="#6B7785" font-family="Segoe UI,sans-serif">Trial
         Report</text>
-      <line x1="565" y1="46" x2="580" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#m1)" />
+      <line x1="565" y1="50" x2="580" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#m1)" />
 
-      <rect x="580" y="22" width="80" height="48" rx="3" fill="#FEF9EC" stroke="#E8D08A" stroke-width="1.5" />
-      <text x="620" y="39" text-anchor="middle" font-size="7.6" fill="#7C5E0A" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Draft &amp; Sign</text>
-      <text x="620" y="50" text-anchor="middle" font-size="7.6" fill="#7C5E0A"
-        font-family="Segoe UI,sans-serif">Agreement</text>
-      <line x1="660" y1="46" x2="675" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#m1)" />
+      <rect x="580" y="26" width="80" height="48" rx="3" fill="#FEF9EC" stroke="#E8D08A" stroke-width="1.5" />
+      <rect x="595" y="18" width="50" height="15" rx="3" fill="#8A5A10" stroke="#8A5A10" stroke-width="0.75" />
+      <text x="620" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">AGREEMENT</text>
+      <text x="620" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#8A5A10" font-family="Segoe UI,sans-serif">Draft &amp; Sign</text>
+      <text x="620" y="59.0" text-anchor="middle" font-size="7.5" fill="#8A5A10" font-family="Segoe UI,sans-serif">Agreement</text>
+      <line x1="660" y1="50" x2="675" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#m1)" />
 
-      <rect x="675" y="22" width="60" height="48" rx="3" fill="#E9F4EC" stroke="#92C7A3" stroke-width="1" />
-      <text x="705" y="46" text-anchor="middle" font-size="7.6" fill="#276B3E" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Active</text>
+      <rect x="675" y="26" width="60" height="48" rx="3" fill="#E9F4EC" stroke="#92C7A3" stroke-width="1.5" />
+      <rect x="690" y="18" width="30" height="15" rx="3" fill="#276B3E" stroke="#276B3E" stroke-width="0.75" />
+      <text x="705" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">COMPLETE</text>
+      <text x="705" y="54.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#276B3E" font-family="Segoe UI,sans-serif">Active</text>
     </svg>
     <div class="flow-note">
       <p style="margin-top:0;"><strong>What is good:</strong> The trial lifecycle is comprehensive and logically
@@ -1251,41 +1258,45 @@
         </marker>
       </defs>
 
-      <rect x="10" y="30" width="120" height="52" rx="3" fill="#E9F4EC" stroke="#92C7A3" stroke-width="1" />
-      <text x="70" y="52" text-anchor="middle" font-size="7.6" fill="#276B3E" font-family="Segoe UI,sans-serif"
-        font-weight="bold">PO Received</text>
-      <text x="70" y="64" text-anchor="middle" font-size="7.6" fill="#276B3E" font-family="Segoe UI,sans-serif">from
+      <rect x="10" y="34" width="120" height="52" rx="3" fill="#E9F4EC" stroke="#92C7A3" stroke-width="1.5" />
+      <rect x="25" y="26" width="90" height="15" rx="3" fill="#276B3E" stroke="#276B3E" stroke-width="0.75" />
+      <text x="70" y="36.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">ORDER INTAKE</text>
+      <text x="70" y="55.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#276B3E" font-family="Segoe UI,sans-serif">PO Received</text>
+      <text x="70" y="67.0" text-anchor="middle" font-size="7.5" fill="#276B3E" font-family="Segoe UI,sans-serif">from
         Distributor</text>
       <line x1="130" y1="56" x2="145" y2="56" stroke="#B0BAC5" stroke-width="1" marker-end="url(#m2)" />
 
-      <rect x="145" y="30" width="120" height="52" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
-      <text x="205" y="52" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Route to Accounts</text>
-      <text x="205" y="64" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">for
+      <rect x="145" y="34" width="120" height="52" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <rect x="160" y="26" width="90" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75" />
+      <text x="205" y="36.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">FINANCE</text>
+      <text x="205" y="55.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Route to Accounts</text>
+      <text x="205" y="67.0" text-anchor="middle" font-size="7.5" fill="#6B7785" font-family="Segoe UI,sans-serif">for
         Invoicing</text>
       <line x1="265" y1="56" x2="280" y2="56" stroke="#B0BAC5" stroke-width="1" marker-end="url(#m2)" />
 
-      <rect x="280" y="30" width="120" height="52" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
-      <text x="340" y="52" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif"
-        font-weight="bold">PO Corrections</text>
-      <text x="340" y="64" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">(~10%
+      <rect x="280" y="34" width="120" height="52" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
+      <rect x="295" y="26" width="90" height="15" rx="3" fill="#A32E24" stroke="#A32E24" stroke-width="0.75" />
+      <text x="340" y="36.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">BOTTLENECK</text>
+      <text x="340" y="55.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#A32E24" font-family="Segoe UI,sans-serif">PO Corrections</text>
+      <text x="340" y="67.0" text-anchor="middle" font-size="7.5" fill="#A32E24" font-family="Segoe UI,sans-serif">(~10%
         Rework)</text>
       <line x1="400" y1="56" x2="415" y2="56" stroke="#B0BAC5" stroke-width="1" marker-end="url(#m2)" />
 
-      <rect x="415" y="30" width="120" height="52" rx="3" fill="#FEF9EC" stroke="#E8D08A" stroke-width="1.5" />
-      <text x="475" y="52" text-anchor="middle" font-size="7.6" fill="#7C5E0A" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Manual Payment</text>
-      <text x="475" y="64" text-anchor="middle" font-size="7.6" fill="#7C5E0A" font-family="Segoe UI,sans-serif">Warning
+      <rect x="415" y="34" width="120" height="52" rx="3" fill="#FEF9EC" stroke="#E8D08A" stroke-width="1.5" />
+      <rect x="430" y="26" width="90" height="15" rx="3" fill="#8A5A10" stroke="#8A5A10" stroke-width="0.75" />
+      <text x="475" y="36.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">WARNING</text>
+      <text x="475" y="55.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#8A5A10" font-family="Segoe UI,sans-serif">Manual Payment</text>
+      <text x="475" y="67.0" text-anchor="middle" font-size="7.5" fill="#8A5A10" font-family="Segoe UI,sans-serif">Warning
         to Accts</text>
       <line x1="535" y1="56" x2="550" y2="56" stroke="#B0BAC5" stroke-width="1" marker-end="url(#m2)" />
 
-      <rect x="550" y="30" width="180" height="52" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="2" />
-      <text x="640" y="49" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Single Shared Logistics Mgr</text>
-      <text x="640" y="60" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">Factory
+      <rect x="550" y="34" width="180" height="52" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
+      <rect x="565" y="26" width="150" height="15" rx="3" fill="#A32E24" stroke="#A32E24" stroke-width="0.75" />
+      <text x="640" y="36.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">BOTTLENECK</text>
+      <text x="640" y="52.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#A32E24" font-family="Segoe UI,sans-serif">Single Shared Logistics Mgr</text>
+      <text x="640" y="64.0" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">Factory
         → Port (Min 1 wk)</text>
-      <text x="640" y="71" text-anchor="middle" font-size="7.6" fill="#A32E24"
-        font-family="Segoe UI,sans-serif">Capacity Bottleneck</text>
+      <text x="640" y="75.0" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">Capacity Bottleneck</text>
 
       <rect x="415" y="100" width="315" height="32" rx="2" fill="#FEF9EC" stroke="#E8D08A" stroke-width="1" />
       <text x="572" y="114" text-anchor="middle" font-size="6.8" fill="#7C5E0A" font-family="Segoe UI,sans-serif"
@@ -1322,45 +1333,49 @@
         </marker>
       </defs>
 
-      <rect x="10" y="22" width="140" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
-      <text x="80" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Intl. Customers</text>
-      <text x="80" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">(Middle
+      <rect x="10" y="26" width="140" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <rect x="25" y="18" width="110" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75" />
+      <text x="80" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">LEAD INTAKE</text>
+      <text x="80" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Intl. Customers</text>
+      <text x="80" y="59.0" text-anchor="middle" font-size="7.5" fill="#6B7785" font-family="Segoe UI,sans-serif">(Middle
         East, China)</text>
-      <line x1="150" y1="46" x2="165" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#m3)" />
+      <line x1="150" y1="50" x2="165" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#m3)" />
 
-      <rect x="165" y="22" width="150" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="2" />
-      <text x="240" y="37" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Personal SIM / WeChat</text>
-      <text x="240" y="49" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">Task:
+      <rect x="165" y="26" width="150" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
+      <rect x="180" y="18" width="120" height="15" rx="3" fill="#A32E24" stroke="#A32E24" stroke-width="0.75" />
+      <text x="240" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">BOTTLENECK</text>
+      <text x="240" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#A32E24" font-family="Segoe UI,sans-serif">Personal SIM / WeChat</text>
+      <text x="240" y="56.0" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">Task:
         Neha (SPOC)</text>
-      <text x="240" y="60" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">Data
+      <text x="240" y="67.0" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">Data
         trapped on phone</text>
-      <line x1="315" y1="46" x2="330" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#m3)" />
+      <line x1="315" y1="50" x2="330" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#m3)" />
 
-      <rect x="330" y="22" width="160" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
-      <text x="410" y="37" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif"
-        font-weight="bold">BD Routes Internally</text>
-      <text x="410" y="49" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Prod /
+      <rect x="330" y="26" width="160" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <rect x="345" y="18" width="130" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75" />
+      <text x="410" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">DATA FLOW</text>
+      <text x="410" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">BD Routes Internally</text>
+      <text x="410" y="56.0" text-anchor="middle" font-size="6.5" fill="#6B7785" font-family="Segoe UI,sans-serif">Prod /
         Log / Accts</text>
-      <text x="410" y="60" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">(No
+      <text x="410" y="67.0" text-anchor="middle" font-size="6.5" fill="#3F4B5C" font-family="Segoe UI,sans-serif">(No
         direct contact)</text>
-      <line x1="490" y1="46" x2="505" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#m3)" />
+      <line x1="490" y1="50" x2="505" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#m3)" />
 
-      <rect x="505" y="22" width="120" height="48" rx="3" fill="#F4E8FB" stroke="#A772D9" stroke-width="1.5" />
-      <text x="565" y="43" text-anchor="middle" font-size="7.6" fill="#603487" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Pipeline Log</text>
-      <text x="565" y="55" text-anchor="middle" font-size="7.6" fill="#603487" font-family="Segoe UI,sans-serif">Google
+      <rect x="505" y="26" width="120" height="48" rx="3" fill="#F4EEFC" stroke="#6b4fc8" stroke-width="1.5" />
+      <rect x="520" y="18" width="90" height="15" rx="3" fill="#6b4fc8" stroke="#6b4fc8" stroke-width="0.75" />
+      <text x="565" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">DATA ENTRY</text>
+      <text x="565" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#6b4fc8" font-family="Segoe UI,sans-serif">Pipeline Log</text>
+      <text x="565" y="59.0" text-anchor="middle" font-size="7.5" fill="#6b4fc8" font-family="Segoe UI,sans-serif">Google
         Sheets</text>
-      <line x1="625" y1="46" x2="640" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#m3)" />
+      <line x1="625" y1="50" x2="640" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#m3)" />
 
-      <rect x="640" y="22" width="90" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
-      <text x="685" y="37" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif"
-        font-weight="bold">COO</text>
-      <text x="685" y="49" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">No live
+      <rect x="640" y="26" width="90" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
+      <rect x="655" y="18" width="60" height="15" rx="3" fill="#A32E24" stroke="#A32E24" stroke-width="0.75" />
+      <text x="685" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">BOTTLENECK</text>
+      <text x="685" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#A32E24" font-family="Segoe UI,sans-serif">COO</text>
+      <text x="685" y="56.0" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">No live
         visibility</text>
-      <text x="685" y="60" text-anchor="middle" font-size="7.6" fill="#A32E24"
-        font-family="Segoe UI,sans-serif">(Monthly export)</text>
+      <text x="685" y="67.0" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">(Monthly export)</text>
 
       <rect x="165" y="92" width="315" height="36" rx="2" fill="#FEF9EC" stroke="#E8D08A" stroke-width="1" />
       <text x="322" y="106" text-anchor="middle" font-size="6.8" fill="#7C5E0A" font-family="Segoe UI,sans-serif"
@@ -1381,7 +1396,117 @@
     <div class="doc-footer"><span>MENA &amp; International Sales Audit Report · v1.0</span><span>Page 6</span></div>
   </div>
 
-  <!-- ============ 04 PAIN POINTS ============ -->
+  
+
+<!-- ============ APPENDIX: CROSS-DEPARTMENT DEPENDENCIES ============ -->
+  <div class="page">
+    <img src="../letterhead.png" alt="Letterhead"
+      style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
+    <div class="eyebrow">Appendix</div>
+    <h2>Cross-Department Dependencies</h2>
+    <div class="section-dek">Findings and recommendations that require action outside the MENA &amp; International Sales
+      vertical to resolve</div>
+
+    <!-- Logistics -->
+    <div class="dep-card">
+      <div class="dep-header">
+        <div class="dep-title">Logistics</div>
+        <div class="dep-badge">Critical Gating — Dispatch</div>
+      </div>
+      <div class="dep-grid">
+        <div class="dep-section">
+          <div class="dep-section-title">Operations Dependency</div>
+          <div class="dep-section-content">
+            The Logistics Manager owns export dispatch windows and is shared with domestic operations. Priority routing
+            for international shipments requires formal scheduling agreement.
+            <div class="dep-person">👤 Key Person: Nihal Paliwal (Logistics)</div>
+          </div>
+        </div>
+        <div class="dep-section bottleneck">
+          <div class="dep-section-title">Critical Bottleneck</div>
+          <div class="dep-section-content">
+            On international dispatch days, 100% of logistics capacity is consumed. Cannot be resolved by MENA alone;
+            requires COO-level mandate for priority routing windows.
+          </div>
+        </div>
+        <div class="dep-section data-sync" style="grid-column:1/-1;">
+          <div class="dep-section-title">Data Transfer &amp; Updates Needed</div>
+          <div class="dep-section-content">
+            Logistics must commit to updating the shared Dispatch Scheduler dashboard in real-time so MENA can track
+            export status without phone calls.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Finance & Accounts -->
+    <div class="dep-card">
+      <div class="dep-header">
+        <div class="dep-title">Finance &amp; Accounts</div>
+        <div class="dep-badge">Payment Clearance</div>
+      </div>
+      <div class="dep-grid">
+        <div class="dep-section">
+          <div class="dep-section-title">Operations Dependency</div>
+          <div class="dep-section-content">
+            Zoho Books notification configuration for cross-border payments requires Finance access. Dispatch clearance
+            process must be updated.
+            <div class="dep-person">👤 Key Person: Shobha Shekhawat (Finance)</div>
+          </div>
+        </div>
+        <div class="dep-section bottleneck">
+          <div class="dep-section-title">Critical Bottleneck</div>
+          <div class="dep-section-content">
+            Currently, BD must manually warn Accounts before international dispatch can proceed. Preventable dispatch
+            holds occur frequently.
+          </div>
+        </div>
+        <div class="dep-section data-sync" style="grid-column:1/-1;">
+          <div class="dep-section-title">Data Transfer &amp; Updates Needed</div>
+          <div class="dep-section-content">
+            Accounts must update their SOP to rely on the automated Zoho Books API alert rather than the BD Manager's
+            manual warning.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- R&D and Enterprise IT -->
+    <div class="dep-card">
+      <div class="dep-header">
+        <div class="dep-title">R&amp;D &amp; Enterprise IT</div>
+        <div class="dep-badge">Trial Intake &amp; CRM</div>
+      </div>
+      <div class="dep-grid">
+        <div class="dep-section">
+          <div class="dep-section-title">Operations Dependency</div>
+          <div class="dep-section-content">
+            R&amp;D must co-design the trial request form. Enterprise IT must scope the Custom React CRM rollout to include
+            MENA's specific hierarchy.
+            <div class="dep-person">👤 Key Persons: Ritu Panwar (R&D) / IT Head</div>
+          </div>
+        </div>
+        <div class="dep-section bottleneck">
+          <div class="dep-section-title">Critical Bottleneck</div>
+          <div class="dep-section-content">
+            Standalone CRM implementation by MENA would create data silos. R&D sign-off is needed before the trial
+            intake form goes live.
+          </div>
+        </div>
+        <div class="dep-section data-sync" style="grid-column:1/-1;">
+          <div class="dep-section-title">Data Transfer &amp; Updates Needed</div>
+          <div class="dep-section-content">
+            R&D must define the exact crop/climate parameters required for international trial design. Enterprise IT
+            must ensure the Custom React CRM integrates with the broader EF Polymer OS.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="doc-footer"><span>MENA &amp; International Sales Audit Report · v1.0</span><span>Page 7</span></div>
+  </div>
+
+<!-- ============ 04 PAIN POINTS ============ -->
   <div class="page">
     <img src="../letterhead.png" alt="Letterhead"
       style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
@@ -1447,7 +1572,7 @@
         </td>
       </tr>
     </table>
-    <div class="doc-footer"><span>MENA &amp; International Sales Audit Report · v1.0</span><span>Page 7</span></div>
+    <div class="doc-footer"><span>MENA &amp; International Sales Audit Report · v1.0</span><span>Page 8</span></div>
   </div>
 
   <!-- ============ 05 TIME & EFFORT ============ -->
@@ -1497,7 +1622,7 @@
         additional <b>10% is spent manually logging pipeline data</b> into disconnected Sheets, preventing strategic
         outbound growth.</span>
     </div>
-    <div class="doc-footer"><span>MENA &amp; International Sales Audit Report · v1.0</span><span>Page 8</span></div>
+    <div class="doc-footer"><span>MENA &amp; International Sales Audit Report · v1.0</span><span>Page 9</span></div>
   </div>
 
   <!-- ============ 06 CORRECTIVE ACTION PLAN / SOLUTION SEGMENT ============ -->
@@ -1540,15 +1665,13 @@
           <div
             style="background:#E9F4EC;color:#276B3E;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:10pt;">
             2</div>
-          <div style="font-weight:700;color:var(--ink);font-size:9.5pt;">Secure Comms &amp; CRM Pipeline (Extend)</div>
+          <div style="font-weight:700;color:var(--ink);font-size:9.5pt;">Secure Comms &amp; Custom React CRM Pipeline</div>
         </div>
         <ul style="font-size:8.5pt;color:var(--muted);line-height:1.5;padding-left:18px;margin:0;">
           <li style="margin-bottom:6px;"><strong>Virtual Business Number:</strong> Transition Middle East and China
             comms from Neha's personal SIM/WeChat to a company-owned Virtual Business Line. Secures all contact IP
             against employee turnover.</li>
-          <li><strong>Zoho CRM Migration:</strong> Replace the Google Sheets pipeline tracker with Zoho CRM (scoped
-            within enterprise rollout). Provides the COO with live deal-stage visibility and distributor performance
-            tracking.</li>
+          <li><strong>Custom React CRM Integration:</strong> Replace the Google Sheets pipeline tracker with the Custom React JS CRM (unified with other BD verticals for centralized data). Provides the COO with live deal-stage visibility and distributor performance tracking.</li>
         </ul>
       </div>
 
@@ -1588,7 +1711,7 @@
         <p style="font-weight:700;color:var(--ink);margin-bottom:6px;font-size:9pt;">Tech Stack Utilized</p>
         <ul style="font-size:8.5pt;color:var(--muted);line-height:1.5;padding-left:18px;margin:0;">
           <li style="margin-bottom:2px;"><strong>Frontend:</strong> ReactJS + TypeScript (Dashboard)</li>
-          <li style="margin-bottom:2px;"><strong>APIs:</strong> Zoho Books, Zoho CRM, WhatsApp Business</li>
+          <li style="margin-bottom:2px;"><strong>APIs:</strong> Zoho Books, Custom CRM, WhatsApp Business</li>
           <li style="margin-bottom:2px;"><strong>AI:</strong> Apollo / LinkedIn Sales Navigator</li>
           <li><strong>Host:</strong> Google Cloud Platform</li>
         </ul>
@@ -1620,12 +1743,12 @@
     <ul style="font-size:9pt;color:var(--muted);line-height:1.5;padding-left:20px;margin-bottom:15px;">
       <li><strong>SOP Update:</strong> Accounts and Logistics must update their clearance SOPs to rely on the automated
         Zoho Books alert rather than Neha's manual warning.</li>
-      <li><strong>CRM Training:</strong> Neha must complete Zoho CRM walkthroughs. Adoption of the CRM is mandatory
+      <li><strong>CRM Training:</strong> Neha must complete the Custom CRM walkthroughs. Adoption of the CRM is mandatory
         before outbound lead-gen tools are layered on.</li>
       <li><strong>Device Handoff:</strong> Formalize the transition of international contacts to the company Virtual
         Business Line; personal numbers phased out.</li>
     </ul>
-    <div class="doc-footer"><span>MENA &amp; International Sales Audit Report · v1.0</span><span>Page 9</span></div>
+    <div class="doc-footer"><span>MENA &amp; International Sales Audit Report · v1.0</span><span>Page 10</span></div>
   </div>
 
   <!-- ============ 07 IMPLEMENTATION PLAN ============ -->
@@ -1684,8 +1807,8 @@
         <div class="sow-item"><span class="sow-dot"></span><span><strong>Build:</strong> Procure company SIM or activate
             virtual business number for BD Manager. Transfer active international WhatsApp and WeChat accounts.</span>
         </div>
-        <div class="sow-item"><span class="sow-dot"></span><span><strong>Tech Stack &amp; Dependencies:</strong> Zoho
-            Books API, WhatsApp Business API. Requires Finance access.</span></div>
+        <div class="sow-item"><span class="sow-dot"></span><span><strong>Tech Stack &amp; Badges:</strong> <span
+              class="chip-ref">Zoho Books API</span> <span class="chip-ref">WhatsApp Business API</span>.</span></div>
         <div class="sow-item"><span class="sow-dot client"></span><span><strong>Client To-Do:</strong> HR to formalize
             communication policy and device ownership rules.</span></div>
       </div>
@@ -1716,10 +1839,10 @@
         <div class="col-label">Scope of Work &amp; Dependencies</div>
         <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Build:</strong> Deploy Logistics Dispatch
             Scheduler dashboard. Negotiate and document pre-scheduled export dispatch windows.</span></div>
-        <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Build:</strong> Configure Zoho CRM: Company
+        <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Build:</strong> Configure Custom React CRM: Company
             → Deal / Crop Account hierarchy. Migrate pipeline data from Google Sheets.</span></div>
-        <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Tech Stack &amp; Dependencies:</strong>
-            ReactJS, Zoho CRM API. Must align with enterprise CRM rollout.</span></div>
+        <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Tech Stack &amp; Badges:</strong> <span
+              class="chip-ref">React.js Dashboard</span> <span class="chip-ref">Custom CRM API</span>.</span></div>
         <div class="sow-item"><span class="sow-dot client p2"></span><span><strong>Client To-Do:</strong> Logistics
             Manager to commit to priority routing windows; COO to define pipeline review cadence.</span></div>
       </div>
@@ -1752,9 +1875,9 @@
             trial request form (digital intake). Co-design with R&amp;D Head to capture all international
             parameters.</span></div>
         <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Build:</strong> Integrate Apollo / LinkedIn
-            Sales Navigator with Zoho CRM. Create region-specific case studies for outbound targeting.</span></div>
-        <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Tech Stack &amp; Dependencies:</strong>
-            Apollo API, LinkedIn API, Zoho CRM API.</span></div>
+            Sales Navigator with Custom React CRM. Create region-specific case studies for outbound targeting.</span></div>
+        <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Tech Stack &amp; Badges:</strong> <span
+              class="chip-ref">Apollo API</span> <span class="chip-ref">LinkedIn API</span> <span class="chip-ref">Custom CRM API</span>.</span></div>
         <div class="sow-item"><span class="sow-dot client p3"></span><span><strong>Client To-Do:</strong> R&amp;D Head
             to sign off on trial intake fields; BD Manager to finalize target region list.</span></div>
       </div>
@@ -1771,7 +1894,7 @@
         </div>
       </div>
     </div>
-    <div class="doc-footer"><span>MENA &amp; International Sales Audit Report · v1.0</span><span>Page 10</span></div>
+    <div class="doc-footer"><span>MENA &amp; International Sales Audit Report · v1.0</span><span>Page 11</span></div>
   </div>
 
   <!-- ============ 08 ROI ============ -->
@@ -1800,7 +1923,7 @@
         <td><strong>Pipeline Tracking</strong></td>
         <td style="border-left:1px solid #e2e8f0;">Disconnected Google Sheets. No visibility for COO above SPOC level.
         </td>
-        <td style="border-left:1px solid #e2e8f0;background:#f8fafc;color:#166534;"><strong>Zoho CRM
+        <td style="border-left:1px solid #e2e8f0;background:#f8fafc;color:#166534;"><strong>Custom React CRM
             Integration.</strong> Live deal-stage visibility, distributor performance tracking, and automated reporting.
         </td>
       </tr>
@@ -1837,121 +1960,47 @@
             (Systematised)</strong></td>
       </tr>
     </table>
-    <div class="doc-footer"><span>MENA &amp; International Sales Audit Report · v1.0</span><span>Page 11</span></div>
-  </div>
 
-  <!-- ============ APPENDIX: CROSS-DEPARTMENT DEPENDENCIES ============ -->
-  <div class="page">
-    <img src="../letterhead.png" alt="Letterhead"
-      style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
-    <div class="eyebrow">Appendix</div>
-    <h2>Cross-Department Dependencies</h2>
-    <div class="section-dek">Findings and recommendations that require action outside the MENA &amp; International Sales
-      vertical to resolve</div>
+    <h3>Quantified Executive Time Savings</h3>
+    <p style="font-size:8.8pt;color:var(--muted);margin-bottom:10px;">Estimated annual bandwidth reclaimed for the MENA
+      &amp; International Sales Manager by automating payment notifications and trial intake.</p>
 
-    <!-- Logistics -->
-    <div class="dep-card">
-      <div class="dep-header">
-        <div class="dep-title">Logistics</div>
-        <div class="dep-badge">Critical Gating — Dispatch</div>
+    <div class="kpi-strip" style="margin: 14px 0 16px;">
+      <div class="kpi-cell">
+        <div class="kpi-num">~30 min</div>
+        <div class="kpi-lbl">Saved / Shipment</div>
       </div>
-      <div class="dep-grid">
-        <div class="dep-section">
-          <div class="dep-section-title">Operations Dependency <span class="chip chip-info">Capacity Sharing</span>
-          </div>
-          <div class="dep-section-content">
-            The Logistics Manager owns export dispatch windows and is shared with domestic operations. Priority routing
-            for international shipments requires formal scheduling agreement.
-            <div class="dep-person">👤 Key Person: Nihal Paliwal (Logistics)</div>
-          </div>
-        </div>
-        <div class="dep-section bottleneck">
-          <div class="dep-section-title">Critical Bottleneck</div>
-          <div class="dep-section-content">
-            On international dispatch days, 100% of logistics capacity is consumed. Cannot be resolved by MENA alone;
-            requires COO-level mandate for priority routing windows.
-          </div>
-        </div>
-        <div class="dep-section data-sync" style="grid-column:1/-1;">
-          <div class="dep-section-title">Data Transfer &amp; Updates Needed <span class="chip chip-data">Data
-              Flow</span></div>
-          <div class="dep-section-content">
-            Logistics must commit to updating the shared Dispatch Scheduler dashboard in real-time so MENA can track
-            export status without phone calls.
-          </div>
-        </div>
+      <div class="kpi-cell">
+        <div class="kpi-num">40%</div>
+        <div class="kpi-lbl">Trial Setup Accelerated</div>
+      </div>
+      <div class="kpi-cell">
+        <div class="kpi-num">12 hrs</div>
+        <div class="kpi-lbl">Monthly Time Saved</div>
+      </div>
+      <div class="kpi-cell">
+        <div class="kpi-num" style="color:var(--accent);">144 hrs</div>
+        <div class="kpi-lbl">Annual Hours Saved</div>
       </div>
     </div>
 
-    <!-- Finance & Accounts -->
-    <div class="dep-card">
-      <div class="dep-header">
-        <div class="dep-title">Finance &amp; Accounts</div>
-        <div class="dep-badge">Payment Clearance</div>
-      </div>
-      <div class="dep-grid">
-        <div class="dep-section">
-          <div class="dep-section-title">Operations Dependency <span class="chip chip-approval">Approval Flow</span>
-          </div>
-          <div class="dep-section-content">
-            Zoho Books notification configuration for cross-border payments requires Finance access. Dispatch clearance
-            process must be updated.
-            <div class="dep-person">👤 Key Person: Shobha Shekhawat (Finance)</div>
-          </div>
-        </div>
-        <div class="dep-section bottleneck">
-          <div class="dep-section-title">Critical Bottleneck</div>
-          <div class="dep-section-content">
-            Currently, BD must manually warn Accounts before international dispatch can proceed. Preventable dispatch
-            holds occur frequently.
-          </div>
-        </div>
-        <div class="dep-section data-sync" style="grid-column:1/-1;">
-          <div class="dep-section-title">Data Transfer &amp; Updates Needed <span class="chip chip-data">Data
-              Flow</span></div>
-          <div class="dep-section-content">
-            Accounts must update their SOP to rely on the automated Zoho Books API alert rather than the BD Manager's
-            manual warning.
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- R&D and Enterprise IT -->
-    <div class="dep-card">
-      <div class="dep-header">
-        <div class="dep-title">R&amp;D &amp; Enterprise IT</div>
-        <div class="dep-badge">Trial Intake &amp; CRM</div>
-      </div>
-      <div class="dep-grid">
-        <div class="dep-section">
-          <div class="dep-section-title">Operations Dependency <span class="chip chip-info">Co-Design</span></div>
-          <div class="dep-section-content">
-            R&amp;D must co-design the trial request form. Enterprise IT must scope the Zoho CRM rollout to include
-            MENA's specific hierarchy.
-            <div class="dep-person">👤 Key Persons: Ritu Panwar (R&D) / IT Head</div>
-          </div>
-        </div>
-        <div class="dep-section bottleneck">
-          <div class="dep-section-title">Critical Bottleneck</div>
-          <div class="dep-section-content">
-            Standalone CRM implementation by MENA would create data silos. R&D sign-off is needed before the trial
-            intake form goes live.
-          </div>
-        </div>
-        <div class="dep-section data-sync" style="grid-column:1/-1;">
-          <div class="dep-section-title">Data Transfer &amp; Updates Needed <span class="chip chip-data">Data
-              Flow</span></div>
-          <div class="dep-section-content">
-            R&D must define the exact crop/climate parameters required for international trial design. Enterprise IT
-            must ensure Zoho CRM integrates with the broader EF Polymer OS.
-          </div>
-        </div>
-      </div>
+    <div class="callout"
+      style="margin-top:10px;margin-bottom:15px;border-left-color:var(--accent);background:var(--accent-soft);">
+      <strong style="color:var(--ink);font-size:9.5pt;">Bandwidth Reinvestment Breakdown:</strong><br>
+      <ul style="font-size:8.5pt;color:var(--slate);padding-left:16px;margin-top:4px;line-height:1.45;">
+        <li><strong>Current Friction:</strong> Manager manually calls Accounts for international payment warnings before
+          each export dispatch and relies on unstructured email threads for trial intake.</li>
+        <li><strong>Automated Efficiency:</strong> Automated Zoho Books API payment clearance triggers and standardized
+          digital intake forms accelerate setup and remove manual warnings.</li>
+        <li><strong>Strategic Impact:</strong> Reclaims <strong>144 BD hours per year (~18 full working days)</strong>
+          to expand international distributor partnerships across Middle East &amp; EU markets.</li>
+      </ul>
     </div>
 
     <div class="doc-footer"><span>MENA &amp; International Sales Audit Report · v1.0</span><span>Page 12</span></div>
   </div>
+
+  
 
 </body>
 

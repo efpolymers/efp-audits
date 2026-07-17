@@ -273,7 +273,8 @@
       width: 44px;
     }
 
-    td.num {
+    td.num,
+    th.num {
       text-align: center;
       white-space: nowrap;
     }
@@ -568,7 +569,7 @@
     }
 
     .exhibit-chart {
-      flex: 0 0 220px;
+      flex: 0 0 320px;
     }
 
     .exhibit-note {
@@ -980,7 +981,6 @@
       style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
     <div class="eyebrow">Section 02 &mdash; Benchmarking</div>
     <h2>Department Maturity Assessment</h2>
-    <div class="section-dek">Scored 1 (ad hoc) to 5 (optimized) against five capability dimensions</div>
     <div class="exhibit">
       <div class="exhibit-chart">
         <svg viewBox="0 0 400 350" xmlns="http://www.w3.org/2000/svg" style="width:100%;">
@@ -1076,51 +1076,50 @@
     <img src="../letterhead.png" alt="Letterhead"
       style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
     <h3>Team Structure</h3>
-    <p style="font-size:8.5pt;color:var(--muted);margin-bottom:4px;">Reporting hierarchy and current responsibility
-      domains within the Marketing &amp; Retail Sales department.</p>
+    <p style="font-size:8.5pt;color:var(--muted);margin-bottom:4px;">Reporting hierarchy for Marketing &amp; Retail Sales under Puran Singh Rajput (Co-Founder &amp; COO).</p>
     <div class="org-chart">
       <div class="org-level">
-        <div class="org-node lead">
-          <div class="org-name">Gaurav Jain</div>
-          <div class="org-role">Marketing &amp; Retail Sales Head<br>Sales Planning &amp; Operations Lead</div>
-          <span class="org-tag">Lead</span>
+        <div class="org-node secondary">
+          <div class="org-name">Puran Singh Rajput</div>
+          <div class="org-role">Co-Founder &amp; COO<br>Executive Division Head</div>
         </div>
       </div>
       <div class="org-connector-top"></div>
       <div style="width:78%;border-top:1px solid var(--line);margin:0 auto;"></div>
-      <div style="display:flex;justify-content:center;gap:14px;width:100%;margin-top:0;">
-        <div class="org-sub-branch">
+      <div style="display:flex;justify-content:center;gap:20px;width:100%;margin-top:0;">
+        <!-- Retail Sales Branch -->
+        <div class="org-sub-branch" style="align-items:center;">
           <div class="org-connector-top"></div>
-          <div class="org-node">
-            <div class="org-name">Vandana Jain</div>
-            <div class="org-role">Marketing Coordinator<br>Social Media &amp; Collateral</div>
+          <div class="org-node lead">
+            <div class="org-name">Gaurav Jain</div>
+            <div class="org-role">Retail Sales Manager<br>Regional Teams (UP, MP, RJ)</div>
+            <span class="org-tag">Retail Head</span>
           </div>
           <div class="org-connector-top"></div>
-          <div class="org-node secondary" style="max-width:140px;">
-            <div class="org-name">External Vendor</div>
-            <div class="org-role">Content Design<br><em>Per post basis</em></div>
-            <span class="org-tag" style="background:var(--risk-low-bg);color:var(--risk-low-fg);">Vendor</span>
+          <div style="display:flex;gap:8px;">
+            <div class="org-node field" style="max-width:130px;">
+              <div class="org-name">RSMs &amp; ASMs</div>
+              <div class="org-role">Regional &amp; Area Managers</div>
+            </div>
+            <div class="org-node field" style="max-width:130px;">
+              <div class="org-name">FSMs &amp; Field Execs</div>
+              <div class="org-role">Field Sales Executives</div>
+            </div>
           </div>
         </div>
-        <div class="org-sub-branch">
+
+        <!-- Marketing Branch -->
+        <div class="org-sub-branch" style="align-items:center;">
           <div class="org-connector-top"></div>
-          <div class="org-node">
-            <div class="org-name">Kamakshi Sankhla</div>
-            <div class="org-role">Field Tracker &amp; Quality Executive<br>Attendance, CRM &amp; PO Operations</div>
-          </div>
-        </div>
-        <div class="org-sub-branch">
-          <div class="org-connector-top"></div>
-          <div class="org-node field">
-            <div class="org-name">RSMs (Multiple)</div>
-            <div class="org-role">Regional Sales Managers<br>Dealer &amp; farmer visits</div>
-            <span class="org-tag field">Field Force</span>
+          <div class="org-node vacant">
+            <div class="org-name">Position Vacant</div>
+            <div class="org-role">Marketing Manager<br>Digital Marketing &amp; SEO Lead</div>
+            <span class="org-tag vacant-tag">Hiring</span>
           </div>
           <div class="org-connector-top"></div>
-          <div class="org-node field" style="max-width:140px;">
-            <div class="org-name">ASMs (Multiple)</div>
-            <div class="org-role">Area Sales Managers<br><em>Ground-level farmer meetings</em></div>
-            <span class="org-tag field">Field Force</span>
+          <div class="org-node" style="max-width:150px;">
+            <div class="org-name">Digital Marketing &amp; SEO</div>
+            <div class="org-role">Vandana Jain (Coordinator)<br>&amp; Executive Support</div>
           </div>
         </div>
       </div>
@@ -1220,46 +1219,49 @@
           <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5" />
         </marker>
       </defs>
-      <rect x="8" y="20" width="130" height="52" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
-      <text x="73" y="37" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Location Drop + Photo</text>
-      <text x="73" y="49" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">Task:
+      <rect x="8" y="26" width="130" height="52" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <rect x="23" y="18" width="100" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75" />
+      <text x="73" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">DATA INPUT</text>
+      <text x="73" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Location Drop + Photo</text>
+      <text x="73" y="56.0" text-anchor="middle" font-size="6.5" fill="#6B7785" font-family="Segoe UI,sans-serif">Task:
         RSM/ASM (Field)</text>
-      <text x="73" y="60" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">Via
+      <text x="73" y="67.0" text-anchor="middle" font-size="6.5" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Via
         WhatsApp Group</text>
-      <line x1="138" y1="46" x2="152" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)" />
-      <rect x="154" y="20" width="130" height="52" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
-      <text x="219" y="37" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Timestamp Check</text>
-      <text x="219" y="49" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">Task:
+      <line x1="138" y1="50" x2="152" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)" />
+      <rect x="154" y="26" width="130" height="52" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <rect x="169" y="18" width="100" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75" />
+      <text x="219" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">VERIFICATION</text>
+      <text x="219" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Timestamp Check</text>
+      <text x="219" y="56.0" text-anchor="middle" font-size="6.5" fill="#6B7785" font-family="Segoe UI,sans-serif">Task:
         Kamakshi (Manual)</text>
-      <text x="219" y="60" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">Reads
+      <text x="219" y="67.0" text-anchor="middle" font-size="6.5" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Reads
         WhatsApp message</text>
-      <line x1="284" y1="46" x2="298" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)" />
-      <rect x="300" y="10" width="130" height="72" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
-      <text x="365" y="30" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Match Home/Field Ref</text>
-      <text x="365" y="42" text-anchor="middle" font-size="6.5" fill="#C0453A" font-family="Segoe UI,sans-serif">Action:
+      <line x1="284" y1="50" x2="298" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)" />
+      <rect x="300" y="26" width="130" height="72" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
+      <rect x="315" y="18" width="100" height="15" rx="3" fill="#A32E24" stroke="#A32E24" stroke-width="0.75" />
+      <text x="365" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">BOTTLENECK</text>
+      <text x="365" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#A32E24" font-family="Segoe UI,sans-serif">Match Home/Field Ref</text>
+      <text x="365" y="56.0" text-anchor="middle" font-size="7.4" fill="#A32E24" font-family="Segoe UI,sans-serif">Action:
         Kamakshi (Manual)</text>
-      <text x="365" y="54" text-anchor="middle" font-size="6.5" fill="#C0453A"
-        font-family="Segoe UI,sans-serif">Compares GPS vs.</text>
-      <text x="365" y="65" text-anchor="middle" font-size="6.5" fill="#C0453A" font-family="Segoe UI,sans-serif">saved
+      <text x="365" y="67.0" text-anchor="middle" font-size="7.4" fill="#A32E24" font-family="Segoe UI,sans-serif">Compares GPS vs.</text>
+      <text x="365" y="67.0" text-anchor="middle" font-size="7.4" fill="#A32E24" font-family="Segoe UI,sans-serif">saved
         home/field coords</text>
-      <line x1="430" y1="46" x2="444" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)" />
-      <rect x="446" y="20" width="130" height="52" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
-      <text x="511" y="37" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Update Attendance Excel</text>
-      <text x="511" y="49" text-anchor="middle" font-size="6.5" fill="#C0453A" font-family="Segoe UI,sans-serif">Task:
+      <line x1="430" y1="50" x2="444" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)" />
+      <rect x="446" y="26" width="130" height="52" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
+      <rect x="461" y="18" width="100" height="15" rx="3" fill="#A32E24" stroke="#A32E24" stroke-width="0.75" />
+      <text x="511" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">BOTTLENECK</text>
+      <text x="511" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#A32E24" font-family="Segoe UI,sans-serif">Update Attendance Excel</text>
+      <text x="511" y="56.0" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">Task:
         Kamakshi (Manual)</text>
-      <text x="511" y="60" text-anchor="middle" font-size="6.5" fill="#C0453A"
-        font-family="Segoe UI,sans-serif">3&times; per day, all salespeople</text>
-      <line x1="576" y1="46" x2="590" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)" />
-      <rect x="592" y="20" width="130" height="52" rx="3" fill="#E9F4EC" stroke="#92C7A3" stroke-width="1" />
-      <text x="657" y="37" text-anchor="middle" font-size="7.6" fill="#276B3E" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Attendance Recorded</text>
-      <text x="657" y="49" text-anchor="middle" font-size="6.5" fill="#3D8A5C" font-family="Segoe UI,sans-serif">Task:
+      <text x="511" y="67.0" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">3&times; per day, all salespeople</text>
+      <line x1="576" y1="50" x2="590" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)" />
+      <rect x="592" y="26" width="130" height="52" rx="3" fill="#E9F4EC" stroke="#92C7A3" stroke-width="1.5" />
+      <rect x="607" y="18" width="100" height="15" rx="3" fill="#276B3E" stroke="#276B3E" stroke-width="0.75" />
+      <text x="657" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">COMPLETE</text>
+      <text x="657" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#276B3E" font-family="Segoe UI,sans-serif">Attendance Recorded</text>
+      <text x="657" y="56.0" text-anchor="middle" font-size="6.5" fill="#276B3E" font-family="Segoe UI,sans-serif">Task:
         Cycle Complete</text>
-      <text x="657" y="60" text-anchor="middle" font-size="6.5" fill="#3D8A5C" font-family="Segoe UI,sans-serif">Repeats
+      <text x="657" y="67.0" text-anchor="middle" font-size="6.5" fill="#276B3E" font-family="Segoe UI,sans-serif">Repeats
         3&times; daily</text>
     </svg>
     <div class="flow-note">
@@ -1281,44 +1283,48 @@
           <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5" />
         </marker>
       </defs>
-      <rect x="8" y="20" width="130" height="52" rx="3" fill="#F4E8FB" stroke="#A772D9" stroke-width="1.5" />
-      <text x="73" y="37" text-anchor="middle" font-size="7.6" fill="#603487" font-family="Segoe UI,sans-serif"
-        font-weight="bold">ASM Field Visit</text>
-      <text x="73" y="49" text-anchor="middle" font-size="6.5" fill="#814BAF" font-family="Segoe UI,sans-serif">Action:
+      <rect x="8" y="26" width="130" height="52" rx="3" fill="#F4EEFC" stroke="#6b4fc8" stroke-width="1.5" />
+      <rect x="23" y="18" width="100" height="15" rx="3" fill="#6b4fc8" stroke="#6b4fc8" stroke-width="0.75" />
+      <text x="73" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">FIELD VISIT</text>
+      <text x="73" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#6b4fc8" font-family="Segoe UI,sans-serif">ASM Field Visit</text>
+      <text x="73" y="56.0" text-anchor="middle" font-size="6.5" fill="#6b4fc8" font-family="Segoe UI,sans-serif">Action:
         ASM (External)</text>
-      <text x="73" y="60" text-anchor="middle" font-size="6.5" fill="#814BAF" font-family="Segoe UI,sans-serif">Farmer
+      <text x="73" y="67.0" text-anchor="middle" font-size="6.5" fill="#6b4fc8" font-family="Segoe UI,sans-serif">Farmer
         name, contact, problem</text>
-      <line x1="138" y1="46" x2="152" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)" />
-      <rect x="154" y="20" width="130" height="52" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
-      <text x="219" y="37" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif"
-        font-weight="bold">WhatsApp Msg + Photo</text>
-      <text x="219" y="49" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">Task:
+      <line x1="138" y1="50" x2="152" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)" />
+      <rect x="154" y="26" width="130" height="52" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <rect x="169" y="18" width="100" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75" />
+      <text x="219" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">OUTREACH</text>
+      <text x="219" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">WhatsApp Msg + Photo</text>
+      <text x="219" y="56.0" text-anchor="middle" font-size="6.5" fill="#6B7785" font-family="Segoe UI,sans-serif">Task:
         ASM to RSM Group</text>
-      <text x="219" y="60" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">Visit
+      <text x="219" y="67.0" text-anchor="middle" font-size="6.5" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Visit
         photo + field notes</text>
-      <line x1="284" y1="46" x2="298" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)" />
-      <rect x="300" y="20" width="130" height="52" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
-      <text x="365" y="37" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Manual CRM Data Entry</text>
-      <text x="365" y="49" text-anchor="middle" font-size="6.5" fill="#C0453A" font-family="Segoe UI,sans-serif">Task:
+      <line x1="284" y1="50" x2="298" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)" />
+      <rect x="300" y="26" width="130" height="52" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
+      <rect x="315" y="18" width="100" height="15" rx="3" fill="#A32E24" stroke="#A32E24" stroke-width="0.75" />
+      <text x="365" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">BOTTLENECK</text>
+      <text x="365" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#A32E24" font-family="Segoe UI,sans-serif">Manual CRM Data Entry</text>
+      <text x="365" y="56.0" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">Task:
         Kamakshi (Manual)</text>
-      <text x="365" y="60" text-anchor="middle" font-size="6.5" fill="#C0453A"
-        font-family="Segoe UI,sans-serif">WhatsApp to Google Sheet</text>
-      <line x1="430" y1="46" x2="444" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)" />
-      <rect x="446" y="20" width="130" height="52" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
-      <text x="511" y="37" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Verification Call</text>
-      <text x="511" y="49" text-anchor="middle" font-size="6.5" fill="#C0453A" font-family="Segoe UI,sans-serif">Task:
+      <text x="365" y="67.0" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">WhatsApp to Google Sheet</text>
+      <line x1="430" y1="50" x2="444" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)" />
+      <rect x="446" y="26" width="130" height="52" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
+      <rect x="461" y="18" width="100" height="15" rx="3" fill="#A32E24" stroke="#A32E24" stroke-width="0.75" />
+      <text x="511" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">BOTTLENECK</text>
+      <text x="511" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#A32E24" font-family="Segoe UI,sans-serif">Verification Call</text>
+      <text x="511" y="56.0" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">Task:
         Kamakshi (Manual)</text>
-      <text x="511" y="60" text-anchor="middle" font-size="6.5" fill="#C0453A" font-family="Segoe UI,sans-serif">Calls
+      <text x="511" y="67.0" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">Calls
         farmer/dealer to confirm</text>
-      <line x1="576" y1="46" x2="590" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)" />
-      <rect x="592" y="20" width="130" height="52" rx="3" fill="#E9F4EC" stroke="#92C7A3" stroke-width="1" />
-      <text x="657" y="37" text-anchor="middle" font-size="7.6" fill="#276B3E" font-family="Segoe UI,sans-serif"
-        font-weight="bold">CRM Sheet Updated</text>
-      <text x="657" y="49" text-anchor="middle" font-size="6.5" fill="#3D8A5C" font-family="Segoe UI,sans-serif">Task:
+      <line x1="576" y1="50" x2="590" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)" />
+      <rect x="592" y="26" width="130" height="52" rx="3" fill="#E9F4EC" stroke="#92C7A3" stroke-width="1.5" />
+      <rect x="607" y="18" width="100" height="15" rx="3" fill="#276B3E" stroke="#276B3E" stroke-width="0.75" />
+      <text x="657" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">COMPLETE</text>
+      <text x="657" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#276B3E" font-family="Segoe UI,sans-serif">CRM Sheet Updated</text>
+      <text x="657" y="56.0" text-anchor="middle" font-size="6.5" fill="#276B3E" font-family="Segoe UI,sans-serif">Task:
         Record Verified</text>
-      <text x="657" y="60" text-anchor="middle" font-size="6.5" fill="#3D8A5C" font-family="Segoe UI,sans-serif">Drive
+      <text x="657" y="67.0" text-anchor="middle" font-size="6.5" fill="#276B3E" font-family="Segoe UI,sans-serif">Drive
         photo uploaded</text>
     </svg>
     <div class="flow-note">
@@ -1348,66 +1354,64 @@
           <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5" />
         </marker>
       </defs>
-      <rect x="8" y="20" width="107" height="60" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
-      <text x="61.5" y="38" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Hand-written PO</text>
-      <text x="61.5" y="50" text-anchor="middle" font-size="6.5" fill="#C0453A" font-family="Segoe UI,sans-serif">Task:
+      <rect x="8" y="26" width="107" height="60" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
+      <rect x="23" y="18" width="77" height="15" rx="3" fill="#A32E24" stroke="#A32E24" stroke-width="0.75" />
+      <text x="62" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">BOTTLENECK</text>
+      <text x="62" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#A32E24" font-family="Segoe UI,sans-serif">Hand-written PO</text>
+      <text x="62" y="56.0" text-anchor="middle" font-size="7.4" fill="#A32E24" font-family="Segoe UI,sans-serif">Task:
         RSM (Field)</text>
-      <text x="61.5" y="62" text-anchor="middle" font-size="6.5" fill="#C0453A" font-family="Segoe UI,sans-serif">Shared
+      <text x="62" y="67.0" text-anchor="middle" font-size="7.4" fill="#A32E24" font-family="Segoe UI,sans-serif">Shared
         as photo</text>
-      <text x="61.5" y="73" text-anchor="middle" font-size="6.5" fill="#C0453A" font-family="Segoe UI,sans-serif">on
+      <text x="62" y="67.0" text-anchor="middle" font-size="7.4" fill="#A32E24" font-family="Segoe UI,sans-serif">on
         WhatsApp</text>
       <line x1="115" y1="50" x2="129" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w3a)" />
-      <rect x="131" y="20" width="107" height="60" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
-      <text x="184.5" y="38" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Read PO &amp; Create Bill</text>
-      <text x="184.5" y="50" text-anchor="middle" font-size="6.5" fill="#C0453A" font-family="Segoe UI,sans-serif">Task:
+      <rect x="131" y="26" width="107" height="60" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
+      <rect x="146" y="18" width="77" height="15" rx="3" fill="#A32E24" stroke="#A32E24" stroke-width="0.75" />
+      <text x="184" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">BOTTLENECK</text>
+      <text x="184" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#A32E24" font-family="Segoe UI,sans-serif">Read PO &amp; Create Bill</text>
+      <text x="184" y="56.0" text-anchor="middle" font-size="7.4" fill="#A32E24" font-family="Segoe UI,sans-serif">Task:
         Kamakshi (Manual)</text>
-      <text x="184.5" y="62" text-anchor="middle" font-size="6.5" fill="#C0453A" font-family="Segoe UI,sans-serif">No
+      <text x="184" y="67.0" text-anchor="middle" font-size="7.4" fill="#A32E24" font-family="Segoe UI,sans-serif">No
         validation layer</text>
-      <text x="184.5" y="73" text-anchor="middle" font-size="6.5" fill="#C0453A" font-family="Segoe UI,sans-serif">or
+      <text x="184" y="67.0" text-anchor="middle" font-size="7.4" fill="#A32E24" font-family="Segoe UI,sans-serif">or
         digital form</text>
       <line x1="238" y1="50" x2="252" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w3a)" />
-      <rect x="254" y="20" width="107" height="60" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
-      <text x="307.5" y="38" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Bill to Logistics</text>
-      <text x="307.5" y="50" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">Task:
+      <rect x="254" y="26" width="107" height="60" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <rect x="269" y="18" width="77" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75" />
+      <text x="308" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">FINANCE</text>
+      <text x="308" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Bill to Logistics</text>
+      <text x="308" y="56.0" text-anchor="middle" font-size="7.4" fill="#6B7785" font-family="Segoe UI,sans-serif">Task:
         Kamakshi</text>
-      <text x="307.5" y="62" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">Via
+      <text x="308" y="67.0" text-anchor="middle" font-size="7.4" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Via
         WhatsApp/Email</text>
-      <text x="307.5" y="73" text-anchor="middle" font-size="6.5" fill="#6B7A8D"
-        font-family="Segoe UI,sans-serif">simultaneously</text>
+      <text x="308" y="67.0" text-anchor="middle" font-size="7.4" fill="#3F4B5C" font-family="Segoe UI,sans-serif">simultaneously</text>
       <line x1="361" y1="50" x2="375" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w3a)" />
-      <rect x="377" y="10" width="107" height="80" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
-      <text x="430.5" y="28" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Payment Verification</text>
-      <text x="430.5" y="40" text-anchor="middle" font-size="6.5" fill="#C0453A"
-        font-family="Segoe UI,sans-serif">Action: Gaurav (Manual)</text>
-      <text x="430.5" y="52" text-anchor="middle" font-size="6.5" fill="#A32E24"
-        font-family="Segoe UI,sans-serif">Monitors WhatsApp for</text>
-      <text x="430.5" y="63" text-anchor="middle" font-size="6.5" fill="#A32E24"
-        font-family="Segoe UI,sans-serif">payment screenshot,</text>
-      <text x="430.5" y="74" text-anchor="middle" font-size="6.5" fill="#A32E24"
-        font-family="Segoe UI,sans-serif">confirms with Accounts</text>
+      <rect x="377" y="26" width="107" height="80" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
+      <rect x="392" y="18" width="77" height="15" rx="3" fill="#A32E24" stroke="#A32E24" stroke-width="0.75" />
+      <text x="430" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">BOTTLENECK</text>
+      <text x="430" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#A32E24" font-family="Segoe UI,sans-serif">Payment Verification</text>
+      <text x="430" y="56.0" text-anchor="middle" font-size="7.4" fill="#A32E24" font-family="Segoe UI,sans-serif">Action: Gaurav (Manual)</text>
+      <text x="430" y="67.0" text-anchor="middle" font-size="7.4" fill="#A32E24" font-family="Segoe UI,sans-serif">Monitors WhatsApp for</text>
+      <text x="430" y="67.0" text-anchor="middle" font-size="7.4" fill="#A32E24" font-family="Segoe UI,sans-serif">payment screenshot,</text>
+      <text x="430" y="67.0" text-anchor="middle" font-size="7.4" fill="#A32E24" font-family="Segoe UI,sans-serif">confirms with Accounts</text>
       <line x1="484" y1="50" x2="498" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w3a)" />
-      <rect x="500" y="20" width="107" height="60" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
-      <text x="553.5" y="38" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Dispatch Authorized</text>
-      <text x="553.5" y="50" text-anchor="middle" font-size="6.5" fill="#6B7A8D"
-        font-family="Segoe UI,sans-serif">Action: Gaurav</text>
-      <text x="553.5" y="62" text-anchor="middle" font-size="6.5" fill="#6B7A8D"
-        font-family="Segoe UI,sans-serif">WhatsApp to Logistics</text>
-      <text x="553.5" y="73" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">&amp;
+      <rect x="500" y="26" width="107" height="60" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <rect x="515" y="18" width="77" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75" />
+      <text x="554" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">LOGISTICS</text>
+      <text x="554" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Dispatch Authorized</text>
+      <text x="554" y="56.0" text-anchor="middle" font-size="7.4" fill="#6B7785" font-family="Segoe UI,sans-serif">Action: Gaurav</text>
+      <text x="554" y="67.0" text-anchor="middle" font-size="7.4" fill="#3F4B5C" font-family="Segoe UI,sans-serif">WhatsApp to Logistics</text>
+      <text x="554" y="67.0" text-anchor="middle" font-size="7.4" fill="#3F4B5C" font-family="Segoe UI,sans-serif">&amp;
         Production</text>
       <line x1="607" y1="50" x2="621" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w3a)" />
-      <rect x="623" y="20" width="107" height="60" rx="3" fill="#E9F4EC" stroke="#92C7A3" stroke-width="1" />
-      <text x="676.5" y="38" text-anchor="middle" font-size="7.6" fill="#276B3E" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Order Dispatched</text>
-      <text x="676.5" y="50" text-anchor="middle" font-size="6.5" fill="#3D8A5C"
-        font-family="Segoe UI,sans-serif">Action: Logistics</text>
-      <text x="676.5" y="62" text-anchor="middle" font-size="6.5" fill="#3D8A5C" font-family="Segoe UI,sans-serif">Drive
+      <rect x="623" y="26" width="107" height="60" rx="3" fill="#E9F4EC" stroke="#92C7A3" stroke-width="1.5" />
+      <rect x="638" y="18" width="77" height="15" rx="3" fill="#276B3E" stroke="#276B3E" stroke-width="0.75" />
+      <text x="676" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">COMPLETE</text>
+      <text x="676" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#276B3E" font-family="Segoe UI,sans-serif">Order Dispatched</text>
+      <text x="676" y="56.0" text-anchor="middle" font-size="7.4" fill="#276B3E" font-family="Segoe UI,sans-serif">Action: Logistics</text>
+      <text x="676" y="67.0" text-anchor="middle" font-size="7.4" fill="#276B3E" font-family="Segoe UI,sans-serif">Drive
         upload (manual)</text>
-      <text x="676.5" y="73" text-anchor="middle" font-size="6.5" fill="#3D8A5C" font-family="Segoe UI,sans-serif">+
+      <text x="676" y="67.0" text-anchor="middle" font-size="7.4" fill="#276B3E" font-family="Segoe UI,sans-serif">+
         Sheets entry</text>
     </svg>
     <div class="flow-note">
@@ -1431,48 +1435,53 @@
           <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5" />
         </marker>
       </defs>
-      <rect x="8" y="20" width="130" height="52" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
-      <text x="73" y="37" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Monthly MIS Plan Set</text>
-      <text x="73" y="49" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">Task:
+      <rect x="8" y="26" width="130" height="52" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <rect x="23" y="18" width="100" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75" />
+      <text x="73" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">PLANNING</text>
+      <text x="73" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Monthly MIS Plan Set</text>
+      <text x="73" y="56.0" text-anchor="middle" font-size="6.5" fill="#6B7785" font-family="Segoe UI,sans-serif">Task:
         Gaurav</text>
-      <text x="73" y="60" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">State to
+      <text x="73" y="67.0" text-anchor="middle" font-size="6.5" fill="#3F4B5C" font-family="Segoe UI,sans-serif">State to
         district to person</text>
-      <line x1="138" y1="46" x2="152" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w4a)" />
-      <rect x="154" y="20" width="130" height="52" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
-      <text x="219" y="37" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Navigate Zoho Books</text>
-      <text x="219" y="49" text-anchor="middle" font-size="6.5" fill="#C0453A" font-family="Segoe UI,sans-serif">Task:
+      <line x1="138" y1="50" x2="152" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w4a)" />
+      <rect x="154" y="26" width="130" height="52" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
+      <rect x="169" y="18" width="100" height="15" rx="3" fill="#A32E24" stroke="#A32E24" stroke-width="0.75" />
+      <text x="219" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">BOTTLENECK</text>
+      <text x="219" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#A32E24" font-family="Segoe UI,sans-serif">Navigate Zoho Books</text>
+      <text x="219" y="56.0" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">Task:
         Gaurav (Manual)</text>
-      <text x="219" y="60" text-anchor="middle" font-size="6.5" fill="#C0453A" font-family="Segoe UI,sans-serif">Reports
+      <text x="219" y="67.0" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">Reports
         to Sales to Customer</text>
-      <line x1="284" y1="46" x2="298" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w4a)" />
-      <rect x="300" y="10" width="130" height="72" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
-      <text x="365" y="28" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Manual Qty Calculation</text>
-      <text x="365" y="40" text-anchor="middle" font-size="6.5" fill="#C0453A" font-family="Segoe UI,sans-serif">Action:
+      <line x1="284" y1="50" x2="298" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w4a)" />
+      <rect x="300" y="26" width="130" height="72" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
+      <rect x="315" y="18" width="100" height="15" rx="3" fill="#A32E24" stroke="#A32E24" stroke-width="0.75" />
+      <text x="365" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">BOTTLENECK</text>
+      <text x="365" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#A32E24" font-family="Segoe UI,sans-serif">Manual Qty Calculation</text>
+      <text x="365" y="56.0" text-anchor="middle" font-size="7.4" fill="#A32E24" font-family="Segoe UI,sans-serif">Action:
         Gaurav (Manual)</text>
-      <text x="365" y="52" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">Zoho
+      <text x="365" y="67.0" text-anchor="middle" font-size="7.4" fill="#A32E24" font-family="Segoe UI,sans-serif">Zoho
         shows invoice value</text>
-      <text x="365" y="63" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">only
+      <text x="365" y="67.0" text-anchor="middle" font-size="7.4" fill="#A32E24" font-family="Segoe UI,sans-serif">only
         &mdash; qty computed</text>
-      <text x="365" y="74" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">from
+      <text x="365" y="67.0" text-anchor="middle" font-size="7.4" fill="#A32E24" font-family="Segoe UI,sans-serif">from
         line items manually</text>
-      <line x1="430" y1="46" x2="444" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w4a)" />
-      <rect x="446" y="20" width="130" height="52" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1" />
-      <text x="511" y="37" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Enter Actuals in MIS Sheet</text>
-      <text x="511" y="49" text-anchor="middle" font-size="6.5" fill="#C0453A" font-family="Segoe UI,sans-serif">Task:
+      <line x1="430" y1="50" x2="444" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w4a)" />
+      <rect x="446" y="26" width="130" height="52" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
+      <rect x="461" y="18" width="100" height="15" rx="3" fill="#A32E24" stroke="#A32E24" stroke-width="0.75" />
+      <text x="511" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">BOTTLENECK</text>
+      <text x="511" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#A32E24" font-family="Segoe UI,sans-serif">Enter Actuals in MIS Sheet</text>
+      <text x="511" y="56.0" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">Task:
         Gaurav (Manual)</text>
-      <text x="511" y="60" text-anchor="middle" font-size="6.5" fill="#C0453A" font-family="Segoe UI,sans-serif">No
+      <text x="511" y="67.0" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">No
         automated Zoho sync</text>
-      <line x1="576" y1="46" x2="590" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w4a)" />
-      <rect x="592" y="20" width="130" height="52" rx="3" fill="#E9F4EC" stroke="#92C7A3" stroke-width="1" />
-      <text x="657" y="37" text-anchor="middle" font-size="7.6" fill="#276B3E" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Target vs. Actual Report</text>
-      <text x="657" y="49" text-anchor="middle" font-size="6.5" fill="#3D8A5C" font-family="Segoe UI,sans-serif">Task:
+      <line x1="576" y1="50" x2="590" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w4a)" />
+      <rect x="592" y="26" width="130" height="52" rx="3" fill="#E9F4EC" stroke="#92C7A3" stroke-width="1.5" />
+      <rect x="607" y="18" width="100" height="15" rx="3" fill="#276B3E" stroke="#276B3E" stroke-width="0.75" />
+      <text x="657" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">COMPLETE</text>
+      <text x="657" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#276B3E" font-family="Segoe UI,sans-serif">Target vs. Actual Report</text>
+      <text x="657" y="56.0" text-anchor="middle" font-size="6.5" fill="#276B3E" font-family="Segoe UI,sans-serif">Task:
         Gaurav reviews</text>
-      <text x="657" y="60" text-anchor="middle" font-size="6.5" fill="#3D8A5C" font-family="Segoe UI,sans-serif">RSM
+      <text x="657" y="67.0" text-anchor="middle" font-size="6.5" fill="#276B3E" font-family="Segoe UI,sans-serif">RSM
         follow-up via WhatsApp</text>
     </svg>
     <div class="flow-note">
@@ -1502,38 +1511,41 @@
           <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5" />
         </marker>
       </defs>
-      <rect x="8" y="20" width="165" height="52" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
-      <text x="90" y="37" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Monthly Content Calendar</text>
-      <text x="90" y="49" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">Task:
+      <rect x="8" y="26" width="165" height="52" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <rect x="23" y="18" width="135" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75" />
+      <text x="90" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">PLANNING</text>
+      <text x="90" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Monthly Content Calendar</text>
+      <text x="90" y="56.0" text-anchor="middle" font-size="6.5" fill="#6B7785" font-family="Segoe UI,sans-serif">Task:
         Vandana (Google Sheets)</text>
-      <text x="90" y="60" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">Events,
+      <text x="90" y="67.0" text-anchor="middle" font-size="6.5" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Events,
         farmer results, product highlights</text>
-      <line x1="173" y1="46" x2="191" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w5a)" />
-      <rect x="193" y="20" width="165" height="52" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
-      <text x="275" y="37" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Content Design</text>
-      <text x="275" y="49" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">Action:
+      <line x1="173" y1="50" x2="191" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w5a)" />
+      <rect x="193" y="26" width="165" height="52" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <rect x="208" y="18" width="135" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75" />
+      <text x="276" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">CREATIVE</text>
+      <text x="276" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Content Design</text>
+      <text x="276" y="56.0" text-anchor="middle" font-size="6.5" fill="#6B7785" font-family="Segoe UI,sans-serif">Action:
         External Vendor</text>
-      <text x="275" y="60" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">Per
+      <text x="276" y="67.0" text-anchor="middle" font-size="6.5" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Per
         post, coordinated by Vandana</text>
-      <line x1="358" y1="46" x2="376" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w5a)" />
-      <rect x="378" y="20" width="165" height="52" rx="3" fill="#FBF1DF" stroke="#D9B870" stroke-width="1.5" />
-      <text x="460" y="37" text-anchor="middle" font-size="7.6" fill="#8A5A10" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Manual Posting</text>
-      <text x="460" y="49" text-anchor="middle" font-size="6.5" fill="#8A5A10" font-family="Segoe UI,sans-serif">Task:
+      <line x1="358" y1="50" x2="376" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w5a)" />
+      <rect x="378" y="26" width="165" height="52" rx="3" fill="#FEF9EC" stroke="#E8D08A" stroke-width="1.5" />
+      <rect x="393" y="18" width="135" height="15" rx="3" fill="#8A5A10" stroke="#8A5A10" stroke-width="0.75" />
+      <text x="460" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">BOTTLENECK</text>
+      <text x="460" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#8A5A10" font-family="Segoe UI,sans-serif">Manual Posting</text>
+      <text x="460" y="56.0" text-anchor="middle" font-size="6.5" fill="#8A5A10" font-family="Segoe UI,sans-serif">Task:
         Vandana (Manual)</text>
-      <text x="460" y="60" text-anchor="middle" font-size="6.5" fill="#8A5A10"
-        font-family="Segoe UI,sans-serif">LinkedIn, Facebook, Instagram</text>
-      <line x1="543" y1="46" x2="561" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w5a)" />
-      <rect x="563" y="20" width="165" height="52" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
-      <text x="645" y="34" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif"
-        font-weight="bold">No Unified Analytics</text>
-      <text x="645" y="46" text-anchor="middle" font-size="6.5" fill="#C0453A" font-family="Segoe UI,sans-serif">Action:
+      <text x="460" y="67.0" text-anchor="middle" font-size="6.5" fill="#8A5A10" font-family="Segoe UI,sans-serif">LinkedIn, Facebook, Instagram</text>
+      <line x1="543" y1="50" x2="561" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w5a)" />
+      <rect x="563" y="26" width="165" height="52" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
+      <rect x="578" y="18" width="135" height="15" rx="3" fill="#A32E24" stroke="#A32E24" stroke-width="0.75" />
+      <text x="646" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">BOTTLENECK</text>
+      <text x="646" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#A32E24" font-family="Segoe UI,sans-serif">No Unified Analytics</text>
+      <text x="646" y="56.0" text-anchor="middle" font-size="7.4" fill="#A32E24" font-family="Segoe UI,sans-serif">Action:
         Per-platform check</text>
-      <text x="645" y="57" text-anchor="middle" font-size="6.5" fill="#C0453A" font-family="Segoe UI,sans-serif">No
+      <text x="646" y="67.0" text-anchor="middle" font-size="7.4" fill="#A32E24" font-family="Segoe UI,sans-serif">No
         consolidated view</text>
-      <text x="645" y="68" text-anchor="middle" font-size="6.5" fill="#C0453A" font-family="Segoe UI,sans-serif">of
+      <text x="646" y="67.0" text-anchor="middle" font-size="7.4" fill="#A32E24" font-family="Segoe UI,sans-serif">of
         performance data</text>
     </svg>
     <div class="flow-note">
@@ -1612,7 +1624,7 @@
       </div>
       <div class="dep-grid">
         <div class="dep-section">
-          <div class="dep-section-title">Operations Dependency <span class="chip-info-dep">Approval Flow</span></div>
+          <div class="dep-section-title">Operations Dependency</div>
           <div class="dep-section-content">Marketing &amp; Retail Sales requires Accounts to confirm payment receipt
             before Gaurav can authorize dispatch. This payment confirmation loop runs entirely through WhatsApp and
             email with no structured handoff system.<div class="dep-person">&#128100; Key Person: Gaurav Jain (Sales
@@ -1626,8 +1638,7 @@
             at the Accounts end stalls dispatch directly.</div>
         </div>
         <div class="dep-section data-sync" style="grid-column:1/-1;">
-          <div class="dep-section-title">Data Transfer &amp; Updates Needed <span class="chip-data">Data Flow</span>
-          </div>
+          <div class="dep-section-title">Data Transfer &amp; Updates Needed</div>
           <div class="dep-section-content">Zoho Books invoice and payment data must be integrated via API directly into
             the MIS Sales Dashboard. A structured payment confirmation workflow must be built to replace the current
             WhatsApp-based verification loop, providing Gaurav with an automated confirmation trigger before dispatch
@@ -1643,7 +1654,7 @@
       </div>
       <div class="dep-grid">
         <div class="dep-section">
-          <div class="dep-section-title">Operations Dependency <span class="chip-approval">Handoff</span></div>
+          <div class="dep-section-title">Operations Dependency</div>
           <div class="dep-section-content">Every retail order flows from RSM (hand-written PO image on WhatsApp) &rarr;
             Marketing team (bill creation) &rarr; Logistics (dispatch) &rarr; Production (quantity and SKU pick). This
             is a 4-department chain with no digital handoff at any stage.<div class="dep-person">&#128100; Key Person:
@@ -1657,8 +1668,7 @@
             invoice manually, with no system check.</div>
         </div>
         <div class="dep-section data-sync" style="grid-column:1/-1;">
-          <div class="dep-section-title">Data Transfer &amp; Updates Needed <span class="chip-data">Data Flow</span>
-          </div>
+          <div class="dep-section-title">Data Transfer &amp; Updates Needed</div>
           <div class="dep-section-content">A digital PO intake form must be deployed for RSMs and ASMs. On submission,
             the form must auto-generate a structured bill and route it directly to Logistics and Production, removing
             the manual WhatsApp-to-bill conversion step. Dispatch confirmations should feed back automatically to the
@@ -1674,8 +1684,7 @@
       </div>
       <div class="dep-grid">
         <div class="dep-section">
-          <div class="dep-section-title">Operations Dependency <span class="chip-info-dep">Information Sharing</span>
-          </div>
+          <div class="dep-section-title">Operations Dependency</div>
           <div class="dep-section-content">CXOs currently rely on Gaurav to extract and present monthly sales
             performance data. There is no automated reporting or dashboard giving leadership real-time visibility into
             target vs. actual performance by state/district/person.<div class="dep-person">&#128100; Key Person: Gaurav
@@ -1689,8 +1698,7 @@
             sales strategy impossible.</div>
         </div>
         <div class="dep-section data-sync" style="grid-column:1/-1;">
-          <div class="dep-section-title">Data Transfer &amp; Updates Needed <span class="chip-data">Data Flow</span>
-          </div>
+          <div class="dep-section-title">Data Transfer &amp; Updates Needed</div>
           <div class="dep-section-content">The Sales Dashboard must include a CXO-level read-only view with role-based
             access. This view should display national sales performance, state-wise target vs. actual progress, and
             payment status in real time &mdash; eliminating the manual reporting cycle entirely and enabling leadership
@@ -2036,8 +2044,7 @@
         <div class="sow-item"><span class="sow-dot p1"></span><span><strong>Build:</strong> Auto-document routing
             &mdash; PO images, payment receipts, and visit photos automatically uploaded to structured Drive folders
             with naming conventions.</span></div>
-        <div class="sow-item"><span class="sow-dot p1"></span><span><strong>Tech Stack:</strong> WhatsApp Business API,
-            Google Sheets API, Google Drive API, Gemini/LLM for message parsing.</span></div>
+        <div class="sow-item"><span class="sow-dot p1"></span><span><strong>Tech Stack &amp; Badges:</strong> <span class="chip-ref">WhatsApp Business API</span> <span class="chip-ref">Google Sheets API</span> <span class="chip-ref">Google Drive API</span> <span class="chip-ref">Gemini LLM</span>.</span></div>
         <div class="sow-item"><span class="sow-dot p1" style="background:#ef4444;"></span><span><strong>Client
               To-Do:</strong> Provide WhatsApp Business API access, share home/field coordinate reference file, and
             grant Google Workspace API permissions for Sheets and Drive.</span></div>
@@ -2078,8 +2085,7 @@
             trigger that feeds directly to dispatch authorization.</span></div>
         <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Build:</strong> Automated notification to
             Gaurav when a new Zoho Books invoice is created &mdash; closing the actuals gap in real time.</span></div>
-        <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Tech Stack:</strong> ReactJS, Zoho Books
-            API, Google Sheets API. Requires read-access to Zoho Books with invoice and payment data.</span></div>
+        <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Tech Stack &amp; Badges:</strong> <span class="chip-ref">React.js Dashboard</span> <span class="chip-ref">Zoho Books API</span> <span class="chip-ref">Google Sheets API</span>.</span></div>
         <div class="sow-item"><span class="sow-dot p2" style="background:#ef4444;"></span><span><strong>Client
               To-Do:</strong> Provide Zoho Books API credentials and define the MIS plan structure (column mapping) to
             enable the dashboard data model.</span></div>
@@ -2121,8 +2127,7 @@
         <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Build:</strong> Automated minimum-stock
             alert system on the collateral and product material tracking sheet to prevent field material shortages
             during campaign periods.</span></div>
-        <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Tech Stack:</strong> Mobile-optimized form
-            builder, social media analytics API integrations (Meta, LinkedIn).</span></div>
+        <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Tech Stack &amp; Badges:</strong> <span class="chip-ref">Mobile Form Engine</span> <span class="chip-ref">Meta API</span> <span class="chip-ref">LinkedIn API</span>.</span></div>
         <div class="sow-item"><span class="sow-dot p3" style="background:#ef4444;"></span><span><strong>Client
               To-Do:</strong> Map RSM and ASM devices for mobile form deployment; provide social platform API
             credentials for analytics consolidation.</span></div>
@@ -2222,6 +2227,38 @@
             (Systematised)</strong></td>
       </tr>
     </table>
+
+    <h3>Quantified Executive Time Savings</h3>
+    <p style="font-size:8.8pt;color:var(--muted);margin-bottom:10px;">Estimated annual bandwidth reclaimed for Marketing Operations (Kamakshi, Gaurav &amp; team) by automating field attendance and CRM data extraction.</p>
+
+    <div class="kpi-strip" style="margin: 14px 0 16px;">
+      <div class="kpi-cell">
+        <div class="kpi-num">6–8 hrs/day</div>
+        <div class="kpi-lbl">Admin Time Reclaimed</div>
+      </div>
+      <div class="kpi-cell">
+        <div class="kpi-num">3x</div>
+        <div class="kpi-lbl">Daily Auto-Attendance</div>
+      </div>
+      <div class="kpi-cell">
+        <div class="kpi-num">140 hrs</div>
+        <div class="kpi-lbl">Monthly Time Saved</div>
+      </div>
+      <div class="kpi-cell">
+        <div class="kpi-num" style="color:var(--accent);">1,680 hrs</div>
+        <div class="kpi-lbl">Annual Hours Saved</div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top:10px;margin-bottom:15px;border-left-color:var(--accent);background:var(--accent-soft);">
+      <strong style="color:var(--ink);font-size:9.5pt;">Bandwidth Reinvestment Breakdown:</strong><br>
+      <ul style="font-size:8.5pt;color:var(--slate);padding-left:16px;margin-top:4px;line-height:1.45;">
+        <li><strong>Current Friction:</strong> Operations coordinator spends 6–8 hours daily manually checking 3x attendance location shares for all field staff and typing WhatsApp messages into CRM spreadsheets.</li>
+        <li><strong>Automated Efficiency:</strong> WhatsApp AI Bot auto-parses messages and Auto-Attendance Bot matches location coordinates automatically without manual data entry.</li>
+        <li><strong>Strategic Impact:</strong> Reclaims <strong>1,680 coordinator hours per year (~210 full working days)</strong> to focus on RSM sales enablement, marketing campaign execution, and distributor growth.</li>
+      </ul>
+    </div>
+
     <div class="doc-footer"><span>Marketing &amp; Retail Sales Audit Report &middot; v1.0</span><span>Page 13</span>
     </div>
   </div>

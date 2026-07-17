@@ -281,7 +281,8 @@
       width: 44px;
     }
 
-    td.num {
+    td.num,
+    th.num {
       text-align: center;
       white-space: nowrap;
     }
@@ -628,7 +629,7 @@
     }
 
     .exhibit-chart {
-      flex: 0 0 220px;
+      flex: 0 0 320px;
     }
 
     .exhibit-note {
@@ -921,7 +922,6 @@
 
     <div class="eyebrow">Section 02 — Benchmarking</div>
     <h2>Department Maturity Assessment</h2>
-    <div class="section-dek">Scored 1 (ad hoc) to 5 (optimized) against five capability dimensions</div>
 
     <div class="exhibit">
       <div class="exhibit-chart">
@@ -1023,15 +1023,21 @@
     <img src="../letterhead.png" alt="Letterhead"
       style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
     <h3>Team Structure</h3>
-    <p style="font-size:8.5pt;color:var(--muted);margin-bottom:4px;">Reporting hierarchy and current responsibility
-      domains within the R&amp;D department.</p>
+    <p style="font-size:8.5pt;color:var(--muted);margin-bottom:4px;">Reporting hierarchy within R&amp;D, led by Ritu Panwar (Product Development Manager) under Rishabh Doshi (Production Manager) and Narayan Lal Gurjar (Founder &amp; CEO).</p>
     <div class="org-chart">
+      <div class="org-level">
+        <div class="org-node secondary">
+          <div class="org-name">Rishabh Doshi</div>
+          <div class="org-role">Production Manager<br>Division Head</div>
+        </div>
+      </div>
+      <div class="org-connector-top"></div>
       <!-- Lead -->
       <div class="org-level">
         <div class="org-node lead">
           <div class="org-name">Ritu Panwar</div>
-          <div class="org-role">Product Development Manager<br>R&amp;D Lead</div>
-          <span class="org-tag">Lead</span>
+          <div class="org-role">Product Development Manager<br>R&amp;D &amp; Field Trials Lead</div>
+          <span class="org-tag">Department Lead</span>
         </div>
       </div>
       <div class="org-connector-top"></div>
@@ -1178,57 +1184,62 @@
           <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5" />
         </marker>
       </defs>
-      <rect x="10" y="20" width="106" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
-      <text x="63" y="35" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Formulation Ready</text>
-      <text x="63" y="47" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">Task:
+      <rect x="10" y="26" width="106" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <rect x="25" y="18" width="76" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75" />
+      <text x="63" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">R&D</text>
+      <text x="63" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Formulation Ready</text>
+      <text x="63" y="59.0" text-anchor="middle" font-size="7.5" fill="#6B7785" font-family="Segoe UI,sans-serif">Task:
         R&amp;D Exec</text>
-      <line x1="116" y1="44" x2="130" y2="44" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)" />
+      <line x1="116" y1="50" x2="130" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)" />
 
-      <rect x="134" y="20" width="106" height="48" rx="3" fill="#F4E8FB" stroke="#A772D9" stroke-width="1.5" />
-      <text x="187" y="32" text-anchor="middle" font-size="7.6" fill="#603487" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Assign Lot &amp; QC</text>
-      <text x="187" y="44" text-anchor="middle" font-size="6.5" fill="#814BAF" font-family="Segoe UI,sans-serif">Action:
+      <rect x="134" y="26" width="106" height="48" rx="3" fill="#F4EEFC" stroke="#6b4fc8" stroke-width="1.5" />
+      <rect x="149" y="18" width="76" height="15" rx="3" fill="#6b4fc8" stroke="#6b4fc8" stroke-width="0.75" />
+      <text x="187" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">QC CHECK</text>
+      <text x="187" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#6b4fc8" font-family="Segoe UI,sans-serif">Assign Lot &amp; QC</text>
+      <text x="187" y="56.0" text-anchor="middle" font-size="6.5" fill="#6b4fc8" font-family="Segoe UI,sans-serif">Action:
         Prod &amp; QC Dept</text>
-      <text x="187" y="55" text-anchor="middle" font-size="6.5" fill="#814BAF"
-        font-family="Segoe UI,sans-serif">External Hand-off</text>
-      <line x1="240" y1="44" x2="254" y2="44" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)" />
+      <text x="187" y="67.0" text-anchor="middle" font-size="6.5" fill="#6b4fc8" font-family="Segoe UI,sans-serif">External Hand-off</text>
+      <line x1="240" y1="50" x2="254" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)" />
 
-      <rect x="258" y="20" width="106" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
-      <text x="311" y="35" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Log Data to Drive</text>
-      <text x="311" y="47" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">Task:
+      <rect x="258" y="26" width="106" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <rect x="273" y="18" width="76" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75" />
+      <text x="311" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">DATA ENTRY</text>
+      <text x="311" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Log Data to Drive</text>
+      <text x="311" y="59.0" text-anchor="middle" font-size="7.5" fill="#6B7785" font-family="Segoe UI,sans-serif">Task:
         R&amp;D Exec</text>
-      <line x1="364" y1="44" x2="378" y2="44" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)" />
+      <line x1="364" y1="50" x2="378" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)" />
 
-      <rect x="382" y="20" width="106" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
-      <text x="435" y="35" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Design Protocols</text>
-      <text x="435" y="47" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">Task:
+      <rect x="382" y="26" width="106" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <rect x="397" y="18" width="76" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75" />
+      <text x="435" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">R&D</text>
+      <text x="435" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Design Protocols</text>
+      <text x="435" y="59.0" text-anchor="middle" font-size="7.5" fill="#6B7785" font-family="Segoe UI,sans-serif">Task:
         Ritu Panwar</text>
-      <line x1="488" y1="44" x2="502" y2="44" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)" />
+      <line x1="488" y1="50" x2="502" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)" />
 
-      <rect x="506" y="20" width="106" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
-      <text x="559" y="32" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Deploy Trial</text>
-      <text x="559" y="44" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">Action:
+      <rect x="506" y="26" width="106" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <rect x="521" y="18" width="76" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75" />
+      <text x="559" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">TRIAL</text>
+      <text x="559" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Deploy Trial</text>
+      <text x="559" y="56.0" text-anchor="middle" font-size="6.5" fill="#6B7785" font-family="Segoe UI,sans-serif">Action:
         Agronomist</text>
-      <text x="559" y="55" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">(2-4
+      <text x="559" y="67.0" text-anchor="middle" font-size="6.5" fill="#3F4B5C" font-family="Segoe UI,sans-serif">(2-4
         Mo.)</text>
 
       <!-- split to success / failure -->
-      <line x1="559" y1="68" x2="559" y2="100" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)" />
+      <line x1="559" y1="74" x2="559" y2="100" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)" />
       <rect x="506" y="100" width="106" height="40" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1" />
       <text x="559" y="115" text-anchor="middle" font-size="7.5" fill="#A32E24" font-family="Segoe UI,sans-serif"
         font-weight="bold">Re-run Trial</text>
       <text x="559" y="127" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">Task:
         R&amp;D Exec</text>
 
-      <line x1="612" y1="44" x2="626" y2="44" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)" />
-      <rect x="630" y="20" width="106" height="48" rx="3" fill="#E9F4EC" stroke="#92C7A3" stroke-width="1" />
-      <text x="683" y="35" text-anchor="middle" font-size="7.6" fill="#276B3E" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Successful Trial</text>
-      <text x="683" y="47" text-anchor="middle" font-size="6.5" fill="#276B3E" font-family="Segoe UI,sans-serif">Task:
+      <line x1="612" y1="50" x2="626" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)" />
+      <rect x="630" y="26" width="106" height="48" rx="3" fill="#E9F4EC" stroke="#92C7A3" stroke-width="1.5" />
+      <rect x="645" y="18" width="76" height="15" rx="3" fill="#276B3E" stroke="#276B3E" stroke-width="0.75" />
+      <text x="683" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">SUCCESS</text>
+      <text x="683" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#276B3E" font-family="Segoe UI,sans-serif">Successful Trial</text>
+      <text x="683" y="59.0" text-anchor="middle" font-size="7.5" fill="#276B3E" font-family="Segoe UI,sans-serif">Task:
         R&amp;D Exec</text>
     </svg>
     <div class="flow-note">
@@ -1253,50 +1264,54 @@
       </defs>
 
       <!-- Intake -->
-      <rect x="10" y="22" width="120" height="48" rx="3" fill="#F4E8FB" stroke="#A772D9" stroke-width="1.5" />
-      <text x="70" y="37" text-anchor="middle" font-size="7.6" fill="#603487" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Intake Novel Use Case</text>
-      <text x="70" y="49" text-anchor="middle" font-size="6.5" fill="#814BAF" font-family="Segoe UI,sans-serif">Action:
+      <rect x="10" y="26" width="120" height="48" rx="3" fill="#F4EEFC" stroke="#6b4fc8" stroke-width="1.5" />
+      <rect x="25" y="18" width="90" height="15" rx="3" fill="#6b4fc8" stroke="#6b4fc8" stroke-width="0.75" />
+      <text x="70" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">TOOL</text>
+      <text x="70" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#6b4fc8" font-family="Segoe UI,sans-serif">Intake Novel Use Case</text>
+      <text x="70" y="59.0" text-anchor="middle" font-size="7.5" fill="#6b4fc8" font-family="Segoe UI,sans-serif">Action:
         BD &amp; Sales</text>
-      <line x1="130" y1="46" x2="150" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)" />
+      <line x1="130" y1="50" x2="150" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)" />
 
       <!-- Research -->
-      <rect x="150" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
-      <text x="210" y="37" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Scientific Research</text>
-      <text x="210" y="49" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">Task:
+      <rect x="150" y="26" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <rect x="165" y="18" width="90" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75" />
+      <text x="210" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">PROCESS STEP</text>
+      <text x="210" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Scientific Research</text>
+      <text x="210" y="59.0" text-anchor="middle" font-size="7.5" fill="#6B7785" font-family="Segoe UI,sans-serif">Task:
         R&amp;D Exec</text>
-      <line x1="270" y1="46" x2="290" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)" />
+      <line x1="270" y1="50" x2="290" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)" />
 
       <!-- Draft -->
-      <rect x="290" y="22" width="120" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
-      <text x="350" y="37" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Draft Proposal</text>
-      <text x="350" y="49" text-anchor="middle" font-size="6.5" fill="#C0453A" font-family="Segoe UI,sans-serif">Task:
+      <rect x="290" y="26" width="120" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
+      <rect x="305" y="18" width="90" height="15" rx="3" fill="#A32E24" stroke="#A32E24" stroke-width="0.75" />
+      <text x="350" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">BOTTLENECK</text>
+      <text x="350" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#A32E24" font-family="Segoe UI,sans-serif">Draft Proposal</text>
+      <text x="350" y="59.0" text-anchor="middle" font-size="7.5" fill="#A32E24" font-family="Segoe UI,sans-serif">Task:
         Ritu Panwar</text>
-      <line x1="410" y1="46" x2="430" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)" />
+      <line x1="410" y1="50" x2="430" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)" />
 
       <!-- Auditing -->
-      <rect x="430" y="10" width="120" height="72" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1" />
-      <text x="490" y="25" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif"
-        font-weight="bold">3-Step Auditing</text>
-      <text x="490" y="35" text-anchor="middle" font-size="6.5" fill="#C0453A"
-        font-family="Segoe UI,sans-serif">Approval: Ritu Panwar</text>
-      <text x="490" y="49" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">1. Area
+      <rect x="430" y="26" width="120" height="72" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
+      <rect x="445" y="18" width="90" height="15" rx="3" fill="#A32E24" stroke="#A32E24" stroke-width="0.75" />
+      <text x="490" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">BOTTLENECK</text>
+      <text x="490" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#A32E24" font-family="Segoe UI,sans-serif">3-Step Auditing</text>
+      <text x="490" y="56.0" text-anchor="middle" font-size="7.4" fill="#A32E24" font-family="Segoe UI,sans-serif">Approval: Ritu Panwar</text>
+      <text x="490" y="67.0" text-anchor="middle" font-size="7.4" fill="#A32E24" font-family="Segoe UI,sans-serif">1. Area
         Fit</text>
-      <text x="490" y="60" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">2. Obj.
+      <text x="490" y="67.0" text-anchor="middle" font-size="7.4" fill="#A32E24" font-family="Segoe UI,sans-serif">2. Obj.
         Alignment</text>
-      <text x="490" y="71" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">3.
+      <text x="490" y="67.0" text-anchor="middle" font-size="7.4" fill="#A32E24" font-family="Segoe UI,sans-serif">3.
         Budget Check</text>
-      <line x1="550" y1="46" x2="570" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)" />
+      <line x1="550" y1="50" x2="570" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)" />
 
       <!-- Review -->
-      <rect x="570" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
-      <text x="630" y="32" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Multi-Round Review</text>
-      <text x="630" y="44" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">Action:
+      <rect x="570" y="26" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <rect x="585" y="18" width="90" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75" />
+      <text x="630" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">PROCESS STEP</text>
+      <text x="630" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Multi-Round Review</text>
+      <text x="630" y="56.0" text-anchor="middle" font-size="6.5" fill="#6B7785" font-family="Segoe UI,sans-serif">Action:
         Stakeholders</text>
-      <text x="630" y="55" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">(Up to
+      <text x="630" y="67.0" text-anchor="middle" font-size="6.5" fill="#3F4B5C" font-family="Segoe UI,sans-serif">(Up to
         20 days)</text>
     </svg>
     <div class="flow-note">
@@ -1334,54 +1349,54 @@
       </defs>
 
       <!-- Box 1: Trial Request -->
-      <rect x="8" y="18" width="110" height="52" rx="3" fill="#F4E8FB" stroke="#A772D9" stroke-width="1.5" />
-      <text x="63" y="34" text-anchor="middle" font-size="7.5" fill="#603487" font-family="Segoe UI,sans-serif"
-        font-weight="700">Trial Request</text>
-      <text x="63" y="46" text-anchor="middle" font-size="6.5" fill="#814BAF" font-family="Segoe UI,sans-serif">Action:
+      <rect x="8" y="26" width="110" height="52" rx="3" fill="#F4EEFC" stroke="#6b4fc8" stroke-width="1.5" />
+      <rect x="23" y="18" width="80" height="15" rx="3" fill="#6b4fc8" stroke="#6b4fc8" stroke-width="0.75" />
+      <text x="63" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">TOOL</text>
+      <text x="63" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#6b4fc8" font-family="Segoe UI,sans-serif">Trial Request</text>
+      <text x="63" y="56.0" text-anchor="middle" font-size="6.5" fill="#6b4fc8" font-family="Segoe UI,sans-serif">Action:
         BD &amp; Sales</text>
-      <text x="63" y="57" text-anchor="middle" font-size="6.5" fill="#814BAF"
-        font-family="Segoe UI,sans-serif">(External)</text>
-      <line x1="118" y1="44" x2="136" y2="44" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w3a)" />
+      <text x="63" y="67.0" text-anchor="middle" font-size="6.5" fill="#6b4fc8" font-family="Segoe UI,sans-serif">(External)</text>
+      <line x1="118" y1="50" x2="136" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w3a)" />
 
       <!-- Box 2: Step 1 -->
-      <rect x="138" y="18" width="120" height="52" rx="3" fill="#EFF4FF" stroke="#93B4EB" stroke-width="1.5" />
-      <text x="198" y="32" text-anchor="middle" font-size="6.8" fill="#1B2A4A" font-family="Segoe UI,sans-serif"
-        font-weight="700">STEP 1: Area Fit</text>
-      <text x="198" y="44" text-anchor="middle" font-size="6.5" fill="#4A6390"
-        font-family="Segoe UI,sans-serif">Approval: Ritu Panwar</text>
-      <text x="198" y="55" text-anchor="middle" font-size="6.5" fill="#4A6390" font-family="Segoe UI,sans-serif">Farming
+      <rect x="138" y="26" width="120" height="52" rx="3" fill="#EFF4FF" stroke="#93B4EB" stroke-width="1.5" />
+      <rect x="153" y="18" width="90" height="15" rx="3" fill="#2B5B84" stroke="#2B5B84" stroke-width="0.75" />
+      <text x="198" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">PROCESS STEP</text>
+      <text x="198" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#2B5B84" font-family="Segoe UI,sans-serif">STEP 1: Area Fit</text>
+      <text x="198" y="56.0" text-anchor="middle" font-size="6.5" fill="#2B5B84" font-family="Segoe UI,sans-serif">Approval: Ritu Panwar</text>
+      <text x="198" y="67.0" text-anchor="middle" font-size="6.5" fill="#2B5B84" font-family="Segoe UI,sans-serif">Farming
         &amp; crop check</text>
-      <line x1="258" y1="44" x2="276" y2="44" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w3a)" />
+      <line x1="258" y1="50" x2="276" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w3a)" />
 
       <!-- Box 3: Step 2 -->
-      <rect x="278" y="18" width="120" height="52" rx="3" fill="#EFF4FF" stroke="#93B4EB" stroke-width="1.5" />
-      <text x="338" y="32" text-anchor="middle" font-size="6.8" fill="#1B2A4A" font-family="Segoe UI,sans-serif"
-        font-weight="700">STEP 2: Alignment</text>
-      <text x="338" y="44" text-anchor="middle" font-size="6.5" fill="#4A6390"
-        font-family="Segoe UI,sans-serif">Approval: Ritu Panwar</text>
-      <text x="338" y="55" text-anchor="middle" font-size="6.5" fill="#4A6390"
-        font-family="Segoe UI,sans-serif">Objective check</text>
-      <line x1="398" y1="44" x2="416" y2="44" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w3a)" />
+      <rect x="278" y="26" width="120" height="52" rx="3" fill="#EFF4FF" stroke="#93B4EB" stroke-width="1.5" />
+      <rect x="293" y="18" width="90" height="15" rx="3" fill="#2B5B84" stroke="#2B5B84" stroke-width="0.75" />
+      <text x="338" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">PROCESS STEP</text>
+      <text x="338" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#2B5B84" font-family="Segoe UI,sans-serif">STEP 2: Alignment</text>
+      <text x="338" y="56.0" text-anchor="middle" font-size="6.5" fill="#2B5B84" font-family="Segoe UI,sans-serif">Approval: Ritu Panwar</text>
+      <text x="338" y="67.0" text-anchor="middle" font-size="6.5" fill="#2B5B84" font-family="Segoe UI,sans-serif">Objective check</text>
+      <line x1="398" y1="50" x2="416" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w3a)" />
 
       <!-- Box 4: Step 3 -->
-      <rect x="418" y="18" width="120" height="52" rx="3" fill="#EFF4FF" stroke="#93B4EB" stroke-width="1.5" />
-      <text x="478" y="32" text-anchor="middle" font-size="6.8" fill="#1B2A4A" font-family="Segoe UI,sans-serif"
-        font-weight="700">STEP 3: Budget Check</text>
-      <text x="478" y="44" text-anchor="middle" font-size="6.5" fill="#4A6390"
-        font-family="Segoe UI,sans-serif">Approval: Ritu Panwar</text>
-      <text x="478" y="55" text-anchor="middle" font-size="6.5" fill="#4A6390" font-family="Segoe UI,sans-serif">Cost
+      <rect x="418" y="26" width="120" height="52" rx="3" fill="#EFF4FF" stroke="#93B4EB" stroke-width="1.5" />
+      <rect x="433" y="18" width="90" height="15" rx="3" fill="#2B5B84" stroke="#2B5B84" stroke-width="0.75" />
+      <text x="478" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">PROCESS STEP</text>
+      <text x="478" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#2B5B84" font-family="Segoe UI,sans-serif">STEP 3: Budget Check</text>
+      <text x="478" y="56.0" text-anchor="middle" font-size="6.5" fill="#2B5B84" font-family="Segoe UI,sans-serif">Approval: Ritu Panwar</text>
+      <text x="478" y="67.0" text-anchor="middle" font-size="6.5" fill="#2B5B84" font-family="Segoe UI,sans-serif">Cost
         verification</text>
 
       <!-- Approved path -->
-      <line x1="538" y1="44" x2="556" y2="44" stroke="#92C7A3" stroke-width="1.2" marker-end="url(#w3g)" />
-      <rect x="558" y="18" width="112" height="52" rx="3" fill="#E9F4EC" stroke="#92C7A3" stroke-width="1.5" />
-      <text x="614" y="37" text-anchor="middle" font-size="7" fill="#276B3E" font-family="Segoe UI,sans-serif"
-        font-weight="700">✓ Approved</text>
-      <text x="614" y="49" text-anchor="middle" font-size="6.5" fill="#276B3E" font-family="Segoe UI,sans-serif">Action:
+      <line x1="538" y1="50" x2="556" y2="50" stroke="#92C7A3" stroke-width="1.2" marker-end="url(#w3g)" />
+      <rect x="558" y="26" width="112" height="52" rx="3" fill="#E9F4EC" stroke="#92C7A3" stroke-width="1.5" />
+      <rect x="573" y="18" width="82" height="15" rx="3" fill="#276B3E" stroke="#276B3E" stroke-width="0.75" />
+      <text x="614" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">SUCCESS</text>
+      <text x="614" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#276B3E" font-family="Segoe UI,sans-serif">✓ Approved</text>
+      <text x="614" y="59.0" text-anchor="middle" font-size="7.5" fill="#276B3E" font-family="Segoe UI,sans-serif">Action:
         Ritu Panwar</text>
 
       <!-- Rejected path (drop from Step 3) -->
-      <line x1="478" y1="70" x2="478" y2="102" stroke="#EFB4B1" stroke-width="1.2" marker-end="url(#w3r)" />
+      <line x1="478" y1="78" x2="478" y2="102" stroke="#EFB4B1" stroke-width="1.2" marker-end="url(#w3r)" />
       <rect x="418" y="104" width="120" height="40" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1" />
       <text x="478" y="120" text-anchor="middle" font-size="7" fill="#A32E24" font-family="Segoe UI,sans-serif"
         font-weight="700">✗ Rejected</text>
@@ -1465,14 +1480,14 @@
       <line x1="168" y1="175" x2="285" y2="120" stroke="#B0BAC5" stroke-width="0.9" marker-end="url(#w4a)" />
 
       <!-- Center: Ritu consolidation node -->
-      <rect x="286" y="72" width="155" height="72" rx="5" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="2" />
-      <text x="363" y="96" text-anchor="middle" font-size="8" fill="#A32E24" font-family="Segoe UI,sans-serif"
-        font-weight="700">RITU PANWAR</text>
-      <text x="363" y="108" text-anchor="middle" font-size="7" fill="#A32E24" font-family="Segoe UI,sans-serif">Single
+      <rect x="286" y="72" width="155" height="72" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
+      <rect x="301" y="64" width="125" height="15" rx="3" fill="#A32E24" stroke="#A32E24" stroke-width="0.75" />
+      <text x="364" y="74.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">BOTTLENECK</text>
+      <text x="364" y="90.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#A32E24" font-family="Segoe UI,sans-serif">RITU PANWAR</text>
+      <text x="364" y="102.0" text-anchor="middle" font-size="7.4" fill="#A32E24" font-family="Segoe UI,sans-serif">Single
         Consolidation Point</text>
-      <text x="363" y="120" text-anchor="middle" font-size="6.5" fill="#C0453A"
-        font-family="Segoe UI,sans-serif">Action: Manual Aggregation</text>
-      <text x="363" y="132" text-anchor="middle" font-size="6.5" fill="#C0453A" font-family="Segoe UI,sans-serif">8–10
+      <text x="364" y="113.0" text-anchor="middle" font-size="7.4" fill="#A32E24" font-family="Segoe UI,sans-serif">Action: Manual Aggregation</text>
+      <text x="364" y="113.0" text-anchor="middle" font-size="7.4" fill="#A32E24" font-family="Segoe UI,sans-serif">8–10
         sheets, real-time</text>
 
       <!-- Arrows → output boxes -->
@@ -1480,10 +1495,11 @@
       <line x1="441" y1="110" x2="468" y2="122" stroke="#92C7A3" stroke-width="1" marker-end="url(#w4g)" />
 
       <!-- Output boxes -->
-      <rect x="470" y="44" width="180" height="44" rx="3" fill="#E9F4EC" stroke="#92C7A3" stroke-width="1" />
-      <text x="560" y="62" text-anchor="middle" font-size="7.2" fill="#276B3E" font-family="Segoe UI,sans-serif"
-        font-weight="700">BOD Monthly Report</text>
-      <text x="560" y="74" text-anchor="middle" font-size="6.5" fill="#276B3E" font-family="Segoe UI,sans-serif">Task:
+      <rect x="470" y="44" width="180" height="44" rx="3" fill="#E9F4EC" stroke="#92C7A3" stroke-width="1.5" />
+      <rect x="485" y="36" width="150" height="15" rx="3" fill="#276B3E" stroke="#276B3E" stroke-width="0.75" />
+      <text x="560" y="46.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">SUCCESS</text>
+      <text x="560" y="65.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#276B3E" font-family="Segoe UI,sans-serif">BOD Monthly Report</text>
+      <text x="560" y="77.0" text-anchor="middle" font-size="7.5" fill="#276B3E" font-family="Segoe UI,sans-serif">Task:
         Manual Export to CXOs</text>
 
       <rect x="470" y="100" width="180" height="44" rx="3" fill="#EFF4FF" stroke="#93B4EB" stroke-width="1" />
@@ -1536,39 +1552,49 @@
         text-anchor="middle">SLA</text>
 
       <!-- Row 1: Known crop / General -->
-      <rect x="8" y="18" width="188" height="40" rx="3" fill="#E9F4EC" stroke="#92C7A3" stroke-width="1" />
-      <text x="16" y="33" font-size="7.2" fill="#276B3E" font-family="Segoe UI,sans-serif" font-weight="700">General —
+      <rect x="8" y="26" width="188" height="40" rx="3" fill="#E9F4EC" stroke="#92C7A3" stroke-width="1.5" />
+      <rect x="23" y="18" width="158" height="15" rx="3" fill="#276B3E" stroke="#276B3E" stroke-width="0.75" />
+      <text x="102" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">SUCCESS</text>
+      <text x="102" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#276B3E" font-family="Segoe UI,sans-serif">General —
         Known Crop Query</text>
-      <text x="16" y="45" font-size="6.5" fill="#276B3E" font-family="Segoe UI,sans-serif">e.g. dosage, application
+      <text x="102" y="59.0" text-anchor="middle" font-size="7.5" fill="#276B3E" font-family="Segoe UI,sans-serif">e.g. dosage, application
         rate, crop performance data</text>
       <line x1="196" y1="38" x2="214" y2="38" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w5a)" />
-      <rect x="216" y="18" width="364" height="40" rx="3" fill="#F4F6F8" stroke="#D8DEE5" stroke-width="1" />
-      <text x="224" y="33" font-size="7" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Task: R&amp;D Exec</text>
-      <text x="224" y="45" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">Check trackers, locate data,
+      <rect x="216" y="26" width="364" height="40" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <rect x="231" y="18" width="334" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75" />
+      <text x="398" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">PROCESS STEP</text>
+      <text x="398" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Task: R&amp;D Exec</text>
+      <text x="398" y="59.0" text-anchor="middle" font-size="7.5" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Check trackers, locate data,
         and respond directly to BD</text>
       <line x1="580" y1="38" x2="594" y2="38" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w5a)" />
-      <rect x="596" y="18" width="136" height="40" rx="3" fill="#E9F4EC" stroke="#92C7A3" stroke-width="1.5" />
-      <text x="664" y="34" text-anchor="middle" font-size="8.5" fill="#276B3E" font-family="Segoe UI,sans-serif"
-        font-weight="700">1–2 hrs</text>
-      <text x="664" y="47" text-anchor="middle" font-size="6.5" fill="#276B3E" font-family="Segoe UI,sans-serif">Known
+      <rect x="596" y="26" width="136" height="40" rx="3" fill="#E9F4EC" stroke="#92C7A3" stroke-width="1.5" />
+      <rect x="611" y="18" width="106" height="15" rx="3" fill="#276B3E" stroke="#276B3E" stroke-width="0.75" />
+      <text x="664" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">SUCCESS</text>
+      <text x="664" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#276B3E" font-family="Segoe UI,sans-serif">1–2 hrs</text>
+      <text x="664" y="59.0" text-anchor="middle" font-size="7.5" fill="#276B3E" font-family="Segoe UI,sans-serif">Known
         territory</text>
 
       <!-- Row 2: Unexplored topic -->
-      <rect x="8" y="66" width="188" height="40" rx="3" fill="#FEF9EC" stroke="#E8D08A" stroke-width="1" />
-      <text x="16" y="81" font-size="7.2" fill="#7C5E0A" font-family="Segoe UI,sans-serif" font-weight="700">Unexplored
+      <rect x="8" y="66" width="188" height="40" rx="3" fill="#FEF9EC" stroke="#E8D08A" stroke-width="1.5" />
+      <rect x="23" y="58" width="158" height="15" rx="3" fill="#8A5A10" stroke="#8A5A10" stroke-width="0.75" />
+      <text x="102" y="68.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">ACTION REQUIRED</text>
+      <text x="102" y="87.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#8A5A10" font-family="Segoe UI,sans-serif">Unexplored
         Topic Query</text>
-      <text x="16" y="93" font-size="6.5" fill="#7C5E0A" font-family="Segoe UI,sans-serif">e.g. saline conditions,
+      <text x="102" y="99.0" text-anchor="middle" font-size="7.5" fill="#8A5A10" font-family="Segoe UI,sans-serif">e.g. saline conditions,
         hydroponics, tissue culture</text>
       <line x1="196" y1="86" x2="214" y2="86" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w5a)" />
-      <rect x="216" y="66" width="364" height="40" rx="3" fill="#F4F6F8" stroke="#D8DEE5" stroke-width="1" />
-      <text x="224" y="81" font-size="7" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Task: R&amp;D Exec</text>
-      <text x="224" y="93" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">Hypothesis-level research —
+      <rect x="216" y="66" width="364" height="40" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <rect x="231" y="58" width="334" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75" />
+      <text x="398" y="68.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">PROCESS STEP</text>
+      <text x="398" y="87.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Task: R&amp;D Exec</text>
+      <text x="398" y="99.0" text-anchor="middle" font-size="7.5" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Hypothesis-level research —
         literature review, new scientific synthesis</text>
       <line x1="580" y1="86" x2="594" y2="86" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w5a)" />
       <rect x="596" y="66" width="136" height="40" rx="3" fill="#FEF9EC" stroke="#E8D08A" stroke-width="1.5" />
-      <text x="664" y="82" text-anchor="middle" font-size="8.5" fill="#7C5E0A" font-family="Segoe UI,sans-serif"
-        font-weight="700">3–4 hrs+</text>
-      <text x="664" y="95" text-anchor="middle" font-size="6.5" fill="#7C5E0A" font-family="Segoe UI,sans-serif">May
+      <rect x="611" y="58" width="106" height="15" rx="3" fill="#8A5A10" stroke="#8A5A10" stroke-width="0.75" />
+      <text x="664" y="68.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">ACTION REQUIRED</text>
+      <text x="664" y="87.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#8A5A10" font-family="Segoe UI,sans-serif">3–4 hrs+</text>
+      <text x="664" y="99.0" text-anchor="middle" font-size="7.5" fill="#8A5A10" font-family="Segoe UI,sans-serif">May
         exceed 1 day</text>
 
       <!-- Row 3: QC / Absorption level -->
@@ -1630,62 +1656,67 @@
       </defs>
 
       <!-- Box 1 -->
-      <rect x="8" y="20" width="108" height="52" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1" />
-      <text x="62" y="38" text-anchor="middle" font-size="7" fill="#A32E24" font-family="Segoe UI,sans-serif"
-        font-weight="700">Send Reminders</text>
-      <text x="62" y="50" text-anchor="middle" font-size="6.5" fill="#C0453A" font-family="Segoe UI,sans-serif">Task:
+      <rect x="8" y="26" width="108" height="52" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
+      <rect x="23" y="18" width="78" height="15" rx="3" fill="#A32E24" stroke="#A32E24" stroke-width="0.75" />
+      <text x="62" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">BOTTLENECK</text>
+      <text x="62" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#A32E24" font-family="Segoe UI,sans-serif">Send Reminders</text>
+      <text x="62" y="56.0" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">Task:
         Ritu Panwar</text>
-      <text x="62" y="62" text-anchor="middle" font-size="6.5" fill="#C0453A" font-family="Segoe UI,sans-serif">Manual
+      <text x="62" y="67.0" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">Manual
         emails to all</text>
-      <line x1="116" y1="46" x2="130" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w6a)" />
+      <line x1="116" y1="50" x2="130" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w6a)" />
 
       <!-- Box 2 -->
-      <rect x="132" y="20" width="108" height="52" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1" />
-      <text x="186" y="38" text-anchor="middle" font-size="7" fill="#A32E24" font-family="Segoe UI,sans-serif"
-        font-weight="700">Chase Follow-ups</text>
-      <text x="186" y="50" text-anchor="middle" font-size="6.5" fill="#C0453A" font-family="Segoe UI,sans-serif">Task:
+      <rect x="132" y="26" width="108" height="52" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
+      <rect x="147" y="18" width="78" height="15" rx="3" fill="#A32E24" stroke="#A32E24" stroke-width="0.75" />
+      <text x="186" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">BOTTLENECK</text>
+      <text x="186" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#A32E24" font-family="Segoe UI,sans-serif">Chase Follow-ups</text>
+      <text x="186" y="56.0" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">Task:
         Ritu Panwar</text>
-      <text x="186" y="62" text-anchor="middle" font-size="6.5" fill="#C0453A" font-family="Segoe UI,sans-serif">EU ·
+      <text x="186" y="67.0" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">EU ·
         USA · Japan</text>
-      <line x1="240" y1="46" x2="254" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w6a)" />
+      <line x1="240" y1="50" x2="254" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w6a)" />
 
       <!-- Box 3 -->
-      <rect x="256" y="20" width="108" height="52" rx="3" fill="#F4F6F8" stroke="#D8DEE5" stroke-width="1" />
-      <text x="310" y="38" text-anchor="middle" font-size="7" fill="#3F4B5C" font-family="Segoe UI,sans-serif"
-        font-weight="700">Collect Data</text>
-      <text x="310" y="50" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">Task:
+      <rect x="256" y="26" width="108" height="52" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <rect x="271" y="18" width="78" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75" />
+      <text x="310" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">PROCESS STEP</text>
+      <text x="310" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Collect Data</text>
+      <text x="310" y="56.0" text-anchor="middle" font-size="6.5" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Task:
         R&amp;D Execs</text>
-      <text x="310" y="62" text-anchor="middle" font-size="6.5" fill="#6B7A8D"
-        font-family="Segoe UI,sans-serif">National &amp; India data</text>
-      <line x1="364" y1="46" x2="378" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w6a)" />
+      <text x="310" y="67.0" text-anchor="middle" font-size="6.5" fill="#3F4B5C" font-family="Segoe UI,sans-serif">National &amp; India data</text>
+      <line x1="364" y1="50" x2="378" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w6a)" />
 
       <!-- Box 4 -->
-      <rect x="380" y="20" width="108" height="52" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1" />
-      <text x="434" y="38" text-anchor="middle" font-size="7" fill="#A32E24" font-family="Segoe UI,sans-serif"
-        font-weight="700">Manual Aggregation</text>
-      <text x="434" y="50" text-anchor="middle" font-size="6.5" fill="#C0453A" font-family="Segoe UI,sans-serif">Action:
+      <rect x="380" y="26" width="108" height="52" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
+      <rect x="395" y="18" width="78" height="15" rx="3" fill="#A32E24" stroke="#A32E24" stroke-width="0.75" />
+      <text x="434" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">BOTTLENECK</text>
+      <text x="434" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#A32E24" font-family="Segoe UI,sans-serif">Manual Aggregation</text>
+      <text x="434" y="56.0" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">Action:
         Ritu Panwar</text>
-      <text x="434" y="62" text-anchor="middle" font-size="6.5" fill="#C0453A" font-family="Segoe UI,sans-serif">All
+      <text x="434" y="67.0" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">All
         sources merged</text>
-      <line x1="488" y1="46" x2="502" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w6a)" />
+      <line x1="488" y1="50" x2="502" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w6a)" />
 
       <!-- Box 5 -->
-      <rect x="504" y="20" width="108" height="52" rx="3" fill="#F4F6F8" stroke="#D8DEE5" stroke-width="1" />
-      <text x="558" y="38" text-anchor="middle" font-size="7" fill="#3F4B5C" font-family="Segoe UI,sans-serif"
-        font-weight="700">Compile BOD</text>
-      <text x="558" y="50" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">Task:
+      <rect x="504" y="26" width="108" height="52" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <rect x="519" y="18" width="78" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75" />
+      <text x="558" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">PROCESS STEP</text>
+      <text x="558" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Compile BOD</text>
+      <text x="558" y="56.0" text-anchor="middle" font-size="6.5" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Task:
         Ritu Panwar</text>
-      <text x="558" y="62" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">Tag
+      <text x="558" y="67.0" text-anchor="middle" font-size="6.5" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Tag
         CXOs on key items</text>
-      <line x1="612" y1="46" x2="626" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w6a)" />
+      <line x1="612" y1="50" x2="626" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#w6a)" />
 
       <!-- Box 6 -->
-      <rect x="628" y="20" width="104" height="52" rx="3" fill="#E9F4EC" stroke="#92C7A3" stroke-width="1" />
-      <text x="680" y="38" text-anchor="middle" font-size="7" fill="#276B3E" font-family="Segoe UI,sans-serif"
-        font-weight="700">Present to Board</text>
-      <text x="680" y="50" text-anchor="middle" font-size="6.5" fill="#3D8A5C" font-family="Segoe UI,sans-serif">Action:
+      <rect x="628" y="26" width="104" height="52" rx="3" fill="#E9F4EC" stroke="#92C7A3" stroke-width="1.5" />
+      <rect x="643" y="18" width="74" height="15" rx="3" fill="#276B3E" stroke="#276B3E" stroke-width="0.75" />
+      <text x="680" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">SUCCESS</text>
+      <text x="680" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#276B3E" font-family="Segoe UI,sans-serif">Present to Board</text>
+      <text x="680" y="56.0" text-anchor="middle" font-size="6.5" fill="#276B3E" font-family="Segoe UI,sans-serif">Action:
         Ritu Panwar</text>
-      <text x="680" y="62" text-anchor="middle" font-size="6.5" fill="#3D8A5C" font-family="Segoe UI,sans-serif">Monthly
+      <text x="680" y="67.0" text-anchor="middle" font-size="6.5" fill="#276B3E" font-family="Segoe UI,sans-serif">Monthly
         cycle complete</text>
 
       <!-- Red annotation boxes below steps 1 and 4 -->
@@ -1725,129 +1756,7 @@
     <div class="section-dek">Findings and recommendations that require action outside the R&amp;D Office to resolve
     </div>
 
-    <style>
-      .dep-card {
-        border: 1px solid var(--line);
-        border-radius: 8px;
-        background: var(--paper);
-        padding: 16px;
-        margin-bottom: 16px;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-      }
 
-      .dep-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 12px;
-        padding-bottom: 8px;
-        border-bottom: 1px solid var(--line);
-      }
-
-      .dep-title {
-        font-weight: 700;
-        font-size: 11pt;
-        color: var(--ink);
-      }
-
-      .dep-badge {
-        font-size: 7.5pt;
-        font-weight: 600;
-        padding: 3px 8px;
-        border-radius: 12px;
-        background: #f1f5f9;
-        color: #475569;
-        text-transform: uppercase;
-      }
-
-      .dep-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 12px;
-      }
-
-      .dep-section {
-        background: #f8fafc;
-        border-radius: 6px;
-        padding: 12px;
-        border: 1px solid #e2e8f0;
-      }
-
-      .dep-section.bottleneck {
-        background: #fef2f2;
-        border-color: #fecaca;
-      }
-
-      .dep-section.data-sync {
-        background: #f0f9ff;
-        border-color: #bae6fd;
-      }
-
-      .dep-section-title {
-        font-size: 7.5pt;
-        font-weight: 700;
-        color: #64748b;
-        text-transform: uppercase;
-        margin-bottom: 6px;
-        letter-spacing: 0.5px;
-      }
-
-      .bottleneck .dep-section-title {
-        color: #b91c1c;
-      }
-
-      .data-sync .dep-section-title {
-        color: #0369a1;
-      }
-
-      .dep-section-content {
-        font-size: 8.5pt;
-        color: var(--slate);
-        line-height: 1.4;
-      }
-
-      .dep-person {
-        display: inline-block;
-        background: #f1f5f9;
-        padding: 2px 6px;
-        border-radius: 4px;
-        font-weight: 600;
-        font-size: 8pt;
-        margin-top: 4px;
-        border: 1px solid #cbd5e1;
-      }
-    </style>
-
-    <style>
-      .chip {
-        display: inline-block;
-        padding: 2px 6px;
-        border-radius: 4px;
-        font-size: 7pt;
-        font-weight: 700;
-        margin-left: 6px;
-        text-transform: none;
-        letter-spacing: normal;
-      }
-
-      .chip-data {
-        background: #e0f2fe;
-        color: #0284c7;
-        border: 1px solid #bae6fd;
-      }
-
-      .chip-approval {
-        background: #fef08a;
-        color: #a16207;
-        border: 1px solid #fde047;
-      }
-
-      .chip-info {
-        background: #e0e7ff;
-        color: #4338ca;
-        border: 1px solid #c7d2fe;
-      }
-    </style>
 
     <!-- Sales & BD -->
     <div class="dep-card">
@@ -1857,8 +1766,7 @@
       </div>
       <div class="dep-grid">
         <div class="dep-section">
-          <div class="dep-section-title">Operations Dependency <span class="chip chip-info">Information Sharing</span>
-          </div>
+          <div class="dep-section-title">Operations Dependency</div>
           <div class="dep-section-content">
             Sales heavily depends on R&amp;D for technical inputs on B2B proposals and grants. R&amp;D needs structured
             requests from Sales.
@@ -1873,8 +1781,7 @@
           </div>
         </div>
         <div class="dep-section data-sync" style="grid-column: 1 / -1;">
-          <div class="dep-section-title">Data Transfer &amp; Updates Needed <span class="chip chip-data">Data
-              Flow</span></div>
+          <div class="dep-section-title">Data Transfer &amp; Updates Needed</div>
           <div class="dep-section-content">
             Sales must adopt a standardized intake format for B2B requests. R&amp;D must continuously push updated
             technical data to the SSOT Chatbot to enable Sales self-service.
@@ -1891,8 +1798,7 @@
       </div>
       <div class="dep-grid">
         <div class="dep-section">
-          <div class="dep-section-title">Operations Dependency <span class="chip chip-approval">Approval Flow</span>
-          </div>
+          <div class="dep-section-title">Operations Dependency</div>
           <div class="dep-section-content">
             R&amp;D trial validation requires a strict 3-department handoff (Production lot &rarr; QC 24-hr test &rarr;
             R&amp;D log). Furthermore, R&amp;D relies on Production for raw material procurement (large-scale trials),
@@ -1908,8 +1814,7 @@
           </div>
         </div>
         <div class="dep-section data-sync" style="grid-column: 1 / -1;">
-          <div class="dep-section-title">Data Transfer &amp; Updates Needed <span class="chip chip-data">Data
-              Flow</span></div>
+          <div class="dep-section-title">Data Transfer &amp; Updates Needed</div>
           <div class="dep-section-content">
             New workflows must be built into the dashboard to send pre-defined approval messages for raw materials and
             machinery. Live status updates must be synced from Production/QC systems to track testing statuses in
@@ -1927,8 +1832,7 @@
       </div>
       <div class="dep-grid">
         <div class="dep-section">
-          <div class="dep-section-title">Operations Dependency <span class="chip chip-approval">Approval Flow</span>
-          </div>
+          <div class="dep-section-title">Operations Dependency</div>
           <div class="dep-section-content">
             R&amp;D teams (India &amp; International) require rapid budget approvals from Finance for operational
             fieldwork. CXOs require top-down visibility into where these investments are going.
@@ -1943,8 +1847,7 @@
           </div>
         </div>
         <div class="dep-section data-sync" style="grid-column: 1 / -1;">
-          <div class="dep-section-title">Data Transfer &amp; Updates Needed <span class="chip chip-data">Data
-              Flow</span></div>
+          <div class="dep-section-title">Data Transfer &amp; Updates Needed</div>
           <div class="dep-section-content">
             Budget requests and approvals must be directly integrated into the dashboard's visibility overview. This
             allows R&amp;D Leads and CXOs to instantly track international budget allocations versus actual ROI
@@ -1954,9 +1857,6 @@
       </div>
     </div>
 
-</body>
-
-</html>
 <div class="doc-footer"><span>R&amp;D Audit Report · v1.0</span><span>Page 8</span></div>
 </div>
 
@@ -2295,9 +2195,7 @@
           to a new ReactJS Dashboard with Bi-Directional sync.</span></div>
       <div class="sow-item"><span class="sow-dot p1"></span><span><strong>Build:</strong> Implement the Approval Flow
           and Workload Management tracking modules.</span></div>
-      <div class="sow-item"><span class="sow-dot p1"></span><span><strong>Tech Stack &amp; Dependencies:</strong>
-          ReactJS, Google Sheets API. We require the team's current tracking sheets to act as base data points.</span>
-      </div>
+      <div class="sow-item"><span class="sow-dot p1"></span><span><strong>Tech Stack &amp; Badges:</strong> <span class="chip-ref">React.js Dashboard</span> <span class="chip-ref">Google Sheets API</span>.</span></div>
       <div class="sow-item"><span class="sow-dot p1"></span><span><strong>Team Adoption:</strong> Conduct initial
           walkthrough sessions for the R&amp;D team to navigate the new UI.</span></div>
       <div class="sow-item"><span class="sow-dot p1" style="background:#ef4444;"></span><span><strong>Client
@@ -2339,8 +2237,7 @@
       <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Build:</strong> Upgrade the existing RAG AI
           bot to serve as a centralized SSOT Chatbot, giving R&amp;D, BD, Sales, and CXOs instant access to the full
           knowledge base.</span></div>
-      <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Tech Stack &amp; Dependencies:</strong>
-          Gemini/LLMs, Google Drive API. Requires historic proposal files for model grounding.</span></div>
+      <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Tech Stack &amp; Badges:</strong> <span class="chip-ref">Gemini LLMs</span> <span class="chip-ref">Google Drive RAG</span>.</span></div>
       <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Team Adoption:</strong> Conduct
           prompt-engineering training and distribute formal adoption playbooks.</span></div>
       <div class="sow-item"><span class="sow-dot p2" style="background:#ef4444;"></span><span><strong>Client
@@ -2381,8 +2278,7 @@
           Gmail APIs for automated reporting and data collection reminders.</span></div>
       <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Build:</strong> Connect the R&amp;D dashboard
           into the broader EF Polymer OS for CXO-level access.</span></div>
-      <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Tech Stack &amp; Dependencies:</strong>
-          WhatsApp Business API, Slack API, Gmail API.</span></div>
+      <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Tech Stack &amp; Badges:</strong> <span class="chip-ref">WhatsApp Business API</span> <span class="chip-ref">Slack API</span> <span class="chip-ref">Gmail API</span>.</span></div>
       <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Team Adoption:</strong> Establish a continuous
           feedback loop on the ground to iterate and sustain adoption.</span></div>
       <div class="sow-item"><span class="sow-dot p3" style="background:#ef4444;"></span><span><strong>Client
@@ -2469,6 +2365,38 @@
           (Systematised)</strong></td>
     </tr>
   </table>
+
+  <h3>Quantified Executive Time Savings</h3>
+  <p style="font-size:8.8pt;color:var(--muted);margin-bottom:10px;">Estimated annual bandwidth reclaimed for the R&amp;D Lead (Ritu Parmar &amp; team) by automating proposal/grant drafting and eliminating sales query interruptions.</p>
+
+  <div class="kpi-strip" style="margin: 14px 0 16px;">
+    <div class="kpi-cell">
+      <div class="kpi-num">20%</div>
+      <div class="kpi-lbl">Drafting Bandwidth Saved</div>
+    </div>
+    <div class="kpi-cell">
+      <div class="kpi-num">80%</div>
+      <div class="kpi-lbl">Approval Delay Cut</div>
+    </div>
+    <div class="kpi-cell">
+      <div class="kpi-num">22 hrs</div>
+      <div class="kpi-lbl">Monthly Time Saved</div>
+    </div>
+    <div class="kpi-cell">
+      <div class="kpi-num" style="color:var(--accent);">264 hrs</div>
+      <div class="kpi-lbl">Annual Hours Saved</div>
+    </div>
+  </div>
+
+  <div class="callout" style="margin-top:10px;margin-bottom:15px;border-left-color:var(--accent);background:var(--accent-soft);">
+    <strong style="color:var(--ink);font-size:9.5pt;">Bandwidth Reinvestment Breakdown:</strong><br>
+    <ul style="font-size:8.5pt;color:var(--slate);padding-left:16px;margin-top:4px;line-height:1.45;">
+      <li><strong>Current Friction:</strong> R&amp;D team spends ~20% of its working hours manually writing research proposals/grant decks and answering ad-hoc sales inquiries for technical data.</li>
+      <li><strong>Automated Efficiency:</strong> AI Proposal Drafting Engine and SSOT Knowledge Chatbot allow sales to self-serve technical queries and auto-generate proposal initial drafts.</li>
+      <li><strong>Strategic Impact:</strong> Reclaims <strong>264 R&amp;D hours per year (~33 full working days)</strong> to focus on core polymer IP development, lab trial execution, and patent documentation.</li>
+    </ul>
+  </div>
+
   <div class="doc-footer"><span>R&amp;D Audit Report · v1.0</span><span>Page 13</span></div>
 </div>
 

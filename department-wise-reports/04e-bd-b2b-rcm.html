@@ -277,7 +277,8 @@
       width: 44px;
     }
 
-    td.num {
+    td.num,
+    th.num {
       text-align: center;
       white-space: nowrap;
     }
@@ -558,7 +559,7 @@
     }
 
     .exhibit-chart {
-      flex: 0 0 220px;
+      flex: 0 0 320px;
     }
 
     .exhibit-note {
@@ -907,10 +908,6 @@
           <td class="label">Review scope</td>
           <td class="val">BD — B2B &amp; RCM (Corporate &amp; Broker Supply)</td>
         </tr>
-        <tr>
-          <td class="label">Distribution</td>
-          <td class="val">Executive Leadership Only</td>
-        </tr>
       </table>
     </div>
   </div>
@@ -920,7 +917,7 @@
     <img src="../letterhead.png" alt="Letterhead"
       style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
     <div class="eyebrow">Section 01 — Executive Summary</div>
-    <h2>Vertical Overview — B2B &amp; RCM</h2>
+    <h2>Report Overview — B2B &amp; RCM</h2>
     <div class="section-dek">Scope, current state, and headline findings</div>
     <p class="lede">The B2B &amp; RCM vertical manages major corporate accounts and white-label agreements, anchored by
       RCM. Bulk raw material is supplied to a central warehouse, which RCM distributes down to ~10,000 retail stores. A
@@ -981,7 +978,6 @@
       style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
     <div class="eyebrow">Section 02 — Benchmarking</div>
     <h2>Department Maturity Assessment</h2>
-    <div class="section-dek">Scored 1 (ad hoc) to 5 (optimized) against five capability dimensions</div>
     <div class="exhibit">
       <div class="exhibit-chart">
         <svg viewBox="0 0 400 350" xmlns="http://www.w3.org/2000/svg" style="width:100%;">
@@ -1077,13 +1073,20 @@
     <img src="../letterhead.png" alt="Letterhead"
       style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
     <h3>Team Structure</h3>
-    <p style="font-size:8.5pt;color:var(--muted);margin-bottom:4px;">Reporting hierarchy and current responsibility
-      domains within the B2B &amp; RCM vertical. Total headcount is 7, managing 8 focus states (HR, UP, PB).</p>
+    <p style="font-size:8.5pt;color:var(--muted);margin-bottom:4px;">Reporting hierarchy within the Company Business
+      Unit &amp; B2B Accounts, operating under Ankit Jain (Co-Founder &amp; CBDO).</p>
     <div class="org-chart">
+      <div class="org-level">
+        <div class="org-node secondary">
+          <div class="org-name">Ankit Jain</div>
+          <div class="org-role">Co-Founder &amp; CBDO<br>Division Head</div>
+        </div>
+      </div>
+      <div class="org-connector-top"></div>
       <div class="org-node lead">
-        <div class="org-name">Jatin Jain</div>
-        <div class="org-role">AM-BD<br>Vertical Lead<br>Key Accounts &amp; Strategy</div>
-        <span class="org-tag">Lead</span>
+        <div class="org-name">Jatin Jain &amp; Shailendra Singh</div>
+        <div class="org-role">AM-BD &amp; BD Executive<br>Company Business Unit &amp; Sales Leads</div>
+        <span class="org-tag">Vertical Leads</span>
       </div>
       <div class="org-connector-top"></div>
       <div style="width:78%;border-top:1px solid var(--line);margin:0 auto;"></div>
@@ -1173,38 +1176,43 @@
           <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5" />
         </marker>
       </defs>
-      <rect x="10" y="22" width="120" height="48" rx="3" fill="#F4E8FB" stroke="#A772D9" stroke-width="1.5" />
-      <text x="70" y="37" text-anchor="middle" font-size="7.6" fill="#603487" font-family="Segoe UI,sans-serif"
-        font-weight="bold">B2B Order Received</text>
-      <text x="70" y="49" text-anchor="middle" font-size="6.5" fill="#814BAF" font-family="Segoe UI,sans-serif">Action:
+      <rect x="10" y="26" width="120" height="48" rx="3" fill="#F4EEFC" stroke="#6b4fc8" stroke-width="1.5" />
+      <rect x="25" y="18" width="90" height="15" rx="3" fill="#6b4fc8" stroke="#6b4fc8" stroke-width="0.75" />
+      <text x="70" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">ORDER INTAKE</text>
+      <text x="70" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#6b4fc8" font-family="Segoe UI,sans-serif">B2B Order Received</text>
+      <text x="70" y="59.0" text-anchor="middle" font-size="7.5" fill="#6b4fc8" font-family="Segoe UI,sans-serif">Action:
         Jatin / Anil</text>
-      <line x1="130" y1="46" x2="150" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#c1)" />
+      <line x1="130" y1="50" x2="150" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#c1)" />
 
-      <rect x="150" y="22" width="120" height="48" rx="3" fill="#F4E8FB" stroke="#A772D9" stroke-width="1.5" />
-      <text x="210" y="37" text-anchor="middle" font-size="7.6" fill="#603487" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Production &amp; Dispatch</text>
-      <text x="210" y="49" text-anchor="middle" font-size="6.5" fill="#814BAF" font-family="Segoe UI,sans-serif">Action:
+      <rect x="150" y="26" width="120" height="48" rx="3" fill="#F4EEFC" stroke="#6b4fc8" stroke-width="1.5" />
+      <rect x="165" y="18" width="90" height="15" rx="3" fill="#6b4fc8" stroke="#6b4fc8" stroke-width="0.75" />
+      <text x="210" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">FULFILLMENT</text>
+      <text x="210" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#6b4fc8" font-family="Segoe UI,sans-serif">Production &amp; Dispatch</text>
+      <text x="210" y="59.0" text-anchor="middle" font-size="7.5" fill="#6b4fc8" font-family="Segoe UI,sans-serif">Action:
         Prod &amp; Logistics</text>
-      <line x1="270" y1="46" x2="290" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#c1)" />
+      <line x1="270" y1="50" x2="290" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#c1)" />
 
-      <rect x="290" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
-      <text x="350" y="37" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif"
-        font-weight="bold">RCM Central Warehouse</text>
-      <text x="350" y="49" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">20 MT
+      <rect x="290" y="26" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <rect x="305" y="18" width="90" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75" />
+      <text x="350" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">INVENTORY</text>
+      <text x="350" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">RCM Central Warehouse</text>
+      <text x="350" y="59.0" text-anchor="middle" font-size="7.5" fill="#6B7785" font-family="Segoe UI,sans-serif">20 MT
         Inventory maintained</text>
-      <line x1="410" y1="46" x2="430" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#c1)" />
+      <line x1="410" y1="50" x2="430" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#c1)" />
 
-      <rect x="430" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
-      <text x="490" y="37" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Regional Depot Dispatch</text>
-      <text x="490" y="49" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">Action:
+      <rect x="430" y="26" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <rect x="445" y="18" width="90" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75" />
+      <text x="490" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">LOGISTICS</text>
+      <text x="490" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Regional Depot Dispatch</text>
+      <text x="490" y="59.0" text-anchor="middle" font-size="7.5" fill="#6B7785" font-family="Segoe UI,sans-serif">Action:
         RCM Internal</text>
-      <line x1="550" y1="46" x2="570" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#c1)" />
+      <line x1="550" y1="50" x2="570" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#c1)" />
 
-      <rect x="570" y="22" width="120" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="2" />
-      <text x="630" y="37" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Tertiary Store Sales</text>
-      <text x="630" y="49" text-anchor="middle" font-size="6.5" fill="#C0453A" font-family="Segoe UI,sans-serif">~10,000
+      <rect x="570" y="26" width="120" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
+      <rect x="585" y="18" width="90" height="15" rx="3" fill="#A32E24" stroke="#A32E24" stroke-width="0.75" />
+      <text x="630" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">BOTTLENECK</text>
+      <text x="630" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#A32E24" font-family="Segoe UI,sans-serif">Tertiary Store Sales</text>
+      <text x="630" y="59.0" text-anchor="middle" font-size="7.5" fill="#A32E24" font-family="Segoe UI,sans-serif">~10,000
         stores</text>
 
       <rect x="430" y="86" width="260" height="32" rx="2" fill="#FEF9EC" stroke="#E8D08A" stroke-width="1" />
@@ -1233,38 +1241,43 @@
           <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5" />
         </marker>
       </defs>
-      <rect x="10" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
-      <text x="70" y="37" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Field Training Event</text>
-      <text x="70" y="49" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">Action:
+      <rect x="10" y="26" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <rect x="25" y="18" width="90" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75" />
+      <text x="70" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">FIELD VISIT</text>
+      <text x="70" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Field Training Event</text>
+      <text x="70" y="59.0" text-anchor="middle" font-size="7.5" fill="#6B7785" font-family="Segoe UI,sans-serif">Action:
         Piyush / Field Team</text>
-      <line x1="130" y1="46" x2="150" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#c2)" />
+      <line x1="130" y1="50" x2="150" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#c2)" />
 
-      <rect x="150" y="22" width="120" height="48" rx="3" fill="#FEF9EC" stroke="#E8D08A" stroke-width="1.5" />
-      <text x="210" y="37" text-anchor="middle" font-size="7.6" fill="#7C5E0A" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Log in Paper Diary</text>
-      <text x="210" y="49" text-anchor="middle" font-size="6.5" fill="#7C5E0A" font-family="Segoe UI,sans-serif">Farmer
+      <rect x="150" y="26" width="120" height="48" rx="3" fill="#FEF9EC" stroke="#E8D08A" stroke-width="1.5" />
+      <rect x="165" y="18" width="90" height="15" rx="3" fill="#8A5A10" stroke="#8A5A10" stroke-width="0.75" />
+      <text x="210" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">DATA ENTRY</text>
+      <text x="210" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#8A5A10" font-family="Segoe UI,sans-serif">Log in Paper Diary</text>
+      <text x="210" y="59.0" text-anchor="middle" font-size="7.5" fill="#8A5A10" font-family="Segoe UI,sans-serif">Farmer
         data &amp; QC feedback</text>
-      <line x1="270" y1="46" x2="290" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#c2)" />
+      <line x1="270" y1="50" x2="290" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#c2)" />
 
-      <rect x="290" y="22" width="120" height="48" rx="3" fill="#FEF9EC" stroke="#E8D08A" stroke-width="1.5" />
-      <text x="350" y="37" text-anchor="middle" font-size="7.6" fill="#7C5E0A" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Physical Travel to Office</text>
-      <text x="350" y="49" text-anchor="middle" font-size="6.5" fill="#7C5E0A" font-family="Segoe UI,sans-serif">End of
+      <rect x="290" y="26" width="120" height="48" rx="3" fill="#FEF9EC" stroke="#E8D08A" stroke-width="1.5" />
+      <rect x="305" y="18" width="90" height="15" rx="3" fill="#8A5A10" stroke="#8A5A10" stroke-width="0.75" />
+      <text x="350" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">BOTTLENECK</text>
+      <text x="350" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#8A5A10" font-family="Segoe UI,sans-serif">Physical Travel to Office</text>
+      <text x="350" y="59.0" text-anchor="middle" font-size="7.5" fill="#8A5A10" font-family="Segoe UI,sans-serif">End of
         week / month</text>
-      <line x1="410" y1="46" x2="430" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#c2)" />
+      <line x1="410" y1="50" x2="430" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#c2)" />
 
-      <rect x="430" y="22" width="120" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
-      <text x="490" y="37" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Manual Transcription</text>
-      <text x="490" y="49" text-anchor="middle" font-size="6.5" fill="#C0453A" font-family="Segoe UI,sans-serif">Task:
+      <rect x="430" y="26" width="120" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
+      <rect x="445" y="18" width="90" height="15" rx="3" fill="#A32E24" stroke="#A32E24" stroke-width="0.75" />
+      <text x="490" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">BOTTLENECK</text>
+      <text x="490" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#A32E24" font-family="Segoe UI,sans-serif">Manual Transcription</text>
+      <text x="490" y="59.0" text-anchor="middle" font-size="7.5" fill="#A32E24" font-family="Segoe UI,sans-serif">Task:
         Anil (Back Office)</text>
-      <line x1="550" y1="46" x2="570" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#c2)" />
+      <line x1="550" y1="50" x2="570" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#c2)" />
 
-      <rect x="570" y="22" width="120" height="48" rx="3" fill="#E9F4EC" stroke="#92C7A3" stroke-width="1" />
-      <text x="630" y="37" text-anchor="middle" font-size="7.6" fill="#276B3E" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Google Sheets Entry</text>
-      <text x="630" y="49" text-anchor="middle" font-size="6.5" fill="#276B3E" font-family="Segoe UI,sans-serif">Report
+      <rect x="570" y="26" width="120" height="48" rx="3" fill="#E9F4EC" stroke="#92C7A3" stroke-width="1.5" />
+      <rect x="585" y="18" width="90" height="15" rx="3" fill="#276B3E" stroke="#276B3E" stroke-width="0.75" />
+      <text x="630" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">COMPLETE</text>
+      <text x="630" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#276B3E" font-family="Segoe UI,sans-serif">Google Sheets Entry</text>
+      <text x="630" y="59.0" text-anchor="middle" font-size="7.5" fill="#276B3E" font-family="Segoe UI,sans-serif">Report
         generated for Jatin</text>
     </svg>
     <div class="flow-note">
@@ -1287,38 +1300,40 @@
           <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5" />
         </marker>
       </defs>
-      <rect x="10" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
-      <text x="70" y="37" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Onboard Farmers</text>
-      <text x="70" y="49" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">~2,000
+      <rect x="10" y="26" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <rect x="25" y="18" width="90" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75" />
+      <text x="70" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">DATA INPUT</text>
+      <text x="70" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Onboard Farmers</text>
+      <text x="70" y="59.0" text-anchor="middle" font-size="7.5" fill="#6B7785" font-family="Segoe UI,sans-serif">~2,000
         contacts added</text>
-      <line x1="130" y1="46" x2="150" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#c3)" />
+      <line x1="130" y1="50" x2="150" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#c3)" />
 
-      <rect x="150" y="22" width="120" height="48" rx="3" fill="#F4E8FB" stroke="#A772D9" stroke-width="1.5" />
-      <text x="210" y="37" text-anchor="middle" font-size="7.6" fill="#603487" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Add to WhatsApp Group</text>
-      <text x="210" y="49" text-anchor="middle" font-size="6.5" fill="#814BAF"
-        font-family="Segoe UI,sans-serif">Personal numbers used</text>
-      <line x1="270" y1="46" x2="290" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#c3)" />
+      <rect x="150" y="26" width="120" height="48" rx="3" fill="#F4EEFC" stroke="#6b4fc8" stroke-width="1.5" />
+      <rect x="165" y="18" width="90" height="15" rx="3" fill="#6b4fc8" stroke="#6b4fc8" stroke-width="0.75" />
+      <text x="210" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">OUTREACH</text>
+      <text x="210" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#6b4fc8" font-family="Segoe UI,sans-serif">Add to WhatsApp Group</text>
+      <text x="210" y="59.0" text-anchor="middle" font-size="7.5" fill="#6b4fc8" font-family="Segoe UI,sans-serif">Personal numbers used</text>
+      <line x1="270" y1="50" x2="290" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#c3)" />
 
-      <rect x="290" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
-      <text x="350" y="37" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Initial Training Push</text>
-      <text x="350" y="49" text-anchor="middle" font-size="6.5" fill="#6B7A8D"
-        font-family="Segoe UI,sans-serif">Broadcast messages</text>
-      <line x1="410" y1="46" x2="430" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#c3)" />
+      <rect x="290" y="26" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <rect x="305" y="18" width="90" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75" />
+      <text x="350" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">OUTREACH</text>
+      <text x="350" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Initial Training Push</text>
+      <text x="350" y="59.0" text-anchor="middle" font-size="7.5" fill="#6B7785" font-family="Segoe UI,sans-serif">Broadcast messages</text>
+      <line x1="410" y1="50" x2="430" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#c3)" />
 
-      <rect x="430" y="22" width="120" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
-      <text x="490" y="37" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif"
-        font-weight="bold">90% Drop-off</text>
-      <text x="490" y="49" text-anchor="middle" font-size="6.5" fill="#C0453A"
-        font-family="Segoe UI,sans-serif">Inactivity / Mute group</text>
-      <line x1="550" y1="46" x2="570" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#c3)" />
+      <rect x="430" y="26" width="120" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
+      <rect x="445" y="18" width="90" height="15" rx="3" fill="#A32E24" stroke="#A32E24" stroke-width="0.75" />
+      <text x="490" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">BOTTLENECK</text>
+      <text x="490" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#A32E24" font-family="Segoe UI,sans-serif">90% Drop-off</text>
+      <text x="490" y="59.0" text-anchor="middle" font-size="7.5" fill="#A32E24" font-family="Segoe UI,sans-serif">Inactivity / Mute group</text>
+      <line x1="550" y1="50" x2="570" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#c3)" />
 
-      <rect x="570" y="22" width="120" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="2" />
-      <text x="630" y="37" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Only 200 Active</text>
-      <text x="630" y="49" text-anchor="middle" font-size="6.5" fill="#C0453A" font-family="Segoe UI,sans-serif">No
+      <rect x="570" y="26" width="120" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
+      <rect x="585" y="18" width="90" height="15" rx="3" fill="#A32E24" stroke="#A32E24" stroke-width="0.75" />
+      <text x="630" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">BOTTLENECK</text>
+      <text x="630" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#A32E24" font-family="Segoe UI,sans-serif">Only 200 Active</text>
+      <text x="630" y="59.0" text-anchor="middle" font-size="7.5" fill="#A32E24" font-family="Segoe UI,sans-serif">No
         retargeting strategy</text>
     </svg>
     <div class="flow-note">
@@ -1334,7 +1349,111 @@
     <div class="doc-footer"><span>BD (B2B &amp; RCM) Audit Report · v1.0</span><span>Page 5</span></div>
   </div>
 
-  <!-- ============ 04 PAIN POINTS ============ -->
+  
+
+<!-- ============ APPENDIX: CROSS-DEPARTMENT DEPENDENCIES ============ -->
+  <div class="page">
+    <img src="../letterhead.png" alt="Letterhead"
+      style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
+    <div class="eyebrow">Appendix</div>
+    <h2>Cross-Department Dependencies</h2>
+    <div class="section-dek">Findings and recommendations that require action outside the BD department to resolve</div>
+
+    <!-- Production -->
+    <div class="dep-card">
+      <div class="dep-header">
+        <div class="dep-title">Production</div>
+        <div class="dep-badge">Operational Handoff</div>
+      </div>
+      <div class="dep-grid">
+        <div class="dep-section">
+          <div class="dep-section-title">Operations Dependency</div>
+          <div class="dep-section-content">
+            Production requires predictive sales data to plan the 20 MT inventory flow efficiently.
+            <div class="dep-person">👤 Key Person: Production Lead</div>
+          </div>
+        </div>
+        <div class="dep-section bottleneck">
+          <div class="dep-section-title">Critical Bottleneck</div>
+          <div class="dep-section-content">
+            Because BD cannot provide RCM tertiary sales data, Production must rely on reactive 40kg depot thresholds,
+            triggering chaotic ad-hoc manufacturing runs.
+          </div>
+        </div>
+        <div class="dep-section data-sync" style="grid-column:1/-1;">
+          <div class="dep-section-title">Data Transfer &amp; Updates Needed</div>
+          <div class="dep-section-content">
+            BD must secure API integration or automated reporting from RCM’s ERP and pipe this tertiary sales data
+            directly into Production's systems.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Accounts -->
+    <div class="dep-card">
+      <div class="dep-header">
+        <div class="dep-title">Accounts</div>
+        <div class="dep-badge">Finance Support</div>
+      </div>
+      <div class="dep-grid">
+        <div class="dep-section">
+          <div class="dep-section-title">Operations Dependency</div>
+          <div class="dep-section-content">
+            Field staff require timely expense reimbursements to sustain on-ground training activities.
+            <div class="dep-person">👤 Key Person: Accounts Manager</div>
+          </div>
+        </div>
+        <div class="dep-section bottleneck">
+          <div class="dep-section-title">Critical Bottleneck</div>
+          <div class="dep-section-content">
+            Manual transcription from paper diaries delays expense reporting and reimbursement processing.
+          </div>
+        </div>
+        <div class="dep-section data-sync" style="grid-column:1/-1;">
+          <div class="dep-section-title">Data Transfer &amp; Updates Needed</div>
+          <div class="dep-section-content">
+            Digital field forms must auto-sync directly to the Back Office Google Sheet with timestamped geolocation to
+            streamline Accounts verification and payout.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Logistics -->
+    <div class="dep-card">
+      <div class="dep-header">
+        <div class="dep-title">Logistics</div>
+        <div class="dep-badge">Dispatch Support</div>
+      </div>
+      <div class="dep-grid">
+        <div class="dep-section">
+          <div class="dep-section-title">Operations Dependency</div>
+          <div class="dep-section-content">
+            Requires daily coordination to manage freight delivery to RCM's Bhilwara facility and broker channels.
+            <div class="dep-person">👤 Key Person: Logistics Lead</div>
+          </div>
+        </div>
+        <div class="dep-section bottleneck">
+          <div class="dep-section-title">Critical Bottleneck</div>
+          <div class="dep-section-content">
+            Lack of predictive analytics forces rush dispatch orders, increasing freight costs and operational stress.
+          </div>
+        </div>
+        <div class="dep-section data-sync" style="grid-column:1/-1;">
+          <div class="dep-section-title">Data Transfer &amp; Updates Needed</div>
+          <div class="dep-section-content">
+            Logistics must be granted access to the new shared Supply Chain Dashboard to align dispatch schedules with
+            predictive tertiary off-take data.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="doc-footer"><span>BD (B2B &amp; RCM) Audit Report · v1.0</span><span>Page 6</span></div>
+  </div>
+
+<!-- ============ 04 PAIN POINTS ============ -->
   <div class="page">
     <img src="../letterhead.png" alt="Letterhead"
       style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
@@ -1392,7 +1511,7 @@
           engagement analytics.</td>
       </tr>
     </table>
-    <div class="doc-footer"><span>BD (B2B &amp; RCM) Audit Report · v1.0</span><span>Page 6</span></div>
+    <div class="doc-footer"><span>BD (B2B &amp; RCM) Audit Report · v1.0</span><span>Page 7</span></div>
   </div>
 
   <!-- ============ 05 TIME & EFFORT ============ -->
@@ -1442,7 +1561,7 @@
         tertiary sales visibility forces the Lead to spend time on reactive supply coordination rather than strategic
         account growth.</span>
     </div>
-    <div class="doc-footer"><span>BD (B2B &amp; RCM) Audit Report · v1.0</span><span>Page 7</span></div>
+    <div class="doc-footer"><span>BD (B2B &amp; RCM) Audit Report · v1.0</span><span>Page 8</span></div>
   </div>
 
   <!-- ============ 06 CORRECTIVE ACTION PLAN / SOLUTION SEGMENT ============ -->
@@ -1572,7 +1691,7 @@
       <li><strong>Feedback Loop:</strong> Establish a continuous feedback loop with Anil (Back Office) to ensure the
         auto-synced Sheets match the previous manual format.</li>
     </ul>
-    <div class="doc-footer"><span>BD (B2B &amp; RCM) Audit Report · v1.0</span><span>Page 8</span></div>
+    <div class="doc-footer"><span>BD (B2B &amp; RCM) Audit Report · v1.0</span><span>Page 9</span></div>
   </div>
 
   <!-- ============ 07 IMPLEMENTATION PLAN ============ -->
@@ -1629,8 +1748,9 @@
             reporting feed from RCM's ERP to capture tertiary store sales data.</span></div>
         <div class="sow-item"><span class="sow-dot"></span><span><strong>Build:</strong> Deploy a shared live dashboard
             for Production and Logistics visualizing off-take vs. 20 MT inventory.</span></div>
-        <div class="sow-item"><span class="sow-dot"></span><span><strong>Tech Stack &amp; Dependencies:</strong>
-            ReactJS, RCM ERP API, Google Sheets API. Requires coordination with RCM's IT team.</span></div>
+        <div class="sow-item"><span class="sow-dot"></span><span><strong>Tech Stack &amp; Badges:</strong> <span
+              class="chip-ref">React.js Dashboard</span> <span class="chip-ref">RCM ERP API</span> <span
+              class="chip-ref">Google Sheets API</span>.</span></div>
         <div class="sow-item"><span class="sow-dot client"></span><span><strong>Client To-Do:</strong> Formalize
             data-sharing agreement with RCM; provide ERP API documentation.</span></div>
       </div>
@@ -1663,8 +1783,9 @@
             Zoho/Google Forms for field training data; configure auto-sync to Back Office Google Sheets.</span></div>
         <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Build:</strong> Provision Virtual Business
             Lines (WhatsApp Business API) and migrate 2,000 farmer contacts from personal numbers.</span></div>
-        <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Tech Stack &amp; Dependencies:</strong> Zoho
-            Forms API, WhatsApp Business API, Google Sheets API.</span></div>
+        <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Tech Stack &amp; Badges:</strong> <span
+              class="chip-ref">Zoho Forms API</span> <span class="chip-ref">WhatsApp Business API</span> <span
+              class="chip-ref">Google Sheets API</span>.</span></div>
         <div class="sow-item"><span class="sow-dot client p2"></span><span><strong>Client To-Do:</strong> Procure
             company devices/numbers for field team; formalize internal data security policy.</span></div>
       </div>
@@ -1697,8 +1818,8 @@
             Gemini-powered WhatsApp bot to handle community FAQs and run QC feedback polls.</span></div>
         <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Build:</strong> Automated retargeting
             campaign to re-engage the 1,800 inactive farmer contacts.</span></div>
-        <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Tech Stack &amp; Dependencies:</strong>
-            Gemini LLM, WhatsApp Business API. Requires historical FAQ data for model grounding.</span></div>
+        <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Tech Stack &amp; Badges:</strong> <span
+              class="chip-ref">Gemini LLM</span> <span class="chip-ref">WhatsApp Business API</span>.</span></div>
         <div class="sow-item"><span class="sow-dot client p3"></span><span><strong>Client To-Do:</strong> Provide
             Piyush's list of top 50 farmer FAQs and standard training responses.</span></div>
       </div>
@@ -1715,7 +1836,7 @@
         </div>
       </div>
     </div>
-    <div class="doc-footer"><span>BD (B2B &amp; RCM) Audit Report · v1.0</span><span>Page 9</span></div>
+    <div class="doc-footer"><span>BD (B2B &amp; RCM) Audit Report · v1.0</span><span>Page 10</span></div>
   </div>
 
   <!-- ============ 08 ROI ============ -->
@@ -1779,115 +1900,48 @@
             (Systematised)</strong></td>
       </tr>
     </table>
-    <div class="doc-footer"><span>BD (B2B &amp; RCM) Audit Report · v1.0</span><span>Page 10</span></div>
-  </div>
 
-  <!-- ============ APPENDIX: CROSS-DEPARTMENT DEPENDENCIES ============ -->
-  <div class="page">
-    <img src="../letterhead.png" alt="Letterhead"
-      style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
-    <div class="eyebrow">Appendix</div>
-    <h2>Cross-Department Dependencies</h2>
-    <div class="section-dek">Findings and recommendations that require action outside the BD department to resolve</div>
+    <h3>Quantified Executive Time Savings</h3>
+    <p style="font-size:8.8pt;color:var(--muted);margin-bottom:10px;">Estimated annual bandwidth reclaimed for the
+      B2B/RCM BD Team by eliminating manual paper diary transcription and ad-hoc inventory calls.</p>
 
-    <!-- Production -->
-    <div class="dep-card">
-      <div class="dep-header">
-        <div class="dep-title">Production</div>
-        <div class="dep-badge">Operational Handoff</div>
+    <div class="kpi-strip" style="margin: 14px 0 16px;">
+      <div class="kpi-cell">
+        <div class="kpi-num">20%</div>
+        <div class="kpi-lbl">Back-Office Admin Saved</div>
       </div>
-      <div class="dep-grid">
-        <div class="dep-section">
-          <div class="dep-section-title">Operations Dependency <span class="chip chip-info">Planning Data</span></div>
-          <div class="dep-section-content">
-            Production requires predictive sales data to plan the 20 MT inventory flow efficiently.
-            <div class="dep-person">👤 Key Person: Production Lead</div>
-          </div>
-        </div>
-        <div class="dep-section bottleneck">
-          <div class="dep-section-title">Critical Bottleneck</div>
-          <div class="dep-section-content">
-            Because BD cannot provide RCM tertiary sales data, Production must rely on reactive 40kg depot thresholds,
-            triggering chaotic ad-hoc manufacturing runs.
-          </div>
-        </div>
-        <div class="dep-section data-sync" style="grid-column:1/-1;">
-          <div class="dep-section-title">Data Transfer &amp; Updates Needed <span class="chip chip-data">Data
-              Flow</span></div>
-          <div class="dep-section-content">
-            BD must secure API integration or automated reporting from RCM’s ERP and pipe this tertiary sales data
-            directly into Production's systems.
-          </div>
-        </div>
+      <div class="kpi-cell">
+        <div class="kpi-num">2,000</div>
+        <div class="kpi-lbl">Farmer Contacts Secured</div>
+      </div>
+      <div class="kpi-cell">
+        <div class="kpi-num">16 hrs</div>
+        <div class="kpi-lbl">Monthly Time Saved</div>
+      </div>
+      <div class="kpi-cell">
+        <div class="kpi-num" style="color:var(--accent);">192 hrs</div>
+        <div class="kpi-lbl">Annual Hours Saved</div>
       </div>
     </div>
 
-    <!-- Accounts -->
-    <div class="dep-card">
-      <div class="dep-header">
-        <div class="dep-title">Accounts</div>
-        <div class="dep-badge">Finance Support</div>
-      </div>
-      <div class="dep-grid">
-        <div class="dep-section">
-          <div class="dep-section-title">Operations Dependency <span class="chip chip-approval">Approval Flow</span>
-          </div>
-          <div class="dep-section-content">
-            Field staff require timely expense reimbursements to sustain on-ground training activities.
-            <div class="dep-person">👤 Key Person: Accounts Manager</div>
-          </div>
-        </div>
-        <div class="dep-section bottleneck">
-          <div class="dep-section-title">Critical Bottleneck</div>
-          <div class="dep-section-content">
-            Manual transcription from paper diaries delays expense reporting and reimbursement processing.
-          </div>
-        </div>
-        <div class="dep-section data-sync" style="grid-column:1/-1;">
-          <div class="dep-section-title">Data Transfer &amp; Updates Needed <span class="chip chip-data">Data
-              Flow</span></div>
-          <div class="dep-section-content">
-            Digital field forms must auto-sync directly to the Back Office Google Sheet with timestamped geolocation to
-            streamline Accounts verification and payout.
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Logistics -->
-    <div class="dep-card">
-      <div class="dep-header">
-        <div class="dep-title">Logistics</div>
-        <div class="dep-badge">Dispatch Support</div>
-      </div>
-      <div class="dep-grid">
-        <div class="dep-section">
-          <div class="dep-section-title">Operations Dependency <span class="chip chip-info">Freight Coordination</span>
-          </div>
-          <div class="dep-section-content">
-            Requires daily coordination to manage freight delivery to RCM's Bhilwara facility and broker channels.
-            <div class="dep-person">👤 Key Person: Logistics Lead</div>
-          </div>
-        </div>
-        <div class="dep-section bottleneck">
-          <div class="dep-section-title">Critical Bottleneck</div>
-          <div class="dep-section-content">
-            Lack of predictive analytics forces rush dispatch orders, increasing freight costs and operational stress.
-          </div>
-        </div>
-        <div class="dep-section data-sync" style="grid-column:1/-1;">
-          <div class="dep-section-title">Data Transfer &amp; Updates Needed <span class="chip chip-data">Data
-              Flow</span></div>
-          <div class="dep-section-content">
-            Logistics must be granted access to the new shared Supply Chain Dashboard to align dispatch schedules with
-            predictive tertiary off-take data.
-          </div>
-        </div>
-      </div>
+    <div class="callout"
+      style="margin-top:10px;margin-bottom:15px;border-left-color:var(--accent);background:var(--accent-soft);">
+      <strong style="color:var(--ink);font-size:9.5pt;">Bandwidth Reinvestment Breakdown:</strong><br>
+      <ul style="font-size:8.5pt;color:var(--slate);padding-left:16px;margin-top:4px;line-height:1.45;">
+        <li><strong>Current Friction:</strong> Field staff records training and sales data in physical paper diaries,
+          requiring back-office staff to spend ~20% of their bandwidth manually transcribing notes into spreadsheets.
+        </li>
+        <li><strong>Automated Efficiency:</strong> Offline Mobile Forms auto-sync directly to Google Sheets, while
+          WhatsApp Business API automates community broadcasts and FAQ responses.</li>
+        <li><strong>Strategic Impact:</strong> Reclaims <strong>192 BD/Operations hours per year (~24 full working
+            days)</strong> to focus on expanding RCM distributor store coverage and secondary market outreach.</li>
+      </ul>
     </div>
 
     <div class="doc-footer"><span>BD (B2B &amp; RCM) Audit Report · v1.0</span><span>Page 11</span></div>
   </div>
+
+  
 
 </body>
 

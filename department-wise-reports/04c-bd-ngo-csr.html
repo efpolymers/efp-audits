@@ -277,7 +277,8 @@
       width: 44px;
     }
 
-    td.num {
+    td.num,
+    th.num {
       text-align: center;
       white-space: nowrap;
     }
@@ -568,7 +569,7 @@
     }
 
     .exhibit-chart {
-      flex: 0 0 220px;
+      flex: 0 0 320px;
     }
 
     .exhibit-note {
@@ -918,10 +919,6 @@
           <td class="label">Review scope</td>
           <td class="val">BD — NGO/CSR (Bulk Agricultural Supply)</td>
         </tr>
-        <tr>
-          <td class="label">Distribution</td>
-          <td class="val">Executive Leadership Only</td>
-        </tr>
       </table>
     </div>
   </div>
@@ -931,7 +928,7 @@
     <img src="../letterhead.png" alt="Letterhead"
       style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
     <div class="eyebrow">Section 01 — Executive Summary</div>
-    <h2>Vertical Overview — NGO/CSR</h2>
+    <h2>Report Overview — NGO/CSR</h2>
     <div class="section-dek">Scope, current state, and headline findings</div>
     <p class="lede">The NGO/CSR vertical secures high-volume bulk contracts with non-governmental organizations and
       corporate CSR departments managing agricultural and watershed projects. The vertical carries a <b>100 MT</b> sales
@@ -990,7 +987,6 @@
       style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
     <div class="eyebrow">Section 02 — Benchmarking</div>
     <h2>Department Maturity Assessment</h2>
-    <div class="section-dek">Scored 1 (ad hoc) to 5 (optimized) against five capability dimensions</div>
     <div class="exhibit">
       <div class="exhibit-chart">
         <svg viewBox="0 0 400 350" xmlns="http://www.w3.org/2000/svg" style="width:100%;">
@@ -1087,14 +1083,21 @@
     <img src="../letterhead.png" alt="Letterhead"
       style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
     <h3>Team Structure</h3>
-    <p style="font-size:8.5pt;color:var(--muted);margin-bottom:4px;">Reporting hierarchy and current responsibility
-      domains within the NGO/CSR vertical. The team reports upward to Jatin (leadership).</p>
+    <p style="font-size:8.5pt;color:var(--muted);margin-bottom:4px;">Reporting hierarchy within NGO/CSR Business,
+      operating under Ankit Jain (Co-Founder &amp; CBDO).</p>
     <div class="org-chart">
+      <div class="org-level">
+        <div class="org-node secondary">
+          <div class="org-name">Ankit Jain</div>
+          <div class="org-role">Co-Founder &amp; CBDO<br>Division Head</div>
+        </div>
+      </div>
+      <div class="org-connector-top"></div>
       <div class="org-node lead">
         <div class="org-name">Vikash Mehta</div>
-        <div class="org-role">AM-BD / Lead<br>Key accounts, payment recovery,<br>pipeline oversight &amp; reporting
-        </div>
-        <span class="org-tag">Lead</span>
+        <div class="org-role">AM-BD / Vertical Lead<br>Key accounts, NGO/CSR partnerships,<br>pipeline oversight &amp;
+          reporting</div>
+        <span class="org-tag">Vertical Lead</span>
       </div>
       <div class="org-connector-top"></div>
       <div style="width:78%;border-top:1px solid var(--line);margin:0 auto;"></div>
@@ -1110,7 +1113,7 @@
           <div class="org-connector-top"></div>
           <div class="org-node secondary">
             <div class="org-name">Field Team (2 personnel)</div>
-            <div class="org-role">On-ground demos, training,<br>trial impact monitoring<br>(~90% of their effort)</div>
+            <div class="org-role">On-ground demos, training,<br>trial impact monitoring</div>
           </div>
         </div>
         <div class="org-sub-branch">
@@ -1123,8 +1126,6 @@
         </div>
       </div>
     </div>
-    <div style="text-align:center;font-size:7.5pt;color:var(--muted);margin-top:6px;">↑ Reports to Jatin (Leadership) —
-      monthly metric reporting cycle</div>
 
     <h3>Tools in Use</h3>
     <div class="tools-grid">
@@ -1217,40 +1218,45 @@
           <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5" />
         </marker>
       </defs>
-      <rect x="10" y="22" width="120" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
-      <text x="70" y="37" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Scroll LinkedIn Feed</text>
-      <text x="70" y="49" text-anchor="middle" font-size="6.5" fill="#C0453A" font-family="Segoe UI,sans-serif">Task:
+      <rect x="10" y="26" width="120" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
+      <rect x="25" y="18" width="90" height="15" rx="3" fill="#A32E24" stroke="#A32E24" stroke-width="0.75" />
+      <text x="70" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">BOTTLENECK</text>
+      <text x="70" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#A32E24" font-family="Segoe UI,sans-serif">Scroll LinkedIn Feed</text>
+      <text x="70" y="56.0" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">Task:
         Gaurav</text>
-      <text x="70" y="60" text-anchor="middle" font-size="6.5" fill="#C0453A" font-family="Segoe UI,sans-serif">(9,500
+      <text x="70" y="67.0" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">(9,500
         connections)</text>
-      <line x1="130" y1="46" x2="150" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#b1)" />
+      <line x1="130" y1="50" x2="150" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#b1)" />
 
-      <rect x="150" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
-      <text x="210" y="37" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Relevancy Check</text>
-      <text x="210" y="49" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">Agri /
+      <rect x="150" y="26" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <rect x="165" y="18" width="90" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75" />
+      <text x="210" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">VERIFICATION</text>
+      <text x="210" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Relevancy Check</text>
+      <text x="210" y="59.0" text-anchor="middle" font-size="7.5" fill="#6B7785" font-family="Segoe UI,sans-serif">Agri /
         water project?</text>
-      <line x1="270" y1="46" x2="290" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#b1)" />
+      <line x1="270" y1="50" x2="290" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#b1)" />
 
-      <rect x="290" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
-      <text x="350" y="37" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Find POC</text>
-      <text x="350" y="49" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">Head
+      <rect x="290" y="26" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <rect x="305" y="18" width="90" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75" />
+      <text x="350" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">OUTREACH</text>
+      <text x="350" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Find POC</text>
+      <text x="350" y="59.0" text-anchor="middle" font-size="7.5" fill="#6B7785" font-family="Segoe UI,sans-serif">Head
         CSR / Sr. position</text>
-      <line x1="410" y1="46" x2="430" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#b1)" />
+      <line x1="410" y1="50" x2="430" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#b1)" />
 
-      <rect x="430" y="22" width="120" height="48" rx="3" fill="#F4E8FB" stroke="#A772D9" stroke-width="1.5" />
-      <text x="490" y="37" text-anchor="middle" font-size="7.6" fill="#603487" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Contactout / Apollo AI</text>
-      <text x="490" y="49" text-anchor="middle" font-size="6.5" fill="#814BAF" font-family="Segoe UI,sans-serif">Extract
+      <rect x="430" y="26" width="120" height="48" rx="3" fill="#F4EEFC" stroke="#6b4fc8" stroke-width="1.5" />
+      <rect x="445" y="18" width="90" height="15" rx="3" fill="#6b4fc8" stroke="#6b4fc8" stroke-width="0.75" />
+      <text x="490" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">DATA EXTRACTION</text>
+      <text x="490" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#6b4fc8" font-family="Segoe UI,sans-serif">Contactout / Apollo AI</text>
+      <text x="490" y="59.0" text-anchor="middle" font-size="7.5" fill="#6b4fc8" font-family="Segoe UI,sans-serif">Extract
         email / phone</text>
-      <line x1="550" y1="46" x2="570" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#b1)" />
+      <line x1="550" y1="50" x2="570" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#b1)" />
 
-      <rect x="570" y="22" width="120" height="48" rx="3" fill="#E9F4EC" stroke="#92C7A3" stroke-width="1" />
-      <text x="630" y="37" text-anchor="middle" font-size="7.6" fill="#276B3E" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Log to Sheet 1</text>
-      <text x="630" y="49" text-anchor="middle" font-size="6.5" fill="#276B3E" font-family="Segoe UI,sans-serif">Lead
+      <rect x="570" y="26" width="120" height="48" rx="3" fill="#E9F4EC" stroke="#92C7A3" stroke-width="1.5" />
+      <rect x="585" y="18" width="90" height="15" rx="3" fill="#276B3E" stroke="#276B3E" stroke-width="0.75" />
+      <text x="630" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">DATA ENTRY</text>
+      <text x="630" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#276B3E" font-family="Segoe UI,sans-serif">Log to Sheet 1</text>
+      <text x="630" y="59.0" text-anchor="middle" font-size="7.5" fill="#276B3E" font-family="Segoe UI,sans-serif">Lead
         Generated</text>
     </svg>
     <div class="flow-note">
@@ -1277,53 +1283,58 @@
         </marker>
       </defs>
 
-      <rect x="10" y="20" width="108" height="52" rx="3" fill="#F4E8FB" stroke="#A772D9" stroke-width="1.5" />
-      <text x="64" y="36" text-anchor="middle" font-size="7.2" fill="#603487" font-family="Segoe UI,sans-serif"
-        font-weight="700">Cold Email</text>
-      <text x="64" y="48" text-anchor="middle" font-size="6.5" fill="#814BAF" font-family="Segoe UI,sans-serif">Task:
+      <rect x="10" y="26" width="108" height="52" rx="3" fill="#F4EEFC" stroke="#6b4fc8" stroke-width="1.5" />
+      <rect x="25" y="18" width="78" height="15" rx="3" fill="#6b4fc8" stroke="#6b4fc8" stroke-width="0.75" />
+      <text x="64" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">OUTREACH</text>
+      <text x="64" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#6b4fc8" font-family="Segoe UI,sans-serif">Cold Email</text>
+      <text x="64" y="56.0" text-anchor="middle" font-size="6.5" fill="#6b4fc8" font-family="Segoe UI,sans-serif">Task:
         Gaurav</text>
-      <text x="64" y="60" text-anchor="middle" font-size="6.5" fill="#814BAF" font-family="Segoe UI,sans-serif">Monday
+      <text x="64" y="67.0" text-anchor="middle" font-size="6.5" fill="#6b4fc8" font-family="Segoe UI,sans-serif">Monday
         priority</text>
-      <line x1="118" y1="46" x2="132" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#b2)" />
+      <line x1="118" y1="50" x2="132" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#b2)" />
 
-      <rect x="134" y="20" width="108" height="52" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
-      <text x="188" y="36" text-anchor="middle" font-size="7.2" fill="#3F4B5C" font-family="Segoe UI,sans-serif"
-        font-weight="700">Log to Sheet 2</text>
-      <text x="188" y="48" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">Emailed
+      <rect x="134" y="26" width="108" height="52" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <rect x="149" y="18" width="78" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75" />
+      <text x="188" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">DATA ENTRY</text>
+      <text x="188" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Log to Sheet 2</text>
+      <text x="188" y="59.0" text-anchor="middle" font-size="7.5" fill="#6B7785" font-family="Segoe UI,sans-serif">Emailed
         Leads</text>
-      <line x1="242" y1="46" x2="256" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#b2)" />
+      <line x1="242" y1="50" x2="256" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#b2)" />
 
-      <rect x="258" y="20" width="108" height="52" rx="3" fill="#FEF9EC" stroke="#E8D08A" stroke-width="1.5" />
-      <text x="312" y="36" text-anchor="middle" font-size="7.2" fill="#7C5E0A" font-family="Segoe UI,sans-serif"
-        font-weight="700">Wait 4–5 Days</text>
-      <text x="312" y="48" text-anchor="middle" font-size="6.5" fill="#7C5E0A" font-family="Segoe UI,sans-serif">No
+      <rect x="258" y="26" width="108" height="52" rx="3" fill="#FEF9EC" stroke="#E8D08A" stroke-width="1.5" />
+      <rect x="273" y="18" width="78" height="15" rx="3" fill="#8A5A10" stroke="#8A5A10" stroke-width="0.75" />
+      <text x="312" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">PENDING</text>
+      <text x="312" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#8A5A10" font-family="Segoe UI,sans-serif">Wait 4–5 Days</text>
+      <text x="312" y="56.0" text-anchor="middle" font-size="6.5" fill="#8A5A10" font-family="Segoe UI,sans-serif">No
         automated reminder</text>
-      <text x="312" y="60" text-anchor="middle" font-size="6.5" fill="#7C5E0A"
-        font-family="Segoe UI,sans-serif">Memory-based check</text>
-      <line x1="366" y1="46" x2="380" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#b2)" />
+      <text x="312" y="67.0" text-anchor="middle" font-size="6.5" fill="#8A5A10" font-family="Segoe UI,sans-serif">Memory-based check</text>
+      <line x1="366" y1="50" x2="380" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#b2)" />
 
-      <rect x="382" y="20" width="108" height="52" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
-      <text x="436" y="36" text-anchor="middle" font-size="7.2" fill="#A32E24" font-family="Segoe UI,sans-serif"
-        font-weight="700">Manual Sheet Check</text>
-      <text x="436" y="48" text-anchor="middle" font-size="6.5" fill="#C0453A" font-family="Segoe UI,sans-serif">Open
+      <rect x="382" y="26" width="108" height="52" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
+      <rect x="397" y="18" width="78" height="15" rx="3" fill="#A32E24" stroke="#A32E24" stroke-width="0.75" />
+      <text x="436" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">BOTTLENECK</text>
+      <text x="436" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#A32E24" font-family="Segoe UI,sans-serif">Manual Sheet Check</text>
+      <text x="436" y="56.0" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">Open
         Sheet 2</text>
-      <text x="436" y="60" text-anchor="middle" font-size="6.5" fill="#C0453A" font-family="Segoe UI,sans-serif">Scan
+      <text x="436" y="67.0" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">Scan
         for silence</text>
-      <line x1="490" y1="46" x2="504" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#b2)" />
+      <line x1="490" y1="50" x2="504" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#b2)" />
 
-      <rect x="506" y="20" width="108" height="52" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
-      <text x="560" y="36" text-anchor="middle" font-size="7.2" fill="#3F4B5C" font-family="Segoe UI,sans-serif"
-        font-weight="700">Follow-up Mail</text>
-      <text x="560" y="48" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">Task:
+      <rect x="506" y="26" width="108" height="52" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <rect x="521" y="18" width="78" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75" />
+      <text x="560" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">OUTREACH</text>
+      <text x="560" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Follow-up Mail</text>
+      <text x="560" y="59.0" text-anchor="middle" font-size="7.5" fill="#6B7785" font-family="Segoe UI,sans-serif">Task:
         Gaurav</text>
-      <line x1="614" y1="46" x2="628" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#b2)" />
+      <line x1="614" y1="50" x2="628" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#b2)" />
 
-      <rect x="630" y="20" width="104" height="52" rx="3" fill="#E9F4EC" stroke="#92C7A3" stroke-width="1" />
-      <text x="682" y="36" text-anchor="middle" font-size="7.2" fill="#276B3E" font-family="Segoe UI,sans-serif"
-        font-weight="700">Response?</text>
-      <text x="682" y="48" text-anchor="middle" font-size="6.5" fill="#276B3E" font-family="Segoe UI,sans-serif">→ Sheet
+      <rect x="630" y="26" width="104" height="52" rx="3" fill="#E9F4EC" stroke="#92C7A3" stroke-width="1.5" />
+      <rect x="645" y="18" width="74" height="15" rx="3" fill="#276B3E" stroke="#276B3E" stroke-width="0.75" />
+      <text x="682" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">QUALIFIED</text>
+      <text x="682" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#276B3E" font-family="Segoe UI,sans-serif">Response?</text>
+      <text x="682" y="56.0" text-anchor="middle" font-size="6.5" fill="#276B3E" font-family="Segoe UI,sans-serif">→ Sheet
         3</text>
-      <text x="682" y="60" text-anchor="middle" font-size="6.5" fill="#276B3E" font-family="Segoe UI,sans-serif">→
+      <text x="682" y="67.0" text-anchor="middle" font-size="6.5" fill="#276B3E" font-family="Segoe UI,sans-serif">→
         Google Meet</text>
 
       <rect x="258" y="92" width="216" height="36" rx="2" fill="#FEF9EC" stroke="#E8D08A" stroke-width="1" />
@@ -1359,45 +1370,51 @@
           <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5" />
         </marker>
       </defs>
-      <rect x="10" y="22" width="108" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
-      <text x="64" y="37" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Google Meet</text>
-      <text x="64" y="49" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">Virtual
+      <rect x="10" y="26" width="108" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <rect x="25" y="18" width="78" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75" />
+      <text x="64" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">OUTREACH</text>
+      <text x="64" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Google Meet</text>
+      <text x="64" y="59.0" text-anchor="middle" font-size="7.5" fill="#6B7785" font-family="Segoe UI,sans-serif">Virtual
         meeting</text>
-      <line x1="118" y1="46" x2="132" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#b3)" />
+      <line x1="118" y1="50" x2="132" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#b3)" />
 
-      <rect x="134" y="22" width="108" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
-      <text x="188" y="37" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Custom Deck</text>
-      <text x="188" y="49" text-anchor="middle" font-size="6.5" fill="#C0453A" font-family="Segoe UI,sans-serif">Canva /
+      <rect x="134" y="26" width="108" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
+      <rect x="149" y="18" width="78" height="15" rx="3" fill="#A32E24" stroke="#A32E24" stroke-width="0.75" />
+      <text x="188" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">BOTTLENECK</text>
+      <text x="188" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#A32E24" font-family="Segoe UI,sans-serif">Custom Deck</text>
+      <text x="188" y="59.0" text-anchor="middle" font-size="7.5" fill="#A32E24" font-family="Segoe UI,sans-serif">Canva /
         PPT (fresh)</text>
-      <line x1="242" y1="46" x2="256" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#b3)" />
+      <line x1="242" y1="50" x2="256" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#b3)" />
 
-      <rect x="258" y="22" width="108" height="48" rx="3" fill="#F4E8FB" stroke="#A772D9" stroke-width="1.5" />
-      <text x="312" y="37" text-anchor="middle" font-size="7.6" fill="#603487" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Pilot Dispatch</text>
-      <text x="312" y="49" text-anchor="middle" font-size="6.5" fill="#814BAF" font-family="Segoe UI,sans-serif">Action:
+      <rect x="258" y="26" width="108" height="48" rx="3" fill="#F4EEFC" stroke="#6b4fc8" stroke-width="1.5" />
+      <rect x="273" y="18" width="78" height="15" rx="3" fill="#6b4fc8" stroke="#6b4fc8" stroke-width="0.75" />
+      <text x="312" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">LOGISTICS</text>
+      <text x="312" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#6b4fc8" font-family="Segoe UI,sans-serif">Pilot Dispatch</text>
+      <text x="312" y="59.0" text-anchor="middle" font-size="7.5" fill="#6b4fc8" font-family="Segoe UI,sans-serif">Action:
         Logistics</text>
-      <line x1="366" y1="46" x2="380" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#b3)" />
+      <line x1="366" y1="50" x2="380" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#b3)" />
 
-      <rect x="382" y="22" width="108" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
-      <text x="436" y="37" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif"
-        font-weight="bold">On-Ground Demo</text>
-      <text x="436" y="49" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">Field
+      <rect x="382" y="26" width="108" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <rect x="397" y="18" width="78" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75" />
+      <text x="436" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">TRIAL</text>
+      <text x="436" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">On-Ground Demo</text>
+      <text x="436" y="59.0" text-anchor="middle" font-size="7.5" fill="#6B7785" font-family="Segoe UI,sans-serif">Field
         Team (2 ppl)</text>
-      <line x1="490" y1="46" x2="504" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#b3)" />
+      <line x1="490" y1="50" x2="504" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#b3)" />
 
-      <rect x="506" y="22" width="108" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
-      <text x="560" y="37" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Product Training</text>
-      <text x="560" y="49" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">+
+      <rect x="506" y="26" width="108" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <rect x="521" y="18" width="78" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75" />
+      <text x="560" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">TRAINING</text>
+      <text x="560" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Product Training</text>
+      <text x="560" y="59.0" text-anchor="middle" font-size="7.5" fill="#6B7785" font-family="Segoe UI,sans-serif">+
         Result monitoring</text>
-      <line x1="614" y1="46" x2="628" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#b3)" />
+      <line x1="614" y1="50" x2="628" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#b3)" />
 
-      <rect x="630" y="22" width="104" height="48" rx="3" fill="#E9F4EC" stroke="#92C7A3" stroke-width="1.5" />
-      <text x="682" y="37" text-anchor="middle" font-size="7.6" fill="#276B3E" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Order Confirmed</text>
-      <text x="682" y="49" text-anchor="middle" font-size="6.5" fill="#276B3E" font-family="Segoe UI,sans-serif">→ Sheet
+      <rect x="630" y="26" width="104" height="48" rx="3" fill="#E9F4EC" stroke="#92C7A3" stroke-width="1.5" />
+      <rect x="645" y="18" width="74" height="15" rx="3" fill="#276B3E" stroke="#276B3E" stroke-width="0.75" />
+      <text x="682" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">COMPLETE</text>
+      <text x="682" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#276B3E" font-family="Segoe UI,sans-serif">Order Confirmed</text>
+      <text x="682" y="59.0" text-anchor="middle" font-size="7.5" fill="#276B3E" font-family="Segoe UI,sans-serif">→ Sheet
         4</text>
     </svg>
     <div class="flow-note">
@@ -1452,24 +1469,25 @@
       <line x1="168" y1="99" x2="285" y2="100" stroke="#B0BAC5" stroke-width="0.9" marker-end="url(#b4)" />
       <line x1="168" y1="137" x2="285" y2="105" stroke="#B0BAC5" stroke-width="0.9" marker-end="url(#b4)" />
 
-      <rect x="286" y="62" width="155" height="72" rx="5" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="2" />
-      <text x="363" y="86" text-anchor="middle" font-size="8" fill="#A32E24" font-family="Segoe UI,sans-serif"
-        font-weight="700">VIKASH MEHTA</text>
-      <text x="363" y="98" text-anchor="middle" font-size="7" fill="#A32E24" font-family="Segoe UI,sans-serif">Manual
+      <rect x="286" y="62" width="155" height="72" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
+      <rect x="301" y="54" width="125" height="15" rx="3" fill="#A32E24" stroke="#A32E24" stroke-width="0.75" />
+      <text x="364" y="64.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">BOTTLENECK</text>
+      <text x="364" y="80.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#A32E24" font-family="Segoe UI,sans-serif">VIKASH MEHTA</text>
+      <text x="364" y="92.0" text-anchor="middle" font-size="7.4" fill="#A32E24" font-family="Segoe UI,sans-serif">Manual
         Aggregation</text>
-      <text x="363" y="110" text-anchor="middle" font-size="6.5" fill="#C0453A" font-family="Segoe UI,sans-serif">4
+      <text x="364" y="103.0" text-anchor="middle" font-size="7.4" fill="#A32E24" font-family="Segoe UI,sans-serif">4
         sheets + past-year sheet</text>
-      <text x="363" y="122" text-anchor="middle" font-size="6.5" fill="#C0453A" font-family="Segoe UI,sans-serif">+
+      <text x="364" y="103.0" text-anchor="middle" font-size="7.4" fill="#A32E24" font-family="Segoe UI,sans-serif">+
         dispatch tracker</text>
 
       <line x1="441" y1="86" x2="468" y2="68" stroke="#92C7A3" stroke-width="1" marker-end="url(#b4g)" />
       <line x1="441" y1="110" x2="468" y2="115" stroke="#92C7A3" stroke-width="1" marker-end="url(#b4g)" />
 
-      <rect x="470" y="44" width="180" height="44" rx="3" fill="#EFF4FF" stroke="#93B4EB" stroke-width="1" />
-      <text x="560" y="62" text-anchor="middle" font-size="7.2" fill="#1B2A4A" font-family="Segoe UI,sans-serif"
-        font-weight="700">Monthly Metric Report</text>
-      <text x="560" y="74" text-anchor="middle" font-size="6.5" fill="#4A6390"
-        font-family="Segoe UI,sans-serif">Submitted to: Jatin</text>
+      <rect x="470" y="44" width="180" height="44" rx="3" fill="#EFF4FF" stroke="#93B4EB" stroke-width="1.5" />
+      <rect x="485" y="36" width="150" height="15" rx="3" fill="#2B5B84" stroke="#2B5B84" stroke-width="0.75" />
+      <text x="560" y="46.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">REPORTING</text>
+      <text x="560" y="65.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#2B5B84" font-family="Segoe UI,sans-serif">Monthly Metric Report</text>
+      <text x="560" y="77.0" text-anchor="middle" font-size="7.5" fill="#2B5B84" font-family="Segoe UI,sans-serif">Submitted to: Jatin</text>
 
       <rect x="470" y="100" width="180" height="44" rx="3" fill="#FEF9EC" stroke="#E8D08A" stroke-width="1" />
       <text x="560" y="118" text-anchor="middle" font-size="7.2" fill="#7C5E0A" font-family="Segoe UI,sans-serif"
@@ -1508,45 +1526,50 @@
         </marker>
       </defs>
 
-      <rect x="8" y="22" width="104" height="48" rx="3" fill="#E9F4EC" stroke="#92C7A3" stroke-width="1" />
-      <text x="60" y="37" text-anchor="middle" font-size="7.2" fill="#276B3E" font-family="Segoe UI,sans-serif"
-        font-weight="700">Order Confirmed</text>
-      <text x="60" y="49" text-anchor="middle" font-size="6.5" fill="#276B3E" font-family="Segoe UI,sans-serif">Action:
+      <rect x="8" y="26" width="104" height="48" rx="3" fill="#E9F4EC" stroke="#92C7A3" stroke-width="1.5" />
+      <rect x="23" y="18" width="74" height="15" rx="3" fill="#276B3E" stroke="#276B3E" stroke-width="0.75" />
+      <text x="60" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">COMPLETE</text>
+      <text x="60" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#276B3E" font-family="Segoe UI,sans-serif">Order Confirmed</text>
+      <text x="60" y="59.0" text-anchor="middle" font-size="7.5" fill="#276B3E" font-family="Segoe UI,sans-serif">Action:
         Vikash</text>
-      <line x1="112" y1="46" x2="126" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#b5)" />
+      <line x1="112" y1="50" x2="126" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#b5)" />
 
-      <rect x="128" y="22" width="104" height="48" rx="3" fill="#F4E8FB" stroke="#A772D9" stroke-width="1.5" />
-      <text x="180" y="37" text-anchor="middle" font-size="7.2" fill="#603487" font-family="Segoe UI,sans-serif"
-        font-weight="700">Dispatch</text>
-      <text x="180" y="49" text-anchor="middle" font-size="6.5" fill="#814BAF" font-family="Segoe UI,sans-serif">Action:
+      <rect x="128" y="26" width="104" height="48" rx="3" fill="#F4EEFC" stroke="#6b4fc8" stroke-width="1.5" />
+      <rect x="143" y="18" width="74" height="15" rx="3" fill="#6b4fc8" stroke="#6b4fc8" stroke-width="0.75" />
+      <text x="180" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">LOGISTICS</text>
+      <text x="180" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#6b4fc8" font-family="Segoe UI,sans-serif">Dispatch</text>
+      <text x="180" y="59.0" text-anchor="middle" font-size="7.5" fill="#6b4fc8" font-family="Segoe UI,sans-serif">Action:
         Logistics</text>
-      <line x1="232" y1="46" x2="246" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#b5)" />
+      <line x1="232" y1="50" x2="246" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#b5)" />
 
-      <rect x="248" y="22" width="104" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
-      <text x="300" y="37" text-anchor="middle" font-size="7.2" fill="#3F4B5C" font-family="Segoe UI,sans-serif"
-        font-weight="700">Delivery</text>
-      <text x="300" y="49" text-anchor="middle" font-size="6.5" fill="#6B7A8D"
-        font-family="Segoe UI,sans-serif">WhatsApp / Mail</text>
-      <line x1="352" y1="46" x2="366" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#b5)" />
+      <rect x="248" y="26" width="104" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <rect x="263" y="18" width="74" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75" />
+      <text x="300" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">LOGISTICS</text>
+      <text x="300" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Delivery</text>
+      <text x="300" y="59.0" text-anchor="middle" font-size="7.5" fill="#6B7785" font-family="Segoe UI,sans-serif">WhatsApp / Mail</text>
+      <line x1="352" y1="50" x2="366" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#b5)" />
 
-      <rect x="368" y="22" width="104" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
-      <text x="420" y="37" text-anchor="middle" font-size="7.2" fill="#3F4B5C" font-family="Segoe UI,sans-serif"
-        font-weight="700">Invoice Raised</text>
-      <text x="420" y="49" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">Action:
+      <rect x="368" y="26" width="104" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <rect x="383" y="18" width="74" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75" />
+      <text x="420" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">FINANCE</text>
+      <text x="420" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Invoice Raised</text>
+      <text x="420" y="59.0" text-anchor="middle" font-size="7.5" fill="#6B7785" font-family="Segoe UI,sans-serif">Action:
         Finance</text>
-      <line x1="472" y1="46" x2="486" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#b5)" />
+      <line x1="472" y1="50" x2="486" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#b5)" />
 
-      <rect x="488" y="22" width="104" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="2" />
-      <text x="540" y="37" text-anchor="middle" font-size="7.2" fill="#A32E24" font-family="Segoe UI,sans-serif"
-        font-weight="700">60–70 Day Wait</text>
-      <text x="540" y="49" text-anchor="middle" font-size="6.5" fill="#C0453A" font-family="Segoe UI,sans-serif">No auto
+      <rect x="488" y="26" width="104" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
+      <rect x="503" y="18" width="74" height="15" rx="3" fill="#A32E24" stroke="#A32E24" stroke-width="0.75" />
+      <text x="540" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">BOTTLENECK</text>
+      <text x="540" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#A32E24" font-family="Segoe UI,sans-serif">60–70 Day Wait</text>
+      <text x="540" y="59.0" text-anchor="middle" font-size="7.5" fill="#A32E24" font-family="Segoe UI,sans-serif">No auto
         dunning</text>
-      <line x1="592" y1="46" x2="606" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#b5)" />
+      <line x1="592" y1="50" x2="606" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#b5)" />
 
-      <rect x="608" y="22" width="124" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="2" />
-      <text x="670" y="37" text-anchor="middle" font-size="7.2" fill="#A32E24" font-family="Segoe UI,sans-serif"
-        font-weight="700">Manual Chase</text>
-      <text x="670" y="49" text-anchor="middle" font-size="6.5" fill="#C0453A" font-family="Segoe UI,sans-serif">Task:
+      <rect x="608" y="26" width="124" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
+      <rect x="623" y="18" width="94" height="15" rx="3" fill="#A32E24" stroke="#A32E24" stroke-width="0.75" />
+      <text x="670" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">BOTTLENECK</text>
+      <text x="670" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#A32E24" font-family="Segoe UI,sans-serif">Manual Chase</text>
+      <text x="670" y="59.0" text-anchor="middle" font-size="7.5" fill="#A32E24" font-family="Segoe UI,sans-serif">Task:
         Vikash (15–20%)</text>
 
       <rect x="488" y="86" width="244" height="34" rx="2" fill="#FEF9EC" stroke="#E8D08A" stroke-width="1" />
@@ -1574,39 +1597,43 @@
           <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5" />
         </marker>
       </defs>
-      <rect x="10" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
-      <text x="70" y="37" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif"
-        font-weight="bold">News / Update Arrives</text>
-      <text x="70" y="49" text-anchor="middle" font-size="6.5" fill="#6B7A8D" font-family="Segoe UI,sans-serif">Ad-hoc,
+      <rect x="10" y="26" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <rect x="25" y="18" width="90" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75" />
+      <text x="70" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">DATA INPUT</text>
+      <text x="70" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">News / Update Arrives</text>
+      <text x="70" y="59.0" text-anchor="middle" font-size="7.5" fill="#6B7785" font-family="Segoe UI,sans-serif">Ad-hoc,
         irregular</text>
-      <line x1="130" y1="46" x2="150" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#b6)" />
+      <line x1="130" y1="50" x2="150" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#b6)" />
 
-      <rect x="150" y="22" width="120" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
-      <text x="210" y="37" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Open WhatsApp</text>
-      <text x="210" y="49" text-anchor="middle" font-size="6.5" fill="#C0453A" font-family="Segoe UI,sans-serif">Manual
+      <rect x="150" y="26" width="120" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
+      <rect x="165" y="18" width="90" height="15" rx="3" fill="#A32E24" stroke="#A32E24" stroke-width="0.75" />
+      <text x="210" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">BOTTLENECK</text>
+      <text x="210" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#A32E24" font-family="Segoe UI,sans-serif">Open WhatsApp</text>
+      <text x="210" y="59.0" text-anchor="middle" font-size="7.5" fill="#A32E24" font-family="Segoe UI,sans-serif">Manual
         1-by-1 forward</text>
-      <line x1="270" y1="46" x2="290" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#b6)" />
+      <line x1="270" y1="50" x2="290" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#b6)" />
 
-      <rect x="290" y="22" width="120" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
-      <text x="350" y="37" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Send to 20–30 Contacts</text>
-      <text x="350" y="49" text-anchor="middle" font-size="6.5" fill="#C0453A" font-family="Segoe UI,sans-serif">No
+      <rect x="290" y="26" width="120" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
+      <rect x="305" y="18" width="90" height="15" rx="3" fill="#A32E24" stroke="#A32E24" stroke-width="0.75" />
+      <text x="350" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">BOTTLENECK</text>
+      <text x="350" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#A32E24" font-family="Segoe UI,sans-serif">Send to 20–30 Contacts</text>
+      <text x="350" y="59.0" text-anchor="middle" font-size="7.5" fill="#A32E24" font-family="Segoe UI,sans-serif">No
         broadcast tool</text>
-      <line x1="410" y1="46" x2="430" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#b6)" />
+      <line x1="410" y1="50" x2="430" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#b6)" />
 
-      <rect x="430" y="22" width="120" height="48" rx="3" fill="#FEF9EC" stroke="#E8D08A" stroke-width="1" />
-      <text x="490" y="37" text-anchor="middle" font-size="7.6" fill="#7C5E0A" font-family="Segoe UI,sans-serif"
-        font-weight="bold">No Tracking</text>
-      <text x="490" y="49" text-anchor="middle" font-size="6.5" fill="#7C5E0A" font-family="Segoe UI,sans-serif">Open /
+      <rect x="430" y="26" width="120" height="48" rx="3" fill="#FEF9EC" stroke="#E8D08A" stroke-width="1.5" />
+      <rect x="445" y="18" width="90" height="15" rx="3" fill="#8A5A10" stroke="#8A5A10" stroke-width="0.75" />
+      <text x="490" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">WARNING</text>
+      <text x="490" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#8A5A10" font-family="Segoe UI,sans-serif">No Tracking</text>
+      <text x="490" y="59.0" text-anchor="middle" font-size="7.5" fill="#8A5A10" font-family="Segoe UI,sans-serif">Open /
         click unknown</text>
-      <line x1="550" y1="46" x2="570" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#b6)" />
+      <line x1="550" y1="50" x2="570" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#b6)" />
 
-      <rect x="570" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
-      <text x="630" y="37" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif"
-        font-weight="bold">Passive Reach</text>
-      <text x="630" y="49" text-anchor="middle" font-size="6.5" fill="#6B7A8D"
-        font-family="Segoe UI,sans-serif">Inconsistent cadence</text>
+      <rect x="570" y="26" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <rect x="585" y="18" width="90" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75" />
+      <text x="630" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">OUTREACH</text>
+      <text x="630" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Passive Reach</text>
+      <text x="630" y="59.0" text-anchor="middle" font-size="7.5" fill="#6B7785" font-family="Segoe UI,sans-serif">Inconsistent cadence</text>
     </svg>
     <div class="flow-note">
       <p style="margin-top:0;"><strong>What is good:</strong> Vikash actively maintains relationship touchpoints through
@@ -1621,7 +1648,120 @@
     <div class="doc-footer"><span>BD (NGO/CSR) Audit Report · v1.0</span><span>Page 7</span></div>
   </div>
 
-  <!-- ============ 04 PAIN POINTS ============ -->
+  
+
+<!-- ============ APPENDIX: CROSS-DEPARTMENT DEPENDENCIES ============ -->
+  <div class="page">
+    <img src="../letterhead.png" alt="Letterhead"
+      style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
+    <div class="eyebrow">Appendix</div>
+    <h2>Cross-Department Dependencies</h2>
+    <div class="section-dek">Findings and recommendations that require action outside the BD NGO/CSR vertical to resolve
+    </div>
+
+    <!-- Finance & Accounts -->
+    <div class="dep-card">
+      <div class="dep-header">
+        <div class="dep-title">Finance &amp; Accounts</div>
+        <div class="dep-badge">Critical Gating — Collections</div>
+      </div>
+      <div class="dep-grid">
+        <div class="dep-section">
+          <div class="dep-section-title">Operations Dependency</div>
+          <div class="dep-section-content">
+            The 60–70 day NGO payment cycle is absorbed manually by BD. Vikash spends 15–20% of his time chasing overdue
+            invoices instead of managing pipeline. No automated dunning or payment reminder sequence exists.
+            <div class="dep-person">👤 Key Person: Shobha Shekhawat (Finance)</div>
+          </div>
+        </div>
+        <div class="dep-section bottleneck">
+          <div class="dep-section-title">Critical Bottleneck</div>
+          <div class="dep-section-content">
+            This is the single biggest drain on BD leadership capacity in this vertical. Manual chasing is reactive and
+            inconsistent — with no systematic escalation path if a client ignores reminders.
+          </div>
+        </div>
+        <div class="dep-section data-sync" style="grid-column:1/-1;">
+          <div class="dep-section-title">Data Transfer &amp; Updates Needed</div>
+          <div class="dep-section-content">
+            Finance must own the dunning process: automated 30/45/60-day payment reminders triggered from invoice date
+            via WhatsApp Business API (client) and Gmail (formal). BD should only be looped in at the 60+ day escalation
+            point, not from day one. Finance invoice tracker must be API-accessible to the BD Dashboard.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Logistics -->
+    <div class="dep-card">
+      <div class="dep-header">
+        <div class="dep-title">Logistics</div>
+        <div class="dep-badge">Pilot Dispatch Support</div>
+      </div>
+      <div class="dep-grid">
+        <div class="dep-section">
+          <div class="dep-section-title">Operations Dependency</div>
+          <div class="dep-section-content">
+            Bulk trial materials must be dispatched and tracked in coordination with the Field Execution Team's travel
+            schedule. Delays in dispatch delay trial setup, directly costing deal velocity.
+            <div class="dep-person">👤 Key Person: Nihal Paliwal (Logistics)</div>
+          </div>
+        </div>
+        <div class="dep-section bottleneck">
+          <div class="dep-section-title">Critical Bottleneck</div>
+          <div class="dep-section-content">
+            Trial dispatch is treated as a transactional ad-hoc request with no dedicated SLA. If field team members
+            travel to site without materials arriving on time, the demo cannot proceed and must be rescheduled.
+          </div>
+        </div>
+        <div class="dep-section data-sync" style="grid-column:1/-1;">
+          <div class="dep-section-title">Data Transfer &amp; Updates Needed</div>
+          <div class="dep-section-content">
+            Logistics must commit to a maximum dispatch lead time for NGO trial materials and push shipment status
+            updates via WhatsApp Business API to BD automatically. BD should be able to track shipment status in real
+            time on the dashboard, not rely on phone calls to Nihal for status updates.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Leadership / Jatin -->
+    <div class="dep-card">
+      <div class="dep-header">
+        <div class="dep-title">Leadership (Jatin) &amp; CXO Visibility</div>
+        <div class="dep-badge">Reporting &amp; Oversight</div>
+      </div>
+      <div class="dep-grid">
+        <div class="dep-section">
+          <div class="dep-section-title">Operations Dependency</div>
+          <div class="dep-section-content">
+            Jatin currently receives monthly metric reports compiled manually by Vikash. CXOs lack mid-month visibility
+            into pipeline velocity, conversion rates, or aging receivables.
+            <div class="dep-person">👤 Key Person: Jatin (Leadership)</div>
+          </div>
+        </div>
+        <div class="dep-section bottleneck">
+          <div class="dep-section-title">Critical Bottleneck</div>
+          <div class="dep-section-content">
+            Monthly cadence means leadership discovers pipeline problems 30 days late. No real-time intervention
+            possible when a deal stalls or a payment ages beyond 60 days.
+          </div>
+        </div>
+        <div class="dep-section data-sync" style="grid-column:1/-1;">
+          <div class="dep-section-title">Data Transfer &amp; Updates Needed</div>
+          <div class="dep-section-content">
+            The BD Dashboard must surface role-based views: Jatin sees full pipeline + conversion rates + aging
+            receivables; CXOs see high-level MT progress vs. 100 MT target. Eliminates monthly manual aggregation
+            entirely.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="doc-footer"><span>BD (NGO/CSR) Audit Report · v1.0</span><span>Page 8</span></div>
+  </div>
+
+<!-- ============ 04 PAIN POINTS ============ -->
   <div class="page">
     <img src="../letterhead.png" alt="Letterhead"
       style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
@@ -1711,7 +1851,7 @@
           velocity, conversion rates, or aging receivables.</td>
       </tr>
     </table>
-    <div class="doc-footer"><span>BD (NGO/CSR) Audit Report · v1.0</span><span>Page 8</span></div>
+    <div class="doc-footer"><span>BD (NGO/CSR) Audit Report · v1.0</span><span>Page 9</span></div>
   </div>
 
   <!-- ============ 05 TIME & EFFORT ============ -->
@@ -1761,7 +1901,7 @@
         <b>~45%</b> of team time but is capped by organic feed scrolling. Together these two activities lock over half
         of BD capacity into low-leverage work.</span>
     </div>
-    <div class="doc-footer"><span>BD (NGO/CSR) Audit Report · v1.0</span><span>Page 9</span></div>
+    <div class="doc-footer"><span>BD (NGO/CSR) Audit Report · v1.0</span><span>Page 10</span></div>
   </div>
 
   <!-- ============ 06 CORRECTIVE ACTION PLAN / SOLUTION SEGMENT ============ -->
@@ -1900,7 +2040,7 @@
       <li><strong>Fill Vacant BD Executive:</strong> The planned hiring should proceed in parallel — the dashboard is
         built to absorb additional sourcing capacity seamlessly.</li>
     </ul>
-    <div class="doc-footer"><span>BD (NGO/CSR) Audit Report · v1.0</span><span>Page 10</span></div>
+    <div class="doc-footer"><span>BD (NGO/CSR) Audit Report · v1.0</span><span>Page 11</span></div>
   </div>
 
   <!-- ============ 07 IMPLEMENTATION PLAN ============ -->
@@ -1959,9 +2099,9 @@
         <div class="sow-item"><span class="sow-dot"></span><span><strong>Build:</strong> Automated follow-up cadence —
             WhatsApp reminders triggered when a lead's "last contacted" timestamp exceeds threshold. Replaces
             memory-based 4–5 day checks.</span></div>
-        <div class="sow-item"><span class="sow-dot"></span><span><strong>Tech Stack &amp; Dependencies:</strong>
-            ReactJS, Google Sheets API, WhatsApp Business API. We require read/write access to the existing 4
-            Sheets.</span></div>
+        <div class="sow-item"><span class="sow-dot"></span><span><strong>Tech Stack &amp; Badges:</strong> <span
+              class="chip-ref">React.js Dashboard</span> <span class="chip-ref">Google Sheets API</span> <span
+              class="chip-ref">WhatsApp API</span>.</span></div>
         <div class="sow-item"><span class="sow-dot"></span><span><strong>Team Adoption:</strong> Walkthrough sessions
             for Gaurav (daily user) and Vikash (oversight view).</span></div>
         <div class="sow-item"><span class="sow-dot client"></span><span><strong>Client To-Do:</strong> Provide Google
@@ -2004,9 +2144,9 @@
         <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Build:</strong> Proposal Drafting Engine —
             RAG over Google Drive past proposals; auto-generates customized first drafts per NGO program alignment.
             Lives inside the dashboard.</span></div>
-        <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Tech Stack &amp; Dependencies:</strong>
-            Gemini LLM, Google Drive API, LinkedIn scraping (where API permits). Requires historical proposal files for
-            model grounding.</span></div>
+        <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Tech Stack &amp; Badges:</strong> <span
+              class="chip-ref">Gemini LLM</span> <span class="chip-ref">Google Drive RAG</span> <span
+              class="chip-ref">LinkedIn Integration</span>.</span></div>
         <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Team Adoption:</strong> Prompt-engineering
             training for Gaurav; distribute formal adoption playbooks.</span></div>
         <div class="sow-item"><span class="sow-dot client p2"></span><span><strong>Client To-Do:</strong> Organize Drive
@@ -2051,8 +2191,9 @@
         <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Build:</strong> Logistics dispatch sync —
             pilot material shipment status pushed to BD via WhatsApp with ETA. Field team travel synced to dispatch
             confirmation.</span></div>
-        <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Tech Stack &amp; Dependencies:</strong>
-            WhatsApp Business API, Gmail API, Finance sheet integration, Logistics status feed.</span></div>
+        <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Tech Stack &amp; Badges:</strong> <span
+              class="chip-ref">WhatsApp Business API</span> <span class="chip-ref">Gmail API</span> <span
+              class="chip-ref">Finance API</span> <span class="chip-ref">Logistics Feed</span>.</span></div>
         <div class="sow-item"><span class="sow-dot client p3"></span><span><strong>Client To-Do:</strong> Finance
             (Shobha Shekhawat) to share invoice tracker API access; Logistics (Nihal Paliwal) to confirm dispatch status
             feed format.</span></div>
@@ -2075,7 +2216,7 @@
         </div>
       </div>
     </div>
-    <div class="doc-footer"><span>BD (NGO/CSR) Audit Report · v1.0</span><span>Page 11</span></div>
+    <div class="doc-footer"><span>BD (NGO/CSR) Audit Report · v1.0</span><span>Page 12</span></div>
   </div>
 
   <!-- ============ 08 ROI ============ -->
@@ -2154,125 +2295,47 @@
             (Systematised)</strong></td>
       </tr>
     </table>
-    <div class="doc-footer"><span>BD (NGO/CSR) Audit Report · v1.0</span><span>Page 12</span></div>
-  </div>
 
-  <!-- ============ APPENDIX: CROSS-DEPARTMENT DEPENDENCIES ============ -->
-  <div class="page">
-    <img src="../letterhead.png" alt="Letterhead"
-      style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
-    <div class="eyebrow">Appendix</div>
-    <h2>Cross-Department Dependencies</h2>
-    <div class="section-dek">Findings and recommendations that require action outside the BD NGO/CSR vertical to resolve
-    </div>
+    <h3>Quantified Executive Time Savings</h3>
+    <p style="font-size:8.8pt;color:var(--muted);margin-bottom:10px;">Estimated annual bandwidth reclaimed for BD
+      Leadership (Vikash &amp; team) by automating lead discovery, proposal drafting, and invoice collections.</p>
 
-    <!-- Finance & Accounts -->
-    <div class="dep-card">
-      <div class="dep-header">
-        <div class="dep-title">Finance &amp; Accounts</div>
-        <div class="dep-badge">Critical Gating — Collections</div>
+    <div class="kpi-strip" style="margin: 14px 0 16px;">
+      <div class="kpi-cell">
+        <div class="kpi-num">40–50%</div>
+        <div class="kpi-lbl">Drafting Time Saved</div>
       </div>
-      <div class="dep-grid">
-        <div class="dep-section">
-          <div class="dep-section-title">Operations Dependency <span class="chip chip-approval">Approval Flow</span>
-          </div>
-          <div class="dep-section-content">
-            The 60–70 day NGO payment cycle is absorbed manually by BD. Vikash spends 15–20% of his time chasing overdue
-            invoices instead of managing pipeline. No automated dunning or payment reminder sequence exists.
-            <div class="dep-person">👤 Key Person: Shobha Shekhawat (Finance)</div>
-          </div>
-        </div>
-        <div class="dep-section bottleneck">
-          <div class="dep-section-title">Critical Bottleneck</div>
-          <div class="dep-section-content">
-            This is the single biggest drain on BD leadership capacity in this vertical. Manual chasing is reactive and
-            inconsistent — with no systematic escalation path if a client ignores reminders.
-          </div>
-        </div>
-        <div class="dep-section data-sync" style="grid-column:1/-1;">
-          <div class="dep-section-title">Data Transfer &amp; Updates Needed <span class="chip chip-data">Data
-              Flow</span></div>
-          <div class="dep-section-content">
-            Finance must own the dunning process: automated 30/45/60-day payment reminders triggered from invoice date
-            via WhatsApp Business API (client) and Gmail (formal). BD should only be looped in at the 60+ day escalation
-            point, not from day one. Finance invoice tracker must be API-accessible to the BD Dashboard.
-          </div>
-        </div>
+      <div class="kpi-cell">
+        <div class="kpi-num">15–20%</div>
+        <div class="kpi-lbl">Lead Time Reclaimed</div>
+      </div>
+      <div class="kpi-cell">
+        <div class="kpi-num">18 hrs</div>
+        <div class="kpi-lbl">Monthly Time Saved</div>
+      </div>
+      <div class="kpi-cell">
+        <div class="kpi-num" style="color:var(--accent);">216 hrs</div>
+        <div class="kpi-lbl">Annual Hours Saved</div>
       </div>
     </div>
 
-    <!-- Logistics -->
-    <div class="dep-card">
-      <div class="dep-header">
-        <div class="dep-title">Logistics</div>
-        <div class="dep-badge">Pilot Dispatch Support</div>
-      </div>
-      <div class="dep-grid">
-        <div class="dep-section">
-          <div class="dep-section-title">Operations Dependency <span class="chip chip-info">Information Sharing</span>
-          </div>
-          <div class="dep-section-content">
-            Bulk trial materials must be dispatched and tracked in coordination with the Field Execution Team's travel
-            schedule. Delays in dispatch delay trial setup, directly costing deal velocity.
-            <div class="dep-person">👤 Key Person: Nihal Paliwal (Logistics)</div>
-          </div>
-        </div>
-        <div class="dep-section bottleneck">
-          <div class="dep-section-title">Critical Bottleneck</div>
-          <div class="dep-section-content">
-            Trial dispatch is treated as a transactional ad-hoc request with no dedicated SLA. If field team members
-            travel to site without materials arriving on time, the demo cannot proceed and must be rescheduled.
-          </div>
-        </div>
-        <div class="dep-section data-sync" style="grid-column:1/-1;">
-          <div class="dep-section-title">Data Transfer &amp; Updates Needed <span class="chip chip-data">Data
-              Flow</span></div>
-          <div class="dep-section-content">
-            Logistics must commit to a maximum dispatch lead time for NGO trial materials and push shipment status
-            updates via WhatsApp Business API to BD automatically. BD should be able to track shipment status in real
-            time on the dashboard, not rely on phone calls to Nihal for status updates.
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Leadership / Jatin -->
-    <div class="dep-card">
-      <div class="dep-header">
-        <div class="dep-title">Leadership (Jatin) &amp; CXO Visibility</div>
-        <div class="dep-badge">Reporting &amp; Oversight</div>
-      </div>
-      <div class="dep-grid">
-        <div class="dep-section">
-          <div class="dep-section-title">Operations Dependency <span class="chip chip-approval">Approval Flow</span>
-          </div>
-          <div class="dep-section-content">
-            Jatin currently receives monthly metric reports compiled manually by Vikash. CXOs lack mid-month visibility
-            into pipeline velocity, conversion rates, or aging receivables.
-            <div class="dep-person">👤 Key Person: Jatin (Leadership)</div>
-          </div>
-        </div>
-        <div class="dep-section bottleneck">
-          <div class="dep-section-title">Critical Bottleneck</div>
-          <div class="dep-section-content">
-            Monthly cadence means leadership discovers pipeline problems 30 days late. No real-time intervention
-            possible when a deal stalls or a payment ages beyond 60 days.
-          </div>
-        </div>
-        <div class="dep-section data-sync" style="grid-column:1/-1;">
-          <div class="dep-section-title">Data Transfer &amp; Updates Needed <span class="chip chip-data">Data
-              Flow</span></div>
-          <div class="dep-section-content">
-            The BD Dashboard must surface role-based views: Jatin sees full pipeline + conversion rates + aging
-            receivables; CXOs see high-level MT progress vs. 100 MT target. Eliminates monthly manual aggregation
-            entirely.
-          </div>
-        </div>
-      </div>
+    <div class="callout"
+      style="margin-top:10px;margin-bottom:15px;border-left-color:var(--accent);background:var(--accent-soft);">
+      <strong style="color:var(--ink);font-size:9.5pt;">Bandwidth Reinvestment Breakdown:</strong><br>
+      <ul style="font-size:8.5pt;color:var(--slate);padding-left:16px;margin-top:4px;line-height:1.45;">
+        <li><strong>Current Friction:</strong> BD Lead spends 15–20% of total working hours manually chasing 60–70 day
+          overdue NGO invoices and manually building Canva/PPT proposals for each lead.</li>
+        <li><strong>Automated Efficiency:</strong> AI Proposal Drafting Engine and automated finance-triggered dunning
+          sequences handle initial drafts and 30/45/60-day reminders without human intervention.</li>
+        <li><strong>Strategic Impact:</strong> Reclaims <strong>216 BD hours per year (~27 full working days)</strong>
+          to focus on high-ticket CSR partnership pitches and closing multi-year NGO programs.</li>
+      </ul>
     </div>
 
     <div class="doc-footer"><span>BD (NGO/CSR) Audit Report · v1.0</span><span>Page 13</span></div>
   </div>
+
+  
 
 </body>
 

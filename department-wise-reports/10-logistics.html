@@ -281,7 +281,8 @@
       width: 44px;
     }
 
-    td.num {
+    td.num,
+    th.num {
       text-align: center;
       white-space: nowrap;
     }
@@ -388,7 +389,7 @@
     }
 
     .exhibit-chart {
-      flex: 0 0 220px;
+      flex: 0 0 320px;
     }
 
     .exhibit-note {
@@ -873,7 +874,6 @@
 
     <div class="eyebrow">Section 02 — Benchmarking</div>
     <h2>Department Maturity Assessment</h2>
-    <div class="section-dek">Scored 1 (ad hoc) to 5 (optimized) against five capability dimensions</div>
 
     <div class="exhibit">
       <div class="exhibit-chart">
@@ -978,14 +978,20 @@
     <div class="section-dek">Personnel footprint and the core technology stack in use</div>
 
     <h3>Team Structure</h3>
-    <p style="font-size:8.5pt;color:var(--muted);margin-bottom:4px;">Reporting hierarchy and current responsibility
-      domains within the Logistics &amp; Dispatch department.</p>
+    <p style="font-size:8.5pt;color:var(--muted);margin-bottom:4px;">Reporting hierarchy within Logistics, led by Nihal Paliwal (Logistics Manager) under Rishabh Doshi (Production Manager) and Narayan Lal Gurjar (Founder &amp; CEO).</p>
     <div class="org-chart">
       <div class="org-level">
+        <div class="org-node secondary">
+          <div class="org-name">Rishabh Doshi</div>
+          <div class="org-role">Production Manager<br>Division Head</div>
+        </div>
+      </div>
+      <div class="org-connector-top"></div>
+      <div class="org-level">
         <div class="org-node lead">
-          <div class="org-name">Nihal M Paliwal</div>
-          <div class="org-role">Logistics Head<br>Carrier Negotiations &amp; Export Operations</div>
-          <span class="org-tag">Lead</span>
+          <div class="org-name">Nihal Paliwal</div>
+          <div class="org-role">Logistics Manager<br>Carrier Negotiations &amp; Export Ops</div>
+          <span class="org-tag">Department Lead</span>
         </div>
       </div>
       <div class="org-connector-top"></div>
@@ -1099,34 +1105,39 @@
           <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5" />
         </marker>
       </defs>
-      <rect x="10" y="22" width="120" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
-      <text x="70" y="43" text-anchor="middle" font-size="7.6" fill="#A32E24" font-weight="700"
-        font-family="Segoe UI,sans-serif">Sales WhatsApp Post</text>
-      <text x="70" y="55" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">(Often
+      <rect x="10" y="26" width="120" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
+      <rect x="25" y="18" width="90" height="15" rx="3" fill="#A32E24" stroke="#A32E24" stroke-width="0.75" />
+      <text x="70" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">BOTTLENECK</text>
+      <text x="70" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#A32E24" font-family="Segoe UI,sans-serif">Sales WhatsApp Post</text>
+      <text x="70" y="59.0" text-anchor="middle" font-size="7.5" fill="#A32E24" font-family="Segoe UI,sans-serif">(Often
         Missing Data)</text>
-      <line x1="130" y1="46" x2="150" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)" />
-      <rect x="150" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
-      <text x="210" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Chase
+      <line x1="130" y1="50" x2="150" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)" />
+      <rect x="150" y="26" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <rect x="165" y="18" width="90" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75" />
+      <text x="210" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">BOTTLENECK</text>
+      <text x="210" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Chase
         Missing Info</text>
-      <text x="210" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">&amp;
+      <text x="210" y="59.0" text-anchor="middle" font-size="7.5" fill="#6B7785" font-family="Segoe UI,sans-serif">&amp;
         Schedule Routing</text>
-      <line x1="270" y1="46" x2="290" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)" />
-      <rect x="290" y="22" width="120" height="48" rx="3" fill="#FBF1DF" stroke="#E8C97A" stroke-width="1.5" />
-      <text x="350" y="43" text-anchor="middle" font-size="7.6" fill="#8A5A10" font-weight="700"
-        font-family="Segoe UI,sans-serif">Manual Billing Trigger</text>
-      <text x="350" y="55" text-anchor="middle" font-size="7.6" fill="#8A5A10"
-        font-family="Segoe UI,sans-serif">(Accounts / Zoho)</text>
-      <line x1="410" y1="46" x2="430" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)" />
-      <rect x="430" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
-      <text x="490" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Print
+      <line x1="270" y1="50" x2="290" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)" />
+      <rect x="290" y="26" width="120" height="48" rx="3" fill="#FEF9EC" stroke="#E8D08A" stroke-width="1.5" />
+      <rect x="305" y="18" width="90" height="15" rx="3" fill="#8A5A10" stroke="#8A5A10" stroke-width="0.75" />
+      <text x="350" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">BOTTLENECK</text>
+      <text x="350" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#8A5A10" font-family="Segoe UI,sans-serif">Manual Billing Trigger</text>
+      <text x="350" y="59.0" text-anchor="middle" font-size="7.5" fill="#8A5A10" font-family="Segoe UI,sans-serif">(Accounts / Zoho)</text>
+      <line x1="410" y1="50" x2="430" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)" />
+      <rect x="430" y="26" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <rect x="445" y="18" width="90" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75" />
+      <text x="490" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">FINANCE</text>
+      <text x="490" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Print
         Invoice &amp; E-Way</text>
-      <text x="490" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C"
-        font-family="Segoe UI,sans-serif">Delivery Note</text>
-      <line x1="550" y1="46" x2="570" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)" />
-      <rect x="570" y="22" width="120" height="48" rx="3" fill="#E9F4EC" stroke="#276B3E" stroke-width="1" />
-      <text x="630" y="43" text-anchor="middle" font-size="7.6" fill="#276B3E" font-weight="700"
-        font-family="Segoe UI,sans-serif">Physical Loading</text>
-      <text x="630" y="55" text-anchor="middle" font-size="7.6" fill="#276B3E" font-family="Segoe UI,sans-serif">&amp;
+      <text x="490" y="59.0" text-anchor="middle" font-size="7.5" fill="#6B7785" font-family="Segoe UI,sans-serif">Delivery Note</text>
+      <line x1="550" y1="50" x2="570" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)" />
+      <rect x="570" y="26" width="120" height="48" rx="3" fill="#E9F4EC" stroke="#92C7A3" stroke-width="1.5" />
+      <rect x="585" y="18" width="90" height="15" rx="3" fill="#276B3E" stroke="#276B3E" stroke-width="0.75" />
+      <text x="630" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">COMPLETE</text>
+      <text x="630" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#276B3E" font-family="Segoe UI,sans-serif">Physical Loading</text>
+      <text x="630" y="59.0" text-anchor="middle" font-size="7.5" fill="#276B3E" font-family="Segoe UI,sans-serif">&amp;
         Dispatch Logging</text>
     </svg>
     <div class="flow-note">
@@ -1148,35 +1159,43 @@
           <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5" />
         </marker>
       </defs>
-      <rect x="10" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
-      <text x="70" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Export
+      <rect x="10" y="26" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <rect x="25" y="18" width="90" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75" />
+      <text x="70" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">PROCESS STEP</text>
+      <text x="70" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Export
         Invoice</text>
-      <text x="70" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">&amp;
+      <text x="70" y="59.0" text-anchor="middle" font-size="7.5" fill="#6B7785" font-family="Segoe UI,sans-serif">&amp;
         Declarations</text>
-      <line x1="130" y1="46" x2="150" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)" />
-      <rect x="150" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
-      <text x="210" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Port
+      <line x1="130" y1="50" x2="150" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)" />
+      <rect x="150" y="26" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <rect x="165" y="18" width="90" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75" />
+      <text x="210" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">PROCESS STEP</text>
+      <text x="210" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Port
         Delivery &amp;</text>
-      <text x="210" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Customs
+      <text x="210" y="59.0" text-anchor="middle" font-size="7.5" fill="#6B7785" font-family="Segoe UI,sans-serif">Customs
         Loading</text>
-      <line x1="270" y1="46" x2="290" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)" />
-      <rect x="290" y="22" width="120" height="48" rx="3" fill="#FBF1DF" stroke="#E8C97A" stroke-width="1.5" />
-      <text x="350" y="43" text-anchor="middle" font-size="7.6" fill="#8A5A10" font-family="Segoe UI,sans-serif">Vessel
+      <line x1="270" y1="50" x2="290" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)" />
+      <rect x="290" y="26" width="120" height="48" rx="3" fill="#FEF9EC" stroke="#E8D08A" stroke-width="1.5" />
+      <rect x="305" y="18" width="90" height="15" rx="3" fill="#8A5A10" stroke="#8A5A10" stroke-width="0.75" />
+      <text x="350" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">ACTION REQUIRED</text>
+      <text x="350" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#8A5A10" font-family="Segoe UI,sans-serif">Vessel
         Booking &amp;</text>
-      <text x="350" y="55" text-anchor="middle" font-size="7.6" fill="#8A5A10" font-family="Segoe UI,sans-serif">Cutoff
+      <text x="350" y="59.0" text-anchor="middle" font-size="7.5" fill="#8A5A10" font-family="Segoe UI,sans-serif">Cutoff
         Mgmt</text>
-      <line x1="410" y1="46" x2="430" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)" />
-      <rect x="430" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
-      <text x="490" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Bill of
+      <line x1="410" y1="50" x2="430" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)" />
+      <rect x="430" y="26" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <rect x="445" y="18" width="90" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75" />
+      <text x="490" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">PROCESS STEP</text>
+      <text x="490" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Bill of
         Lading (BL)</text>
-      <text x="490" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Draft
+      <text x="490" y="59.0" text-anchor="middle" font-size="7.5" fill="#6B7785" font-family="Segoe UI,sans-serif">Draft
         Review</text>
-      <line x1="550" y1="46" x2="570" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)" />
-      <rect x="570" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
-      <text x="630" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C"
-        font-family="Segoe UI,sans-serif">Destination Agent</text>
-      <text x="630" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C"
-        font-family="Segoe UI,sans-serif">Handoff</text>
+      <line x1="550" y1="50" x2="570" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)" />
+      <rect x="570" y="26" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <rect x="585" y="18" width="90" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75" />
+      <text x="630" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">PROCESS STEP</text>
+      <text x="630" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Destination Agent</text>
+      <text x="630" y="59.0" text-anchor="middle" font-size="7.5" fill="#6B7785" font-family="Segoe UI,sans-serif">Handoff</text>
     </svg>
     <div class="flow-note">
       <p style="margin-top:0;"><strong>What is good:</strong> Established checklist for required declarations and
@@ -1198,35 +1217,40 @@
           <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5" />
         </marker>
       </defs>
-      <rect x="10" y="22" width="120" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
-      <text x="70" y="43" text-anchor="middle" font-size="7.6" fill="#A32E24" font-weight="700"
-        font-family="Segoe UI,sans-serif">Sales Custom</text>
-      <text x="70" y="55" text-anchor="middle" font-size="7.6" fill="#A32E24"
-        font-family="Segoe UI,sans-serif">Requirement</text>
-      <line x1="130" y1="46" x2="150" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a3)" />
-      <rect x="150" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
-      <text x="210" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Design
+      <rect x="10" y="26" width="120" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
+      <rect x="25" y="18" width="90" height="15" rx="3" fill="#A32E24" stroke="#A32E24" stroke-width="0.75" />
+      <text x="70" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">BOTTLENECK</text>
+      <text x="70" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#A32E24" font-family="Segoe UI,sans-serif">Sales Custom</text>
+      <text x="70" y="59.0" text-anchor="middle" font-size="7.5" fill="#A32E24" font-family="Segoe UI,sans-serif">Requirement</text>
+      <line x1="130" y1="50" x2="150" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a3)" />
+      <rect x="150" y="26" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <rect x="165" y="18" width="90" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75" />
+      <text x="210" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">PROCESS STEP</text>
+      <text x="210" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Design
         Creates</text>
-      <text x="210" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Artwork
+      <text x="210" y="59.0" text-anchor="middle" font-size="7.5" fill="#6B7785" font-family="Segoe UI,sans-serif">Artwork
         (Internal)</text>
-      <line x1="270" y1="46" x2="290" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a3)" />
-      <rect x="290" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
-      <text x="350" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Client
+      <line x1="270" y1="50" x2="290" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a3)" />
+      <rect x="290" y="26" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <rect x="305" y="18" width="90" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75" />
+      <text x="350" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">PROCESS STEP</text>
+      <text x="350" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Client
         &amp; Regulatory</text>
-      <text x="350" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C"
-        font-family="Segoe UI,sans-serif">Approval</text>
-      <line x1="410" y1="46" x2="430" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a3)" />
-      <rect x="430" y="22" width="120" height="48" rx="3" fill="#FBF1DF" stroke="#E8C97A" stroke-width="1.5" />
-      <text x="490" y="43" text-anchor="middle" font-size="7.6" fill="#8A5A10" font-weight="700"
-        font-family="Segoe UI,sans-serif">Vendor Print</text>
-      <text x="490" y="55" text-anchor="middle" font-size="7.6" fill="#8A5A10" font-family="Segoe UI,sans-serif">(15–20
+      <text x="350" y="59.0" text-anchor="middle" font-size="7.5" fill="#6B7785" font-family="Segoe UI,sans-serif">Approval</text>
+      <line x1="410" y1="50" x2="430" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a3)" />
+      <rect x="430" y="26" width="120" height="48" rx="3" fill="#FEF9EC" stroke="#E8D08A" stroke-width="1.5" />
+      <rect x="445" y="18" width="90" height="15" rx="3" fill="#8A5A10" stroke="#8A5A10" stroke-width="0.75" />
+      <text x="490" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">ACTION REQUIRED</text>
+      <text x="490" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#8A5A10" font-family="Segoe UI,sans-serif">Vendor Print</text>
+      <text x="490" y="59.0" text-anchor="middle" font-size="7.5" fill="#8A5A10" font-family="Segoe UI,sans-serif">(15–20
         Day Lead)</text>
-      <line x1="550" y1="46" x2="570" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a3)" />
-      <rect x="570" y="22" width="120" height="48" rx="3" fill="#E9F4EC" stroke="#276B3E" stroke-width="1" />
-      <text x="630" y="43" text-anchor="middle" font-size="7.6" fill="#276B3E" font-family="Segoe UI,sans-serif">Pouches
+      <line x1="550" y1="50" x2="570" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a3)" />
+      <rect x="570" y="26" width="120" height="48" rx="3" fill="#E9F4EC" stroke="#92C7A3" stroke-width="1.5" />
+      <rect x="585" y="18" width="90" height="15" rx="3" fill="#276B3E" stroke="#276B3E" stroke-width="0.75" />
+      <text x="630" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">SUCCESS</text>
+      <text x="630" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#276B3E" font-family="Segoe UI,sans-serif">Pouches
         Arrive &amp;</text>
-      <text x="630" y="55" text-anchor="middle" font-size="7.6" fill="#276B3E" font-weight="700"
-        font-family="Segoe UI,sans-serif">Production Packs</text>
+      <text x="630" y="59.0" text-anchor="middle" font-size="7.5" fill="#276B3E" font-family="Segoe UI,sans-serif">Production Packs</text>
     </svg>
     <div class="flow-note">
       <p style="margin-top:0;"><strong>What is good:</strong> Dedicated design team turns around artwork efficiently.
@@ -1254,98 +1278,7 @@
     <div class="section-dek">Findings and recommendations that require action outside the Logistics department to
       resolve</div>
 
-    <style>
-      .dep-card {
-        border: 1px solid var(--line);
-        border-radius: 8px;
-        background: var(--paper);
-        padding: 16px;
-        margin-bottom: 16px;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-      }
 
-      .dep-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 12px;
-        padding-bottom: 8px;
-        border-bottom: 1px solid var(--line);
-      }
-
-      .dep-title {
-        font-weight: 700;
-        font-size: 11pt;
-        color: var(--ink);
-      }
-
-      .dep-badge {
-        font-size: 7.5pt;
-        font-weight: 600;
-        padding: 3px 8px;
-        border-radius: 12px;
-        background: #f1f5f9;
-        color: #475569;
-        text-transform: uppercase;
-      }
-
-      .dep-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 12px;
-      }
-
-      .dep-section {
-        background: #f8fafc;
-        border-radius: 6px;
-        padding: 12px;
-        border: 1px solid #e2e8f0;
-      }
-
-      .dep-section.bottleneck {
-        background: #fef2f2;
-        border-color: #fecaca;
-      }
-
-      .dep-section.data-sync {
-        background: #f0f9ff;
-        border-color: #bae6fd;
-      }
-
-      .dep-section-title {
-        font-size: 7.5pt;
-        font-weight: 700;
-        color: #64748b;
-        text-transform: uppercase;
-        margin-bottom: 6px;
-        letter-spacing: 0.5px;
-      }
-
-      .bottleneck .dep-section-title {
-        color: #b91c1c;
-      }
-
-      .data-sync .dep-section-title {
-        color: #0369a1;
-      }
-
-      .dep-section-content {
-        font-size: 8.5pt;
-        color: var(--slate);
-        line-height: 1.4;
-      }
-
-      .dep-person {
-        display: inline-block;
-        background: #f1f5f9;
-        padding: 2px 6px;
-        border-radius: 4px;
-        font-weight: 600;
-        font-size: 8pt;
-        margin-top: 4px;
-        border: 1px solid #cbd5e1;
-      }
-    </style>
 
     <!-- Sales & BD -->
     <div class="dep-card">
@@ -1816,9 +1749,7 @@
             Logistics, Accounts, Production, and R&amp;D.</span></div>
         <div class="sow-item"><span class="sow-dot p1"></span><span><strong>Build:</strong> Repeat client auto-fetch —
             shipping details pre-populated from history; no re-confirmation needed from Sales.</span></div>
-        <div class="sow-item"><span class="sow-dot p1"></span><span><strong>Tech Stack &amp; Dependencies:</strong>
-            ReactJS, Google Sheets API. Requires read/write API access to the team's current tracking sheets.</span>
-        </div>
+        <div class="sow-item"><span class="sow-dot p1"></span><span><strong>Tech Stack &amp; Badges:</strong> <span class="chip-ref">React.js Dashboard</span> <span class="chip-ref">Google Sheets API</span>.</span></div>
         <div class="sow-item"><span class="sow-dot p1"></span><span><strong>Team Adoption:</strong> Conduct mandatory
             walkthrough sessions for Logistics and Sales teams on the new intake form and dashboard UI.</span></div>
         <div class="sow-item"><span class="sow-dot p1" style="background:#ef4444;"></span><span><strong>Client
@@ -1863,8 +1794,7 @@
         <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Build:</strong> Carrier tracking integration
             (API where available, dashboard form fallback). Real-time visibility across all departments without WhatsApp
             status chases.</span></div>
-        <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Tech Stack &amp; Dependencies:</strong> Zoho
-            Books API, Google Drive API, Carrier APIs (where available).</span></div>
+        <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Tech Stack &amp; Badges:</strong> <span class="chip-ref">Zoho Books API</span> <span class="chip-ref">Google Drive API</span> <span class="chip-ref">Carrier APIs</span>.</span></div>
         <div class="sow-item"><span class="sow-dot p2" style="background:#ef4444;"></span><span><strong>Client
               To-Do:</strong> Accounts to grant Logistics read/write API access to Zoho Books. Provide existing carrier
             contact lists for API availability check.</span></div>
@@ -1909,8 +1839,7 @@
             dashboard.</span></div>
         <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Build:</strong> Connect the Logistics
             Dashboard into the broader EF Polymer unified OS for CXO-level role-based access.</span></div>
-        <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Tech Stack &amp; Dependencies:</strong>
-            WhatsApp Business API, Slack API, Gmail API, Google Cloud Platform.</span></div>
+        <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Tech Stack &amp; Badges:</strong> <span class="chip-ref">WhatsApp Business API</span> <span class="chip-ref">Slack API</span> <span class="chip-ref">GCP</span>.</span></div>
         <div class="sow-item"><span class="sow-dot p3" style="background:#ef4444;"></span><span><strong>Client
               To-Do:</strong> Provide WhatsApp Business API access. Share vendor and client group contact lists for bot
             onboarding. Confirm CXO access hierarchy for the unified OS.</span></div>
@@ -2008,6 +1937,37 @@
             (Systematised)</strong></td>
       </tr>
     </table>
+
+    <h3>Quantified Executive Time Savings</h3>
+    <p style="font-size:8.8pt;color:var(--muted);margin-bottom:10px;">Estimated annual bandwidth reclaimed for the Logistics Head (Nihal Paliwal &amp; team) by eliminating order intake data chasing and manual document uploads.</p>
+
+    <div class="kpi-strip" style="margin: 14px 0 16px;">
+      <div class="kpi-cell">
+        <div class="kpi-num">10–25 min</div>
+        <div class="kpi-lbl">Chasing Time / Order</div>
+      </div>
+      <div class="kpi-cell">
+        <div class="kpi-num">100%</div>
+        <div class="kpi-lbl">Single-Entry Sync</div>
+      </div>
+      <div class="kpi-cell">
+        <div class="kpi-num">20 hrs</div>
+        <div class="kpi-lbl">Monthly Time Saved</div>
+      </div>
+      <div class="kpi-cell">
+        <div class="kpi-num" style="color:var(--accent);">240 hrs</div>
+        <div class="kpi-lbl">Annual Hours Saved</div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top:10px;margin-bottom:15px;border-left-color:var(--accent);background:var(--accent-soft);">
+      <strong style="color:var(--ink);font-size:9.5pt;">Bandwidth Reinvestment Breakdown:</strong><br>
+      <ul style="font-size:8.5pt;color:var(--slate);padding-left:16px;margin-top:4px;line-height:1.45;">
+        <li><strong>Current Friction:</strong> Logistics Lead spends 10–25 minutes per order manually clarifying incomplete WhatsApp intake fields and performing double-entry between Zoho Books and Drive.</li>
+        <li><strong>Automated Efficiency:</strong> Structured Mobile Intake Form auto-validates inputs while direct Zoho Books and Drive APIs auto-generate e-gate passes and shipping documents.</li>
+        <li><strong>Strategic Impact:</strong> Reclaims <strong>240 Logistics hours per year (~30 full working days)</strong> to focus on freight carrier rate optimization, regional warehouse planning, and export container routing.</li>
+      </ul>
+    </div>
 
     <div class="doc-footer"><span>Logistics Department Audit Report · v1.0</span><span>Page 11</span></div>
   </div>

@@ -282,7 +282,8 @@
       width: 44px;
     }
 
-    td.num {
+    td.num,
+    th.num {
       text-align: center;
       white-space: nowrap;
     }
@@ -385,7 +386,7 @@
     }
 
     .exhibit-chart {
-      flex: 0 0 220px;
+      flex: 0 0 320px;
     }
 
     .exhibit-note {
@@ -863,7 +864,7 @@
     <div class="cover-body">
       <div class="cover-eyebrow">Department Wise Audit Report</div>
       <div class="cover-title">Business Development: Cocopeat</div>
-      <div class="cover-sub">Export Markets &amp; Japan D2C — Mohit Kumar Gupta &amp; Ishwarya M</div>
+      <div class="cover-sub">Export Markets &amp; Japan D2C — Mohit Kumar Gupta</div>
       <div class="cover-rule"></div>
       <p style="max-width:70%;color:var(--muted);font-size:9.3pt;">
         An independent operational review of the Business Development (Cocopeat) vertical, evaluating international
@@ -894,10 +895,6 @@
           <td class="label">Review scope</td>
           <td class="val">BD — Cocopeat (International Export &amp; Japan D2C)</td>
         </tr>
-        <tr>
-          <td class="label">Distribution</td>
-          <td class="val">Executive Leadership Only</td>
-        </tr>
       </table>
     </div>
   </div>
@@ -906,14 +903,14 @@
     <img src="../letterhead.png" alt="Letterhead"
       style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
     <div class="eyebrow">Section 01 — Executive Summary</div>
-    <h2>Vertical Overview — Cocopeat</h2>
+    <h2>Report Overview — Cocopeat</h2>
     <div class="section-dek">Scope, current state, and headline findings</div>
     <p class="lede">The Cocopeat vertical is an export-focused business line specializing in coconut husk-based
       soil-less growing media (grow bags, 5kg blocks, and pellets/coins). Target markets include the UK, Europe, and the
       Middle East, with a D2C launch planned in Japan within 3–4 months. Products are often customized with perlite/NPK
       blends for specific use cases (e.g., cannabis, horticulture) and adapted for varying EC levels (High EC for Middle
       East landscaping; Low EC for EU growers).</p>
-    <p>Led by Mohit Kumar Gupta, alongside a team of 4, the vertical processes outbound outreach, lead nurturing, and
+    <p>Led by Mohit Kumar Gupta, alongside a team of 3, the vertical processes outbound outreach, lead nurturing, and
       complex international logistics workflows. The team suffers from extreme data fragmentation due to a reliance on
       ad-hoc spreadsheets and multiple messaging apps (WhatsApp, WeChat, LINE). Furthermore, 40% of their effort is
       dedicated to manual lead sourcing.</p>
@@ -967,7 +964,6 @@
       style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
     <div class="eyebrow">Section 02 — Benchmarking</div>
     <h2>Department Maturity Assessment</h2>
-    <div class="section-dek">Scored 1 (ad hoc) to 5 (optimized) against five capability dimensions</div>
 
     <div class="exhibit">
       <div class="exhibit-chart">
@@ -1067,14 +1063,21 @@
     <img src="../letterhead.png" alt="Letterhead"
       style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
     <h3>Team Structure</h3>
-    <p style="font-size:8.5pt;color:var(--muted);margin-bottom:4px;">Reporting hierarchy and current responsibility
-      domains within the Cocopeat BD vertical.</p>
+    <p style="font-size:8.5pt;color:var(--muted);margin-bottom:4px;">Reporting hierarchy within Cocopeat Business,
+      operating under Ankit Jain (Co-Founder &amp; CBDO).</p>
     <div class="org-chart">
       <div class="org-level">
+        <div class="org-node secondary">
+          <div class="org-name">Ankit Jain</div>
+          <div class="org-role">Co-Founder &amp; CBDO<br>Division Head</div>
+        </div>
+      </div>
+      <div class="org-connector-top"></div>
+      <div class="org-level">
         <div class="org-node lead">
-          <div class="org-name">Mohit Kumar Gupta</div>
-          <div class="org-role">BD Executive / Lead<br>Japan Market Head</div>
-          <span class="org-tag">Lead</span>
+          <div class="org-name">Mohit Gupta</div>
+          <div class="org-role">BD Executive<br>Cocopeat Business Lead</div>
+          <span class="org-tag">Vertical Lead</span>
         </div>
       </div>
       <div class="org-connector-top"></div>
@@ -1200,56 +1203,90 @@
   <div class="page">
     <img src="../letterhead.png" alt="Letterhead"
       style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
-    <div class="eyebrow">Section 03 — Process Detail</div>
+    <div class="eyebrow">Section 03 — Current Workflows &amp; Process Maps</div>
     <h2>Current Workflows</h2>
     <div class="section-dek">Analysis of current operational sequences</div>
 
-    <h3>Order Fulfillment &amp; Shipment Process</h3>
-    <svg viewBox="0 0 740 92" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:10px 0 4px;">
+    <h3>Order Fulfillment &amp; Shipment Process — <span class="chip-ref">P-01</span></h3>
+    <svg viewBox="0 0 740 95" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:10px 0 4px;">
       <defs>
         <marker id="a1" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
           <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5" />
         </marker>
       </defs>
 
-      <rect x="10" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
-      <text x="70" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Sample
+      <!-- Step 1 Box -->
+      <rect x="10" y="26" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <rect x="25" y="18" width="90" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75" />
+      <text x="70" y="28" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C"
+        font-family="Segoe UI,sans-serif" letter-spacing="0.4">VERIFICATION</text>
+      <text x="70" y="45" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Sample
         Dispatch</text>
-      <text x="70" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">&amp;
-        Testing</text>
-      <line x1="130" y1="46" x2="150" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)" />
+      <text x="70" y="57" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">&amp;
+        Lab Testing</text>
+      <line x1="130" y1="50" x2="160" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)" />
 
-      <rect x="150" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
-      <text x="210" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C"
+      <!-- Step 2 Box -->
+      <rect x="160" y="26" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <rect x="175" y="18" width="90" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75" />
+      <text x="220" y="28" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C"
+        font-family="Segoe UI,sans-serif" letter-spacing="0.4">NEGOTIATION</text>
+      <text x="220" y="45" text-anchor="middle" font-size="7.6" fill="#3F4B5C"
         font-family="Segoe UI,sans-serif">Negotiation Phase</text>
-      <text x="210" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">(1-2
+      <text x="220" y="57" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">(1–2
         Months)</text>
-      <line x1="270" y1="46" x2="290" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)" />
+      <line x1="280" y1="50" x2="310" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)" />
 
-      <rect x="290" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
-      <text x="350" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">PO
+      <!-- Step 3 Box -->
+      <rect x="310" y="26" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <rect x="325" y="18" width="90" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75" />
+      <text x="370" y="28" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C"
+        font-family="Segoe UI,sans-serif" letter-spacing="0.4">PRODUCTION</text>
+      <text x="370" y="45" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">PO
         Receipt &amp;</text>
-      <text x="350" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C"
+      <text x="370" y="57" text-anchor="middle" font-size="7.6" fill="#3F4B5C"
         font-family="Segoe UI,sans-serif">Production Trigger</text>
-      <line x1="410" y1="46" x2="430" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)" />
+      <line x1="430" y1="50" x2="460" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)" />
 
-      <rect x="430" y="22" width="120" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
-      <text x="490" y="43" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">Payment
-        Collection &amp;</text>
-      <text x="490" y="55" text-anchor="middle" font-size="7.6" fill="#A32E24"
+      <!-- Step 4 Box (Bottleneck) -->
+      <rect x="460" y="26" width="120" height="48" rx="3" fill="#FCEBEA" stroke="#A32E24" stroke-width="1.5" />
+      <rect x="475" y="18" width="90" height="15" rx="3" fill="#A32E24" stroke="#A32E24" stroke-width="0.75" />
+      <text x="520" y="28" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF"
+        font-family="Segoe UI,sans-serif" letter-spacing="0.4">CRITICAL GATE</text>
+      <text x="520" y="45" text-anchor="middle" font-size="7.6" fill="#A32E24" font-weight="700"
+        font-family="Segoe UI,sans-serif">Payment &amp; Manual</text>
+      <text x="520" y="57" text-anchor="middle" font-size="7.6" fill="#A32E24" font-weight="700"
         font-family="Segoe UI,sans-serif">Accounts Clearance</text>
-      <line x1="550" y1="46" x2="570" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)" />
+      <line x1="580" y1="50" x2="610" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)" />
 
-      <rect x="570" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
-      <text x="630" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">CargoX
-        Upload</text>
-      <text x="630" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">(<10
-          days from arrival)</text>
+      <!-- Step 5 Box (Highlight) -->
+      <rect x="610" y="26" width="120" height="48" rx="3" fill="#F4EEFC" stroke="#6b4fc8" stroke-width="1.5" />
+      <rect x="625" y="18" width="90" height="15" rx="3" fill="#6b4fc8" stroke="#6b4fc8" stroke-width="0.75" />
+      <text x="670" y="28" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF"
+        font-family="Segoe UI,sans-serif" letter-spacing="0.4">EXPORT SHIP</text>
+      <text x="670" y="45" text-anchor="middle" font-size="7.6" fill="#6b4fc8" font-weight="700"
+        font-family="Segoe UI,sans-serif">CargoX Upload</text>
+      <text x="670" y="57" text-anchor="middle" font-size="7.6" fill="#6b4fc8" font-family="Segoe UI,sans-serif">(&lt;10
+        Days from Arrival)</text>
     </svg>
     <div class="flow-note">
       <p style="margin-top:0;"><strong>What is good:</strong> The sequential export lifecycle is logically ordered —
         sample verification feeds negotiation, which feeds PO, which feeds production and then shipment. Clients test
         before committing to a full container, reducing costly surprises.</p>
+      <p><strong>Detailed Workflow Steps:</strong>
+        <br>1. <strong>Verification:</strong> Sample dispatch and lab testing (verifying EC levels/expansion volumes) to
+        establish buyer confidence.
+        <br>2. <strong>Negotiation:</strong> A 1–2 months phase discussing product specs, custom chemical blends
+        (perlite/NPK), and pricing.
+        <br>3. <strong>Embassy Permits (Egypt/Peru/Spain):</strong> Customer submits PI to embassy to obtain local
+        import permits (e.g., ACID numbers in Egypt), taking 20–25 days.
+        <br>4. <strong>Production Trigger:</strong> Purchase Order (PO) receipt triggers factory manufacturing in
+        Coimbatore and container logistics booking.
+        <br>5. <strong>Payment Clearance:</strong> Hard gate where the Accounts team manually checks and clears advance
+        payments.
+        <br>6. <strong>CargoX Upload:</strong> Documentation team uploads shipping documents to CargoX (within 10 days
+        of vessel arrival at destination port).
+      </p>
       <p><strong>What needs to be fixed:</strong> CargoX document upload is gated behind Accounts payment clearance. Any
         delay in clearance confirmation pushes the upload past the mandatory 10-day arrival window, triggering demurrage
         fees.</p>
@@ -1260,51 +1297,82 @@
         risks demurrage.</p>
     </div>
 
-    <h3>Sourcing &amp; Outreach Workflow</h3>
-    <svg viewBox="0 0 740 92" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:10px 0 4px;">
+    <h3>Sourcing &amp; Outreach Workflow — <span class="chip-ref">P-02</span></h3>
+    <svg viewBox="0 0 740 95" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:10px 0 4px;">
       <defs>
         <marker id="a2" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
           <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5" />
         </marker>
       </defs>
 
-      <rect x="10" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
-      <text x="70" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Manual
+      <!-- Step 1 Box -->
+      <rect x="70" y="26" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <rect x="85" y="18" width="90" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75" />
+      <text x="130" y="28" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C"
+        font-family="Segoe UI,sans-serif" letter-spacing="0.4">LEAD GEN</text>
+      <text x="130" y="45" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Manual
         Lead Sourcing</text>
-      <text x="70" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">(Google,
-        LinkedIn)</text>
-      <line x1="130" y1="46" x2="150" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)" />
+      <text x="130" y="57" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">(Google
+        / LinkedIn)</text>
+      <line x1="190" y1="50" x2="230" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)" />
 
-      <rect x="150" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
-      <text x="210" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C"
+      <!-- Step 2 Box -->
+      <rect x="230" y="26" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
+      <rect x="245" y="18" width="90" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75" />
+      <text x="290" y="28" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C"
+        font-family="Segoe UI,sans-serif" letter-spacing="0.4">OUTBOUND</text>
+      <text x="290" y="45" text-anchor="middle" font-size="7.6" fill="#3F4B5C"
         font-family="Segoe UI,sans-serif">Multi-Channel Outreach</text>
-      <text x="210" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">(Email,
-        WeChat, WhatsApp)</text>
-      <line x1="270" y1="46" x2="290" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)" />
+      <text x="290" y="57" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">(Email,
+        WeChat, WA)</text>
+      <line x1="350" y1="50" x2="390" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)" />
 
-      <rect x="290" y="22" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
-      <text x="350" y="43" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Siloed
-        Spreadsheets</text>
-      <text x="350" y="55" text-anchor="middle" font-size="7.6" fill="#3F4B5C" font-family="Segoe UI,sans-serif">(Manual
+      <!-- Step 3 Box (Highlight) -->
+      <rect x="390" y="26" width="120" height="48" rx="3" fill="#F4EEFC" stroke="#6b4fc8" stroke-width="1.5" />
+      <rect x="405" y="18" width="90" height="15" rx="3" fill="#6b4fc8" stroke="#6b4fc8" stroke-width="0.75" />
+      <text x="450" y="28" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF"
+        font-family="Segoe UI,sans-serif" letter-spacing="0.4">DATA STORE</text>
+      <text x="450" y="45" text-anchor="middle" font-size="7.6" fill="#6b4fc8" font-weight="700"
+        font-family="Segoe UI,sans-serif">Siloed Spreadsheets</text>
+      <text x="450" y="57" text-anchor="middle" font-size="7.6" fill="#6b4fc8" font-family="Segoe UI,sans-serif">(Manual
         Logging)</text>
-      <line x1="410" y1="46" x2="430" y2="46" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)" />
+      <line x1="510" y1="50" x2="550" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)" />
 
-      <rect x="430" y="22" width="120" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5" />
-      <text x="490" y="43" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">Delayed
-        Response</text>
-      <text x="490" y="55" text-anchor="middle" font-size="7.6" fill="#A32E24" font-family="Segoe UI,sans-serif">(6-10
-        hr lag)</text>
+      <!-- Step 4 Box (Bottleneck) -->
+      <rect x="550" y="26" width="120" height="48" rx="3" fill="#FCEBEA" stroke="#A32E24" stroke-width="1.5" />
+      <rect x="565" y="18" width="90" height="15" rx="3" fill="#A32E24" stroke="#A32E24" stroke-width="0.75" />
+      <text x="610" y="28" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF"
+        font-family="Segoe UI,sans-serif" letter-spacing="0.4">BOTTLENECK</text>
+      <text x="610" y="45" text-anchor="middle" font-size="7.6" fill="#A32E24" font-weight="700"
+        font-family="Segoe UI,sans-serif">Delayed Response</text>
+      <text x="610" y="57" text-anchor="middle" font-size="7.6" fill="#A32E24" font-weight="700"
+        font-family="Segoe UI,sans-serif">(6–10 Hour Timezone Lag)</text>
     </svg>
     <div class="flow-note">
-      <p style="margin-top:0;"><strong>What is good:</strong> Outreach is structured with timezone awareness — China
-        contacts at 07:00 IST, UK/US contacts after 17:00 IST. LinkedIn sequences are multi-touch (connection → case
-        study → 3–4 follow-ups), showing process discipline.</p>
+      <p style="margin-top:0;"><strong>What is good:</strong> Outreach is structured with timezone awareness (e.g.,
+        China contacts at 07:00 IST, UK/US contacts after 17:00 IST). Connection requests and initial outbound sequences
+        are automated via **Dripify** integrated directly with Mohit's profile. **Obverse** (external agency) actively
+        manages Google and LinkedIn Ads targeting UK, Europe, and Middle East B2B channels.</p>
+      <p><strong>Detailed Workflow Steps:</strong>
+        <br>1. <strong>Lead Generation:</strong> External agency **Obverse** drives inbound leads via Google and
+        LinkedIn Ads landing on a web form, while the internal team manually scrapes databases (~40% bandwidth).
+        <br>2. <strong>Automated Connection:</strong> Dripify automation sends connection requests and a multi-touch
+        follow-up sequence (connection &rarr; case study &rarr; 3–4 follow-ups).
+        <br>3. <strong>Manual Takeover:</strong> Once a lead replies to Dripify sequences, automation immediately halts,
+        requiring Mohit to manually handle further messaging.
+        <br>4. <strong>Direct Channel Outreach:</strong> Direct manual follow-ups are conducted over email, WhatsApp,
+        and WeChat (critical for China, where Google and WhatsApp are banned).
+        <br>5. <strong>Spreadsheet Logging:</strong> Qualified leads and conversation status are manually copied and
+        logged into ad-hoc Google Sheets.
+      </p>
       <p><strong>What needs to be fixed:</strong> No CRM — all pipeline data lives in ad-hoc Google Sheets/Excel with no
         unified view across sourced leads, landing page inquiries, and LinkedIn responses. Inbound ad leads sit
-        uncontacted for 6–10 hours due to timezone gaps.</p>
-      <p><strong>Bottlenecks:</strong> Manual lead sourcing consumes ~40% of team bandwidth (Google search, AI tools,
-        export databases, exhibition directories). Dripify LinkedIn automation subscription has lapsed, forcing manual
-        follow-up sequences.</p>
+        uncontacted for 6–10 hours due to timezone gaps. Dripify automatically stops on replies, requiring manual
+        takeover.</p>
+      <p><strong>Bottlenecks:</strong> Manual lead sourcing consumes ~40% of team bandwidth. Dripify LinkedIn automation
+        subscription has lapsed, forcing manual
+        follow-up sequences. WeChat must be operated manually for Chinese buyers due to country-level communication
+        restrictions.</p>
       <p style="margin-bottom:0;"><strong>Dependencies:</strong> R&amp;D must provide lab reports and technical test
         data to support international client qualification. Design provides packaging artwork for white-label clients.
         Both are ad-hoc with no SLA.</p>
@@ -1572,7 +1640,7 @@
         </div>
         <ul style="font-size: 8.5pt; color: var(--muted); line-height: 1.5; padding-left: 18px; margin: 0;">
           <li style="margin-bottom: 6px;"><strong>Centralized CRM:</strong> Migrate lead tracking from ad-hoc
-            spreadsheets to a unified CRM (e.g., Zoho), consolidating sourced leads, landing page inquiries, and
+            spreadsheets to a unified CRM consolidating sourced leads, landing page inquiries, and
             LinkedIn responses into a single pipeline view.</li>
           <li style="margin-bottom: 6px;"><strong>Automated Lead Capture:</strong> An AI agent or automated
             WhatsApp/Email trigger that instantly qualifies and books meetings for inbound ad leads across time zones,
@@ -1616,7 +1684,7 @@
       <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 4px; padding: 12px;">
         <p style="font-weight: 700; color: var(--ink); margin-bottom: 6px; font-size: 9pt;">Tech Stack Utilized</p>
         <ul style="font-size: 8.5pt; color: var(--muted); line-height: 1.5; padding-left: 18px; margin: 0;">
-          <li style="margin-bottom: 2px;"><strong>CRM:</strong> Zoho (or equivalent)</li>
+          <li style="margin-bottom: 2px;"><strong>CRM:</strong> Custom on React JS</li>
           <li style="margin-bottom: 2px;"><strong>APIs:</strong> Google Sheets, WhatsApp Business, CargoX, Gmail</li>
           <li style="margin-bottom: 2px;"><strong>AI:</strong> LLM-based lead qualification &amp; response agent</li>
           <li><strong>Domain:</strong> Secondary domains with warm-up infrastructure</li>
@@ -1730,9 +1798,9 @@
             dashboard to decouple CargoX upload from manual approvals (Module 1).</span></div>
         <div class="sow-item"><span class="sow-dot"></span><span><strong>Build:</strong> Acquire and warm up secondary
             domains for Cocopeat cold outbound emails (Module 3).</span></div>
-        <div class="sow-item"><span class="sow-dot"></span><span><strong>Tech Stack &amp; Dependencies:</strong> Zoho
-            CRM API, Google Sheets API, CargoX integration. Requires existing pipeline sheets and Accounts workflow
-            mapping.</span></div>
+        <div class="sow-item"><span class="sow-dot"></span><span><strong>Tech Stack &amp; Badges:</strong> <span
+              class="chip-ref">Zoho CRM API</span> <span class="chip-ref">Google Sheets API</span> <span
+              class="chip-ref">CargoX Integration</span>.</span></div>
         <div class="sow-item"><span class="sow-dot"></span><span><strong>Team Adoption:</strong> Conduct CRM onboarding
             sessions for all BD team members.</span></div>
         <div class="sow-item"><span class="sow-dot" style="background:#ef4444;"></span><span><strong>Client
@@ -1773,8 +1841,9 @@
             agent/automated trigger to qualify and book meetings for inbound leads instantly (Module 2).</span></div>
         <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Build:</strong> Integrate unified messaging
             (WhatsApp/WeChat/LINE) directly into the CRM.</span></div>
-        <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Tech Stack &amp; Dependencies:</strong> LLM
-            APIs, WhatsApp Business API. Requires historical lead data for AI training.</span></div>
+        <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Tech Stack &amp; Badges:</strong> <span
+              class="chip-ref">LLM APIs</span> <span class="chip-ref">WhatsApp Business API</span> <span
+              class="chip-ref">WeChat / LINE Connectors</span>.</span></div>
         <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Team Adoption:</strong> Train team on
             AI-assisted lead qualification and automated response workflows.</span></div>
         <div class="sow-item"><span class="sow-dot p2" style="background:#ef4444;"></span><span><strong>Client
@@ -1810,9 +1879,9 @@
             buffer into production timelines specifically for Egypt/Peru/Spain ACID permits (Module 1).</span></div>
         <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Build:</strong> Launch fully localized D2C
             retail operations (Amazon/Website) in Japan.</span></div>
-        <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Tech Stack &amp; Dependencies:</strong>
-            Production scheduling API, Amazon Seller Central. Requires production timeline mapping for regulatory
-            markets.</span></div>
+        <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Tech Stack &amp; Badges:</strong> <span
+              class="chip-ref">Production Scheduling API</span> <span class="chip-ref">Amazon Seller Central
+              API</span>.</span></div>
         <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Team Adoption:</strong> Train team on
             regulatory buffer workflows and D2C fulfillment processes.</span></div>
         <div class="sow-item"><span class="sow-dot p3" style="background:#ef4444;"></span><span><strong>Client
@@ -1900,6 +1969,43 @@
             (Systematised)</strong></td>
       </tr>
     </table>
+
+    <h3>Quantified Executive Time Savings</h3>
+    <p style="font-size:8.8pt;color:var(--muted);margin-bottom:10px;">Estimated annual bandwidth reclaimed for the
+      Cocopeat BD Lead by eliminating manual CargoX clearance follow-ups and timezone lag.</p>
+
+    <div class="kpi-strip" style="margin: 14px 0 16px;">
+      <div class="kpi-cell">
+        <div class="kpi-num">100%</div>
+        <div class="kpi-lbl">Pipeline Visibility</div>
+      </div>
+      <div class="kpi-cell">
+        <div class="kpi-num">&lt; 5 min</div>
+        <div class="kpi-lbl">Inbound Lead Response</div>
+      </div>
+      <div class="kpi-cell">
+        <div class="kpi-num">10 hrs</div>
+        <div class="kpi-lbl">Monthly Time Saved</div>
+      </div>
+      <div class="kpi-cell">
+        <div class="kpi-num" style="color:var(--accent);">120 hrs</div>
+        <div class="kpi-lbl">Annual Hours Saved</div>
+      </div>
+    </div>
+
+    <div class="callout"
+      style="margin-top:10px;margin-bottom:15px;border-left-color:var(--accent);background:var(--accent-soft);">
+      <strong style="color:var(--ink);font-size:9.5pt;">Bandwidth Reinvestment Breakdown:</strong><br>
+      <ul style="font-size:8.5pt;color:var(--slate);padding-left:16px;margin-top:4px;line-height:1.45;">
+        <li><strong>Current Friction:</strong> Lead manual follow-ups on CargoX clearance emails and manually qualifying
+          international inbound leads across 6–10 hour timezone gaps.</li>
+        <li><strong>Automated Efficiency:</strong> Real-time Accounts Clearance Dashboard and AI Lead Capture Agent
+          automate payment checks and instant lead booking.</li>
+        <li><strong>Strategic Impact:</strong> Reclaims <strong>120 BD hours per year (~15 full working days)</strong>
+          to focus on expanding global distributor networks and D2C channels.</li>
+      </ul>
+    </div>
+
     <div class="doc-footer"><span>BD (Cocopeat) Audit Report · v1.0</span><span>Page 11</span></div>
   </div>
 
