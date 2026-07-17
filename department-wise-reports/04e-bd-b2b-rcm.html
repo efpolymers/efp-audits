@@ -918,7 +918,6 @@
       style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
     <div class="eyebrow">Section 01 — Executive Summary</div>
     <h2>Report Overview — B2B &amp; RCM</h2>
-    <div class="section-dek">Scope, current state, and headline findings</div>
     <p class="lede">The B2B &amp; RCM vertical manages major corporate accounts and white-label agreements, anchored by
       RCM. Bulk raw material is supplied to a central warehouse, which RCM distributes down to ~10,000 retail stores. A
       secondary broker channel (Seagreen) is also managed, where EFP uniquely bears the cost of tertiary liquidation.
@@ -1084,8 +1083,8 @@
       </div>
       <div class="org-connector-top"></div>
       <div class="org-node lead">
-        <div class="org-name">Jatin Jain &amp; Shailendra Singh</div>
-        <div class="org-role">AM-BD &amp; BD Executive<br>Company Business Unit &amp; Sales Leads</div>
+        <div class="org-name">Jatin Jain</div>
+        <div class="org-role">Associate Manager - BD</div>
         <span class="org-tag">Vertical Leads</span>
       </div>
       <div class="org-connector-top"></div>
@@ -1239,11 +1238,18 @@
       <p style="margin-top:0;"><strong>What is good:</strong> The primary B2B fulfillment sequence to the central RCM
         warehouse is well-defined and maintains a strict 20 MT standing inventory commitment.</p>
       <p><strong>What needs to be fixed:</strong> EFP has zero data visibility below the RCM regional depot tier. There
-        is no automated feed from RCM's ERP to indicate actual off-take at the ~10,000 retail stores.</p>
+        is no automated feed from RCM's ERP to indicate actual off-take at the ~10,000 retail stores. Additionally, lead databases are currently scattered across Google Sheets without a Unified CRM or real-time sales and receivables dashboard for leadership.</p>
       <p><strong>Bottlenecks:</strong> Because EFP relies on reactive 40kg depot threshold alerts rather than predictive
-        point-of-sale data, Production and Logistics are forced into rapid, ad-hoc fulfillment cycles.</p>
-      <p style="margin-bottom:0;"><strong>Dependencies:</strong> Production requires this tertiary data to plan
-        manufacturing; Logistics requires it to schedule freight without rush orders.</p>
+        point-of-sale data, Production and Logistics are forced into rapid, ad-hoc fulfillment cycles. Leadership lacks a single source of truth for sales done, money received, and pending receivables.</p>
+      <p><strong>Detailed Workflow Steps:</strong>
+        <br>1. <strong>Order Intake &amp; PO:</strong> B2B orders and Purchase Orders received by Jatin Jain (AM-BD / Vertical Lead) and Anil Suthar (Back Office).
+        <br>2. <strong>Fulfillment &amp; Dispatch:</strong> Production and Logistics fulfill orders to maintain the 20 MT standing inventory commitment at the central RCM warehouse in Bhilwara.
+        <br>3. <strong>Depot Allocation:</strong> RCM transfers inventory from central warehouse to regional depots.
+        <br>4. <strong>Tertiary Store Distribution:</strong> ~10,000 retail stores pull inventory from regional depots.
+        <br>5. <strong>Data Feed &amp; Dashboard Tracking:</strong> RCM ERP API bridge (or backend spreadsheet update fallback) feeds tertiary off-take data into a live dashboard, while a Unified CRM tracks sales done, money received, and pending receivables in real time for Jatin, Ankit Jain (CBDO), and CXOs.
+      </p>
+      <p><strong>Cross-Department Involvement:</strong> <strong>Jatin Jain (AM-BD / Vertical Lead)</strong> (Order intake &amp; key account strategy), <strong>Anil Suthar (Back Office Lead)</strong> (Invoicing &amp; backend data updates), <strong>Ankit Jain (CBDO)</strong> (Executive review), <strong>Production &amp; Logistics</strong> (Standing inventory fulfillment &amp; dispatch), and <strong>CXOs</strong> (Live sales &amp; receivables visibility).</p>
+      <p style="margin-bottom:0;"><strong>Dependencies &amp; Bottlenecks:</strong> Production and Logistics require RCM tertiary off-take data via an RCM ERP API bridge (or a backend spreadsheet update fallback when APIs are unavailable). A Unified CRM and real-time dashboard are needed to monitor sales done, money received, and pending receivables for Jatin Jain, Ankit Jain (CBDO), and CXOs.</p>
     </div>
 
     <!-- WORKFLOW 2: Field Data Transcription Cycle -->
@@ -1312,12 +1318,18 @@
       <p style="margin-top:0;"><strong>What is good:</strong> Dedicated field team members actively capture ground-level
         training metrics and farmer engagement data.</p>
       <p><strong>What needs to be fixed:</strong> Data is captured in physical paper diaries and requires travel back to
-        the office before manual transcription by Anil. This creates high error risk and delays Accounts reimbursement
-        processing.</p>
-      <p><strong>Bottlenecks:</strong> Manual transcription consumes back-office bandwidth and delays real-time
-        visibility into field training impact.</p>
-      <p style="margin-bottom:0;"><strong>Dependencies:</strong> Accounts relies on this transcribed data to process
-        field staff expense reimbursements. Any delay in the diary handoff stalls payments.</p>
+        the office before manual transcription by Anil. Furthermore, travel approvals and reimbursement tracking are managed informally without a structured workflow, stalling field expense processing.</p>
+      <p><strong>Bottlenecks:</strong> Manual transcription consumes back-office bandwidth, delays real-time
+        visibility into field training impact, and causes payment lags for staff travel reimbursements.</p>
+      <p><strong>Detailed Workflow Steps:</strong>
+        <br>1. <strong>Field Training Event:</strong> Piyush and field team conduct on-ground training events with farmers.
+        <br>2. <strong>Paper Diary Logging:</strong> Farmer details, QC feedback, and field expenses logged manually in physical diaries.
+        <br>3. <strong>Travel &amp; Office Return:</strong> Field staff travel back to office at week or month end.
+        <br>4. <strong>Manual Transcription &amp; Expense Claim:</strong> Anil (Back Office) transcribes paper notes into Google Sheets and compiles reimbursement claims.
+        <br>5. <strong>Approval &amp; Reimbursement Payout:</strong> Accounts verifies claims and processes payouts after manual travel approval.
+      </p>
+      <p><strong>Cross-Department Involvement:</strong> <strong>Piyush &amp; Field Team</strong> (On-ground training &amp; diary logging), <strong>Anil Suthar (Back Office Lead)</strong> (Manual transcription &amp; claim compilation), <strong>Accounts &amp; Finance (Shobha Shekhawat)</strong> (Reimbursement payout), and <strong>HR &amp; Talent (Dolly Mehta)</strong> (Travel approvals &amp; attendance).</p>
+      <p style="margin-bottom:0;"><strong>Dependencies &amp; Bottlenecks:</strong> Travel approvals and reimbursement tracking are manual, creating delays in expense payouts. Replacing paper diaries with digital forms auto-syncing to the Unified CRM eliminates transcription time and automates reimbursement claims.</p>
     </div>
 
     <!-- WORKFLOW 3: Community Engagement & Drop-off -->
@@ -1382,10 +1394,17 @@
         of 2,000 farmer contacts via WhatsApp, demonstrating strong initial outreach capability.</p>
       <p><strong>What needs to be fixed:</strong> The funnel suffers a 90% drop-off rate. No structured retargeting, FAQ
         automation, or QC feedback loop exists to re-engage the 1,800 inactive contacts.</p>
-      <p><strong>Bottlenecks:</strong> Manual broadcasting via personal WhatsApp limits scale and provides zero
-        engagement analytics.</p>
-      <p style="margin-bottom:0;"><strong>Dependencies:</strong> Relies entirely on Piyush and the field team manually
-        monitoring group activity, pulling time away from new training events.</p>
+      <p><strong>Bottlenecks:</strong> Manual broadcasting via personal WhatsApp limits scale, provides zero
+        engagement analytics, and lacks integration with the central database.</p>
+      <p><strong>Detailed Workflow Steps:</strong>
+        <br>1. <strong>Farmer Onboarding:</strong> ~2,000 farmer contacts collected during field training events.
+        <br>2. <strong>Group Addition:</strong> Contacts added manually to personal WhatsApp broadcast groups.
+        <br>3. <strong>Initial Broadcast:</strong> One-way broadcast training messages sent to all members.
+        <br>4. <strong>Community Drop-off:</strong> ~90% of members mute or drop off due to lack of interactive engagement.
+        <br>5. <strong>Active Core:</strong> Only ~200 members remain active without automated retargeting or CRM integration.
+      </p>
+      <p><strong>Cross-Department Involvement:</strong> <strong>Piyush (Field Team)</strong> (Community management), <strong>Anil Suthar (Back Office Lead)</strong> (Database logging), and <strong>Jatin Jain (AM-BD / Lead)</strong> (Funnel review).</p>
+      <p style="margin-bottom:0;"><strong>Dependencies &amp; Bottlenecks:</strong> Relies entirely on Piyush and the field team manually monitoring personal WhatsApp groups without Unified CRM integration, preventing automated re-engagement or leadership dashboard tracking.</p>
     </div>
     <div class="doc-footer"><span>BD (B2B &amp; RCM) Audit Report · v1.0</span><span>Page 5</span></div>
   </div>
@@ -1396,66 +1415,63 @@
   <div class="page">
     <img src="../letterhead.png" alt="Letterhead"
       style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
-    <div class="eyebrow">Appendix</div>
+    <div class="eyebrow">Appendix — Cross-Department Dependencies</div>
     <h2>Cross-Department Dependencies</h2>
-    <div class="section-dek">Findings and recommendations that require action outside the BD department to resolve</div>
+    <div class="section-dek">Findings requiring action from other departments to resolve.</div>
+
+    <!-- Accounts & Finance -->
+    <div class="dep-card">
+      <div class="dep-header">
+        <div class="dep-title">Accounts &amp; Finance</div>
+        <div class="dep-badge">Receivables &amp; Reimbursement Tracking</div>
+      </div>
+      <div class="dep-grid">
+        <div class="dep-section">
+          <div class="dep-section-title">Operations Dependency <span class="chip chip-approval">Approval Flow</span></div>
+          <div class="dep-section-content">
+            Accounts requires structured payment clearance logs, sales billing records, and travel expense reimbursement claims from the B2B &amp; RCM vertical.
+            <div class="dep-person">👤 Key Person: Shobha Shekhawat (Finance Head) / Accounts Manager</div>
+          </div>
+        </div>
+        <div class="dep-section bottleneck">
+          <div class="dep-section-title">Critical Bottleneck</div>
+          <div class="dep-section-content">
+            Manual spreadsheet tracking leaves Jatin Jain (Lead), Ankit Jain (CBDO), and CXOs without real-time visibility into total sales done, money received, and pending receivables. Paper diary transcription delays expense reporting and reimbursement payouts for field staff.
+          </div>
+        </div>
+        <div class="dep-section data-sync" style="grid-column:1/-1;">
+          <div class="dep-section-title">Data Transfer &amp; Action Needed <span class="chip chip-data">Data Flow</span></div>
+          <div class="dep-section-content">
+            Deploy a Unified CRM hosting all spreadsheet databases alongside a real-time dashboard displaying total sales done, money received, and pending receivables directly to Jatin, Ankit Jain (CBDO), and CXOs. Connect digital field forms for automated expense verification and travel reimbursement tracking.
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Production -->
     <div class="dep-card">
       <div class="dep-header">
         <div class="dep-title">Production</div>
-        <div class="dep-badge">Operational Handoff</div>
+        <div class="dep-badge">Operational Handoff &amp; Tertiary Feed</div>
       </div>
       <div class="dep-grid">
         <div class="dep-section">
-          <div class="dep-section-title">Operations Dependency</div>
+          <div class="dep-section-title">Operations Dependency <span class="chip chip-info">Planning Data</span></div>
           <div class="dep-section-content">
-            Production requires predictive sales data to plan the 20 MT inventory flow efficiently.
+            Production requires predictive sales data to plan the 20 MT standing inventory flow efficiently.
             <div class="dep-person">👤 Key Person: Production Lead</div>
           </div>
         </div>
         <div class="dep-section bottleneck">
           <div class="dep-section-title">Critical Bottleneck</div>
           <div class="dep-section-content">
-            Because BD cannot provide RCM tertiary sales data, Production must rely on reactive 40kg depot thresholds,
-            triggering chaotic ad-hoc manufacturing runs.
+            Because BD cannot provide RCM tertiary store sales data, Production must rely on reactive 40kg depot thresholds, triggering chaotic ad-hoc manufacturing runs.
           </div>
         </div>
         <div class="dep-section data-sync" style="grid-column:1/-1;">
-          <div class="dep-section-title">Data Transfer &amp; Updates Needed</div>
+          <div class="dep-section-title">Data Transfer &amp; Action Needed <span class="chip chip-data">Data Flow</span></div>
           <div class="dep-section-content">
-            BD must secure API integration or automated reporting from RCM’s ERP and pipe this tertiary sales data
-            directly into Production's systems.
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Accounts -->
-    <div class="dep-card">
-      <div class="dep-header">
-        <div class="dep-title">Accounts</div>
-        <div class="dep-badge">Finance Support</div>
-      </div>
-      <div class="dep-grid">
-        <div class="dep-section">
-          <div class="dep-section-title">Operations Dependency</div>
-          <div class="dep-section-content">
-            Field staff require timely expense reimbursements to sustain on-ground training activities.
-            <div class="dep-person">👤 Key Person: Accounts Manager</div>
-          </div>
-        </div>
-        <div class="dep-section bottleneck">
-          <div class="dep-section-title">Critical Bottleneck</div>
-          <div class="dep-section-content">
-            Manual transcription from paper diaries delays expense reporting and reimbursement processing.
-          </div>
-        </div>
-        <div class="dep-section data-sync" style="grid-column:1/-1;">
-          <div class="dep-section-title">Data Transfer &amp; Updates Needed</div>
-          <div class="dep-section-content">
-            Digital field forms must auto-sync directly to the Back Office Google Sheet with timestamped geolocation to
-            streamline Accounts verification and payout.
+            Establish an automated data feed from RCM's ERP capturing tertiary store off-take piped directly into a live dashboard shared with Production and Logistics. If RCM's ERP does not provide APIs, the fallback is to have backend spreadsheet data updated by the team to show real-time effects on the dashboard for Jatin (Lead) and CXOs.
           </div>
         </div>
       </div>
@@ -1465,14 +1481,14 @@
     <div class="dep-card">
       <div class="dep-header">
         <div class="dep-title">Logistics</div>
-        <div class="dep-badge">Dispatch Support</div>
+        <div class="dep-badge">Dispatch Support &amp; Shared Dashboard</div>
       </div>
       <div class="dep-grid">
         <div class="dep-section">
-          <div class="dep-section-title">Operations Dependency</div>
+          <div class="dep-section-title">Operations Dependency <span class="chip chip-info">Information Sharing</span></div>
           <div class="dep-section-content">
             Requires daily coordination to manage freight delivery to RCM's Bhilwara facility and broker channels.
-            <div class="dep-person">👤 Key Person: Logistics Lead</div>
+            <div class="dep-person">👤 Key Person: Nihal Paliwal (Logistics Coordinator)</div>
           </div>
         </div>
         <div class="dep-section bottleneck">
@@ -1482,10 +1498,38 @@
           </div>
         </div>
         <div class="dep-section data-sync" style="grid-column:1/-1;">
-          <div class="dep-section-title">Data Transfer &amp; Updates Needed</div>
+          <div class="dep-section-title">Data Transfer &amp; Action Needed <span class="chip chip-data">Data Flow</span></div>
           <div class="dep-section-content">
-            Logistics must be granted access to the new shared Supply Chain Dashboard to align dispatch schedules with
-            predictive tertiary off-take data.
+            Logistics must be granted access to the new shared Supply Chain Dashboard powered by RCM tertiary data (or backend spreadsheet fallback) and connect a WhatsApp bot for automated tracking queries.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HR & Talent -->
+    <div class="dep-card">
+      <div class="dep-header">
+        <div class="dep-title">HR &amp; Talent</div>
+        <div class="dep-badge">Travel Approvals &amp; Availability</div>
+      </div>
+      <div class="dep-grid">
+        <div class="dep-section">
+          <div class="dep-section-title">Operations Dependency <span class="chip chip-approval">Approval Flow</span></div>
+          <div class="dep-section-content">
+            Field staff travel plans, attendance, and leave schedules must be authorized by HR and visible to the Vertical Lead.
+            <div class="dep-person">👤 Key Person: Dolly Mehta (HR Manager)</div>
+          </div>
+        </div>
+        <div class="dep-section bottleneck">
+          <div class="dep-section-title">Critical Bottleneck</div>
+          <div class="dep-section-content">
+            Travel approvals and field availability tracking are managed informally via WhatsApp without automated calendar sync, causing scheduling conflicts and approval delays.
+          </div>
+        </div>
+        <div class="dep-section data-sync" style="grid-column:1/-1;">
+          <div class="dep-section-title">Data Transfer &amp; Action Needed <span class="chip chip-data">Data Flow</span></div>
+          <div class="dep-section-content">
+            Integrate Google Calendar / HRMS for automated travel request approvals and real-time field staff availability tracking for HR and Jatin Jain.
           </div>
         </div>
       </div>
@@ -1626,18 +1670,12 @@
           <div
             style="background:#E9F4EC;color:#276B3E;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:10pt;">
             1</div>
-          <div style="font-weight:700;color:var(--ink);font-size:9.5pt;">Supply Chain Visibility Integration
-            (Cross-Dept)</div>
+          <div style="font-weight:700;color:var(--ink);font-size:9.5pt;">Unified CRM, Real-time Dashboard &amp; RCM API</div>
         </div>
         <ul style="font-size:8.5pt;color:var(--muted);line-height:1.5;padding-left:18px;margin:0;">
-          <li style="margin-bottom:6px;"><strong>RCM ERP API Bridge:</strong> Establish an automated data feed from
-            RCM's ERP capturing tertiary store off-take. This data is piped directly into a live dashboard shared with
-            Production and Logistics.</li>
-          <li style="margin-bottom:6px;"><strong>Predictive Threshold Replacing:</strong> Replaces the reactive "40kg
-            depot alert" with actual point-of-sale trends, allowing Production to plan manufacturing cycles proactively
-            for the 20 MT commitment.</li>
-          <li><strong>Seagreen Liquidation Sync:</strong> Structured tracking for the broker channel to monitor EFP's
-            true tertiary liquidation costs and dispatch statuses in real-time.</li>
+          <li style="margin-bottom:6px;"><strong>Unified CRM &amp; Receivables Dashboard:</strong> Consolidate scattered Google Sheets databases into a Unified CRM and real-time dashboard displaying sales done, money received, and pending receivables directly to Jatin Jain (Lead), Ankit Jain (CBDO), and CXOs.</li>
+          <li style="margin-bottom:6px;"><strong>RCM ERP API Bridge (with Fallback):</strong> Establish an automated data feed from RCM's ERP capturing tertiary store off-take piped into a live dashboard for Production &amp; Logistics. <em>Fallback:</em> If RCM's ERP does not provide APIs, backend spreadsheet data updated by the team will reflect in real-time on the dashboard.</li>
+          <li><strong>Predictive Inventory Sync:</strong> Replaces reactive 40kg depot alerts with actual sales trends to optimize 20 MT standing inventory commitment.</li>
         </ul>
       </div>
 
@@ -1647,16 +1685,12 @@
           <div
             style="background:#E9F4EC;color:#276B3E;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:10pt;">
             2</div>
-          <div style="font-weight:700;color:var(--ink);font-size:9.5pt;">Digital Field Operations &amp; Data Security
-            (Extend)</div>
+          <div style="font-weight:700;color:var(--ink);font-size:9.5pt;">Digital Field Operations &amp; Travel Approvals</div>
         </div>
         <ul style="font-size:8.5pt;color:var(--muted);line-height:1.5;padding-left:18px;margin:0;">
-          <li style="margin-bottom:6px;"><strong>Offline Mobile Forms:</strong> Replace physical paper diaries with an
-            offline-capable mobile form (e.g., Zoho/Google Forms). Field team logs training data on the ground; it
-            auto-syncs to Google Sheets when online. Zero transcription needed.</li>
-          <li><strong>WhatsApp Business API Migration:</strong> Transition the 90% of personal WhatsApp comms to
-            company-owned Virtual Business Lines. Secures all farmer data, groups, and chat histories against employee
-            turnover.</li>
+          <li style="margin-bottom:6px;"><strong>Offline Mobile Forms:</strong> Replace physical paper diaries with offline mobile forms (e.g., Zoho/Google Forms) auto-syncing to the Unified CRM. Zero transcription needed.</li>
+          <li style="margin-bottom:6px;"><strong>Travel Approvals &amp; Reimbursements:</strong> Automate travel authorization workflows and reimbursement tracking directly into the Accounts &amp; HR module to eliminate payout lags.</li>
+          <li><strong>WhatsApp Business API Migration:</strong> Transition 90% of personal WhatsApp comms to Virtual Business Lines to secure company data against turnover.</li>
         </ul>
       </div>
 
@@ -1785,15 +1819,14 @@
       </div>
       <div class="phase-sow">
         <div class="col-label">Scope of Work &amp; Dependencies</div>
-        <div class="sow-item"><span class="sow-dot"></span><span><strong>Build:</strong> Establish an API or automated
-            reporting feed from RCM's ERP to capture tertiary store sales data.</span></div>
-        <div class="sow-item"><span class="sow-dot"></span><span><strong>Build:</strong> Deploy a shared live dashboard
-            for Production and Logistics visualizing off-take vs. 20 MT inventory.</span></div>
+        <div class="sow-item"><span class="sow-dot"></span><span><strong>Build:</strong> Deploy Unified CRM and real-time dashboard displaying sales done, money received, and pending receivables for Jatin Jain, Ankit Jain (CBDO), and CXOs.</span></div>
+        <div class="sow-item"><span class="sow-dot"></span><span><strong>Build:</strong> Establish RCM ERP API reporting feed to capture tertiary store off-take for Production &amp; Logistics (with backend spreadsheet update fallback).</span></div>
+        <div class="sow-item"><span class="sow-dot"></span><span><strong>Build:</strong> Implement travel request approvals and automated expense reimbursement tracking module.</span></div>
         <div class="sow-item"><span class="sow-dot"></span><span><strong>Tech Stack &amp; Badges:</strong> <span
-              class="chip-ref">React.js Dashboard</span> <span class="chip-ref">RCM ERP API</span> <span
-              class="chip-ref">Google Sheets API</span>.</span></div>
+              class="chip-ref">Unified CRM</span> <span class="chip-ref">React.js Dashboard</span> <span
+              class="chip-ref">RCM ERP API</span> <span class="chip-ref">Reimbursements API</span>.</span></div>
         <div class="sow-item"><span class="sow-dot client"></span><span><strong>Client To-Do:</strong> Formalize
-            data-sharing agreement with RCM; provide ERP API documentation.</span></div>
+            data-sharing agreement with RCM; provide ERP API documentation or setup backend update team.</span></div>
       </div>
       <div class="phase-roi">
         <div class="roi-card">
