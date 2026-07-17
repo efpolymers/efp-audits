@@ -1,2513 +1,2518 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <meta charset="utf-8">
-    <style>
-        @page {
-            size: a4;
-            margin: 2cm;
-
-            @frame footer {
-                -pdf-frame-content: footer_content;
-                bottom: 1cm;
-                left: 2cm;
-                right: 2cm;
-                height: 1cm;
-            }
+<meta charset="utf-8">
+<style>
+    @page {
+        size: a4;
+        margin: 2cm;
+        @frame footer {
+            -pdf-frame-content: footer_content;
+            bottom: 1cm;
+            left: 2cm;
+            right: 2cm;
+            height: 1cm;
         }
-
-        body {
-            font-family: Helvetica, Arial, sans-serif;
-            color: #334155;
-            line-height: 1.6;
-            font-size: 10pt;
-        }
-
-        h1 {
-            font-size: 18pt;
-            color: #1e3a8a;
-            /* Deep navy */
-            border-bottom: 2px solid #3b82f6;
-            padding-bottom: 5px;
-            margin-top: 25px;
-            margin-bottom: 15px;
-            page-break-before: always;
-        }
-
-        h1:first-of-type {
-            page-break-before: avoid;
-        }
-
-        h2 {
-            font-size: 13pt;
-            color: #0f766e;
-            /* Teal */
-            margin-top: 20px;
-            margin-bottom: 10px;
-            border-bottom: 1px solid #e2e8f0;
-            padding-bottom: 3px;
-        }
-
-        h3 {
-            font-size: 11pt;
-            color: #0f172a;
-            margin-top: 15px;
-            margin-bottom: 8px;
-        }
-
-        p {
-            margin-bottom: 10px;
-            text-align: justify;
-        }
-
-        ul,
-        ol {
-            margin-bottom: 10px;
-            padding-left: 20px;
-        }
-
-        li {
-            margin-bottom: 5px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
-            margin-bottom: 20px;
-            font-size: 8.5pt;
-        }
-
-        th {
-            background-color: #1e3a8a;
-            color: #ffffff;
-            font-weight: bold;
-            text-align: left;
-            padding: 5px 8px;
-            border: 1px solid #1e3a8a;
-        }
-
-        td {
-            border: 1px solid #cbd5e1;
-            padding: 5px 8px;
-        }
-
-        tr:nth-child(even) {
-            background-color: #f8fafc;
-        }
-
-        blockquote {
-            border-left: 4px solid #3b82f6;
-            background-color: #eff6ff;
-            padding: 10px;
-            margin: 10px 0;
-            font-style: italic;
-        }
-
-        img {
-            display: block;
-            margin: 15px auto;
-            max-width: 100%;
-            height: auto;
-        }
-
-        .center {
-            text-align: center;
-        }
-
-        #footer_content {
-            text-align: center;
-            color: #94a3b8;
-            font-size: 8pt;
-            border-top: 1px solid #e2e8f0;
-            padding-top: 5px;
-        }
-    </style>
+    }
+    body {
+        font-family: Helvetica, Arial, sans-serif;
+        color: #334155;
+        line-height: 1.6;
+        font-size: 10pt;
+    }
+    h1 {
+        font-size: 18pt;
+        color: #1e3a8a; /* Deep navy */
+        border-bottom: 2px solid #3b82f6;
+        padding-bottom: 5px;
+        margin-top: 25px;
+        margin-bottom: 15px;
+        page-break-before: always;
+    }
+    h1:first-of-type {
+        page-break-before: avoid;
+    }
+    h2 {
+        font-size: 13pt;
+        color: #0f766e; /* Teal */
+        margin-top: 20px;
+        margin-bottom: 10px;
+        border-bottom: 1px solid #e2e8f0;
+        padding-bottom: 3px;
+    }
+    h3 {
+        font-size: 11pt;
+        color: #0f172a;
+        margin-top: 15px;
+        margin-bottom: 8px;
+    }
+    p {
+        margin-bottom: 10px;
+        text-align: justify;
+    }
+    ul, ol {
+        margin-bottom: 10px;
+        padding-left: 20px;
+    }
+    li {
+        margin-bottom: 5px;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        font-size: 8.5pt;
+    }
+    th {
+        background-color: #1e3a8a;
+        color: #ffffff;
+        font-weight: bold;
+        text-align: left;
+        padding: 5px 8px;
+        border: 1px solid #1e3a8a;
+    }
+    td {
+        border: 1px solid #cbd5e1;
+        padding: 5px 8px;
+    }
+    tr:nth-child(even) {
+        background-color: #f8fafc;
+    }
+    blockquote {
+        border-left: 4px solid #3b82f6;
+        background-color: #eff6ff;
+        padding: 10px;
+        margin: 10px 0;
+        font-style: italic;
+    }
+    img {
+        display: block;
+        margin: 15px auto;
+        max-width: 100%;
+        height: auto;
+    }
+    .center {
+        text-align: center;
+    }
+    #footer_content {
+        text-align: center;
+        color: #94a3b8;
+        font-size: 8pt;
+        border-top: 1px solid #e2e8f0;
+        padding-top: 5px;
+    }
+</style>
 </head>
-
 <body>
 
-    <h1>EF Polymers — Enterprise Operational Audit Report</h1>
-    <p><strong>Prepared by:</strong> Creative Upaay Consulting<br />
-        <strong>Date:</strong> July 2026<br />
-        <strong>Version:</strong> 1.0<br />
-        <strong>Classification:</strong> Confidential — Executive Leadership Only<br />
-        <strong>Methodology:</strong> Enterprise Business Transformation Consulting Framework v1.0<br />
-        <strong>Departments Audited:</strong> 12 (R&amp;D, Production, Logistics, Accounts, Marketing/Retail Sales,
-        BD-Cocopeat, BD-NGO/CSR, BD-Seed, BD-B2B/RCM, MENA International Sales, COO Office, CBDO Office)
-    </p>
-    <hr />
-    <h2>Table of Contents</h2>
-    <ol>
-        <li><a href="#1-executive-summary">Executive Summary</a></li>
-        <li><a href="#2-company-profile--business-model">Company Profile &amp; Business Model</a></li>
-        <li><a href="#3-organizational-structure">Organizational Structure</a></li>
-        <li><a href="#4-department-maturity-scorecard">Department Maturity Scorecard</a></li>
-        <li><a href="#5-enterprise-maturity-heatmap">Enterprise Maturity Heatmap</a></li>
-        <li><a href="#6-cross-department-dependency-map">Cross-Department Dependency Map</a></li>
-        <li><a href="#7-consolidated-red-flags--risk-register">Consolidated Red Flags &amp; Risk Register</a></li>
-        <li><a href="#8-operational-truth-gaps">Operational Truth Gaps</a></li>
-        <li><a href="#9-technology-landscape-assessment">Technology Landscape Assessment</a></li>
-        <li><a href="#10-data-flow--governance-assessment">Data Flow &amp; Governance Assessment</a></li>
-        <li><a href="#11-workflow-bottleneck-analysis">Workflow Bottleneck Analysis</a></li>
-        <li><a href="#12-ai--automation-readiness-assessment">AI &amp; Automation Readiness Assessment</a></li>
-        <li><a href="#13-strategic-recommendations">Strategic Recommendations</a></li>
-        <li><a href="#14-transformation-roadmap">Transformation Roadmap</a></li>
-        <li><a href="#15-appendix-audit-coverage-matrix">Appendix: Audit Coverage Matrix</a></li>
-    </ol>
-    <hr />
-    <h2>1. Executive Summary</h2>
-    <h3>1.1 Audit Scope &amp; Approach</h3>
-    <p>This report consolidates findings from <strong>12 department-level operational audits</strong> conducted across
-        EF Polymers (EFP), a bio-polymer manufacturing company specializing in agricultural soil-moisture-retention
-        products and cocopeat growing media. The audit covered the entire organizational value chain — from R&amp;D and
-        Production through Sales, Business Development, Finance, Logistics, Marketing, and executive leadership (COO
-        &amp; CBDO offices).</p>
-    <p>The methodology applied follows a six-layer thinking model (Understanding → Relationships → Constraints → Failure
-        → Optimization → Transformation) with evidence-backed conclusions rated by confidence level.</p>
-    <h3>1.2 Key Findings at a Glance</h3>
-    <table>
-        <thead>
-            <tr>
-                <th>Dimension</th>
-                <th>Assessment</th>
-                <th>Confidence</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><strong>Overall Business Maturity</strong></td>
-                <td>Level 2 — Developing</td>
-                <td>High</td>
-            </tr>
-            <tr>
-                <td><strong>Process Standardization</strong></td>
-                <td>Level 1.5 — Initial/Developing</td>
-                <td>High</td>
-            </tr>
-            <tr>
-                <td><strong>Technology Utilization</strong></td>
-                <td>Level 2 — Developing (Zoho underutilized)</td>
-                <td>High</td>
-            </tr>
-            <tr>
-                <td><strong>Data Governance</strong></td>
-                <td>Level 1 — Initial (spreadsheet-dependent)</td>
-                <td>Confirmed</td>
-            </tr>
-            <tr>
-                <td><strong>Sales Operations</strong></td>
-                <td>Level 1 — Initial (no CRM)</td>
-                <td>Confirmed</td>
-            </tr>
-            <tr>
-                <td><strong>Automation Readiness</strong></td>
-                <td>Level 1.5 — Emerging</td>
-                <td>High</td>
-            </tr>
-            <tr>
-                <td><strong>AI Readiness</strong></td>
-                <td>Level 1 — Not Ready (data fragmentation)</td>
-                <td>High</td>
-            </tr>
-            <tr>
-                <td><strong>Scalability Readiness</strong></td>
-                <td>Level 1.5 — Critical constraints at 2× growth</td>
-                <td>High</td>
-            </tr>
-        </tbody>
-    </table>
-    <h3>1.3 Critical Observations</h3>
-    <ol>
-        <li><strong>No Central CRM exists.</strong> All 5 BD verticals + MENA + Marketing/Retail operate on disconnected
-            spreadsheets, WhatsApp, and personal memory. This is the single largest operational risk.</li>
-        <li><strong>Spreadsheet Dependency is systemic.</strong> An estimated <strong>30+ independent Excel/Google
-                Sheets</strong> serve as primary operational databases across the organization, with zero integration.
-        </li>
-        <li><strong>Key-Person Dependencies are pervasive.</strong> R&amp;D (Ritu Panwar), Logistics (Nihal Paliwal),
-            and Finance (Shobha Shekhawat) each represent single points of failure for critical business functions.</li>
-        <li><strong>WhatsApp is the de facto ERP.</strong> Order intake, field tracking, payment confirmations, customer
-            communication, and even PO submissions flow through WhatsApp groups with no data capture or audit trail.
-        </li>
-        <li><strong>COGS is unreliable.</strong> Monthly margin volatility of 50%–77% due to absent WIP valuation, no
-            grade-based costing, and unallocated packaging/depreciation costs renders financial reporting unreliable.
-        </li>
-    </ol>
-    <p><img alt="EF Polymers — Enterprise Overview" src="viz_charts/viz_1_radar.png" /></p>
-    <hr />
-    <h2>2. Company Profile &amp; Business Model</h2>
-    <h3>2.1 Business Overview</h3>
-    <table>
-        <thead>
-            <tr>
-                <th>Attribute</th>
-                <th>Detail</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><strong>Company</strong></td>
-                <td>EF Polymers (EFP)</td>
-            </tr>
-            <tr>
-                <td><strong>Industry</strong></td>
-                <td>Agri-tech / Bio-polymer Manufacturing</td>
-            </tr>
-            <tr>
-                <td><strong>Core Product</strong></td>
-                <td>Bio-polymer soil moisture retention granules</td>
-            </tr>
-            <tr>
-                <td><strong>Secondary Product</strong></td>
-                <td>Cocopeat (coconut husk soil-less growing media)</td>
-            </tr>
-            <tr>
-                <td><strong>Revenue Model</strong></td>
-                <td>B2B manufacturing + white-label + export + retail</td>
-            </tr>
-            <tr>
-                <td><strong>Manufacturing</strong></td>
-                <td>Udaipur (primary), Coimbatore (secondary / cocopeat)</td>
-            </tr>
-            <tr>
-                <td><strong>Markets</strong></td>
-                <td>India (pan-national), Middle East, Europe, Japan, USA, Africa, Australia</td>
-            </tr>
-            <tr>
-                <td><strong>Product Shelf Life</strong></td>
-                <td>3 years</td>
-            </tr>
-            <tr>
-                <td><strong>Estimated Headcount</strong></td>
-                <td>40–50+ personnel (across all departments)</td>
-            </tr>
-        </tbody>
-    </table>
-    <h3>2.2 Revenue Channels</h3>
-    <table>
-        <thead>
-            <tr>
-                <th>Channel</th>
-                <th>Description</th>
-                <th>Key Account/Vertical</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><strong>Retail (D2C/Dealer)</strong></td>
-                <td>Multi-tier distribution via RSMs → Dealers → Farmers</td>
-                <td>Marketing &amp; Retail Sales</td>
-            </tr>
-            <tr>
-                <td><strong>B2B White-Label</strong></td>
-                <td>Component supply to corporate partners</td>
-                <td>RCM (Jatin Jain)</td>
-            </tr>
-            <tr>
-                <td><strong>Institutional (Seed)</strong></td>
-                <td>Seed coating sales to seed companies &amp; universities</td>
-                <td>Sameer Mahiskar</td>
-            </tr>
-            <tr>
-                <td><strong>NGO/CSR</strong></td>
-                <td>Bulk contracts with NGOs and CSR programs</td>
-                <td>Gaurav Dwivedi / Vikash Mehta</td>
-            </tr>
-            <tr>
-                <td><strong>Government</strong></td>
-                <td>State/federal procurement tenders</td>
-                <td>Shailendra Singh</td>
-            </tr>
-            <tr>
-                <td><strong>International Export</strong></td>
-                <td>Distributor-led B2B across MENA, Asia, Africa</td>
-                <td>Neha Pathak</td>
-            </tr>
-            <tr>
-                <td><strong>Cocopeat Export</strong></td>
-                <td>Container-load exports of soil-less media</td>
-                <td>Mohit Kumar Gupta</td>
-            </tr>
-            <tr>
-                <td><strong>D2C Japan (Planned)</strong></td>
-                <td>Website-based direct-to-consumer launch</td>
-                <td>Mohit / Yoshida-san</td>
-            </tr>
-        </tbody>
-    </table>
-    <h3>2.3 Product Complexity Matrix</h3>
-    <table>
-        <thead>
-            <tr>
-                <th>Dimension</th>
-                <th>Variants</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><strong>Granule Sizes</strong></td>
-                <td>&lt;2mm (India), 2–4mm, 1.18–1.41mm (international)</td>
-            </tr>
-            <tr>
-                <td><strong>SKU Sizes</strong></td>
-                <td>50g, 100g, 200g, 500g, 1kg, 5kg, 20–25kg, 100kg, bulk sacks (1000–1400kg)</td>
-            </tr>
-            <tr>
-                <td><strong>Packaging Languages</strong></td>
-                <td>Hindi, English, Spanish, French, Japanese + custom</td>
-            </tr>
-            <tr>
-                <td><strong>Product Grades</strong></td>
-                <td>A, B, C (different quality tiers)</td>
-            </tr>
-            <tr>
-                <td><strong>Cocopeat Formats</strong></td>
-                <td>Open-top grow bags, cocopit grow bags, 5kg blocks, pellets/coins</td>
-            </tr>
-            <tr>
-                <td><strong>Custom Blends</strong></td>
-                <td>Perlite, NPK formulations per client spec</td>
-            </tr>
-        </tbody>
-    </table>
-    <blockquote>
-        <p><strong>Operational Implication:</strong> This multi-variable product matrix (granule size × SKU × language ×
-            grade × blend) creates significant packaging procurement complexity and inventory management burden,
-            evidenced by the 68% surplus pouch problem reported by Production.</p>
-    </blockquote>
-    <hr />
-    <h2>3. Organizational Structure</h2>
-    <h3>3.1 Leadership &amp; Reporting Lines</h3>
-    <p><img alt="EF Polymers — Organizational Structure &amp; Reporting Lines" src="viz_charts/viz_11_org.png" /></p>
-    <h3>3.2 Headcount Distribution</h3>
-    <table>
-        <thead>
-            <tr>
-                <th>Department</th>
-                <th>Personnel</th>
-                <th>Status</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><strong>R&amp;D</strong></td>
-                <td>4 active + 2 incoming + interns</td>
-                <td>Expanding</td>
-            </tr>
-            <tr>
-                <td><strong>Production</strong></td>
-                <td>3 core + 4 recent hires</td>
-                <td>Recently expanded</td>
-            </tr>
-            <tr>
-                <td><strong>Logistics</strong></td>
-                <td>2 FTE</td>
-                <td>Lean / at capacity</td>
-            </tr>
-            <tr>
-                <td><strong>Finance &amp; Accounts</strong></td>
-                <td>3 FTE</td>
-                <td>Stable</td>
-            </tr>
-            <tr>
-                <td><strong>Marketing &amp; Retail Sales</strong></td>
-                <td>3 office + field RSMs</td>
-                <td>Under-resourced</td>
-            </tr>
-            <tr>
-                <td><strong>BD-Cocopeat</strong></td>
-                <td>4 active (Mohit, Ishwarya, Rajesh, Yoshida)</td>
-                <td>Stable</td>
-            </tr>
-            <tr>
-                <td><strong>BD-NGO/CSR</strong></td>
-                <td>4 active + 1 vacant</td>
-                <td>Hiring</td>
-            </tr>
-            <tr>
-                <td><strong>BD-Seed</strong></td>
-                <td>1 active + 1 planned hire</td>
-                <td>Under-resourced</td>
-            </tr>
-            <tr>
-                <td><strong>BD-B2B/RCM</strong></td>
-                <td>7 active → 10 planned</td>
-                <td>Expanding</td>
-            </tr>
-            <tr>
-                <td><strong>MENA International</strong></td>
-                <td>2 (Neha + 1 MT)</td>
-                <td>Lean</td>
-            </tr>
-            <tr>
-                <td><strong>COO Office</strong></td>
-                <td>1 + oversight</td>
-                <td>—</td>
-            </tr>
-            <tr>
-                <td><strong>CBDO Office</strong></td>
-                <td>1 + oversight</td>
-                <td>—</td>
-            </tr>
-        </tbody>
-    </table>
-    <blockquote>
-        <p><strong>Key Risk:</strong> BD-Seed operates as a <strong>solo single-point operation</strong> for a pan-India
-            institutional vertical with a 90 MT annual target.</p>
-    </blockquote>
-    <hr />
-    <h2>4. Department Maturity Scorecard</h2>
-    <blockquote>
-        <p>Scores are based on the 5-level maturity model (1=Initial, 2=Developing, 3=Standardized, 4=Managed,
-            5=Optimized). Evidence references are drawn from individual department audits.</p>
-    </blockquote>
-    <table>
-        <thead>
-            <tr>
-                <th>Department</th>
-                <th>Process</th>
-                <th>Technology</th>
-                <th>Data Quality</th>
-                <th>Documentation</th>
-                <th>Knowledge </th>
-                <th>Overall</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><strong>R&amp;D</strong></td>
-                <td>2.0</td>
-                <td>2.0</td>
-                <td>1.5</td>
-                <td>2.5</td>
-                <td>1.5</td>
-                <td><strong>2.0</strong></td>
-            </tr>
-            <tr>
-                <td><strong>Production</strong></td>
-                <td>2.5</td>
-                <td>2.0</td>
-                <td>2.0</td>
-                <td>2.0</td>
-                <td>2.0</td>
-                <td><strong>2.0</strong></td>
-            </tr>
-            <tr>
-                <td><strong>Logistics</strong></td>
-                <td>2.0</td>
-                <td>1.5</td>
-                <td>1.5</td>
-                <td>1.5</td>
-                <td>2.0</td>
-                <td><strong>1.5</strong></td>
-            </tr>
-            <tr>
-                <td><strong>Finance &amp; Accounts</strong></td>
-                <td>2.5</td>
-                <td>3.0</td>
-                <td>2.0</td>
-                <td>2.0</td>
-                <td>2.5</td>
-                <td><strong>2.5</strong></td>
-            </tr>
-            <tr>
-                <td><strong>Marketing / Retail Sales</strong></td>
-                <td>1.5</td>
-                <td>1.0</td>
-                <td>1.0</td>
-                <td>1.5</td>
-                <td>1.0</td>
-                <td><strong>1.0</strong></td>
-            </tr>
-            <tr>
-                <td><strong>BD — Cocopeat</strong></td>
-                <td>2.0</td>
-                <td>1.5</td>
-                <td>1.5</td>
-                <td>2.0</td>
-                <td>1.5</td>
-                <td><strong>1.5</strong></td>
-            </tr>
-            <tr>
-                <td><strong>BD — NGO/CSR</strong></td>
-                <td>1.5</td>
-                <td>1.0</td>
-                <td>1.0</td>
-                <td>1.5</td>
-                <td>1.0</td>
-                <td><strong>1.0</strong></td>
-            </tr>
-            <tr>
-                <td><strong>BD — Seed</strong></td>
-                <td>1.0</td>
-                <td>1.0</td>
-                <td>1.0</td>
-                <td>1.0</td>
-                <td>1.0</td>
-                <td><strong>1.0</strong></td>
-            </tr>
-            <tr>
-                <td><strong>BD — B2B/RCM</strong></td>
-                <td>2.0</td>
-                <td>1.5</td>
-                <td>1.5</td>
-                <td>1.5</td>
-                <td>1.5</td>
-                <td><strong>1.5</strong></td>
-            </tr>
-            <tr>
-                <td><strong>MENA International</strong></td>
-                <td>2.0</td>
-                <td>1.5</td>
-                <td>2.0</td>
-                <td>2.0</td>
-                <td>1.5</td>
-                <td><strong>2.0</strong></td>
-            </tr>
-            <tr>
-                <td><strong>COO Office</strong></td>
-                <td>2.0</td>
-                <td>2.0</td>
-                <td>1.5</td>
-                <td>2.0</td>
-                <td>2.0</td>
-                <td><strong>2.0</strong></td>
-            </tr>
-            <tr>
-                <td><strong>CBDO Office</strong></td>
-                <td>1.5</td>
-                <td>1.0</td>
-                <td>1.0</td>
-                <td>1.5</td>
-                <td>1.0</td>
-                <td><strong>1.0</strong></td>
-            </tr>
-            <tr>
-                <td><strong>Enterprise Average</strong></td>
-                <td><strong>1.9</strong></td>
-                <td><strong>1.6</strong></td>
-                <td><strong>1.5</strong></td>
-                <td><strong>1.7</strong></td>
-                <td><strong>1.5</strong></td>
-                <td><strong>1.7</strong></td>
-            </tr>
-        </tbody>
-    </table>
-    <p><img alt="Department Maturity Scorecard" src="viz_charts/viz_2_bar.png" /></p>
-    <hr />
-    <h2>5. Enterprise Maturity Heatmap</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>Category</th>
-                <th>Current Score</th>
-                <th>Target Score (12-mo)</th>
-                <th>Gap</th>
-                <th>Confidence</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Leadership &amp; Governance</td>
-                <td>2.5</td>
-                <td>3.5</td>
-                <td>1.0</td>
-                <td>High</td>
-            </tr>
-            <tr>
-                <td>Strategy Alignment</td>
-                <td>2.0</td>
-                <td>3.0</td>
-                <td>1.0</td>
-                <td>High</td>
-            </tr>
-            <tr>
-                <td>Sales Operations</td>
-                <td>1.0</td>
-                <td>3.0</td>
-                <td>2.0</td>
-                <td>Confirmed</td>
-            </tr>
-            <tr>
-                <td>Customer Lifecycle</td>
-                <td>1.5</td>
-                <td>3.0</td>
-                <td>1.5</td>
-                <td>High</td>
-            </tr>
-            <tr>
-                <td>Operational Excellence</td>
-                <td>2.0</td>
-                <td>3.0</td>
-                <td>1.0</td>
-                <td>High</td>
-            </tr>
-            <tr>
-                <td>Process Standardization</td>
-                <td>1.5</td>
-                <td>3.0</td>
-                <td>1.5</td>
-                <td>High</td>
-            </tr>
-            <tr>
-                <td>Documentation</td>
-                <td>1.7</td>
-                <td>3.0</td>
-                <td>1.3</td>
-                <td>High</td>
-            </tr>
-            <tr>
-                <td>Knowledge Management</td>
-                <td>1.5</td>
-                <td>2.5</td>
-                <td>1.0</td>
-                <td>High</td>
-            </tr>
-            <tr>
-                <td>Technology Landscape</td>
-                <td>2.0</td>
-                <td>3.5</td>
-                <td>1.5</td>
-                <td>High</td>
-            </tr>
-            <tr>
-                <td>Data Quality</td>
-                <td>1.5</td>
-                <td>3.0</td>
-                <td>1.5</td>
-                <td>Confirmed</td>
-            </tr>
-            <tr>
-                <td>Reporting &amp; Analytics</td>
-                <td>1.5</td>
-                <td>3.0</td>
-                <td>1.5</td>
-                <td>High</td>
-            </tr>
-            <tr>
-                <td>Automation Readiness</td>
-                <td>1.5</td>
-                <td>2.5</td>
-                <td>1.0</td>
-                <td>High</td>
-            </tr>
-            <tr>
-                <td>AI Readiness</td>
-                <td>1.0</td>
-                <td>2.0</td>
-                <td>1.0</td>
-                <td>High</td>
-            </tr>
-            <tr>
-                <td>Compliance Readiness</td>
-                <td>2.0</td>
-                <td>3.0</td>
-                <td>1.0</td>
-                <td>Medium</td>
-            </tr>
-            <tr>
-                <td>Financial Operations</td>
-                <td>2.0</td>
-                <td>3.5</td>
-                <td>1.5</td>
-                <td>Confirmed</td>
-            </tr>
-            <tr>
-                <td>Scalability</td>
-                <td>1.5</td>
-                <td>3.0</td>
-                <td>1.5</td>
-                <td>High</td>
-            </tr>
-            <tr>
-                <td>Change Readiness</td>
-                <td>2.0</td>
-                <td>3.0</td>
-                <td>1.0</td>
-                <td>Medium</td>
-            </tr>
-            <tr>
-                <td>Customer Experience</td>
-                <td>2.0</td>
-                <td>3.0</td>
-                <td>1.0</td>
-                <td>Medium</td>
-            </tr>
-            <tr>
-                <td><strong>Overall Business Maturity</strong></td>
-                <td><strong>1.7</strong></td>
-                <td><strong>3.0</strong></td>
-                <td><strong>1.3</strong></td>
-                <td><strong>High</strong></td>
-            </tr>
-        </tbody>
-    </table>
-    <p><img alt="Enterprise Maturity Heatmap — Current vs. Target" src="viz_charts/viz_3_heatmap.png" /></p>
-    <hr />
-    <h2>6. Cross-Department Dependency Map</h2>
-    <h3>6.1 Critical Dependency Matrix</h3>
-    <table>
-        <thead>
-            <tr>
-                <th>Source → Target</th>
-                <th>Nature</th>
-                <th>Frequency</th>
-                <th>Risk Level</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>All BD Verticals → <strong>Logistics</strong></td>
-                <td>Dispatch, freight, customs</td>
-                <td>Daily</td>
-                <td>
-                    <font color='red'><b>CRITICAL</b></font> Critical
-                </td>
-            </tr>
-            <tr>
-                <td>All BD Verticals → <strong>Accounts</strong></td>
-                <td>Invoicing, payment verification</td>
-                <td>Per-shipment</td>
-                <td>
-                    <font color='red'><b>CRITICAL</b></font> Critical
-                </td>
-            </tr>
-            <tr>
-                <td>All BD Verticals → <strong>R&amp;D</strong></td>
-                <td>Technical data, trial reports, dosage</td>
-                <td>Per-pitch/trial</td>
-                <td>
-                    <font color='orange'><b>MEDIUM</b></font> Medium
-                </td>
-            </tr>
-            <tr>
-                <td>All BD Verticals → <strong>Production</strong></td>
-                <td>Stock availability, lead times</td>
-                <td>Per-order</td>
-                <td>
-                    <font color='orange'><b>MEDIUM</b></font> Medium
-                </td>
-            </tr>
-            <tr>
-                <td><strong>Marketing</strong> → <strong>Accounts</strong></td>
-                <td>Payment verification, dispatching</td>
-                <td>Daily</td>
-                <td>
-                    <font color='orange'><b>MEDIUM</b></font> Medium
-                </td>
-            </tr>
-            <tr>
-                <td><strong>Logistics</strong> → <strong>Accounts</strong></td>
-                <td>Invoice generation pre-dispatch</td>
-                <td>Per-shipment</td>
-                <td>
-                    <font color='red'><b>CRITICAL</b></font> Critical
-                </td>
-            </tr>
-            <tr>
-                <td><strong>Logistics</strong> → <strong>Production</strong></td>
-                <td>Manufacturing completion dates</td>
-                <td>Daily</td>
-                <td>
-                    <font color='red'><b>CRITICAL</b></font> Critical
-                </td>
-            </tr>
-            <tr>
-                <td><strong>Accounts</strong> → <strong>Production</strong></td>
-                <td>Stock availability (manual phone)</td>
-                <td>Per-invoice</td>
-                <td>
-                    <font color='red'><b>CRITICAL</b></font> Critical
-                </td>
-            </tr>
-            <tr>
-                <td><strong>R&amp;D</strong> → <strong>Production</strong></td>
-                <td>Lab-to-commercial formulation handoff</td>
-                <td>Project-based</td>
-                <td>
-                    <font color='orange'><b>MEDIUM</b></font> Medium
-                </td>
-            </tr>
-            <tr>
-                <td><strong>R&amp;D</strong> → <strong>QC</strong></td>
-                <td>Daily QC Tracker co-management</td>
-                <td>Daily</td>
-                <td>
-                    <font color='orange'><b>MEDIUM</b></font> Medium
-                </td>
-            </tr>
-            <tr>
-                <td><strong>COO</strong> → <strong>All Departments</strong></td>
-                <td>Approvals, reporting, oversight</td>
-                <td>Continuous</td>
-                <td>
-                    <font color='orange'><b>MEDIUM</b></font> Medium
-                </td>
-            </tr>
-            <tr>
-                <td><strong>CBDO</strong> → <strong>All BD Verticals</strong></td>
-                <td>Pipeline reviews, strategic alignment</td>
-                <td>Monthly</td>
-                <td>
-                    <font color='orange'><b>MEDIUM</b></font> Medium
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <h3>6.2 Dependency Risk Concentration</h3>
-    <p><img alt="Cross-Department Dependency Network" src="viz_charts/viz_4_network.png" /></p>
-    <blockquote>
-        <p><strong>Systemic Bottleneck Identified:</strong> Logistics (2 FTE) and Accounts (3 FTE) are the operational
-            convergence points for <strong>all</strong> revenue-generating activities. Every BD vertical, Marketing, and
-            international sales must route through these two departments for order fulfillment.</p>
-    </blockquote>
-    <hr />
-    <h2>7. Consolidated Red Flags &amp; Risk Register</h2>
-    <h3>7.1 Severity Summary</h3>
-    <table>
-        <thead>
-            <tr>
-                <th>Severity</th>
-                <th>Count</th>
-                <th>Breakdown</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>
-                    <font color='red'><b>CRITICAL</b></font> <strong>High</strong>
-                </td>
-                <td>14</td>
-                <td>CRM absence, data fragmentation, key-person dependencies, financial opacity</td>
-            </tr>
-            <tr>
-                <td>
-                    <font color='orange'><b>MEDIUM</b></font> <strong>Medium</strong>
-                </td>
-                <td>14</td>
-                <td>Follow-up gaps, manual processes, dual reporting, communication risks</td>
-            </tr>
-            <tr>
-                <td>
-                    <font color='green'><b>LOW / OK</b></font> <strong>Low</strong>
-                </td>
-                <td>8</td>
-                <td>Collateral tracking, community drop-off, late-night decision capture</td>
-            </tr>
-            <tr>
-                <td><strong>Total</strong></td>
-                <td><strong>36</strong></td>
-                <td>Across 12 departments</td>
-            </tr>
-        </tbody>
-    </table>
-    <h3>7.2 Critical Risk Register (High-Severity Items)</h3>
-    <table>
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>Risk</th>
-                <th>Department(s)</th>
-                <th>Root Cause</th>
-                <th>Business Impact</th>
-                <th>Evidence</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>R01</td>
-                <td><strong>No Central CRM</strong> — Pipeline, lead ownership, and deal stages invisible at executive
-                    level</td>
-                <td>CBDO, All BD, MENA</td>
-                <td>No system of record adopted; each vertical uses ad-hoc spreadsheets</td>
-                <td>Revenue leakage, ownership conflicts, missed follow-ups</td>
-                <td>CBDO, BD-Seed, BD-NGO/CSR audits: confirmed zero CRM</td>
-            </tr>
-            <tr>
-                <td>R02</td>
-                <td><strong>COGS Margin Volatility (50%–77%)</strong> — Untraceable monthly cost swings</td>
-                <td>Accounts</td>
-                <td>No WIP valuation, no grade-based costing, unallocated packaging costs, no asset register</td>
-                <td>Financial reporting unreliable, investor confidence risk</td>
-                <td>Accounts audit: stated directly</td>
-            </tr>
-            <tr>
-                <td>R03</td>
-                <td><strong>Key-Person Dependency: R&amp;D</strong> — Protocol approvals, grant writing, technical
-                    sign-offs bottlenecked on PD Manager</td>
-                <td>R&amp;D</td>
-                <td>Single qualified authority for multi-geography compliance</td>
-                <td>Regulatory delays, trial backlogs if Ritu unavailable</td>
-                <td>R&amp;D audit: stated directly</td>
-            </tr>
-            <tr>
-                <td>R04</td>
-                <td><strong>Key-Person Dependency: Logistics</strong> — Single logistics manager shared across domestic
-                    + export + B2B</td>
-                <td>Logistics, MENA, All BD</td>
-                <td>Only 2 FTE for all shipment types</td>
-                <td>Export SLA breaches, demurrage fees</td>
-                <td>Logistics &amp; MENA audits</td>
-            </tr>
-            <tr>
-                <td>R05</td>
-                <td><strong>Disconnected Zoho WMS</strong> — Custom WMS siloed from Zoho Books ERP</td>
-                <td>Production, Accounts</td>
-                <td>System built independently; no API link to ERP</td>
-                <td>Manual reconciliation, inaccurate cost auditing</td>
-                <td>Production audit: stated directly</td>
-            </tr>
-            <tr>
-                <td>R06</td>
-                <td><strong>CargoX Gating Bottleneck</strong> — Export docs gated behind payment clearance with 10-day
-                    upload window</td>
-                <td>BD-Cocopeat</td>
-                <td>Finance approval dependency on international remittance</td>
-                <td>Demurrage fees, customer relationship damage</td>
-                <td>BD-Cocopeat audit: stated directly</td>
-            </tr>
-            <tr>
-                <td>R07</td>
-                <td><strong>Manual Field Geolocation Tracking</strong> — WhatsApp-based location sharing checked 3×/day
-                    manually</td>
-                <td>Marketing/Retail</td>
-                <td>No automated field force management app</td>
-                <td>6–8 hrs/day staff time consumed</td>
-                <td>Marketing audit: stated directly</td>
-            </tr>
-            <tr>
-                <td>R08</td>
-                <td><strong>Surplus Custom Packaging</strong> — 68% packaging surplus from MOQ constraints</td>
-                <td>Production</td>
-                <td>Printer MOQ (16K) vs. order size (5K) mismatch</td>
-                <td>Warehouse cost, write-off exposure on design changes</td>
-                <td>Production audit: stated directly</td>
-            </tr>
-            <tr>
-                <td>R09</td>
-                <td><strong>WhatsApp Order Intake</strong> — Incomplete order specs via WhatsApp text</td>
-                <td>Logistics</td>
-                <td>No structured order intake form</td>
-                <td>Shipment delays, manual follow-up overhead</td>
-                <td>Logistics audit: stated directly</td>
-            </tr>
-            <tr>
-                <td>R10</td>
-                <td><strong>No Real-Time Stock Visibility</strong> — Accounts cannot check inventory before invoicing
-                </td>
-                <td>Accounts, Production</td>
-                <td>Zoho Inventory not exposing live stock to billing</td>
-                <td>Manual phone calls per invoice, billing delays</td>
-                <td>Accounts audit: stated directly</td>
-            </tr>
-            <tr>
-                <td>R11</td>
-                <td><strong>Scattered R&amp;D Data</strong> — Research across 8–10 disconnected spreadsheets</td>
-                <td>R&amp;D</td>
-                <td>No centralized research database</td>
-                <td>Redundant testing, data loss, repeat trial costs</td>
-                <td>R&amp;D audit: stated directly</td>
-            </tr>
-            <tr>
-                <td>R12</td>
-                <td><strong>Manual GST/TDS Reconciliation</strong> — 1–2 weeks per tax cycle</td>
-                <td>Accounts</td>
-                <td>Manual portal-to-Books matching</td>
-                <td>30–40 hrs/month compliance overhead</td>
-                <td>Accounts audit: stated directly</td>
-            </tr>
-            <tr>
-                <td>R13</td>
-                <td><strong>Tertiary Sales Invisibility (RCM)</strong> — Zero data below depot tier across 10,000 retail
-                    stores</td>
-                <td>BD-B2B/RCM</td>
-                <td>No API or data sharing with RCM retail layer</td>
-                <td>Demand planning blind spot, inventory risk</td>
-                <td>B2B/RCM audit: stated directly</td>
-            </tr>
-            <tr>
-                <td>R14</td>
-                <td><strong>Data Security / Contact Continuity</strong> — ~90% of communications on personal WhatsApp
-                    numbers</td>
-                <td>BD-B2B/RCM, MENA</td>
-                <td>No company-owned SIMs or business number policy</td>
-                <td>Customer relationship loss on employee exit</td>
-                <td>B2B/RCM &amp; MENA audits</td>
-            </tr>
-        </tbody>
-    </table>
-    <p><img alt="Enterprise Risk Register — Impact vs. Likelihood" src="viz_charts/viz_5_bubble.png" /></p>
-    <hr />
-    <h2>8. Operational Truth Gaps</h2>
-    <p>The audit identified significant divergence between documented/stated processes and actual operational behavior:
-    </p>
-    <table>
-        <thead>
-            <tr>
-                <th>Area</th>
-                <th>Stated/Intended Process</th>
-                <th>Actual Observed Process</th>
-                <th>Gap Type</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><strong>Order Intake</strong></td>
-                <td>Structured PO with complete specs → billing → dispatch</td>
-                <td>WhatsApp text with missing fields → manual chase for pin codes, GSTIN, packaging specs</td>
-                <td>Shadow Process</td>
-            </tr>
-            <tr>
-                <td><strong>Inventory Management</strong></td>
-                <td>Zoho Inventory as system of record</td>
-                <td>Manual phone calls to Production Manager; weekly stock sheets in Google Sheets</td>
-                <td>Duplicate System</td>
-            </tr>
-            <tr>
-                <td><strong>Sales Pipeline</strong></td>
-                <td>Vertical leads track pipeline stages</td>
-                <td>Memory-based follow-ups every 4–5 days from unstructured spreadsheets</td>
-                <td>Tribal Knowledge</td>
-            </tr>
-            <tr>
-                <td><strong>Field Compliance</strong></td>
-                <td>Mobile app-based geolocation tracking</td>
-                <td>WhatsApp location sharing + manual address cross-referencing 3×/day</td>
-                <td>Shadow Process</td>
-            </tr>
-            <tr>
-                <td><strong>Payment Confirmation</strong></td>
-                <td>Zoho Books bank reconciliation</td>
-                <td>WhatsApp screenshot of payment receipt → manual verification call to Accounts</td>
-                <td>Shadow Process</td>
-            </tr>
-            <tr>
-                <td><strong>Project Management</strong></td>
-                <td>Asana (adopted then abandoned)</td>
-                <td>Reverted to Excel spreadsheets</td>
-                <td>Tool Abandonment</td>
-            </tr>
-            <tr>
-                <td><strong>COGS Calculation</strong></td>
-                <td>System-computed cost of goods</td>
-                <td>Manual spreadsheet averaging without WIP, grade-based, or overhead allocation</td>
-                <td>Process Gap</td>
-            </tr>
-            <tr>
-                <td><strong>Customer Master Data</strong></td>
-                <td>Shared customer database</td>
-                <td>Accounts, Sales, and Logistics each maintain separate records; repeated data requests</td>
-                <td>Data Duplication</td>
-            </tr>
-            <tr>
-                <td><strong>Export Documentation</strong></td>
-                <td>Integrated invoicing + shipping</td>
-                <td>Zoho Books + manual logistics spreadsheet (disconnected)</td>
-                <td>System Fragmentation</td>
-            </tr>
-            <tr>
-                <td><strong>Marketing ROI</strong></td>
-                <td>Budget-to-outcome tracking</td>
-                <td>No ROI tracking; budget approved without measurable conversion metrics</td>
-                <td>Missing Process</td>
-            </tr>
-        </tbody>
-    </table>
-    <hr />
-    <h2>9. Technology Landscape Assessment</h2>
-    <h3>9.1 Current Technology Inventory</h3>
-    <table>
-        <thead>
-            <tr>
-                <th>System</th>
-                <th>Category</th>
-                <th>Owner</th>
-                <th>Users</th>
-                <th>Utilization</th>
-                <th>Integration</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><strong>Zoho Books</strong></td>
-                <td>Accounting/ERP</td>
-                <td>Finance</td>
-                <td>Accounts, Logistics, Marketing</td>
-                <td>Moderate</td>
-                <td>Bank feeds (auto); no live inventory link</td>
-            </tr>
-            <tr>
-                <td><strong>Zoho Inventory</strong></td>
-                <td>Inventory </td>
-                <td>Finance</td>
-                <td>Accounts, Production</td>
-                <td>Low</td>
-                <td>Linked to Books but lacks grade-based costing</td>
-            </tr>
-            <tr>
-                <td><strong>Zoho Expense</strong></td>
-                <td>Expense </td>
-                <td>Finance</td>
-                <td>All employees</td>
-                <td>Moderate</td>
-                <td>3-level approval flow active</td>
-            </tr>
-            <tr>
-                <td><strong>Zoho Payroll</strong></td>
-                <td>Payroll</td>
-                <td>Finance</td>
-                <td>HR/Finance</td>
-                <td>Moderate</td>
-                <td>Linked to Zoho People</td>
-            </tr>
-            <tr>
-                <td><strong>Zoho People</strong></td>
-                <td>HRMS</td>
-                <td>Finance</td>
-                <td>HR/Finance</td>
-                <td>Low</td>
-                <td>—</td>
-            </tr>
-            <tr>
-                <td><strong>Custom Zoho WMS</strong></td>
-                <td>Warehouse </td>
-                <td>Production</td>
-                <td>Production</td>
-                <td>In-progress</td>
-                <td><b>[X]</b> Disconnected from Zoho Books</td>
-            </tr>
-            <tr>
-                <td><strong>Google Sheets</strong></td>
-                <td>Tracking (everything)</td>
-                <td>All departments</td>
-                <td>Everyone</td>
-                <td>Overextended</td>
-                <td><b>[X]</b> No integrations</td>
-            </tr>
-            <tr>
-                <td><strong>Google Drive</strong></td>
-                <td>Document Storage</td>
-                <td>R&amp;D, Marketing</td>
-                <td>R&amp;D, Field teams</td>
-                <td>Moderate</td>
-                <td>Manual upload only</td>
-            </tr>
-            <tr>
-                <td><strong>WhatsApp</strong></td>
-                <td>Communications</td>
-                <td>All</td>
-                <td>All</td>
-                <td>Overextended (de facto ERP)</td>
-                <td><b>[X]</b> No data capture</td>
-            </tr>
-            <tr>
-                <td><strong>Gmail</strong></td>
-                <td>Email</td>
-                <td>All</td>
-                <td>All</td>
-                <td>Standard</td>
-                <td>—</td>
-            </tr>
-            <tr>
-                <td><strong>Slack</strong></td>
-                <td>Internal comms</td>
-                <td>Select teams</td>
-                <td>BD-B2B, MENA</td>
-                <td>Low–Moderate</td>
-                <td>—</td>
-            </tr>
-            <tr>
-                <td><strong>Power BI</strong></td>
-                <td>Dashboarding</td>
-                <td>R&amp;D</td>
-                <td>R&amp;D (onboarding)</td>
-                <td>Emerging</td>
-                <td>Not yet connected</td>
-            </tr>
-            <tr>
-                <td><strong>Google Ads</strong></td>
-                <td>Paid acquisition</td>
-                <td>BD-Cocopeat</td>
-                <td>Marketing, BD</td>
-                <td>Active</td>
-                <td><b>[X]</b> No CRM integration</td>
-            </tr>
-            <tr>
-                <td><strong>LinkedIn Ads</strong></td>
-                <td>Paid acquisition</td>
-                <td>BD-Cocopeat</td>
-                <td>Marketing, BD</td>
-                <td>Active</td>
-                <td><b>[X]</b> No CRM integration</td>
-            </tr>
-            <tr>
-                <td><strong>CargoX</strong></td>
-                <td>Export compliance</td>
-                <td>BD-Cocopeat</td>
-                <td>Logistics, BD</td>
-                <td>Active</td>
-                <td>Manual upload</td>
-            </tr>
-            <tr>
-                <td><strong>Contactout / Apollo</strong></td>
-                <td>Lead enrichment</td>
-                <td>BD-NGO/CSR</td>
-                <td>BD</td>
-                <td>Ad-hoc</td>
-                <td>—</td>
-            </tr>
-            <tr>
-                <td><strong>Dripify</strong></td>
-                <td>LinkedIn automation</td>
-                <td>BD-Cocopeat</td>
-                <td>BD</td>
-                <td><b>[X]</b> Subscription lapsed</td>
-                <td>—</td>
-            </tr>
-            <tr>
-                <td><strong>Canva</strong></td>
-                <td>Design/Proposals</td>
-                <td>BD-NGO/CSR</td>
-                <td>BD</td>
-                <td>Active</td>
-                <td>—</td>
-            </tr>
-            <tr>
-                <td><strong>Field Tracking App</strong></td>
-                <td>Sales compliance</td>
-                <td>COO</td>
-                <td>Field RSMs</td>
-                <td>Partial (network issues)</td>
-                <td>—</td>
-            </tr>
-        </tbody>
-    </table>
-    <h3>9.2 Technology Maturity Assessment</h3>
-    <table>
-        <thead>
-            <tr>
-                <th>Dimension</th>
-                <th>Score (1–5)</th>
-                <th>Evidence</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Cloud Adoption</td>
-                <td>2.5</td>
-                <td>Zoho suite is cloud-based; most data still in local spreadsheets</td>
-            </tr>
-            <tr>
-                <td>System Integration</td>
-                <td>1.0</td>
-                <td>Zoho WMS disconnected from Books; Sheets disconnected from everything</td>
-            </tr>
-            <tr>
-                <td>Data Accessibility</td>
-                <td>1.5</td>
-                <td>Data trapped in 30+ spreadsheets and personal devices</td>
-            </tr>
-            <tr>
-                <td>Process Digitization</td>
-                <td>1.5</td>
-                <td>Paper POs, WhatsApp photos, paper field diaries</td>
-            </tr>
-            <tr>
-                <td>Reporting Capability</td>
-                <td>1.5</td>
-                <td>No live dashboards; Power BI in early onboarding</td>
-            </tr>
-            <tr>
-                <td>API Readiness</td>
-                <td>1.5</td>
-                <td>Zoho has APIs but none are utilized</td>
-            </tr>
-            <tr>
-                <td><strong>Digital Maturity Index</strong></td>
-                <td><strong>1.6 — Emerging</strong></td>
-                <td>—</td>
-            </tr>
-        </tbody>
-    </table>
-    <p><img alt="EF Polymers — Current Technology Ecosystem" src="viz_charts/viz_6_block.png" /></p>
-    <h3>9.3 Key Technology Gaps</h3>
-    <table>
-        <thead>
-            <tr>
-                <th>Gap</th>
-                <th>Impact</th>
-                <th>Recommended Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><strong>No CRM</strong></td>
-                <td>Pipeline invisible; revenue leakage</td>
-                <td>Implement Custom React JS CRM (unified across all BD verticals)</td>
-            </tr>
-            <tr>
-                <td><strong>Zoho WMS ↔ Books disconnect</strong></td>
-                <td>Manual cost reconciliation</td>
-                <td>API integration or rebuild within Zoho ecosystem</td>
-            </tr>
-            <tr>
-                <td><strong>No structured order intake</strong></td>
-                <td>Shipment delays from incomplete data</td>
-                <td>Digital order form integrated with Zoho</td>
-            </tr>
-            <tr>
-                <td><strong>No real-time inventory visibility</strong></td>
-                <td>Phone-call-based stock checks</td>
-                <td>Zoho Inventory live API to Accounts</td>
-            </tr>
-            <tr>
-                <td><strong>No automated field tracking</strong></td>
-                <td>6–8 hrs/day manual compliance</td>
-                <td>Zoho FSM or equivalent with GPS auto-tracking</td>
-            </tr>
-            <tr>
-                <td><strong>No knowledge base</strong></td>
-                <td>Research data fragmented across 8–10 sheets</td>
-                <td>Centralized R&amp;D database with version control</td>
-            </tr>
-            <tr>
-                <td><strong>No marketing analytics</strong></td>
-                <td>Zero ROI on ad spend</td>
-                <td>UTM tracking + Zoho Analytics integration</td>
-            </tr>
-        </tbody>
-    </table>
-    <hr />
-    <h2>10. Data Flow &amp; Governance Assessment</h2>
-    <h3>10.1 Data Flow Architecture (Current State)</h3>
-    <p><img alt="EF Polymers — Data Flow Architecture (Current State)" src="viz_charts/viz_7_sankey.png" /></p>
-    <h3>10.2 Source of Truth Analysis</h3>
-    <table>
-        <thead>
-            <tr>
-                <th>Data Domain</th>
-                <th>Intended SoT</th>
-                <th>Actual SoT</th>
-                <th>Conflict</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><strong>Customer Master</strong></td>
-                <td>Zoho Books</td>
-                <td>Scattered across BD spreadsheets, WhatsApp, email</td>
-                <td><b>WARNING:</b> Multiple competing sources</td>
-            </tr>
-            <tr>
-                <td><strong>Inventory/Stock</strong></td>
-                <td>Zoho Inventory</td>
-                <td>Production Manager's personal knowledge + weekly sheets</td>
-                <td><b>WARNING:</b> No real-time source</td>
-            </tr>
-            <tr>
-                <td><strong>Sales Pipeline</strong></td>
-                <td>None designated</td>
-                <td>5+ separate department spreadsheets</td>
-                <td><b>WARNING:</b> No SoT exists</td>
-            </tr>
-            <tr>
-                <td><strong>Financial (COGS)</strong></td>
-                <td>Zoho Books</td>
-                <td>Manual spreadsheet averaging</td>
-                <td><b>WARNING:</b> Unreliable SoT</td>
-            </tr>
-            <tr>
-                <td><strong>R&amp;D Trial Data</strong></td>
-                <td>Google Drive</td>
-                <td>8–10 disconnected Excel files</td>
-                <td><b>WARNING:</b> Fragmented SoT</td>
-            </tr>
-            <tr>
-                <td><strong>Logistics/Dispatch</strong></td>
-                <td>Zoho Books</td>
-                <td>Parallel manual tracking spreadsheet</td>
-                <td><b>WARNING:</b> Dual systems</td>
-            </tr>
-            <tr>
-                <td><strong>Employee Expenses</strong></td>
-                <td>Zoho Expense</td>
-                <td>WhatsApp photos + manual forwarding</td>
-                <td><b>WARNING:</b> Shadow process</td>
-            </tr>
-            <tr>
-                <td><strong>Field Compliance</strong></td>
-                <td>Field tracking app</td>
-                <td>WhatsApp location shares</td>
-                <td><b>WARNING:</b> Parallel tracking</td>
-            </tr>
-        </tbody>
-    </table>
-    <h3>10.3 Data Quality Score</h3>
-    <table>
-        <thead>
-            <tr>
-                <th>Dimension</th>
-                <th>Score (1–5)</th>
-                <th>Key Issues</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Accuracy</td>
-                <td>2.0</td>
-                <td>COGS volatility; manual transcription errors</td>
-            </tr>
-            <tr>
-                <td>Completeness</td>
-                <td>1.5</td>
-                <td>Missing fields in order intake; no tertiary sales data</td>
-            </tr>
-            <tr>
-                <td>Consistency</td>
-                <td>1.0</td>
-                <td>Same data entered differently across spreadsheets</td>
-            </tr>
-            <tr>
-                <td>Timeliness</td>
-                <td>1.5</td>
-                <td>Retrospective monthly reporting; no real-time dashboards</td>
-            </tr>
-            <tr>
-                <td>Uniqueness</td>
-                <td>1.5</td>
-                <td>Customer data duplicated across departments</td>
-            </tr>
-            <tr>
-                <td><strong>Overall Data Quality</strong></td>
-                <td><strong>1.5</strong></td>
-                <td>—</td>
-            </tr>
-        </tbody>
-    </table>
-    <hr />
-    <h2>11. Workflow Bottleneck Analysis</h2>
-    <h3>11.1 End-to-End Order Fulfillment (Current State)</h3>
-    <p><img alt="Order Fulfillment Process Flowchart (Current State)" src="viz_charts/viz_12_workflow.png" /></p>
-    <h3>11.2 Identified Bottlenecks</h3>
-    <table>
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>Bottleneck</th>
-                <th>Location in Workflow</th>
-                <th>Estimated Time Waste</th>
-                <th>Root Cause</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>B01</td>
-                <td>Incomplete order data from WhatsApp</td>
-                <td>Order Intake</td>
-                <td>15–30 min per order</td>
-                <td>No structured intake form</td>
-            </tr>
-            <tr>
-                <td>B02</td>
-                <td>Manual stock verification phone calls</td>
-                <td>Pre-Invoicing</td>
-                <td>10–15 min per invoice</td>
-                <td>No live inventory visibility</td>
-            </tr>
-            <tr>
-                <td>B03</td>
-                <td>Manual GST/GSTIN data lookup</td>
-                <td>Invoicing</td>
-                <td>5–10 min per new customer</td>
-                <td>No shared customer master</td>
-            </tr>
-            <tr>
-                <td>B04</td>
-                <td>Disconnected logistics tracking</td>
-                <td>Post-Dispatch</td>
-                <td>20–30 min per shipment update</td>
-                <td>Zoho ↔ Sheets disconnect</td>
-            </tr>
-            <tr>
-                <td>B05</td>
-                <td>Manual field compliance tracking</td>
-                <td>Sales Monitoring</td>
-                <td>6–8 hours/day</td>
-                <td>No automated geo-tracking</td>
-            </tr>
-            <tr>
-                <td>B06</td>
-                <td>Manual target vs. actual reconciliation</td>
-                <td>Sales Reporting</td>
-                <td>3–4 hours/week</td>
-                <td>Zoho Books quantity gap</td>
-            </tr>
-            <tr>
-                <td>B07</td>
-                <td>Paper PO → manual entry</td>
-                <td>Field Sales</td>
-                <td>15–20 min per PO</td>
-                <td>No digital PO creation</td>
-            </tr>
-            <tr>
-                <td>B08</td>
-                <td>WhatsApp-based payment confirmation</td>
-                <td>Payment Clearance</td>
-                <td>10–20 min per payment</td>
-                <td>No automated bank alerts</td>
-            </tr>
-            <tr>
-                <td>B09</td>
-                <td>Manual R&amp;D data aggregation for board reports</td>
-                <td>Executive Reporting</td>
-                <td>4–6 hours/month</td>
-                <td>No cross-timezone dashboard</td>
-            </tr>
-            <tr>
-                <td>B10</td>
-                <td>Manual email-by-email cold outreach</td>
-                <td>BD Lead Generation</td>
-                <td>Hours/day per BD exec</td>
-                <td>No email automation platform</td>
-            </tr>
-        </tbody>
-    </table>
-    <p><img alt="Order Fulfillment — Time Waste Analysis" src="viz_charts/viz_8_funnel.png" /></p>
-    <hr />
-    <h2>12. AI &amp; Automation Readiness Assessment</h2>
-    <h3>12.1 Automation Readiness by Workflow</h3>
-    <table>
-        <thead>
-            <tr>
-                <th>Workflow</th>
-                <th>Manual Effort</th>
-                <th>Frequency</th>
-                <th>Rule-Based</th>
-                <th>Automation Classification</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Order intake data capture</td>
-                <td>High</td>
-                <td>Daily</td>
-                <td>Yes</td>
-                <td><b>[OK]</b> Automate After Standardization</td>
-            </tr>
-            <tr>
-                <td>Invoice generation from PO</td>
-                <td>Medium</td>
-                <td>Daily</td>
-                <td>Yes</td>
-                <td><b>[OK]</b> Automate Immediately (Zoho workflow)</td>
-            </tr>
-            <tr>
-                <td>Stock availability check</td>
-                <td>High</td>
-                <td>Per-invoice</td>
-                <td>Yes</td>
-                <td><b>[OK]</b> Automate Immediately (Zoho API)</td>
-            </tr>
-            <tr>
-                <td>GST/TDS reconciliation</td>
-                <td>Very High</td>
-                <td>Monthly</td>
-                <td>Partially</td>
-                <td><b>[OK]</b> Automate After Standardization</td>
-            </tr>
-            <tr>
-                <td>Field force geo-tracking</td>
-                <td>Very High</td>
-                <td>3×/day</td>
-                <td>Yes</td>
-                <td><b>[OK]</b> Automate Immediately (FSM tool)</td>
-            </tr>
-            <tr>
-                <td>Payment confirmation alerts</td>
-                <td>Medium</td>
-                <td>Per-payment</td>
-                <td>Yes</td>
-                <td><b>[OK]</b> Automate Immediately (bank API/Zoho)</td>
-            </tr>
-            <tr>
-                <td>Cold email outreach</td>
-                <td>High</td>
-                <td>Daily</td>
-                <td>Yes</td>
-                <td><b>[OK]</b> Automate Immediately (email tool)</td>
-            </tr>
-            <tr>
-                <td>Lead follow-up reminders</td>
-                <td>High</td>
-                <td>Every 4–5 days</td>
-                <td>Yes</td>
-                <td><b>[OK]</b> Automate Immediately (CRM)</td>
-            </tr>
-            <tr>
-                <td>Sales target vs. actuals</td>
-                <td>High</td>
-                <td>Monthly</td>
-                <td>Yes</td>
-                <td><b>[OK]</b> Automate After Standardization</td>
-            </tr>
-            <tr>
-                <td>Packaging MOQ management</td>
-                <td>Medium</td>
-                <td>Per-order</td>
-                <td>Partially</td>
-                <td><b>MONITOR:</b> Monitor</td>
-            </tr>
-            <tr>
-                <td>R&amp;D data aggregation</td>
-                <td>Medium</td>
-                <td>Monthly</td>
-                <td>Partially</td>
-                <td><b>[OK]</b> Automate After Standardization</td>
-            </tr>
-            <tr>
-                <td>WhatsApp data extraction</td>
-                <td>Very High</td>
-                <td>Daily</td>
-                <td>Partially</td>
-                <td><b>[OK]</b> Automate After Standardization</td>
-            </tr>
-            <tr>
-                <td>Collateral reorder alerts</td>
-                <td>Low</td>
-                <td>Monthly</td>
-                <td>Yes</td>
-                <td><b>[OK]</b> Automate Immediately</td>
-            </tr>
-            <tr>
-                <td>Board report compilation</td>
-                <td>High</td>
-                <td>Monthly</td>
-                <td>Partially</td>
-                <td><b>MONITOR:</b> Monitor</td>
-            </tr>
-        </tbody>
-    </table>
-    <h3>12.2 AI Opportunity Register</h3>
-    <table>
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>Opportunity</th>
-                <th>Department</th>
-                <th>AI Use Case</th>
-                <th>Readiness</th>
-                <th>Expected Impact</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>AI-01</td>
-                <td><strong>Knowledge Assistant for R&amp;D</strong></td>
-                <td>R&amp;D</td>
-                <td>RAG-based search across trial data, QC results, and regulatory filings</td>
-                <td>
-                    <font color='orange'><b>MEDIUM</b></font> Ready with Constraints (data scattered)
-                </td>
-                <td>Reduce 25% of technical query turnaround time</td>
-            </tr>
-            <tr>
-                <td>AI-02</td>
-                <td><strong>Automated Lead Enrichment</strong></td>
-                <td>All BD</td>
-                <td>AI-powered company profiling and contact enrichment</td>
-                <td>
-                    <font color='green'><b>LOW / OK</b></font> Ready
-                </td>
-                <td>Replace manual Google/ChatGPT sourcing</td>
-            </tr>
-            <tr>
-                <td>AI-03</td>
-                <td><strong>Email Drafting Copilot</strong></td>
-                <td>All BD</td>
-                <td>AI-assisted personalized cold outreach based on company context</td>
-                <td>
-                    <font color='green'><b>LOW / OK</b></font> Ready
-                </td>
-                <td>Increase response rate from 5% baseline</td>
-            </tr>
-            <tr>
-                <td>AI-04</td>
-                <td><strong>Proposal Generation</strong></td>
-                <td>BD-NGO/CSR, BD-Seed</td>
-                <td>AI-generated first drafts from templates + client parameters</td>
-                <td>
-                    <font color='orange'><b>MEDIUM</b></font> Ready with Constraints (templates needed)
-                </td>
-                <td>Reduce proposal time from 1–2.5 days to hours</td>
-            </tr>
-            <tr>
-                <td>AI-05</td>
-                <td><strong>Demand Forecasting</strong></td>
-                <td>Production, B2B/RCM</td>
-                <td>Predictive inventory planning from historical sales data</td>
-                <td>
-                    <font color='red'><b>CRITICAL</b></font> Not Ready (no clean historical data)
-                </td>
-                <td>Reduce surplus packaging and stockouts</td>
-            </tr>
-            <tr>
-                <td>AI-06</td>
-                <td><strong>Intelligent Document Classification</strong></td>
-                <td>Logistics, Accounts</td>
-                <td>Auto-classification of POs, invoices, and shipping documents</td>
-                <td>
-                    <font color='orange'><b>MEDIUM</b></font> Ready with Constraints
-                </td>
-                <td>Reduce manual document routing</td>
-            </tr>
-            <tr>
-                <td>AI-07</td>
-                <td><strong>WhatsApp Chatbot</strong></td>
-                <td>BD-B2B/RCM, Marketing</td>
-                <td>Automated FAQ handling, database logging, QC feedback</td>
-                <td>
-                    <font color='orange'><b>MEDIUM</b></font> Ready with Constraints
-                </td>
-                <td>Reduce 90% community drop-off; capture data</td>
-            </tr>
-            <tr>
-                <td>AI-08</td>
-                <td><strong>Meeting Summaries</strong></td>
-                <td>All</td>
-                <td>Auto-transcription and action item extraction from Google Meet/Zoom</td>
-                <td>
-                    <font color='green'><b>LOW / OK</b></font> Ready
-                </td>
-                <td>Save 2–3 hours/week per manager</td>
-            </tr>
-            <tr>
-                <td>AI-09</td>
-                <td><strong>Field Photo Analysis</strong></td>
-                <td>Marketing, R&amp;D</td>
-                <td>Crop health assessment from field photos</td>
-                <td>
-                    <font color='red'><b>CRITICAL</b></font> Not Ready (no training data)
-                </td>
-                <td>Long-term R&amp;D value</td>
-            </tr>
-            <tr>
-                <td>AI-10</td>
-                <td><strong>COGS Anomaly Detection</strong></td>
-                <td>Accounts</td>
-                <td>Flag unusual cost fluctuations automatically</td>
-                <td>
-                    <font color='orange'><b>MEDIUM</b></font> Ready with Constraints (need clean data first)
-                </td>
-                <td>Early warning on margin erosion</td>
-            </tr>
-        </tbody>
-    </table>
-    <h3>12.3 AI Readiness Summary</h3>
-    <table>
-        <thead>
-            <tr>
-                <th>Dimension</th>
-                <th>Score (1–5)</th>
-                <th>Rationale</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Data Availability</td>
-                <td>1.5</td>
-                <td>Data exists but is fragmented across 30+ spreadsheets</td>
-            </tr>
-            <tr>
-                <td>Data Quality</td>
-                <td>1.5</td>
-                <td>Inconsistent, duplicated, manually entered</td>
-            </tr>
-            <tr>
-                <td>Process Standardization</td>
-                <td>1.5</td>
-                <td>Workflows are not standardized enough for reliable automation</td>
-            </tr>
-            <tr>
-                <td>Decision Standardization</td>
-                <td>2.0</td>
-                <td>Some rule-based decisions (QC, order routing) are standardizable</td>
-            </tr>
-            <tr>
-                <td>Human Oversight Readiness</td>
-                <td>3.0</td>
-                <td>Leadership receptive; CBDO has prioritized CRM</td>
-            </tr>
-            <tr>
-                <td>Governance</td>
-                <td>1.0</td>
-                <td>No data governance, no AI policies</td>
-            </tr>
-            <tr>
-                <td><strong>Overall AI Readiness</strong></td>
-                <td><strong>1.6 — Not Ready</strong></td>
-                <td>Process standardization and data consolidation must precede AI</td>
-            </tr>
-        </tbody>
-    </table>
-    <blockquote>
-        <p><strong>Recommendation:</strong> AI initiatives should NOT be prioritized before Phase 2 of the
-            transformation roadmap. Process standardization and CRM implementation must establish clean, accessible data
-            foundations first.</p>
-    </blockquote>
-    <hr />
-    <h2>13. Strategic Recommendations</h2>
-    <h3>13.1 Tier 1 — Foundational (Must-Do, 0–90 Days)</h3>
-    <table>
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>Recommendation</th>
-                <th>Type</th>
-                <th>Impacted Depts</th>
-                <th>Priority</th>
-                <th>Expected Outcome</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>S01</td>
-                <td><strong>Implement Custom React JS CRM</strong> across all BD verticals, MENA, and Marketing
-                    (centralized)</td>
-                <td>Technology</td>
-                <td>All BD, MENA, Marketing, CBDO</td>
-                <td>
-                    <font color='red'><b>CRITICAL</b></font> Critical
-                </td>
-                <td>Unified pipeline; real-time executive visibility</td>
-            </tr>
-            <tr>
-                <td>S02</td>
-                <td><strong>Integrate Zoho WMS ↔ Zoho Books</strong> via API or rebuild</td>
-                <td>Technology</td>
-                <td>Production, Accounts</td>
-                <td>
-                    <font color='red'><b>CRITICAL</b></font> Critical
-                </td>
-                <td>Eliminate manual cost reconciliation</td>
-            </tr>
-            <tr>
-                <td>S03</td>
-                <td><strong>Implement structured digital order intake form</strong> (replace WhatsApp text orders)</td>
-                <td>Process</td>
-                <td>Logistics, All BD</td>
-                <td>
-                    <font color='red'><b>CRITICAL</b></font> Critical
-                </td>
-                <td>Reduce per-order waste by 30–45 min</td>
-            </tr>
-            <tr>
-                <td>S04</td>
-                <td><strong>Enable real-time Zoho Inventory visibility for Accounts</strong></td>
-                <td>Technology</td>
-                <td>Accounts, Production</td>
-                <td>
-                    <font color='red'><b>CRITICAL</b></font> Critical
-                </td>
-                <td>Eliminate manual stock-check phone calls</td>
-            </tr>
-            <tr>
-                <td>S05</td>
-                <td><strong>Establish shared Customer Master Database</strong> in Custom React CRM</td>
-                <td>Data</td>
-                <td>Accounts, BD, Logistics</td>
-                <td>
-                    <font color='red'><b>CRITICAL</b></font> Critical
-                </td>
-                <td>Single source of truth for all customer data</td>
-            </tr>
-            <tr>
-                <td>S06</td>
-                <td><strong>Implement grade-based WIP costing methodology</strong></td>
-                <td>Process/Finance</td>
-                <td>Accounts, Production</td>
-                <td>
-                    <font color='red'><b>CRITICAL</b></font> Critical
-                </td>
-                <td>Resolve COGS volatility</td>
-            </tr>
-            <tr>
-                <td>S07</td>
-                <td><strong>Deploy automated field force tracking</strong> (Zoho FSM or equivalent)</td>
-                <td>Technology</td>
-                <td>Marketing/Retail</td>
-                <td>
-                    <font color='orange'><b>MEDIUM</b></font> High
-                </td>
-                <td>Recover 6–8 hrs/day of manual tracking effort</td>
-            </tr>
-        </tbody>
-    </table>
-    <h3>13.2 Tier 2 — Operational Improvement (90–180 Days)</h3>
-    <table>
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>Recommendation</th>
-                <th>Type</th>
-                <th>Priority</th>
-                <th>Expected Outcome</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>S08</td>
-                <td><strong>Configure automated bank reconciliation rules</strong> in Zoho Books</td>
-                <td>Automation</td>
-                <td>
-                    <font color='orange'><b>MEDIUM</b></font> High
-                </td>
-                <td>Reduce GST compliance time from 2 weeks to 2–3 days</td>
-            </tr>
-            <tr>
-                <td>S09</td>
-                <td><strong>Implement email automation platform</strong> for cold outreach (separate domain)</td>
-                <td>Technology</td>
-                <td>
-                    <font color='orange'><b>MEDIUM</b></font> High
-                </td>
-                <td>Protect primary domain; increase outreach efficiency</td>
-            </tr>
-            <tr>
-                <td>S10</td>
-                <td><strong>Deploy CRM-integrated follow-up cadence</strong> with automated reminders</td>
-                <td>Automation</td>
-                <td>
-                    <font color='orange'><b>MEDIUM</b></font> High
-                </td>
-                <td>Eliminate memory-based lead follow-ups</td>
-            </tr>
-            <tr>
-                <td>S11</td>
-                <td><strong>Create centralized R&amp;D knowledge database</strong> (migrate from 8–10 spreadsheets)</td>
-                <td>Data</td>
-                <td>
-                    <font color='orange'><b>MEDIUM</b></font> High
-                </td>
-                <td>Reduce redundant testing; preserve institutional knowledge</td>
-            </tr>
-            <tr>
-                <td>S12</td>
-                <td><strong>Activate Zoho asset register</strong> for factory depreciation tracking</td>
-                <td>Finance</td>
-                <td>
-                    <font color='orange'><b>MEDIUM</b></font> High
-                </td>
-                <td>Include depreciation in product costing</td>
-            </tr>
-            <tr>
-                <td>S13</td>
-                <td><strong>Establish device/SIM ownership policy</strong> for customer-facing roles</td>
-                <td>Governance</td>
-                <td>
-                    <font color='orange'><b>MEDIUM</b></font> High
-                </td>
-                <td>Protect customer relationships from attrition risk</td>
-            </tr>
-            <tr>
-                <td>S14</td>
-                <td><strong>Transition from paper POs to digital mobile order forms</strong> for field salesmen</td>
-                <td>Process</td>
-                <td>
-                    <font color='orange'><b>MEDIUM</b></font> Medium
-                </td>
-                <td>Reduce manual data entry; improve PO accuracy</td>
-            </tr>
-        </tbody>
-    </table>
-    <h3>13.3 Tier 3 — Transformation (6–12 Months)</h3>
-    <table>
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>Recommendation</th>
-                <th>Type</th>
-                <th>Priority</th>
-                <th>Expected Outcome</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>S15</td>
-                <td><strong>Implement Zoho Analytics dashboards</strong> for executive reporting</td>
-                <td>Technology</td>
-                <td>
-                    <font color='orange'><b>MEDIUM</b></font> Medium
-                </td>
-                <td>Real-time KPIs; eliminate manual board report compilation</td>
-            </tr>
-            <tr>
-                <td>S16</td>
-                <td><strong>Launch WhatsApp chatbot</strong> for B2B/RCM community management &amp; QC feedback</td>
-                <td>AI</td>
-                <td>
-                    <font color='orange'><b>MEDIUM</b></font> Medium
-                </td>
-                <td>Capture structured data from 2,000+ community contacts</td>
-            </tr>
-            <tr>
-                <td>S17</td>
-                <td><strong>Deploy R&amp;D Knowledge Assistant</strong> (RAG-based) over centralized trial database</td>
-                <td>AI</td>
-                <td>
-                    <font color='orange'><b>MEDIUM</b></font> Medium
-                </td>
-                <td>Accelerate technical query turnaround</td>
-            </tr>
-            <tr>
-                <td>S18</td>
-                <td><strong>Integrate carrier schedule APIs</strong> for automated vessel tracking</td>
-                <td>Automation</td>
-                <td>
-                    <font color='green'><b>LOW / OK</b></font> Low
-                </td>
-                <td>Reduce manual ocean freight monitoring</td>
-            </tr>
-            <tr>
-                <td>S19</td>
-                <td><strong>Explore RCM data-sharing integration</strong> for store-level visibility</td>
-                <td>Data</td>
-                <td>
-                    <font color='green'><b>LOW / OK</b></font> Low
-                </td>
-                <td>Improve demand forecasting accuracy</td>
-            </tr>
-            <tr>
-                <td>S20</td>
-                <td><strong>Evaluate packaging MOQ optimization strategy</strong> (consortium buying or flexible
-                    printers)</td>
-                <td>Process</td>
-                <td>
-                    <font color='green'><b>LOW / OK</b></font> Low
-                </td>
-                <td>Reduce 68% surplus packaging waste</td>
-            </tr>
-        </tbody>
-    </table>
-    <hr />
-    <h2>14. Transformation Roadmap</h2>
-    <h3>14.1 Phased Timeline</h3>
-    <p><img alt="EF Polymers — 12-Month Transformation Roadmap" src="viz_charts/viz_9_gantt.png" /></p>
-    <h3>14.2 Initiative Priority Matrix</h3>
-    <table>
-        <thead>
-            <tr>
-                <th>Initiative</th>
-                <th>Business Value</th>
-                <th>Urgency</th>
-                <th>Effort</th>
-                <th>Risk Reduction</th>
-                <th>Strategic Alignment</th>
-                <th>Overall Priority</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>S01: Custom React CRM</td>
-                <td>10</td>
-                <td>10</td>
-                <td>6</td>
-                <td>9</td>
-                <td>10</td>
-                <td><strong>P1 — Critical</strong></td>
-            </tr>
-            <tr>
-                <td>S02: WMS Integration</td>
-                <td>8</td>
-                <td>8</td>
-                <td>5</td>
-                <td>8</td>
-                <td>8</td>
-                <td><strong>P1 — Critical</strong></td>
-            </tr>
-            <tr>
-                <td>S03: Digital Order Intake</td>
-                <td>7</td>
-                <td>9</td>
-                <td>3</td>
-                <td>7</td>
-                <td>7</td>
-                <td><strong>P1 — Quick Win</strong></td>
-            </tr>
-            <tr>
-                <td>S04: Live Inventory</td>
-                <td>8</td>
-                <td>9</td>
-                <td>3</td>
-                <td>7</td>
-                <td>8</td>
-                <td><strong>P1 — Quick Win</strong></td>
-            </tr>
-            <tr>
-                <td>S05: Customer Master</td>
-                <td>8</td>
-                <td>8</td>
-                <td>5</td>
-                <td>8</td>
-                <td>9</td>
-                <td><strong>P1 — Critical</strong></td>
-            </tr>
-            <tr>
-                <td>S06: WIP Costing</td>
-                <td>9</td>
-                <td>8</td>
-                <td>7</td>
-                <td>8</td>
-                <td>8</td>
-                <td><strong>P1 — Critical</strong></td>
-            </tr>
-            <tr>
-                <td>S07: Field Tracking</td>
-                <td>7</td>
-                <td>7</td>
-                <td>4</td>
-                <td>6</td>
-                <td>6</td>
-                <td><strong>P1 — Quick Win</strong></td>
-            </tr>
-            <tr>
-                <td>S08: Bank Reconciliation</td>
-                <td>6</td>
-                <td>6</td>
-                <td>4</td>
-                <td>5</td>
-                <td>6</td>
-                <td><strong>P2 — High</strong></td>
-            </tr>
-            <tr>
-                <td>S09: Email Automation</td>
-                <td>6</td>
-                <td>6</td>
-                <td>3</td>
-                <td>5</td>
-                <td>6</td>
-                <td><strong>P2 — High</strong></td>
-            </tr>
-            <tr>
-                <td>S10: CRM Follow-ups</td>
-                <td>7</td>
-                <td>7</td>
-                <td>2</td>
-                <td>6</td>
-                <td>7</td>
-                <td><strong>P2 — High</strong></td>
-            </tr>
-            <tr>
-                <td>S11: R&amp;D Database</td>
-                <td>7</td>
-                <td>5</td>
-                <td>6</td>
-                <td>7</td>
-                <td>7</td>
-                <td><strong>P2 — High</strong></td>
-            </tr>
-            <tr>
-                <td>S15: Analytics Dashboards</td>
-                <td>7</td>
-                <td>5</td>
-                <td>5</td>
-                <td>5</td>
-                <td>8</td>
-                <td><strong>P2 — Medium</strong></td>
-            </tr>
-            <tr>
-                <td>S16: WhatsApp Chatbot</td>
-                <td>5</td>
-                <td>4</td>
-                <td>5</td>
-                <td>4</td>
-                <td>6</td>
-                <td><strong>P3 — Medium</strong></td>
-            </tr>
-            <tr>
-                <td>S17: R&amp;D AI Assistant</td>
-                <td>6</td>
-                <td>3</td>
-                <td>7</td>
-                <td>5</td>
-                <td>7</td>
-                <td><strong>P3 — Medium</strong></td>
-            </tr>
-        </tbody>
-    </table>
-    <p><img alt="Initiative Prioritization — Impact vs. Effort" src="viz_charts/viz_10_prioritization.png" /></p>
-    <h3>14.3 Success Metrics</h3>
-    <table>
-        <thead>
-            <tr>
-                <th>Phase</th>
-                <th>KPI</th>
-                <th>Baseline (Current)</th>
-                <th>Target (Post-Phase)</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><strong>Phase 1</strong></td>
-                <td>Order intake time per order</td>
-                <td>70–110 min</td>
-                <td>&lt;30 min</td>
-            </tr>
-            <tr>
-                <td><strong>Phase 1</strong></td>
-                <td>Manual stock-check calls/day</td>
-                <td>10–15 calls</td>
-                <td>0 (automated)</td>
-            </tr>
-            <tr>
-                <td><strong>Phase 1</strong></td>
-                <td>Field tracking manual hours/day</td>
-                <td>6–8 hrs</td>
-                <td>&lt;1 hr</td>
-            </tr>
-            <tr>
-                <td><strong>Phase 2</strong></td>
-                <td>Pipeline visibility (% leads tracked in CRM)</td>
-                <td>0%</td>
-                <td>100%</td>
-            </tr>
-            <tr>
-                <td><strong>Phase 2</strong></td>
-                <td>COGS variance month-to-month</td>
-                <td>±27%</td>
-                <td>±5%</td>
-            </tr>
-            <tr>
-                <td><strong>Phase 2</strong></td>
-                <td>Customer data duplication incidents/month</td>
-                <td>Unknown (frequent)</td>
-                <td>0</td>
-            </tr>
-            <tr>
-                <td><strong>Phase 3</strong></td>
-                <td>GST reconciliation time</td>
-                <td>1–2 weeks</td>
-                <td>2–3 days</td>
-            </tr>
-            <tr>
-                <td><strong>Phase 3</strong></td>
-                <td>Executive reporting prep time</td>
-                <td>4–6 hrs/month manual</td>
-                <td>Real-time dashboard</td>
-            </tr>
-            <tr>
-                <td><strong>Phase 3</strong></td>
-                <td>Cold outreach response rate</td>
-                <td>5%</td>
-                <td>8–12% (email automation)</td>
-            </tr>
-            <tr>
-                <td><strong>Phase 4</strong></td>
-                <td>AI-assisted query turnaround (R&amp;D)</td>
-                <td>1–4 hours</td>
-                <td>&lt;30 min</td>
-            </tr>
-            <tr>
-                <td><strong>Phase 4</strong></td>
-                <td>Community engagement rate (RCM)</td>
-                <td>10% (200/2000)</td>
-                <td>30%+</td>
-            </tr>
-        </tbody>
-    </table>
-    <h3>14.4 Governance &amp; Change Management</h3>
-    <table>
-        <thead>
-            <tr>
-                <th>Element</th>
-                <th>Recommendation</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><strong>Executive Sponsor</strong></td>
-                <td>COO (Puran Singh Rajput) for operational initiatives; CBDO (Ankit Jain) for CRM and sales</td>
-            </tr>
-            <tr>
-                <td><strong>Program Manager</strong></td>
-                <td>Dedicated transformation lead (external or internal appointment recommended)</td>
-            </tr>
-            <tr>
-                <td><strong>Steering Cadence</strong></td>
-                <td>Bi-weekly executive review for Phase 1–2; monthly for Phase 3–4</td>
-            </tr>
-            <tr>
-                <td><strong>Change Management</strong></td>
-                <td>Department-level training plans per tool rollout; champion model (1 power user per department)</td>
-            </tr>
-            <tr>
-                <td><strong>Risk Monitoring</strong></td>
-                <td>Monthly risk review against this report's register (R01–R14)</td>
-            </tr>
-            <tr>
-                <td><strong>Budget Model</strong></td>
-                <td>Prioritize existing Zoho ecosystem to minimize new licensing; phased investment aligned to quarterly
-                    revenue cycles</td>
-            </tr>
-        </tbody>
-    </table>
-    <hr />
-    <h2>15. Appendix: Audit Coverage Matrix</h2>
-    <h3>15.1 Departments Audited</h3>
-    <table>
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>Department</th>
-                <th>Stakeholder Interviewed</th>
-                <th>Audit File</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>1</td>
-                <td>R&amp;D</td>
-                <td>Ritu Panwar (PD Manager)</td>
-                <td><code>production-rd-ritu-panwar-analysis.md</code></td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Production Management &amp; QC</td>
-                <td>Rishabh Doshi (Production Manager)</td>
-                <td><code>production-rishabh-doshi-analysis.md</code></td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>Logistics</td>
-                <td>Nihal Paliwal (Logistics Manager)</td>
-                <td><code>production-logistics-nihal-m-analysis.md</code></td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>Finance &amp; Accounts</td>
-                <td>Shobha Shekhawat (Finance Head)</td>
-                <td><code>finance-accounts-shobha-shekhawat-analysis.md</code></td>
-            </tr>
-            <tr>
-                <td>5</td>
-                <td>Marketing &amp; Retail Sales</td>
-                <td>Gaurav Jain (Department Lead)</td>
-                <td><code>marketing-retail-sales-gaurav-jain-analysis.md</code></td>
-            </tr>
-            <tr>
-                <td>6</td>
-                <td>BD — Cocopeat</td>
-                <td>Mohit Kumar Gupta (BD Executive)</td>
-                <td><code>bd-cocopeat-mohit-kumar-analysis.md</code></td>
-            </tr>
-            <tr>
-                <td>7</td>
-                <td>BD — NGO/CSR</td>
-                <td>Gaurav Dwivedi (BD Executive)</td>
-                <td><code>bd-ngo-csr-gaurav-dwivedi-analysis.md</code></td>
-            </tr>
-            <tr>
-                <td>8</td>
-                <td>BD — Seed</td>
-                <td>Sameer Mahiskar (BD Manager)</td>
-                <td><code>bd-seed-sameer-mahiskar-analysis.md</code></td>
-            </tr>
-            <tr>
-                <td>9</td>
-                <td>BD — B2B/RCM</td>
-                <td>Jatin Jain (AM-BD)</td>
-                <td><code>company-b2b-rcm-jatin-jain-analysis.md</code></td>
-            </tr>
-            <tr>
-                <td>10</td>
-                <td>MENA &amp; International Sales</td>
-                <td>Neha Pathak (BD Manager)</td>
-                <td><code>mena-international-sales-neha-pathak-analysis.md</code></td>
-            </tr>
-            <tr>
-                <td>11</td>
-                <td>COO Office</td>
-                <td>Puran Singh Rajput (COO)</td>
-                <td><code>cxo-operations-finance-puran-sir-analysis.md</code></td>
-            </tr>
-            <tr>
-                <td>12</td>
-                <td>CBDO Office</td>
-                <td>Ankit Jain (CBDO / Co-Founder)</td>
-                <td><code>cxo-sales-bd-ankit-sir-analysis.md</code></td>
-            </tr>
-        </tbody>
-    </table>
-    <h3>15.2 Evidence Confidence Summary</h3>
-    <table>
-        <thead>
-            <tr>
-                <th>Evidence Type</th>
-                <th>Items Used</th>
-                <th>Confidence Impact</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Stakeholder interview transcripts</td>
-                <td>12</td>
-                <td>Primary evidence — High reliability</td>
-            </tr>
-            <tr>
-                <td>Tool stack declarations</td>
-                <td>12</td>
-                <td>Direct statements — Confirmed</td>
-            </tr>
-            <tr>
-                <td>Quantitative metrics (stated directly)</td>
-                <td>50+</td>
-                <td>High confidence (self-reported with cross-validation)</td>
-            </tr>
-            <tr>
-                <td>Workflow observations (mermaid flows)</td>
-                <td>8</td>
-                <td>Moderate confidence (derived from interviews)</td>
-            </tr>
-            <tr>
-                <td>Inferred relationships</td>
-                <td>20+</td>
-                <td>Medium confidence (marked as inferred)</td>
-            </tr>
-            <tr>
-                <td>Missing evidence (not audited)</td>
-                <td>Government BD vertical (Shailendra Singh), Design team, HR</td>
-                <td>Gaps reduce overall confidence by ~5%</td>
-            </tr>
-        </tbody>
-    </table>
-    <h3>15.3 Assumptions &amp; Limitations</h3>
-    <ol>
-        <li><strong>Government BD Vertical</strong> (Shailendra Singh) was referenced in the CBDO audit but was not
-            individually audited. Findings for this vertical are inferred.</li>
-        <li><strong>Design Team</strong> was referenced in multiple audits but not directly interviewed. Capacity and
-            workflow are estimated.</li>
-        <li><strong>Coimbatore Factory</strong> operations were referenced by Production and Logistics but not
-            separately audited. SOP consistency with Udaipur is assumed but unverified.</li>
-        <li><strong>Financial data</strong> (revenue, specific budgets) was not provided. COGS analysis is based on
-            percentage-based evidence from the Accounts audit.</li>
-        <li><strong>Employee satisfaction and retention</strong> data was not captured in this engagement scope.</li>
-    </ol>
-    <hr />
-    <p><em>This report was prepared following the Enterprise Business Transformation Consulting Framework v1.0. All
-            findings are evidence-backed with confidence ratings. Recommendations are prioritized by business impact,
-            feasibility, and organizational readiness. The transformation roadmap is designed for phased execution to
-            minimize operational disruption while delivering incremental value.</em></p>
-    <hr />
-    <p><strong>Next Steps:</strong>
-        1. Executive review and approval of this report
-        2. Prioritization alignment workshop with COO and CBDO
-        3. Kick-off Phase 0 — Preparation (governance, baselines, sponsor assignment)
-        4. Detailed CRM requirements gathering (Phase 2 planning)</p>
+<h1>EF Polymers — Enterprise Operational Audit Report</h1>
+<p><strong>Prepared by:</strong> Creative Upaay Consulting<br />
+<strong>Date:</strong> July 2026<br />
+<strong>Version:</strong> 2.0<br />
+<strong>Classification:</strong> Confidential — Executive Leadership Only<br />
+<strong>Methodology:</strong> Enterprise Business Transformation Consulting Framework v1.0<br />
+<strong>Departments Audited:</strong> 15 (CEO Office, COO Office, CBDO Office, BD-Cocopeat, BD-Seed, BD-NGO/CSR, BD-Government, BD-B2B/RCM, MENA &amp; International Sales, Finance &amp; Accounts, Marketing &amp; Retail Sales, Production &amp; QC, R&amp;D, Logistics, HR &amp; Talent Management)</p>
+<hr />
+<h2>Table of Contents</h2>
+<ol>
+<li><a href="#1-executive-summary">Executive Summary</a></li>
+<li><a href="#2-company-profile--business-model">Company Profile &amp; Business Model</a></li>
+<li><a href="#3-organizational-structure">Organizational Structure</a></li>
+<li><a href="#4-department-maturity-scorecard">Department Maturity Scorecard</a></li>
+<li><a href="#5-enterprise-maturity-heatmap">Enterprise Maturity Heatmap</a></li>
+<li><a href="#6-cross-department-dependency-map">Cross-Department Dependency Map</a></li>
+<li><a href="#7-consolidated-red-flags--risk-register">Consolidated Red Flags &amp; Risk Register</a></li>
+<li><a href="#8-operational-truth-gaps">Operational Truth Gaps</a></li>
+<li><a href="#9-technology-landscape-assessment">Technology Landscape Assessment</a></li>
+<li><a href="#10-data-flow--governance-assessment">Data Flow &amp; Governance Assessment</a></li>
+<li><a href="#11-workflow-bottleneck-analysis">Workflow Bottleneck Analysis</a></li>
+<li><a href="#12-ai--automation-readiness-assessment">AI &amp; Automation Readiness Assessment</a></li>
+<li><a href="#13-strategic-recommendations">Strategic Recommendations</a></li>
+<li><a href="#14-transformation-roadmap">Transformation Roadmap</a></li>
+<li><a href="#15-appendix-audit-coverage-matrix">Appendix: Audit Coverage Matrix</a></li>
+</ol>
+<hr />
+<h2>1. Executive Summary</h2>
+<h3>1.1 Audit Scope &amp; Approach</h3>
+<p>This report consolidates findings from <strong>15 department-level operational audits</strong> conducted across EF Polymers (EFP), a bio-polymer manufacturing company specializing in agricultural soil-moisture-retention products and cocopeat growing media. The audit covered the entire organizational value chain — from CEO and CXO offices through R&amp;D, Production, Logistics, Finance, Sales, all five Business Development verticals (Cocopeat, Seed, NGO/CSR, Government, B2B/RCM), MENA &amp; International Sales, Marketing &amp; Retail Sales, and HR &amp; Talent Management.</p>
+<p>The methodology applied follows a six-layer thinking model (Understanding → Relationships → Constraints → Failure → Optimization → Transformation) with evidence-backed conclusions rated by confidence level.</p>
+<h3>1.2 Key Findings at a Glance</h3>
+<table>
+<thead>
+<tr>
+<th>Dimension</th>
+<th>Assessment</th>
+<th>Confidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Overall Business Maturity</strong></td>
+<td>Level 1.6 — Developing</td>
+<td>High</td>
+</tr>
+<tr>
+<td><strong>Process Standardization</strong></td>
+<td>Level 1.8 — Initial/Developing</td>
+<td>High</td>
+</tr>
+<tr>
+<td><strong>Technology Utilization</strong></td>
+<td>Level 1.4 — Initial (Zoho underutilized, no CRM)</td>
+<td>High</td>
+</tr>
+<tr>
+<td><strong>Data Governance</strong></td>
+<td>Level 1.3 — Initial (spreadsheet-dependent)</td>
+<td>Confirmed</td>
+</tr>
+<tr>
+<td><strong>Sales Operations</strong></td>
+<td>Level 1.0 — Initial (no CRM across any BD vertical)</td>
+<td>Confirmed</td>
+</tr>
+<tr>
+<td><strong>Automation Readiness</strong></td>
+<td>Level 1.5 — Emerging</td>
+<td>High</td>
+</tr>
+<tr>
+<td><strong>AI Readiness</strong></td>
+<td>Level 1.0 — Not Ready (data fragmentation)</td>
+<td>High</td>
+</tr>
+<tr>
+<td><strong>Scalability Readiness</strong></td>
+<td>Level 1.5 — Critical constraints at 2× growth</td>
+<td>High</td>
+</tr>
+</tbody>
+</table>
+<h3>1.3 Critical Observations</h3>
+<ol>
+<li><strong>No Central CRM exists.</strong> All 5 BD verticals + MENA + Marketing/Retail operate on disconnected spreadsheets, WhatsApp, and personal memory. CBDO confirmed this is the single largest operational risk; every department report independently flagged CRM absence as a critical gap.</li>
+<li><strong>Spreadsheet Dependency is systemic.</strong> An estimated <strong>30+ independent Excel/Google Sheets</strong> serve as primary operational databases across the organization, with zero integration.</li>
+<li><strong>Key-Person Dependencies are pervasive.</strong> R&amp;D (Ritu Panwar — sole protocol authority), Logistics (Nihal Paliwal — shared across domestic + international), Finance (Shobha Shekhawat), BD-Seed (Sameer Mahiskar — solo pan-India operator), and CEO/COO offices each represent single points of failure for critical business functions.</li>
+<li><strong>WhatsApp is the de facto ERP.</strong> Order intake, field tracking, payment confirmations, customer communication, PO submissions, attendance verification, and even task management flow through WhatsApp groups with no data capture or audit trail. Marketing alone processes 10,000+ daily WhatsApp updates manually.</li>
+<li><strong>COGS is unreliable.</strong> Untraceable COGS margin volatility due to absent WIP valuation, no grade-based costing, and unallocated packaging/depreciation costs renders financial reporting unreliable for investor confidence.</li>
+<li><strong>Personal device dependency creates institutional risk.</strong> ~90% of BD-B2B/RCM and MENA communications run on personal WhatsApp numbers and SIMs. Employee turnover guarantees total loss of contact history and community access.</li>
+<li><strong>HR operates without a unified ATS.</strong> Recruitment sourcing spans 6+ platforms with no centralized tracking, 30–45 day closing rates, and no AI pre-screening layer.</li>
+</ol>
+<hr />
+<h2>2. Company Profile &amp; Business Model</h2>
+<h3>2.1 Business Overview</h3>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Company</strong></td>
+<td>EF Polymers (EFP)</td>
+</tr>
+<tr>
+<td><strong>Industry</strong></td>
+<td>Agri-tech / Bio-polymer Manufacturing</td>
+</tr>
+<tr>
+<td><strong>Core Product</strong></td>
+<td>Bio-polymer soil moisture retention granules</td>
+</tr>
+<tr>
+<td><strong>Secondary Product</strong></td>
+<td>Cocopeat (coconut husk soil-less growing media)</td>
+</tr>
+<tr>
+<td><strong>Revenue Model</strong></td>
+<td>B2B manufacturing + white-label + export + retail</td>
+</tr>
+<tr>
+<td><strong>Manufacturing</strong></td>
+<td>Udaipur (primary), Coimbatore (secondary / cocopeat)</td>
+</tr>
+<tr>
+<td><strong>Markets</strong></td>
+<td>India (pan-national), Middle East, Europe, Japan, USA, Africa, Australia</td>
+</tr>
+<tr>
+<td><strong>Product Shelf Life</strong></td>
+<td>3 years</td>
+</tr>
+<tr>
+<td><strong>Estimated Headcount</strong></td>
+<td>40–50+ personnel (across all departments)</td>
+</tr>
+</tbody>
+</table>
+<h3>2.2 Revenue Channels</h3>
+<table>
+<thead>
+<tr>
+<th>Channel</th>
+<th>Description</th>
+<th>Key Account/Vertical</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Retail (D2C/Dealer)</strong></td>
+<td>Multi-tier distribution via RSMs → Dealers → Farmers</td>
+<td>Marketing &amp; Retail Sales</td>
+</tr>
+<tr>
+<td><strong>B2B White-Label</strong></td>
+<td>Component supply to corporate partners (RCM)</td>
+<td>BD-B2B/RCM (Jatin Jain)</td>
+</tr>
+<tr>
+<td><strong>Institutional (Seed)</strong></td>
+<td>Seed coating sales to seed companies &amp; universities</td>
+<td>BD-Seed (Sameer Mahiskar)</td>
+</tr>
+<tr>
+<td><strong>NGO/CSR</strong></td>
+<td>Bulk contracts with NGOs and CSR programs</td>
+<td>BD-NGO/CSR (Gaurav Dwivedi / Vikash Mehta)</td>
+</tr>
+<tr>
+<td><strong>Government</strong></td>
+<td>State/federal procurement tenders via Pradhans</td>
+<td>BD-Government (Shailendra Singh)</td>
+</tr>
+<tr>
+<td><strong>International Export</strong></td>
+<td>Distributor-led B2B across MENA, Asia, Africa</td>
+<td>MENA &amp; International (Neha Pathak)</td>
+</tr>
+<tr>
+<td><strong>Cocopeat Export</strong></td>
+<td>Container-load exports of soil-less media</td>
+<td>BD-Cocopeat (Mohit Kumar Gupta)</td>
+</tr>
+<tr>
+<td><strong>D2C Japan (Planned)</strong></td>
+<td>Website-based direct-to-consumer launch</td>
+<td>Mohit / Yoshida-san</td>
+</tr>
+</tbody>
+</table>
+<h3>2.3 Product Complexity Matrix</h3>
+<table>
+<thead>
+<tr>
+<th>Dimension</th>
+<th>Variants</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Granule Sizes</strong></td>
+<td>&lt;2mm (India), 2–4mm, 1.18–1.41mm (international)</td>
+</tr>
+<tr>
+<td><strong>SKU Sizes</strong></td>
+<td>50g, 100g, 200g, 500g, 1kg, 5kg, 20–25kg, 100kg, bulk sacks (1000–1400kg)</td>
+</tr>
+<tr>
+<td><strong>Packaging Languages</strong></td>
+<td>Hindi, English, Spanish, French, Japanese + custom</td>
+</tr>
+<tr>
+<td><strong>Product Grades</strong></td>
+<td>A, B, C (different quality tiers)</td>
+</tr>
+<tr>
+<td><strong>Cocopeat Formats</strong></td>
+<td>Open-top grow bags, cocopit grow bags, 5kg blocks, pellets/coins</td>
+</tr>
+<tr>
+<td><strong>Custom Blends</strong></td>
+<td>Perlite, NPK formulations per client spec</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Operational Implication:</strong> This multi-variable product matrix (granule size × SKU × language × grade × blend) creates significant packaging procurement complexity and inventory management burden, evidenced by the custom packaging MOQ and vendor sourcing friction reported by Production.</p>
+</blockquote>
+<hr />
+<h2>3. Organizational Structure</h2>
+<h3>3.1 Leadership &amp; Reporting Lines</h3>
+<p><img alt="EF Polymers — Organizational Structure &amp; Reporting Lines" src="viz_charts/viz_11_org.png" /></p>
+<h3>3.2 Headcount Distribution</h3>
+<table>
+<thead>
+<tr>
+<th>Department</th>
+<th>Personnel</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>CEO Office</strong></td>
+<td>1 (Narayan Lal Gurjar)</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>COO Office</strong></td>
+<td>1 + oversight</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>CBDO Office</strong></td>
+<td>1 + oversight</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>R&amp;D</strong></td>
+<td>4 active + 2 incoming + interns</td>
+<td>Expanding</td>
+</tr>
+<tr>
+<td><strong>Production &amp; QC</strong></td>
+<td>3 core + 4 recent hires</td>
+<td>Recently expanded</td>
+</tr>
+<tr>
+<td><strong>Logistics</strong></td>
+<td>2 FTE</td>
+<td>Lean / at capacity</td>
+</tr>
+<tr>
+<td><strong>Finance &amp; Accounts</strong></td>
+<td>3 FTE</td>
+<td>Stable</td>
+</tr>
+<tr>
+<td><strong>Marketing &amp; Retail Sales</strong></td>
+<td>3 office + field RSMs</td>
+<td>Under-resourced</td>
+</tr>
+<tr>
+<td><strong>BD-Cocopeat</strong></td>
+<td>4 active (Mohit, Ishwarya, Rajesh, Yoshida)</td>
+<td>Stable</td>
+</tr>
+<tr>
+<td><strong>BD-NGO/CSR</strong></td>
+<td>4 active + 1 vacant</td>
+<td>Hiring</td>
+</tr>
+<tr>
+<td><strong>BD-Seed</strong></td>
+<td>1 active + 1 planned hire</td>
+<td>Under-resourced</td>
+</tr>
+<tr>
+<td><strong>BD-Government</strong></td>
+<td>Field team led by Shailendra Singh</td>
+<td>Operational</td>
+</tr>
+<tr>
+<td><strong>BD-B2B/RCM</strong></td>
+<td>7 active → 10 planned</td>
+<td>Expanding</td>
+</tr>
+<tr>
+<td><strong>MENA International</strong></td>
+<td>2 (Neha + 1 MT)</td>
+<td>Lean</td>
+</tr>
+<tr>
+<td><strong>HR &amp; Talent Management</strong></td>
+<td>5 (across Hiring, Admin, HR/PMS)</td>
+<td>Operational</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Key Risks:</strong> BD-Seed operates as a <strong>solo single-point operation</strong> for a pan-India institutional vertical with a 90 MT annual target. Logistics (2 FTE) is shared across all domestic, international, and B2B dispatch operations with zero redundancy.</p>
+</blockquote>
+<hr />
+<h2>4. Department Maturity Scorecard</h2>
+<blockquote>
+<p>Scores are based on the 5-level maturity model (1=Initial, 2=Developing, 3=Standardized, 4=Managed, 5=Optimized). All scores below are sourced directly from individual department audit reports.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Department</th>
+<th>Process</th>
+<th>Technology</th>
+<th>Data Quality</th>
+<th>Documentation</th>
+<th>Knowledge Mgmt</th>
+<th>Overall</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>CEO Office</strong></td>
+<td>2.0</td>
+<td>1.5</td>
+<td>1.5</td>
+<td>2.5</td>
+<td>2.0</td>
+<td><strong>1.9</strong></td>
+</tr>
+<tr>
+<td><strong>COO Office</strong></td>
+<td>1.5</td>
+<td>1.5</td>
+<td>1.0</td>
+<td>1.5</td>
+<td>2.0</td>
+<td><strong>1.5</strong></td>
+</tr>
+<tr>
+<td><strong>CBDO Office</strong></td>
+<td>1.5</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>2.0</td>
+<td>1.0</td>
+<td><strong>1.3</strong></td>
+</tr>
+<tr>
+<td><strong>BD — Cocopeat</strong></td>
+<td>1.5</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>1.5</td>
+<td>1.5</td>
+<td><strong>1.3</strong></td>
+</tr>
+<tr>
+<td><strong>BD — Seed</strong></td>
+<td>1.5</td>
+<td>1.5</td>
+<td>1.0</td>
+<td>1.5</td>
+<td>1.5</td>
+<td><strong>1.4</strong></td>
+</tr>
+<tr>
+<td><strong>BD — NGO/CSR</strong></td>
+<td>1.5</td>
+<td>1.0</td>
+<td>1.5</td>
+<td>1.5</td>
+<td>1.5</td>
+<td><strong>1.4</strong></td>
+</tr>
+<tr>
+<td><strong>BD — Government</strong></td>
+<td>1.5</td>
+<td>2.0</td>
+<td>2.0</td>
+<td>1.5</td>
+<td>1.5</td>
+<td><strong>1.7</strong></td>
+</tr>
+<tr>
+<td><strong>BD — B2B/RCM</strong></td>
+<td>1.5</td>
+<td>1.5</td>
+<td>1.0</td>
+<td>1.5</td>
+<td>1.0</td>
+<td><strong>1.3</strong></td>
+</tr>
+<tr>
+<td><strong>MENA International</strong></td>
+<td>2.0</td>
+<td>1.5</td>
+<td>2.0</td>
+<td>2.0</td>
+<td>1.5</td>
+<td><strong>2.0</strong></td>
+</tr>
+<tr>
+<td><strong>Finance &amp; Accounts</strong></td>
+<td>2.5</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>2.5</td>
+<td>2.0</td>
+<td><strong>2.2</strong></td>
+</tr>
+<tr>
+<td><strong>Marketing / Retail Sales</strong></td>
+<td>1.5</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>2.0</td>
+<td>1.5</td>
+<td><strong>1.4</strong></td>
+</tr>
+<tr>
+<td><strong>Production &amp; QC</strong></td>
+<td>2.0</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>1.5</td>
+<td>1.5</td>
+<td><strong>1.5</strong></td>
+</tr>
+<tr>
+<td><strong>R&amp;D</strong></td>
+<td>2.0</td>
+<td>1.5</td>
+<td>1.0</td>
+<td>2.0</td>
+<td>1.0</td>
+<td><strong>1.5</strong></td>
+</tr>
+<tr>
+<td><strong>Logistics</strong></td>
+<td>2.0</td>
+<td>1.0</td>
+<td>1.5</td>
+<td>2.0</td>
+<td>1.5</td>
+<td><strong>1.6</strong></td>
+</tr>
+<tr>
+<td><strong>HR &amp; Talent Mgmt</strong></td>
+<td>2.0</td>
+<td>1.5</td>
+<td>1.5</td>
+<td>2.0</td>
+<td>1.0</td>
+<td><strong>1.6</strong></td>
+</tr>
+<tr>
+<td><strong>Enterprise Average</strong></td>
+<td><strong>1.8</strong></td>
+<td><strong>1.4</strong></td>
+<td><strong>1.3</strong></td>
+<td><strong>1.8</strong></td>
+<td><strong>1.4</strong></td>
+<td><strong>1.6</strong></td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Department Maturity Scorecard" src="viz_charts/viz_2_bar.png" /></p>
+<hr />
+<h2>5. Enterprise Maturity Heatmap</h2>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Current Score</th>
+<th>Target Score (12-mo)</th>
+<th>Gap</th>
+<th>Confidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Leadership &amp; Governance</td>
+<td>2.0</td>
+<td>3.5</td>
+<td>1.5</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Strategy Alignment</td>
+<td>1.5</td>
+<td>3.0</td>
+<td>1.5</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Sales Operations</td>
+<td>1.0</td>
+<td>3.0</td>
+<td>2.0</td>
+<td>Confirmed</td>
+</tr>
+<tr>
+<td>Customer Lifecycle</td>
+<td>1.5</td>
+<td>3.0</td>
+<td>1.5</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Operational Excellence</td>
+<td>2.0</td>
+<td>3.0</td>
+<td>1.0</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Process Standardization</td>
+<td>1.5</td>
+<td>3.0</td>
+<td>1.5</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Documentation</td>
+<td>1.8</td>
+<td>3.0</td>
+<td>1.2</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Knowledge Management</td>
+<td>1.4</td>
+<td>2.5</td>
+<td>1.1</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Technology Landscape</td>
+<td>1.4</td>
+<td>3.5</td>
+<td>2.1</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Data Quality</td>
+<td>1.3</td>
+<td>3.0</td>
+<td>1.7</td>
+<td>Confirmed</td>
+</tr>
+<tr>
+<td>Reporting &amp; Analytics</td>
+<td>1.0</td>
+<td>3.0</td>
+<td>2.0</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Automation Readiness</td>
+<td>1.5</td>
+<td>2.5</td>
+<td>1.0</td>
+<td>High</td>
+</tr>
+<tr>
+<td>AI Readiness</td>
+<td>1.0</td>
+<td>2.0</td>
+<td>1.0</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Compliance Readiness</td>
+<td>2.0</td>
+<td>3.0</td>
+<td>1.0</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Financial Operations</td>
+<td>2.0</td>
+<td>3.5</td>
+<td>1.5</td>
+<td>Confirmed</td>
+</tr>
+<tr>
+<td>Scalability</td>
+<td>1.5</td>
+<td>3.0</td>
+<td>1.5</td>
+<td>High</td>
+</tr>
+<tr>
+<td>HR &amp; Talent Operations</td>
+<td>1.6</td>
+<td>3.4</td>
+<td>1.8</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Change Readiness</td>
+<td>1.5</td>
+<td>3.0</td>
+<td>1.5</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Customer Experience</td>
+<td>2.0</td>
+<td>3.0</td>
+<td>1.0</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td><strong>Overall Business Maturity</strong></td>
+<td><strong>1.6</strong></td>
+<td><strong>3.0</strong></td>
+<td><strong>1.4</strong></td>
+<td><strong>High</strong></td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Enterprise Maturity Heatmap — Current vs. Target" src="viz_charts/viz_3_heatmap.png" /></p>
+<hr />
+<h2>6. Cross-Department Dependency Map</h2>
+<h3>6.1 Critical Dependency Matrix</h3>
+<p>The following dependencies are sourced directly from cross-department linkage sections of individual department audit reports.</p>
+<table>
+<thead>
+<tr>
+<th>Source → Target</th>
+<th>Nature</th>
+<th>Frequency</th>
+<th>Risk Level</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>All BD Verticals → <strong>Logistics</strong></td>
+<td>Dispatch, freight, customs clearance</td>
+<td>Daily</td>
+<td><font color='red'><b>CRITICAL</b></font></td>
+</tr>
+<tr>
+<td>All BD Verticals → <strong>Accounts</strong></td>
+<td>Invoicing, payment verification, GST data</td>
+<td>Per-shipment</td>
+<td><font color='red'><b>CRITICAL</b></font></td>
+</tr>
+<tr>
+<td>All BD Verticals → <strong>R&amp;D</strong></td>
+<td>Technical data, trial reports, dosage, proposals</td>
+<td>Per-pitch/trial</td>
+<td><font color='red'><b>CRITICAL</b></font></td>
+</tr>
+<tr>
+<td>All BD Verticals → <strong>Production</strong></td>
+<td>Stock availability, lead times, custom packaging</td>
+<td>Per-order</td>
+<td><font color='orange'><b>HIGH</b></font></td>
+</tr>
+<tr>
+<td><strong>Marketing/Retail</strong> → <strong>Accounts</strong></td>
+<td>Payment confirmation before dispatch authorization</td>
+<td>Daily</td>
+<td><font color='red'><b>CRITICAL</b></font></td>
+</tr>
+<tr>
+<td><strong>Sales (all)</strong> → <strong>Logistics</strong></td>
+<td>70–80% orders arrive via WhatsApp with missing fields</td>
+<td>Daily</td>
+<td><font color='red'><b>CRITICAL</b></font></td>
+</tr>
+<tr>
+<td><strong>Logistics</strong> → <strong>Accounts</strong></td>
+<td>Invoice generation pre-dispatch</td>
+<td>Per-shipment</td>
+<td><font color='red'><b>CRITICAL</b></font></td>
+</tr>
+<tr>
+<td><strong>Logistics</strong> → <strong>Production</strong></td>
+<td>Manufacturing completion, dispatch readiness</td>
+<td>Daily</td>
+<td><font color='red'><b>CRITICAL</b></font></td>
+</tr>
+<tr>
+<td><strong>Accounts</strong> → <strong>Production</strong></td>
+<td>Stock availability (manual phone calls), vendor payments</td>
+<td>Per-invoice</td>
+<td><font color='red'><b>CRITICAL</b></font></td>
+</tr>
+<tr>
+<td><strong>Production</strong> → <strong>Sales/BD</strong></td>
+<td>Advance forecasting for minimum inventory &amp; custom packaging</td>
+<td>Reactive (no forecast)</td>
+<td><font color='red'><b>CRITICAL</b></font></td>
+</tr>
+<tr>
+<td><strong>R&amp;D</strong> → <strong>Production</strong></td>
+<td>Lab-to-commercial formulation handoff, QC 24-hr test cycle</td>
+<td>Project-based</td>
+<td><font color='orange'><b>HIGH</b></font></td>
+</tr>
+<tr>
+<td><strong>R&amp;D</strong> → <strong>QC</strong></td>
+<td>3-department trial validation handoff (Production → QC → R&amp;D)</td>
+<td>Daily</td>
+<td><font color='orange'><b>HIGH</b></font></td>
+</tr>
+<tr>
+<td><strong>MENA</strong> → <strong>Logistics</strong></td>
+<td>Export dispatch windows shared with domestic; priority routing needed</td>
+<td>Per-shipment</td>
+<td><font color='red'><b>CRITICAL</b></font></td>
+</tr>
+<tr>
+<td><strong>MENA</strong> → <strong>Accounts</strong></td>
+<td>Cross-border remittance alerts (manual BD warning required)</td>
+<td>Per-shipment</td>
+<td><font color='orange'><b>HIGH</b></font></td>
+</tr>
+<tr>
+<td><strong>BD-Cocopeat</strong> → <strong>Accounts</strong></td>
+<td>CargoX export docs gated behind payment clearance</td>
+<td>Per-container</td>
+<td><font color='red'><b>CRITICAL</b></font></td>
+</tr>
+<tr>
+<td><strong>BD-Seed</strong> → <strong>Logistics</strong></td>
+<td>Sample dispatch aligned to institution sowing windows; no SLA</td>
+<td>Per-trial</td>
+<td><font color='orange'><b>HIGH</b></font></td>
+</tr>
+<tr>
+<td><strong>BD-NGO/CSR</strong> → <strong>Accounts</strong></td>
+<td>60–70 day receivables cycle; manual dunning by BD</td>
+<td>Per-invoice</td>
+<td><font color='red'><b>CRITICAL</b></font></td>
+</tr>
+<tr>
+<td><strong>BD-Government</strong> → <strong>Logistics</strong></td>
+<td>Order dispatch status chased via calls/WhatsApp</td>
+<td>Per-order</td>
+<td><font color='orange'><b>HIGH</b></font></td>
+</tr>
+<tr>
+<td><strong>BD-Government</strong> → <strong>HR</strong></td>
+<td>Calendar/leave sync for remote field teams</td>
+<td>Ongoing</td>
+<td><font color='orange'><b>MEDIUM</b></font></td>
+</tr>
+<tr>
+<td><strong>All Departments</strong> → <strong>HR</strong></td>
+<td>Hiring requisitions, L&amp;D requests, policy queries</td>
+<td>Ad-hoc</td>
+<td><font color='orange'><b>MEDIUM</b></font></td>
+</tr>
+<tr>
+<td><strong>COO</strong> → <strong>All Departments</strong></td>
+<td>Approvals, 50–80 emails/day, 100+ expense reports, board prep</td>
+<td>Continuous</td>
+<td><font color='orange'><b>HIGH</b></font></td>
+</tr>
+<tr>
+<td><strong>CBDO</strong> → <strong>All BD Verticals</strong></td>
+<td>Pipeline reviews, strategic alignment, travel approvals</td>
+<td>Monthly</td>
+<td><font color='orange'><b>HIGH</b></font></td>
+</tr>
+<tr>
+<td><strong>CEO</strong> → <strong>COO/CBDO</strong></td>
+<td>Strategic direction, investor reporting, financial oversight</td>
+<td>Weekly/Monthly</td>
+<td><font color='orange'><b>MEDIUM</b></font></td>
+</tr>
+</tbody>
+</table>
+<h3>6.2 Dependency Risk Concentration</h3>
+<p><img alt="Cross-Department Dependency Network" src="viz_charts/viz_4_network.png" /></p>
+<blockquote>
+<p><strong>Systemic Bottleneck Identified:</strong> Logistics (2 FTE) and Accounts (3 FTE) are the operational convergence points for <strong>all</strong> revenue-generating activities. Every BD vertical, Marketing, and international sales must route through these two departments for order fulfillment. On international dispatch days, 100% of logistics capacity is consumed — domestic orders are delayed.</p>
+</blockquote>
+<hr />
+<h2>7. Consolidated Red Flags &amp; Risk Register</h2>
+<h3>7.1 Severity Summary</h3>
+<table>
+<thead>
+<tr>
+<th>Severity</th>
+<th>Count</th>
+<th>Breakdown</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><font color='red'><b>CRITICAL</b></font> <strong>High</strong></td>
+<td>16</td>
+<td>CRM absence, data fragmentation, key-person dependencies, financial opacity, WhatsApp dependency, personal device risk</td>
+</tr>
+<tr>
+<td><font color='orange'><b>MEDIUM</b></font> <strong>Medium</strong></td>
+<td>16</td>
+<td>Follow-up gaps, manual processes, dual reporting, communication risks, HR tracking gaps</td>
+</tr>
+<tr>
+<td><font color='green'><b>LOW / OK</b></font> <strong>Low</strong></td>
+<td>8</td>
+<td>Collateral tracking, community drop-off, late-night decision capture</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td><strong>40</strong></td>
+<td>Across 15 departments</td>
+</tr>
+</tbody>
+</table>
+<h3>7.2 Critical Risk Register (High-Severity Items)</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Risk</th>
+<th>Department(s)</th>
+<th>Root Cause</th>
+<th>Business Impact</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R01</td>
+<td><strong>No Central CRM</strong> — Pipeline, lead ownership, and deal stages invisible at executive level</td>
+<td>CBDO, All BD, MENA, Marketing</td>
+<td>No system of record adopted; each vertical uses ad-hoc spreadsheets and memory</td>
+<td>Revenue leakage, ownership conflicts, missed follow-ups, leads slip through cracks</td>
+<td>Independently confirmed across all BD, MENA, CBDO, and Marketing audits</td>
+</tr>
+<tr>
+<td>R02</td>
+<td><strong>COGS Margin Volatility</strong> — Untraceable monthly cost swings</td>
+<td>Finance &amp; Accounts</td>
+<td>No WIP valuation, no grade-based costing, unallocated packaging/depreciation costs</td>
+<td>Financial reporting unreliable, investor confidence risk, distorted P&amp;L</td>
+<td>Finance audit: stated directly</td>
+</tr>
+<tr>
+<td>R03</td>
+<td><strong>Key-Person Dependency: R&amp;D</strong> — Protocol approvals, grant writing, technical sign-offs bottlenecked on PD Manager</td>
+<td>R&amp;D</td>
+<td>3-stage non-delegable approval process; single qualified authority for multi-geography compliance</td>
+<td>International proposals require 15–20 days; regulatory delays, trial backlogs if unavailable</td>
+<td>R&amp;D audit: stated directly</td>
+</tr>
+<tr>
+<td>R04</td>
+<td><strong>Key-Person Dependency: Logistics</strong> — Single logistics manager shared across domestic + export + B2B</td>
+<td>Logistics, MENA, All BD</td>
+<td>Only 2 FTE for all shipment types; 100% capacity consumed on international dispatch days</td>
+<td>Export SLA breaches, demurrage fees, domestic order delays</td>
+<td>Logistics &amp; MENA audits</td>
+</tr>
+<tr>
+<td>R05</td>
+<td><strong>Key-Person Dependency: BD-Seed</strong> — Entire 90 MT pan-India target managed by a single person</td>
+<td>BD-Seed</td>
+<td>Solo operator with 15–20 travel days/month; zero coverage if unavailable</td>
+<td>Severe capacity limits, missed sowing windows, leads slip through with no backup</td>
+<td>BD-Seed audit: stated directly</td>
+</tr>
+<tr>
+<td>R06</td>
+<td><strong>WhatsApp Information Overload</strong> — 10,000+ daily updates manually extracted by a single person</td>
+<td>Marketing/Retail</td>
+<td>All operational data flows exclusively through WhatsApp groups; single-point manual extraction</td>
+<td>6–8 hrs/day consumed; zero redundancy; single point of failure</td>
+<td>Marketing audit: stated directly</td>
+</tr>
+<tr>
+<td>R07</td>
+<td><strong>Scattered Inventory Data &amp; No Real-Time Visibility</strong> — 5+ disconnected Google Sheets; Zoho WMS abandoned</td>
+<td>Production, Accounts</td>
+<td>Zoho WMS was abandoned; no live view of stock levels for CXOs or Accounts</td>
+<td>Manual month-end aggregation; phone-call-based stock checks per invoice</td>
+<td>Production &amp; Accounts audits</td>
+</tr>
+<tr>
+<td>R08</td>
+<td><strong>CargoX Gating Bottleneck</strong> — Export docs gated behind payment clearance with 10-day upload window</td>
+<td>BD-Cocopeat</td>
+<td>Finance approval dependency on international remittance</td>
+<td>Demurrage fees, customer relationship damage</td>
+<td>BD-Cocopeat audit: stated directly</td>
+</tr>
+<tr>
+<td>R09</td>
+<td><strong>Incomplete WhatsApp Order Intake</strong> — 70–80% of orders missing mandatory fields</td>
+<td>Logistics, All BD</td>
+<td>No structured order intake form; WhatsApp text orders with missing pin codes, GST, SKU specs</td>
+<td>10–25 min per order manual data chasing; shipment delays</td>
+<td>Logistics audit: stated directly</td>
+</tr>
+<tr>
+<td>R10</td>
+<td><strong>Disconnected Invoicing &amp; Shipping Data</strong> — Zoho Books, Google Sheets, and Google Drive as separate silos</td>
+<td>Logistics</td>
+<td>Zero automation connecting invoicing and shipping systems</td>
+<td>Manual double data entry per shipment; ~30% of team daily time consumed</td>
+<td>Logistics audit: stated directly</td>
+</tr>
+<tr>
+<td>R11</td>
+<td><strong>Scattered R&amp;D Data</strong> — Research across 8–10 disconnected spreadsheets</td>
+<td>R&amp;D</td>
+<td>No centralized research database</td>
+<td>Redundant testing, data loss, repeat trial costs, proposal bottleneck for BD-Seed</td>
+<td>R&amp;D audit: stated directly</td>
+</tr>
+<tr>
+<td>R12</td>
+<td><strong>Manual GST/TDS Reconciliation</strong> — 1–2 months of manual labor for 100+ claims</td>
+<td>Finance &amp; Accounts</td>
+<td>Manual portal-to-Books matching; 35% of team capacity consumed</td>
+<td>Non-strategic data entry; compliance overhead</td>
+<td>Finance audit: stated directly</td>
+</tr>
+<tr>
+<td>R13</td>
+<td><strong>Tertiary Sales Invisibility (RCM)</strong> — Zero data below depot tier across ~10,000 retail stores</td>
+<td>BD-B2B/RCM</td>
+<td>No API or data sharing with RCM retail layer</td>
+<td>Demand planning blind spot; purely reactive inventory based on 40kg depot alerts</td>
+<td>B2B/RCM audit: stated directly</td>
+</tr>
+<tr>
+<td>R14</td>
+<td><strong>Personal WhatsApp &amp; Device Continuity Risk</strong> — ~90% of comms on personal numbers</td>
+<td>BD-B2B/RCM, MENA, BD-NGO/CSR</td>
+<td>No company-owned SIMs, virtual business numbers, or data ownership policy</td>
+<td>Customer relationship loss and community access loss on employee exit</td>
+<td>B2B/RCM, MENA &amp; NGO/CSR audits</td>
+</tr>
+<tr>
+<td>R15</td>
+<td><strong>Extended Receivables Cycle (60–70 Days)</strong> — Manual dunning by BD leadership</td>
+<td>BD-NGO/CSR</td>
+<td>No automated dunning sequence; no Finance integration for receivables tracking</td>
+<td>15–20% of AM-BD Lead time consumed manually chasing payments</td>
+<td>BD-NGO/CSR audit: stated directly</td>
+</tr>
+<tr>
+<td>R16</td>
+<td><strong>No Unified Recruitment Tracking</strong> — 6+ platforms, no centralized pipeline</td>
+<td>HR &amp; Talent Mgmt</td>
+<td>LinkedIn, Naukri, Indeed, Apollo, SalesIQ, GPT/Perplexity all used with no ATS</td>
+<td>30–45 day closing rate; leadership has zero dashboard visibility; no AI pre-screening</td>
+<td>HR audit: stated directly</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Enterprise Risk Register — Impact vs. Likelihood" src="viz_charts/viz_5_bubble.png" /></p>
+<hr />
+<h2>8. Operational Truth Gaps</h2>
+<p>The audit identified significant divergence between documented/stated processes and actual operational behavior:</p>
+<table>
+<thead>
+<tr>
+<th>Area</th>
+<th>Stated/Intended Process</th>
+<th>Actual Observed Process</th>
+<th>Gap Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Order Intake</strong></td>
+<td>Structured PO with complete specs → billing → dispatch</td>
+<td>70–80% via WhatsApp text with missing fields → 10–25 min manual chase per order</td>
+<td>Shadow Process</td>
+</tr>
+<tr>
+<td><strong>Inventory Management</strong></td>
+<td>Zoho Inventory / Zoho WMS as system of record</td>
+<td>Zoho WMS abandoned; 5+ Google Sheets; manual phone calls to Production Manager</td>
+<td>Tool Abandonment</td>
+</tr>
+<tr>
+<td><strong>Sales Pipeline</strong></td>
+<td>Vertical leads track pipeline stages</td>
+<td>Memory-based follow-ups every 4–5 days from unstructured spreadsheets; 4 disconnected Sheets (NGO/CSR)</td>
+<td>Tribal Knowledge</td>
+</tr>
+<tr>
+<td><strong>Field Compliance</strong></td>
+<td>Mobile app-based geolocation tracking</td>
+<td>WhatsApp location sharing + manual address cross-referencing 3×/day by Kamakshi</td>
+<td>Shadow Process</td>
+</tr>
+<tr>
+<td><strong>Payment Confirmation</strong></td>
+<td>Zoho Books bank reconciliation</td>
+<td>WhatsApp screenshot of payment receipt → manual verification call to Accounts</td>
+<td>Shadow Process</td>
+</tr>
+<tr>
+<td><strong>COGS Calculation</strong></td>
+<td>System-computed cost of goods</td>
+<td>Manual spreadsheet averaging without WIP, grade-based, or overhead allocation</td>
+<td>Process Gap</td>
+</tr>
+<tr>
+<td><strong>Customer Master Data</strong></td>
+<td>Shared customer database</td>
+<td>Accounts, Sales, and Logistics each maintain separate records; repeated data requests</td>
+<td>Data Duplication</td>
+</tr>
+<tr>
+<td><strong>Export Documentation</strong></td>
+<td>Integrated invoicing + shipping</td>
+<td>Zoho Books + manual logistics spreadsheet (disconnected); CargoX gated manually</td>
+<td>System Fragmentation</td>
+</tr>
+<tr>
+<td><strong>Field Data Capture</strong></td>
+<td>Digital forms</td>
+<td>Paper diaries manually transcribed to Excel (BD-B2B/RCM); WhatsApp photos re-uploaded to Drive (BD-Government)</td>
+<td>Shadow Process</td>
+</tr>
+<tr>
+<td><strong>Recruitment Pipeline</strong></td>
+<td>Unified applicant tracking</td>
+<td>6+ disconnected platforms tracked on Google Sheets; 10 min manual review per candidate</td>
+<td>System Fragmentation</td>
+</tr>
+<tr>
+<td><strong>Task Management (CBDO)</strong></td>
+<td>Persistent task tracking</td>
+<td>All tasks managed entirely through WhatsApp groups; no audit trail outside chat threads</td>
+<td>Shadow Process</td>
+</tr>
+<tr>
+<td><strong>Cross-Border Remittance</strong></td>
+<td>Automated payment notifications</td>
+<td>BD manually warns Accounts before each international dispatch; ~30 min per shipment</td>
+<td>Missing Process</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>9. Technology Landscape Assessment</h2>
+<h3>9.1 Current Technology Inventory</h3>
+<table>
+<thead>
+<tr>
+<th>System</th>
+<th>Category</th>
+<th>Owner</th>
+<th>Users</th>
+<th>Utilization</th>
+<th>Integration</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Zoho Books</strong></td>
+<td>Accounting/ERP</td>
+<td>Finance</td>
+<td>Accounts, Logistics, Marketing</td>
+<td>Moderate</td>
+<td>Bank feeds (auto); no live inventory link</td>
+</tr>
+<tr>
+<td><strong>Zoho Inventory</strong></td>
+<td>Inventory Mgmt</td>
+<td>Finance</td>
+<td>Accounts, Production</td>
+<td>Low</td>
+<td>Linked to Books but lacks grade-based costing</td>
+</tr>
+<tr>
+<td><strong>Zoho Expense</strong></td>
+<td>Expense Mgmt</td>
+<td>Finance</td>
+<td>All employees</td>
+<td>Moderate</td>
+<td>3-level approval flow active</td>
+</tr>
+<tr>
+<td><strong>Zoho Payroll</strong></td>
+<td>Payroll</td>
+<td>Finance</td>
+<td>HR/Finance</td>
+<td>Moderate</td>
+<td>Linked to Zoho People</td>
+</tr>
+<tr>
+<td><strong>Zoho People</strong></td>
+<td>HRMS</td>
+<td>HR</td>
+<td>HR/Finance (20 paid seats)</td>
+<td>Low</td>
+<td>Temp staff, KRA, and L&amp;D tracking not activated</td>
+</tr>
+<tr>
+<td><strong>Custom Zoho WMS</strong></td>
+<td>Warehouse Mgmt</td>
+<td>Production</td>
+<td>Production</td>
+<td><b>[X]</b> Abandoned</td>
+<td><b>[X]</b> Disconnected from Zoho Books</td>
+</tr>
+<tr>
+<td><strong>Google Sheets</strong></td>
+<td>Tracking (everything)</td>
+<td>All departments</td>
+<td>Everyone</td>
+<td>Overextended</td>
+<td><b>[X]</b> No integrations</td>
+</tr>
+<tr>
+<td><strong>Google Drive</strong></td>
+<td>Document Storage</td>
+<td>R&amp;D, Marketing</td>
+<td>R&amp;D, Field teams</td>
+<td>Moderate</td>
+<td>Manual upload only</td>
+</tr>
+<tr>
+<td><strong>WhatsApp</strong></td>
+<td>Communications</td>
+<td>All</td>
+<td>All</td>
+<td>Overextended (de facto ERP)</td>
+<td><b>[X]</b> No data capture</td>
+</tr>
+<tr>
+<td><strong>Gmail</strong></td>
+<td>Email</td>
+<td>All</td>
+<td>All</td>
+<td>Standard</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>Slack</strong></td>
+<td>Internal comms</td>
+<td>Select teams</td>
+<td>BD-B2B, MENA</td>
+<td>Low–Moderate</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>Google Ads / LinkedIn Ads</strong></td>
+<td>Paid acquisition</td>
+<td>BD-Cocopeat</td>
+<td>Marketing, BD</td>
+<td>Active</td>
+<td><b>[X]</b> No CRM integration</td>
+</tr>
+<tr>
+<td><strong>CargoX</strong></td>
+<td>Export compliance</td>
+<td>BD-Cocopeat</td>
+<td>Logistics, BD</td>
+<td>Active</td>
+<td>Manual upload</td>
+</tr>
+<tr>
+<td><strong>Contactout / Apollo</strong></td>
+<td>Lead enrichment</td>
+<td>BD-NGO/CSR, HR</td>
+<td>BD, HR</td>
+<td>Ad-hoc</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>Canva</strong></td>
+<td>Design/Proposals</td>
+<td>BD-NGO/CSR, BD-Seed</td>
+<td>BD</td>
+<td>Active</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>Naukri / Indeed / SalesIQ</strong></td>
+<td>Recruitment</td>
+<td>HR</td>
+<td>HR</td>
+<td>Active (disconnected)</td>
+<td><b>[X]</b> No unified ATS</td>
+</tr>
+</tbody>
+</table>
+<h3>9.2 Technology Maturity Assessment</h3>
+<table>
+<thead>
+<tr>
+<th>Dimension</th>
+<th>Score (1–5)</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cloud Adoption</td>
+<td>2.5</td>
+<td>Zoho suite is cloud-based; most data still in local spreadsheets</td>
+</tr>
+<tr>
+<td>System Integration</td>
+<td>1.0</td>
+<td>Zoho WMS abandoned and disconnected from Books; Sheets disconnected from everything</td>
+</tr>
+<tr>
+<td>Data Accessibility</td>
+<td>1.5</td>
+<td>Data trapped in 30+ spreadsheets and personal devices</td>
+</tr>
+<tr>
+<td>Process Digitization</td>
+<td>1.5</td>
+<td>Paper POs, WhatsApp photos, paper field diaries (BD-B2B/RCM)</td>
+</tr>
+<tr>
+<td>Reporting Capability</td>
+<td>1.0</td>
+<td>No live dashboards across any department; manual month-end compilation</td>
+</tr>
+<tr>
+<td>API Readiness</td>
+<td>1.5</td>
+<td>Zoho has APIs but none are utilized; no RCM ERP integration</td>
+</tr>
+<tr>
+<td><strong>Digital Maturity Index</strong></td>
+<td><strong>1.5 — Emerging</strong></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="EF Polymers — Current Technology Ecosystem" src="viz_charts/viz_6_block.png" /></p>
+<h3>9.3 Key Technology Gaps</h3>
+<table>
+<thead>
+<tr>
+<th>Gap</th>
+<th>Impacted Departments</th>
+<th>Recommended Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>No CRM</strong></td>
+<td>All BD, MENA, Marketing, CBDO, COO</td>
+<td>Custom React JS CRM (unified across all verticals)</td>
+</tr>
+<tr>
+<td><strong>No real-time inventory visibility</strong></td>
+<td>Production, Accounts, Logistics</td>
+<td>Production Ops Dashboard with live stock view</td>
+</tr>
+<tr>
+<td><strong>No structured order intake</strong></td>
+<td>Logistics, All BD</td>
+<td>Digital order form integrated into Logistics dashboard</td>
+</tr>
+<tr>
+<td><strong>Disconnected invoicing &amp; shipping</strong></td>
+<td>Logistics</td>
+<td>Logistics Unified Dashboard linking Zoho Books + tracking</td>
+</tr>
+<tr>
+<td><strong>No automated field tracking</strong></td>
+<td>Marketing/Retail, COO</td>
+<td>WhatsApp Bot with auto-attendance &amp; data extraction</td>
+</tr>
+<tr>
+<td><strong>No knowledge base</strong></td>
+<td>R&amp;D, BD-Seed, All BD</td>
+<td>Centralized R&amp;D SSOT with chatbot interface</td>
+</tr>
+<tr>
+<td><strong>No unified ATS</strong></td>
+<td>HR</td>
+<td>AI-powered ATS with multi-platform aggregation</td>
+</tr>
+<tr>
+<td><strong>No marketing analytics</strong></td>
+<td>Marketing, BD-Cocopeat</td>
+<td>MIS Sales Dashboard with Zoho Books integration</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>10. Data Flow &amp; Governance Assessment</h2>
+<h3>10.1 Data Flow Architecture (Current State)</h3>
+<p><img alt="EF Polymers — Data Flow Architecture (Current State)" src="viz_charts/viz_7_sankey.png" /></p>
+<h3>10.2 Source of Truth Analysis</h3>
+<table>
+<thead>
+<tr>
+<th>Data Domain</th>
+<th>Intended SoT</th>
+<th>Actual SoT</th>
+<th>Conflict</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Customer Master</strong></td>
+<td>Zoho Books</td>
+<td>Scattered across BD spreadsheets, WhatsApp, email</td>
+<td><b>WARNING:</b> Multiple competing sources</td>
+</tr>
+<tr>
+<td><strong>Inventory/Stock</strong></td>
+<td>Zoho Inventory / WMS</td>
+<td>5+ Google Sheets; Production Manager's knowledge; Zoho WMS abandoned</td>
+<td><b>WARNING:</b> No real-time source</td>
+</tr>
+<tr>
+<td><strong>Sales Pipeline</strong></td>
+<td>None designated</td>
+<td>5+ separate department spreadsheets; 4 sequential Sheets for NGO/CSR alone</td>
+<td><b>WARNING:</b> No SoT exists</td>
+</tr>
+<tr>
+<td><strong>Financial (COGS)</strong></td>
+<td>Zoho Books</td>
+<td>Manual spreadsheet averaging; no WIP or grade-based costing</td>
+<td><b>WARNING:</b> Unreliable SoT</td>
+</tr>
+<tr>
+<td><strong>R&amp;D Trial Data</strong></td>
+<td>Google Drive</td>
+<td>8–10 disconnected Excel files</td>
+<td><b>WARNING:</b> Fragmented SoT</td>
+</tr>
+<tr>
+<td><strong>Logistics/Dispatch</strong></td>
+<td>Zoho Books</td>
+<td>Parallel manual tracking spreadsheet; double data entry per shipment</td>
+<td><b>WARNING:</b> Dual systems</td>
+</tr>
+<tr>
+<td><strong>Field Compliance</strong></td>
+<td>Field tracking app</td>
+<td>WhatsApp location shares; manual 3×/day extraction by Kamakshi</td>
+<td><b>WARNING:</b> Parallel tracking</td>
+</tr>
+<tr>
+<td><strong>Farmer/Pradhan Data</strong></td>
+<td>None designated</td>
+<td>Manual Google Sheets on Drive; paper diaries for B2B/RCM field training</td>
+<td><b>WARNING:</b> No SoT exists; data loss risk</td>
+</tr>
+<tr>
+<td><strong>Tertiary Sales (RCM)</strong></td>
+<td>RCM's ERP</td>
+<td>No data access; only reactive 40kg depot threshold alerts</td>
+<td><b>WARNING:</b> Complete blind spot</td>
+</tr>
+<tr>
+<td><strong>Recruitment Pipeline</strong></td>
+<td>None designated</td>
+<td>6+ platforms tracked on disconnected Google Sheets</td>
+<td><b>WARNING:</b> No SoT exists</td>
+</tr>
+</tbody>
+</table>
+<h3>10.3 Data Quality Score</h3>
+<table>
+<thead>
+<tr>
+<th>Dimension</th>
+<th>Score (1–5)</th>
+<th>Key Issues</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Accuracy</td>
+<td>2.0</td>
+<td>COGS volatility; manual transcription errors from WhatsApp and paper diaries</td>
+</tr>
+<tr>
+<td>Completeness</td>
+<td>1.5</td>
+<td>Missing fields in 70–80% of order intakes; no tertiary sales data; no trial cost tracking</td>
+</tr>
+<tr>
+<td>Consistency</td>
+<td>1.0</td>
+<td>Same data entered differently across spreadsheets; customer data duplicated across departments</td>
+</tr>
+<tr>
+<td>Timeliness</td>
+<td>1.5</td>
+<td>Retrospective monthly reporting only; no real-time dashboards; manual month-end aggregation</td>
+</tr>
+<tr>
+<td>Uniqueness</td>
+<td>1.5</td>
+<td>Customer and vendor data duplicated across departments; farmer records on multiple sheets</td>
+</tr>
+<tr>
+<td><strong>Overall Data Quality</strong></td>
+<td><strong>1.5</strong></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>11. Workflow Bottleneck Analysis</h2>
+<h3>11.1 End-to-End Order Fulfillment (Current State)</h3>
+<p><img alt="Order Fulfillment Process Flowchart (Current State)" src="viz_charts/viz_12_workflow.png" /></p>
+<h3>11.2 Identified Bottlenecks</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Bottleneck</th>
+<th>Location in Workflow</th>
+<th>Estimated Time Waste</th>
+<th>Root Cause</th>
+<th>Department Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>B01</td>
+<td>Incomplete order data from WhatsApp</td>
+<td>Order Intake</td>
+<td>10–25 min per order</td>
+<td>No structured intake form</td>
+<td>Logistics</td>
+</tr>
+<tr>
+<td>B02</td>
+<td>Manual stock verification phone calls</td>
+<td>Pre-Invoicing</td>
+<td>10–15 min per invoice</td>
+<td>No live inventory visibility</td>
+<td>Accounts, Production</td>
+</tr>
+<tr>
+<td>B03</td>
+<td>Manual GST/GSTIN data lookup</td>
+<td>Invoicing</td>
+<td>5–10 min per new customer</td>
+<td>No shared customer master</td>
+<td>Accounts</td>
+</tr>
+<tr>
+<td>B04</td>
+<td>Disconnected logistics tracking</td>
+<td>Post-Dispatch</td>
+<td>Double entry per shipment</td>
+<td>Zoho Books ↔ Sheets disconnect</td>
+<td>Logistics</td>
+</tr>
+<tr>
+<td>B05</td>
+<td>Manual WhatsApp data extraction &amp; field tracking</td>
+<td>Sales Monitoring</td>
+<td>6–8 hours/day</td>
+<td>No automated extraction or geo-tracking</td>
+<td>Marketing</td>
+</tr>
+<tr>
+<td>B06</td>
+<td>Manual target vs. actual reconciliation</td>
+<td>Sales Reporting</td>
+<td>3–4 hours/week</td>
+<td>Zoho Books reports value not volume</td>
+<td>Accounts, Marketing</td>
+</tr>
+<tr>
+<td>B07</td>
+<td>Paper PO → manual entry</td>
+<td>Field Sales</td>
+<td>15–20 min per PO</td>
+<td>No digital PO creation</td>
+<td>Marketing</td>
+</tr>
+<tr>
+<td>B08</td>
+<td>WhatsApp-based payment confirmation</td>
+<td>Payment Clearance</td>
+<td>10–20 min per payment</td>
+<td>No automated bank alerts</td>
+<td>Marketing, Accounts</td>
+</tr>
+<tr>
+<td>B09</td>
+<td>Manual R&amp;D data extraction for proposals</td>
+<td>BD Proposal Creation</td>
+<td>1–2.5 days per proposal</td>
+<td>Trial data across 8–10 unstructured files</td>
+<td>BD-Seed, BD-NGO/CSR</td>
+</tr>
+<tr>
+<td>B10</td>
+<td>Manual email-by-email cold outreach</td>
+<td>BD Lead Generation</td>
+<td>Hours/day per BD exec</td>
+<td>No email automation; domain blacklisting risk</td>
+<td>BD-Cocopeat, BD-NGO/CSR</td>
+</tr>
+<tr>
+<td>B11</td>
+<td>Paper-based field data capture &amp; transcription</td>
+<td>Field Operations</td>
+<td>Significant time per entry</td>
+<td>Physical diaries → manual Excel transcription</td>
+<td>BD-B2B/RCM</td>
+</tr>
+<tr>
+<td>B12</td>
+<td>Manual dunning for extended receivables</td>
+<td>Post-Sale Collections</td>
+<td>15–20% of AM-BD Lead time</td>
+<td>60–70 day NGO payment cycle; no Finance integration</td>
+<td>BD-NGO/CSR</td>
+</tr>
+<tr>
+<td>B13</td>
+<td>Multi-platform recruitment sourcing</td>
+<td>HR Pipeline</td>
+<td>6+ platform switching; 10 min/candidate manual review</td>
+<td>No unified ATS</td>
+<td>HR</td>
+</tr>
+<tr>
+<td>B14</td>
+<td>COO communication saturation</td>
+<td>Executive Operations</td>
+<td>50–80 emails/day; 100+ expenses</td>
+<td>No unified approval dashboard</td>
+<td>COO Office</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Order Fulfillment — Time Waste Analysis" src="viz_charts/viz_8_funnel.png" /></p>
+<hr />
+<h2>12. AI &amp; Automation Readiness Assessment</h2>
+<h3>12.1 Automation Readiness by Workflow</h3>
+<table>
+<thead>
+<tr>
+<th>Workflow</th>
+<th>Manual Effort</th>
+<th>Frequency</th>
+<th>Rule-Based</th>
+<th>Automation Classification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Order intake data capture</td>
+<td>High</td>
+<td>Daily</td>
+<td>Yes</td>
+<td><b>[OK]</b> Automate After Standardization</td>
+</tr>
+<tr>
+<td>Invoice generation from PO</td>
+<td>Medium</td>
+<td>Daily</td>
+<td>Yes</td>
+<td><b>[OK]</b> Automate Immediately (Zoho workflow)</td>
+</tr>
+<tr>
+<td>Stock availability check</td>
+<td>High</td>
+<td>Per-invoice</td>
+<td>Yes</td>
+<td><b>[OK]</b> Automate Immediately (dashboard)</td>
+</tr>
+<tr>
+<td>GST/TDS reconciliation</td>
+<td>Very High</td>
+<td>Monthly</td>
+<td>Partially</td>
+<td><b>[OK]</b> Automate After Standardization</td>
+</tr>
+<tr>
+<td>Field force geo-tracking &amp; data extraction</td>
+<td>Very High</td>
+<td>3×/day</td>
+<td>Yes</td>
+<td><b>[OK]</b> Automate Immediately (WhatsApp Bot)</td>
+</tr>
+<tr>
+<td>Payment confirmation alerts</td>
+<td>Medium</td>
+<td>Per-payment</td>
+<td>Yes</td>
+<td><b>[OK]</b> Automate Immediately (Zoho Books API)</td>
+</tr>
+<tr>
+<td>Cold email outreach</td>
+<td>High</td>
+<td>Daily</td>
+<td>Yes</td>
+<td><b>[OK]</b> Automate Immediately (email platform)</td>
+</tr>
+<tr>
+<td>Lead follow-up reminders</td>
+<td>High</td>
+<td>Every 4–5 days</td>
+<td>Yes</td>
+<td><b>[OK]</b> Automate Immediately (CRM)</td>
+</tr>
+<tr>
+<td>Sales target vs. actuals</td>
+<td>High</td>
+<td>Monthly</td>
+<td>Yes</td>
+<td><b>[OK]</b> Automate After Standardization</td>
+</tr>
+<tr>
+<td>R&amp;D data aggregation</td>
+<td>Medium</td>
+<td>Monthly</td>
+<td>Partially</td>
+<td><b>[OK]</b> Automate After Standardization</td>
+</tr>
+<tr>
+<td>WhatsApp data extraction (Marketing)</td>
+<td>Very High</td>
+<td>Daily</td>
+<td>Partially</td>
+<td><b>[OK]</b> Automate Immediately (WhatsApp Bot)</td>
+</tr>
+<tr>
+<td>Paper diary transcription (BD-B2B/RCM)</td>
+<td>High</td>
+<td>Daily</td>
+<td>Yes</td>
+<td><b>[OK]</b> Automate Immediately (offline mobile forms)</td>
+</tr>
+<tr>
+<td>Recruitment screening</td>
+<td>High</td>
+<td>Daily</td>
+<td>Partially</td>
+<td><b>[OK]</b> Automate Immediately (AI ATS)</td>
+</tr>
+<tr>
+<td>NGO receivables dunning</td>
+<td>Medium</td>
+<td>Per-invoice (30/45/60 day)</td>
+<td>Yes</td>
+<td><b>[OK]</b> Automate Immediately (Finance integration)</td>
+</tr>
+<tr>
+<td>Board report compilation</td>
+<td>High</td>
+<td>Monthly</td>
+<td>Partially</td>
+<td><b>MONITOR:</b> Monitor</td>
+</tr>
+</tbody>
+</table>
+<h3>12.2 AI Opportunity Register</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Opportunity</th>
+<th>Department</th>
+<th>AI Use Case</th>
+<th>Readiness</th>
+<th>Expected Impact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AI-01</td>
+<td><strong>R&amp;D SSOT Chatbot</strong></td>
+<td>R&amp;D, All BD</td>
+<td>Centralized trial database with AI-powered search; auto-generates pitch-ready case-study cards</td>
+<td><font color='orange'><b>MEDIUM</b></font> Ready with Constraints (data must be consolidated first)</td>
+<td>Reduce proposal time from 1–2.5 days to hours; eliminate redundant testing</td>
+</tr>
+<tr>
+<td>AI-02</td>
+<td><strong>AI Lead Discovery &amp; Enrichment</strong></td>
+<td>All BD, MENA</td>
+<td>AI-powered company profiling, LinkedIn feed scanning, and contact enrichment</td>
+<td><font color='green'><b>LOW / OK</b></font> Ready</td>
+<td>Replace manual Google/ChatGPT sourcing and LinkedIn feed scrolling</td>
+</tr>
+<tr>
+<td>AI-03</td>
+<td><strong>AI Proposal Drafting Engine</strong></td>
+<td>BD-NGO/CSR, BD-Seed</td>
+<td>Gemini-based assistant that reads past proposals and generates customized first drafts</td>
+<td><font color='orange'><b>MEDIUM</b></font> Ready with Constraints (templates needed)</td>
+<td>Reduce proposal time from 1–2.5 days to hours; eliminate per-NGO custom rebuild</td>
+</tr>
+<tr>
+<td>AI-04</td>
+<td><strong>WhatsApp Community Bot</strong></td>
+<td>BD-B2B/RCM, Marketing</td>
+<td>Automated FAQ handling, QC feedback polls, retargeting of 90% (1,800) inactive contacts</td>
+<td><font color='orange'><b>MEDIUM</b></font> Ready with Constraints</td>
+<td>Reduce community drop-off; capture structured data from 2,000+ contacts</td>
+</tr>
+<tr>
+<td>AI-05</td>
+<td><strong>WhatsApp Data Extraction Bot</strong></td>
+<td>Marketing/Retail</td>
+<td>Auto-extract CRM data (farmer name, contact, district, problem, product) from group messages into Sheets</td>
+<td><font color='green'><b>LOW / OK</b></font> Ready</td>
+<td>Eliminate 6–8 hrs/day of manual extraction by Kamakshi</td>
+</tr>
+<tr>
+<td>AI-06</td>
+<td><strong>AI Recruitment Screening</strong></td>
+<td>HR</td>
+<td>AI pre-screening layer matching candidate profiles against JD criteria across 6+ platforms</td>
+<td><font color='green'><b>LOW / OK</b></font> Ready</td>
+<td>Reduce manual 10 min/candidate review; re-engage past candidates for similar roles</td>
+</tr>
+<tr>
+<td>AI-07</td>
+<td><strong>Demand Forecasting</strong></td>
+<td>Production, BD-B2B/RCM</td>
+<td>Predictive inventory planning from historical sales data</td>
+<td><font color='red'><b>CRITICAL</b></font> Not Ready (no clean historical data)</td>
+<td>Reduce surplus packaging and overtime cost bleed</td>
+</tr>
+<tr>
+<td>AI-08</td>
+<td><strong>COGS Anomaly Detection</strong></td>
+<td>Finance &amp; Accounts</td>
+<td>AI exception flagging for GST/TDS reconciliation and cost fluctuations</td>
+<td><font color='orange'><b>MEDIUM</b></font> Ready with Constraints (need clean data first)</td>
+<td>Eliminate 1–2 months of manual reconciliation</td>
+</tr>
+<tr>
+<td>AI-09</td>
+<td><strong>HR Policy Assistant</strong></td>
+<td>HR</td>
+<td>AI-powered policy knowledge system for self-serve employee queries</td>
+<td><font color='orange'><b>MEDIUM</b></font> Ready with Constraints (policies need digitization)</td>
+<td>Reduce repetitive policy queries consuming HR bandwidth</td>
+</tr>
+</tbody>
+</table>
+<h3>12.3 AI Readiness Summary</h3>
+<table>
+<thead>
+<tr>
+<th>Dimension</th>
+<th>Score (1–5)</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Data Availability</td>
+<td>1.5</td>
+<td>Data exists but is fragmented across 30+ spreadsheets</td>
+</tr>
+<tr>
+<td>Data Quality</td>
+<td>1.5</td>
+<td>Inconsistent, duplicated, manually entered</td>
+</tr>
+<tr>
+<td>Process Standardization</td>
+<td>1.5</td>
+<td>Workflows are not standardized enough for reliable automation</td>
+</tr>
+<tr>
+<td>Decision Standardization</td>
+<td>2.0</td>
+<td>Some rule-based decisions (QC, order routing) are standardizable</td>
+</tr>
+<tr>
+<td>Human Oversight Readiness</td>
+<td>3.0</td>
+<td>Leadership receptive; CBDO has prioritized CRM</td>
+</tr>
+<tr>
+<td>Governance</td>
+<td>1.0</td>
+<td>No data governance, no AI policies</td>
+</tr>
+<tr>
+<td><strong>Overall AI Readiness</strong></td>
+<td><strong>1.6 — Not Ready</strong></td>
+<td>Process standardization and data consolidation must precede AI</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Recommendation:</strong> AI initiatives should NOT be prioritized before the operational foundations (CRM, data consolidation, process standardization) are in place. Each department's solution roadmap builds the data infrastructure that makes future AI layers viable.</p>
+</blockquote>
+<hr />
+<h2>13. Strategic Recommendations</h2>
+<blockquote>
+<p><strong>Design Principle:</strong> Where multiple departments share the same core problem, the solution is proposed once as a unified platform solving all department-specific use cases. For example, the Custom React CRM is a single build serving all BD verticals, MENA, Marketing, and CBDO — not separate tools per department.</p>
+</blockquote>
+<h3>13.1 Tier 1 — Foundational Solutions (Common Platforms)</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Solution</th>
+<th>Type</th>
+<th>Departments Served</th>
+<th>Problems Solved</th>
+<th>Priority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>S01</td>
+<td><strong>Custom React JS CRM &amp; Pipeline Dashboard</strong> — Unified platform across all BD verticals, MENA, Marketing, and CBDO</td>
+<td>Technology</td>
+<td>CBDO, BD-Cocopeat, BD-Seed, BD-NGO/CSR, BD-Government, BD-B2B/RCM, MENA, Marketing, COO, CEO</td>
+<td>R01 (No CRM), R05 (solo BD-Seed visibility), R15 (receivables dunning via Finance integration), B09 (proposal bottleneck via R&amp;D data integration), B10 (cold outreach via email automation), B12 (manual dunning). Provides: centralized pipeline, automated follow-up cadences, sowing-window SLA alerts, deal-stage visibility, leadership dashboards, customer master database, automated WhatsApp broadcasts.</td>
+<td><font color='red'><b>CRITICAL</b></font></td>
+</tr>
+<tr>
+<td>S02</td>
+<td><strong>Production Ops Dashboard</strong> — Real-time inventory, vendor directory, and overtime tracking</td>
+<td>Technology</td>
+<td>Production &amp; QC, Accounts, Logistics, All BD</td>
+<td>R07 (scattered inventory data), R02 (COGS volatility via WIP visibility), B02 (manual stock verification). Provides: live stock view for CXOs and Accounts, centralized vendor directory, overtime cost tracking for COGS, custom packaging MOQ management.</td>
+<td><font color='red'><b>CRITICAL</b></font></td>
+</tr>
+<tr>
+<td>S03</td>
+<td><strong>Logistics Unified Dashboard</strong> — Structured order intake, dispatch tracking, and carrier visibility</td>
+<td>Technology</td>
+<td>Logistics, All BD, Accounts, MENA</td>
+<td>R09 (incomplete WhatsApp orders), R10 (disconnected invoicing &amp; shipping), R04 (logistics key-person dependency via process standardization). Provides: structured digital order intake form, Zoho Books integration, carrier/vessel tracking, export priority routing for MENA, customs documentation automation.</td>
+<td><font color='red'><b>CRITICAL</b></font></td>
+</tr>
+<tr>
+<td>S04</td>
+<td><strong>Finance Automation Module</strong> — GST/TDS AI reconciliation, WIP costing, real-time CXO dashboards</td>
+<td>Technology / Process</td>
+<td>Finance &amp; Accounts, CEO, COO</td>
+<td>R02 (COGS volatility), R12 (manual GST/TDS reconciliation), B06 (manual target vs. actual). Provides: AI exception flagging for tax reconciliation, grade-based WIP costing methodology, Zoho Books asset register activation, real-time P&amp;L and budget dashboards for CXOs.</td>
+<td><font color='red'><b>CRITICAL</b></font></td>
+</tr>
+</tbody>
+</table>
 
-    <div id="footer_content">
-        EF Polymers Operational Audit Report &mdash; Page <pdf:pagenumber> of <pdf:pagecount>
-    </div>
+<h3>13.2 Tier 2 — Department-Specific Solutions</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Solution</th>
+<th>Type</th>
+<th>Departments Served</th>
+<th>Problems Solved</th>
+<th>Priority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>S05</td>
+<td><strong>WhatsApp Bot — Marketing &amp; Retail</strong> — Auto-extracts CRM data, auto-marks attendance, replaces manual 6–8 hr/day extraction</td>
+<td>AI / Automation</td>
+<td>Marketing &amp; Retail Sales, COO</td>
+<td>R06 (WhatsApp overload), B05 (manual field tracking), B07 (paper PO). Provides: real-time CRM data extraction from WhatsApp groups, auto-attendance marking via location detection, digital PO form for field salesmen.</td>
+<td><font color='red'><b>CRITICAL</b></font></td>
+</tr>
+<tr>
+<td>S06</td>
+<td><strong>R&amp;D SSOT &amp; Knowledge Database</strong> — Centralized trial data with AI chatbot interface for all departments</td>
+<td>Technology / AI</td>
+<td>R&amp;D, BD-Seed, BD-NGO/CSR, MENA, All BD</td>
+<td>R11 (scattered R&amp;D data), R03 (key-person dependency via delegated data access), B09 (proposal bottleneck). Provides: unified trial database, pitch-ready case-study cards, AI search across trial data/QC results, standardized R&amp;D request intake form.</td>
+<td><font color='orange'><b>HIGH</b></font></td>
+</tr>
+<tr>
+<td>S07</td>
+<td><strong>Digital Field Operations — BD-B2B/RCM</strong> — Offline mobile forms, WhatsApp Business API migration, AI community bot</td>
+<td>Technology / AI</td>
+<td>BD-B2B/RCM</td>
+<td>R13 (tertiary sales invisibility via RCM ERP integration), R14 (personal WhatsApp risk), B11 (paper diary transcription). Provides: offline mobile forms replacing paper diaries, company-owned virtual business lines, AI WhatsApp bot for community retargeting.</td>
+<td><font color='orange'><b>HIGH</b></font></td>
+</tr>
+<tr>
+<td>S08</td>
+<td><strong>HR ATS &amp; Admin Operations Portal</strong> — Unified recruitment tracking, AI screening, admin ticket system</td>
+<td>Technology / AI</td>
+<td>HR &amp; Talent Management, All Departments</td>
+<td>R16 (no unified ATS), B13 (multi-platform sourcing). Provides: centralized ATS aggregating 6+ platforms, AI pre-screening against JD criteria, admin ticket tracking dashboard, L&amp;D training request portal, AI policy assistant.</td>
+<td><font color='orange'><b>HIGH</b></font></td>
+</tr>
+<tr>
+<td>S09</td>
+<td><strong>MENA Ops &amp; Finance Automation</strong> — Zoho Books payment alerts, logistics dispatch scheduler, virtual business number</td>
+<td>Integration</td>
+<td>MENA &amp; International Sales, Logistics, Accounts</td>
+<td>R04 (shared logistics constraint), R14 (personal SIM/WeChat risk). Provides: automated cross-border remittance alerts, export vs. domestic dispatch scheduling, company-owned virtual business lines for Middle East and China accounts.</td>
+<td><font color='orange'><b>HIGH</b></font></td>
+</tr>
+<tr>
+<td>S10</td>
+<td><strong>BD-Government Operations Command Centre</strong> — Task board, PO/invoice flow, field media automation, farmer/Pradhan CRM</td>
+<td>Technology</td>
+<td>BD-Government</td>
+<td>WhatsApp task management, manual operations handoffs, manual ground media sync, no logistics visibility, no farmer/Pradhan database. Provides: persistent task board, unified PO/invoice flow, mobile photo upload forms, auto-sync calendar for remote field teams.</td>
+<td><font color='orange'><b>MEDIUM</b></font></td>
+</tr>
+<tr>
+<td>S11</td>
+<td><strong>COO Operations Dashboard</strong> — Unified approval workflow, consolidated oversight across all departments</td>
+<td>Technology</td>
+<td>COO Office, All Departments</td>
+<td>B14 (communication saturation), manual board prep. Provides: consolidated approval dashboard for expenses/offers/travel, real-time department KPIs, automated board report compilation.</td>
+<td><font color='orange'><b>MEDIUM</b></font></td>
+</tr>
+</tbody>
+</table>
+
+<h3>13.3 Tier 3 — Governance &amp; Policy</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Recommendation</th>
+<th>Type</th>
+<th>Departments Served</th>
+<th>Priority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>S12</td>
+<td><strong>Establish device/SIM ownership policy</strong> — Company-owned virtual business numbers for all customer-facing roles</td>
+<td>Governance</td>
+<td>BD-B2B/RCM, MENA, BD-NGO/CSR, All BD</td>
+<td><font color='orange'><b>HIGH</b></font></td>
+</tr>
+<tr>
+<td>S13</td>
+<td><strong>Formalize single reporting line for BD-Seed</strong> — Resolve dual COO/CBDO reporting</td>
+<td>Governance</td>
+<td>BD-Seed, COO, CBDO</td>
+<td><font color='orange'><b>MEDIUM</b></font></td>
+</tr>
+<tr>
+<td>S14</td>
+<td><strong>Legacy team change management strategy</strong> — Structured training and champion model for CRM rollout</td>
+<td>Change Mgmt</td>
+<td>CBDO, All BD</td>
+<td><font color='red'><b>CRITICAL</b></font></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>14. Transformation Roadmap</h2>
+<h3>14.1 Phased Timeline</h3>
+<p><img alt="EF Polymers — 12-Month Transformation Roadmap" src="viz_charts/viz_9_gantt.png" /></p>
+<h3>14.2 Initiative Priority Matrix</h3>
+<table>
+<thead>
+<tr>
+<th>Initiative</th>
+<th>Business Value</th>
+<th>Urgency</th>
+<th>Effort</th>
+<th>Risk Reduction</th>
+<th>Strategic Alignment</th>
+<th>Overall Priority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>S01: Custom React CRM</td>
+<td>10</td>
+<td>10</td>
+<td>7</td>
+<td>10</td>
+<td>10</td>
+<td><strong>P1 — Critical</strong></td>
+</tr>
+<tr>
+<td>S02: Production Ops Dashboard</td>
+<td>9</td>
+<td>9</td>
+<td>5</td>
+<td>8</td>
+<td>8</td>
+<td><strong>P1 — Critical</strong></td>
+</tr>
+<tr>
+<td>S03: Logistics Unified Dashboard</td>
+<td>8</td>
+<td>9</td>
+<td>5</td>
+<td>8</td>
+<td>8</td>
+<td><strong>P1 — Critical</strong></td>
+</tr>
+<tr>
+<td>S04: Finance Automation Module</td>
+<td>9</td>
+<td>8</td>
+<td>6</td>
+<td>9</td>
+<td>9</td>
+<td><strong>P1 — Critical</strong></td>
+</tr>
+<tr>
+<td>S05: WhatsApp Bot (Marketing)</td>
+<td>8</td>
+<td>9</td>
+<td>5</td>
+<td>8</td>
+<td>7</td>
+<td><strong>P1 — Critical</strong></td>
+</tr>
+<tr>
+<td>S06: R&amp;D SSOT &amp; Knowledge DB</td>
+<td>8</td>
+<td>7</td>
+<td>6</td>
+<td>8</td>
+<td>8</td>
+<td><strong>P2 — High</strong></td>
+</tr>
+<tr>
+<td>S07: BD-B2B/RCM Digital Ops</td>
+<td>7</td>
+<td>7</td>
+<td>5</td>
+<td>8</td>
+<td>7</td>
+<td><strong>P2 — High</strong></td>
+</tr>
+<tr>
+<td>S08: HR ATS &amp; Admin Portal</td>
+<td>7</td>
+<td>6</td>
+<td>5</td>
+<td>6</td>
+<td>7</td>
+<td><strong>P2 — High</strong></td>
+</tr>
+<tr>
+<td>S09: MENA Ops Automation</td>
+<td>7</td>
+<td>7</td>
+<td>4</td>
+<td>7</td>
+<td>7</td>
+<td><strong>P2 — High</strong></td>
+</tr>
+<tr>
+<td>S10: BD-Government Ops Centre</td>
+<td>6</td>
+<td>5</td>
+<td>5</td>
+<td>6</td>
+<td>6</td>
+<td><strong>P2 — Medium</strong></td>
+</tr>
+<tr>
+<td>S11: COO Operations Dashboard</td>
+<td>7</td>
+<td>6</td>
+<td>5</td>
+<td>6</td>
+<td>7</td>
+<td><strong>P2 — Medium</strong></td>
+</tr>
+<tr>
+<td>S12: Device/SIM Policy</td>
+<td>6</td>
+<td>6</td>
+<td>2</td>
+<td>7</td>
+<td>5</td>
+<td><strong>P2 — Quick Win</strong></td>
+</tr>
+<tr>
+<td>S13: Reporting Line Alignment</td>
+<td>4</td>
+<td>5</td>
+<td>1</td>
+<td>4</td>
+<td>5</td>
+<td><strong>P2 — Quick Win</strong></td>
+</tr>
+<tr>
+<td>S14: Legacy Change Management</td>
+<td>8</td>
+<td>9</td>
+<td>4</td>
+<td>7</td>
+<td>8</td>
+<td><strong>P1 — Critical</strong></td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Initiative Prioritization — Impact vs. Effort" src="viz_charts/viz_10_prioritization.png" /></p>
+<h3>14.3 Success Metrics</h3>
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>KPI</th>
+<th>Baseline (Current)</th>
+<th>Target (Post-Phase)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Phase 1</strong></td>
+<td>Order intake time per order</td>
+<td>10–25 min (chasing missing data)</td>
+<td>&lt;2 min (structured form)</td>
+</tr>
+<tr>
+<td><strong>Phase 1</strong></td>
+<td>Manual stock-check calls/day</td>
+<td>10–15 calls</td>
+<td>0 (live dashboard)</td>
+</tr>
+<tr>
+<td><strong>Phase 1</strong></td>
+<td>WhatsApp manual data extraction hours/day</td>
+<td>6–8 hrs (Kamakshi)</td>
+<td>0 (WhatsApp Bot)</td>
+</tr>
+<tr>
+<td><strong>Phase 1</strong></td>
+<td>Pipeline visibility (% leads tracked in CRM)</td>
+<td>0%</td>
+<td>100%</td>
+</tr>
+<tr>
+<td><strong>Phase 2</strong></td>
+<td>COGS variance month-to-month</td>
+<td>Untraceable volatility</td>
+<td>±5% (grade-based WIP costing)</td>
+</tr>
+<tr>
+<td><strong>Phase 2</strong></td>
+<td>GST reconciliation time</td>
+<td>1–2 months</td>
+<td>2–3 days (AI exception flagging)</td>
+</tr>
+<tr>
+<td><strong>Phase 2</strong></td>
+<td>Proposal creation time (BD-Seed/NGO)</td>
+<td>1–2.5 days</td>
+<td>Hours (AI drafting engine)</td>
+</tr>
+<tr>
+<td><strong>Phase 2</strong></td>
+<td>Recruitment closing rate</td>
+<td>30–45 days</td>
+<td>&lt;20 days (AI screening + unified ATS)</td>
+</tr>
+<tr>
+<td><strong>Phase 3</strong></td>
+<td>NGO receivables dunning effort</td>
+<td>15–20% of AM-BD Lead time</td>
+<td>&lt;5% (automated Finance integration)</td>
+</tr>
+<tr>
+<td><strong>Phase 3</strong></td>
+<td>Community engagement rate (BD-B2B/RCM)</td>
+<td>10% (200/2000)</td>
+<td>30%+ (AI WhatsApp bot)</td>
+</tr>
+<tr>
+<td><strong>Phase 3</strong></td>
+<td>R&amp;D query turnaround</td>
+<td>1–4 hours (manual extraction)</td>
+<td>&lt;30 min (SSOT chatbot)</td>
+</tr>
+</tbody>
+</table>
+<h3>14.4 Governance &amp; Change Management</h3>
+<table>
+<thead>
+<tr>
+<th>Element</th>
+<th>Recommendation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Executive Sponsor</strong></td>
+<td>COO (Puran Singh Rajput) for operational initiatives; CBDO (Ankit Jain) for CRM and sales</td>
+</tr>
+<tr>
+<td><strong>Program Manager</strong></td>
+<td>Dedicated transformation lead (external or internal appointment recommended)</td>
+</tr>
+<tr>
+<td><strong>Steering Cadence</strong></td>
+<td>Bi-weekly executive review for Phase 1–2; monthly for Phase 3–4</td>
+</tr>
+<tr>
+<td><strong>Change Management</strong></td>
+<td>Department-level training plans per tool rollout; champion model (1 power user per department); dedicated strategy for legacy team resistance (flagged critical by CBDO audit)</td>
+</tr>
+<tr>
+<td><strong>Risk Monitoring</strong></td>
+<td>Monthly risk review against this report's register (R01–R16)</td>
+</tr>
+<tr>
+<td><strong>Budget Model</strong></td>
+<td>Prioritize existing Zoho ecosystem to minimize new licensing; phased investment aligned to quarterly revenue cycles</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>15. Appendix: Audit Coverage Matrix</h2>
+<h3>15.1 Departments Audited</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Department</th>
+<th>Stakeholder Interviewed</th>
+<th>Audit File</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>CEO Office</td>
+<td>Narayan Lal Gurjar (CEO)</td>
+<td><code>01-ceo-report-final.html</code></td>
+</tr>
+<tr>
+<td>2</td>
+<td>COO Office (Operations)</td>
+<td>Puran Singh Rajput (COO)</td>
+<td><code>02-operations-coo-office.html</code></td>
+</tr>
+<tr>
+<td>3</td>
+<td>CBDO Office (Sales &amp; BD)</td>
+<td>Ankit Jain (CBDO / Co-Founder)</td>
+<td><code>03-sales-bd-cbdo-office.html</code></td>
+</tr>
+<tr>
+<td>4</td>
+<td>BD — Cocopeat</td>
+<td>Mohit Kumar Gupta (BD Executive)</td>
+<td><code>04a-bd-cocopeat.html</code></td>
+</tr>
+<tr>
+<td>5</td>
+<td>BD — Seed</td>
+<td>Sameer Mahiskar (BD Manager)</td>
+<td><code>04b-bd-seed.html</code></td>
+</tr>
+<tr>
+<td>6</td>
+<td>BD — NGO/CSR</td>
+<td>Gaurav Dwivedi (BD Executive)</td>
+<td><code>04c-bd-ngo-csr.html</code></td>
+</tr>
+<tr>
+<td>7</td>
+<td>BD — Government</td>
+<td>Shailendra Singh (BD Head — Govt)</td>
+<td><code>04d-bd-government.html</code></td>
+</tr>
+<tr>
+<td>8</td>
+<td>BD — B2B/RCM</td>
+<td>Jatin Jain (AM-BD)</td>
+<td><code>04e-bd-b2b-rcm.html</code></td>
+</tr>
+<tr>
+<td>9</td>
+<td>MENA &amp; International Sales</td>
+<td>Neha Pathak (BD Manager)</td>
+<td><code>05-mena-international-sales.html</code></td>
+</tr>
+<tr>
+<td>10</td>
+<td>Finance &amp; Accounts</td>
+<td>Shobha Shekhawat (Finance Head)</td>
+<td><code>06-finance-accounts.html</code></td>
+</tr>
+<tr>
+<td>11</td>
+<td>Marketing &amp; Retail Sales</td>
+<td>Gaurav Jain (Department Lead)</td>
+<td><code>07-marketing-retail-sales.html</code></td>
+</tr>
+<tr>
+<td>12</td>
+<td>Production &amp; QC</td>
+<td>Rishabh Doshi (Production Manager)</td>
+<td><code>08-production-qc.html</code></td>
+</tr>
+<tr>
+<td>13</td>
+<td>R&amp;D</td>
+<td>Ritu Panwar (PD Manager)</td>
+<td><code>09-research-development.html</code></td>
+</tr>
+<tr>
+<td>14</td>
+<td>Logistics</td>
+<td>Nihal Paliwal (Logistics Manager)</td>
+<td><code>10-logistics.html</code></td>
+</tr>
+<tr>
+<td>15</td>
+<td>HR &amp; Talent Management</td>
+<td>HR Team</td>
+<td><code>11-hr-talent-management.html</code></td>
+</tr>
+</tbody>
+</table>
+<h3>15.2 Evidence Confidence Summary</h3>
+<table>
+<thead>
+<tr>
+<th>Evidence Type</th>
+<th>Items Used</th>
+<th>Confidence Impact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stakeholder interview transcripts</td>
+<td>15</td>
+<td>Primary evidence — High reliability</td>
+</tr>
+<tr>
+<td>Tool stack declarations</td>
+<td>15</td>
+<td>Direct statements — Confirmed</td>
+</tr>
+<tr>
+<td>Quantitative metrics (stated directly)</td>
+<td>60+</td>
+<td>High confidence (self-reported with cross-validation)</td>
+</tr>
+<tr>
+<td>Workflow observations</td>
+<td>10</td>
+<td>Moderate confidence (derived from interviews)</td>
+</tr>
+<tr>
+<td>Inferred relationships</td>
+<td>20+</td>
+<td>Medium confidence (marked as inferred)</td>
+</tr>
+</tbody>
+</table>
+<h3>15.3 Assumptions &amp; Limitations</h3>
+<ol>
+<li><strong>Coimbatore Factory</strong> operations were referenced by Production and Logistics but not separately audited. SOP consistency with Udaipur is assumed but unverified.</li>
+<li><strong>Financial data</strong> (revenue, specific budgets) was not provided. COGS analysis is based on percentage-based evidence from the Accounts audit.</li>
+<li><strong>Employee satisfaction and retention</strong> data was not captured in this engagement scope.</li>
+<li><strong>Design Team</strong> was referenced in multiple audits but not directly interviewed. Capacity and workflow are estimated.</li>
+</ol>
+<hr />
+<p><em>This report was prepared following the Enterprise Business Transformation Consulting Framework v1.0. All findings are evidence-backed with confidence ratings. Recommendations are prioritized by business impact, feasibility, and organizational readiness. The transformation roadmap is designed for phased execution to minimize operational disruption while delivering incremental value.</em></p>
+<hr />
+<p><strong>Next Steps:</strong>
+1. Executive review and approval of this report
+2. Prioritization alignment workshop with COO and CBDO
+3. Kick-off Phase 0 — Preparation (governance, baselines, sponsor assignment)
+4. Detailed CRM requirements gathering (Phase 1 planning)</p>
+
+<div id="footer_content">
+    EF Polymers Operational Audit Report &mdash; Page <pdf:pagenumber> of <pdf:pagecount>
+</div>
 
 </body>
-
 </html>
