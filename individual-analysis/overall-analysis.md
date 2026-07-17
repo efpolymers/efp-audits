@@ -173,7 +173,7 @@ graph TD
 
 > Scores are based on the 5-level maturity model (1=Initial, 2=Developing, 3=Standardized, 4=Managed, 5=Optimized). Evidence references are drawn from individual department audits.
 
-| Department | Process | Technology | Data Quality | Documentation | Knowledge Mgmt | Overall |
+| Department | Process | Technology | Data Quality | Documentation | Knowledge   | Overall |
 |---|---|---|---|---|---|---|
 | **R&D** | 2.0 | 2.0 | 1.5 | 2.5 | 1.5 | **2.0** |
 | **Production** | 2.5 | 2.0 | 2.0 | 2.0 | 2.0 | **2.0** |
@@ -194,7 +194,7 @@ VISUALIZATION: Grouped Horizontal Bar Chart
 Title: "Department Maturity Scorecard"
 X-Axis: Maturity Score (1–5)
 Y-Axis: Department names (12 departments)
-Bars per department: Process (blue), Technology (green), Data Quality (orange), Documentation (purple), Knowledge Mgmt (red)
+Bars per department: Process (blue), Technology (green), Data Quality (orange), Documentation (purple), Knowledge   (red)
 Reference Line: Enterprise average at 1.7
 Color coding: Scores ≤1.5 = red, 1.5–2.5 = amber, ≥2.5 = green
 ```
@@ -347,11 +347,11 @@ The audit identified significant divergence between documented/stated processes 
 | System | Category | Owner | Users | Utilization | Integration |
 |---|---|---|---|---|---|
 | **Zoho Books** | Accounting/ERP | Finance | Accounts, Logistics, Marketing | Moderate | Bank feeds (auto); no live inventory link |
-| **Zoho Inventory** | Inventory Mgmt | Finance | Accounts, Production | Low | Linked to Books but lacks grade-based costing |
-| **Zoho Expense** | Expense Mgmt | Finance | All employees | Moderate | 3-level approval flow active |
+| **Zoho Inventory** | Inventory   | Finance | Accounts, Production | Low | Linked to Books but lacks grade-based costing |
+| **Zoho Expense** | Expense   | Finance | All employees | Moderate | 3-level approval flow active |
 | **Zoho Payroll** | Payroll | Finance | HR/Finance | Moderate | Linked to Zoho People |
 | **Zoho People** | HRMS | Finance | HR/Finance | Low | — |
-| **Custom Zoho WMS** | Warehouse Mgmt | Production | Production | In-progress | ❌ Disconnected from Zoho Books |
+| **Custom Zoho WMS** | Warehouse   | Production | Production | In-progress | ❌ Disconnected from Zoho Books |
 | **Google Sheets** | Tracking (everything) | All departments | Everyone | Overextended | ❌ No integrations |
 | **Google Drive** | Document Storage | R&D, Marketing | R&D, Field teams | Moderate | Manual upload only |
 | **WhatsApp** | Communications | All | All | Overextended (de facto ERP) | ❌ No data capture |

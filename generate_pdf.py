@@ -70,7 +70,7 @@ data = {
     'Technology': [2.0, 2.0, 1.5, 3.0, 1.0, 1.5, 1.0, 1.0, 1.5, 1.5, 2.0, 1.0],
     'Data Quality': [1.5, 2.0, 1.5, 2.0, 1.0, 1.5, 1.0, 1.0, 1.5, 2.0, 1.5, 1.0],
     'Documentation': [2.5, 2.0, 1.5, 2.0, 1.5, 2.0, 1.5, 1.0, 1.5, 2.0, 2.0, 1.5],
-    'Knowledge Mgmt': [1.5, 2.0, 2.0, 2.5, 1.0, 1.5, 1.0, 1.0, 1.5, 1.5, 2.0, 1.0]
+    'Knowledge  ': [1.5, 2.0, 2.0, 2.5, 1.0, 1.5, 1.0, 1.0, 1.5, 1.5, 2.0, 1.0]
 }
 df = pd.DataFrame(data)
 df = df.iloc[::-1]  # reverse order for horizontal plot
@@ -80,7 +80,7 @@ y = np.arange(len(df))
 width = 0.15
 
 colors = ['#3b82f6', '#22c55e', '#f59e0b', '#a855f7', '#ef4444']  # blue, green, orange, purple, red
-categories = ['Process', 'Technology', 'Data Quality', 'Documentation', 'Knowledge Mgmt']
+categories = ['Process', 'Technology', 'Data Quality', 'Documentation', 'Knowledge  ']
 
 for i, cat in enumerate(categories):
     ax.barh(y + i*width - 2*width, df[cat], width, label=cat, color=colors[i], alpha=0.85, edgecolor='black', linewidth=0.5)
