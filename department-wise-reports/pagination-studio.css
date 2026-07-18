@@ -100,26 +100,15 @@ body.studio-active {
 }
 
 /* Interactive elements */
-.studio-workspace .page > * {
-  position: relative;
-  transition: background 0.1s, outline 0.1s;
+.studio-hover {
+  background: rgba(0, 120, 255, 0.03) !important;
+  cursor: pointer !important;
+  outline: 1px dashed rgba(0, 120, 255, 0.4) !important;
 }
 
-.studio-workspace .page > *:hover {
-  background: rgba(0, 120, 255, 0.05);
-  cursor: pointer;
-  outline: 1px solid rgba(0, 120, 255, 0.3);
-}
-
-/* Table rows interaction */
-.studio-workspace .page table tbody tr {
-  transition: background 0.1s;
-}
-
-.studio-workspace .page table tbody tr:hover {
-  background: rgba(255, 165, 0, 0.2);
-  outline: 1px dashed rgba(255, 165, 0, 0.8);
-  cursor: pointer;
+.studio-selected {
+  background: rgba(0, 120, 255, 0.08) !important;
+  outline: 2px solid rgba(0, 120, 255, 0.8) !important;
 }
 
 /* Toolbar for hovering over elements */
@@ -127,15 +116,28 @@ body.studio-active {
   position: absolute;
   background: #0078d4;
   color: white;
-  padding: 6px 10px;
+  padding: 4px 6px;
   border-radius: 4px;
-  font-size: 12px;
   font-family: system-ui, sans-serif;
-  cursor: pointer;
   z-index: 10000;
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
   display: none;
+  align-items: center;
+  gap: 4px;
+}
+
+.toolbar-icon-btn, .toolbar-text-btn {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
   font-weight: bold;
+}
+.toolbar-icon-btn:hover, .toolbar-text-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .element-toolbar:hover {
@@ -155,4 +157,61 @@ body.studio-active {
   .studio-workspace { padding: 0; gap: 0; background: none; }
   .studio-workspace .page { box-shadow: none; overflow: hidden; }
   .studio-workspace .page::after { display: none; }
+  .page-header-bar { display: none !important; }
+  .page-wrapper { display: block; gap: 0; }
+}
+
+/* Page Wrapper and Sidebar Control Bar */
+.page-wrapper {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.page-header-bar {
+  position: absolute;
+  left: -135px;
+  top: 0;
+  width: 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 12px;
+  box-sizing: border-box;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  z-index: 10000;
+}
+
+.page-number-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-align: center;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 6px;
+}
+
+/* Delete Page Button styling */
+.delete-page-btn {
+  background: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 12px;
+  font-size: 11px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  transition: background 0.2s ease;
+}
+
+.delete-page-btn:hover {
+  background: #dc2626;
 }

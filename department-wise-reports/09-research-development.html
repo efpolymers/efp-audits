@@ -797,6 +797,97 @@
       line-height: 1.35;
     }
 
+    /* ---- dep cards ---- */
+    .dep-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .dep-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .dep-title {
+      font-weight: 700;
+      font-size: 11pt;
+      color: var(--ink);
+    }
+
+    .dep-badge {
+      font-size: 7.5pt;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 12px;
+      background: #f1f5f9;
+      color: #475569;
+      text-transform: uppercase;
+    }
+
+    .dep-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .dep-section {
+      background: #f8fafc;
+      border-radius: 6px;
+      padding: 12px;
+      border: 1px solid #e2e8f0;
+    }
+
+    .dep-section.bottleneck {
+      background: #fef2f2;
+      border-color: #fecaca;
+    }
+
+    .dep-section.data-sync {
+      background: #f0f9ff;
+      border-color: #bae6fd;
+    }
+
+    .dep-section-title {
+      font-size: 7.5pt;
+      font-weight: 700;
+      color: #64748b;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      letter-spacing: 0.5px;
+    }
+
+    .bottleneck .dep-section-title {
+      color: #b91c1c;
+    }
+
+    .data-sync .dep-section-title {
+      color: #0369a1;
+    }
+
+    .dep-section-content {
+      font-size: 8.5pt;
+      color: var(--slate);
+      line-height: 1.4;
+    }
+
+    .dep-person {
+      display: inline-block;
+      background: #f1f5f9;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 8pt;
+      margin-top: 4px;
+      border: 1px solid #cbd5e1;
+    }
+
     @media print {
       body {
         background: #fff;
@@ -1841,10 +1932,9 @@
     <img src="letterhead.png" alt="Letterhead"
       style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
 
-    <div class="eyebrow">Appendix</div>
+    <div class="eyebrow">Section 04 — Cross-Department Dependencies</div>
     <h2>Cross-Department Dependencies</h2>
-    <div class="section-dek">Findings and recommendations that require action outside the R&amp;D Office to resolve
-    </div>
+    <div class="section-dek">Findings and recommendations that require action outside the R&amp;D Office to resolve</div>
 
 
 
@@ -1956,10 +2046,9 @@
     <img src="letterhead.png" alt="Letterhead"
       style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
 
-    <div class="eyebrow">Section 04 — Operational Pain Points</div>
+    <div class="eyebrow">Section 05 — Operational Pain Points</div>
     <h2>Pain Points Register</h2>
-    <div class="section-dek">Ranked by operational impact. Each pain point is cross-referenced to its recommendation in
-      Section 04.</div>
+    <div class="section-dek">Ranked by operational impact. Each pain point is cross-referenced to its recommendation.</div>
 
     <div class="callout" style="margin-bottom:14px;border-left-color:#2563eb;background:#EFF4FF;">
       <strong style="color:#1B2A4A;">Priority Focus Areas:</strong><br>
@@ -2062,7 +2151,7 @@
   <div class="page">
     <img src="letterhead.png" alt="Letterhead"
       style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
-    <div class="eyebrow">Section 05 — Time & Effort</div>
+    <div class="eyebrow">Section 06 — Time &amp; Effort</div>
     <h3>Time &amp; Effort Allocation</h3>
     <p style="font-size:8.5pt;color:var(--muted);margin-bottom:8px;">Based on a standard 8-hour workday. Hours shown are
       estimates per team member per day, averaged across the team.</p>
@@ -2112,7 +2201,7 @@
     <img src="letterhead.png" alt="Letterhead"
       style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
 
-    <div class="eyebrow">Section 06 — Corrective Action Plan</div>
+    <div class="eyebrow">Section 07 — Corrective Action Plan</div>
     <h2>Recommended Solution Segment</h2>
     <div class="section-dek">This section outlines the integrated technology solution proposed to resolve operational
       bottlenecks, replacing the legacy recommendations register.</div>
@@ -2249,7 +2338,7 @@
     <img src="letterhead.png" alt="Letterhead"
       style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
 
-    <div class="eyebrow">Section 07 — Implementation Plan</div>
+    <div class="eyebrow">Section 08 — Implementation Plan</div>
     <h2>Phased Roadmap</h2>
     <div class="section-dek">Initiatives sequenced across three phases, with quantified ROI and scope of work</div>
 
@@ -2423,7 +2512,7 @@
   <div class="page">
     <img src="letterhead.png" alt="Letterhead"
       style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
-    <div class="eyebrow">Section 08 — Return on Investment (ROI)</div>
+    <div class="eyebrow">Section 09 — Return on Investment (ROI)</div>
     <h2>System Impact: Before &amp; After</h2>
     <div class="section-dek">Measurable improvements post-implementation</div>
 

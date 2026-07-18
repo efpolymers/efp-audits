@@ -48,7 +48,10 @@ document.addEventListener('DOMContentLoaded', () => {
       pages.forEach(page => {
         Array.from(page.children).forEach(child => {
           const isLetterheadImg = child.tagName === 'IMG' && child.getAttribute('src') === 'letterhead.png';
-          if (!child.classList.contains('letterhead') && !child.classList.contains('doc-footer') && !isLetterheadImg) {
+          if (!child.classList.contains('letterhead') && 
+              !child.classList.contains('doc-footer') && 
+              !child.classList.contains('delete-page-btn') && 
+              !isLetterheadImg) {
             allBlocks.push(child);
           }
         });
@@ -96,6 +99,50 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   
   function createNewPage() {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'page-wrapper';
+    
+    const headerBar = document.createElement('div');
+    headerBar.className = 'page-header-bar';
+    
+    const pageNumSpan = document.createElement('span');
+    pageNumSpan.className = 'page-number-label';
+    pageNumSpan.textContent = 'Page';
+    headerBar.appendChild(pageNumSpan);
+    
+    // Create Delete Button inside the header control bar
+    const deleteBtn = document.createElement('button');
+    deleteBtn.className = 'delete-page-btn';
+    deleteBtn.innerHTML = '🗑️ Delete Page';
+    deleteBtn.title = 'Delete this page and all its contents';
+    deleteBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const confirmDelete = confirm('Are you sure you want to delete this page and all its contents? This action cannot be undone.');
+      if (!confirmDelete) return;
+      
+      // Find all content blocks inside the page element
+      const pageChildren = Array.from(page.children);
+      const blocksToDelete = pageChildren.filter(child => {
+        const isLetterheadImg = child.tagName === 'IMG' && child.getAttribute('src') === 'letterhead.png';
+        return !isLetterheadImg && 
+               !child.classList.contains('letterhead') && 
+               !child.classList.contains('doc-footer');
+      });
+      
+      // Remove these blocks from allBlocks
+      blocksToDelete.forEach(block => {
+        const index = allBlocks.indexOf(block);
+        if (index > -1) {
+          allBlocks.splice(index, 1);
+        }
+      });
+      
+      // Re-render
+      renderPages();
+    });
+    headerBar.appendChild(deleteBtn);
+    wrapper.appendChild(headerBar);
+    
     const page = document.createElement('div');
     page.className = 'page';
     
@@ -105,8 +152,9 @@ document.addEventListener('DOMContentLoaded', () => {
     letterhead.className = 'letterhead';
     letterhead.style.cssText = 'width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;';
     page.appendChild(letterhead);
+    wrapper.appendChild(page);
     
-    workspace.appendChild(page);
+    workspace.appendChild(wrapper);
     return page;
   }
   
@@ -122,6 +170,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     pages.forEach((page, index) => {
+      // Update page control bar label
+      const wrapper = page.closest('.page-wrapper');
+      if (wrapper) {
+        const pageLabel = wrapper.querySelector('.page-number-label');
+        if (pageLabel) {
+          pageLabel.textContent = `Page ${index + 1}`;
+        }
+      }
+
       const oldFooter = page.querySelector('.doc-footer');
       if (oldFooter) oldFooter.remove();
       
@@ -132,142 +189,210 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Interactive logic
+  // Interactive logic variables
+  let currentDrillPath = [];
+  let activeHoverElement = null;
+
   function setupBlockInteraction(block) {
-    block.addEventListener('mousemove', (e) => {
-      e.stopPropagation(); // Prevent bubbling to workspace
-      
-      if (block.tagName === 'TABLE' || block.tagName === 'TBODY') return; 
-      
-      currentTarget = block;
-      currentTable = null;
-      currentTableRow = null;
-      
-      const rect = block.getBoundingClientRect();
-      toolbar.style.display = 'block';
-      // Center toolbar above the element
-      toolbar.style.top = (rect.top + window.scrollY - 30) + 'px';
-      toolbar.style.left = (rect.left + window.scrollX + (rect.width/2) - 60) + 'px';
-      toolbar.className = 'element-toolbar';
-      
-      if (block.hasAttribute('data-manual-page-break')) {
-        const index = allBlocks.indexOf(block);
-        if (block.tagName === 'TABLE' && index > 0 && allBlocks[index - 1].tagName === 'TABLE') {
-          toolbarText.textContent = 'Merge with Previous Table';
-        } else {
-          toolbarText.textContent = 'Pull to Previous Page';
+    // Legacy function - we now use workspace mousemove
+  }
+
+  workspace.addEventListener('click', (e) => {
+    // If clicking on the toolbar itself, don't hide it
+    if (e.target.closest('#element-toolbar')) return;
+
+    // If clicking on the sidebar controls or outside a page, clear selection
+    if (e.target.closest('.page-header-bar') || !e.target.closest('.page')) {
+        if (activeHoverElement) activeHoverElement.classList.remove('studio-hover');
+        activeHoverElement = null;
+        toolbar.style.display = 'none';
+        return;
+    }
+
+    let allowedElements = [];
+    if (currentDrillPath.length === 0) {
+        allowedElements = allBlocks;
+    } else {
+        const parent = currentDrillPath[currentDrillPath.length - 1];
+        allowedElements = Array.from(parent.children);
+    }
+
+    // Find the deepest allowed element that was clicked
+    let targetEl = null;
+    for (let el of allowedElements) {
+        if (el === e.target || el.contains(e.target)) {
+            targetEl = el;
+            break;
         }
+    }
+
+    if (targetEl) {
+        if (activeHoverElement && activeHoverElement !== targetEl) {
+            activeHoverElement.classList.remove('studio-hover');
+        }
+        activeHoverElement = targetEl;
+        activeHoverElement.classList.add('studio-hover');
+        showToolbar(targetEl);
+    } else {
+        // Clicked inside the page but not on a block (e.g. padding)
+        if (activeHoverElement) activeHoverElement.classList.remove('studio-hover');
+        activeHoverElement = null;
+        toolbar.style.display = 'none';
+    }
+  });
+
+  function showToolbar(el) {
+    const rect = el.getBoundingClientRect();
+    toolbar.style.display = 'flex';
+    toolbar.style.top = (rect.top + window.scrollY - 30) + 'px';
+    toolbar.style.left = (rect.left + window.scrollX + (rect.width/2) - (toolbar.offsetWidth/2)) + 'px';
+    
+    const btnUp = document.getElementById('toolbar-btn-up');
+    const btnDown = document.getElementById('toolbar-btn-down');
+    
+    if (currentDrillPath.length > 0) {
+        btnUp.style.display = 'inline-block';
+    } else {
+        btnUp.style.display = 'none';
+    }
+    
+    let hasElementChildren = false;
+    for (let i = 0; i < el.children.length; i++) {
+        if (el.children[i].tagName !== 'BR') {
+            hasElementChildren = true;
+            break;
+        }
+    }
+    
+    if (hasElementChildren && el.tagName !== 'SVG') {
+        btnDown.style.display = 'inline-block';
+    } else {
+        btnDown.style.display = 'none';
+    }
+
+    if (el.hasAttribute('data-manual-page-break')) {
+        toolbarText.textContent = 'Pull to Previous Page';
         toolbar.style.background = '#e81123';
-      } else {
+    } else {
         toolbarText.textContent = 'Push to Next Page';
         toolbar.style.background = '#0078d4';
-      }
-    });
-    
-    if (block.tagName === 'TABLE') {
-      const rows = block.querySelectorAll('tbody tr');
-      rows.forEach(row => {
-        row.addEventListener('mousemove', (e) => {
-          e.stopPropagation();
-          currentTarget = null;
-          currentTable = block;
-          currentTableRow = row;
-          
-          const rect = row.getBoundingClientRect();
-          toolbar.style.display = 'block';
-          toolbar.style.top = (rect.top + window.scrollY - 30) + 'px';
-          toolbar.style.left = (rect.left + window.scrollX + (rect.width/2) - 60) + 'px';
-          toolbar.className = 'element-toolbar table-mode';
-          toolbarText.textContent = 'Split Table Here';
-        });
-      });
     }
   }
 
-  workspace.addEventListener('mousemove', (e) => {
-    if (e.target === workspace || e.target.classList.contains('page')) {
-      toolbar.style.display = 'none';
-      currentTarget = null;
-      currentTable = null;
-      currentTableRow = null;
-    }
-  });
-  
-  // Keep toolbar visible when hovering over it
-  toolbar.addEventListener('mousemove', (e) => {
+  document.getElementById('toolbar-btn-up').addEventListener('click', (e) => {
       e.stopPropagation();
+      if (currentDrillPath.length > 0) {
+          currentDrillPath.pop();
+          if (activeHoverElement) activeHoverElement.classList.remove('studio-hover');
+          activeHoverElement = null;
+          toolbar.style.display = 'none';
+      }
   });
 
-  toolbar.addEventListener('click', (e) => {
-    e.stopPropagation();
-    if (currentTarget) {
-      if (currentTarget.hasAttribute('data-manual-page-break')) {
-        currentTarget.removeAttribute('data-manual-page-break');
-        
-        // Merge table logic
-        if (currentTarget.tagName === 'TABLE') {
-            const index = allBlocks.indexOf(currentTarget);
-            if (index > 0 && allBlocks[index - 1].tagName === 'TABLE') {
-                const prevTable = allBlocks[index - 1];
-                const prevTbody = prevTable.querySelector('tbody');
-                const currTbody = currentTarget.querySelector('tbody');
-                
-                // Move rows back
-                Array.from(currTbody.children).forEach(row => prevTbody.appendChild(row));
-                
-                // Remove the merged table from our blocks array
-                allBlocks.splice(index, 1);
-            }
-        }
-      } else {
-        currentTarget.setAttribute('data-manual-page-break', 'true');
+  document.getElementById('toolbar-btn-down').addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (activeHoverElement) {
+          currentDrillPath.push(activeHoverElement);
+          activeHoverElement.classList.remove('studio-hover');
+          activeHoverElement = null;
+          toolbar.style.display = 'none';
       }
+  });
+
+  document.getElementById('toolbar-action-text').addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (!activeHoverElement) return;
+
+      if (currentDrillPath.length === 0) {
+          if (activeHoverElement.hasAttribute('data-manual-page-break')) {
+              activeHoverElement.removeAttribute('data-manual-page-break');
+              const index = allBlocks.indexOf(activeHoverElement);
+              if (activeHoverElement.tagName === 'TABLE' && index > 0 && allBlocks[index - 1].tagName === 'TABLE') {
+                  const prevTable = allBlocks[index - 1];
+                  const prevTbody = prevTable.querySelector('tbody');
+                  const currTbody = activeHoverElement.querySelector('tbody');
+                  if (prevTbody && currTbody) {
+                      Array.from(currTbody.children).forEach(row => prevTbody.appendChild(row));
+                      allBlocks.splice(index, 1);
+                  }
+              }
+          } else {
+              activeHoverElement.setAttribute('data-manual-page-break', 'true');
+          }
+      } else {
+          const topLevelBlock = currentDrillPath[0];
+          performDeepSplit(topLevelBlock, activeHoverElement);
+          currentDrillPath = []; // reset drill path
+      }
+      
+      if (activeHoverElement) activeHoverElement.classList.remove('studio-hover');
+      activeHoverElement = null;
       toolbar.style.display = 'none';
       renderPages();
-    } else if (currentTable && currentTableRow) {
-      splitTable(currentTable, currentTableRow);
-      toolbar.style.display = 'none';
-    }
   });
-  
-  function splitTable(table, splitRow) {
-    const tbody = table.querySelector('tbody');
-    const rows = Array.from(tbody.children);
-    const splitIndex = rows.indexOf(splitRow);
-    
-    // Don't split if it's the header row or if it somehow failed
-    if (splitIndex <= 0) return; 
-    
-    // Create new table
-    const newTable = document.createElement('table');
-    const newTbody = document.createElement('tbody');
-    newTable.appendChild(newTbody);
-    
-    // Move rows to new table (NO header copying as requested)
-    const rowsToMove = rows.slice(splitIndex);
-    rowsToMove.forEach(row => newTbody.appendChild(row));
-    
-    // Mark to start on new page
-    newTable.setAttribute('data-manual-page-break', 'true');
-    
-    // Insert into global list
-    const blockIndex = allBlocks.indexOf(table);
-    if (blockIndex > -1) {
-       allBlocks.splice(blockIndex + 1, 0, newTable);
-    }
-    
-    renderPages();
+
+  function performDeepSplit(topLevelBlock, targetEl) {
+      let path = [];
+      let curr = targetEl;
+      while (curr && curr !== topLevelBlock) {
+          path.push(curr);
+          curr = curr.parentElement;
+      }
+      if (curr !== topLevelBlock) return;
+      path.push(topLevelBlock);
+      path.reverse(); 
+
+      let newTopLevelBlock = topLevelBlock.cloneNode(false);
+      newTopLevelBlock.setAttribute('data-manual-page-break', 'true');
+      
+      let currentNewNode = newTopLevelBlock;
+
+      for (let i = 1; i < path.length; i++) {
+          let targetChild = path[i];
+          
+          if (i === path.length - 1) {
+              let sibling = targetChild;
+              while (sibling) {
+                  let nextSibling = sibling.nextSibling;
+                  currentNewNode.appendChild(sibling);
+                  sibling = nextSibling;
+              }
+          } else {
+              let newChild = targetChild.cloneNode(false);
+              currentNewNode.appendChild(newChild);
+              
+              let sibling = targetChild.nextSibling;
+              while (sibling) {
+                  let nextSibling = sibling.nextSibling;
+                  currentNewNode.appendChild(sibling);
+                  sibling = nextSibling;
+              }
+              currentNewNode = newChild;
+          }
+      }
+      
+      const blockIndex = allBlocks.indexOf(topLevelBlock);
+      if (blockIndex > -1) {
+         allBlocks.splice(blockIndex + 1, 0, newTopLevelBlock);
+      }
   }
 
   function getFinalHTML() {
-    const clone = workspace.cloneNode(true);
+    const pages = workspace.querySelectorAll('.page');
+    let pagesHTML = '';
+    pages.forEach(page => {
+      const pageClone = page.cloneNode(true);
+      pageClone.querySelectorAll('.delete-page-btn').forEach(btn => btn.remove());
+      pageClone.classList.remove('active');
+      pagesHTML += pageClone.outerHTML + '\n';
+    });
     return `<!DOCTYPE html>
 <html lang="en">
 <head>
 ${originalHeadHTML}
 </head>
 <body>
-${clone.innerHTML}
+${pagesHTML}
 </body>
 </html>`;
   }
@@ -293,4 +418,5 @@ ${clone.innerHTML}
       }, 2000);
     });
   });
+
 });
