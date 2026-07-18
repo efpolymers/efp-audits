@@ -557,6 +557,97 @@
       line-height: 1.35;
     }
 
+    /* ---- dep cards (cross-dept appendix) ---- */
+    .dep-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .dep-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .dep-title {
+      font-weight: 700;
+      font-size: 11pt;
+      color: var(--ink);
+    }
+
+    .dep-badge {
+      font-size: 7.5pt;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 12px;
+      background: #f1f5f9;
+      color: #475569;
+      text-transform: uppercase;
+    }
+
+    .dep-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .dep-section {
+      background: #f8fafc;
+      border-radius: 6px;
+      padding: 12px;
+      border: 1px solid #e2e8f0;
+    }
+
+    .dep-section.bottleneck {
+      background: #fef2f2;
+      border-color: #fecaca;
+    }
+
+    .dep-section.data-sync {
+      background: #f0f9ff;
+      border-color: #bae6fd;
+    }
+
+    .dep-section-title {
+      font-size: 7.5pt;
+      font-weight: 700;
+      color: #64748b;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      letter-spacing: 0.5px;
+    }
+
+    .bottleneck .dep-section-title {
+      color: #b91c1c;
+    }
+
+    .data-sync .dep-section-title {
+      color: #0369a1;
+    }
+
+    .dep-section-content {
+      font-size: 8.5pt;
+      color: var(--slate);
+      line-height: 1.4;
+    }
+
+    .dep-person {
+      display: inline-block;
+      background: #f1f5f9;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 8pt;
+      margin-top: 4px;
+      border: 1px solid #cbd5e1;
+    }
+
     @media print {
       body {
         background: #fff;
