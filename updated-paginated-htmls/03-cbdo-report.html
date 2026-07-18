@@ -1,0 +1,2454 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <script src="auth.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=880">
+    <title>Sales &amp; Business Development (CBDO) — Department Audit Report | EF Polymer Private Limited</title>
+    <style>
+        :root {
+            --ink: #6b4fc8;
+            --slate: #3F4B5C;
+            --muted: #6B7785;
+            --line: #D8DEE5;
+            --line-soft: #E9EDF1;
+            --paper: #FFFFFF;
+            --paper-alt: #F6F7F9;
+            --accent: #c480e9;
+            --accent-soft: #F4EEFC;
+            --risk-crit-bg: #FCEBEA;
+            --risk-crit-fg: #A32E24;
+            --risk-med-bg: #FBF1DF;
+            --risk-med-fg: #8A5A10;
+            --risk-low-bg: #E9F4EC;
+            --risk-low-fg: #276B3E;
+        }
+
+        @page {
+            size: A4;
+            margin: 22mm 18mm 20mm 18mm;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            color: var(--slate);
+            line-height: 1.55;
+            background: #EDEFF1;
+            font-size: 10.3pt;
+        }
+
+        .page {
+            background: var(--paper);
+            max-width: 840px;
+            margin: 0 auto 14px auto;
+            padding: 26mm 20mm 20mm 20mm;
+            position: relative;
+            page-break-after: always;
+            min-height: 1120px;
+        }
+
+        .page:last-child {
+            page-break-after: avoid;
+        }
+
+        /* ---- running header / footer ---- */
+        .doc-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            font-size: 7.8pt;
+            letter-spacing: 0.4px;
+            text-transform: uppercase;
+            color: var(--muted);
+            border-bottom: 1px solid var(--line);
+            padding-bottom: 8px;
+            margin-bottom: 22px;
+        }
+
+        .doc-header b {
+            color: var(--ink);
+        }
+
+        .doc-footer {
+            position: absolute;
+            bottom: 10mm;
+            left: 20mm;
+            right: 20mm;
+            display: flex;
+            justify-content: space-between;
+            font-size: 7.5pt;
+            color: var(--muted);
+            border-top: 1px solid var(--line-soft);
+            padding-top: 6px;
+        }
+
+        /* ---- cover ---- */
+        .cover {
+            display: flex;
+            flex-direction: column;
+            min-height: 1080px;
+        }
+
+        .cover-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .cover-mark {
+            font-size: 9pt;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--ink);
+        }
+
+        .cover-mark span {
+            color: var(--accent);
+        }
+
+        .cover-class {
+            font-size: 7.8pt;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--muted);
+            border: 1px solid var(--line);
+            padding: 4px 10px;
+        }
+
+        .cover-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 60px 0;
+        }
+
+        .cover-eyebrow {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-style: italic;
+            font-size: 11pt;
+            color: var(--accent);
+            margin-bottom: 14px;
+        }
+
+        .cover-title {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 34pt;
+            color: var(--ink);
+            font-weight: 600;
+            line-height: 1.15;
+            margin-bottom: 10px;
+        }
+
+        .cover-sub {
+            font-size: 13pt;
+            color: var(--slate);
+            font-weight: 400;
+        }
+
+        .cover-rule {
+            width: 52px;
+            height: 2px;
+            background: var(--accent);
+            margin: 26px 0;
+        }
+
+        .cover-ctrl {
+            border: 1px solid var(--line);
+        }
+
+        .cover-ctrl table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0;
+        }
+
+        .cover-ctrl td {
+            padding: 9px 14px;
+            font-size: 9pt;
+            border-bottom: 1px solid var(--line-soft);
+        }
+
+        .cover-ctrl tr:last-child td {
+            border-bottom: none;
+        }
+
+        .cover-ctrl td.label {
+            color: var(--muted);
+            width: 38%;
+            text-transform: uppercase;
+            font-size: 7.8pt;
+            letter-spacing: 0.5px;
+        }
+
+        .cover-ctrl td.val {
+            color: var(--ink);
+            font-weight: 600;
+        }
+
+        /* ---- section furniture ---- */
+        .eyebrow {
+            font-size: 8pt;
+            color: var(--accent);
+            font-weight: 700;
+            letter-spacing: 1.6px;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+
+        h2 {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 17pt;
+            color: var(--ink);
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        h2+.section-dek {
+            color: var(--muted);
+            font-size: 9.3pt;
+            margin-bottom: 18px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        h3 {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 12.5pt;
+            color: var(--ink);
+            font-weight: 600;
+            margin: 22px 0 8px;
+        }
+
+        h4 {
+            font-size: 10pt;
+            color: var(--ink);
+            font-weight: 700;
+            margin: 14px 0 4px;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        .lede {
+            font-size: 10.6pt;
+            color: var(--slate);
+            max-width: 95%;
+        }
+
+        /* ---- tables ---- */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0 20px;
+            font-size: 9pt;
+        }
+
+        th {
+            background: var(--ink);
+            color: #fff;
+            padding: 8px 10px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 8.3pt;
+            letter-spacing: 0.3px;
+            text-transform: uppercase;
+        }
+
+        td {
+            padding: 8px 10px;
+            border-bottom: 1px solid var(--line-soft);
+            vertical-align: top;
+        }
+
+        tr:nth-child(even) td {
+            background: var(--paper-alt);
+        }
+
+        td.id,
+        th.id {
+            font-family: Georgia, serif;
+            font-weight: 700;
+            color: var(--ink);
+            white-space: nowrap;
+            width: 44px;
+        }
+
+        td.num,
+        th.num {
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        /* ---- chips ---- */
+        .chip {
+            display: inline-block;
+            padding: 2px 9px;
+            border-radius: 3px;
+            font-size: 7.8pt;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .chip-crit {
+            background: var(--risk-crit-bg);
+            color: var(--risk-crit-fg);
+        }
+
+        .chip-med {
+            background: var(--risk-med-bg);
+            color: var(--risk-med-fg);
+        }
+
+        .chip-low {
+            background: var(--risk-low-bg);
+            color: var(--risk-low-fg);
+        }
+
+        .chip-ref {
+            display: inline-block;
+            background: var(--accent-soft);
+            color: var(--accent);
+            font-family: Georgia, serif;
+            font-weight: 700;
+            font-size: 8pt;
+            padding: 1px 6px;
+            border-radius: 3px;
+            margin: 1px 2px 1px 0;
+        }
+
+        /* ---- KPI strip ---- */
+        .kpi-strip {
+            display: flex;
+            border: 1px solid var(--line);
+            margin: 16px 0 22px;
+        }
+
+        .kpi-cell {
+            flex: 1;
+            padding: 12px 14px;
+            border-right: 1px solid var(--line);
+        }
+
+        .kpi-cell:last-child {
+            border-right: none;
+        }
+
+        .kpi-num {
+            font-family: Georgia, serif;
+            font-size: 15pt;
+            color: var(--ink);
+            font-weight: 700;
+        }
+
+        .kpi-lbl {
+            font-size: 7.6pt;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 2px;
+        }
+
+        /* ---- callout ---- */
+        .callout {
+            border-left: 3px solid var(--accent);
+            background: var(--accent-soft);
+            padding: 10px 14px;
+            font-size: 9pt;
+            color: var(--ink);
+            margin: 10px 0 20px;
+        }
+
+        /* ---- flow notes ---- */
+        .flow-note {
+            font-size: 8.6pt;
+            color: var(--muted);
+            margin: 4px 0 18px;
+            padding-left: 2px;
+        }
+
+        .flow-note b {
+            color: var(--risk-crit-fg);
+        }
+
+        /* ---- maturity legend (static, PDF-safe) ---- */
+        .maturity-legend {
+            background: var(--paper-alt);
+            border: 1px solid var(--line);
+            border-radius: 4px;
+            padding: 10px 14px;
+            margin: 4px 0 0;
+            font-size: 8pt;
+        }
+
+        .maturity-legend-title {
+            font-weight: 700;
+            color: var(--ink);
+            font-size: 8pt;
+            margin-bottom: 6px;
+        }
+
+        .maturity-bar-wrap {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 4px;
+        }
+
+        .maturity-bar-track {
+            flex: 1;
+            height: 7px;
+            background: var(--line);
+            border-radius: 4px;
+            position: relative;
+            overflow: visible;
+        }
+
+        .maturity-bar-fill {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 26%;
+            background: var(--accent);
+            border-radius: 4px;
+        }
+
+        .maturity-bar-marker {
+            position: absolute;
+            top: -3px;
+            width: 2px;
+            height: 13px;
+            background: var(--ink);
+            border-radius: 1px;
+        }
+
+        .maturity-bar-marker.target {
+            left: 60%;
+            background: #2563eb;
+        }
+
+        .maturity-bar-lbl {
+            font-size: 7pt;
+            color: var(--muted);
+            white-space: nowrap;
+        }
+
+        .maturity-legend-notes {
+            display: flex;
+            gap: 14px;
+            margin-top: 6px;
+            font-size: 7.2pt;
+            color: var(--muted);
+        }
+
+        .maturity-legend-notes span b {
+            color: var(--ink);
+        }
+
+        /* ---- team structure ---- */
+        .team-structure {
+            margin: 0 0 20px;
+        }
+
+        .org-chart {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0;
+            margin: 14px 0;
+            font-size: 8.3pt;
+        }
+
+        .org-level {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 14px;
+            width: 100%;
+            position: relative;
+        }
+
+        .org-connector-top {
+            width: 1px;
+            height: 18px;
+            background: var(--line);
+            margin: 0 auto;
+        }
+
+        .org-connector-row {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            width: 100%;
+        }
+
+        .org-connector-row::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1px;
+            height: 18px;
+            background: var(--line);
+        }
+
+        .org-node {
+            background: var(--paper);
+            border: 1px solid var(--line);
+            border-radius: 4px;
+            padding: 8px 10px;
+            min-width: 120px;
+            max-width: 160px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .org-node.lead {
+            border-color: var(--accent);
+            background: var(--accent-soft);
+            border-width: 1.5px;
+        }
+
+        .org-node.secondary {
+            background: var(--paper-alt);
+        }
+
+        .org-name {
+            font-weight: 700;
+            color: var(--ink);
+            font-size: 8.2pt;
+            margin-bottom: 3px;
+        }
+
+        .org-role {
+            font-size: 7pt;
+            color: var(--muted);
+            line-height: 1.3;
+        }
+
+        .org-tag {
+            display: inline-block;
+            background: var(--accent-soft);
+            color: var(--accent);
+            font-size: 6.5pt;
+            font-weight: 700;
+            padding: 1px 5px;
+            border-radius: 2px;
+            margin-top: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        /* ---- tools grid ---- */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin: 12px 0 20px;
+        }
+
+        .tool-card {
+            border: 1px solid var(--line);
+            border-radius: 4px;
+            padding: 10px 12px;
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            background: var(--paper);
+        }
+
+        .tool-icon {
+            font-size: 18pt;
+            line-height: 1;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .tool-name {
+            font-weight: 700;
+            color: var(--ink);
+            font-size: 8.5pt;
+            margin-bottom: 2px;
+        }
+
+        .tool-desc {
+            font-size: 7.5pt;
+            color: var(--muted);
+            line-height: 1.4;
+        }
+
+        /* ---- roadmap table ---- */
+        .tl-table td.phase-mark {
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .tl-table td.phase-mark.p1 {
+            color: var(--accent);
+        }
+
+        .tl-table td.phase-mark.p2 {
+            color: #2563eb;
+        }
+
+        .tl-table td.phase-mark.p3 {
+            color: #7c3aed;
+        }
+
+        /* ---- phase blocks ---- */
+        .phase-block {
+            border: 1px solid var(--line);
+            margin: 14px 0;
+            overflow: hidden;
+        }
+
+        .phase-hd {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 14px;
+            border-bottom: 1px solid var(--line);
+            background: var(--paper-alt);
+            gap: 16px;
+        }
+
+        .phase-hd-left {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .phase-hd-title {
+            font-family: Georgia, serif;
+            font-size: 11pt;
+            font-weight: 700;
+            color: var(--ink);
+        }
+
+        .phase-hd-timeline {
+            font-size: 7.8pt;
+            color: var(--muted);
+        }
+
+        .phase-maturity {
+            font-size: 8.5pt;
+            font-weight: 700;
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            border-radius: 3px;
+            padding: 3px 10px;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .phase-maturity.p2 {
+            color: #2563eb;
+            border-color: #2563eb;
+        }
+
+        .phase-maturity.p3 {
+            color: #7c3aed;
+            border-color: #7c3aed;
+        }
+
+        .phase-sow {
+            padding: 11px 14px 14px;
+        }
+
+        .col-label {
+            font-size: 7.4pt;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .sow-item {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 5px;
+            font-size: 8.5pt;
+            color: var(--slate);
+            line-height: 1.4;
+        }
+
+        .sow-dot {
+            width: 4px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 50%;
+            margin-top: 5px;
+            flex-shrink: 0;
+        }
+
+        .sow-dot.p2 {
+            background: #2563eb;
+        }
+
+        .sow-dot.p3 {
+            background: #7c3aed;
+        }
+
+        .phase-roi {
+            display: flex;
+            border-top: 1px solid var(--line);
+            background: var(--paper-alt);
+        }
+
+        .roi-card {
+            flex: 1;
+            padding: 10px 12px;
+            border-right: 1px solid var(--line);
+            text-align: center;
+        }
+
+        .roi-card:last-child {
+            border-right: none;
+        }
+
+        .roi-card-num {
+            font-family: Georgia, serif;
+            font-size: 13pt;
+            font-weight: 700;
+            color: var(--ink);
+            line-height: 1.1;
+            margin-bottom: 3px;
+        }
+
+        .roi-card-label {
+            font-size: 7.5pt;
+            color: var(--ink);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            margin-bottom: 3px;
+        }
+
+        .roi-card-desc {
+            font-size: 7pt;
+            color: var(--muted);
+            line-height: 1.35;
+        }
+
+        /* ---- maturity exhibit ---- */
+        .exhibit {
+            display: flex;
+            gap: 26px;
+            align-items: center;
+            margin: 14px 0 6px;
+        }
+
+        .exhibit-chart {
+            flex: 0 0 320px;
+        }
+
+        .exhibit-note {
+            flex: 1;
+            font-size: 9.2pt;
+            color: var(--slate);
+        }
+
+        .exhibit-note b {
+            color: var(--ink);
+        }
+
+        /* ---- dep cards (cross-dept appendix) ---- */
+        .dep-card {
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: var(--paper);
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+
+        .dep-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .dep-title {
+            font-weight: 700;
+            font-size: 11pt;
+            color: var(--ink);
+        }
+
+        .dep-badge {
+            font-size: 7.5pt;
+            font-weight: 600;
+            padding: 3px 8px;
+            border-radius: 12px;
+            background: #f1f5f9;
+            color: #475569;
+            text-transform: uppercase;
+        }
+
+        .dep-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .dep-section {
+            background: #f8fafc;
+            border-radius: 6px;
+            padding: 12px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .dep-section.bottleneck {
+            background: #fef2f2;
+            border-color: #fecaca;
+        }
+
+        .dep-section.data-sync {
+            background: #f0f9ff;
+            border-color: #bae6fd;
+        }
+
+        .dep-section-title {
+            font-size: 7.5pt;
+            font-weight: 700;
+            color: #64748b;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+            letter-spacing: 0.5px;
+        }
+
+        .bottleneck .dep-section-title {
+            color: #b91c1c;
+        }
+
+        .data-sync .dep-section-title {
+            color: #0369a1;
+        }
+
+        .dep-section-content {
+            font-size: 8.5pt;
+            color: var(--slate);
+            line-height: 1.4;
+        }
+
+        .dep-person {
+            display: inline-block;
+            background: #f1f5f9;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 8pt;
+            margin-top: 4px;
+            border: 1px solid #cbd5e1;
+        }
+
+        @media print {
+            body {
+                background: #fff;
+            }
+
+            .page {
+                box-shadow: none;
+                margin: 0;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="page"><img src="letterhead.png" alt="Letterhead" class="letterhead"
+            style="width: calc(100% + 151.181px); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;">
+        <div class="cover-body">
+            <div class="cover-eyebrow">Department Wise Audit Report</div>
+            <div class="cover-title">Ankit Jain (CBDO)</div>
+            <div class="cover-sub">Institutional, B2B, Government &amp; Export Business Development</div>
+            <div class="cover-rule"></div>
+            <p style="max-width:70%;color:var(--muted);font-size:9.3pt;">
+                An independent operational review of the CBDO, assessing pipeline visibility, sales execution
+                infrastructure across five distinct verticals, and cross-departmental coordination, prepared as part of
+                the EF
+                Polymer Private Limited organization-wide operational audit by Creative Upaay (brand owned by Cinnovate
+                Solutions (OPC) Private Limited).
+            </p>
+        </div>
+        <div class="cover-ctrl">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="label">Client</td>
+                        <td class="val">EF Polymer Private Limited</td>
+                    </tr>
+                    <tr>
+                        <td class="label">Prepared by</td>
+                        <td class="val">Creative Upaay</td>
+                    </tr>
+                    <tr>
+                        <td class="label">Document version</td>
+                        <td class="val">1.0</td>
+                    </tr>
+                    <tr>
+                        <td class="label">Date issued</td>
+                        <td class="val">18th July 2026</td>
+                    </tr>
+                    <tr>
+                        <td class="label">Review scope</td>
+                        <td class="val">CBDO Operations</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="doc-footer"><span>Report Overview · EF Polymer</span><span>Page 1</span></div>
+    </div>
+    <div class="page"><img src="letterhead.png" alt="Letterhead" class="letterhead"
+            style="width: calc(100% + 151.181px); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;">
+        <div class="eyebrow" data-manual-page-break="true">Section 01 — Executive Summary</div>
+        <h2>Report Overview</h2>
+        <p class="lede">The CBDO manages strategic growth across 4 legacy domestic verticals (Seed, B2B/Company,
+            NGO/CSR, Government) and 1 New Business vertical (Cocopeat &amp; Japan Exports). The team is highly
+            specialized,
+            driving sophisticated institutional sales cycles.</p>
+        <p>However, the audit reveals critical operational vulnerabilities: the complete absence of a central CRM,
+            siloed
+            product/vertical knowledge leading to prolonged training times, and manual travel approvals that delay field
+            execution. Active deal pipelines and client histories are siloed within the personal WhatsApp accounts of
+            individual executives. The CBDO relies on manual meetings, retrospective monthly reports, and email approval
+            trails to coordinate with Finance. Implementing a custom unified CRM (with direct WhatsApp API lead
+            insertion), a
+            digital product knowledge hub (leveraging the Creative Upaay chatbot), and multichannel approval bots
+            (Slack/WhatsApp) feeding a live CXO Level Dashboard is the urgent priority to secure data, accelerate
+            adoption,
+            and streamline field operations.</p>
+        <div class="kpi-strip">
+            <div class="kpi-cell">
+                <div class="kpi-num">No Realtime</div>
+                <div class="kpi-lbl">Sales Data &amp; Visibility</div>
+            </div>
+            <div class="kpi-cell">
+                <div class="kpi-num">4 + 1</div>
+                <div class="kpi-lbl">BD Verticals</div>
+            </div>
+            <div class="kpi-cell">
+                <div class="kpi-num">Manual</div>
+                <div class="kpi-lbl">Live Pipeline Checks</div>
+            </div>
+            <div class="kpi-cell">
+                <div class="kpi-num">1.3 / 5.0</div>
+                <div class="kpi-lbl">Overall Maturity Score</div>
+            </div>
+        </div>
+        <div class="maturity-legend">
+            <div class="maturity-legend-title">About the Maturity Score</div>
+            <div style="font-size:7.5pt;color:var(--muted);margin-bottom:8px;">A 1–5 scale measuring how systematised,
+                documented, and independently operable the department is. Scored across five dimensions: Process,
+                Technology,
+                Data Quality, Documentation &amp; Knowledge Management.</div>
+            <div class="maturity-bar-wrap">
+                <span class="maturity-bar-lbl">1 — Ad hoc</span>
+                <div class="maturity-bar-track">
+                    <div class="maturity-bar-fill"></div>
+                    <div class="maturity-bar-marker target"></div>
+                </div>
+                <span class="maturity-bar-lbl">5 — Optimised</span>
+            </div>
+            <div class="maturity-legend-notes">
+                <span>■ <b>1.3</b> Current state</span>
+                <span style="color:#2563eb;">▮ <b>3.0</b> Post-roadmap target</span>
+                <span>◯ <b>5.0</b> Best-in-class benchmark</span>
+            </div>
+        </div>
+        <div class="doc-footer"><span>Report Overview · EF Polymer</span><span>Page 2</span></div>
+    </div>
+    <div class="page"><img src="letterhead.png" alt="Letterhead" class="letterhead"
+            style="width: calc(100% + 151.181px); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;">
+        <div class="eyebrow" data-manual-page-break="true">Section 02 — Department Maturity Assessment</div>
+        <h2>Department Maturity Assessment</h2>
+        <div class="exhibit">
+            <div class="exhibit-chart">
+                <svg viewBox="0 0 400 350" xmlns="http://www.w3.org/2000/svg" style="width:100%;">
+                    <g transform="translate(200,170)">
+                        <polygon points="0,-120 114,-37 70,97 -70,97 -114,-37" fill="none" stroke="#E2E8F0"
+                            stroke-width="0.75"></polygon>
+                        <polygon points="0,-96 91,-30 56,78 -56,78 -91,-30" fill="none" stroke="#E2E8F0"
+                            stroke-width="0.75"></polygon>
+                        <polygon points="0,-72 68,-22 42,58 -42,58 -68,-22" fill="none" stroke="#E2E8F0"
+                            stroke-width="0.75"></polygon>
+                        <polygon points="0,-48 46,-15 28,39 -28,39 -46,-15" fill="none" stroke="#E2E8F0"
+                            stroke-width="0.75"></polygon>
+                        <polygon points="0,-24 23,-7 14,19 -14,19 -23,-7" fill="none" stroke="#E2E8F0"
+                            stroke-width="0.75"></polygon>
+                        <line x1="0" y1="0" x2="0" y2="-120" stroke="#E2E8F0" stroke-width="0.75"></line>
+                        <line x1="0" y1="0" x2="114" y2="-37" stroke="#E2E8F0" stroke-width="0.75"></line>
+                        <line x1="0" y1="0" x2="70" y2="97" stroke="#E2E8F0" stroke-width="0.75"></line>
+                        <line x1="0" y1="0" x2="-70" y2="97" stroke="#E2E8F0" stroke-width="0.75"></line>
+                        <line x1="0" y1="0" x2="-114" y2="-37" stroke="#E2E8F0" stroke-width="0.75"></line>
+
+                        <!-- Target dashed: Process 3.0, Tech 3.5, Data 3.5, Docs 3.0, KM 2.0 -->
+                        <polygon points="0,-72 79.8,-25.9 49,67.9 -42,58.2 -45.6,-14.8" fill="none" stroke="#B8C0C9"
+                            stroke-width="1" stroke-dasharray="5,3"></polygon>
+
+                        <!-- Current: Process 1.5, Tech 1.0, Data 1.0, Docs 2.0, KM 1.0 -->
+                        <polygon points="0,-36 22.8,-7.4 14,19.4 -28,38.8 -22.8,-7.4" fill="rgba(107,79,200,0.14)"
+                            stroke="#6b4fc8" stroke-width="1.75"></polygon>
+                        <circle cx="0" cy="-36" r="3.2" fill="#6b4fc8"></circle>
+                        <circle cx="22.8" cy="-7.4" r="3.2" fill="#6b4fc8"></circle>
+                        <circle cx="14" cy="19.4" r="3.2" fill="#6b4fc8"></circle>
+                        <circle cx="-28" cy="38.8" r="3.2" fill="#6b4fc8"></circle>
+                        <circle cx="-22.8" cy="-7.4" r="3.2" fill="#6b4fc8"></circle>
+
+                        <text x="0" y="-132" text-anchor="middle" font-size="9" fill="#6b4fc8"
+                            font-weight="600">Process</text>
+                        <text x="128" y="-20" text-anchor="start" font-size="9" fill="#6b4fc8"
+                            font-weight="600">Technology</text>
+                        <text x="78" y="110" text-anchor="start" font-size="9" fill="#6b4fc8" font-weight="600">Data
+                            Quality</text>
+                        <text x="-78" y="110" text-anchor="end" font-size="9" fill="#6b4fc8"
+                            font-weight="600">Documentation</text>
+                        <text x="-128" y="-16" text-anchor="end" font-size="9" fill="#6b4fc8"
+                            font-weight="600">Knowledge
+                            .</text>
+                    </g>
+                </svg>
+            </div>
+            <div class="exhibit-note">
+                Solid line: current state. Dashed line: target state (post-roadmap).<br><br>
+                <b>CBDO scores 1.3 overall</b> — Critically low scores in Technology and Data Quality stem from the
+                total
+                lack of a centralized CRM system. Sales operations are highly informal and dependent on executive memory
+                and
+                un-auditable WhatsApp threads.<br><br>
+                Successfully executing Phase 2 (CRM Rollout) will yield an immediate and massive uplift in data fidelity
+                and
+                executive oversight.
+            </div>
+        </div>
+        <table>
+            <tbody>
+                <tr>
+                    <th>Dimension</th>
+                    <th class="num">Current</th>
+                    <th class="num">Target</th>
+                    <th class="num">Gap</th>
+                </tr>
+                <tr>
+                    <td>Process Standardization</td>
+                    <td class="num">1.5</td>
+                    <td class="num">3.0</td>
+                    <td class="num">1.5</td>
+                </tr>
+                <tr>
+                    <td>Technology Utilization</td>
+                    <td class="num">1.0</td>
+                    <td class="num">3.5</td>
+                    <td class="num">2.5</td>
+                </tr>
+                <tr>
+                    <td>Data Quality &amp; Accessibility</td>
+                    <td class="num">1.0</td>
+                    <td class="num">3.5</td>
+                    <td class="num">2.5</td>
+                </tr>
+                <tr>
+                    <td>Documentation</td>
+                    <td class="num">2.0</td>
+                    <td class="num">3.0</td>
+                    <td class="num">1.0</td>
+                </tr>
+                <tr>
+                    <td>Knowledge Management</td>
+                    <td class="num">1.0</td>
+                    <td class="num">2.0</td>
+                    <td class="num">1.0</td>
+                </tr>
+                <tr style="font-weight:700;">
+                    <td>Overall</td>
+                    <td class="num">1.3</td>
+                    <td class="num">3.0</td>
+                    <td class="num">1.7</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="doc-footer"><span>Report Overview · EF Polymer</span><span>Page 3</span></div>
+    </div>
+    <div class="page"><img src="letterhead.png" alt="Letterhead" class="letterhead"
+            style="width: calc(100% + 151.181px); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;">
+        <h3 class="" data-manual-page-break="true">Team Structure</h3>
+        <p style="font-size:8.5pt;color:var(--muted);margin-bottom:4px;">Reporting hierarchy across the five strategic
+            business development verticals under Ankit Jain (Co-Founder &amp; CBDO), reporting to Narayan Lal Gurjar
+            (Founder
+            &amp; CEO).</p>
+        <div class="org-chart">
+            <!-- Lead -->
+            <div class="org-level">
+                <div class="org-node secondary" style="min-width:140px;">
+                    <div class="org-name">Narayan Lal Gurjar</div>
+                    <div class="org-role">Founder &amp; CEO</div>
+                    <span class="org-tag" style="background:#eef2f6;color:var(--slate);">CEO</span>
+                </div>
+            </div>
+            <div class="org-connector-top"></div>
+            <div class="org-level">
+                <div class="org-node lead" style="min-width:140px;">
+                    <div class="org-name">Ankit Jain</div>
+                    <div class="org-role">Co-Founder &amp; CBDO</div>
+                    <span class="org-tag">Lead</span>
+                </div>
+            </div>
+            <div class="org-connector-top"></div>
+            <div style="width:92%;border-top:1px solid var(--line);margin:0 auto;"></div>
+            <div style="display:flex;justify-content:center;gap:10px;width:100%;margin-top:0;">
+                <div class="org-sub-branch">
+                    <div class="org-connector-top"></div>
+                    <div class="org-node">
+                        <div class="org-name">Sameer Mahiskar</div>
+                        <div class="org-role">BD Manager<br>Seed Business</div>
+                        <span class="org-tag" style="background:#fef2f2;color:#b91c1c;">Dual Report → COO</span>
+                    </div>
+                </div>
+                <div class="org-sub-branch">
+                    <div class="org-connector-top"></div>
+                    <div class="org-node">
+                        <div class="org-name">Jatin Jain</div>
+                        <div class="org-role">AM-BD<br>B2B - SeaGreen and RCM</div>
+                    </div>
+                </div>
+                <div class="org-sub-branch">
+                    <div class="org-connector-top"></div>
+                    <div class="org-node">
+                        <div class="org-name">Shailendra Singh</div>
+                        <div class="org-role">BD Executive<br>Government Sales</div>
+                    </div>
+                </div>
+                <div class="org-sub-branch">
+                    <div class="org-connector-top"></div>
+                    <div class="org-node">
+                        <div class="org-name">Vikash Mehta</div>
+                        <div class="org-role">AM-BD<br>NGO/CSR Business</div>
+                    </div>
+                </div>
+                <div class="org-sub-branch">
+                    <div class="org-connector-top"></div>
+                    <div class="org-node">
+                        <div class="org-name">Mohit Kumar Gupta</div>
+                        <div class="org-role">BD Executive<br>Cocopeat Business</div>
+                    </div>
+                    <!-- Mohit's sub-team: Aishwarya, Rajesh Balu, Yoshida-san -->
+                    <div class="org-connector-top"></div>
+                    <div style="width:96%;border-top:1px solid var(--line);margin:0 auto;"></div>
+                    <div style="display:flex;justify-content:center;gap:5px;width:100%;margin-top:0;">
+                        <div style="display:flex;flex-direction:column;align-items:center;flex:1;">
+                            <div class="org-connector-top"></div>
+                            <div class="org-node secondary" style="min-width:0;padding:6px 3px;width:100%;">
+                                <div class="org-name" style="font-size:7pt;">Ishwarya M</div>
+                                <div class="org-role" style="font-size:6pt;">Cocopeat Ops</div>
+                            </div>
+                        </div>
+                        <div style="display:flex;flex-direction:column;align-items:center;flex:1;">
+                            <div class="org-connector-top"></div>
+                            <div class="org-node secondary" style="min-width:0;padding:6px 3px;width:100%;">
+                                <div class="org-name" style="font-size:7pt;">Rajesh Balu</div>
+                                <div class="org-role" style="font-size:6pt;">Logistics/Product</div>
+                            </div>
+                        </div>
+                        <div style="display:flex;flex-direction:column;align-items:center;flex:1;">
+                            <div class="org-connector-top"></div>
+                            <div class="org-node secondary" style="min-width:0;padding:6px 3px;width:100%;">
+                                <div class="org-name" style="font-size:7pt;">Yoshida-san</div>
+                                <div class="org-role" style="font-size:6pt;">Japan B2B</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h3>Tools in Use</h3>
+        <div class="tools-grid">
+            <div class="tool-card">
+                <div class="tool-icon"><img src="https://img.icons8.com/color/48/000000/google-sheets.png" width="24"
+                        height="24" style="display:block; object-fit:contain;" alt="Google Sheets"></div>
+                <div class="tool-info">
+                    <div class="tool-name">Google Sheets</div>
+                    <div class="tool-desc">Basic tracking limited to the Cocopeat division only</div>
+                </div>
+            </div>
+            <div class="tool-card">
+                <div class="tool-icon"><img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" width="24"
+                        height="24" style="display:block; object-fit:contain;" alt="WhatsApp (Primary)"></div>
+                <div class="tool-info">
+                    <div class="tool-name">WhatsApp (Primary)</div>
+                    <div class="tool-desc">Client interactions; siloed per employee</div>
+                </div>
+            </div>
+            <div class="tool-card">
+                <div class="tool-icon"><img src="https://img.icons8.com/color/48/000000/slack-new.png" width="24"
+                        height="24" style="display:block; object-fit:contain;" alt="Slack"></div>
+                <div>
+                    <div class="tool-name">Slack</div>
+                    <div class="tool-desc">Internal alignment and team communication</div>
+                </div>
+            </div>
+            <div class="tool-card">
+                <div class="tool-icon"><img src="https://img.icons8.com/color/48/000000/gmail-new.png" width="24"
+                        height="24" style="display:block; object-fit:contain;" alt="Gmail"></div>
+                <div>
+                    <div class="tool-name">Gmail</div>
+                    <div class="tool-desc">Formal external follow-ups and client communication</div>
+                </div>
+            </div>
+        </div>
+        <div class="doc-footer"><span>Report Overview · EF Polymer</span><span>Page 4</span></div>
+    </div>
+    <div class="page"><img src="letterhead.png" alt="Letterhead" class="letterhead"
+            style="width: calc(100% + 151.181px); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;">
+        <div class="eyebrow" data-manual-page-break="true">Section 03 — Current Workflows &amp; Process Maps</div>
+        <h2>Current Workflows</h2>
+        <h3>Organizational Structure &amp; Verticals</h3><svg viewBox="0 0 740 180" xmlns="http://www.w3.org/2000/svg"
+            style="width:100%;display:block;margin:10px 0 4px;">
+            <defs>
+                <marker id="a1" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+                    <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5"></path>
+                </marker>
+            </defs>
+            <!-- CBDO Node -->
+            <rect x="290" y="18" width="160" height="40" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"></rect>
+            <rect x="310" y="10" width="120" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75">
+            </rect>
+            <text x="370" y="20.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C"
+                font-family="Segoe UI,sans-serif" letter-spacing="0.4">EXECUTIVE LEAD</text>
+            <text x="370" y="42" text-anchor="middle" font-size="8.5" fill="#1B2A4A" font-weight="700"
+                font-family="Segoe UI,sans-serif">Ankit Jain (CBDO)</text>
+
+            <!-- Vertical line down -->
+            <line x1="370" y1="58" x2="370" y2="74" stroke="#B0BAC5" stroke-width="1"></line>
+            <!-- Horizontal trunk -->
+            <line x1="190" y1="74" x2="550" y2="74" stroke="#B0BAC5" stroke-width="1"></line>
+
+            <!-- Domestic BD -->
+            <line x1="190" y1="74" x2="190" y2="92" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)"></line>
+            <rect x="70" y="92" width="240" height="82" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"></rect>
+            <rect x="110" y="84" width="160" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75">
+            </rect>
+            <text x="190" y="94.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C"
+                font-family="Segoe UI,sans-serif" letter-spacing="0.4">DOMESTIC GROWTH</text>
+            <text x="80" y="118" text-anchor="start" font-size="7" fill="#6B7785" font-family="Segoe UI,sans-serif">•
+                Seed
+                &amp; Contract Farming: Sameer</text>
+            <text x="80" y="130" text-anchor="start" font-size="7" fill="#6B7785" font-family="Segoe UI,sans-serif">•
+                B2B -
+                SeaGreen &amp; RCM: Jatin Jain</text>
+            <text x="80" y="142" text-anchor="start" font-size="7" fill="#6B7785" font-family="Segoe UI,sans-serif">•
+                NGO
+                &amp; CSR Business: Vikas</text>
+            <text x="80" y="154" text-anchor="start" font-size="7" fill="#6B7785" font-family="Segoe UI,sans-serif">•
+                Government Sales: Shailendra</text>
+
+            <!-- New BD -->
+            <line x1="550" y1="74" x2="550" y2="92" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)"></line>
+            <rect x="440" y="92" width="220" height="82" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"></rect>
+            <rect x="480" y="84" width="140" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75">
+            </rect>
+            <text x="550" y="94.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C"
+                font-family="Segoe UI,sans-serif" letter-spacing="0.4">EXPORTS &amp; NEW BD</text>
+            <text x="450" y="121" text-anchor="start" font-size="7" fill="#6B7785" font-family="Segoe UI,sans-serif">•
+                Cocopeat Business: Mohit → Aishwarya</text>
+            <text x="450" y="136" text-anchor="start" font-size="7" fill="#6B7785" font-family="Segoe UI,sans-serif">•
+                Japan
+                B2B: Yoshida-san (Direct)</text>
+        </svg>
+        <div class="flow-note">
+            <p style="margin-top:0;"><strong>What needs to be fixed:</strong> The CBDO office manages two distinct
+                divisions:
+                legacy domestic sales and new business/exports. Because these divisions operate with disjointed
+                tracking,
+                corporate oversight is severely fragmented.</p>
+            <p><strong>Detailed Structure:</strong>
+                <br>• <strong>Legacy Domestic BD:</strong> Comprises Seed/Contract Farming (Sameer), B2B - SeaGreen
+                &amp; RCM
+                (Jatin), NGO/CSR (Vikas), and Government Sales (Shailendra).
+                <br>• <strong>New BD &amp; Exports:</strong> Focuses on Cocopeat (Mohit &amp; Aishwarya) and B2B Japan
+                Exports
+                (Yoshida-san).
+            </p>
+        </div>
+        <h3>Decentralized Lead Generation Strategy</h3><svg viewBox="0 0 740 130" xmlns="http://www.w3.org/2000/svg"
+            style="width:100%;display:block;margin:10px 0 4px;">
+            <defs>
+                <marker id="a4" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+                    <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5"></path>
+                </marker>
+            </defs>
+            <!-- Verticals -->
+            <rect x="10" y="23" width="100" height="36" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"></rect>
+            <rect x="20" y="15" width="80" height="14" rx="2" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75">
+            </rect>
+            <text x="60" y="25" text-anchor="middle" font-size="5.5" font-weight="700" fill="#3F4B5C"
+                font-family="Segoe UI,sans-serif" letter-spacing="0.3">VERTICAL</text>
+            <text x="60" y="44" text-anchor="middle" font-size="7.2" fill="#3F4B5C"
+                font-family="Segoe UI,sans-serif">Seed /
+                CF</text>
+
+            <rect x="142" y="23" width="100" height="36" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"></rect>
+            <rect x="152" y="15" width="80" height="14" rx="2" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75">
+            </rect>
+            <text x="192" y="25" text-anchor="middle" font-size="5.5" font-weight="700" fill="#3F4B5C"
+                font-family="Segoe UI,sans-serif" letter-spacing="0.3">VERTICAL</text>
+            <text x="192" y="44" text-anchor="middle" font-size="7.2" fill="#3F4B5C"
+                font-family="Segoe UI,sans-serif">RCM /
+                SeaGreen</text>
+
+            <rect x="274" y="23" width="100" height="36" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"></rect>
+            <rect x="284" y="15" width="80" height="14" rx="2" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75">
+            </rect>
+            <text x="324" y="25" text-anchor="middle" font-size="5.5" font-weight="700" fill="#3F4B5C"
+                font-family="Segoe UI,sans-serif" letter-spacing="0.3">VERTICAL</text>
+            <text x="324" y="44" text-anchor="middle" font-size="7.2" fill="#3F4B5C"
+                font-family="Segoe UI,sans-serif">NGO /
+                CSR</text>
+
+            <rect x="406" y="23" width="100" height="36" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"></rect>
+            <rect x="416" y="15" width="80" height="14" rx="2" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75">
+            </rect>
+            <text x="456" y="25" text-anchor="middle" font-size="5.5" font-weight="700" fill="#3F4B5C"
+                font-family="Segoe UI,sans-serif" letter-spacing="0.3">VERTICAL</text>
+            <text x="456" y="44" text-anchor="middle" font-size="7.2" fill="#3F4B5C"
+                font-family="Segoe UI,sans-serif">Govt</text>
+
+            <!-- Arrows down -->
+            <line x1="60" y1="59" x2="60" y2="76" stroke="#B0BAC5" stroke-width="0.75" marker-end="url(#a4)"></line>
+            <line x1="192" y1="59" x2="192" y2="76" stroke="#B0BAC5" stroke-width="0.75" marker-end="url(#a4)"></line>
+            <line x1="324" y1="59" x2="324" y2="76" stroke="#B0BAC5" stroke-width="0.75" marker-end="url(#a4)"></line>
+            <line x1="456" y1="59" x2="456" y2="76" stroke="#B0BAC5" stroke-width="0.75" marker-end="url(#a4)"></line>
+
+            <!-- Dedicated lead gen persons -->
+            <rect x="10" y="76" width="100" height="36" rx="3" fill="#F4EEFC" stroke="#6b4fc8" stroke-width="1"></rect>
+            <rect x="20" y="68" width="80" height="14" rx="2" fill="#6b4fc8" stroke="#6b4fc8" stroke-width="0.75">
+            </rect>
+            <text x="60" y="78" text-anchor="middle" font-size="5.5" font-weight="700" fill="#FFFFFF"
+                font-family="Segoe UI,sans-serif" letter-spacing="0.3">LEAD GEN</text>
+            <text x="60" y="97" text-anchor="middle" font-size="6.8" fill="#6b4fc8" font-family="Segoe UI,sans-serif"
+                font-weight="600">Dedicated Agent</text>
+
+            <rect x="142" y="76" width="100" height="36" rx="3" fill="#F4EEFC" stroke="#6b4fc8" stroke-width="1"></rect>
+            <rect x="152" y="68" width="80" height="14" rx="2" fill="#6b4fc8" stroke="#6b4fc8" stroke-width="0.75">
+            </rect>
+            <text x="192" y="78" text-anchor="middle" font-size="5.5" font-weight="700" fill="#FFFFFF"
+                font-family="Segoe UI,sans-serif" letter-spacing="0.3">LEAD GEN</text>
+            <text x="192" y="97" text-anchor="middle" font-size="6.8" fill="#6b4fc8" font-family="Segoe UI,sans-serif"
+                font-weight="600">Dedicated Agent</text>
+
+            <rect x="274" y="76" width="100" height="36" rx="3" fill="#F4EEFC" stroke="#6b4fc8" stroke-width="1"></rect>
+            <rect x="284" y="68" width="80" height="14" rx="2" fill="#6b4fc8" stroke="#6b4fc8" stroke-width="0.75">
+            </rect>
+            <text x="324" y="78" text-anchor="middle" font-size="5.5" font-weight="700" fill="#FFFFFF"
+                font-family="Segoe UI,sans-serif" letter-spacing="0.3">LEAD GEN</text>
+            <text x="324" y="97" text-anchor="middle" font-size="6.8" fill="#6b4fc8" font-family="Segoe UI,sans-serif"
+                font-weight="600">Dedicated Agent</text>
+
+            <rect x="406" y="76" width="100" height="36" rx="3" fill="#F4EEFC" stroke="#6b4fc8" stroke-width="1"></rect>
+            <rect x="416" y="68" width="80" height="14" rx="2" fill="#6b4fc8" stroke="#6b4fc8" stroke-width="0.75">
+            </rect>
+            <text x="456" y="78" text-anchor="middle" font-size="5.5" font-weight="700" fill="#FFFFFF"
+                font-family="Segoe UI,sans-serif" letter-spacing="0.3">LEAD GEN</text>
+            <text x="456" y="97" text-anchor="middle" font-size="6.8" fill="#6b4fc8" font-family="Segoe UI,sans-serif"
+                font-weight="600">Dedicated Agent</text>
+
+            <!-- Convergence to Info Sharing -->
+            <path d="M60,112 C60,126 258,126 258,116" fill="none" stroke="#B0BAC5" stroke-width="1"
+                marker-end="url(#a4)"></path>
+            <path d="M192,112 C192,126 258,126 258,116" fill="none" stroke="#B0BAC5" stroke-width="1"
+                marker-end="url(#a4)"></path>
+            <path d="M324,112 C324,126 258,126 258,116" fill="none" stroke="#B0BAC5" stroke-width="1"
+                marker-end="url(#a4)"></path>
+            <path d="M456,112 C456,126 258,126 258,116" fill="none" stroke="#B0BAC5" stroke-width="1"
+                marker-end="url(#a4)"></path>
+
+            <rect x="560" y="80" width="170" height="36" rx="3" fill="#E9F4EC" stroke="#276B3E" stroke-width="1"></rect>
+            <rect x="580" y="72" width="130" height="14" rx="2" fill="#276B3E" stroke="#276B3E" stroke-width="0.75">
+            </rect>
+            <text x="645" y="82" text-anchor="middle" font-size="5.5" font-weight="700" fill="#FFFFFF"
+                font-family="Segoe UI,sans-serif" letter-spacing="0.3">ALIGNMENT</text>
+            <text x="645" y="94" text-anchor="middle" font-size="7.2" fill="#276B3E" font-weight="700"
+                font-family="Segoe UI,sans-serif">Periodic Info-Sharing</text>
+            <text x="645" y="106" text-anchor="middle" font-size="6.5" fill="#276B3E"
+                font-family="Segoe UI,sans-serif">Meeting (CBDO-Led)</text>
+            <line x1="258" y1="116" x2="558" y2="98" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a4)"></line>
+        </svg>
+        <div class="flow-note">
+            <p style="margin-top:0;"><strong>What needs to be fixed:</strong> Centralized lead generation failed due to
+                distinct vertical-specific buyer personas. However, the current decentralized model operates with zero
+                shared
+                intelligence, risking parallel or conflicting approaches.</p>
+            <p><strong>Detailed Workflow Steps:</strong>
+                <br>1. <strong>Decentralization:</strong> Each of the 4 domestic verticals owns its lead generation
+                strategy
+                independently.
+                <br>2. <strong>Dedicated Agents:</strong> BD executives focus exclusively on vertical-specific pitching
+                and
+                sourcing.
+                <br>3. <strong>Coordination:</strong> The CBDO facilitates periodic info-sharing meetings to align
+                targets and
+                prevent cross-vertical lead collision.
+            </p>
+        </div>
+        <div class="doc-footer"><span>Report Overview · EF Polymer</span><span>Page 5</span></div>
+    </div>
+    <div class="page"><img src="letterhead.png" alt="Letterhead" class="letterhead"
+            style="width: calc(100% + 151.181px); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;">
+        <h3 class="" data-manual-page-break="true">Lead Tracking Bottleneck — <span class="chip-ref">P-01</span> <span
+                class="chip-ref">P-03</span></h3><svg viewBox="0 0 740 95" xmlns="http://www.w3.org/2000/svg"
+            style="width:100%;display:block;margin:10px 0 4px;">
+            <defs>
+                <marker id="a2" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+                    <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5"></path>
+                </marker>
+            </defs>
+
+            <!-- Step 1 Box -->
+            <rect x="10" y="26" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"></rect>
+            <rect x="25" y="18" width="90" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75">
+            </rect>
+            <text x="70" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C"
+                font-family="Segoe UI,sans-serif" letter-spacing="0.4">DATA INPUT</text>
+            <text x="70" y="47" text-anchor="middle" font-size="7.8" fill="#3F4B5C"
+                font-family="Segoe UI,sans-serif">Lead
+                Generated</text>
+            <text x="70" y="59" text-anchor="middle" font-size="7.5" fill="#6B7785"
+                font-family="Segoe UI,sans-serif">Cross-Vertical</text>
+            <line x1="130" y1="50" x2="162" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)"></line>
+
+            <!-- Step 2 Box -->
+            <rect x="162" y="26" width="120" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5">
+            </rect>
+            <rect x="177" y="18" width="90" height="15" rx="3" fill="#A32E24" stroke="#A32E24" stroke-width="0.75">
+            </rect>
+            <text x="222" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF"
+                font-family="Segoe UI,sans-serif" letter-spacing="0.4">DATA LEAKAGE</text>
+            <text x="222" y="47" text-anchor="middle" font-size="7.8" fill="#A32E24" font-weight="700"
+                font-family="Segoe UI,sans-serif">Hidden in WhatsApp</text>
+            <text x="222" y="59" text-anchor="middle" font-size="7.5" fill="#A32E24"
+                font-family="Segoe UI,sans-serif">No
+                Corporate Log</text>
+            <line x1="282" y1="50" x2="314" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)"></line>
+
+            <!-- Step 3 Box -->
+            <rect x="314" y="26" width="120" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5">
+            </rect>
+            <rect x="329" y="18" width="90" height="15" rx="3" fill="#A32E24" stroke="#A32E24" stroke-width="0.75">
+            </rect>
+            <text x="374" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF"
+                font-family="Segoe UI,sans-serif" letter-spacing="0.4">MANUAL AUDIT</text>
+            <text x="374" y="47" text-anchor="middle" font-size="7.8" fill="#A32E24" font-weight="700"
+                font-family="Segoe UI,sans-serif">Manual Meeting</text>
+            <text x="374" y="59" text-anchor="middle" font-size="7.5" fill="#A32E24"
+                font-family="Segoe UI,sans-serif">Required to Audit</text>
+            <line x1="434" y1="50" x2="466" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)"></line>
+
+            <!-- Step 4 Box -->
+            <rect x="466" y="26" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"></rect>
+            <rect x="481" y="18" width="90" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75">
+            </rect>
+            <text x="526" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C"
+                font-family="Segoe UI,sans-serif" letter-spacing="0.4">DELAYED OUTPUT</text>
+            <text x="526" y="47" text-anchor="middle" font-size="7.8" fill="#3F4B5C"
+                font-family="Segoe UI,sans-serif">Monthly
+                Report</text>
+            <text x="526" y="59" text-anchor="middle" font-size="7.5" fill="#6B7785"
+                font-family="Segoe UI,sans-serif">Submitted End-of-Month</text>
+        </svg>
+        <div class="flow-note">
+            <p style="margin-top:0;"><strong>What needs to be fixed:</strong> Because deals are tracked entirely in
+                personal
+                apps, the CBDO cannot intervene to rescue stalled deals until they appear dead on a month-end report.
+            </p>
+            <p><strong>Detailed Workflow Steps:</strong>
+                <br>1. <strong>Lead Generation:</strong> Leads are acquired via regional networks, dealer channels, or
+                direct
+                inquiry.
+                <br>2. <strong>Information Silo:</strong> Deal details, client correspondence, and stage status are
+                stored
+                exclusively in executives' personal WhatsApp chats.
+                <br>3. <strong>Manual Reconciliation:</strong> The CBDO must hold intensive 1:1 meetings with each BD
+                executive
+                to manually audit pipeline stages.
+                <br>4. <strong>Retrospective View:</strong> A static, retrospective spreadsheet report is compiled and
+                submitted
+                at the end of each month.
+            </p>
+        </div>
+        <h3>Vertical Tracking Disparity — <span class="chip-ref">P-04</span></h3><svg viewBox="0 0 740 138"
+            xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:10px 0 4px;">
+            <defs>
+                <marker id="a3" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+                    <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5"></path>
+                </marker>
+            </defs>
+
+            <!-- Top Branch: Cocopeat -->
+            <rect x="10" y="18" width="130" height="40" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"></rect>
+            <rect x="25" y="10" width="100" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75">
+            </rect>
+            <text x="75" y="20.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C"
+                font-family="Segoe UI,sans-serif" letter-spacing="0.4">COCOPEAT DIVISION</text>
+            <text x="75" y="42" text-anchor="middle" font-size="7.6" fill="#3F4B5C"
+                font-family="Segoe UI,sans-serif">Cocopeat
+                Vertical</text>
+            <line x1="140" y1="38" x2="220" y2="38" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a3)"></line>
+
+            <rect x="220" y="18" width="130" height="40" rx="3" fill="#E9F4EC" stroke="#276B3E" stroke-width="1"></rect>
+            <rect x="235" y="10" width="100" height="15" rx="3" fill="#276B3E" stroke="#276B3E" stroke-width="0.75">
+            </rect>
+            <text x="285" y="20.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF"
+                font-family="Segoe UI,sans-serif" letter-spacing="0.4">TRACKED</text>
+            <text x="285" y="42" text-anchor="middle" font-size="7.6" fill="#276B3E"
+                font-family="Segoe UI,sans-serif">Basic
+                Excel Tracker</text>
+
+            <!-- Bottom Branch: Legacy BD -->
+            <rect x="10" y="78" width="130" height="40" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"></rect>
+            <rect x="25" y="70" width="100" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75">
+            </rect>
+            <text x="75" y="80.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C"
+                font-family="Segoe UI,sans-serif" letter-spacing="0.4">DOMESTIC BD</text>
+            <text x="75" y="102" text-anchor="middle" font-size="7.6" fill="#3F4B5C"
+                font-family="Segoe UI,sans-serif">Legacy
+                BD (4 Verts)</text>
+            <line x1="140" y1="98" x2="220" y2="98" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a3)"></line>
+
+            <rect x="220" y="78" width="130" height="40" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1"></rect>
+            <rect x="235" y="70" width="100" height="15" rx="3" fill="#A32E24" stroke="#A32E24" stroke-width="0.75">
+            </rect>
+            <text x="285" y="80.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF"
+                font-family="Segoe UI,sans-serif" letter-spacing="0.4">UNTRACKED</text>
+            <text x="285" y="102" text-anchor="middle" font-size="7.6" fill="#A32E24"
+                font-family="Segoe UI,sans-serif">No
+                Formal Tracking</text>
+
+            <!-- Convergence -->
+            <path d="M350 38 C 400 38, 400 68, 430 68" fill="none" stroke="#B0BAC5" stroke-width="1"
+                marker-end="url(#a3)"></path>
+            <path d="M350 98 C 400 98, 400 68, 430 68" fill="none" stroke="#B0BAC5" stroke-width="1"
+                marker-end="url(#a3)"></path>
+
+            <rect x="430" y="48" width="130" height="40" rx="3" fill="#FBF1DF" stroke="#E8C97A" stroke-width="1.5">
+            </rect>
+            <rect x="445" y="40" width="100" height="15" rx="3" fill="#8A5A10" stroke="#8A5A10" stroke-width="0.75">
+            </rect>
+            <text x="495" y="50.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF"
+                font-family="Segoe UI,sans-serif" letter-spacing="0.4">WARNING</text>
+            <text x="495" y="72" text-anchor="middle" font-size="7.6" fill="#8A5A10"
+                font-family="Segoe UI,sans-serif">Cross-Vertical Friction</text>
+            <line x1="560" y1="68" x2="600" y2="68" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a3)"></line>
+
+            <rect x="600" y="48" width="130" height="40" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"></rect>
+            <rect x="615" y="40" width="100" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75">
+            </rect>
+            <text x="665" y="50.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C"
+                font-family="Segoe UI,sans-serif" letter-spacing="0.4">CBDO IMPACT</text>
+            <text x="665" y="67" text-anchor="middle" font-size="7.6" fill="#3F4B5C"
+                font-family="Segoe UI,sans-serif">Inconsistent</text>
+            <text x="665" y="78" text-anchor="middle" font-size="7.6" fill="#3F4B5C"
+                font-family="Segoe UI,sans-serif">CBDO
+                Reviews</text>
+        </svg>
+        <div class="flow-note">
+            <p style="margin-top:0;"><strong>What needs to be fixed:</strong> The disparity in basic data-entry
+                discipline
+                creates friction when attempting to synthesize a holistic company-wide pipeline view for the CBDO.</p>
+            <p><strong>Detailed Workflow Steps:</strong>
+                <br>1. <strong>Cocopeat Division:</strong> Utilizes a basic Excel spreadsheet tracker for pipeline
+                stages.
+                <br>2. <strong>Legacy BD Divisions:</strong> Seed, B2B, NGO, and Govt verticals have no formal pipeline
+                tracking.
+                <br>3. <strong>Friction:</strong> Cross-vertical synthesis is impossible because of incompatible
+                tracking
+                formats.
+                <br>4. <strong>Review Limitation:</strong> CBDO pipeline reviews remain qualitative, ad hoc, and
+                inconsistent.
+            </p>
+        </div>
+        <div class="doc-footer"><span>Report Overview · EF Polymer</span><span>Page 6</span></div>
+    </div>
+    <div class="page"><img src="letterhead.png" alt="Letterhead" class="letterhead"
+            style="width: calc(100% + 151.181px); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;">
+        <h2 class="" data-manual-page-break="true">Cross-Department Dependencies</h2>
+        <div class="dep-card">
+            <div class="dep-header">
+                <div class="dep-title">Finance &amp; Accounts</div>
+                <div class="dep-badge">Sales-to-Finance Data Sync &amp; Travel Workflow</div>
+            </div>
+            <div class="dep-grid">
+                <div class="dep-section">
+                    <div class="dep-section-title">Operations Dependency</div>
+                    <div class="dep-section-content">
+                        Finance must stop manual reconciliation of invoicing and payment records. The BD team needs Zoho
+                        Books
+                        billing, receivables, and payment confirmations to sync automatically into the central CRM.
+                        Furthermore,
+                        Finance must connect with the new multichannel travel approval bot to handle immediate
+                        reimbursement payouts
+                        upon CBDO/vertical head approval.
+                        <div class="dep-person">👤 Key Person: Shobha Shekhawat (Finance Head)</div>
+                    </div>
+                </div>
+                <div class="dep-section bottleneck">
+                    <div class="dep-section-title">Critical Bottleneck</div>
+                    <div class="dep-section-content">Without automated payment sync and multichannel travel approval
+                        flows, BD
+                        executives must manually query Finance to verify payment status before dispatches, and travel
+                        payouts face
+                        long delays due to manual email trails.</div>
+                </div>
+                <div class="dep-section data-sync" style="grid-column:1/-1;">
+                    <div class="dep-section-title">Data Transfer &amp; Updates Needed</div>
+                    <div class="dep-section-content">Configure automated Zoho Books-to-CRM API feeds to update customer
+                        account
+                        credit limits, payment history, and outstanding invoices, and establish Slack/WhatsApp automated
+                        webhook
+                        triggers for travel and reimbursement approvals.</div>
+                </div>
+            </div>
+        </div>
+        <div class="dep-card">
+            <div class="dep-header">
+                <div class="dep-title">Technical &amp; Field Operations</div>
+                <div class="dep-badge">Product Testing &amp; Field Issues SLA</div>
+            </div>
+            <div class="dep-grid">
+                <div class="dep-section">
+                    <div class="dep-section-title">Operations Dependency</div>
+                    <div class="dep-section-content">
+                        The BD team frequently encounters crop-specific field issues (e.g., product performance
+                        complaints,
+                        software-related queries from farmers) and depends on the Technical team for resolution.
+                        Additionally, the
+                        BD team needs live visibility into which product formulations have completed testing and are
+                        ready for
+                        commercial sale.
+                        <div class="dep-person">👤 Key Person: Ritu Panwar (R&amp;D Lead)</div>
+                    </div>
+                </div>
+                <div class="dep-section bottleneck">
+                    <div class="dep-section-title">Critical Bottleneck</div>
+                    <div class="dep-section-content">Lack of visibility into testing completion leads to the risk of BD
+                        executives
+                        pitching unvalidated formulations, and unresolved field complaints persist for weeks, severely
+                        damaging
+                        distributor and client trust.</div>
+                </div>
+                <div class="dep-section data-sync" style="grid-column:1/-1;">
+                    <div class="dep-section-title">Data Transfer &amp; Updates Needed</div>
+                    <div class="dep-section-content">The Technical team must publish a live product testing register and
+                        formulation roadmap inside the CRM, and establish a formal field-issue escalation SLA (e.g.,
+                        24-hour triage,
+                        72-hour resolution) integrated with deal records.</div>
+                </div>
+            </div>
+        </div>
+        <div class="doc-footer"><span>Report Overview · EF Polymer</span><span>Page 7</span></div>
+    </div>
+    <div class="page"><img src="letterhead.png" alt="Letterhead" class="letterhead"
+            style="width: calc(100% + 151.181px); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;">
+        <div class="dep-card" data-manual-page-break="true">
+            <div class="dep-header">
+                <div class="dep-title">HR &amp; Talent</div>
+                <div class="dep-badge">CRM Adoption &amp; Sales Performance Metrics</div>
+            </div>
+            <div class="dep-grid">
+                <div class="dep-section">
+                    <div class="dep-section-title">Operations Dependency</div>
+                    <div class="dep-section-content">
+                        HR must support the rollout of the central CRM and knowledge hub by designing mandatory adoption
+                        programs,
+                        compiling vertical-specific product training assets, and integrating CRM data-entry compliance
+                        and pipeline
+                        hygiene metrics directly into the sales team's Performance Management System (PMS).
+                        <div class="dep-person">👤 Key Person: Dolly Mehta (HR Manager)</div>
+                    </div>
+                </div>
+                <div class="dep-section bottleneck">
+                    <div class="dep-section-title">Critical Bottleneck</div>
+                    <div class="dep-section-content">Legacy BD team members show strong resistance to transitioning from
+                        WhatsApp
+                        to structured database entries. Without HR-driven training and PMS alignment, CRM adoption will
+                        fail,
+                        leaving lead data siloed.</div>
+                </div>
+                <div class="dep-section data-sync" style="grid-column:1/-1;">
+                    <div class="dep-section-title">Data Transfer &amp; Updates Needed</div>
+                    <div class="dep-section-content">HR must develop standard CRM training paths, update job
+                        descriptions to
+                        include pipeline tracking responsibilities, and link monthly/quarterly incentives to CRM
+                        pipeline hygiene
+                        metrics.</div>
+                </div>
+            </div>
+        </div>
+        <div class="doc-footer"><span>Report Overview · EF Polymer</span><span>Page 8</span></div>
+    </div>
+    <div class="page"><img src="letterhead.png" alt="Letterhead" class="letterhead"
+            style="width: calc(100% + 151.181px); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;">
+        <div class="eyebrow" data-manual-page-break="true">Section 04 — Operational Pain Points &amp; Bottlenecks</div>
+        <h2>Operational Pain Points</h2>
+        <div class="callout" style="margin-bottom:14px;border-left-color:#2563eb;background:#EFF4FF;">
+            <strong style="color:#1B2A4A;">Priority Focus Areas:</strong><br>
+            <span style="color:#1B2A4A;">① <b>CRM Absence &amp; Lead Leakage</b> — No central CRM exists. Lead status
+                and ownership are invisible at the executive level, risking data loss during turnover.</span><br>
+            <span style="color:#1B2A4A;">② <b>Retrospective-Only Reporting</b> — Pipeline reporting happens
+                retrospectively once a month, preventing real-time CBDO intervention.</span><br>
+            <span style="color:#1B2A4A;">③ <b>Legacy Team Resistance &amp; Onboarding Gaps</b> — Legay staff resist new
+                tracking workflows, while the lack of a centralized product/vertical repository extends training
+                timelines.</span><br>
+            <span style="color:#1B2A4A;">④ <b>Manual Travel Approvals</b> — Manual tracking of travel plans and
+                reimbursement requests across Finance and vertical heads delays field operations and lacks executive
+                visibility.</span><br>
+        </div>
+        <table class="">
+            <tbody class="">
+                <tr>
+                    <th class="id">ID</th>
+                    <th>Pain Point</th>
+                    <th>Impact</th>
+                    <th>Evidence from Audit</th>
+                </tr>
+                <tr>
+                    <td class="id">P-01</td>
+                    <td><b>Absence of Central CRM.</b> Lead status and ownership are invisible at the executive level.
+                    </td>
+                    <td><span class="chip chip-crit">Critical</span></td>
+                    <td>Requires manual meetings to determine account owners; risks massive lead leakage if personnel
+                        transition.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="id">P-02</td>
+                    <td><b>Retrospective Monthly Reporting.</b> Pipeline reporting is only conducted retrospectively
+                        once a month.
+                    </td>
+                    <td><span class="chip chip-med">High</span></td>
+                    <td>Prevents timely CBDO intervention on stalled deals; obscures live revenue forecasting.</td>
+                </tr>
+                <tr>
+                    <td class="id">P-03</td>
+                    <td><b>Siloed WhatsApp Communications.</b> Customer interactions live exclusively inside employees'
+                        personal
+                        WhatsApp accounts.</td>
+                    <td><span class="chip chip-med">High</span></td>
+                    <td>No central capture of client history or frequency of touchpoints.</td>
+                </tr>
+                <tr>
+                    <td class="id">P-04</td>
+                    <td><b>Process Disparities.</b> Cocopeat uses a basic tracker, while the 4 legacy domestic verticals
+                        have no
+                        formal logging.</td>
+                    <td><span class="chip chip-low">Medium</span></td>
+                    <td>Inconsistent tracking discipline across the department creates friction during cross-vertical
+                        reporting.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="id">P-05</td>
+                    <td><b>Legacy Team Resistance to Tech Adoption.</b> The old/legacy BD team exhibits massive
+                        behavioral
+                        resistance to adopting new tools, tracking systems, or structured data-entry workflows.</td>
+                    <td><span class="chip chip-crit">Critical</span></td>
+                    <td>Without a dedicated change-management strategy and structured training, the CRM rollout will
+                        face active
+                        pushback, risking adoption failure.</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="doc-footer"><span>Report Overview · EF Polymer</span><span>Page 9</span></div>
+    </div>
+    <div class="page"><img src="letterhead.png" alt="Letterhead" class="letterhead"
+            style="width: calc(100% + 151.181px); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;">
+        <table class="" data-manual-page-break="true">
+            <tbody class="">
+                <tr class="">
+                    <td class="id">P-06</td>
+                    <td><b>No Centralized Product &amp; Vertical Knowledge Hub.</b> Absence of a centralized data
+                        knowledge hub
+                        containing comprehensive product specs and vertical-specific use cases.</td>
+                    <td><span class="chip chip-med">High</span></td>
+                    <td>New or legacy team onboarding/training about specific product formulations and business
+                        verticals takes
+                        excessive time, slowing down CRM and operational tech adoption.</td>
+                </tr>
+                <tr class="">
+                    <td class="id">P-07</td>
+                    <td><b>Manual Travel &amp; Reimbursement Approvals.</b> Tracking and coordinating travel plans and
+                        reimbursement
+                        request approvals manually across vertical heads and Finance.</td>
+                    <td><span class="chip chip-med">High</span></td>
+                    <td>No central visibility for CXO approvals; reimbursement processes are delayed due to unstructured
+                        email/chat
+                        approvals without a single dashboard view.</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="doc-footer"><span>Report Overview · EF Polymer</span><span>Page 10</span></div>
+    </div>
+    <div class="page"><img src="letterhead.png" alt="Letterhead" class="letterhead"
+            style="width: calc(100% + 151.181px); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;">
+        <div class="eyebrow" data-manual-page-break="true">Section 05 — Time &amp; Effort Allocation</div>
+        <h2>Time &amp; Effort Allocation</h2>
+        <div class="section-dek">Estimated breakdown of weekly bandwidth based on workflow analysis</div>
+        <table>
+            <tbody>
+                <tr>
+                    <th>Activity</th>
+                    <th class="num" style="text-align:right">Share of CBDO Time</th>
+                    <th class="num" style="text-align:right">Est. Time / Day</th>
+                </tr>
+                <tr>
+                    <td>Coordinating with BD Vertical Heads</td>
+                    <td class="num">~25%</td>
+                    <td class="num">~2.0 hrs</td>
+                </tr>
+                <tr>
+                    <td>Individual Travel Time (Key Partners &amp; Client Visits)</td>
+                    <td class="num">~20%</td>
+                    <td class="num">~1.6 hrs</td>
+                </tr>
+                <tr>
+                    <td>CXOs &amp; Investor Meetings</td>
+                    <td class="num">~15%</td>
+                    <td class="num">~1.2 hrs</td>
+                </tr>
+                <tr>
+                    <td>Executive Pipeline Review &amp; Meetings</td>
+                    <td class="num">~15%</td>
+                    <td class="num">~1.2 hrs</td>
+                </tr>
+                <tr>
+                    <td>Cross-Department &amp; Operations Coordination</td>
+                    <td class="num">~15%</td>
+                    <td class="num">~1.2 hrs</td>
+                </tr>
+                <tr>
+                    <td>Travel Plan Verification &amp; Activity Audits</td>
+                    <td class="num">~10%</td>
+                    <td class="num">~0.8 hrs</td>
+                </tr>
+            </tbody>
+        </table>
+        <p style="font-size:8.5pt;color:var(--muted);margin-bottom:8px;">Based on a standard 8-hour workday. Hours shown
+            are
+            estimates per the CBDO's daily allocation, averaged across a typical week.</p>
+        <div class="doc-footer"><span>Report Overview · EF Polymer</span><span>Page 11</span></div>
+    </div>
+    <div class="page"><img src="letterhead.png" alt="Letterhead" class="letterhead"
+            style="width: calc(100% + 151.181px); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;">
+        <div class="eyebrow" data-manual-page-break="true">Section 06 — Recommended Solution</div>
+        <h2>Recommended Solution</h2>
+        <div class="section-dek">This section outlines the integrated technology solution proposed to resolve
+            operational
+            bottlenecks, replacing the legacy recommendations register.</div>
+        <h3>Implementation Required</h3>
+        <p style="font-weight: 700; color: var(--ink); margin-top: 15px; margin-bottom: 10px; font-size: 9.5pt;">
+            Solution
+            Modules to be Built:</p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px;" class="">
+            <!-- Module 1 -->
+            <div style="border: 1px solid var(--line); border-radius: 4px; padding: 12px; background: var(--paper);">
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                    <div
+                        style="background: #E9F4EC; color: #276B3E; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 10pt;">
+                        1</div>
+                    <div style="font-weight: 700; color: var(--ink); font-size: 9.5pt;">Custom Unified CRM &amp; Lead
+                        Ownership
+                    </div>
+                </div>
+                <ul style="font-size: 8.5pt; color: var(--muted); line-height: 1.5; padding-left: 18px; margin: 0;">
+                    <li style="margin-bottom: 6px;"><strong>Custom CRM Build:</strong> Build a custom unified CRM
+                        tailored for all
+                        5 verticals (Seed, B2B, NGO, Govt, Cocopeat) as per their specific working style and
+                        data-capture needs.
+                    </li>
+                    <li style="margin-bottom: 6px;"><strong>WhatsApp API Lead Insertion:</strong> Connect the custom CRM
+                        directly
+                        with the WhatsApp API to allow executives to manually insert new leads and updates via WhatsApp
+                        directly.
+                    </li>
+                    <li><strong>Vertical Autonomy:</strong> Set up distinct layout views and custom pipelines for each
+                        vertical to
+                        ensure smooth workflow adoption without cross-vertical clutter.</li>
+                </ul>
+            </div>
+
+            <!-- Module 2 -->
+            <div style="border: 1px solid var(--line); border-radius: 4px; padding: 12px; background: var(--paper);">
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                    <div
+                        style="background: #E9F4EC; color: #276B3E; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 10pt;">
+                        2</div>
+                    <div style="font-weight: 700; color: var(--ink); font-size: 9.5pt;">Live CXO Level Dashboard</div>
+                </div>
+                <ul style="font-size: 8.5pt; color: var(--muted); line-height: 1.5; padding-left: 18px; margin: 0;">
+                    <li style="margin-bottom: 6px;"><strong>Real-Time Pipeline View:</strong> Shift from manual monthly
+                        retrospective reviews to a live CXO Level Dashboard monitoring pipeline health daily.</li>
+                    <li style="margin-bottom: 6px;"><strong>Stalled Deal Alerts:</strong> Automated alerts flag any deal
+                        with no
+                        activity for 7+ days directly on the CXO Dashboard.</li>
+                    <li style="margin-bottom: 6px;"><strong>Conversion Analytics:</strong> Track deal velocity,
+                        conversion ratios,
+                        and cross-vertical benchmarking in real time.</li>
+                    <li style="margin-bottom: 6px;"><strong>Lead Approached vs. Converted:</strong> Daily count of leads
+                        approached and leads converted, visible on the CXO Level Dashboard for immediate performance
+                        monitoring.
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Module 3 -->
+            <div style="border: 1px solid var(--line); border-radius: 4px; padding: 12px; background: var(--paper);">
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                    <div
+                        style="background: #E9F4EC; color: #276B3E; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 10pt;">
+                        3</div>
+                    <div style="font-weight: 700; color: var(--ink); font-size: 9.5pt;">Cross-Vertical Standardization
+                    </div>
+                </div>
+                <ul style="font-size: 8.5pt; color: var(--muted); line-height: 1.5; padding-left: 18px; margin: 0;">
+                    <li style="margin-bottom: 6px;"><strong>Unified Tracker Framework:</strong> Deploy the Cocopeat
+                        vertical's
+                        Excel tracking framework across all 4 legacy domestic verticals with unified column definitions
+                        as a
+                        stop-gap before CRM launch.</li>
+                    <li style="margin-bottom: 4px;"><strong>Standardized Pipeline Stages:</strong> Define uniform stage
+                        labels
+                        (Prospect, Qualified, Proposal, Negotiation, Closed) to align cross-vertical reporting and build
+                        data-entry
+                        discipline.</li>
+                </ul>
+            </div>
+
+            <!-- Module 4 -->
+            <div style="border: 1px solid var(--line); border-radius: 4px; padding: 12px; background: var(--paper);">
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                    <div
+                        style="background: #E9F4EC; color: #276B3E; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 10pt;">
+                        4</div>
+                    <div style="font-weight: 700; color: var(--ink); font-size: 9.5pt;">Central Product &amp; CRM
+                        Knowledge Hub
+                    </div>
+                </div>
+                <ul style="font-size: 8.5pt; color: var(--muted); line-height: 1.5; padding-left: 18px; margin: 0;">
+                    <li style="margin-bottom: 6px;"><strong>Single Source of Truth:</strong> Digital repository
+                        containing crop
+                        specs, product formulas, and vertical personas. Leverages the existing 60-70% built AI chatbot
+                        developed by
+                        Creative Upaay.</li>
+                    <li style="margin-bottom: 6px;"><strong>Adoption is the Challenge:</strong> Since the knowledge
+                        layer is
+                        largely built, the primary roadblock is team adoption. Standard workflows must mandate querying
+                        the bot.
+                    </li>
+                    <li><strong>CRM SOP playbooks:</strong> Incorporate interactive data-entry guidelines and chatbot
+                        queries into
+                        training materials to accelerate onboarding.</li>
+                </ul>
+            </div>
+
+            <!-- Module 5 -->
+        </div>
+        <div class="doc-footer"><span>Report Overview · EF Polymer</span><span>Page 12</span></div>
+    </div>
+    <div class="page"><img src="letterhead.png" alt="Letterhead" class="letterhead"
+            style="width: calc(100% + 151.181px); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px;" class=""
+            data-manual-page-break="true">
+            <div style="border: 1px solid var(--line); border-radius: 4px; padding: 12px; background: var(--paper); grid-column: 1 / -1;"
+                class="">
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                    <div
+                        style="background: #E9F4EC; color: #276B3E; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 10pt;">
+                        5</div>
+                    <div style="font-weight: 700; color: var(--ink); font-size: 9.5pt;">Multichannel CXO Approvals &amp;
+                        Travel
+                        Bot</div>
+                </div>
+                <ul style="font-size: 8.5pt; color: var(--muted); line-height: 1.5; padding-left: 18px; margin: 0;">
+                    <li style="margin-bottom: 6px;"><strong>Unified Approval Feed:</strong> Consolidated dashboard
+                        section
+                        displaying all pending travel plans, client meeting schedules, and expense reimbursement
+                        requests from the
+                        BD team.</li>
+                    <li style="margin-bottom: 6px;"><strong>Multichannel Actions:</strong> Integrates Slack and WhatsApp
+                        bots,
+                        allowing vertical heads and the CBDO to review and click-to-approve requests instantly
+                        on-the-go.</li>
+                    <li style="margin-bottom: 6px;"><strong>Auto-Logging &amp; Sync:</strong> Approved travel logs
+                        update
+                        executive schedules automatically (without daily manual planning approval needed).</li>
+                    <li><strong>Direct Finance Routing:</strong> Click-to-approve actions automatically trigger
+                        payment/booking
+                        notifications straight to Shobha Shekhawat (Finance) for instant disbursement.</li>
+                </ul>
+            </div>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px;">
+            <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 4px; padding: 12px;">
+                <p style="font-weight: 700; color: var(--ink); margin-bottom: 6px; font-size: 9pt;">What Remains the
+                    Same</p>
+                <ul style="font-size: 8.5pt; color: var(--muted); line-height: 1.5; padding-left: 18px; margin: 0;">
+                    <li style="margin-bottom: 4px;"><strong>Sales Methodology:</strong> The BD team's
+                        relationship-driven approach
+                        remains unchanged; the custom CRM digital tool supports rather than replaces it.</li>
+                    <li><strong>Vertical Autonomy:</strong> Each vertical retains its operational independence within
+                        the custom
+                        CRM framework.</li>
+                </ul>
+            </div>
+            <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 4px; padding: 12px;">
+                <p style="font-weight: 700; color: var(--ink); margin-bottom: 6px; font-size: 9pt;">Tech Stack Utilized
+                </p>
+                <ul style="font-size: 8.5pt; color: var(--muted); line-height: 1.5; padding-left: 18px; margin: 0;">
+                    <li style="margin-bottom: 2px;"><strong>CRM:</strong> Custom Unified CRM (React + Python/Node)</li>
+                    <li style="margin-bottom: 2px;"><strong>Dashboard:</strong> ReactJS + TypeScript (CXO Dashboard)
+                    </li>
+                    <li style="margin-bottom: 2px;"><strong>Integration:</strong> WhatsApp API (Manual Lead Insertion),
+                        Slack API,
+                        Zoho Books API</li>
+                    <li><strong>Knowledge Layer:</strong> Creative Upaay AI Chatbot (60-70% built) / Central Wiki</li>
+                </ul>
+            </div>
+        </div>
+        <div
+            style="background: #F0FDF4; border: 1px solid #BBF7D0; border-radius: 4px; padding: 12px; margin-bottom: 25px;">
+            <p style="font-weight: 700; color: #166534; margin-bottom: 6px; font-size: 9.5pt;">Key Operational Problems
+                Solved
+            </p>
+            <ul style="font-size: 8.5pt; color: #15803D; line-height: 1.5; padding-left: 18px; margin: 0;">
+                <li style="margin-bottom: 4px;">Eliminates lead leakage risk during employee turnover by securing
+                    corporate
+                    ownership of all contact data.</li>
+                <li style="margin-bottom: 4px;">Replaces monthly retrospective reviews with live pipeline visibility on
+                    a CXO
+                    Level Dashboard.</li>
+                <li style="margin-bottom: 4px;">Enables manual lead insertion directly via WhatsApp, saving time and
+                    keeping
+                    communications aligned.</li>
+                <li style="margin-bottom: 4px;">Standardizes tracking discipline across all 5 BD verticals, eliminating
+                    cross-vertical reporting friction.</li>
+                <li style="margin-bottom: 4px;">Provides daily travel plan visibility and lead approach-vs-conversion
+                    metrics
+                    for immediate executive oversight.</li>
+                <li style="margin-bottom: 4px;">Tackles team training and tech adoption by leveraging the 60-70% built
+                    Creative
+                    Upaay AI chatbot as a product and CRM knowledge hub.</li>
+                <li style="margin-bottom: 4px;">Eliminates manual delays in travel and expense approvals via instant
+                    Slack/WhatsApp direct approvals.</li>
+                <li>Automates flight approval routing through CBDO → Accounts, while daily travel plans remain
+                    auto-logged
+                    without approval.</li>
+            </ul>
+        </div>
+        <h3>Future Scope of Improvement / Enhancement</h3>
+        <ul style="font-size: 9pt; color: var(--muted); line-height: 1.5; padding-left: 20px; margin-bottom: 25px;">
+            <li><strong>AI Deal Scoring:</strong> In the future, an AI model could analyze CRM data to score deal
+                health,
+                predict win probability, and recommend next-best-actions for each BD executive. This is not needed right
+                now but
+                is a planned future enhancement.</li>
+        </ul>
+        <div class="doc-footer"><span>Report Overview · EF Polymer</span><span>Page 13</span></div>
+    </div>
+    <div class="page"><img src="letterhead.png" alt="Letterhead" class="letterhead"
+            style="width: calc(100% + 151.181px); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;">
+        <h3 class="" data-manual-page-break="true">Next Steps for Team Adoption</h3>
+        <ul style="font-size: 9pt; color: var(--muted); line-height: 1.5; padding-left: 20px; margin-bottom: 15px;">
+            <li><strong>Mandatory CRM &amp; Product Chatbot Training:</strong> All BD executives must undergo compulsory
+                training
+                focusing on product vertical knowledge and CRM usage, actively querying the 60-70% built Creative Upaay
+                AI
+                chatbot.</li>
+            <li><strong>Feedback Loop:</strong> Establish weekly 15-minute pipeline stand-ups to instill data-entry
+                discipline
+                and iterate on the custom CRM workflow design based on ground feedback.</li>
+            <li><strong>Change Management &amp; Tech Adoption Focus:</strong> The CBDO will actively enforce CRM
+                compliance.
+                Since adoption is the main challenge (<span class="chip-ref">P-05</span>), top-down enforcement
+                (incentives
+                linked to CRM and chatbot queries) is critical for success.</li>
+        </ul>
+        <div class="doc-footer"><span>Report Overview · EF Polymer</span><span>Page 14</span></div>
+    </div>
+    <div class="page"><img src="letterhead.png" alt="Letterhead" class="letterhead"
+            style="width: calc(100% + 151.181px); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;">
+        <div class="eyebrow" data-manual-page-break="true">Section 07 — Phased Roadmap</div>
+        <h2>Phased Roadmap</h2>
+        <div class="section-dek">Initiatives sequenced across three phases, with quantified ROI and scope of work</div>
+        <table class="tl-table">
+            <tbody>
+                <tr>
+                    <th>Initiative</th>
+                    <th class="id">Target</th>
+                    <th class="num">Phase 1<br><span style="font-weight:400">2–3 Wks</span></th>
+                    <th class="num">Phase 2<br><span style="font-weight:400">4–6 Wks</span></th>
+                    <th class="num">Phase 3<br><span style="font-weight:400">6–8 Wks</span></th>
+                </tr>
+                <tr>
+                    <td>Cross-Vertical Standardization</td>
+                    <td class="id">Module 3</td>
+                    <td class="phase-mark p1">●</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Product &amp; Vertical Knowledge Hub (Creative Upaay Chatbot)</td>
+                    <td class="id">Module 4</td>
+                    <td class="phase-mark p1">●</td>
+                    <td class="phase-mark p2">●</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Custom Unified CRM Build</td>
+                    <td class="id">Module 1</td>
+                    <td></td>
+                    <td class="phase-mark p2">●</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Multichannel Approvals Bot</td>
+                    <td class="id">Module 5</td>
+                    <td></td>
+                    <td class="phase-mark p2">●</td>
+                    <td class="phase-mark p3">●</td>
+                </tr>
+                <tr>
+                    <td>Live CXO Level Dashboard</td>
+                    <td class="id">Module 2</td>
+                    <td></td>
+                    <td></td>
+                    <td class="phase-mark p3">●</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="phase-block">
+            <div class="phase-hd">
+                <div class="phase-hd-left">
+                    <span class="phase-hd-title">Phase 1 — Stop-Gap Discipline &amp; Training Prep</span>
+                    <span class="phase-hd-timeline">Duration: 2–3 Weeks · Low effort · High Training
+                        Value</span>
+                </div>
+                <span class="phase-maturity">Maturity 1.3 → 1.6</span>
+            </div>
+            <div class="phase-sow">
+                <div class="col-label">Scope of Work &amp; Dependencies</div>
+                <div class="sow-item"><span class="sow-dot"></span><span><strong>Build:</strong> Adapt the Cocopeat
+                        vertical's
+                        Excel tracking framework with unified column definitions for all 4 legacy verticals.</span>
+                </div>
+                <div class="sow-item"><span class="sow-dot"></span><span><strong>Build:</strong> Define standardized
+                        pipeline
+                        stage labels (Prospect, Qualified, Proposal, Negotiation, Closed) to align cross-vertical
+                        reporting.</span>
+                </div>
+                <div class="sow-item"><span class="sow-dot"></span><span><strong>Build (Knowledge Hub Prep):</strong>
+                        Collate
+                        product specs and vertical personas to expand the 60-70% built Creative Upaay product knowledge
+                        chatbot
+                        (<span class="chip-ref">P-06</span>).</span></div>
+                <div class="sow-item"><span class="sow-dot"></span><span><strong>Tech Stack &amp; Badges:</strong> <span
+                            class="chip-ref">Google Sheets API</span> <span class="chip-ref">Cocopeat Tracker
+                            Template</span>.</span>
+                </div>
+                <div class="sow-item"><span class="sow-dot"></span><span><strong>Team Adoption:</strong> Conduct
+                        CBDO-led weekly
+                        15-minute pipeline stand-ups to instill data-entry discipline before CRM launch.</span></div>
+                <div class="sow-item"><span class="sow-dot" style="background:#ef4444;"></span><span><strong>Team
+                            Training &amp;
+                            Tech Adoption Training:</strong> Initiate chatbot querying and basic data-hygiene workshops
+                        to tackle
+                        adoption barriers for legacy team members (<span class="chip-ref">P-05</span>).</span></div>
+                <div class="sow-item"><span class="sow-dot" style="background:#ef4444;"></span><span><strong>Change
+                            Management
+                            (Legacy Pushback):</strong> The CBDO must enforce mandatory data entry compliance from day
+                        one. The legacy
+                        BD team exhibits strong resistance to even Google Sheets (<span class="chip-ref">P-05</span>),
+                        so a top-down
+                        mandate with clear consequences for non-compliance is critical.</span></div>
+                <div class="sow-item"><span class="sow-dot" style="background:#ef4444;"></span><span><strong>Client
+                            To-Do:</strong> Mandate end-of-week data entry into the shared tracker as a prerequisite for
+                        the monthly
+                        CBDO review.</span></div>
+            </div>
+            <div class="phase-roi">
+                <div class="roi-card">
+                    <div class="roi-card-num">Uniform</div>
+                    <div class="roi-card-label">reporting format</div>
+                    <div class="roi-card-desc">Across all 5 BD units — Seed, B2B, NGO, Govt, Cocopeat</div>
+                </div>
+                <div class="roi-card">
+                    <div class="roi-card-num">Repurposing</div>
+                    <div class="roi-card-label">existing technology</div>
+                    <div class="roi-card-desc">Repurposing existing proven Cocopeat Excel tracker</div>
+                </div>
+                <div class="roi-card">
+                    <div class="roi-card-num">↓ 3 hrs</div>
+                    <div class="roi-card-label">weekly sync prep</div>
+                    <div class="roi-card-desc">Standardized Excel trackers reduce sync prep time</div>
+                </div>
+            </div>
+        </div>
+        <div class="doc-footer"><span>Report Overview · EF Polymer</span><span>Page 15</span></div>
+    </div>
+    <div class="page"><img src="letterhead.png" alt="Letterhead" class="letterhead"
+            style="width: calc(100% + 151.181px); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;">
+        <div class="phase-block" data-manual-page-break="true">
+            <div class="phase-hd">
+                <div class="phase-hd-left">
+                    <span class="phase-hd-title">Phase 2 — Core Infrastructure &amp; Knowledge Layer</span>
+                    <span class="phase-hd-timeline">Duration: 4–6 Weeks · High effort · Critical
+                        Foundation</span>
+                </div>
+                <span class="phase-maturity p2">Maturity 1.6 → 2.5</span>
+            </div>
+            <div class="phase-sow">
+                <div class="col-label">Scope of Work &amp; Dependencies</div>
+                <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Build:</strong> Build and launch the
+                        Custom
+                        Unified CRM with vertical-specific fields and workflows tailored to each of the 5 business
+                        units.</span>
+                </div>
+                <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Build (Knowledge Hub):</strong>
+                        Deploy the
+                        centralized Product &amp; CRM Knowledge Hub, integrating the 60-70% built Creative Upaay AI
+                        chatbot and
+                        uploading SOP playbooks (<span class="chip-ref">P-06</span>).</span></div>
+                <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Build (Travel Bot):</strong> Launch
+                        the
+                        Multichannel Approval Bot on Slack and WhatsApp, linking travel approvals directly to Finance
+                        Zoho Books
+                        disbursements (<span class="chip-ref">P-07</span>).</span></div>
+                <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Build:</strong> Migrate all legacy
+                        client
+                        lists into the custom CRM, configuring WhatsApp API hooks to support manual lead
+                        insertion.</span></div>
+                <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Tech Stack &amp; Badges:</strong>
+                        <span class="chip-ref">Custom CRM</span> <span class="chip-ref">WhatsApp API</span> <span
+                            class="chip-ref">Slack
+                            API</span> <span class="chip-ref">Creative Upaay Chatbot</span>.</span></div>
+                <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Team Adoption:</strong> Run
+                        vertical-specific CRM and chatbot training sessions, focusing on overcoming adoption challenges;
+                        mandate
+                        travel Bot routing.</span></div>
+                <div class="sow-item"><span class="sow-dot p2" style="background:#ef4444;"></span><span><strong>Client
+                            To-Do:</strong> Assign development resources to build the custom CRM interfaces and procure
+                        WhatsApp
+                        Business API numbers.</span></div>
+            </div>
+            <div class="phase-roi">
+                <div class="roi-card">
+                    <div class="roi-card-num">0%</div>
+                    <div class="roi-card-label">data leakage</div>
+                    <div class="roi-card-desc">Securing corporate ownership of all B2B leads and contacts</div>
+                </div>
+                <div class="roi-card">
+                    <div class="roi-card-num">Instant</div>
+                    <div class="roi-card-label">travel approvals</div>
+                    <div class="roi-card-desc">WhatsApp/Slack bot cuts routing delays to zero</div>
+                </div>
+                <div class="roi-card">
+                    <div class="roi-card-num">5 → 1</div>
+                    <div class="roi-card-label">unified database</div>
+                    <div class="roi-card-desc">All 5 verticals now share one CRM system</div>
+                </div>
+            </div>
+        </div>
+        <div class="phase-block">
+            <div class="phase-hd">
+                <div class="phase-hd-left">
+                    <span class="phase-hd-title">Phase 3 — Strategic Scaling &amp; Automation</span>
+                    <span class="phase-hd-timeline">Duration: 6–8 Weeks · Medium effort</span>
+                </div>
+                <span class="phase-maturity p3">Maturity 2.5 → 3.0</span>
+            </div>
+            <div class="phase-sow">
+                <div class="col-label">Scope of Work &amp; Dependencies</div>
+                <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Build:</strong> Configure live CXO
+                        Level
+                        Dashboards reflecting live pipeline statuses, conversion ratios, and deal velocity.</span></div>
+                <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Build:</strong> Build automated
+                        alerts for
+                        stalled deals — flag any deal with no activity for 7+ days to the CBDO directly.</span></div>
+                <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Build (CXO Approval View):</strong>
+                        Implement the consolidated approvals dashboard section for travel plans and reimbursement
+                        requests (<span class="chip-ref">P-07</span>).</span></div>
+                <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Tech Stack &amp; Badges:</strong>
+                        <span class="chip-ref">React.js + TS Dashboard</span> <span class="chip-ref">Gemini / LLM Deal
+                            Scoring</span>.</span></div>
+                <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Team Adoption:</strong> Transition
+                        the
+                        monthly retrospective reviews into live pipeline triage sessions led by the CBDO. Move all
+                        travel &amp;
+                        reimbursement approvals strictly to Slack/WhatsApp bot clicks.</span></div>
+                <div class="sow-item"><span class="sow-dot p3" style="background:#ef4444;"></span><span><strong>Client
+                            To-Do:</strong> Implement quarterly pipeline health reviews with cross-vertical benchmarking
+                        and
+                        conversion rate analysis.</span></div>
+            </div>
+            <div class="phase-roi">
+                <div class="roi-card">
+                    <div class="roi-card-num">Live</div>
+                    <div class="roi-card-label">pipeline view</div>
+                    <div class="roi-card-desc">CBDO sees live deal stages without manual meetings</div>
+                </div>
+                <div class="roi-card">
+                    <div class="roi-card-num">7-day</div>
+                    <div class="roi-card-label">stall alerts</div>
+                    <div class="roi-card-desc">Automated flags for deals with no activity</div>
+                </div>
+                <div class="roi-card">
+                    <div class="roi-card-num">3.0</div>
+                    <div class="roi-card-label">maturity level</div>
+                    <div class="roi-card-desc">Achieving a structured and scalable sales organization</div>
+                </div>
+            </div>
+        </div>
+        <div class="doc-footer"><span>Report Overview · EF Polymer</span><span>Page 16</span></div>
+    </div>
+    <div class="page"><img src="letterhead.png" alt="Letterhead" class="letterhead"
+            style="width: calc(100% + 151.181px); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;">
+        <div class="eyebrow" data-manual-page-break="true">Section 08 — ROI Impact: Before &amp; After</div>
+        <h2>ROI Impact: Before &amp; After</h2>
+        <div class="section-dek">Measurable improvements post-implementation, mapped to each identified priority</div>
+        <table class="tl-table" style="margin-top:20px;">
+            <tbody>
+                <tr>
+                    <th style="width:25%;">Category</th>
+                    <th style="width:35%; border-left: 1px solid #e2e8f0;">Before (Current State)</th>
+                    <th style="width:40%; border-left: 1px solid #e2e8f0; background: #f8fafc; color: var(--ink);">After
+                        (Post-Implementation)</th>
+                </tr>
+                <tr>
+                    <td><strong>Lead Ownership &amp; CRM</strong></td>
+                    <td style="border-left: 1px solid #e2e8f0;">No central CRM. Lead status invisible at executive
+                        level. Data in
+                        personal WhatsApps.</td>
+                    <td style="border-left: 1px solid #e2e8f0; background: #f8fafc; color: #166534;"><strong>Custom
+                            Unified
+                            CRM.</strong> 100% lead ownership visibility with 0% data leakage risk via manual WhatsApp
+                        lead insertion.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Pipeline Reporting</strong></td>
+                    <td style="border-left: 1px solid #e2e8f0;">Retrospective monthly reviews. CBDO cannot intervene on
+                        stalled
+                        deals in real time.</td>
+                    <td style="border-left: 1px solid #e2e8f0; background: #f8fafc; color: #166534;"><strong>Live CXO
+                            Level
+                            Dashboard.</strong> Real-time pipeline status with 7-day stall alerts.</td>
+                </tr>
+                <tr>
+                    <td><strong>Client Communication</strong></td>
+                    <td style="border-left: 1px solid #e2e8f0;">Siloed WhatsApp communications. No central capture of
+                        client history
+                        or touchpoints.</td>
+                    <td style="border-left: 1px solid #e2e8f0; background: #f8fafc; color: #166534;"><strong>Custom CRM
+                            Logging.</strong> Every interaction logged and new leads inserted directly via WhatsApp.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Cross-Vertical Tracking</strong></td>
+                    <td style="border-left: 1px solid #e2e8f0;">Inconsistent tracking across 5 verticals. Only Cocopeat
+                        uses a basic
+                        tracker.</td>
+                    <td style="border-left: 1px solid #e2e8f0; background: #f8fafc; color: #166534;">
+                        <strong>Standardized Pipeline
+                            Stages.</strong> Uniform reporting format across all BD units.</td>
+                </tr>
+                <tr>
+                    <td><strong>Product &amp; Vertical Knowledge</strong></td>
+                    <td style="border-left: 1px solid #e2e8f0;">Information scattered across documents and personal
+                        folders. Team
+                        onboarding and training take weeks.</td>
+                    <td style="border-left: 1px solid #e2e8f0; background: #f8fafc; color: #166534;"><strong>Centralized
+                            Knowledge
+                            Hub.</strong> Creative Upaay chatbot (60-70% built) adopted fully by the team. Onboarding
+                        time reduced by
+                        60%.</td>
+                </tr>
+                <tr>
+                    <td><strong>Travel &amp; Expense Approvals</strong></td>
+                    <td style="border-left: 1px solid #e2e8f0;">Manual email and chat approval trails across vertical
+                        heads and
+                        Finance, causing payout delays.</td>
+                    <td style="border-left: 1px solid #e2e8f0; background: #f8fafc; color: #166534;">
+                        <strong>Multichannel Bot
+                            Approvals.</strong> Approved instantly via Slack/WhatsApp bot and tracked on CXO Dashboard.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Department Maturity Score</strong></td>
+                    <td style="border-left: 1px solid #e2e8f0;">1.3 / 5.0 (Ad-hoc)</td>
+                    <td style="border-left: 1px solid #e2e8f0; background: #f8fafc; color: #166534;"><strong>3.0 / 5.0
+                            (Systematised)</strong></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="doc-footer"><span>Report Overview · EF Polymer</span><span>Page 17</span></div>
+    </div>
+    <div class="page"><img src="letterhead.png" alt="Letterhead" class="letterhead"
+            style="width: calc(100% + 151.181px); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;">
+        <h3 class="" data-manual-page-break="true">Quantified Executive Time Savings</h3>
+        <p style="font-size:8.8pt;color:var(--muted);margin-bottom:10px;">Estimated annual bandwidth reclaimed for the
+            CBDO
+            by eliminating manual pipeline reconciliation and approval routing across 5 BD verticals.</p>
+        <div class="kpi-strip" style="margin: 14px 0 16px;">
+            <div class="kpi-cell">
+                <div class="kpi-num">5</div>
+                <div class="kpi-lbl">BD Verticals Unified</div>
+            </div>
+            <div class="kpi-cell">
+                <div class="kpi-num">9 hrs</div>
+                <div class="kpi-lbl">Weekly Reclaimed Time</div>
+            </div>
+            <div class="kpi-cell">
+                <div class="kpi-num">36 hrs</div>
+                <div class="kpi-lbl">Monthly Time Saved</div>
+            </div>
+            <div class="kpi-cell">
+                <div class="kpi-num" style="color:var(--accent);">432 hrs</div>
+                <div class="kpi-lbl">Annual Hours Saved</div>
+            </div>
+        </div>
+        <div class="callout"
+            style="margin-top:10px;margin-bottom:15px;border-left-color:var(--accent);background:var(--accent-soft);">
+            <strong style="color:var(--ink);font-size:9.5pt;">Bandwidth Reinvestment Breakdown:</strong><br>
+            <ul style="font-size:8.5pt;color:var(--slate);padding-left:16px;margin-top:4px;line-height:1.45;">
+                <li><strong>Current Friction:</strong> CBDO spends ~2.0 hrs/day (~10 hrs weekly) coordinating with 5 BD
+                    vertical
+                    heads, and ~0.8 hrs/day (~4 hrs weekly) auditing and approving travel/expenses manually.</li>
+                <li><strong>Automated Efficiency:</strong> Custom CRM, live CXO Level Dashboard, and Slack/WhatsApp
+                    approval
+                    bots automate pipeline syncs and expense routing.</li>
+                <li><strong>Strategic Reinvestment:</strong> Reclaims <strong>432 hours annually (~54 full working
+                        days)</strong> to invest in high-level CXO/Investor meetings (~1.2 hrs/day) and strategic key
+                    partnership
+                    closures.</li>
+            </ul>
+        </div>
+        <div class="doc-footer"><span>Report Overview · EF Polymer</span><span>Page 18</span></div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,2148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <script src="auth.js"></script>
+
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>BD (Cocopeat) — Department Audit Report | EF Polymer Private Limited</title>
+    <style>
+        :root {
+            --ink: #6b4fc8;
+            --slate: #3F4B5C;
+            --muted: #6B7785;
+            --line: #D8DEE5;
+            --line-soft: #E9EDF1;
+            --paper: #FFFFFF;
+            --paper-alt: #F6F7F9;
+            --accent: #c480e9;
+            --accent-soft: #EAF3F1;
+            --risk-crit-bg: #FCEBEA;
+            --risk-crit-fg: #A32E24;
+            --risk-med-bg: #FBF1DF;
+            --risk-med-fg: #8A5A10;
+            --risk-low-bg: #E9F4EC;
+            --risk-low-fg: #276B3E;
+        }
+
+        @page {
+            size: A4;
+            margin: 22mm 18mm 20mm 18mm;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            color: var(--slate);
+            line-height: 1.55;
+            background: #EDEFF1;
+            font-size: 10.3pt;
+        }
+
+        .page {
+            background: var(--paper);
+            max-width: 840px;
+            margin: 0 auto 14px auto;
+            padding: 26mm 20mm 20mm 20mm;
+            position: relative;
+            page-break-after: always;
+            min-height: 1120px;
+        }
+
+        .page:last-child {
+            page-break-after: avoid;
+        }
+
+        /* ---- running header / footer ---- */
+        .doc-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            font-size: 7.8pt;
+            letter-spacing: 0.4px;
+            text-transform: uppercase;
+            color: var(--muted);
+            border-bottom: 1px solid var(--line);
+            padding-bottom: 8px;
+            margin-bottom: 22px;
+        }
+
+        .doc-header b {
+            color: var(--ink);
+        }
+
+        .doc-footer {
+            position: absolute;
+            bottom: 10mm;
+            left: 20mm;
+            right: 20mm;
+            display: flex;
+            justify-content: space-between;
+            font-size: 7.5pt;
+            color: var(--muted);
+            border-top: 1px solid var(--line-soft);
+            padding-top: 6px;
+        }
+
+        /* ---- cover ---- */
+        .cover {
+            display: flex;
+            flex-direction: column;
+            min-height: 1080px;
+        }
+
+        .cover-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .cover-mark {
+            font-size: 9pt;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--ink);
+        }
+
+        .cover-mark span {
+            color: var(--accent);
+        }
+
+        .cover-class {
+            font-size: 7.8pt;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--muted);
+            border: 1px solid var(--line);
+            padding: 4px 10px;
+        }
+
+        .cover-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 60px 0;
+        }
+
+        .cover-eyebrow {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-style: italic;
+            font-size: 11pt;
+            color: var(--accent);
+            margin-bottom: 14px;
+        }
+
+        .cover-title {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 34pt;
+            color: var(--ink);
+            font-weight: 600;
+            line-height: 1.15;
+            margin-bottom: 10px;
+        }
+
+        .cover-sub {
+            font-size: 13pt;
+            color: var(--slate);
+            font-weight: 400;
+        }
+
+        .cover-rule {
+            width: 52px;
+            height: 2px;
+            background: var(--accent);
+            margin: 26px 0;
+        }
+
+        .cover-ctrl {
+            border: 1px solid var(--line);
+        }
+
+        .cover-ctrl table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0;
+        }
+
+        .cover-ctrl td {
+            padding: 9px 14px;
+            font-size: 9pt;
+            border-bottom: 1px solid var(--line-soft);
+        }
+
+        .cover-ctrl tr:last-child td {
+            border-bottom: none;
+        }
+
+        .cover-ctrl td.label {
+            color: var(--muted);
+            width: 38%;
+            text-transform: uppercase;
+            font-size: 7.8pt;
+            letter-spacing: 0.5px;
+        }
+
+        .cover-ctrl td.val {
+            color: var(--ink);
+            font-weight: 600;
+        }
+
+        /* ---- section furniture ---- */
+        .eyebrow {
+            font-size: 8pt;
+            color: var(--accent);
+            font-weight: 700;
+            letter-spacing: 1.6px;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+
+        h2 {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 17pt;
+            color: var(--ink);
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        h2+.section-dek {
+            color: var(--muted);
+            font-size: 9.3pt;
+            margin-bottom: 18px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        h3 {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 12.5pt;
+            color: var(--ink);
+            font-weight: 600;
+            margin: 22px 0 8px;
+        }
+
+        h4 {
+            font-size: 10pt;
+            color: var(--ink);
+            font-weight: 700;
+            margin: 14px 0 4px;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        .lede {
+            font-size: 10.6pt;
+            color: var(--slate);
+            max-width: 95%;
+        }
+
+        /* ---- tables ---- */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0 20px;
+            font-size: 9pt;
+        }
+
+        th {
+            background: var(--ink);
+            color: #fff;
+            padding: 8px 10px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 8.3pt;
+            letter-spacing: 0.3px;
+            text-transform: uppercase;
+        }
+
+        td {
+            padding: 8px 10px;
+            border-bottom: 1px solid var(--line-soft);
+            vertical-align: top;
+        }
+
+        tr:nth-child(even) td {
+            background: var(--paper-alt);
+        }
+
+        td.id,
+        th.id {
+            font-family: Georgia, serif;
+            font-weight: 700;
+            color: var(--ink);
+            white-space: nowrap;
+            width: 44px;
+        }
+
+        td.num,
+        th.num {
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        /* ---- chips ---- */
+        .chip {
+            display: inline-block;
+            padding: 2px 9px;
+            border-radius: 3px;
+            font-size: 7.8pt;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .chip-crit {
+            background: var(--risk-crit-bg);
+            color: var(--risk-crit-fg);
+        }
+
+        .chip-med {
+            background: var(--risk-med-bg);
+            color: var(--risk-med-fg);
+        }
+
+        .chip-low {
+            background: var(--risk-low-bg);
+            color: var(--risk-low-fg);
+        }
+
+        .chip-ref {
+            display: inline-block;
+            background: var(--accent-soft);
+            color: var(--accent);
+            font-family: Georgia, serif;
+            font-weight: 700;
+            font-size: 8pt;
+            padding: 1px 6px;
+            border-radius: 3px;
+            margin: 1px 2px 1px 0;
+        }
+
+        /* ---- KPI strip ---- */
+        .kpi-strip {
+            display: flex;
+            border: 1px solid var(--line);
+            margin: 16px 0 22px;
+        }
+
+        .kpi-cell {
+            flex: 1;
+            padding: 12px 14px;
+            border-right: 1px solid var(--line);
+        }
+
+        .kpi-cell:last-child {
+            border-right: none;
+        }
+
+        .kpi-num {
+            font-family: Georgia, serif;
+            font-size: 15pt;
+            color: var(--ink);
+            font-weight: 700;
+        }
+
+        .kpi-lbl {
+            font-size: 7.6pt;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 2px;
+        }
+
+        /* ---- callout ---- */
+        .callout {
+            border-left: 3px solid var(--accent);
+            background: var(--accent-soft);
+            padding: 10px 14px;
+            font-size: 9pt;
+            color: var(--ink);
+            margin: 10px 0 20px;
+        }
+
+        /* ---- flow notes ---- */
+        .flow-note {
+            font-size: 8.6pt;
+            color: var(--muted);
+            margin: 4px 0 18px;
+            padding-left: 2px;
+        }
+
+        /* ---- maturity exhibit ---- */
+        .exhibit {
+            display: flex;
+            gap: 26px;
+            align-items: center;
+            margin: 14px 0 6px;
+        }
+
+        .exhibit-chart {
+            flex: 0 0 320px;
+        }
+
+        .exhibit-note {
+            flex: 1;
+            font-size: 9.2pt;
+            color: var(--slate);
+        }
+
+        .exhibit-note b {
+            color: var(--ink);
+        }
+
+        /* ---- roadmap table ---- */
+        .tl-table td.phase-mark {
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .tl-table td.phase-mark.p1 {
+            color: var(--accent);
+        }
+
+        .tl-table td.phase-mark.p2 {
+            color: #2563eb;
+        }
+
+        .tl-table td.phase-mark.p3 {
+            color: #7c3aed;
+        }
+
+        /* ---- phase blocks ---- */
+        .phase-block {
+            border: 1px solid var(--line);
+            margin: 14px 0;
+            overflow: hidden;
+        }
+
+        .phase-hd {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 14px;
+            border-bottom: 1px solid var(--line);
+            background: var(--paper-alt);
+            gap: 16px;
+        }
+
+        .phase-hd-left {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .phase-hd-title {
+            font-family: Georgia, serif;
+            font-size: 11pt;
+            font-weight: 700;
+            color: var(--ink);
+        }
+
+        .phase-hd-timeline {
+            font-size: 7.8pt;
+            color: var(--muted);
+        }
+
+        .phase-maturity {
+            font-size: 8.5pt;
+            font-weight: 700;
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            border-radius: 3px;
+            padding: 3px 10px;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .phase-maturity.p2 {
+            color: #2563eb;
+            border-color: #2563eb;
+        }
+
+        .phase-maturity.p3 {
+            color: #7c3aed;
+            border-color: #7c3aed;
+        }
+
+        .phase-sow {
+            padding: 11px 14px 14px;
+        }
+
+        .col-label {
+            font-size: 7.4pt;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .sow-item {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 5px;
+            font-size: 8.5pt;
+            color: var(--slate);
+            line-height: 1.4;
+        }
+
+        .sow-dot {
+            width: 4px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 50%;
+            margin-top: 5px;
+            flex-shrink: 0;
+        }
+
+        .sow-dot.p2 {
+            background: #2563eb;
+        }
+
+        .sow-dot.p3 {
+            background: #7c3aed;
+        }
+
+        .phase-roi {
+            display: flex;
+            border-top: 1px solid var(--line);
+            background: var(--paper-alt);
+        }
+
+        .roi-card {
+            flex: 1;
+            padding: 10px 12px;
+            border-right: 1px solid var(--line);
+            text-align: center;
+        }
+
+        .roi-card:last-child {
+            border-right: none;
+        }
+
+        .roi-card-num {
+            font-family: Georgia, serif;
+            font-size: 13pt;
+            font-weight: 700;
+            color: var(--ink);
+            line-height: 1.1;
+            margin-bottom: 3px;
+        }
+
+        .roi-card-label {
+            font-size: 7.5pt;
+            color: var(--ink);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            margin-bottom: 3px;
+        }
+
+        .roi-card-desc {
+            font-size: 7pt;
+            color: var(--muted);
+            line-height: 1.35;
+        }
+
+        /* ---- maturity legend ---- */
+        .maturity-legend {
+            background: var(--paper-alt);
+            border: 1px solid var(--line);
+            border-radius: 4px;
+            padding: 10px 14px;
+            margin: 4px 0 0;
+            font-size: 8pt;
+        }
+
+        .maturity-legend-title {
+            font-weight: 700;
+            color: var(--ink);
+            font-size: 8pt;
+            margin-bottom: 6px;
+        }
+
+        .maturity-bar-wrap {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 4px;
+        }
+
+        .maturity-bar-track {
+            flex: 1;
+            height: 7px;
+            background: var(--line);
+            border-radius: 4px;
+            position: relative;
+            overflow: visible;
+        }
+
+        .maturity-bar-fill {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            background: var(--accent);
+            border-radius: 4px;
+        }
+
+        .maturity-bar-marker {
+            position: absolute;
+            top: -3px;
+            width: 2px;
+            height: 13px;
+            background: var(--ink);
+            border-radius: 1px;
+        }
+
+        .maturity-bar-marker.target {
+            background: #2563eb;
+        }
+
+        .maturity-bar-lbl {
+            font-size: 7pt;
+            color: var(--muted);
+            white-space: nowrap;
+        }
+
+        .maturity-legend-notes {
+            display: flex;
+            gap: 14px;
+            margin-top: 6px;
+            font-size: 7.2pt;
+            color: var(--muted);
+        }
+
+        .maturity-legend-notes span b {
+            color: var(--ink);
+        }
+
+        /* ---- tools grid ---- */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin: 12px 0 20px;
+        }
+
+        .tool-card {
+            border: 1px solid var(--line);
+            border-radius: 4px;
+            padding: 10px 12px;
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            background: var(--paper);
+        }
+
+        .tool-icon {
+            font-size: 18pt;
+            line-height: 1;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .tool-name {
+            font-weight: 700;
+            color: var(--ink);
+            font-size: 8.5pt;
+            margin-bottom: 2px;
+        }
+
+        .tool-desc {
+            font-size: 7.5pt;
+            color: var(--muted);
+            line-height: 1.4;
+        }
+
+        /* ---- org chart ---- */
+        .org-chart {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0;
+            margin: 14px 0;
+            font-size: 8.3pt;
+        }
+
+        .org-level {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 14px;
+            width: 100%;
+            position: relative;
+        }
+
+        .org-connector-top {
+            width: 1px;
+            height: 18px;
+            background: var(--line);
+            margin: 0 auto;
+        }
+
+        .org-node {
+            background: var(--paper);
+            border: 1px solid var(--line);
+            border-radius: 4px;
+            padding: 8px 10px;
+            min-width: 120px;
+            max-width: 160px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .org-node.lead {
+            border-color: var(--accent);
+            background: var(--accent-soft);
+            border-width: 1.5px;
+        }
+
+        .org-node.secondary {
+            background: var(--paper-alt);
+        }
+
+        .org-node.remote {
+            border-style: dashed;
+            opacity: 0.85;
+        }
+
+        .org-name {
+            font-weight: 700;
+            color: var(--ink);
+            font-size: 8.2pt;
+            margin-bottom: 3px;
+        }
+
+        .org-role {
+            font-size: 7pt;
+            color: var(--muted);
+            line-height: 1.3;
+        }
+
+        .org-tag {
+            display: inline-block;
+            background: var(--accent-soft);
+            color: var(--accent);
+            font-size: 6.5pt;
+            font-weight: 700;
+            padding: 1px 5px;
+            border-radius: 2px;
+            margin-top: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        .org-tag.remote-tag {
+            background: var(--risk-med-bg);
+            color: var(--risk-med-fg);
+        }
+
+        .org-sub-branch {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* ---- dep cards (cross-dept appendix) ---- */
+        .dep-card {
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: var(--paper);
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+
+        .dep-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .dep-title {
+            font-weight: 700;
+            font-size: 11pt;
+            color: var(--ink);
+        }
+
+        .dep-badge {
+            font-size: 7.5pt;
+            font-weight: 600;
+            padding: 3px 8px;
+            border-radius: 12px;
+            background: #f1f5f9;
+            color: #475569;
+            text-transform: uppercase;
+        }
+
+        .dep-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .dep-section {
+            background: #f8fafc;
+            border-radius: 6px;
+            padding: 12px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .dep-section.bottleneck {
+            background: #fef2f2;
+            border-color: #fecaca;
+        }
+
+        .dep-section.data-sync {
+            background: #f0f9ff;
+            border-color: #bae6fd;
+        }
+
+        .dep-section-title {
+            font-size: 7.5pt;
+            font-weight: 700;
+            color: #64748b;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+            letter-spacing: 0.5px;
+        }
+
+        .bottleneck .dep-section-title {
+            color: #b91c1c;
+        }
+
+        .data-sync .dep-section-title {
+            color: #0369a1;
+        }
+
+        .dep-section-content {
+            font-size: 8.5pt;
+            color: var(--slate);
+            line-height: 1.4;
+        }
+
+        .dep-person {
+            display: inline-block;
+            background: #f1f5f9;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 8pt;
+            margin-top: 4px;
+            border: 1px solid #cbd5e1;
+        }
+
+        @media print {
+            body {
+                background: #fff;
+            }
+
+            .page {
+                box-shadow: none;
+                margin: 0;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="page"><img src="letterhead.png" alt="Letterhead" class="letterhead"
+            style="width: calc(100% + 151.181px); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;">
+        <div class="cover-body">
+            <div class="cover-eyebrow">Department Wise Audit Report</div>
+            <div class="cover-title">Business Development: Cocopeat</div>
+            <div class="cover-sub">Export Markets &amp; Japan D2C — Mohit Kumar Gupta</div>
+            <div class="cover-rule"></div>
+            <p style="max-width:70%;color:var(--muted);font-size:9.3pt;">
+                An independent operational review of the Business Development (Cocopeat) vertical, evaluating
+                international
+                outreach workflows, export fulfillment bottlenecks, cross-departmental finance gating, and lead pipeline
+                fragmentation, prepared as part of the EF Polymer Private Limited organization-wide operational audit by
+                Creative Upaay (brand owned by Cinnovate Solutions (OPC) Private Limited).
+            </p>
+        </div>
+        <div class="cover-ctrl">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="label">Client</td>
+                        <td class="val">EF Polymer Private Limited</td>
+                    </tr>
+                    <tr>
+                        <td class="label">Prepared by</td>
+                        <td class="val">Creative Upaay</td>
+                    </tr>
+                    <tr>
+                        <td class="label">Document version</td>
+                        <td class="val">1.0</td>
+                    </tr>
+                    <tr>
+                        <td class="label">Date issued</td>
+                        <td class="val">18th July 2026</td>
+                    </tr>
+                    <tr>
+                        <td class="label">Review scope</td>
+                        <td class="val">BD — Cocopeat (International Export &amp; Japan D2C)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="doc-footer"><span>Report Overview — Cocopeat · EF Polymer</span><span>Page 1</span></div>
+    </div>
+    <div class="page"><img src="letterhead.png" alt="Letterhead" class="letterhead"
+            style="width: calc(100% + 151.181px); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;">
+        <div class="eyebrow" data-manual-page-break="true">Section 01 — Executive Summary</div>
+        <h2>Report Overview — Cocopeat</h2>
+        <div class="section-dek">Scope, current state, and headline findings</div>
+        <p class="lede">The Cocopeat vertical is an export-focused business line specializing in coconut husk-based
+            soil-less growing media (grow bags, 5kg blocks, and pellets/coins). Target markets include the UK, Europe,
+            and the
+            Middle East, with a D2C launch planned in Japan within 3–4 months. Products are often customized with
+            perlite/NPK
+            blends for specific use cases (e.g., cannabis, horticulture) and adapted for varying EC levels (High EC for
+            Middle
+            East landscaping; Low EC for EU growers).</p>
+        <p>Led by Mohit Kumar Gupta, alongside a team of 3, the vertical processes outbound outreach, lead nurturing,
+            and
+            complex international logistics workflows. The team suffers from extreme data fragmentation due to a
+            reliance on
+            ad-hoc spreadsheets and multiple messaging apps (WhatsApp, WeChat, LINE). Furthermore, 40% of their effort
+            is
+            dedicated to manual lead sourcing.</p>
+        <div class="kpi-strip">
+            <div class="kpi-cell">
+                <div class="kpi-num">1 Container</div>
+                <div class="kpi-lbl">Minimum Order Qty (MOQ)</div>
+            </div>
+            <div class="kpi-cell">
+                <div class="kpi-num">20–25</div>
+                <div class="kpi-lbl">Outbound Emails / Day / Rep</div>
+            </div>
+            <div class="kpi-cell">
+                <div class="kpi-num">~5%</div>
+                <div class="kpi-lbl">Outreach Response Rate</div>
+            </div>
+            <div class="kpi-cell">
+                <div class="kpi-num">6–10 hrs</div>
+                <div class="kpi-lbl">Inbound Ad Lead Response Lag</div>
+            </div>
+            <div class="kpi-cell">
+                <div class="kpi-num">1.3 / 5.0</div>
+                <div class="kpi-lbl">Overall Maturity Score</div>
+            </div>
+        </div>
+        <div class="maturity-legend">
+            <div class="maturity-legend-title">About the Maturity Score</div>
+            <div style="font-size:7.5pt;color:var(--muted);margin-bottom:8px;">A 1–5 scale measuring how systematised,
+                documented, and independently operable the vertical is. Scored across five dimensions: Process,
+                Technology, Data
+                Quality, Documentation &amp; Knowledge Management.</div>
+            <div class="maturity-bar-wrap">
+                <span class="maturity-bar-lbl">1 — Ad hoc</span>
+                <div class="maturity-bar-track">
+                    <div class="maturity-bar-fill" style="width:26%;"></div>
+                    <div class="maturity-bar-marker target" style="left:54%;"></div>
+                </div>
+                <span class="maturity-bar-lbl">5 — Optimised</span>
+            </div>
+            <div class="maturity-legend-notes">
+                <span>■ <b>1.3</b> Current state</span>
+                <span style="color:#2563eb;">▮ <b>2.9</b> Post-roadmap target</span>
+                <span>◯ <b>5.0</b> Best-in-class benchmark</span>
+            </div>
+        </div>
+        <div class="doc-footer"><span>Report Overview — Cocopeat · EF Polymer</span><span>Page 2</span></div>
+    </div>
+    <div class="page"><img src="letterhead.png" alt="Letterhead" class="letterhead"
+            style="width: calc(100% + 151.181px); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;">
+        <div class="eyebrow" data-manual-page-break="true">Section 02 — Benchmarking</div>
+        <h2>Department Maturity Assessment</h2>
+        <div class="exhibit">
+            <div class="exhibit-chart">
+                <svg viewBox="0 0 400 350" xmlns="http://www.w3.org/2000/svg" style="width:100%;">
+                    <g transform="translate(200,170)">
+                        <polygon points="0,-120 114,-37 70,97 -70,97 -114,-37" fill="none" stroke="#E2E8F0"
+                            stroke-width="0.75"></polygon>
+                        <polygon points="0,-96 91,-30 56,78 -56,78 -91,-30" fill="none" stroke="#E2E8F0"
+                            stroke-width="0.75"></polygon>
+                        <polygon points="0,-72 68,-22 42,58 -42,58 -68,-22" fill="none" stroke="#E2E8F0"
+                            stroke-width="0.75"></polygon>
+                        <polygon points="0,-48 46,-15 28,39 -28,39 -46,-15" fill="none" stroke="#E2E8F0"
+                            stroke-width="0.75"></polygon>
+                        <polygon points="0,-24 23,-7 14,19 -14,19 -23,-7" fill="none" stroke="#E2E8F0"
+                            stroke-width="0.75"></polygon>
+                        <line x1="0" y1="0" x2="0" y2="-120" stroke="#E2E8F0" stroke-width="0.75"></line>
+                        <line x1="0" y1="0" x2="114" y2="-37" stroke="#E2E8F0" stroke-width="0.75"></line>
+                        <line x1="0" y1="0" x2="70" y2="97" stroke="#E2E8F0" stroke-width="0.75"></line>
+                        <line x1="0" y1="0" x2="-70" y2="97" stroke="#E2E8F0" stroke-width="0.75"></line>
+                        <line x1="0" y1="0" x2="-114" y2="-37" stroke="#E2E8F0" stroke-width="0.75"></line>
+
+                        <!-- Target dashed: Process 2.5, Tech 3.0, Data 3.0, Docs 2.5, KM 2.5 -->
+                        <polygon points="0,-60 68.4,-22.2 42,58.2 -35,48.5 -57,-18.5" fill="none" stroke="#B8C0C9"
+                            stroke-width="1" stroke-dasharray="5,3"></polygon>
+
+                        <!-- Current: Process 1.5, Tech 1.0, Data 1.0, Docs 1.5, KM 1.5 -->
+                        <polygon points="0,-36 22.8,-7.4 14,19.4 -21,29.1 -34.2,-11.1" fill="rgba(15,107,98,0.14)"
+                            stroke="#0F6B62" stroke-width="1.75"></polygon>
+                        <circle cx="0" cy="-36" r="3.2" fill="#0F6B62"></circle>
+                        <circle cx="22.8" cy="-7.4" r="3.2" fill="#0F6B62"></circle>
+                        <circle cx="14" cy="19.4" r="3.2" fill="#0F6B62"></circle>
+                        <circle cx="-21" cy="29.1" r="3.2" fill="#0F6B62"></circle>
+                        <circle cx="-34.2" cy="-11.1" r="3.2" fill="#0F6B62"></circle>
+
+                        <text x="0" y="-132" text-anchor="middle" font-size="9" fill="#1B2A4A"
+                            font-weight="600">Process</text>
+                        <text x="128" y="-20" text-anchor="start" font-size="9" fill="#1B2A4A"
+                            font-weight="600">Technology</text>
+                        <text x="78" y="110" text-anchor="start" font-size="9" fill="#1B2A4A" font-weight="600">Data
+                            Quality</text>
+                        <text x="-78" y="110" text-anchor="end" font-size="9" fill="#1B2A4A"
+                            font-weight="600">Documentation</text>
+                        <text x="-128" y="-16" text-anchor="end" font-size="9" fill="#1B2A4A"
+                            font-weight="600">Knowledge
+                            .</text>
+                    </g>
+                </svg>
+            </div>
+            <div class="exhibit-note">
+                Solid line: current state. Dashed line: target state (post-roadmap).<br><br>
+                <b>Cocopeat BD scores 1.3 overall</b> — Driven by a complete absence of a CRM system, reliance on
+                un-auditable
+                WhatsApp/WeChat threads, and manual spreadsheet trackers. Migrating to a centralized CRM (Phase 1) and
+                decoupling Accounts from CargoX will trigger a massive structural uplift in Data Quality and Technology
+                utilization.
+            </div>
+        </div>
+        <table>
+            <tbody>
+                <tr>
+                    <th>Dimension</th>
+                    <th class="num">Current</th>
+                    <th class="num">Target</th>
+                    <th class="num">Gap</th>
+                </tr>
+                <tr>
+                    <td>Process Standardization</td>
+                    <td class="num">1.5</td>
+                    <td class="num">2.5</td>
+                    <td class="num">1.0</td>
+                </tr>
+                <tr>
+                    <td>Technology Utilization</td>
+                    <td class="num">1.0</td>
+                    <td class="num">3.0</td>
+                    <td class="num">2.0</td>
+                </tr>
+                <tr>
+                    <td>Data Quality &amp; Accessibility</td>
+                    <td class="num">1.0</td>
+                    <td class="num">3.0</td>
+                    <td class="num">2.0</td>
+                </tr>
+                <tr>
+                    <td>Documentation</td>
+                    <td class="num">1.5</td>
+                    <td class="num">2.5</td>
+                    <td class="num">1.0</td>
+                </tr>
+                <tr>
+                    <td>Knowledge Management</td>
+                    <td class="num">1.5</td>
+                    <td class="num">2.5</td>
+                    <td class="num">1.0</td>
+                </tr>
+                <tr style="font-weight:700;">
+                    <td>Overall</td>
+                    <td class="num">1.3</td>
+                    <td class="num">2.9</td>
+                    <td class="num">1.6</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="doc-footer"><span>Report Overview — Cocopeat · EF Polymer</span><span>Page 3</span></div>
+    </div>
+    <div class="page"><img src="letterhead.png" alt="Letterhead" class="letterhead"
+            style="width: calc(100% + 151.181px); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;">
+        <h3 class="" data-manual-page-break="true">Team Structure</h3>
+        <p style="font-size:8.5pt;color:var(--muted);margin-bottom:4px;">Reporting hierarchy within Cocopeat Business,
+            operating under Ankit Jain (Co-Founder &amp; CBDO).</p>
+        <div class="org-chart">
+            <div class="org-level">
+                <div class="org-node secondary">
+                    <div class="org-name">Ankit Jain</div>
+                    <div class="org-role">Co-Founder &amp; CBDO<br>Division Head</div>
+                </div>
+            </div>
+            <div class="org-connector-top"></div>
+            <div class="org-level">
+                <div class="org-node lead">
+                    <div class="org-name">Mohit Gupta</div>
+                    <div class="org-role">BD Executive<br>Cocopeat Business Lead</div>
+                    <span class="org-tag">Vertical Lead</span>
+                </div>
+            </div>
+            <div class="org-connector-top"></div>
+            <div style="width:72%;border-top:1px solid var(--line);margin:0 auto;"></div>
+            <div style="display:flex;justify-content:center;gap:14px;width:100%;margin-top:0;">
+                <div class="org-sub-branch">
+                    <div class="org-connector-top"></div>
+                    <div class="org-node">
+                        <div class="org-name">Ishwarya M</div>
+                        <div class="org-role">BD Manager<br>End-to-end client relations,<br>logistics &amp;
+                            documentation</div>
+                    </div>
+                </div>
+                <div class="org-sub-branch">
+                    <div class="org-connector-top"></div>
+                    <div class="org-node secondary">
+                        <div class="org-name">Rajesh Balu</div>
+                        <div class="org-role">BD Executive<br>Logistics ops (80–90%),<br>product dev support</div>
+                    </div>
+                </div>
+                <div class="org-sub-branch">
+                    <div class="org-connector-top"></div>
+                    <div class="org-node remote">
+                        <div class="org-name">Yoshida-san</div>
+                        <div class="org-role">BD Executive (Japan)<br>Pricing &amp; manufacturer<br>alignment — Japan
+                        </div>
+                        <span class="org-tag remote-tag">Japan-based</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h3>Tools in Use</h3>
+        <div class="tools-grid">
+            <div class="tool-card">
+                <div class="tool-icon">
+                    <div style="display:flex; gap:6px;"><img
+                            src="https://img.icons8.com/color/48/000000/google-sheets.png" width="24" height="24"
+                            style="display:block; object-fit:contain;" alt="Google Sheets / Excel"><img
+                            src="https://img.icons8.com/color/48/000000/microsoft-excel-2019.png" width="24" height="24"
+                            style="display:block; object-fit:contain;" alt="Google Sheets / Excel"></div>
+                </div>
+                <div>
+                    <div class="tool-name">Google Sheets / Excel</div>
+                    <div class="tool-desc">Ad-hoc pipeline tracking — sourced leads, follow-up status, and inbound
+                        landing page
+                        queries. Custom dashboard built by Mohit (~7 days before audit).</div>
+                </div>
+            </div>
+            <div class="tool-card">
+                <div class="tool-icon"><img src="https://img.icons8.com/color/48/000000/gmail-new.png" width="24"
+                        height="24" style="display:block; object-fit:contain;" alt="Gmail (Primary Domain)"></div>
+                <div>
+                    <div class="tool-name">Gmail (Primary Domain)</div>
+                    <div class="tool-desc">Cold outbound (20–25 emails/day/rep) + client replies + internal comms — all
+                        sharing
+                        one company domain with no warm-up or inbox separation.</div>
+                </div>
+            </div>
+            <div class="tool-card">
+                <div class="tool-icon"><img src="https://img.icons8.com/color/48/000000/linkedin.png" width="24"
+                        height="24" style="display:block; object-fit:contain;" alt="LinkedIn"></div>
+                <div>
+                    <div class="tool-name">LinkedIn</div>
+                    <div class="tool-desc">Multi-touch outreach including connection requests and case studies.</div>
+                </div>
+            </div>
+            <div class="tool-card">
+                <div class="tool-icon"><img src="https://img.icons8.com/color/48/000000/bot.png" width="24" height="24"
+                        style="display:block; object-fit:contain;" alt="Dripify"></div>
+                <div>
+                    <div class="tool-name">Dripify</div>
+                    <div class="tool-desc">Outreach automation (subscription lapsed at time of audit).</div>
+                </div>
+            </div>
+            <div class="tool-card">
+                <div class="tool-icon"><img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" width="24"
+                        height="24" style="display:block; object-fit:contain;" alt="WhatsApp"></div>
+                <div>
+                    <div class="tool-name">WhatsApp</div>
+                    <div class="tool-desc">Primary communication channel for Middle East/UAE trading company contacts.
+                    </div>
+                </div>
+            </div>
+            <div class="tool-card">
+                <div class="tool-icon"><img src="https://cdn.simpleicons.org/wechat/07C160" width="24" height="24"
+                        style="display:block; object-fit:contain;" alt="WeChat"></div>
+                <div>
+                    <div class="tool-name">WeChat</div>
+                    <div class="tool-desc">Primary communication channel for China trading company contacts.</div>
+                </div>
+            </div>
+            <div class="tool-card">
+                <div class="tool-icon"><img src="https://img.icons8.com/color/48/000000/line-me.png" width="24"
+                        height="24" style="display:block; object-fit:contain;" alt="LINE"></div>
+                <div>
+                    <div class="tool-name">LINE</div>
+                    <div class="tool-desc">Primary communication channel for Japan trading company contacts.</div>
+                </div>
+            </div>
+            <div class="tool-card">
+                <div class="tool-icon">🚢</div>
+                <div>
+                    <div class="tool-name">CargoX</div>
+                    <div class="tool-desc">Export document upload platform. Gated behind Accounts payment clearance;
+                        uploads must
+                        occur within 10 days of container arrival at destination port.</div>
+                </div>
+            </div>
+            <div class="tool-card">
+                <div class="tool-icon"><img src="https://img.icons8.com/color/48/000000/google-ads.png" width="24"
+                        height="24" style="display:block; object-fit:contain;" alt="Google Ads"></div>
+                <div>
+                    <div class="tool-name">Google Ads</div>
+                    <div class="tool-desc">Search lead generation campaigns managed by external agency.</div>
+                </div>
+            </div>
+            <div class="tool-card">
+                <div class="tool-icon"><img src="https://img.icons8.com/color/48/000000/linkedin.png" width="24"
+                        height="24" style="display:block; object-fit:contain;" alt="LinkedIn Ads"></div>
+                <div>
+                    <div class="tool-name">LinkedIn Ads</div>
+                    <div class="tool-desc">B2B lead generation campaigns managed by external agency.</div>
+                </div>
+            </div>
+        </div>
+        <div class="doc-footer"><span>Report Overview — Cocopeat · EF Polymer</span><span>Page 4</span></div>
+    </div>
+    <div class="page"><img src="letterhead.png" alt="Letterhead" class="letterhead"
+            style="width: calc(100% + 151.181px); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;">
+        <div class="eyebrow" data-manual-page-break="true">Section 03 — Current Workflows &amp; Process Maps</div>
+        <h2>Current Workflows</h2>
+        <div class="section-dek">Analysis of current operational sequences</div>
+        <h3>Order Fulfillment &amp; Shipment Process — <span class="chip-ref">P-01</span></h3><svg viewBox="0 0 740 95"
+            xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:10px 0 4px;">
+            <defs>
+                <marker id="a1" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+                    <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5"></path>
+                </marker>
+            </defs>
+
+            <!-- Step 1 Box -->
+            <rect x="10" y="26" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"></rect>
+            <rect x="25" y="18" width="90" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75">
+            </rect>
+            <text x="70" y="28" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C"
+                font-family="Segoe UI,sans-serif" letter-spacing="0.4">VERIFICATION</text>
+            <text x="70" y="45" text-anchor="middle" font-size="7.6" fill="#3F4B5C"
+                font-family="Segoe UI,sans-serif">Sample
+                Dispatch</text>
+            <text x="70" y="57" text-anchor="middle" font-size="7.6" fill="#3F4B5C"
+                font-family="Segoe UI,sans-serif">&amp;
+                Lab Testing</text>
+            <line x1="130" y1="50" x2="160" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)"></line>
+
+            <!-- Step 2 Box -->
+            <rect x="160" y="26" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"></rect>
+            <rect x="175" y="18" width="90" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75">
+            </rect>
+            <text x="220" y="28" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C"
+                font-family="Segoe UI,sans-serif" letter-spacing="0.4">NEGOTIATION</text>
+            <text x="220" y="45" text-anchor="middle" font-size="7.6" fill="#3F4B5C"
+                font-family="Segoe UI,sans-serif">Negotiation Phase</text>
+            <text x="220" y="57" text-anchor="middle" font-size="7.6" fill="#3F4B5C"
+                font-family="Segoe UI,sans-serif">(1–2
+                Months)</text>
+            <line x1="280" y1="50" x2="310" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)"></line>
+
+            <!-- Step 3 Box -->
+            <rect x="310" y="26" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"></rect>
+            <rect x="325" y="18" width="90" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75">
+            </rect>
+            <text x="370" y="28" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C"
+                font-family="Segoe UI,sans-serif" letter-spacing="0.4">PRODUCTION</text>
+            <text x="370" y="45" text-anchor="middle" font-size="7.6" fill="#3F4B5C"
+                font-family="Segoe UI,sans-serif">PO
+                Receipt &amp;</text>
+            <text x="370" y="57" text-anchor="middle" font-size="7.6" fill="#3F4B5C"
+                font-family="Segoe UI,sans-serif">Production Trigger</text>
+            <line x1="430" y1="50" x2="460" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)"></line>
+
+            <!-- Step 4 Box (Bottleneck) -->
+            <rect x="460" y="26" width="120" height="48" rx="3" fill="#FCEBEA" stroke="#A32E24" stroke-width="1.5">
+            </rect>
+            <rect x="475" y="18" width="90" height="15" rx="3" fill="#A32E24" stroke="#A32E24" stroke-width="0.75">
+            </rect>
+            <text x="520" y="28" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF"
+                font-family="Segoe UI,sans-serif" letter-spacing="0.4">CRITICAL GATE</text>
+            <text x="520" y="45" text-anchor="middle" font-size="7.6" fill="#A32E24" font-weight="700"
+                font-family="Segoe UI,sans-serif">Payment &amp; Manual</text>
+            <text x="520" y="57" text-anchor="middle" font-size="7.6" fill="#A32E24" font-weight="700"
+                font-family="Segoe UI,sans-serif">Accounts Clearance</text>
+            <line x1="580" y1="50" x2="610" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a1)"></line>
+
+            <!-- Step 5 Box (Highlight) -->
+            <rect x="610" y="26" width="120" height="48" rx="3" fill="#F4EEFC" stroke="#6b4fc8" stroke-width="1.5">
+            </rect>
+            <rect x="625" y="18" width="90" height="15" rx="3" fill="#6b4fc8" stroke="#6b4fc8" stroke-width="0.75">
+            </rect>
+            <text x="670" y="28" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF"
+                font-family="Segoe UI,sans-serif" letter-spacing="0.4">EXPORT SHIP</text>
+            <text x="670" y="45" text-anchor="middle" font-size="7.6" fill="#6b4fc8" font-weight="700"
+                font-family="Segoe UI,sans-serif">CargoX Upload</text>
+            <text x="670" y="57" text-anchor="middle" font-size="7.6" fill="#6b4fc8"
+                font-family="Segoe UI,sans-serif">(&lt;10
+                Days from Arrival)</text>
+        </svg>
+        <div class="flow-note">
+            <p style="margin-top:0;"><strong>What is good:</strong> The sequential export lifecycle is logically ordered
+                —
+                sample verification feeds negotiation, which feeds PO, which feeds production and then shipment. Clients
+                test
+                before committing to a full container, reducing costly surprises.</p>
+            <p><strong>Detailed Workflow Steps:</strong>
+                <br>1. <strong>Verification:</strong> Sample dispatch and lab testing (verifying EC levels/expansion
+                volumes) to
+                establish buyer confidence.
+                <br>2. <strong>Negotiation:</strong> A 1–2 months phase discussing product specs, custom chemical blends
+                (perlite/NPK), and pricing.
+                <br>3. <strong>Embassy Permits (Egypt/Peru/Spain):</strong> Customer submits PI to embassy to obtain
+                local
+                import permits (e.g., ACID numbers in Egypt), taking 20–25 days.
+                <br>4. <strong>Production Trigger:</strong> Purchase Order (PO) receipt triggers factory manufacturing
+                in
+                Coimbatore and container logistics booking.
+                <br>5. <strong>Payment Clearance:</strong> Hard gate where the Accounts team manually checks and clears
+                advance
+                payments.
+                <br>6. <strong>CargoX Upload:</strong> Documentation team uploads shipping documents to CargoX (within
+                10 days
+                of vessel arrival at destination port).
+            </p>
+            <p><strong>What needs to be fixed:</strong> CargoX document upload is gated behind Accounts payment
+                clearance. Any
+                delay in clearance confirmation pushes the upload past the mandatory 10-day arrival window, triggering
+                demurrage
+                fees.</p>
+            <p><strong>Bottlenecks:</strong> For Egypt, Peru, and Spain: a 20–25 day wait for local import permits (ACID
+                numbers) precedes CargoX eligibility, compressing the already-tight 10-day upload window further.</p>
+            <p style="margin-bottom:0;"><strong>Dependencies:</strong> Finance/Accounts must confirm payment in
+                real-time for
+                BD to proceed with CargoX. Logistics must book the container and track arrival date. Any break in this
+                chain
+                risks demurrage.</p>
+        </div>
+        <div class="doc-footer"><span>Report Overview — Cocopeat · EF Polymer</span><span>Page 5</span></div>
+    </div>
+    <div class="page"><img src="letterhead.png" alt="Letterhead" class="letterhead"
+            style="width: calc(100% + 151.181px); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;">
+        <h3 class="" data-manual-page-break="true">Sourcing &amp; Outreach Workflow — <span class="chip-ref">P-02</span>
+        </h3><svg viewBox="0 0 740 95" xmlns="http://www.w3.org/2000/svg"
+            style="width:100%;display:block;margin:10px 0 4px;">
+            <defs>
+                <marker id="a2" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+                    <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5"></path>
+                </marker>
+            </defs>
+
+            <!-- Step 1 Box -->
+            <rect x="70" y="26" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"></rect>
+            <rect x="85" y="18" width="90" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75">
+            </rect>
+            <text x="130" y="28" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C"
+                font-family="Segoe UI,sans-serif" letter-spacing="0.4">LEAD GEN</text>
+            <text x="130" y="45" text-anchor="middle" font-size="7.6" fill="#3F4B5C"
+                font-family="Segoe UI,sans-serif">Manual
+                Lead Sourcing</text>
+            <text x="130" y="57" text-anchor="middle" font-size="7.6" fill="#3F4B5C"
+                font-family="Segoe UI,sans-serif">(Google
+                / LinkedIn)</text>
+            <line x1="190" y1="50" x2="230" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)"></line>
+
+            <!-- Step 2 Box -->
+            <rect x="230" y="26" width="120" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"></rect>
+            <rect x="245" y="18" width="90" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75">
+            </rect>
+            <text x="290" y="28" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C"
+                font-family="Segoe UI,sans-serif" letter-spacing="0.4">OUTBOUND</text>
+            <text x="290" y="45" text-anchor="middle" font-size="7.6" fill="#3F4B5C"
+                font-family="Segoe UI,sans-serif">Multi-Channel Outreach</text>
+            <text x="290" y="57" text-anchor="middle" font-size="7.6" fill="#3F4B5C"
+                font-family="Segoe UI,sans-serif">(Email,
+                WeChat, WA)</text>
+            <line x1="350" y1="50" x2="390" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)"></line>
+
+            <!-- Step 3 Box (Highlight) -->
+            <rect x="390" y="26" width="120" height="48" rx="3" fill="#F4EEFC" stroke="#6b4fc8" stroke-width="1.5">
+            </rect>
+            <rect x="405" y="18" width="90" height="15" rx="3" fill="#6b4fc8" stroke="#6b4fc8" stroke-width="0.75">
+            </rect>
+            <text x="450" y="28" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF"
+                font-family="Segoe UI,sans-serif" letter-spacing="0.4">DATA STORE</text>
+            <text x="450" y="45" text-anchor="middle" font-size="7.6" fill="#6b4fc8" font-weight="700"
+                font-family="Segoe UI,sans-serif">Siloed Spreadsheets</text>
+            <text x="450" y="57" text-anchor="middle" font-size="7.6" fill="#6b4fc8"
+                font-family="Segoe UI,sans-serif">(Manual
+                Logging)</text>
+            <line x1="510" y1="50" x2="550" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#a2)"></line>
+
+            <!-- Step 4 Box (Bottleneck) -->
+            <rect x="550" y="26" width="120" height="48" rx="3" fill="#FCEBEA" stroke="#A32E24" stroke-width="1.5">
+            </rect>
+            <rect x="565" y="18" width="90" height="15" rx="3" fill="#A32E24" stroke="#A32E24" stroke-width="0.75">
+            </rect>
+            <text x="610" y="28" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF"
+                font-family="Segoe UI,sans-serif" letter-spacing="0.4">BOTTLENECK</text>
+            <text x="610" y="45" text-anchor="middle" font-size="7.6" fill="#A32E24" font-weight="700"
+                font-family="Segoe UI,sans-serif">Delayed Response</text>
+            <text x="610" y="57" text-anchor="middle" font-size="7.6" fill="#A32E24" font-weight="700"
+                font-family="Segoe UI,sans-serif">(6–10 Hour Timezone Lag)</text>
+        </svg>
+        <div class="flow-note">
+            <p style="margin-top:0;"><strong>What is good:</strong> Outreach is structured with timezone awareness
+                (e.g.,
+                China contacts at 07:00 IST, UK/US contacts after 17:00 IST). Connection requests and initial outbound
+                sequences
+                were automated via **Dripify** (integrated directly with Mohit's profile) before the subscription
+                lapsed.
+                **Obverse** (external agency) actively manages Google and LinkedIn Ads targeting UK, Europe, and Middle
+                East
+                B2B channels.</p>
+            <p><strong>Detailed Workflow Steps:</strong>
+                <br>1. <strong>Lead Generation:</strong> External agency **Obverse** drives inbound leads via Google and
+                LinkedIn Ads landing on a web form, while the internal team manually scrapes databases (~40% bandwidth).
+                <br>2. <strong>Automated Connection (lapsed):</strong> Dripify used to send connection requests and a
+                multi-touch follow-up sequence (connection → case study → 3–4 follow-ups); with the subscription
+                lapsed, these steps are now handled manually.
+                <br>3. <strong>Manual Takeover:</strong> Once a lead replies, the (former) Dripify sequence immediately
+                halted,
+                requiring Mohit to manually handle further messaging.
+                <br>4. <strong>Direct Channel Outreach:</strong> Direct manual follow-ups are conducted over email,
+                WhatsApp,
+                and WeChat (critical for China, where Google and WhatsApp are banned).
+                <br>5. <strong>Spreadsheet Logging:</strong> Qualified leads and conversation status are manually copied
+                and
+                logged into ad-hoc Google Sheets.
+            </p>
+            <p><strong>What needs to be fixed:</strong> No CRM — all pipeline data lives in ad-hoc Google Sheets/Excel
+                with no
+                unified view across sourced leads, landing page inquiries, and LinkedIn responses. Inbound ad leads sit
+                uncontacted for 6–10 hours due to timezone gaps. Dripify automatically stops on replies, requiring
+                manual
+                takeover.</p>
+            <p><strong>Bottlenecks:</strong> Manual lead sourcing consumes ~40% of team bandwidth. Dripify LinkedIn
+                automation
+                subscription has lapsed, forcing manual
+                follow-up sequences. WeChat must be operated manually for Chinese buyers due to country-level
+                communication
+                restrictions.</p>
+            <p style="margin-bottom:0;"><strong>Dependencies:</strong> R&amp;D must provide lab reports and technical
+                test
+                data to support international client qualification. Design provides packaging artwork for white-label
+                clients.
+                Both are ad-hoc with no SLA.</p>
+        </div>
+        <div class="doc-footer"><span>Report Overview — Cocopeat · EF Polymer</span><span>Page 6</span></div>
+    </div>
+    <div class="page"><img src="letterhead.png" alt="Letterhead" class="letterhead"
+            style="width: calc(100% + 151.181px); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;">
+        <div class="eyebrow" data-manual-page-break="true">Appendix — Cross-Department Dependencies</div>
+        <h2>Cross-Department Dependencies</h2>
+        <div class="section-dek">Findings and recommendations that require action outside the BD (Cocopeat) vertical to
+            resolve.</div>
+        <div class="dep-card">
+            <div class="dep-header">
+                <div class="dep-title">Finance &amp; Accounts</div>
+                <div class="dep-badge">Critical Gating</div>
+            </div>
+            <div class="dep-grid">
+                <div class="dep-section">
+                    <div class="dep-section-title">Operations Dependency</div>
+                    <div class="dep-section-content">
+                        CargoX export document upload is gated behind payment confirmation from Accounts. BD cannot
+                        proceed without
+                        explicit clearance — no API or dashboard visibility exists today.
+                        <div class="dep-person">👤 Key Person: Shobha Shekhawat (Finance)</div>
+                    </div>
+                </div>
+                <div class="dep-section bottleneck">
+                    <div class="dep-section-title">Critical Bottleneck</div>
+                    <div class="dep-section-content">Manual clearance emails create unpredictable delays. If the 10-day
+                        CargoX
+                        upload window is missed, demurrage fees become inevitable — with no automated alert to warn BD
+                        in time.
+                    </div>
+                </div>
+                <div class="dep-section data-sync" style="grid-column: 1 / -1;">
+                    <div class="dep-section-title">Data Transfer &amp; Action Needed</div>
+                    <div class="dep-section-content">Accounts must push a real-time payment status flag to BD and
+                        Logistics the
+                        moment payment clears — via dashboard integration or automated WhatsApp/Slack notification. BD
+                        should never
+                        need to chase Accounts manually.</div>
+                </div>
+            </div>
+        </div>
+        <div class="dep-card">
+            <div class="dep-header">
+                <div class="dep-title">R&amp;D</div>
+                <div class="dep-badge">Technical Support</div>
+            </div>
+            <div class="dep-grid">
+                <div class="dep-section">
+                    <div class="dep-section-title">Operations Dependency</div>
+                    <div class="dep-section-content">
+                        International clients require lab test reports and technical certifications before and after
+                        sample
+                        dispatch. BD cannot qualify or close deals without R&amp;D's turnaround on these reports.
+                        <div class="dep-person">👤 Key Person: Ritu Panwar (R&amp;D Lead)</div>
+                    </div>
+                </div>
+                <div class="dep-section bottleneck">
+                    <div class="dep-section-title">Critical Bottleneck</div>
+                    <div class="dep-section-content">No formal SLA exists for R&amp;D lab report delivery. QC-level
+                        queries take a
+                        minimum of 28–30 hours. BD has no visibility into queue status, stalling client qualification
+                        timelines.
+                    </div>
+                </div>
+                <div class="dep-section data-sync" style="grid-column: 1 / -1;">
+                    <div class="dep-section-title">Data Transfer &amp; Action Needed</div>
+                    <div class="dep-section-content">R&amp;D must maintain a shared tracker of pending BD lab requests
+                        with SLA
+                        commitments. Completed reports must be pushed to a shared Drive folder, not delivered ad-hoc via
+                        WhatsApp.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="doc-footer"><span>Report Overview — Cocopeat · EF Polymer</span><span>Page 7</span></div>
+    </div>
+    <div class="page"><img src="letterhead.png" alt="Letterhead" class="letterhead"
+            style="width: calc(100% + 151.181px); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;">
+        <div class="dep-card" data-manual-page-break="true">
+            <div class="dep-header">
+                <div class="dep-title">Logistics</div>
+                <div class="dep-badge">Fulfillment Dependency</div>
+            </div>
+            <div class="dep-grid">
+                <div class="dep-section">
+                    <div class="dep-section-title">Operations Dependency</div>
+                    <div class="dep-section-content">
+                        Container booking, port arrival tracking, and customs clearance timelines must be visible to BD
+                        to
+                        accurately forecast delivery commitments to international clients.
+                        <div class="dep-person">👤 Key Person: Nihal Paliwal (Logistics)</div>
+                    </div>
+                </div>
+                <div class="dep-section bottleneck">
+                    <div class="dep-section-title">Critical Bottleneck</div>
+                    <div class="dep-section-content">Container arrival dates are not proactively shared with BD. The
+                        10-day CargoX
+                        window countdown begins upon arrival — with BD often finding out too late to act within the
+                        window.</div>
+                </div>
+                <div class="dep-section data-sync" style="grid-column: 1 / -1;">
+                    <div class="dep-section-title">Data Transfer &amp; Action Needed</div>
+                    <div class="dep-section-content">Logistics must auto-notify BD via WhatsApp/dashboard the moment a
+                        container
+                        arrives at destination port. BD needs live shipping status, not periodic updates, to manage the
+                        CargoX
+                        clock.</div>
+                </div>
+            </div>
+        </div>
+        <div class="doc-footer"><span>Report Overview — Cocopeat · EF Polymer</span><span>Page 8</span></div>
+    </div>
+    <div class="page"><img src="letterhead.png" alt="Letterhead" class="letterhead"
+            style="width: calc(100% + 151.181px); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;">
+        <div class="eyebrow" data-manual-page-break="true">Section 04 — Operational Pain Points</div>
+        <h2>Pain Points Register</h2>
+        <div class="section-dek">Ranked by operational impact. Each pain point is cross-referenced to its recommendation
+            in
+            Section 06.</div>
+        <div class="callout" style="margin-bottom:14px;border-left-color:#2563eb;background:#EFF4FF;">
+            <strong style="color:#1B2A4A;">Priority Focus Areas:</strong><br>
+            <span style="color:#1B2A4A;">① <b>CargoX Export Documentation Gating</b> — The CargoX upload window is gated
+                behind manual Accounts payment clearance. Any delay pushes the shipment past the 10-day arrival window,
+                triggering demurrage fees.</span><br>
+            <span style="color:#1B2A4A;">② <b>Lead Pipeline Fragmentation</b> — 40% of team effort is consumed by manual
+                lead sourcing with no CRM. Inbound ad leads sit uncontacted for 6–10 hours due to timezone gaps, and all
+                pipeline data lives in siloed spreadsheets.</span>
+        </div>
+        <table>
+            <tbody>
+                <tr>
+                    <th class="id">ID</th>
+                    <th>Pain Point</th>
+                    <th>Impact</th>
+                    <th>Evidence from Audit</th>
+                </tr>
+                <tr>
+                    <td class="id">P-01</td>
+                    <td><b>CargoX Gating Bottleneck.</b> Export docs must be uploaded to CargoX within 10 days of
+                        container arrival,
+                        but are gated behind Accounts payment clearance.</td>
+                    <td><span class="chip chip-crit">Critical</span></td>
+                    <td>Risks heavy demurrage fees if the 10-day window is missed. Cross-departmental coordination is
+                        crucial and
+                        entirely manual today.</td>
+                </tr>
+                <tr>
+                    <td class="id">P-02</td>
+                    <td><b>Country-Specific Regulatory Delays.</b> Markets like Egypt, Peru, and Spain require local
+                        import permits
+                        (e.g., ACID numbers) before CargoX uploads are permitted.</td>
+                    <td><span class="chip chip-med">High</span></td>
+                    <td>Adds a 20–25 day delay to the export lifecycle, straining logistics planning and compressing the
+                        CargoX
+                        upload window further.</td>
+                </tr>
+                <tr>
+                    <td class="id">P-03</td>
+                    <td><b>Ad-to-Lead Response Lag.</b> Response delays of 6–10 hours for inbound queries from paid
+                        Google/LinkedIn
+                        ads due to time zone differences.</td>
+                    <td><span class="chip chip-med">High</span></td>
+                    <td>Lost high-intent opportunities as leads go cold before contact. Paid ad spend is wasted on leads
+                        that are
+                        never followed up in time.</td>
+                </tr>
+                <tr>
+                    <td class="id">P-04</td>
+                    <td><b>Email Deliverability Risk.</b> Cold outbound outreach (20–25 emails/day per mailbox) shares
+                        the primary
+                        company domain.</td>
+                    <td><span class="chip chip-med">High</span></td>
+                    <td>High risk of main domain blacklisting, disrupting internal and client communications across the
+                        entire
+                        company.</td>
+                </tr>
+                <tr>
+                    <td class="id">P-05</td>
+                    <td><b>Disconnected Lead Pipelines.</b> Sourced leads, landing page inquiries, and LinkedIn messages
+                        are tracked
+                        in siloed, manual spreadsheets.</td>
+                    <td><span class="chip chip-low">Medium</span></td>
+                    <td>Prevents unified pipeline visibility and introduces manual tracking errors. No single source of
+                        truth exists
+                        for deal status.</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="doc-footer"><span>Report Overview — Cocopeat · EF Polymer</span><span>Page 9</span></div>
+    </div>
+    <div class="page"><img src="letterhead.png" alt="Letterhead" class="letterhead"
+            style="width: calc(100% + 151.181px); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;">
+        <div class="eyebrow" data-manual-page-break="true">Section 05 — Time &amp; Effort</div>
+        <h3>Time &amp; Effort Allocation</h3>
+        <p style="font-size:8.5pt;color:var(--muted);margin-bottom:8px;">Based on a standard 8-hour workday. Hours shown
+            are
+            estimates per team member per day, averaged across the team.</p>
+        <table>
+            <tbody>
+                <tr>
+                    <th>Activity</th>
+                    <th class="num" style="text-align:right">Share of Team Time</th>
+                    <th class="num" style="text-align:right">Est. Time / Day</th>
+                </tr>
+                <tr>
+                    <td>Outbound Lead Sourcing (Google, AI tools, export databases, exhibitions)</td>
+                    <td class="num">~40%</td>
+                    <td class="num">~3.2 hrs</td>
+                </tr>
+                <tr>
+                    <td>Lead Nurturing, Follow-ups &amp; Sample Coordination</td>
+                    <td class="num">~25%</td>
+                    <td class="num">~2.0 hrs</td>
+                </tr>
+                <tr>
+                    <td>Logistics &amp; Documentation (CargoX, export docs, container tracking)</td>
+                    <td class="num">~20%</td>
+                    <td class="num">~1.6 hrs</td>
+                </tr>
+                <tr>
+                    <td>Cross-Department Coordination (Accounts, Logistics, Production, R&amp;D)</td>
+                    <td class="num">~15%</td>
+                    <td class="num">~1.2 hrs</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="callout" style="margin-top:12px;border-left-color:#2563eb;background:#EFF4FF;">
+            <strong style="color:#1B2A4A;">Key Observation:</strong><br>
+            <span style="color:#1B2A4A;">Rajesh Balu, nominally a BD Executive, devotes only <b>10–20%</b> of his actual
+                effort to BD tasks. The remaining <b>80–90%</b> is consumed by logistics operations and product
+                development
+                support — effectively making him a logistics resource. This critically understates the actual BD
+                headcount
+                available for lead generation.</span>
+        </div>
+        <div class="doc-footer"><span>Report Overview — Cocopeat · EF Polymer</span><span>Page 10</span></div>
+    </div>
+    <div class="page"><img src="letterhead.png" alt="Letterhead" class="letterhead"
+            style="width: calc(100% + 151.181px); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;">
+        <div class="eyebrow" data-manual-page-break="true">Section 06 — Corrective Action Plan</div>
+        <h2>Recommended Solution</h2>
+        <div class="section-dek">This section outlines the integrated technology solution proposed to resolve
+            operational
+            bottlenecks, replacing the legacy recommendations register.</div>
+        <p style="font-weight: 700; color: var(--ink); margin-top: 15px; margin-bottom: 10px; font-size: 9.5pt;">
+            Solution
+            Modules to be Built:</p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px;">
+            <!-- Module 1 -->
+            <div style="border: 1px solid var(--line); border-radius: 4px; padding: 12px; background: var(--paper);">
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                    <div
+                        style="background: #E9F4EC; color: #276B3E; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 10pt;">
+                        1</div>
+                    <div style="font-weight: 700; color: var(--ink); font-size: 9.5pt;">Cross-Department Clearance &amp;
+                        Export
+                        Documentation</div>
+                </div>
+                <ul style="font-size: 8.5pt; color: var(--muted); line-height: 1.5; padding-left: 18px; margin: 0;">
+                    <li style="margin-bottom: 6px;"><strong>Real-Time Clearance Dashboard:</strong> A shared dashboard
+                        with live
+                        API integration to Accounts, showing payment clearance status instantly to BD and Logistics.
+                        CargoX upload
+                        is decoupled from manual approval chasing.</li>
+                    <li style="margin-bottom: 6px;"><strong>Regulatory Buffer Engine:</strong> Automated 25-day buffer
+                        calculation
+                        built into production and logistics timelines specifically for Egypt, Peru, and Spain orders
+                        (ACID permit
+                        approvals), preventing premature container booking.</li>
+                    <li><strong>Automated Alerts:</strong> WhatsApp/Slack notifications the moment payment clears or a
+                        container
+                        arrives at the destination port, protecting the 10-day CargoX upload window.</li>
+                </ul>
+            </div>
+
+            <!-- Module 2 -->
+            <div style="border: 1px solid var(--line); border-radius: 4px; padding: 12px; background: var(--paper);">
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                    <div
+                        style="background: #E9F4EC; color: #276B3E; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 10pt;">
+                        2</div>
+                    <div style="font-weight: 700; color: var(--ink); font-size: 9.5pt;">CRM Migration &amp; Automated
+                        Lead
+                        Pipeline</div>
+                </div>
+                <ul style="font-size: 8.5pt; color: var(--muted); line-height: 1.5; padding-left: 18px; margin: 0;">
+                    <li style="margin-bottom: 6px;"><strong>Centralized CRM:</strong> Migrate lead tracking from ad-hoc
+                        spreadsheets to a unified CRM consolidating sourced leads, landing page inquiries, and
+                        LinkedIn responses into a single pipeline view.</li>
+                    <li style="margin-bottom: 6px;"><strong>Automated Lead Capture:</strong> An AI agent or automated
+                        WhatsApp/Email trigger that instantly qualifies and books meetings for inbound ad leads across
+                        time zones,
+                        eliminating the 6–10 hour response lag.</li>
+                    <li><strong>Unified Messaging:</strong> WhatsApp/WeChat/LINE threads integrated directly into the
+                        CRM,
+                        creating an auditable communication trail instead of siloed app conversations.</li>
+                </ul>
+            </div>
+
+            <!-- Module 3 -->
+            <div
+                style="border: 1px solid var(--line); border-radius: 4px; padding: 12px; background: var(--paper); grid-column: 1 / -1;">
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                    <div
+                        style="background: #E9F4EC; color: #276B3E; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 10pt;">
+                        3</div>
+                    <div style="font-weight: 700; color: var(--ink); font-size: 9.5pt;">Outbound Domain Protection &amp;
+                        Deliverability</div>
+                </div>
+                <ul style="font-size: 8.5pt; color: var(--muted); line-height: 1.5; padding-left: 18px; margin: 0;">
+                    <li style="margin-bottom: 4px;"><strong>Secondary Domain Infrastructure:</strong> Acquire and warm
+                        up
+                        dedicated secondary domains for Cocopeat cold outbound emails, isolating outreach traffic from
+                        the primary
+                        company domain.</li>
+                    <li><strong>Deliverability Monitoring:</strong> Automated inbox reputation tracking and warm-up
+                        protocols to
+                        maintain sending health and protect internal/client communications from blacklisting risk.</li>
+                </ul>
+            </div>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px;">
+            <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 4px; padding: 12px;">
+                <p style="font-weight: 700; color: var(--ink); margin-bottom: 6px; font-size: 9pt;">What Remains the
+                    Same</p>
+                <ul style="font-size: 8.5pt; color: var(--muted); line-height: 1.5; padding-left: 18px; margin: 0;">
+                    <li style="margin-bottom: 4px;"><strong>No New Backend Database:</strong> CRM sits on top of
+                        existing data
+                        flows; existing pipeline sheets feed into the new system.</li>
+                    <li><strong>Familiar Outreach Cadence:</strong> The team retains its structured multi-touch outreach
+                        approach;
+                        only the domain and tracking layer changes.</li>
+                </ul>
+            </div>
+            <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 4px; padding: 12px;">
+                <p style="font-weight: 700; color: var(--ink); margin-bottom: 6px; font-size: 9pt;">Tech Stack Utilized
+                </p>
+                <ul style="font-size: 8.5pt; color: var(--muted); line-height: 1.5; padding-left: 18px; margin: 0;">
+                    <li style="margin-bottom: 2px;"><strong>CRM:</strong> Custom on React JS</li>
+                    <li style="margin-bottom: 2px;"><strong>APIs:</strong> Google Sheets, WhatsApp Business, CargoX,
+                        Gmail</li>
+                    <li style="margin-bottom: 2px;"><strong>AI:</strong> LLM-based lead qualification &amp; response
+                        agent</li>
+                    <li><strong>Domain:</strong> Secondary domains with warm-up infrastructure</li>
+                </ul>
+            </div>
+        </div>
+        <div class="doc-footer"><span>Report Overview — Cocopeat · EF Polymer</span><span>Page 11</span></div>
+    </div>
+    <div class="page"><img src="letterhead.png" alt="Letterhead" class="letterhead"
+            style="width: calc(100% + 151.181px); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;">
+        <div style="background: #F0FDF4; border: 1px solid #BBF7D0; border-radius: 4px; padding: 12px; margin-bottom: 25px;"
+            class="" data-manual-page-break="true">
+            <p style="font-weight: 700; color: #166534; margin-bottom: 6px; font-size: 9.5pt;">Key Operational Problems
+                Solved
+            </p>
+            <ul style="font-size: 8.5pt; color: #15803D; line-height: 1.5; padding-left: 18px; margin: 0;">
+                <li style="margin-bottom: 4px;">Eliminates demurrage risk by providing real-time Accounts clearance
+                    visibility
+                    and automated CargoX alerts.</li>
+                <li style="margin-bottom: 4px;">Captures high-intent inbound leads instantly across time zones, removing
+                    the
+                    6–10 hour response lag.</li>
+                <li style="margin-bottom: 4px;">Unifies all lead pipelines (sourced, ad, LinkedIn) into a single
+                    auditable CRM
+                    with no manual tracking errors.</li>
+                <li>Protects the primary company domain from outbound blacklisting by isolating cold email traffic.</li>
+            </ul>
+        </div>
+        <h3>Future Scope of Improvement / Enhancement</h3>
+        <ul style="font-size: 9pt; color: var(--muted); line-height: 1.5; padding-left: 20px; margin-bottom: 25px;">
+            <li><strong>Japan D2C Launch:</strong> Fully localized D2C retail operations (Amazon Japan / branded
+                website) to
+                capture direct consumer demand alongside the existing B2B export pipeline.</li>
+            <li><strong>Predictive Lead Scoring:</strong> AI-driven scoring of outbound prospects based on historical
+                conversion data and market signals to prioritize high-value targets.</li>
+        </ul>
+        <h3>Next Steps for Team Adoption</h3>
+        <ul style="font-size: 9pt; color: var(--muted); line-height: 1.5; padding-left: 20px; margin-bottom: 15px;">
+            <li><strong>Mandatory CRM Training:</strong> All BD team members must complete onboarding on the new CRM and
+                automated lead capture workflows before go-live.</li>
+            <li><strong>Feedback Loop:</strong> Establish a continuous feedback loop to iterate on the solution on the
+                ground,
+                ensuring it genuinely adapts to the team's operational reality and achieves actual adoption.</li>
+        </ul>
+        <div class="doc-footer"><span>Report Overview — Cocopeat · EF Polymer</span><span>Page 12</span></div>
+    </div>
+    <div class="page"><img src="letterhead.png" alt="Letterhead" class="letterhead"
+            style="width: calc(100% + 151.181px); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;">
+        <div class="eyebrow" data-manual-page-break="true">Section 07 — Implementation Plan</div>
+        <h2>Phased Roadmap</h2>
+        <div class="section-dek">Initiatives sequenced across three phases, with quantified ROI and scope of work per
+            phase
+        </div>
+        <table class="tl-table">
+            <tbody>
+                <tr>
+                    <th>Initiative</th>
+                    <th class="id">Target</th>
+                    <th class="num">Phase 1<br><span style="font-weight:400">Weeks 1–4</span></th>
+                    <th class="num">Phase 2<br><span style="font-weight:400">Weeks 5–9</span></th>
+                    <th class="num">Phase 3<br><span style="font-weight:400">Weeks 10–12</span></th>
+                </tr>
+                <tr>
+                    <td>CRM Migration &amp; Pipeline Unification</td>
+                    <td class="id">Module 2</td>
+                    <td class="phase-mark p1">●</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Accounts/CargoX Clearance Dashboard</td>
+                    <td class="id">Module 1</td>
+                    <td class="phase-mark p1">●</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Secondary Domains &amp; Warm-up</td>
+                    <td class="id">Module 3</td>
+                    <td class="phase-mark p1">●</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Automated Inbound Lead Capture</td>
+                    <td class="id">Module 2</td>
+                    <td></td>
+                    <td class="phase-mark p2">●</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Regulatory Buffer Integration</td>
+                    <td class="id">Module 1</td>
+                    <td></td>
+                    <td></td>
+                    <td class="phase-mark p3">●</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="phase-block">
+            <div class="phase-hd">
+                <div class="phase-hd-left">
+                    <span class="phase-hd-title">Phase 1 — Visibility &amp; Safety</span>
+                    <span class="phase-hd-timeline">Weeks 1–4 · High priority</span>
+                </div>
+                <span class="phase-maturity">Maturity 1.3 → 1.8</span>
+            </div>
+            <div class="phase-sow">
+                <div class="col-label">Scope of Work &amp; Dependencies</div>
+                <div class="sow-item"><span class="sow-dot"></span><span><strong>Build:</strong> Migrate lead tracking
+                        from
+                        ad-hoc spreadsheets to a centralized CRM (Module 2).</span></div>
+                <div class="sow-item"><span class="sow-dot"></span><span><strong>Build:</strong> Integrate Accounts
+                        clearance
+                        dashboard to decouple CargoX upload from manual approvals (Module 1).</span></div>
+                <div class="sow-item"><span class="sow-dot"></span><span><strong>Build:</strong> Acquire and warm up
+                        secondary
+                        domains for Cocopeat cold outbound emails (Module 3).</span></div>
+                <div class="sow-item"><span class="sow-dot"></span><span><strong>Tech Stack &amp; Badges:</strong> <span
+                            class="chip-ref">Google Sheets API</span> <span class="chip-ref">CargoX
+                            Integration</span>.</span></div>
+                <div class="sow-item"><span class="sow-dot"></span><span><strong>Team Adoption:</strong> Conduct CRM
+                        onboarding
+                        sessions for all BD team members.</span></div>
+                <div class="sow-item"><span class="sow-dot" style="background:#ef4444;"></span><span><strong>Client
+                            To-Do:</strong> Provide Accounts clearance workflow details, existing lead tracking sheets,
+                        and approve
+                        domain acquisition budget.</span></div>
+            </div>
+            <div class="phase-roi">
+                <div class="roi-card">
+                    <div class="roi-card-num">100%</div>
+                    <div class="roi-card-label">pipeline vis</div>
+                    <div class="roi-card-desc">No lost deals or manual tracking errors.</div>
+                </div>
+                <div class="roi-card">
+                    <div class="roi-card-num">0</div>
+                    <div class="roi-card-label">demurrage risk</div>
+                    <div class="roi-card-desc">Protected CargoX upload windows.</div>
+                </div>
+                <div class="roi-card">
+                    <div class="roi-card-num">Secured</div>
+                    <div class="roi-card-label">domain safety</div>
+                    <div class="roi-card-desc">Protected from outbound blacklisting.</div>
+                </div>
+            </div>
+        </div>
+        <div class="doc-footer"><span>Report Overview — Cocopeat · EF Polymer</span><span>Page 13</span></div>
+    </div>
+    <div class="page"><img src="letterhead.png" alt="Letterhead" class="letterhead"
+            style="width: calc(100% + 151.181px); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;">
+        <div class="phase-block" data-manual-page-break="true">
+            <div class="phase-hd">
+                <div class="phase-hd-left">
+                    <span class="phase-hd-title">Phase 2 — Scale &amp; Automation</span>
+                    <span class="phase-hd-timeline">Weeks 5–9 · Operational discipline</span>
+                </div>
+                <span class="phase-maturity p2">Maturity 1.8 → 2.5</span>
+            </div>
+            <div class="phase-sow">
+                <div class="col-label">Scope of Work &amp; Dependencies</div>
+                <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Build:</strong> Implement an AI
+                        agent/automated trigger to qualify and book meetings for inbound leads instantly (Module
+                        2).</span></div>
+                <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Build:</strong> Integrate unified
+                        messaging
+                        (WhatsApp/WeChat/LINE) directly into the CRM.</span></div>
+                <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Tech Stack &amp; Badges:</strong>
+                        <span class="chip-ref">LLM APIs</span> <span class="chip-ref">WhatsApp Business API</span> <span
+                            class="chip-ref">WeChat / LINE Connectors</span>.</span></div>
+                <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Team Adoption:</strong> Train team
+                        on
+                        AI-assisted lead qualification and automated response workflows.</span></div>
+                <div class="sow-item"><span class="sow-dot p2" style="background:#ef4444;"></span><span><strong>Client
+                            To-Do:</strong> Provide historical inbound lead conversion data and define qualification
+                        criteria for the
+                        AI agent.</span></div>
+            </div>
+            <div class="phase-roi">
+                <div class="roi-card">
+                    <div class="roi-card-num">&lt; 5m</div>
+                    <div class="roi-card-label">response time</div>
+                    <div class="roi-card-desc">Eliminates the 6-10 hr timezone lag.</div>
+                </div>
+                <div class="roi-card">
+                    <div class="roi-card-num">100%</div>
+                    <div class="roi-card-label">contact retention</div>
+                    <div class="roi-card-desc">Protects against employee turnover.</div>
+                </div>
+            </div>
+        </div>
+        <div class="phase-block">
+            <div class="phase-hd">
+                <div class="phase-hd-left">
+                    <span class="phase-hd-title">Phase 3 — Strategic Integration</span>
+                    <span class="phase-hd-timeline">Weeks 10–12 · Heavy effort</span>
+                </div>
+                <span class="phase-maturity p3">Maturity 2.5 → 2.9</span>
+            </div>
+            <div class="phase-sow">
+                <div class="col-label">Scope of Work &amp; Dependencies</div>
+                <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Build:</strong> Build a 25-day
+                        regulatory
+                        buffer into production timelines specifically for Egypt/Peru/Spain ACID permits (Module
+                        1).</span></div>
+                <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Build:</strong> Launch fully
+                        localized D2C
+                        retail operations (Amazon/Website) in Japan.</span></div>
+                <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Tech Stack &amp; Badges:</strong>
+                        <span class="chip-ref">Production Scheduling API</span> <span class="chip-ref">Amazon Seller
+                            Central
+                            API</span>.</span></div>
+                <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Team Adoption:</strong> Train team
+                        on
+                        regulatory buffer workflows and D2C fulfillment processes.</span></div>
+                <div class="sow-item"><span class="sow-dot p3" style="background:#ef4444;"></span><span><strong>Client
+                            To-Do:</strong> Provide production lead times for regulatory markets and approve Japan D2C
+                        launch
+                        plan.</span></div>
+            </div>
+            <div class="phase-roi">
+                <div class="roi-card">
+                    <div class="roi-card-num">0 Days</div>
+                    <div class="roi-card-label">idle inventory</div>
+                    <div class="roi-card-desc">Perfected JIT manufacturing alignment.</div>
+                </div>
+                <div class="roi-card">
+                    <div class="roi-card-num">Live</div>
+                    <div class="roi-card-label">D2C Revenue</div>
+                    <div class="roi-card-desc">New retail channels active in Japan.</div>
+                </div>
+            </div>
+        </div>
+        <div class="doc-footer"><span>Report Overview — Cocopeat · EF Polymer</span><span>Page 14</span></div>
+    </div>
+    <div class="page"><img src="letterhead.png" alt="Letterhead" class="letterhead"
+            style="width: calc(100% + 151.181px); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;">
+        <div class="eyebrow" data-manual-page-break="true">Section 08 — Return on Investment (ROI)</div>
+        <h2>System Impact: Before &amp; After</h2>
+        <div class="section-dek">Measurable improvements post-implementation</div>
+        <table class="tl-table" style="margin-top:20px;">
+            <tbody>
+                <tr>
+                    <th style="width:25%;">Category</th>
+                    <th style="width:35%; border-left: 1px solid #e2e8f0;">Before (Current State)</th>
+                    <th style="width:40%; border-left: 1px solid #e2e8f0; background: #f8fafc; color: var(--ink);">After
+                        (Post-Implementation)</th>
+                </tr>
+                <tr>
+                    <td><strong>Export Documentation</strong></td>
+                    <td style="border-left: 1px solid #e2e8f0;">CargoX uploads gated behind manual Accounts clearance
+                        emails;
+                        demurrage risk if 10-day window is missed.</td>
+                    <td style="border-left: 1px solid #e2e8f0; background: #f8fafc; color: #166534;"><strong>Real-Time
+                            Clearance
+                            Dashboard.</strong> Automated payment status flags; zero demurrage risk.</td>
+                </tr>
+                <tr>
+                    <td><strong>Lead Pipeline</strong></td>
+                    <td style="border-left: 1px solid #e2e8f0;">Siloed spreadsheets across sourced leads, ad inquiries,
+                        and
+                        LinkedIn; no unified view.</td>
+                    <td style="border-left: 1px solid #e2e8f0; background: #f8fafc; color: #166534;"><strong>Centralized
+                            CRM.</strong> All leads in a single pipeline with 100% visibility and no manual tracking
+                        errors.</td>
+                </tr>
+                <tr>
+                    <td><strong>Inbound Lead Response</strong></td>
+                    <td style="border-left: 1px solid #e2e8f0;">6–10 hour response lag due to timezone gaps; high-intent
+                        leads go
+                        cold.</td>
+                    <td style="border-left: 1px solid #e2e8f0; background: #f8fafc; color: #166534;"><strong>AI Lead
+                            Capture
+                            Agent.</strong> Instant qualification and meeting booking across time zones (&lt; 5 min
+                        response).</td>
+                </tr>
+                <tr>
+                    <td><strong>Email Deliverability</strong></td>
+                    <td style="border-left: 1px solid #e2e8f0;">Cold outbound shares primary company domain; high
+                        blacklisting risk.
+                    </td>
+                    <td style="border-left: 1px solid #e2e8f0; background: #f8fafc; color: #166534;"><strong>Secondary
+                            Domain
+                            Infrastructure.</strong> Outbound traffic isolated; primary domain fully protected.</td>
+                </tr>
+                <tr>
+                    <td><strong>Regulatory Compliance</strong></td>
+                    <td style="border-left: 1px solid #e2e8f0;">No buffer for ACID permit delays (Egypt, Peru, Spain);
+                        premature
+                        container booking.</td>
+                    <td style="border-left: 1px solid #e2e8f0; background: #f8fafc; color: #166534;"><strong>Automated
+                            Regulatory
+                            Buffer.</strong> 25-day buffer built into timelines; zero idle inventory.</td>
+                </tr>
+                <tr>
+                    <td><strong>Communication Audit Trail</strong></td>
+                    <td style="border-left: 1px solid #e2e8f0;">Un-auditable WhatsApp/WeChat/LINE threads with no
+                        centralized
+                        record.</td>
+                    <td style="border-left: 1px solid #e2e8f0; background: #f8fafc; color: #166534;"><strong>Unified
+                            Messaging in
+                            CRM.</strong> All client conversations logged and searchable within the CRM.</td>
+                </tr>
+                <tr>
+                    <td><strong>Department Maturity Score</strong></td>
+                    <td style="border-left: 1px solid #e2e8f0;">1.3 / 5.0 (Ad-hoc)</td>
+                    <td style="border-left: 1px solid #e2e8f0; background: #f8fafc; color: #166534;"><strong>2.9 / 5.0
+                            (Systematised)</strong></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="doc-footer"><span>Report Overview — Cocopeat · EF Polymer</span><span>Page 15</span></div>
+    </div>
+    <div class="page"><img src="letterhead.png" alt="Letterhead" class="letterhead"
+            style="width: calc(100% + 151.181px); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;">
+        <h3 class="" data-manual-page-break="true">Quantified Executive Time Savings</h3>
+        <p style="font-size:8.8pt;color:var(--muted);margin-bottom:10px;">Estimated annual bandwidth reclaimed for the
+            Cocopeat BD Lead by eliminating manual CargoX clearance follow-ups and timezone lag.</p>
+        <div class="kpi-strip" style="margin: 14px 0 16px;">
+            <div class="kpi-cell">
+                <div class="kpi-num">100%</div>
+                <div class="kpi-lbl">Pipeline Visibility</div>
+            </div>
+            <div class="kpi-cell">
+                <div class="kpi-num">&lt; 5 min</div>
+                <div class="kpi-lbl">Inbound Lead Response</div>
+            </div>
+            <div class="kpi-cell">
+                <div class="kpi-num">10 hrs</div>
+                <div class="kpi-lbl">Monthly Time Saved</div>
+            </div>
+            <div class="kpi-cell">
+                <div class="kpi-num" style="color:var(--accent);">120 hrs</div>
+                <div class="kpi-lbl">Annual Hours Saved</div>
+            </div>
+        </div>
+        <div class="callout"
+            style="margin-top:10px;margin-bottom:15px;border-left-color:var(--accent);background:var(--accent-soft);">
+            <strong style="color:var(--ink);font-size:9.5pt;">Bandwidth Reinvestment Breakdown:</strong><br>
+            <ul style="font-size:8.5pt;color:var(--slate);padding-left:16px;margin-top:4px;line-height:1.45;">
+                <li><strong>Current Friction:</strong> Lead manual follow-ups on CargoX clearance emails and manually
+                    qualifying
+                    international inbound leads across 6–10 hour timezone gaps.</li>
+                <li><strong>Automated Efficiency:</strong> Real-time Accounts Clearance Dashboard and AI Lead Capture
+                    Agent
+                    automate payment checks and instant lead booking.</li>
+                <li><strong>Strategic Impact:</strong> Reclaims <strong>120 BD hours per year (~15 full working
+                        days)</strong>
+                    to focus on expanding global distributor networks and D2C channels.</li>
+            </ul>
+        </div>
+        <div class="doc-footer"><span>Report Overview — Cocopeat · EF Polymer</span><span>Page 16</span></div>
+    </div>
+
+</body>
+
+</html>
