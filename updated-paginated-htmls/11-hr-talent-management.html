@@ -1,0 +1,2191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <script src="auth.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=880">
+  <title>Human Resources — Department Audit Report | EF Polymer Private Limited</title>
+  <style>
+    :root {
+      --ink: #6b4fc8;
+      --slate: #3F4B5C;
+      --muted: #6B7785;
+      --line: #D8DEE5;
+      --line-soft: #E9EDF1;
+      --paper: #FFFFFF;
+      --paper-alt: #F6F7F9;
+      --accent: #c480e9;
+      --accent-soft: #EAF3F1;
+      --risk-crit-bg: #FCEBEA;
+      --risk-crit-fg: #A32E24;
+      --risk-med-bg: #FBF1DF;
+      --risk-med-fg: #8A5A10;
+      --risk-low-bg: #E9F4EC;
+      --risk-low-fg: #276B3E;
+    }
+
+    @page {
+      size: A4;
+      margin: 22mm 18mm 20mm 18mm;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      color: var(--slate);
+      line-height: 1.55;
+      background: #EDEFF1;
+      font-size: 10.3pt;
+    }
+
+    .page {
+      background: var(--paper);
+      max-width: 840px;
+      margin: 0 auto 14px auto;
+      padding: 26mm 20mm 20mm 20mm;
+      position: relative;
+      page-break-after: always;
+      min-height: 1120px;
+    }
+
+    .page:last-child {
+      page-break-after: avoid;
+    }
+
+    .doc-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: 7.8pt;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      color: var(--muted);
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 8px;
+      margin-bottom: 22px;
+    }
+
+    .doc-header b {
+      color: var(--ink);
+    }
+
+    .doc-footer {
+      position: absolute;
+      bottom: 10mm;
+      left: 20mm;
+      right: 20mm;
+      display: flex;
+      justify-content: space-between;
+      font-size: 7.5pt;
+      color: var(--muted);
+      border-top: 1px solid var(--line-soft);
+      padding-top: 6px;
+    }
+
+    .cover {
+      display: flex;
+      flex-direction: column;
+      min-height: 1080px;
+    }
+
+    .cover-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .cover-mark {
+      font-size: 9pt;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--ink);
+    }
+
+    .cover-mark span {
+      color: var(--accent);
+    }
+
+    .cover-class {
+      font-size: 7.8pt;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--muted);
+      border: 1px solid var(--line);
+      padding: 4px 10px;
+    }
+
+    .cover-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 60px 0;
+    }
+
+    .cover-eyebrow {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-style: italic;
+      font-size: 11pt;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+
+    .cover-title {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 34pt;
+      color: var(--ink);
+      font-weight: 600;
+      line-height: 1.15;
+      margin-bottom: 10px;
+    }
+
+    .cover-sub {
+      font-size: 13pt;
+      color: var(--slate);
+      font-weight: 400;
+    }
+
+    .cover-rule {
+      width: 52px;
+      height: 2px;
+      background: var(--accent);
+      margin: 26px 0;
+    }
+
+    .cover-ctrl {
+      border: 1px solid var(--line);
+    }
+
+    .cover-ctrl table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0;
+    }
+
+    .cover-ctrl td {
+      padding: 9px 14px;
+      font-size: 9pt;
+      border-bottom: 1px solid var(--line-soft);
+    }
+
+    .cover-ctrl tr:last-child td {
+      border-bottom: none;
+    }
+
+    .cover-ctrl td.label {
+      color: var(--muted);
+      width: 38%;
+      text-transform: uppercase;
+      font-size: 7.8pt;
+      letter-spacing: 0.5px;
+    }
+
+    .cover-ctrl td.val {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .eyebrow {
+      font-size: 8pt;
+      color: var(--accent);
+      font-weight: 700;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    h2 {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 17pt;
+      color: var(--ink);
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    h2+.section-dek {
+      color: var(--muted);
+      font-size: 9.3pt;
+      margin-bottom: 18px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    h3 {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 12.5pt;
+      color: var(--ink);
+      font-weight: 600;
+      margin: 22px 0 8px;
+    }
+
+    h4 {
+      font-size: 10pt;
+      color: var(--ink);
+      font-weight: 700;
+      margin: 14px 0 4px;
+    }
+
+    p {
+      margin-bottom: 10px;
+    }
+
+    .lede {
+      font-size: 10.6pt;
+      color: var(--slate);
+      max-width: 95%;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 10px 0 20px;
+      font-size: 9pt;
+    }
+
+    th {
+      background: var(--ink);
+      color: #fff;
+      padding: 8px 10px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 8.3pt;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+    }
+
+    td {
+      padding: 8px 10px;
+      border-bottom: 1px solid var(--line-soft);
+      vertical-align: top;
+    }
+
+    tr:nth-child(even) td {
+      background: var(--paper-alt);
+    }
+
+    td.id,
+    th.id {
+      font-family: Georgia, serif;
+      font-weight: 700;
+      color: var(--ink);
+      white-space: nowrap;
+      width: 44px;
+    }
+
+    td.num,
+    th.num {
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .chip {
+      display: inline-block;
+      padding: 2px 9px;
+      border-radius: 3px;
+      font-size: 7.8pt;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .chip-crit {
+      background: var(--risk-crit-bg);
+      color: var(--risk-crit-fg);
+    }
+
+    .chip-med {
+      background: var(--risk-med-bg);
+      color: var(--risk-med-fg);
+    }
+
+    .chip-low {
+      background: var(--risk-low-bg);
+      color: var(--risk-low-fg);
+    }
+
+    .chip-ref {
+      display: inline-block;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-family: Georgia, serif;
+      font-weight: 700;
+      font-size: 8pt;
+      padding: 1px 6px;
+      border-radius: 3px;
+      margin: 1px 2px 1px 0;
+    }
+
+    .kpi-strip {
+      display: flex;
+      border: 1px solid var(--line);
+      margin: 16px 0 22px;
+    }
+
+    .kpi-cell {
+      flex: 1;
+      padding: 12px 14px;
+      border-right: 1px solid var(--line);
+    }
+
+    .kpi-cell:last-child {
+      border-right: none;
+    }
+
+    .kpi-num {
+      font-family: Georgia, serif;
+      font-size: 15pt;
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    .kpi-lbl {
+      font-size: 7.6pt;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 2px;
+    }
+
+    .callout {
+      border-left: 3px solid var(--accent);
+      background: var(--accent-soft);
+      padding: 10px 14px;
+      font-size: 9pt;
+      color: var(--ink);
+      margin: 10px 0 20px;
+    }
+
+    .flow-note {
+      font-size: 8.6pt;
+      color: var(--muted);
+      margin: 4px 0 18px;
+      padding-left: 2px;
+    }
+
+    .flow-note b {
+      color: var(--risk-crit-fg);
+    }
+
+    .maturity-legend {
+      background: var(--paper-alt);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 10px 14px;
+      margin: 4px 0 0;
+      font-size: 8pt;
+    }
+
+    .maturity-legend-title {
+      font-weight: 700;
+      color: var(--ink);
+      font-size: 8pt;
+      margin-bottom: 6px;
+    }
+
+    .maturity-bar-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+
+    .maturity-bar-track {
+      flex: 1;
+      height: 7px;
+      background: var(--line);
+      border-radius: 4px;
+      position: relative;
+      overflow: visible;
+    }
+
+    .maturity-bar-fill {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 32%;
+      background: var(--accent);
+      border-radius: 4px;
+    }
+
+    .maturity-bar-marker {
+      position: absolute;
+      top: -3px;
+      width: 2px;
+      height: 13px;
+      background: var(--ink);
+      border-radius: 1px;
+    }
+
+    .maturity-bar-marker.target {
+      left: 68%;
+      background: #2563eb;
+    }
+
+    .maturity-bar-lbl {
+      font-size: 7pt;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .maturity-legend-notes {
+      display: flex;
+      gap: 14px;
+      margin-top: 6px;
+      font-size: 7.2pt;
+      color: var(--muted);
+    }
+
+    .maturity-legend-notes span b {
+      color: var(--ink);
+    }
+
+    .org-chart {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      margin: 14px 0;
+      font-size: 8.3pt;
+    }
+
+    .org-level {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 14px;
+      width: 100%;
+      position: relative;
+    }
+
+    .org-connector-top {
+      width: 1px;
+      height: 18px;
+      background: var(--line);
+      margin: 0 auto;
+    }
+
+    .org-node {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 8px 10px;
+      min-width: 120px;
+      max-width: 180px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .org-node.lead {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+      border-width: 1.5px;
+    }
+
+    .org-node.secondary {
+      background: var(--paper-alt);
+    }
+
+    .org-name {
+      font-weight: 700;
+      color: var(--ink);
+      font-size: 8.2pt;
+      margin-bottom: 3px;
+    }
+
+    .org-role {
+      font-size: 7pt;
+      color: var(--muted);
+      line-height: 1.3;
+    }
+
+    .org-tag {
+      display: inline-block;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 6.5pt;
+      font-weight: 700;
+      padding: 1px 5px;
+      border-radius: 2px;
+      margin-top: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    .org-sub-branch {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin: 12px 0 20px;
+    }
+
+    .tool-card {
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 10px 12px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      background: var(--paper);
+    }
+
+    .tool-icon {
+      font-size: 18pt;
+      line-height: 1;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .tool-name {
+      font-weight: 700;
+      color: var(--ink);
+      font-size: 8.5pt;
+      margin-bottom: 2px;
+    }
+
+    .tool-desc {
+      font-size: 7.5pt;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    .exhibit {
+      display: flex;
+      gap: 26px;
+      align-items: center;
+      margin: 14px 0 6px;
+    }
+
+    .exhibit-chart {
+      flex: 0 0 320px;
+    }
+
+    .exhibit-note {
+      flex: 1;
+      font-size: 9.2pt;
+      color: var(--slate);
+    }
+
+    .exhibit-note b {
+      color: var(--ink);
+    }
+
+    .tl-table td.phase-mark {
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .tl-table td.phase-mark.p1 {
+      color: var(--accent);
+    }
+
+    .tl-table td.phase-mark.p2 {
+      color: #2563eb;
+    }
+
+    .tl-table td.phase-mark.p3 {
+      color: #7c3aed;
+    }
+
+    .phase-block {
+      border: 1px solid var(--line);
+      margin: 14px 0;
+      overflow: hidden;
+    }
+
+    .phase-hd {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--line);
+      background: var(--paper-alt);
+      gap: 16px;
+    }
+
+    .phase-hd-left {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .phase-hd-title {
+      font-family: Georgia, serif;
+      font-size: 11pt;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .phase-hd-timeline {
+      font-size: 7.8pt;
+      color: var(--muted);
+    }
+
+    .phase-maturity {
+      font-size: 8.5pt;
+      font-weight: 700;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      border-radius: 3px;
+      padding: 3px 10px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .phase-maturity.p2 {
+      color: #2563eb;
+      border-color: #2563eb;
+    }
+
+    .phase-maturity.p3 {
+      color: #7c3aed;
+      border-color: #7c3aed;
+    }
+
+    .phase-sow {
+      padding: 11px 14px 14px;
+    }
+
+    .col-label {
+      font-size: 7.4pt;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+
+    .sow-item {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 5px;
+      font-size: 8.5pt;
+      color: var(--slate);
+      line-height: 1.4;
+    }
+
+    .sow-dot {
+      width: 4px;
+      height: 4px;
+      background: var(--accent);
+      border-radius: 50%;
+      margin-top: 5px;
+      flex-shrink: 0;
+    }
+
+    .sow-dot.p2 {
+      background: #2563eb;
+    }
+
+    .sow-dot.p3 {
+      background: #7c3aed;
+    }
+
+    .phase-roi {
+      display: flex;
+      border-top: 1px solid var(--line);
+      background: var(--paper-alt);
+    }
+
+    .roi-card {
+      flex: 1;
+      padding: 10px 12px;
+      border-right: 1px solid var(--line);
+      text-align: center;
+    }
+
+    .roi-card:last-child {
+      border-right: none;
+    }
+
+    .roi-card-num {
+      font-family: Georgia, serif;
+      font-size: 13pt;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.1;
+      margin-bottom: 3px;
+    }
+
+    .roi-card-label {
+      font-size: 7.5pt;
+      color: var(--ink);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      margin-bottom: 3px;
+    }
+
+    .roi-card-desc {
+      font-size: 7pt;
+      color: var(--muted);
+      line-height: 1.35;
+    }
+
+    .dep-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+      padding: 16px;
+      margin-bottom: 16px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    .dep-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .dep-title {
+      font-weight: 700;
+      font-size: 11pt;
+      color: var(--ink);
+    }
+
+    .dep-badge {
+      font-size: 7.5pt;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 12px;
+      background: #f1f5f9;
+      color: #475569;
+      text-transform: uppercase;
+    }
+
+    .dep-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .dep-section {
+      background: #f8fafc;
+      border-radius: 6px;
+      padding: 12px;
+      border: 1px solid #e2e8f0;
+    }
+
+    .dep-section.bottleneck {
+      background: #fef2f2;
+      border-color: #fecaca;
+    }
+
+    .dep-section.data-sync {
+      background: #f0f9ff;
+      border-color: #bae6fd;
+    }
+
+    .dep-section-title {
+      font-size: 7.5pt;
+      font-weight: 700;
+      color: #64748b;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      letter-spacing: 0.5px;
+    }
+
+    .bottleneck .dep-section-title {
+      color: #b91c1c;
+    }
+
+    .data-sync .dep-section-title {
+      color: #0369a1;
+    }
+
+    .dep-section-content {
+      font-size: 8.5pt;
+      color: var(--slate);
+      line-height: 1.4;
+    }
+
+    .dep-person {
+      display: inline-block;
+      background: #f1f5f9;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 8pt;
+      margin-top: 4px;
+      border: 1px solid #cbd5e1;
+    }
+
+    .chip-data {
+      background: #e0f2fe;
+      color: #0284c7;
+      border: 1px solid #bae6fd;
+    }
+
+    .chip-approval {
+      background: #fef08a;
+      color: #a16207;
+      border: 1px solid #fde047;
+    }
+
+    .chip-info {
+      background: #e0e7ff;
+      color: #4338ca;
+      border: 1px solid #c7d2fe;
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .page {
+        box-shadow: none;
+        margin: 0;
+      }
+    }
+  </style>
+
+</head>
+<body>
+<div class="page"><img src="letterhead.png" alt="Letterhead" class="letterhead" style="width: calc(100% + 151.181px); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;"><div class="cover-body">
+      <div class="cover-eyebrow">Department Wise Audit Report</div>
+      <div class="cover-title">Human Resources</div>
+      <div class="cover-sub">Recruitment, Performance Management, Admin &amp; Employee Lifecycle</div>
+      <div class="cover-rule"></div>
+      <p style="max-width:70%;color:var(--muted);font-size:9.3pt;">
+        An independent operational review of the Human Resources department, evaluating fragmented recruitment
+        pipelines, manual performance management workflows, admin ticket-tracking gaps, and policy-query bottlenecks,
+        prepared as part of the EF Polymer Private Limited organization-wide operational audit by Creative Upaay
+        (brand owned by Cinnovate Solutions (OPC) Private Limited).
+      </p>
+    </div><div class="cover-ctrl">
+      <table>
+        <tbody><tr>
+          <td class="label">Client</td>
+          <td class="val">EF Polymer Private Limited</td>
+        </tr>
+        <tr>
+          <td class="label">Prepared by</td>
+          <td class="val">Creative Upaay</td>
+        </tr>
+        <tr>
+          <td class="label">Document version</td>
+          <td class="val">1.0</td>
+        </tr>
+        <tr>
+          <td class="label">Date issued</td>
+          <td class="val">18th July 2026</td>
+        </tr>
+        <tr>
+          <td class="label">Review scope</td>
+          <td class="val">HR, Recruitment, PMS, Admin &amp; L&amp;D</td>
+        </tr>
+      </tbody></table>
+    </div><div class="doc-footer"><span>Department Overview · EF Polymer</span><span>Page 1</span></div></div>
+<div class="page"><img src="letterhead.png" alt="Letterhead" class="letterhead" style="width: calc(100% + 151.181px); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;"><div class="eyebrow" data-manual-page-break="true">Section 01 — Executive Summary</div><h2>Department Overview</h2><div class="section-dek">Scope, current state, and headline findings</div><p class="lede">The Human Resources department comprises five team members across three verticals — Hiring, Admin,
+      and HR/PMS — governing the entire employee lifecycle from strategic recruitment and onboarding to performance
+      evaluation, payroll, and offboarding.</p><p>The audit revealed a heavily manual, disconnected ecosystem. Recruitment sourcing spans six+ platforms (LinkedIn,
+      Naukri, Indeed, Apollo, SalesIQ, and external GPT/Perplexity for contact scraping) with no unified tracking layer,
+      creating a complete blind spot for leadership. Performance management relies on scattered Google Sheets for
+      KPI/KRA tracking, preventing automation of incentives and forcing subjective annual appraisals. Admin support
+      tickets are raised on WhatsApp and email with zero live tracking. Policy queries — especially from the BD and
+      Sales teams regarding travel, stays, and reimbursements — consume significant HR bandwidth with no self-serve
+      mechanism.</p><div class="kpi-strip">
+      <div class="kpi-cell">
+        <div class="kpi-num">30–45</div>
+        <div class="kpi-lbl">Days to Close per Opening</div>
+      </div>
+      <div class="kpi-cell">
+        <div class="kpi-num">6+</div>
+        <div class="kpi-lbl">Sourcing Platforms (Unlinked)</div>
+      </div>
+      <div class="kpi-cell">
+        <div class="kpi-num">5</div>
+        <div class="kpi-lbl">HR Team Members (3 Verticals)</div>
+      </div>
+      <div class="kpi-cell">
+        <div class="kpi-num">1.6 / 5.0</div>
+        <div class="kpi-lbl">Overall Maturity Score</div>
+      </div>
+    </div><div class="maturity-legend">
+      <div class="maturity-legend-title">About the Maturity Score</div>
+      <div style="font-size:7.5pt;color:var(--muted);margin-bottom:8px;">A 1–5 scale measuring how systematised,
+        documented, and independently operable the department is. Scored across five dimensions: Process, Technology,
+        Data Quality, Documentation &amp; Knowledge Management.</div>
+      <div class="maturity-bar-wrap">
+        <span class="maturity-bar-lbl">1 — Ad hoc</span>
+        <div class="maturity-bar-track">
+          <div class="maturity-bar-fill"></div>
+          <div class="maturity-bar-marker target"></div>
+        </div>
+        <span class="maturity-bar-lbl">5 — Optimised</span>
+      </div>
+      <div class="maturity-legend-notes">
+        <span>■ <b>1.6</b> Current state</span>
+        <span style="color:#2563eb;">▮ <b>3.4</b> Post-roadmap target</span>
+        <span>◯ <b>5.0</b> Best-in-class benchmark</span>
+      </div>
+    </div><div class="doc-footer"><span>Department Overview · EF Polymer</span><span>Page 2</span></div></div>
+<div class="page"><img src="letterhead.png" alt="Letterhead" class="letterhead" style="width: calc(100% + 151.181px); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;"><div class="eyebrow" data-manual-page-break="true">Section 02 — Benchmarking</div><h2>Department Maturity Assessment</h2><div class="exhibit">
+      <div class="exhibit-chart">
+        <svg viewBox="0 0 400 350" xmlns="http://www.w3.org/2000/svg" style="width:100%;">
+          <g transform="translate(200,170)">
+            <polygon points="0,-120 114,-37 70,97 -70,97 -114,-37" fill="none" stroke="#E2E8F0" stroke-width="0.75"></polygon>
+            <polygon points="0,-96 91,-30 56,78 -56,78 -91,-30" fill="none" stroke="#E2E8F0" stroke-width="0.75"></polygon>
+            <polygon points="0,-72 68,-22 42,58 -42,58 -68,-22" fill="none" stroke="#E2E8F0" stroke-width="0.75"></polygon>
+            <polygon points="0,-48 46,-15 28,39 -28,39 -46,-15" fill="none" stroke="#E2E8F0" stroke-width="0.75"></polygon>
+            <polygon points="0,-24 23,-7 14,19 -14,19 -23,-7" fill="none" stroke="#E2E8F0" stroke-width="0.75"></polygon>
+            <line x1="0" y1="0" x2="0" y2="-120" stroke="#E2E8F0" stroke-width="0.75"></line>
+            <line x1="0" y1="0" x2="114" y2="-37" stroke="#E2E8F0" stroke-width="0.75"></line>
+            <line x1="0" y1="0" x2="70" y2="97" stroke="#E2E8F0" stroke-width="0.75"></line>
+            <line x1="0" y1="0" x2="-70" y2="97" stroke="#E2E8F0" stroke-width="0.75"></line>
+            <line x1="0" y1="0" x2="-114" y2="-37" stroke="#E2E8F0" stroke-width="0.75"></line>
+
+            <!-- Target: Process 3.5, Tech 3.5, Data 3.5, Docs 3.5, KM 3.0 -->
+            <polygon points="0,-84 79.8,-25.9 49,67.9 -49,67.9 -68.4,-22.2" fill="none" stroke="#B8C0C9" stroke-width="1" stroke-dasharray="5,3"></polygon>
+
+            <!-- Current: Process 2.0, Tech 1.5, Data 1.5, Docs 2.0, KM 1.0 -->
+            <polygon points="0,-48 34.2,-11.1 21,29.1 -28,38.8 -22.8,-7.4" fill="rgba(15,107,98,0.14)" stroke="#0F6B62" stroke-width="1.75"></polygon>
+            <circle cx="0" cy="-48" r="3.2" fill="#0F6B62"></circle>
+            <circle cx="34.2" cy="-11.1" r="3.2" fill="#0F6B62"></circle>
+            <circle cx="21" cy="29.1" r="3.2" fill="#0F6B62"></circle>
+            <circle cx="-28" cy="38.8" r="3.2" fill="#0F6B62"></circle>
+            <circle cx="-22.8" cy="-7.4" r="3.2" fill="#0F6B62"></circle>
+
+            <text x="0" y="-132" text-anchor="middle" font-size="9" fill="#1B2A4A" font-weight="600">Process</text>
+            <text x="128" y="-20" text-anchor="start" font-size="9" fill="#1B2A4A" font-weight="600">Technology</text>
+            <text x="78" y="110" text-anchor="start" font-size="9" fill="#1B2A4A" font-weight="600">Data Quality</text>
+            <text x="-78" y="110" text-anchor="end" font-size="9" fill="#1B2A4A" font-weight="600">Documentation</text>
+            <text x="-128" y="-16" text-anchor="end" font-size="9" fill="#1B2A4A" font-weight="600">Knowledge
+              .</text>
+          </g>
+        </svg>
+      </div>
+      <div class="exhibit-note">
+        Solid line: current state. Dashed line: target state (post-roadmap).<br><br>
+        <b>HR scores 1.6 overall</b> — The department has foundational systems (Zoho People, Zoho Payroll) but they
+        serve
+        only 20 paid seats. Temporary employees, KPI/KRA tracking, recruitment pipelines, and admin tickets all live in
+        disconnected Google Sheets and WhatsApp threads. Knowledge Management scores 1.0 because there is no self-serve
+        policy query mechanism and no centralised candidate database for re-hiring.<br><br>
+        Wrapping intelligence (visibility, AI pre-screening, WhatsApp-based policy assistant) around existing tools will
+        structurally stabilise the department without forcing a platform migration.
+      </div>
+    </div><table>
+      <tbody><tr>
+        <th>Dimension</th>
+        <th class="num">Current</th>
+        <th class="num">Target</th>
+        <th class="num">Gap</th>
+      </tr>
+      <tr>
+        <td>Process Standardization</td>
+        <td class="num">2.0</td>
+        <td class="num">3.5</td>
+        <td class="num">1.5</td>
+      </tr>
+      <tr>
+        <td>Technology Utilization</td>
+        <td class="num">1.5</td>
+        <td class="num">3.5</td>
+        <td class="num">2.0</td>
+      </tr>
+      <tr>
+        <td>Data Quality &amp; Accessibility</td>
+        <td class="num">1.5</td>
+        <td class="num">3.5</td>
+        <td class="num">2.0</td>
+      </tr>
+      <tr>
+        <td>Documentation</td>
+        <td class="num">2.0</td>
+        <td class="num">3.5</td>
+        <td class="num">1.5</td>
+      </tr>
+      <tr>
+        <td>Knowledge Management</td>
+        <td class="num">1.0</td>
+        <td class="num">3.0</td>
+        <td class="num">2.0</td>
+      </tr>
+      <tr style="font-weight:700;">
+        <td>Overall</td>
+        <td class="num">1.6</td>
+        <td class="num">3.4</td>
+        <td class="num">1.8</td>
+      </tr>
+    </tbody></table><div class="doc-footer"><span>Department Overview · EF Polymer</span><span>Page 3</span></div></div>
+<div class="page"><img src="letterhead.png" alt="Letterhead" class="letterhead" style="width: calc(100% + 151.181px); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;"><div class="eyebrow" data-manual-page-break="true">Section 03 — Organization</div><h2>Team Structure &amp; Tools</h2><div class="section-dek">Personnel breakdown and core technology mapping</div><h3>Team Structure</h3><p style="font-size:8.5pt;color:var(--muted);margin-bottom:4px;">Reporting hierarchy within Human Resources,
+      operating under Puran Singh Rajput (Co-Founder &amp; COO).</p><div class="org-chart">
+      <div class="org-level">
+        <div class="org-node secondary">
+          <div class="org-name">Puran Singh Rajput</div>
+          <div class="org-role">Co-Founder &amp; COO<br>Executive Division Head</div>
+        </div>
+      </div>
+      <div class="org-connector-top"></div>
+      <div class="org-level">
+        <div class="org-node lead">
+          <div class="org-name">Dolly Mehta</div>
+          <div class="org-role">HR Manager<br>Recruitment, Talent &amp; Office Admin</div>
+          <span class="org-tag">Department Lead</span>
+        </div>
+      </div>
+      <div class="org-connector-top"></div>
+      <div style="width:90%;border-top:1px solid var(--line);margin:0 auto;"></div>
+      <div style="display:flex;justify-content:center;gap:14px;width:100%;margin-top:0;">
+        <div class="org-sub-branch">
+          <div class="org-connector-top"></div>
+          <div class="org-node">
+            <div class="org-name">Hiring Executive</div>
+            <div class="org-role">Onboarding · Accessories · Process<br>T&amp;D · L&amp;D · Salaries · FNF</div>
+            <span class="org-tag">Vertical 1</span>
+          </div>
+          <div class="org-connector-top"></div>
+          <div class="org-node secondary">
+            <div class="org-name">HR Generalist — Recruitment</div>
+            <div class="org-role">Sourcing · Screening<br>Interview Coordination</div>
+          </div>
+        </div>
+        <div class="org-sub-branch">
+          <div class="org-connector-top"></div>
+          <div class="org-node">
+            <div class="org-name">Admin Executive</div>
+            <div class="org-role">Team Requirements · Procurement<br>Support Ticket Resolution</div>
+            <span class="org-tag">Vertical 2</span>
+          </div>
+        </div>
+        <div class="org-sub-branch">
+          <div class="org-connector-top"></div>
+          <div class="org-node secondary">
+            <div class="org-name">HR Generalist — PMS</div>
+            <div class="org-role">Performance Evaluation<br>KPI / KRA Tracking</div>
+          </div>
+        </div>
+      </div>
+    </div><h3>Tools in Use</h3><div class="tools-grid">
+      <div class="tool-card">
+        <div class="tool-icon"><img src="https://cdn.worldvectorlogo.com/logos/zoho-1.svg" width="24" height="24" style="display:block; object-fit:contain;" alt="Zoho People (Zia)"></div>
+        <div class="tool-info">
+          <div class="tool-name">Zoho People (Zia)</div>
+          <div class="tool-desc">Employee records, attendance &amp; policy compliance — limited to 20 paid seats only
+          </div>
+        </div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-icon"><img src="https://cdn.worldvectorlogo.com/logos/zoho-1.svg" width="24" height="24" style="display:block; object-fit:contain;" alt="Zoho Payroll"></div>
+        <div class="tool-info">
+          <div class="tool-name">Zoho Payroll</div>
+          <div class="tool-desc">Salary disbursement &amp; payroll compliance for on-payroll employees only</div>
+        </div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-icon"><img src="https://img.icons8.com/color/48/000000/google-sheets.png" width="24" height="24" style="display:block; object-fit:contain;" alt="Google Sheets"></div>
+        <div class="tool-info">
+          <div class="tool-name">Google Sheets</div>
+          <div class="tool-desc">Temp employee tracking, KPI/KRA, hiring pipeline, referrals — 5+ disconnected trackers
+          </div>
+        </div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-icon"><img src="https://img.icons8.com/color/48/000000/google-drive--v2.png" width="24" height="24" style="display:block; object-fit:contain;" alt="Google Drive"></div>
+        <div class="tool-info">
+          <div class="tool-name">Google Drive</div>
+          <div class="tool-desc">Policy documents, contracts, signed NDAs &amp; offer letters — no directory structure
+          </div>
+        </div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-icon" style="padding-top:2px;"><img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" width="24" height="24" style="display:block; object-fit:contain;" alt="WhatsApp"></div>
+        <div class="tool-info">
+          <div class="tool-name">WhatsApp</div>
+          <div class="tool-desc">Primary comms channel — admin tickets, field attendance locations, referral tracking
+          </div>
+        </div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-icon"><img src="https://img.icons8.com/color/48/000000/linkedin.png" width="24" height="24" style="display:block; object-fit:contain;" alt="LinkedIn"></div>
+        <div>
+          <div class="tool-name">LinkedIn</div>
+          <div class="tool-desc">Candidate sourcing and professional networking.</div>
+        </div>
+      </div>
+      </div><div class="doc-footer"><span>Department Overview · EF Polymer</span><span>Page 4</span></div></div>
+<div class="page"><img src="letterhead.png" alt="Letterhead" class="letterhead" style="width: calc(100% + 151.181px); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;"><div class="tools-grid" data-manual-page-break="true"><div class="tool-card">
+        <div class="tool-icon"><img src="https://img.icons8.com/color/48/000000/briefcase.png" width="24" height="24" style="display:block; object-fit:contain;" alt="Naukri"></div>
+        <div>
+          <div class="tool-name">Naukri</div>
+          <div class="tool-desc">Active candidate sourcing.</div>
+        </div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-icon"><img src="https://cdn.simpleicons.org/indeed/003A9B" width="24" height="24" style="display:block; object-fit:contain;" alt="Indeed"></div>
+        <div>
+          <div class="tool-name">Indeed</div>
+          <div class="tool-desc">Job postings and candidate sourcing.</div>
+        </div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-icon"><img src="https://img.icons8.com/color/48/000000/apollo.png" width="24" height="24" style="display:block; object-fit:contain;" alt="Apollo AI"></div>
+        <div>
+          <div class="tool-name">Apollo AI</div>
+          <div class="tool-desc">Contact scraping for passive candidates.</div>
+        </div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-icon"><img src="https://cdn.worldvectorlogo.com/logos/zoho-1.svg" width="24" height="24" style="display:block; object-fit:contain;" alt="SalesIQ"></div>
+        <div>
+          <div class="tool-name">SalesIQ</div>
+          <div class="tool-desc">Contact scraping and lead intelligence.</div>
+        </div>
+      </div>
+    </div><div class="doc-footer"><span>Department Overview · EF Polymer</span><span>Page 5</span></div></div>
+<div class="page"><img src="letterhead.png" alt="Letterhead" class="letterhead" style="width: calc(100% + 151.181px); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;"><div class="eyebrow" data-manual-page-break="true">Section 03 — Process Detail</div><h2>Current Workflows</h2><div class="section-dek">Where each finding sits inside the operational process</div><h3>Recruitment Sourcing &amp; Screening Cycle — <span class="chip-ref">H-01</span> <span class="chip-ref">H-02</span></h3><svg viewBox="0 0 740 100" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:10px 0 4px;">
+      <defs>
+        <marker id="r1a" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+          <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5"></path>
+        </marker>
+      </defs>
+      <rect x="8" y="26" width="106" height="48" rx="3" fill="#F4EEFC" stroke="#6b4fc8" stroke-width="1.5"></rect>
+      <rect x="23" y="18" width="76" height="15" rx="3" fill="#6b4fc8" stroke="#6b4fc8" stroke-width="0.75"></rect>
+      <text x="61" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">HR REQ</text>
+      <text x="61" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#6b4fc8" font-family="Segoe UI,sans-serif">Dept Head: JD
+        Request</text>
+      <text x="61" y="59.0" text-anchor="middle" font-size="7.5" fill="#6b4fc8" font-family="Segoe UI,sans-serif">Email
+        / Verbal</text>
+      <line x1="114" y1="50" x2="128" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#r1a)"></line>
+
+      <rect x="130" y="26" width="106" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"></rect>
+      <rect x="145" y="18" width="76" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75"></rect>
+      <text x="183" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">APPROVAL</text>
+      <text x="183" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">CXO: Priority
+        Assign</text>
+      <text x="183" y="59.0" text-anchor="middle" font-size="7.5" fill="#6B7785" font-family="Segoe UI,sans-serif">Manual discussion</text>
+      <line x1="236" y1="50" x2="250" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#r1a)"></line>
+
+      <rect x="252" y="26" width="106" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5"></rect>
+      <rect x="267" y="18" width="76" height="15" rx="3" fill="#A32E24" stroke="#A32E24" stroke-width="0.75"></rect>
+      <text x="305" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">RECRUITMENT</text>
+      <text x="305" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#A32E24" font-family="Segoe UI,sans-serif">Multi-Platform
+        Source</text>
+      <text x="305" y="56.0" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">LinkedIn · Naukri · Indeed</text>
+      <text x="305" y="67.0" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">Apollo · SalesIQ · GPT</text>
+      <line x1="358" y1="50" x2="372" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#r1a)"></line>
+
+      <rect x="374" y="26" width="106" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5"></rect>
+      <rect x="389" y="18" width="76" height="15" rx="3" fill="#A32E24" stroke="#A32E24" stroke-width="0.75"></rect>
+      <text x="427" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">BOTTLENECK</text>
+      <text x="427" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#A32E24" font-family="Segoe UI,sans-serif">Manual Screen</text>
+      <text x="427" y="56.0" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">10
+        min / profile</text>
+      <text x="427" y="67.0" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">30–40
+        profiles/day</text>
+      <line x1="480" y1="50" x2="494" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#r1a)"></line>
+
+      <rect x="496" y="26" width="106" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5"></rect>
+      <rect x="511" y="18" width="76" height="15" rx="3" fill="#A32E24" stroke="#A32E24" stroke-width="0.75"></rect>
+      <text x="549" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">BOTTLENECK</text>
+      <text x="549" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#A32E24" font-family="Segoe UI,sans-serif">Track on Sheets</text>
+      <text x="549" y="56.0" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">Manual entry</text>
+      <text x="549" y="67.0" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">No
+        unified DB</text>
+      <line x1="602" y1="50" x2="616" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#r1a)"></line>
+
+      <rect x="618" y="26" width="112" height="48" rx="3" fill="#FEF9EC" stroke="#E8D08A" stroke-width="1.5"></rect>
+      <rect x="633" y="18" width="82" height="15" rx="3" fill="#8A5A10" stroke="#8A5A10" stroke-width="0.75"></rect>
+      <text x="674" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">WARNING</text>
+      <text x="674" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#8A5A10" font-family="Segoe UI,sans-serif">30–45 Day Close</text>
+      <text x="674" y="59.0" text-anchor="middle" font-size="7.5" fill="#8A5A10" font-family="Segoe UI,sans-serif">Per
+        opening</text>
+    </svg><div class="flow-note">
+      <p style="margin-top:0;"><strong>What is good:</strong> Multi-platform sourcing ensures wide candidate reach. CXO
+        involvement in priority assignment ensures strategic alignment for hiring.</p>
+      <p><strong>What needs to be fixed:</strong> No unified platform to track all candidates. HR must switch between 6+
+        platforms to check status. Contact details are scraped using external GPT/Perplexity — no integrated scraping
+        layer. No AI pre-screening — every profile is manually reviewed at 10 minutes each.</p>
+      <p><strong>Bottlenecks:</strong> 30–40 profiles screened per day manually (including carry-over candidates from active pipelines/unclosed roles) vs. 22–25 fresh candidates scraped per day. Average closing rate of 30–45 days per opening. Previously screened candidates from unclosed roles cannot be re-tracked for similar future openings.</p>
+      <p style="margin-bottom:0;"><strong>Dependencies:</strong> Department heads must provide JDs, salary, working
+        hours, and specific requirements. CXOs assign priority order. External platforms control candidate flow.</p>
+    </div><h3>Interview &amp; Selection Process — <span class="chip-ref">H-01</span> <span class="chip-ref">H-06</span></h3><svg viewBox="0 0 740 100" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:10px 0 4px;">
+      <defs>
+        <marker id="r2a" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+          <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5"></path>
+        </marker>
+      </defs>
+      <rect x="8" y="26" width="108" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"></rect>
+      <rect x="23" y="18" width="78" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75"></rect>
+      <text x="62" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">HR INTERVIEW</text>
+      <text x="62" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Cultural Fit
+        (HR)</text>
+      <text x="62" y="59.0" text-anchor="middle" font-size="7.5" fill="#6B7785" font-family="Segoe UI,sans-serif">Checklist · 0–5 rating</text>
+      <line x1="116" y1="50" x2="130" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#r2a)"></line>
+
+      <rect x="132" y="26" width="108" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"></rect>
+      <rect x="147" y="18" width="78" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75"></rect>
+      <text x="186" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">TECHNICAL EVAL</text>
+      <text x="186" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Technical
+        (HOD/TL)</text>
+      <text x="186" y="59.0" text-anchor="middle" font-size="7.5" fill="#6B7785" font-family="Segoe UI,sans-serif">0–5
+        rating</text>
+      <line x1="240" y1="50" x2="254" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#r2a)"></line>
+
+      <rect x="256" y="26" width="108" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"></rect>
+      <rect x="271" y="18" width="78" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75"></rect>
+      <text x="310" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">EVALUATION</text>
+      <text x="310" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Assignment
+        Round</text>
+      <text x="310" y="59.0" text-anchor="middle" font-size="7.5" fill="#6B7785" font-family="Segoe UI,sans-serif">If
+        required (3–4 rounds)</text>
+      <line x1="364" y1="50" x2="378" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#r2a)"></line>
+
+      <rect x="380" y="26" width="108" height="48" rx="3" fill="#F4EEFC" stroke="#6b4fc8" stroke-width="1.5"></rect>
+      <rect x="395" y="18" width="78" height="15" rx="3" fill="#6b4fc8" stroke="#6b4fc8" stroke-width="0.75"></rect>
+      <text x="434" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">VERIFICATION</text>
+      <text x="434" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#6b4fc8" font-family="Segoe UI,sans-serif">Final (CXO)</text>
+      <text x="434" y="59.0" text-anchor="middle" font-size="7.5" fill="#6b4fc8" font-family="Segoe UI,sans-serif">HOD+
+        roles only</text>
+      <line x1="488" y1="50" x2="502" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#r2a)"></line>
+
+      <rect x="504" y="26" width="108" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5"></rect>
+      <rect x="519" y="18" width="78" height="15" rx="3" fill="#A32E24" stroke="#A32E24" stroke-width="0.75"></rect>
+      <text x="558" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">BOTTLENECK</text>
+      <text x="558" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#A32E24" font-family="Segoe UI,sans-serif">Rate on Sheets</text>
+      <text x="558" y="59.0" text-anchor="middle" font-size="7.5" fill="#A32E24" font-family="Segoe UI,sans-serif">All
+        ratings manual</text>
+      <line x1="612" y1="50" x2="626" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#r2a)"></line>
+
+      <rect x="628" y="26" width="104" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5"></rect>
+      <rect x="643" y="18" width="74" height="15" rx="3" fill="#A32E24" stroke="#A32E24" stroke-width="0.75"></rect>
+      <text x="680" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">BOTTLENECK</text>
+      <text x="680" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#A32E24" font-family="Segoe UI,sans-serif">Offer via Email</text>
+      <text x="680" y="59.0" text-anchor="middle" font-size="7.5" fill="#A32E24" font-family="Segoe UI,sans-serif">Manual customize</text>
+    </svg><div class="flow-note">
+      <p style="margin-top:0;"><strong>What is good:</strong> Structured cultural fit checklist exists. 0–5 rating
+        system by all stakeholders (technical heads, department heads, HR). 3–4 round structure with assignment add-ons
+        is well-defined.</p>
+      <p><strong>What needs to be fixed:</strong> All ratings tracked on Google Sheets with no centralized portal.
+        Hiring rounds should be customizable per role but currently follow a rigid template. Offer letters and NDAs are
+        manually customized per candidate with no AI-assisted drafting.</p>
+      <p><strong>Bottlenecks:</strong> Manual compilation of 0–5 ratings from multiple stakeholders. Email-based offer
+        letter approval with no audit trail. No e-signature workflow.</p>
+      <p style="margin-bottom:0;"><strong>Dependencies:</strong> HODs/TLs must conduct technical interviews and submit
+        ratings. CXOs must conduct final interviews for HOD+ roles. No system enforces SLA on any step.</p>
+    </div><div class="doc-footer"><span>Department Overview · EF Polymer</span><span>Page 6</span></div></div>
+<div class="page"><img src="letterhead.png" alt="Letterhead" class="letterhead" style="width: calc(100% + 151.181px); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;"><h3 class="" data-manual-page-break="true">Onboarding &amp; Document Management — <span class="chip-ref">H-06</span></h3><svg viewBox="0 0 740 100" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:10px 0 4px;">
+      <defs>
+        <marker id="r3a" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+          <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5"></path>
+        </marker>
+      </defs>
+      <rect x="8" y="26" width="106" height="48" rx="3" fill="#E9F4EC" stroke="#92C7A3" stroke-width="1.5"></rect>
+      <rect x="23" y="18" width="76" height="15" rx="3" fill="#276B3E" stroke="#276B3E" stroke-width="0.75"></rect>
+      <text x="61" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">COMPLETE</text>
+      <text x="61" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#276B3E" font-family="Segoe UI,sans-serif">Candidate Hired</text>
+      <text x="61" y="59.0" text-anchor="middle" font-size="7.5" fill="#276B3E" font-family="Segoe UI,sans-serif">Offer
+        accepted</text>
+      <line x1="114" y1="50" x2="128" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#r3a)"></line>
+
+      <rect x="130" y="26" width="106" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5"></rect>
+      <rect x="145" y="18" width="76" height="15" rx="3" fill="#A32E24" stroke="#A32E24" stroke-width="0.75"></rect>
+      <text x="183" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">BOTTLENECK</text>
+      <text x="183" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#A32E24" font-family="Segoe UI,sans-serif">Manual
+        Onboarding</text>
+      <text x="183" y="56.0" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">Google Docs process</text>
+      <text x="183" y="67.0" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">No
+        auto-reminders</text>
+      <line x1="236" y1="50" x2="250" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#r3a)"></line>
+
+      <rect x="252" y="26" width="106" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5"></rect>
+      <rect x="267" y="18" width="76" height="15" rx="3" fill="#A32E24" stroke="#A32E24" stroke-width="0.75"></rect>
+      <text x="305" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">BOTTLENECK</text>
+      <text x="305" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#A32E24" font-family="Segoe UI,sans-serif">Customize Docs</text>
+      <text x="305" y="56.0" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">Offer
+        letter · NDA</text>
+      <text x="305" y="67.0" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">Manual edits per role</text>
+      <line x1="358" y1="50" x2="372" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#r3a)"></line>
+
+      <rect x="374" y="26" width="106" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5"></rect>
+      <rect x="389" y="18" width="76" height="15" rx="3" fill="#A32E24" stroke="#A32E24" stroke-width="0.75"></rect>
+      <text x="427" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">BOTTLENECK</text>
+      <text x="427" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#A32E24" font-family="Segoe UI,sans-serif">Email for
+        Signature</text>
+      <text x="427" y="59.0" text-anchor="middle" font-size="7.5" fill="#A32E24" font-family="Segoe UI,sans-serif">No
+        e-sign platform</text>
+      <line x1="480" y1="50" x2="494" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#r3a)"></line>
+
+      <rect x="496" y="26" width="106" height="48" rx="3" fill="#FEF9EC" stroke="#E8D08A" stroke-width="1.5"></rect>
+      <rect x="511" y="18" width="76" height="15" rx="3" fill="#8A5A10" stroke="#8A5A10" stroke-width="0.75"></rect>
+      <text x="549" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">DATA ENTRY</text>
+      <text x="549" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#8A5A10" font-family="Segoe UI,sans-serif">Store on Drive</text>
+      <text x="549" y="59.0" text-anchor="middle" font-size="7.5" fill="#8A5A10" font-family="Segoe UI,sans-serif">No
+        directory structure</text>
+      <line x1="602" y1="50" x2="616" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#r3a)"></line>
+
+      <rect x="618" y="26" width="112" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5"></rect>
+      <rect x="633" y="18" width="82" height="15" rx="3" fill="#A32E24" stroke="#A32E24" stroke-width="0.75"></rect>
+      <text x="674" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">BOTTLENECK</text>
+      <text x="674" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#A32E24" font-family="Segoe UI,sans-serif">No Reminders</text>
+      <text x="674" y="56.0" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">Internal teams &amp;</text>
+      <text x="674" y="67.0" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">candidates not notified</text>
+    </svg><div class="flow-note">
+      <p style="margin-top:0;"><strong>What is good:</strong> Onboarding process is documented on Google Docs. Documents
+        are templatized at a base level. All files stored on Google Drive.</p>
+      <p><strong>What needs to be fixed:</strong> No automated reminders to internal teams or candidates for upcoming
+        joinings. No dashboard reminder for HR. Offer letters and NDAs manually customized per candidate discussion. No
+        e-signature platform. No document directory — files scattered on Drive with no single source of truth for
+        retrieval.</p>
+      <p><strong>Bottlenecks:</strong> When hiring happens mid-month with joining at month start, manual coordination
+        creates gaps. Document retrieval for any team member requires manual Drive searching. No tracking of which
+        documents are signed vs pending.</p>
+      <p style="margin-bottom:0;"><strong>Dependencies:</strong> HR executive manages onboarding. IT must provision
+        accounts. Department heads must conduct induction. No system orchestrates these handoffs.</p>
+    </div><h3>Performance Management System (PMS) — <span class="chip-ref">H-04</span></h3><svg viewBox="0 0 740 100" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:10px 0 4px;">
+      <defs>
+        <marker id="r4a" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+          <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5"></path>
+        </marker>
+      </defs>
+      <rect x="8" y="26" width="106" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5"></rect>
+      <rect x="23" y="18" width="76" height="15" rx="3" fill="#A32E24" stroke="#A32E24" stroke-width="0.75"></rect>
+      <text x="61" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">BOTTLENECK</text>
+      <text x="61" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#A32E24" font-family="Segoe UI,sans-serif">Set KPI/KRA</text>
+      <text x="61" y="59.0" text-anchor="middle" font-size="7.5" fill="#A32E24" font-family="Segoe UI,sans-serif">Google
+        Sheets</text>
+      <line x1="114" y1="50" x2="128" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#r4a)"></line>
+
+      <rect x="130" y="26" width="106" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5"></rect>
+      <rect x="145" y="18" width="76" height="15" rx="3" fill="#A32E24" stroke="#A32E24" stroke-width="0.75"></rect>
+      <text x="183" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">BOTTLENECK</text>
+      <text x="183" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#A32E24" font-family="Segoe UI,sans-serif">Monthly Track</text>
+      <text x="183" y="59.0" text-anchor="middle" font-size="7.5" fill="#A32E24" font-family="Segoe UI,sans-serif">Manual Sheets update</text>
+      <line x1="236" y1="50" x2="250" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#r4a)"></line>
+
+      <rect x="252" y="26" width="106" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"></rect>
+      <rect x="267" y="18" width="76" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75"></rect>
+      <text x="305" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">VERIFICATION</text>
+      <text x="305" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Manager Review</text>
+      <text x="305" y="59.0" text-anchor="middle" font-size="7.5" fill="#6B7785" font-family="Segoe UI,sans-serif">Verifies on Sheets</text>
+      <line x1="358" y1="50" x2="372" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#r4a)"></line>
+
+      <rect x="374" y="26" width="106" height="48" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"></rect>
+      <rect x="389" y="18" width="76" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75"></rect>
+      <text x="427" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">DATA ENTRY</text>
+      <text x="427" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">HR Compile</text>
+      <text x="427" y="59.0" text-anchor="middle" font-size="7.5" fill="#6B7785" font-family="Segoe UI,sans-serif">Manual aggregation</text>
+      <line x1="480" y1="50" x2="494" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#r4a)"></line>
+
+      <rect x="496" y="26" width="106" height="48" rx="3" fill="#F4EEFC" stroke="#6b4fc8" stroke-width="1.5"></rect>
+      <rect x="511" y="18" width="76" height="15" rx="3" fill="#6b4fc8" stroke="#6b4fc8" stroke-width="0.75"></rect>
+      <text x="549" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">APPROVAL</text>
+      <text x="549" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#6b4fc8" font-family="Segoe UI,sans-serif">CXO Review</text>
+      <text x="549" y="59.0" text-anchor="middle" font-size="7.5" fill="#6b4fc8" font-family="Segoe UI,sans-serif">HODs
+        only</text>
+      <line x1="602" y1="50" x2="616" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#r4a)"></line>
+
+      <rect x="618" y="26" width="112" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5"></rect>
+      <rect x="633" y="18" width="82" height="15" rx="3" fill="#A32E24" stroke="#A32E24" stroke-width="0.75"></rect>
+      <text x="674" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">BOTTLENECK</text>
+      <text x="674" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#A32E24" font-family="Segoe UI,sans-serif">Annual
+        Appraisal</text>
+      <text x="674" y="56.0" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">Subjective</text>
+      <text x="674" y="67.0" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">No
+        auto-incentives</text>
+    </svg><div class="flow-note">
+      <p style="margin-top:0;"><strong>What is good:</strong> KPI/KRA framework exists. Multi-level review process
+        (Manager → HR → CXO) is structured. HOD-level reviews involve CXOs directly.</p>
+      <p><strong>What needs to be fixed:</strong> Not on software — entirely on Google Sheets. Cannot automate incentive
+        calculations. Annual frequency delays feedback loops. Appraisals are subjective, decoupled from real-time
+        operational data (sales targets, QC metrics).</p>
+      <p><strong>Bottlenecks:</strong> Manual compilation of KPI/KRA data from multiple sheets. No link between
+        performance scores and incentive calculation. Probation reviews (3-month) are manual with no automated trigger.
+      </p>
+      <p style="margin-bottom:0;"><strong>Dependencies:</strong> Reporting managers must verify KPI/KRA data. CXOs must
+        review HOD performance. Finance must reconcile incentive payouts. No system connects these stakeholders
+        automatically.</p>
+    </div><div class="doc-footer"><span>Department Overview · EF Polymer</span><span>Page 7</span></div></div>
+<div class="page"><img src="letterhead.png" alt="Letterhead" class="letterhead" style="width: calc(100% + 151.181px); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;"><h3 class="" data-manual-page-break="true">Admin Support &amp; Policy Query Resolution — <span class="chip-ref">H-03</span> <span class="chip-ref">H-05</span></h3><svg viewBox="0 0 770 170" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:10px 0 4px;">
+      <defs>
+        <marker id="r5a" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="6" markerHeight="6" orient="auto">
+          <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5"></path>
+        </marker>
+      </defs>
+      <text x="8" y="12" font-size="6.5" fill="#6B7A8D" font-weight="700">FLOW A: ADMIN TICKET</text>
+      <text x="420" y="12" font-size="6.5" fill="#6B7A8D" font-weight="700">FLOW B: POLICY QUERY</text>
+
+      <!-- Flow A -->
+      <rect x="8" y="26" width="120" height="44" rx="3" fill="#F4EEFC" stroke="#6b4fc8" stroke-width="1.5"></rect>
+      <rect x="23" y="18" width="90" height="15" rx="3" fill="#6b4fc8" stroke="#6b4fc8" stroke-width="0.75"></rect>
+      <text x="68" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">TICKET INTAKE</text>
+      <text x="68" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#6b4fc8" font-family="Segoe UI,sans-serif">Raise Issue</text>
+      <text x="68" y="59.0" text-anchor="middle" font-size="7.5" fill="#6b4fc8" font-family="Segoe UI,sans-serif">WhatsApp / Email</text>
+      <line x1="128" y1="50" x2="146" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#r5a)"></line>
+
+      <rect x="148" y="26" width="120" height="44" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"></rect>
+      <rect x="163" y="18" width="90" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75"></rect>
+      <text x="208" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">DATA FLOW</text>
+      <text x="208" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Admin Works</text>
+      <text x="208" y="59.0" text-anchor="middle" font-size="7.5" fill="#6B7785" font-family="Segoe UI,sans-serif">Resolves issue</text>
+      <line x1="268" y1="50" x2="286" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#r5a)"></line>
+
+      <rect x="288" y="26" width="120" height="44" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5"></rect>
+      <rect x="303" y="18" width="90" height="15" rx="3" fill="#A32E24" stroke="#A32E24" stroke-width="0.75"></rect>
+      <text x="348" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">BOTTLENECK</text>
+      <text x="348" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#A32E24" font-family="Segoe UI,sans-serif">Update on
+        WhatsApp</text>
+      <text x="348" y="59.0" text-anchor="middle" font-size="7.5" fill="#A32E24" font-family="Segoe UI,sans-serif">No
+        tracking</text>
+
+      <!-- Flow B -->
+      <rect x="420" y="26" width="120" height="44" rx="3" fill="#F4EEFC" stroke="#6b4fc8" stroke-width="1.5"></rect>
+      <rect x="435" y="18" width="90" height="15" rx="3" fill="#6b4fc8" stroke="#6b4fc8" stroke-width="0.75"></rect>
+      <text x="480" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">TICKET INTAKE</text>
+      <text x="480" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#6b4fc8" font-family="Segoe UI,sans-serif">Policy Question</text>
+      <text x="480" y="59.0" text-anchor="middle" font-size="7.5" fill="#6b4fc8" font-family="Segoe UI,sans-serif">BD/Sales/Field</text>
+      <line x1="540" y1="50" x2="558" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#r5a)"></line>
+
+      <rect x="560" y="26" width="120" height="44" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1"></rect>
+      <rect x="575" y="18" width="90" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75"></rect>
+      <text x="620" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif" letter-spacing="0.4">DATA FLOW</text>
+      <text x="620" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#3F4B5C" font-family="Segoe UI,sans-serif">Ask HR Directly</text>
+      <text x="620" y="59.0" text-anchor="middle" font-size="7.5" fill="#6B7785" font-family="Segoe UI,sans-serif">No self-serve</text>
+      <line x1="680" y1="50" x2="698" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#r5a)"></line>
+
+      <rect x="700" y="26" width="60" height="44" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5"></rect>
+      <rect x="715" y="18" width="30" height="15" rx="3" fill="#A32E24" stroke="#A32E24" stroke-width="0.75"></rect>
+      <text x="730" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">BOTTLENECK</text>
+      <text x="730" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#A32E24" font-family="Segoe UI,sans-serif">HR</text>
+      <text x="730" y="59.0" text-anchor="middle" font-size="7.5" fill="#A32E24" font-family="Segoe UI,sans-serif">Answers</text>
+
+      <!-- Bottom annotation -->
+      <rect x="8" y="80" width="400" height="28" rx="3" fill="#FEF9EC" stroke="#E8D08A" stroke-width="1"></rect>
+      <text x="16" y="93" font-size="6.8" fill="#7C5E0A" font-weight="700">⚠ No ticket tracking — open/closed/pending
+        invisible</text>
+      <text x="16" y="103" font-size="6.3" fill="#7C5E0A">Budget approvals lost in email threads; no slab-based
+        routing</text>
+
+      <rect x="420" y="80" width="340" height="28" rx="3" fill="#FEF9EC" stroke="#E8D08A" stroke-width="1"></rect>
+      <text x="428" y="93" font-size="6.8" fill="#7C5E0A" font-weight="700">⚠ No knowledge base — HR bandwidth consumed
+        by repetitive queries</text>
+      <text x="428" y="103" font-size="6.3" fill="#7C5E0A">Policies updated quarterly but no system notifies team of
+        changes</text>
+
+      <!-- Budget approval flow -->
+      <text x="8" y="128" font-size="6.5" fill="#6B7A8D" font-weight="700">BUDGET APPROVAL FLOW (CURRENT)</text>
+      <rect x="8" y="134" width="100" height="30" rx="3" fill="#F4E8FB" stroke="#A772D9" stroke-width="1"></rect>
+      <text x="58" y="148" text-anchor="middle" font-size="6.8" fill="#603487" font-weight="bold">Request</text>
+      <text x="58" y="158" text-anchor="middle" font-size="6.3" fill="#814BAF">Team member</text>
+      <line x1="108" y1="149" x2="122" y2="149" stroke="#B0BAC5" stroke-width="1" marker-end="url(#r5a)"></line>
+      <rect x="124" y="134" width="100" height="30" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1"></rect>
+      <text x="174" y="148" text-anchor="middle" font-size="6.8" fill="#A32E24" font-weight="bold">Email Approval</text>
+      <text x="174" y="158" text-anchor="middle" font-size="6.3" fill="#C0453A">HR / HOD / CXO</text>
+      <line x1="224" y1="149" x2="238" y2="149" stroke="#B0BAC5" stroke-width="1" marker-end="url(#r5a)"></line>
+      <rect x="240" y="134" width="100" height="30" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1"></rect>
+      <text x="290" y="148" text-anchor="middle" font-size="6.8" fill="#A32E24" font-weight="bold">No Audit Trail</text>
+      <text x="290" y="158" text-anchor="middle" font-size="6.3" fill="#C0453A">Slabs in policy docs</text>
+    </svg><div class="flow-note">
+      <p style="margin-top:0;"><strong>What is good:</strong> WhatsApp provides a quick, familiar communication channel
+        for the ground team. Budget approval slabs are defined in policy documents.</p>
+      <p><strong>What needs to be fixed:</strong> No ticket tracking system — admin has no live visibility of open,
+        closed, or pending tickets. Budget approvals are lost in email threads with no audit trail. Policy queries from
+        BD/Sales (travel, stays, reimbursements) consume HR bandwidth with no self-serve mechanism. No system to flag
+        when a query falls outside existing policy coverage.</p>
+      <p><strong>Bottlenecks:</strong> Issues get lost in WhatsApp message threads. HR time is consumed answering
+        repetitive policy questions. Budget approval routing is manual — no slab-based auto-routing despite slabs being
+        defined in policy.</p>
+      <p style="margin-bottom:0;"><strong>Dependencies:</strong> Admin team resolves tickets manually. HR answers all
+        policy queries. CXOs approve budgets via email. No system connects these workflows or provides visibility.</p>
+    </div><h3>Field Attendance &amp; Temp Employee Tracking — <span class="chip-ref">H-09</span></h3><svg viewBox="0 0 740 100" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:10px 0 4px;">
+      <defs>
+        <marker id="r6a" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+          <path d="M0,1.5 L6,4 L0,6.5 Z" fill="#B0BAC5"></path>
+        </marker>
+      </defs>
+      <rect x="8" y="26" width="120" height="48" rx="3" fill="#F4EEFC" stroke="#6b4fc8" stroke-width="1.5"></rect>
+      <rect x="23" y="18" width="90" height="15" rx="3" fill="#6b4fc8" stroke="#6b4fc8" stroke-width="0.75"></rect>
+      <text x="68" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">LEAD INTAKE</text>
+      <text x="68" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#6b4fc8" font-family="Segoe UI,sans-serif">Temp Employee</text>
+      <text x="68" y="59.0" text-anchor="middle" font-size="7.5" fill="#6b4fc8" font-family="Segoe UI,sans-serif">Not on
+        Zoho (cost)</text>
+      <line x1="128" y1="50" x2="146" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#r6a)"></line>
+
+      <rect x="148" y="26" width="120" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5"></rect>
+      <rect x="163" y="18" width="90" height="15" rx="3" fill="#A32E24" stroke="#A32E24" stroke-width="0.75"></rect>
+      <text x="208" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">BOTTLENECK</text>
+      <text x="208" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#A32E24" font-family="Segoe UI,sans-serif">WhatsApp
+        Location</text>
+      <text x="208" y="56.0" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">Previous software</text>
+      <text x="208" y="67.0" text-anchor="middle" font-size="6.5" fill="#A32E24" font-family="Segoe UI,sans-serif">failed — reverted</text>
+      <line x1="268" y1="50" x2="286" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#r6a)"></line>
+
+      <rect x="288" y="26" width="120" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5"></rect>
+      <rect x="303" y="18" width="90" height="15" rx="3" fill="#A32E24" stroke="#A32E24" stroke-width="0.75"></rect>
+      <text x="348" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">BOTTLENECK</text>
+      <text x="348" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#A32E24" font-family="Segoe UI,sans-serif">HR Manual Entry</text>
+      <text x="348" y="59.0" text-anchor="middle" font-size="7.5" fill="#A32E24" font-family="Segoe UI,sans-serif">Into
+        Google Sheets</text>
+      <line x1="408" y1="50" x2="426" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#r6a)"></line>
+
+      <rect x="428" y="26" width="120" height="48" rx="3" fill="#FCEBEA" stroke="#EFB4B1" stroke-width="1.5"></rect>
+      <rect x="443" y="18" width="90" height="15" rx="3" fill="#A32E24" stroke="#A32E24" stroke-width="0.75"></rect>
+      <text x="488" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">BOTTLENECK</text>
+      <text x="488" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#A32E24" font-family="Segoe UI,sans-serif">No Live
+        Dashboard</text>
+      <text x="488" y="59.0" text-anchor="middle" font-size="7.5" fill="#A32E24" font-family="Segoe UI,sans-serif">No
+        real-time visibility</text>
+      <line x1="548" y1="50" x2="566" y2="50" stroke="#B0BAC5" stroke-width="1" marker-end="url(#r6a)"></line>
+
+      <rect x="568" y="26" width="160" height="48" rx="3" fill="#FEF9EC" stroke="#E8D08A" stroke-width="1.5"></rect>
+      <rect x="583" y="18" width="130" height="15" rx="3" fill="#8A5A10" stroke="#8A5A10" stroke-width="0.75"></rect>
+      <text x="648" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#FFFFFF" font-family="Segoe UI,sans-serif" letter-spacing="0.4">BOTTLENECK</text>
+      <text x="648" y="47.0" text-anchor="middle" font-size="7.8" font-weight="700" fill="#8A5A10" font-family="Segoe UI,sans-serif">Manual
+        Reconciliation</text>
+      <text x="648" y="59.0" text-anchor="middle" font-size="7.5" fill="#8A5A10" font-family="Segoe UI,sans-serif">Monthly · Error-prone</text>
+    </svg><div class="flow-note">
+      <p style="margin-top:0;"><strong>What is good:</strong> WhatsApp location sharing provides a basic attendance
+        signal from field staff without requiring a new app.</p>
+      <p><strong>What needs to be fixed:</strong> Previous live-tracking software failed. Temp employees are excluded
+        from Zoho People to avoid per-head billing costs. HR manually enters WhatsApp location data into Google Sheets.
+        No live attendance dashboard for field teams.</p>
+      <p><strong>Bottlenecks:</strong> Manual data entry from WhatsApp to Sheets is error-prone and time-consuming. No
+        real-time visibility into field team attendance. Monthly reconciliation is manual.</p>
+      <p style="margin-bottom:0;"><strong>Dependencies:</strong> Field staff must share locations on WhatsApp. HR must
+        manually transcribe. No automated pipeline exists between WhatsApp location shares and the attendance sheet.</p>
+    </div><div class="doc-footer"><span>Department Overview · EF Polymer</span><span>Page 8</span></div></div>
+<div class="page"><img src="letterhead.png" alt="Letterhead" class="letterhead" style="width: calc(100% + 151.181px); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;"><div class="eyebrow" data-manual-page-break="true">Appendix</div><h2>Cross-Department Dependencies</h2><div class="section-dek">Findings and recommendations that require action outside the HR department to resolve</div><div class="dep-card">
+      <div class="dep-header">
+        <div class="dep-title">All Department Heads / Team Leads</div>
+        <div class="dep-badge">Hiring &amp; L&amp;D Partners</div>
+      </div>
+      <div class="dep-grid">
+        <div class="dep-section">
+          <div class="dep-section-title">Operations Dependency</div>
+          <div class="dep-section-content">
+            Department heads submit "Person Required Forms" with JDs, salary, working hours, and specific requirements.
+            They conduct technical interviews and provide L&amp;D feedback. Cultural fit and 0–5 ratings depend on their
+            timely input.
+            <div class="dep-person">👤 All HODs / Team Leads</div>
+          </div>
+        </div>
+        <div class="dep-section bottleneck">
+          <div class="dep-section-title">Critical Bottleneck</div>
+          <div class="dep-section-content">
+            Manual forms via email, unstructured interview feedback on Google Sheets, and verbal L&amp;D requests create
+            delays and data loss in the hiring and training pipelines.
+          </div>
+        </div>
+        <div class="dep-section data-sync" style="grid-column: 1 / -1;">
+          <div class="dep-section-title">Data Transfer &amp; Updates Needed</div>
+          <div class="dep-section-content">
+            Need a digital intake portal for hiring requisitions. Interview scoring must move from Sheets to a
+            centralized dashboard. L&amp;D training requests must be submitted through a structured portal, not collected
+            verbally.
+          </div>
+        </div>
+      </div>
+    </div><div class="dep-card">
+      <div class="dep-header">
+        <div class="dep-title">COO / CXO Office</div>
+        <div class="dep-badge">Strategy &amp; Approvals</div>
+      </div>
+      <div class="dep-grid">
+        <div class="dep-section">
+          <div class="dep-section-title">Operations Dependency</div>
+          <div class="dep-section-content">
+            CXOs align hiring strategy, assign position priorities, conduct final interviews for HOD+ roles, approve
+            offer letters via email, and manage annual PMS for direct reports. Budget approvals follow fixed slabs but
+            are routed manually.
+            <div class="dep-person">👤 CXOs / COO</div>
+          </div>
+        </div>
+        <div class="dep-section bottleneck">
+          <div class="dep-section-title">Critical Bottleneck</div>
+          <div class="dep-section-content">
+            Offer letter approvals get lost in email threads. No visibility into hiring pipeline progress against Q4
+            targets. Budget approvals have no automated slab-based routing despite policy definitions.
+          </div>
+        </div>
+        <div class="dep-section data-sync" style="grid-column: 1 / -1;">
+          <div class="dep-section-title">Data Transfer &amp; Updates Needed</div>
+          <div class="dep-section-content">
+            Need dashboard visibility into active hiring pipeline and budget utilization. Offer letter approvals must be
+            routed through a digital workflow with audit trails. Budget slab-based auto-routing must replace manual
+            email chains.
+          </div>
+        </div>
+      </div>
+    </div><div class="doc-footer"><span>Department Overview · EF Polymer</span><span>Page 9</span></div></div>
+<div class="page"><img src="letterhead.png" alt="Letterhead" class="letterhead" style="width: calc(100% + 151.181px); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;"><div class="dep-card" data-manual-page-break="true">
+      <div class="dep-header">
+        <div class="dep-title">Finance &amp; Accounts</div>
+        <div class="dep-badge">Payroll &amp; Vendor Overlap</div>
+      </div>
+      <div class="dep-grid">
+        <div class="dep-section">
+          <div class="dep-section-title">Operations Dependency</div>
+          <div class="dep-section-content">
+            Monthly department budget is given by Accounts to CXOs, approved, then shared with HR/Admin. Payroll
+            reconciliation requires manual data verification between Zoho People, Zoho Payroll, and Finance records.
+            Vendor management is common to both HR and Accounts.
+            <div class="dep-person">👤 Finance Team</div>
+          </div>
+        </div>
+        <div class="dep-section bottleneck">
+          <div class="dep-section-title">Critical Bottleneck</div>
+          <div class="dep-section-content">
+            Manual payroll verification across systems. No integrated budget tracking. Vendor management is untracked
+            entirely — identified as low priority but shared gap.
+          </div>
+        </div>
+        <div class="dep-section data-sync" style="grid-column: 1 / -1;">
+          <div class="dep-section-title">Data Transfer &amp; Updates Needed</div>
+          <div class="dep-section-content">
+            Payroll data from Zoho Payroll must sync automatically with Finance systems. Budget approval workflow must
+            be visible to both HR and Finance. Vendor management (low priority) should eventually be a shared module.
+          </div>
+        </div>
+      </div>
+    </div><div class="dep-card">
+      <div class="dep-header">
+        <div class="dep-title">BD / Sales &amp; International Team</div>
+        <div class="dep-badge">Policy Consumers</div>
+      </div>
+      <div class="dep-grid">
+        <div class="dep-section">
+          <div class="dep-section-title">Operations Dependency</div>
+          <div class="dep-section-content">
+            BD/Sales teams are the heaviest consumers of travel, stay, and reimbursement policies. They frequently raise
+            policy queries. International team uses Slack (not WhatsApp) for communication. Field staff share attendance
+            via WhatsApp locations.
+            <div class="dep-person">👤 BD/Sales Head · International POCs</div>
+          </div>
+        </div>
+        <div class="dep-section bottleneck">
+          <div class="dep-section-title">Critical Bottleneck</div>
+          <div class="dep-section-content">
+            No self-serve policy query system — all questions routed to HR directly. Travel reimbursement tracking is
+            manual on Zoho with no query management. Communication channels differ (WhatsApp vs Slack) creating
+            fragmented workflows.
+          </div>
+        </div>
+        <div class="dep-section data-sync" style="grid-column: 1 / -1;">
+          <div class="dep-section-title">Data Transfer &amp; Updates Needed</div>
+          <div class="dep-section-content">
+            WhatsApp policy chatbot must also support Slack for international team. Reimbursement queries should be
+            answerable via the AI assistant. Field attendance location data from WhatsApp must auto-sync to attendance
+            Sheets.
+          </div>
+        </div>
+      </div>
+    </div><div class="doc-footer"><span>Department Overview · EF Polymer</span><span>Page 10</span></div></div>
+<div class="page"><img src="letterhead.png" alt="Letterhead" class="letterhead" style="width: calc(100% + 151.181px); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;"><div class="eyebrow" data-manual-page-break="true">Section 04 — Operational Pain Points</div><h2>Pain Points Register</h2><div class="section-dek">Ranked by operational impact. Each pain point is cross-referenced to its recommendation in
+      Section 06.</div><div class="callout" style="margin-bottom:14px;border-left-color:#2563eb;background:#EFF4FF;">
+      <strong style="color:#1B2A4A;">Priority Focus Areas:</strong><br>
+      <span style="color:#1B2A4A;">① <b>Admin Visibility &amp; Employee Engagement</b> — The client's stated first
+        priority. No live tracking of support tickets, budget approvals, or engagement activities. All managed on
+        WhatsApp/email with zero visibility.</span><br>
+      <span style="color:#1B2A4A;">② <b>Unified Recruitment Pipeline</b> — Sourcing across 6+ platforms with no
+        centralized tracking. 30–45 day closing rate. No AI pre-screening. Previously screened candidates cannot be
+        re-engaged for similar roles.</span>
+    </div><table class="">
+      <tbody class=""><tr>
+        <th class="id">ID</th>
+        <th>Pain Point</th>
+        <th>Impact</th>
+        <th>Evidence from Audit</th>
+      </tr>
+      <tr>
+        <td class="id">H-01</td>
+        <td><b>No Unified Recruitment Tracking.</b> Sourcing spans LinkedIn, Naukri, Indeed, Apollo, SalesIQ, and
+          external GPT/Perplexity for contact scraping — all tracked on disconnected Google Sheets with no centralized
+          pipeline.</td>
+        <td><span class="chip chip-crit">Critical</span></td>
+        <td>HR must switch between 6+ platforms to check candidate status. Leadership has zero dashboard visibility.
+          30–45 day closing rate per opening.</td>
+      </tr>
+      <tr>
+        <td class="id">H-02</td>
+        <td><b>Manual Pre-Screening &amp; No AI Layer.</b> Every candidate profile is manually reviewed at ~10 minutes
+          each. No software pre-screens against JD criteria. 30–40 profiles screened per day (including carry-over candidates from active pipelines), 22–25 fresh profiles scraped per day.
+        </td>
+        <td><span class="chip chip-crit">Critical</span></td>
+        <td>HR confirmed sourcing is the single largest time sink. No parameter-based AI screening exists. Candidate
+          database from unclosed roles cannot be re-searched for future similar openings.</td>
+      </tr>
+      <tr>
+        <td class="id">H-03</td>
+        <td><b>No Admin Ticket Tracking or Budget Approval Workflow.</b> Internal support tickets raised on
+          WhatsApp/email with no live tracking. Budget approvals lost in email threads despite fixed slab definitions in
+          policy.</td>
+        <td><span class="chip chip-crit">Critical</span></td>
+        <td>Client stated admin and employee engagement as #1 priority to build. No visibility of open/closed/pending
+          tickets. Budget slab-based routing is defined but not digitized.</td>
+      </tr>
+      <tr>
+        <td class="id">H-04</td>
+        <td><b>Subjective &amp; Manual Performance Management.</b> KPI/KRA tracked on Google Sheets. Appraisals are
+          annual and subjective. Cannot automate incentive calculations. Decoupled from real-time operational data.</td>
+        <td><span class="chip chip-med">High</span></td>
+        <td>HR confirmed PMS "is not on software" and they "can't incentivize this and automate this right now." Manager
+          → HR → CXO workflow is entirely manual.</td>
+      </tr>
+      </tbody></table><div class="doc-footer"><span>Department Overview · EF Polymer</span><span>Page 11</span></div></div>
+<div class="page"><img src="letterhead.png" alt="Letterhead" class="letterhead" style="width: calc(100% + 151.181px); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;"><table class="" data-manual-page-break="true"><tbody class=""><tr class="">
+        <td class="id">H-05</td>
+        <td><b>No Policy Query Management System.</b> Team members — especially BD/Sales — ask HR directly about travel,
+          stay, and reimbursement policies. No self-serve chatbot or knowledge base. Policy updates not proactively
+          communicated.</td>
+        <td><span class="chip chip-med">High</span></td>
+        <td>Client explicitly requested a "custom AI chatbot or query management thing." Policies updated
+          quarterly/half-yearly but no system notifies or educates team members on changes.</td>
+      </tr>
+      <tr>
+        <td class="id">H-06</td>
+        <td><b>Fragmented Onboarding &amp; Document Management.</b> Onboarding process on Google Docs. Offer letters and
+          NDAs manually customized. No e-signature platform. No document directory. No automated reminders to internal
+          teams or candidates.</td>
+        <td><span class="chip chip-med">High</span></td>
+        <td>HR confirmed "there is no directory of management of their documents." Mid-month hires with start-of-month
+          joinings create coordination gaps with no automated reminders.</td>
+      </tr>
+      <tr>
+        <td class="id">H-07</td>
+        <td><b>Untracked Employee Referrals &amp; No Feedback System.</b> Referrals tracked on WhatsApp, email, and
+          Google Sheets with no formal system. No anonymous feedback/grievance mechanism — team members hesitate to
+          raise concerns directly to HR.</td>
+        <td><span class="chip chip-low">Medium</span></td>
+        <td>Client confirmed "there is no tracking" for referrals. Also requested a feedback form "which could be
+          anonymous and maybe only visible to certain team members."</td>
+      </tr>
+      <tr>
+        <td class="id">H-08</td>
+        <td><b>Ad-hoc L&amp;D Infrastructure &amp; No Skills Matrix.</b> Training needs collected manually/verbally. No
+          centralized request portal. No skills directory ("who knows what"). No polling for Saturday team activities.
+          No LMS for induction or prerequisite assets.</td>
+        <td><span class="chip chip-low">Medium</span></td>
+        <td>HR confirmed "no specific one platform or one dashboard where they can see what kind of demands are coming
+          in." Induction training covers 11 team members but has no digital asset management.</td>
+      </tr>
+      <tr>
+        <td class="id">H-09</td>
+        <td><b>Field Attendance Tracking Failure for Temp Employees.</b> Previous live-tracking software failed. Temp
+          employees excluded from Zoho People (cost). Now using WhatsApp location shares manually transcribed into
+          Google Sheets.</td>
+        <td><span class="chip chip-low">Medium</span></td>
+        <td>HR confirmed "they have tried using a software for attendance live tracking... but it has not worked and it
+          is currently being used on WhatsApp locations." Manual entry is error-prone.</td>
+      </tr>
+    </tbody></table><div class="doc-footer"><span>Department Overview · EF Polymer</span><span>Page 12</span></div></div>
+<div class="page"><img src="letterhead.png" alt="Letterhead" class="letterhead" style="width: calc(100% + 151.181px); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;"><div class="eyebrow" data-manual-page-break="true">Section 05 — Time &amp; Effort</div><h2>Time &amp; Effort Allocation</h2><div class="section-dek">Based on a standard 8-hour workday. Hours shown are estimates per team member per day,
+      averaged across the 5-person team.</div><table>
+      <tbody><tr>
+        <th>Activity</th>
+        <th class="num" style="text-align:right">Share of Team Time</th>
+        <th class="num" style="text-align:right">Est. Time / Day</th>
+      </tr>
+      <tr>
+        <td>Recruitment Sourcing, Scraping &amp; Screening</td>
+        <td class="num">~40%</td>
+        <td class="num">~3.2 hrs</td>
+      </tr>
+      <tr>
+        <td>Admin Support &amp; Ticket Resolution (WhatsApp/Email)</td>
+        <td class="num">~20%</td>
+        <td class="num">~1.6 hrs</td>
+      </tr>
+      <tr>
+        <td>Onboarding, Document Management &amp; Policy Admin</td>
+        <td class="num">~15%</td>
+        <td class="num">~1.2 hrs</td>
+      </tr>
+      <tr>
+        <td>Performance Management (KPI/KRA Tracking &amp; Appraisals)</td>
+        <td class="num">~15%</td>
+        <td class="num">~1.2 hrs</td>
+      </tr>
+      <tr>
+        <td>L&amp;D Operations &amp; Employee Engagement</td>
+        <td class="num">~10%</td>
+        <td class="num">~48 min</td>
+      </tr>
+    </tbody></table><div class="callout" style="margin-top:20px;">
+      <strong>Key Insight:</strong> Over 60% of HR capacity is consumed by manual recruitment logistics (sourcing across
+      6+ platforms, screening 30–40 profiles/day at 10 min each) and unstructured admin support on WhatsApp/email.
+      Transitioning to a unified ATS dashboard with AI pre-screening and a WhatsApp-integrated ticketing system is
+      essential to shift focus towards strategic talent development and data-driven performance management.
+    </div><div class="doc-footer"><span>Department Overview · EF Polymer</span><span>Page 13</span></div></div>
+<div class="page"><img src="letterhead.png" alt="Letterhead" class="letterhead" style="width: calc(100% + 151.181px); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;"><div class="eyebrow" data-manual-page-break="true">Section 06 — Corrective Action Plan</div><h2>Recommended Solution Segment</h2><div class="section-dek">This section outlines the integrated technology solution proposed to resolve operational
+      bottlenecks, following the extend-don't-replace principle.</div><h3>Implementation Required</h3><p style="font-weight:700;color:var(--ink);margin-top:15px;margin-bottom:10px;font-size:9.5pt;">Solution Modules to
+      be Built:</p><div style="display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-bottom:20px;" class="">
+      <!-- Module 1 -->
+      <div style="border:1px solid var(--line);border-radius:4px;padding:12px;background:var(--paper);">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+          <div style="background:#E9F4EC;color:#276B3E;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:10pt;">
+            1</div>
+          <div style="font-weight:700;color:var(--ink);font-size:9.5pt;">Unified Recruitment Dashboard &amp; Onboarding
+            Engine</div>
+        </div>
+        <ul style="font-size:8.5pt;color:var(--muted);line-height:1.5;padding-left:18px;margin:0;">
+          <li style="margin-bottom:6px;"><strong>Centralized ATS Layer:</strong> Connects to LinkedIn, Naukri, Indeed,
+            Apollo, and SalesIQ via APIs. HR continues using these platforms — the dashboard sits on top as a unified
+            tracking layer. No platform switching required.</li>
+          <li style="margin-bottom:6px;"><strong>AI Pre-Screening Agent:</strong> A Gemini-powered agent that matches
+            candidate profiles against JD parameters and prerequisite questions. Replaces the manual
+            10-minute-per-profile screening with automated first-layer filtering.</li>
+          <li style="margin-bottom:6px;"><strong>Candidate Re-Engagement Database:</strong> Previously screened
+            candidates from unclosed roles are indexed. When a similar role opens, the system suggests past candidates
+            who may be available — eliminating repeat sourcing effort.</li>
+          <li style="margin-bottom:6px;"><strong>Employee Referral Tracking:</strong> Formal module within the dashboard
+            replacing WhatsApp/email/Sheets tracking. Referrals link directly to candidate profiles.</li>
+          <li style="margin-bottom:6px;"><strong>Customizable Hiring Rounds:</strong> Digitizes the 0–5 rating system
+            and cultural fit checklist. Rounds are configurable per role (3–4 rounds with assignment add-ons). HODs/TLs
+            and CXOs submit ratings directly in the portal.</li>
+          <li><strong>Onboarding Automation:</strong> Automated WhatsApp/email reminders to internal teams and
+            candidates before joining dates. E-signature workflow for offer letters and NDAs. AI-assisted document
+            customization based on role and discussion points. Document directory built over Google Drive as a single
+            source of truth.</li>
+        </ul>
+      </div>
+
+      <!-- Module 2 -->
+      <div style="border:1px solid var(--line);border-radius:4px;padding:12px;background:var(--paper);" class="">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+          <div style="background:#E9F4EC;color:#276B3E;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:10pt;">
+            2</div>
+          <div style="font-weight:700;color:var(--ink);font-size:9.5pt;">AI Policy Assistant &amp; Knowledge System
+          </div>
+        </div>
+        <ul style="font-size:8.5pt;color:var(--muted);line-height:1.5;padding-left:18px;margin:0;">
+          <li style="margin-bottom:6px;"><strong>WhatsApp Policy Chatbot:</strong> A Gemini-powered RAG chatbot that
+            reads all policy documents from Google Drive. Team members — especially BD/Sales — ask questions on WhatsApp
+            (where they already are) about travel, stays, reimbursements, and any policy. Answers are instant and
+            grounded in company policy.</li>
+          <li style="margin-bottom:6px;"><strong>Slack Integration for International Team:</strong> Same AI assistant
+            available on Slack for the international team, ensuring no channel fragmentation.</li>
+          <li style="margin-bottom:6px;"><strong>Policy Gap Detection:</strong> When a query falls outside existing
+            policy coverage, the system flags it to HR with a recommendation to update policies. Closes the feedback
+            loop between ground-team questions and policy evolution.</li>
+          <li><strong>Anonymous Feedback &amp; Grievance Form:</strong> Integrated feedback mechanism where team members
+            can raise concerns anonymously or visible only to specific HR members. Replaces the current hesitancy in
+            direct communication.</li>
+        </ul>
+      </div>
+
+      <!-- Module 3 -->
+      </div><div class="doc-footer"><span>Department Overview · EF Polymer</span><span>Page 14</span></div></div>
+<div class="page"><img src="letterhead.png" alt="Letterhead" class="letterhead" style="width: calc(100% + 151.181px); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;"><div style="display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-bottom:20px;" class="" data-manual-page-break="true"><div style="border:1px solid var(--line);border-radius:4px;padding:12px;background:var(--paper);" class="">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+          <div style="background:#E9F4EC;color:#276B3E;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:10pt;">
+            3</div>
+          <div style="font-weight:700;color:var(--ink);font-size:9.5pt;">Admin Ticketing &amp; Engagement Portal</div>
+        </div>
+        <ul style="font-size:8.5pt;color:var(--muted);line-height:1.5;padding-left:18px;margin:0;">
+          <li style="margin-bottom:6px;"><strong>WhatsApp-Native Ticket Ingestion:</strong> An AI agent reads incoming
+            WhatsApp messages from team members and auto-creates tracked tickets. The ground team continues raising
+            issues on WhatsApp — no behavior change required. Complexity is absorbed by the AI layer, not pushed onto
+            employees.</li>
+          <li style="margin-bottom:6px;"><strong>Live Ticket Dashboard:</strong> Real-time visibility of open, closed,
+            and pending tickets. Admin team and CXOs can see status, assignee, and resolution time without digging
+            through WhatsApp threads.</li>
+          <li style="margin-bottom:6px;"><strong>Slab-Based Budget Approval Routing:</strong> Digitizes the fixed budget
+            slabs from policy. Requests auto-route to HR, HOD, or CXO based on amount — no more email chains or lost
+            approvals.</li>
+          <li style="margin-bottom:6px;"><strong>Employee Engagement Polling:</strong> Saturday team activity polling,
+            confirmation tracking, and idea collection — all within WhatsApp or the dashboard. Replaces ad-hoc WhatsApp
+            group discussions.</li>
+          <li><strong>Field Attendance AI Agent:</strong> Reads WhatsApp location shares from field/temp employees and
+            auto-updates the attendance Google Sheet. No manual transcription. No new app for field staff. Extends the
+            existing WhatsApp behavior they already follow.</li>
+        </ul>
+      </div>
+
+      <!-- Module 4 -->
+      <div style="border:1px solid var(--line);border-radius:4px;padding:12px;background:var(--paper);">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+          <div style="background:#E9F4EC;color:#276B3E;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:10pt;">
+            4</div>
+          <div style="font-weight:700;color:var(--ink);font-size:9.5pt;">Performance Management &amp; L&amp;D System
+          </div>
+        </div>
+        <ul style="font-size:8.5pt;color:var(--muted);line-height:1.5;padding-left:18px;margin:0;">
+          <li style="margin-bottom:6px;"><strong>Monthly KPI/KRA Dashboard:</strong> Extends the existing Google Sheets
+            with a dashboard layer. Managers continue updating Sheets — the dashboard provides visibility, analytics,
+            and automated compilation. No data migration required.</li>
+          <li style="margin-bottom:6px;"><strong>0–5 Rating Digitization:</strong> Interview and performance ratings
+            move from Sheets to the dashboard. Manager → HR → CXO workflow is automated with notifications and SLA
+            tracking.</li>
+          <li style="margin-bottom:6px;"><strong>Incentive Automation:</strong> Performance scores link directly to
+            incentive calculation rules. Probation reviews (3-month) trigger automatically.</li>
+          <li style="margin-bottom:6px;"><strong>Skills Matrix Directory:</strong> Centralized "who knows what"
+            directory mapping internal competencies. Identifies training gaps and available expertise.</li>
+          <li><strong>L&amp;D Request Portal &amp; LMS:</strong> Structured training request portal replacing verbal
+            collection. Induction prerequisite assets managed digitally. Training efficacy tracked with standardized
+            assessment forms.</li>
+        </ul>
+      </div>
+    </div><div style="display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-bottom:20px;">
+      <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:4px;padding:12px;">
+        <p style="font-weight:700;color:var(--ink);margin-bottom:6px;font-size:9pt;">What Remains the Same</p>
+        <ul style="font-size:8.5pt;color:var(--muted);line-height:1.5;padding-left:18px;margin:0;">
+          <li style="margin-bottom:4px;"><strong>No New Backend Database:</strong> Google Sheets and Drive remain the
+            core data sources. Zoho People &amp; Payroll remain for on-payroll employees.</li>
+          <li style="margin-bottom:4px;"><strong>Sourcing Platforms Stay:</strong> LinkedIn, Naukri, Indeed, Apollo,
+            SalesIQ remain in use — the dashboard connects on top.</li>
+          <li><strong>WhatsApp Stays Primary:</strong> Ground team communication doesn't change. AI agents read and
+            update from WhatsApp directly.</li>
+        </ul>
+      </div>
+      <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:4px;padding:12px;">
+        <p style="font-weight:700;color:var(--ink);margin-bottom:6px;font-size:9pt;">Tech Stack Utilized</p>
+        <ul style="font-size:8.5pt;color:var(--muted);line-height:1.5;padding-left:18px;margin:0;">
+          <li style="margin-bottom:2px;"><strong>Frontend:</strong> ReactJS + TypeScript</li>
+          <li style="margin-bottom:2px;"><strong>Backend:</strong> Node.js</li>
+          <li style="margin-bottom:2px;"><strong>APIs:</strong> Google Sheets, Google Drive, Zoho People, WhatsApp
+            Business, Slack, LinkedIn, Apollo/Naukri</li>
+          <li style="margin-bottom:2px;"><strong>AI:</strong> Gemini LLM + LangGraph (agentic workflows for WhatsApp →
+            ticket ingestion, location → attendance update, query → policy answer)</li>
+          <li><strong>Host:</strong> Google Cloud Platform</li>
+        </ul>
+      </div>
+    </div><div class="doc-footer"><span>Department Overview · EF Polymer</span><span>Page 15</span></div></div>
+<div class="page"><img src="letterhead.png" alt="Letterhead" class="letterhead" style="width: calc(100% + 151.181px); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;"><div style="background:#F0FDF4;border:1px solid #BBF7D0;border-radius:4px;padding:12px;margin-bottom:25px;" class="" data-manual-page-break="true">
+      <p style="font-weight:700;color:#166534;margin-bottom:6px;font-size:9.5pt;">Key Operational Problems Solved</p>
+      <ul style="font-size:8.5pt;color:#15803D;line-height:1.5;padding-left:18px;margin:0;">
+        <li style="margin-bottom:4px;">Eliminates multi-platform sourcing chaos with a unified ATS layer — no platform
+          switching, no manual scraping.</li>
+        <li style="margin-bottom:4px;">Resolves the 10-minute-per-profile screening bottleneck with AI pre-screening
+          against JD parameters.</li>
+        <li style="margin-bottom:4px;">Provides live admin ticket visibility and automated slab-based budget approval
+          routing — replacing WhatsApp/email chaos.</li>
+        <li style="margin-bottom:4px;">Enables self-serve policy queries via WhatsApp chatbot — freeing HR from
+          repetitive question-answering.</li>
+        <li style="margin-bottom:4px;">Automates onboarding reminders, e-signatures, and document directory — replacing
+          manual Google Docs processes.</li>
+        <li style="margin-bottom:4px;">Links performance scores to incentive calculations — replacing subjective annual
+          appraisals with data-driven monthly reviews.</li>
+        <li>Auto-syncs field attendance from WhatsApp location shares to Google Sheets — no manual transcription, no new
+          app for field staff.</li>
+      </ul>
+    </div><h3>Future Scope of Improvement / Enhancement</h3><ul style="font-size:9pt;color:var(--muted);line-height:1.5;padding-left:20px;margin-bottom:25px;">
+      <li><strong>Vendor Management Module:</strong> A shared module for HR and Accounts to track external vendors.
+        Identified as low priority by the client but planned for future integration.</li>
+      <li><strong>Predictive Attrition Analytics:</strong> An AI layer that reads PMS data, engagement survey results,
+        and attendance patterns to flag flight-risk employees before resignation.</li>
+      <li><strong>AI Recruitment Operations Agent:</strong> An agentic workflow that proactively sources, pre-screens,
+        and shortlists candidates when a new requisition is opened — reducing HR involvement to final review only.</li>
+    </ul><h3>Next Steps for Team Adoption</h3><ul style="font-size:9pt;color:var(--muted);line-height:1.5;padding-left:20px;margin-bottom:15px;">
+      <li><strong>Mandatory Training:</strong> Adoption sessions must be compulsory for all 5 HR team members, with
+        role-specific walkthroughs for each vertical (Hiring, Admin, PMS).</li>
+      <li><strong>Phased Rollout:</strong> Start with the Admin Ticketing module (quickest behavior change — team
+        already on WhatsApp) before introducing the Recruitment Dashboard (largest workflow shift).</li>
+      <li><strong>Feedback Loop:</strong> Establish a continuous feedback mechanism so the solution iterates based on
+        ground-team reality. The AI policy assistant's gap-detection feature creates a natural feedback loop for policy
+        evolution.</li>
+    </ul><div class="doc-footer"><span>Department Overview · EF Polymer</span><span>Page 16</span></div></div>
+<div class="page"><img src="letterhead.png" alt="Letterhead" class="letterhead" style="width: calc(100% + 151.181px); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;"><div class="eyebrow" data-manual-page-break="true">Section 07 — Implementation Plan</div><h2>Phased Roadmap</h2><div class="section-dek">Initiatives sequenced across three phases, with quantified ROI and scope of work</div><table class="tl-table">
+      <tbody><tr>
+        <th>Initiative</th>
+        <th class="id">Target</th>
+        <th class="num">Phase 1 (Q2)<br><span style="font-weight:400">Weeks 1–8</span></th>
+        <th class="num">Phase 2 (Q3)<br><span style="font-weight:400">Weeks 9–12</span></th>
+      </tr>
+      <tr>
+        <td>ATS, AI Pre-Screening, Onboarding &amp; E-Sign</td>
+        <td class="id">Module 1</td>
+        <td class="phase-mark p1">●</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Admin Ticketing, Policy Assistant &amp; Attendance AI</td>
+        <td class="id">Modules 2 &amp; 3</td>
+        <td class="phase-mark p1">●</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Performance Management &amp; L&amp;D System</td>
+        <td class="id">Module 4</td>
+        <td></td>
+        <td class="phase-mark p2">●</td>
+      </tr>
+    </tbody></table><div class="phase-block">
+      <div class="phase-hd">
+        <div class="phase-hd-left">
+          <span class="phase-hd-title">Phase 1 (Q2) — ATS, AI Pre-screening, Onboarding, E-Sign &amp; Admin Ticketing</span>
+          <span class="phase-hd-timeline">Q2 (Weeks 1–8) · Core Talent Infrastructure &amp; Admin Automation</span>
+        </div>
+        <span class="phase-maturity p1">Maturity 1.6 → 3.0</span>
+      </div>
+      <div class="phase-sow">
+        <div class="col-label">Scope of Work &amp; Dependencies</div>
+        <div class="sow-item"><span class="sow-dot p1"></span><span><strong>Build:</strong> Centralized ATS dashboard connecting LinkedIn, Naukri, Indeed, Apollo, and SalesIQ via APIs with AI pre-screening (Gemini) against JD parameters. Candidate re-engagement database.</span></div>
+        <div class="sow-item"><span class="sow-dot p1"></span><span><strong>Build:</strong> Automated onboarding engine — WhatsApp/email reminders, e-signature workflow for offer letters/NDAs, AI document customization, document directory on Google Drive.</span></div>
+        <div class="sow-item"><span class="sow-dot p1"></span><span><strong>Build:</strong> Live admin ticket dashboard (WhatsApp-native AI ingestion via LangGraph) with slab-based budget approval routing and AI Policy Chatbot (RAG). Field attendance location AI agent.</span></div>
+        <div class="sow-item"><span class="sow-dot p1"></span><span><strong>Tech Stack &amp; Badges:</strong> <span class="chip-ref">React.js + TS</span> <span class="chip-ref">Gemini LLM</span> <span class="chip-ref">LangGraph</span> <span class="chip-ref">Sourcing APIs</span> <span class="chip-ref">WhatsApp API</span>.</span></div>
+        <div class="sow-item"><span class="sow-dot p1" style="background:#ef4444;"></span><span><strong>Client To-Do:</strong> Provide API access to sourcing platforms &amp; WhatsApp, share policy docs &amp; historical candidate database from Sheets, confirm budget approval slabs.</span></div>
+      </div>
+      <div class="phase-roi">
+        <div class="roi-card">
+          <div class="roi-card-num">↓ 50%+</div>
+          <div class="roi-card-label">Screening Time</div>
+          <div class="roi-card-desc">AI pre-screening replaces manual 10-min reviews.</div>
+        </div>
+        <div class="roi-card">
+          <div class="roi-card-num">100%</div>
+          <div class="roi-card-label">Ticket &amp; ATS Visibility</div>
+          <div class="roi-card-desc">Recruitment and admin tickets tracked live in one unified system.</div>
+        </div>
+        <div class="roi-card">
+          <div class="roi-card-num">Auto</div>
+          <div class="roi-card-label">Onboarding &amp; Q&amp;A</div>
+          <div class="roi-card-desc">E-signatures, reminders, and policy answers fully automated.</div>
+        </div>
+      </div>
+    </div><div class="doc-footer"><span>Department Overview · EF Polymer</span><span>Page 17</span></div></div>
+<div class="page"><img src="letterhead.png" alt="Letterhead" class="letterhead" style="width: calc(100% + 151.181px); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;"><div class="phase-block" data-manual-page-break="true">
+      <div class="phase-hd">
+        <div class="phase-hd-left">
+          <span class="phase-hd-title">Phase 2 (Q3) — Performance Management &amp; L&amp;D System</span>
+          <span class="phase-hd-timeline">Q3 (Weeks 9–12) · Strategic Talent Development &amp; PMS Automation</span>
+        </div>
+        <span class="phase-maturity p2">Maturity 3.0 → 3.4</span>
+      </div>
+      <div class="phase-sow">
+        <div class="col-label">Scope of Work &amp; Dependencies</div>
+        <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Build:</strong> Monthly KPI/KRA dashboard extending existing Google Sheets. Manager → HR → CXO workflow automation with notifications and SLA tracking.</span></div>
+        <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Build:</strong> 0–5 rating digitization for interviews and performance. Incentive calculation automation linked to performance scores. Probation review auto-trigger at 3 months.</span></div>
+        <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Build:</strong> Skills matrix directory ("who knows what"). L&amp;D request portal replacing verbal collection. Saturday activity polling module.</span></div>
+        <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Tech Stack &amp; Badges:</strong> <span class="chip-ref">React.js + TS</span> <span class="chip-ref">Node.js</span> <span class="chip-ref">Google Sheets API</span> <span class="chip-ref">Gemini Analytics</span>.</span></div>
+        <div class="sow-item"><span class="sow-dot p2" style="background:#ef4444;"></span><span><strong>Client To-Do:</strong> Provide current KPI/KRA Sheets structure, confirm incentive calculation rules, map skills taxonomy, provide induction training assets.</span></div>
+      </div>
+      <div class="phase-roi">
+        <div class="roi-card">
+          <div class="roi-card-num">Monthly</div>
+          <div class="roi-card-label">Data-Driven PMS</div>
+          <div class="roi-card-desc">Replaces subjective annual appraisals with monthly metrics.</div>
+        </div>
+        <div class="roi-card">
+          <div class="roi-card-num">Auto</div>
+          <div class="roi-card-label">Incentive Calc.</div>
+          <div class="roi-card-desc">Performance scores link directly to incentive rules.</div>
+        </div>
+        <div class="roi-card">
+          <div class="roi-card-num">Mapped</div>
+          <div class="roi-card-label">Skills Matrix</div>
+          <div class="roi-card-desc">Training gaps identified; L&amp;D requests structured.</div>
+        </div>
+      </div>
+    </div><div class="doc-footer"><span>Department Overview · EF Polymer</span><span>Page 18</span></div></div>
+<div class="page"><img src="letterhead.png" alt="Letterhead" class="letterhead" style="width: calc(100% + 151.181px); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;"><div class="eyebrow" data-manual-page-break="true">Section 08 — Return on Investment (ROI)</div><h2>System Impact: Before &amp; After</h2><div class="section-dek">Measurable improvements post-implementation</div><table class="tl-table" style="margin-top:20px;">
+      <tbody class=""><tr>
+        <th style="width:25%;">Category</th>
+        <th style="width:35%; border-left: 1px solid #e2e8f0;">Before (Current State)</th>
+        <th style="width:40%; border-left: 1px solid #e2e8f0; background: #f8fafc; color: var(--ink);">After
+          (Post-Implementation)</th>
+      </tr>
+      <tr>
+        <td><strong>Recruitment Pipeline</strong></td>
+        <td style="border-left: 1px solid #e2e8f0;">6+ disconnected platforms. Manual Google Sheets tracking. 30–45 day
+          closing rate. 10 min per profile screening.</td>
+        <td style="border-left: 1px solid #e2e8f0; background: #f8fafc; color: #166534;"><strong>Unified ATS
+            Dashboard.</strong> All platforms connected via API. AI pre-screening reduces manual review by 50%+.
+          Candidate re-engagement database for unclosed roles.</td>
+      </tr>
+      <tr>
+        <td><strong>Admin Ticket Tracking</strong></td>
+        <td style="border-left: 1px solid #e2e8f0;">WhatsApp/email with zero live tracking. Budget approvals lost in
+          email threads. No slab-based routing despite defined slabs.</td>
+        <td style="border-left: 1px solid #e2e8f0; background: #f8fafc; color: #166534;"><strong>Live Ticket
+            Dashboard.</strong> WhatsApp-native AI ingestion. 100% visibility of open/closed/pending. Automated
+          slab-based budget approval routing.</td>
+      </tr>
+      <tr>
+        <td><strong>Policy Query Management</strong></td>
+        <td style="border-left: 1px solid #e2e8f0;">All queries routed to HR directly. No self-serve. No knowledge base.
+          Repetitive questions consume HR bandwidth.</td>
+        <td style="border-left: 1px solid #e2e8f0; background: #f8fafc; color: #166534;"><strong>AI Policy
+            Chatbot.</strong> WhatsApp + Slack self-serve. Instant answers grounded in policy docs. Gap detection
+          recommends policy updates to HR.</td>
+      </tr>
+      <tr>
+        <td><strong>Onboarding &amp; Documents</strong></td>
+        <td style="border-left: 1px solid #e2e8f0;">Manual Google Docs process. No e-signature. No document directory.
+          No automated reminders to teams or candidates.</td>
+        <td style="border-left: 1px solid #e2e8f0; background: #f8fafc; color: #166534;"><strong>Automated Onboarding
+            Engine.</strong> WhatsApp/email reminders. E-signature workflow. AI document customization. Single source of
+          truth document directory.</td>
+      </tr>
+      <tr>
+        <td><strong>Performance Management</strong></td>
+        <td style="border-left: 1px solid #e2e8f0;">Google Sheets KPI/KRA. Annual subjective appraisals. No incentive
+          automation. Decoupled from operational data.</td>
+        <td style="border-left: 1px solid #e2e8f0; background: #f8fafc; color: #166534;"><strong>Monthly Data-Driven
+            PMS.</strong> Dashboard extends Sheets. 0–5 ratings digitized. Auto incentive calculation. Probation reviews
+          auto-triggered.</td>
+      </tr>
+      <tr>
+        <td><strong>Field Attendance</strong></td>
+        <td style="border-left: 1px solid #e2e8f0;">Previous software failed. WhatsApp locations manually transcribed to
+          Sheets. No live dashboard. Temp employees excluded from Zoho.</td>
+        <td style="border-left: 1px solid #e2e8f0; background: #f8fafc; color: #166534;"><strong>AI Attendance
+            Agent.</strong> Reads WhatsApp location shares, auto-updates Sheets. No new app for field staff. No manual
+          transcription.</td>
+      </tr>
+      </tbody></table><div class="doc-footer"><span>Department Overview · EF Polymer</span><span>Page 19</span></div></div>
+<div class="page"><img src="letterhead.png" alt="Letterhead" class="letterhead" style="width: calc(100% + 151.181px); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;"><table class="tl-table" style="margin-top:20px;" data-manual-page-break="true"><tbody class=""><tr class="">
+        <td><strong>L&amp;D &amp; Skills Tracking</strong></td>
+        <td style="border-left: 1px solid #e2e8f0;">Training needs collected verbally. No skills matrix. No request
+          portal. No polling for engagement activities.</td>
+        <td style="border-left: 1px solid #e2e8f0; background: #f8fafc; color: #166534;"><strong>Structured L&amp;D
+            Portal.</strong> Digital request portal. Skills matrix directory. Saturday activity polling. LMS for
+          induction assets.</td>
+      </tr>
+      <tr>
+        <td><strong>Department Maturity Score</strong></td>
+        <td style="border-left: 1px solid #e2e8f0;">1.6 / 5.0 (Ad-hoc)</td>
+        <td style="border-left: 1px solid #e2e8f0; background: #f8fafc; color: #166534;"><strong>3.4 / 5.0
+            (Systematised)</strong></td>
+      </tr>
+    </tbody></table><h3>Quantified Executive Time Savings</h3><p style="font-size:8.8pt;color:var(--muted);margin-bottom:10px;">Estimated annual bandwidth reclaimed for the HR
+      &amp; Talent Management Lead (Dolly Mehta / HR Manager &amp; team) by automating candidate screening, policy
+      Q&amp;A, and admin ticket routing.</p><div class="kpi-strip" style="margin: 14px 0 16px;">
+      <div class="kpi-cell">
+        <div class="kpi-num">&gt; 50%</div>
+        <div class="kpi-lbl">Screening Time Saved</div>
+      </div>
+      <div class="kpi-cell">
+        <div class="kpi-num">100%</div>
+        <div class="kpi-lbl">Policy Q&amp;A Automated</div>
+      </div>
+      <div class="kpi-cell">
+        <div class="kpi-num">35 hrs</div>
+        <div class="kpi-lbl">Monthly Time Saved</div>
+      </div>
+      <div class="kpi-cell">
+        <div class="kpi-num" style="color:var(--accent);">420 hrs</div>
+        <div class="kpi-lbl">Annual Hours Saved</div>
+      </div>
+    </div><div class="callout" style="margin-top:10px;margin-bottom:15px;border-left-color:var(--accent);background:var(--accent-soft);">
+      <strong style="color:var(--ink);font-size:9.5pt;">Bandwidth Reinvestment Breakdown:</strong><br>
+      <ul style="font-size:8.5pt;color:var(--slate);padding-left:16px;margin-top:4px;line-height:1.45;">
+        <li><strong>Current Friction:</strong> HR team spends ~10 minutes per candidate profile screening resumes across
+          6 platforms, manually routing WhatsApp admin tickets, and repeatedly answering basic policy questions.</li>
+        <li><strong>Automated Efficiency:</strong> AI Resume Pre-Screening Agent cuts screening time in half, while
+          WhatsApp AI Policy Chatbot and Live Ticket Dashboard automate self-serve Q&amp;A and ticket approvals.</li>
+        <li><strong>Strategic Impact:</strong> Reclaims <strong>420 HR hours per year (~52.5 full working days)</strong>
+          to focus on proactive talent acquisition, leadership hiring, employee retention, and PMS appraisal cycles.
+        </li>
+      </ul>
+    </div><div class="doc-footer"><span>Department Overview · EF Polymer</span><span>Page 20</span></div></div>
+
+</body>
+</html>
