@@ -1,0 +1,158 @@
+body.studio-active {
+  margin: 0 !important;
+  padding: 0 !important;
+  background: #e5e5e5 !important;
+  font-family: system-ui, -apple-system, sans-serif !important;
+  height: 100vh !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+}
+
+.studio-toolbar {
+  height: 60px;
+  background: #fff;
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  flex-shrink: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.studio-toolbar h1 {
+  font-size: 16px;
+  margin: 0;
+  margin-right: 20px;
+  color: #333;
+}
+
+.toolbar-left, .toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.studio-toolbar button {
+  padding: 6px 12px;
+  background: #0078d4;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.studio-toolbar button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.studio-workspace {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.empty-state {
+  color: #666;
+  font-size: 16px;
+  margin-top: 100px;
+}
+
+/* Page constraints */
+.studio-workspace .page {
+  position: relative !important;
+  width: 210mm !important;
+  height: 297mm !important;
+  min-height: 297mm !important;
+  max-height: 297mm !important;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  margin: 0;
+  overflow: visible !important; /* We want to see overflow but with a red line */
+  padding: 26mm 20mm 20mm 20mm !important;
+  box-sizing: border-box !important;
+}
+
+/* The red cut line (Marks the end of safe printable area) */
+.studio-workspace .page::after {
+  content: 'SAFE CONTENT LIMIT';
+  position: absolute;
+  bottom: 20mm; /* Exactly at the bottom padding boundary */
+  top: auto;
+  left: 0;
+  right: 0;
+  border-bottom: 2px dashed red;
+  z-index: 999;
+  pointer-events: none;
+  color: red;
+  font-size: 10px;
+  text-align: right;
+  padding-right: 20px;
+  font-weight: bold;
+}
+
+/* Interactive elements */
+.studio-workspace .page > * {
+  position: relative;
+  transition: background 0.1s, outline 0.1s;
+}
+
+.studio-workspace .page > *:hover {
+  background: rgba(0, 120, 255, 0.05);
+  cursor: pointer;
+  outline: 1px solid rgba(0, 120, 255, 0.3);
+}
+
+/* Table rows interaction */
+.studio-workspace .page table tbody tr {
+  transition: background 0.1s;
+}
+
+.studio-workspace .page table tbody tr:hover {
+  background: rgba(255, 165, 0, 0.2);
+  outline: 1px dashed rgba(255, 165, 0, 0.8);
+  cursor: pointer;
+}
+
+/* Toolbar for hovering over elements */
+.element-toolbar {
+  position: absolute;
+  background: #0078d4;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-family: system-ui, sans-serif;
+  cursor: pointer;
+  z-index: 10000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  display: none;
+  font-weight: bold;
+}
+
+.element-toolbar:hover {
+  background: #005a9e;
+}
+
+.element-toolbar.table-mode {
+  background: #ff8c00;
+}
+.element-toolbar.table-mode:hover {
+  background: #cc7000;
+}
+
+/* Make sure the page contents fit properly like print */
+@media print {
+  .studio-toolbar { display: none; }
+  .studio-workspace { padding: 0; gap: 0; background: none; }
+  .studio-workspace .page { box-shadow: none; overflow: hidden; }
+  .studio-workspace .page::after { display: none; }
+}

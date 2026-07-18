@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>EF Polymer - Pagination Studio</title>
+  <!-- Load the main report styles so content renders correctly -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Load the studio specific styles -->
+  <link rel="stylesheet" href="pagination-studio.css">
+</head>
+<body class="studio-active">
+  <div class="studio-toolbar">
+    <div class="toolbar-left">
+      <h1>Pagination Studio</h1>
+      <input type="file" id="file-input" accept=".html">
+    </div>
+    <div class="toolbar-right">
+      <button id="btn-copy" disabled style="background: #28a745;">Copy HTML</button>
+      <button id="btn-export" disabled>Export Paginated HTML</button>
+    </div>
+  </div>
+  
+  <div class="studio-workspace" id="workspace">
+    <div class="empty-state">
+      Please upload an HTML report file to begin editing page breaks.
+    </div>
+  </div>
+
+  <!-- A floating button to insert page break -->
+  <div id="element-toolbar" class="element-toolbar">
+    <span id="toolbar-action-text">Push to Next Page</span>
+  </div>
+
+  <script src="pagination-studio.js"></script>
+</body>
+</html>

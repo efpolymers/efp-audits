@@ -2,130 +2,76 @@ const puppeteer = require('puppeteer');
 const fs = require('fs');
 const path = require('path');
 
-const reportsDir = __dirname;
-const outputDir = path.join(reportsDir, 'pdf_reports');
+const CHROME_PATH = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
+const ZOOM = process.env.PDF_ZOOM || '0.94';
 
-// Create output directory if it doesn't exist
-if (!fs.existsSync(outputDir)) {
-  fs.mkdirSync(outputDir, { recursive: true });
+function launchOpts() {
+  const o = { headless: 'new' };
+  if (fs.existsSync(CHROME_PATH)) o.executablePath = CHROME_PATH;
+  return o;
 }
 
-async function convertFileToPdf(browser, fileName) {
-  const filePath = path.join(reportsDir, fileName);
-  if (!fs.existsSync(filePath)) {
-    console.error(`❌ Error: File not found: ${fileName}`);
-    return;
-  }
-
-  const outputFileName = fileName.replace('.html', '.pdf');
-  const outputPath = path.join(outputDir, outputFileName);
-  
-  const page = await browser.newPage();
-  
-  // Inject localStorage token to bypass auth.js passcode check
+async function withAuthBypass(page) {
   await page.evaluateOnNewDocument(() => {
     localStorage.setItem('reports_auth_expiry', (Date.now() + 2 * 60 * 60 * 1000).toString());
   });
+}
+
+async function generatePdf(inputPath, outPdfPath) {
+  const browser = await puppeteer.launch(launchOpts());
+  const page = await browser.newPage();
   
-  try {
-    // Load local file URL
-    const fileUrl = `file://${filePath}`;
-    console.log(`⏳ Converting ${fileName}...`);
-    
-    // Wait for networkidle0 to ensure all images and fonts are loaded
-    await page.goto(fileUrl, { waitUntil: 'networkidle0' });
-    
-    // Inject style to override HTML @page margins, body background and page container margins
-    await page.addStyleTag({
-      content: `
-        @page {
-          margin: 0px !important;
-        }
-        body {
-          background: transparent !important;
-          zoom: ${process.env.PDF_ZOOM || '0.94'} !important;
-        }
-        .page {
-          margin: 0px auto 0px auto !important;
-          box-shadow: none !important;
-        }
-      `
-    });
-    
-    // Convert to PDF
-    await page.pdf({
-      path: outputPath,
-      format: 'A4',
-      printBackground: true, // Print CSS backgrounds
-      margin: {
-        top: '0px',
-        right: '0px',
-        bottom: '0px',
-        left: '0px'
+  await withAuthBypass(page);
+  
+  console.log(`Loading HTML from: ${inputPath}`);
+  await page.goto(`file://${inputPath}`, { waitUntil: 'networkidle0' });
+  
+  // Inject print styles to force exact A4 bounds and hide footers
+  await page.addStyleTag({
+    content: `
+      @page { margin: 0px !important; size: A4; }
+      body { background: transparent !important; margin: 0 !important; padding: 0 !important; }
+      .page { 
+        margin: 0 !important; 
+        box-shadow: none !important; 
+        width: 210mm !important;
+        height: 297mm !important;
+        min-height: 297mm !important;
+        max-height: 297mm !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
+        padding: 26mm 20mm 20mm 20mm !important;
       }
-    });
-    
-    console.log(`✅ Successfully generated: ${outputFileName}`);
-  } catch (error) {
-    console.error(`❌ Failed to convert ${fileName}:`, error.message);
-  } finally {
-    await page.close();
-  }
+      .doc-footer { display: none !important; }
+    `
+  });
+
+  console.log(`Generating PDF...`);
+  await page.pdf({
+    path: outPdfPath,
+    format: 'A4',
+    printBackground: true,
+    margin: { top: '0px', right: '0px', bottom: '0px', left: '0px' }
+  });
+  
+  await browser.close();
+  console.log(`✅ PDF generated: ${outPdfPath}`);
 }
 
 async function main() {
-  // Get filename argument if provided
-  const targetFile = process.argv[2];
+  const targetFile = process.argv[2] || '00.html';
+  const inputPath = path.resolve(__dirname, targetFile);
   
-  console.log('🚀 Starting PDF generation...');
-  
-  const chromePath = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
-  const launchOptions = {
-    headless: 'new'
-  };
-  
-  if (fs.existsSync(chromePath)) {
-    console.log(`ℹ️ Using system Chrome at: ${chromePath}`);
-    launchOptions.executablePath = chromePath;
+  if (!fs.existsSync(inputPath)) {
+    console.error(`❌ File not found: ${inputPath}`);
+    process.exit(1);
   }
 
-  const browser = await puppeteer.launch(launchOptions);
+  const parsedPath = path.parse(inputPath);
+  const outPdfPath = path.join(parsedPath.dir, `${parsedPath.name}.pdf`);
 
-  try {
-    if (targetFile) {
-      // Convert a single file
-      if (!targetFile.endsWith('.html')) {
-        console.error('❌ Please provide an HTML file (e.g. report.html)');
-        process.exit(1);
-      }
-      await convertFileToPdf(browser, targetFile);
-    } else {
-      // Convert all HTML files in the directory
-      console.log('📂 No specific file provided. Converting all HTML files in the directory...');
-      
-      const files = fs.readdirSync(reportsDir);
-      const htmlFiles = files.filter(file => file.endsWith('.html') && file !== 'index.html');
-      
-      if (htmlFiles.length === 0) {
-        console.log('⚠️ No HTML files found in the directory.');
-        return;
-      }
-      
-      console.log(`Found ${htmlFiles.length} HTML files.`);
-      
-      // Process sequentially to avoid memory issues with many files
-      for (const file of htmlFiles) {
-        await convertFileToPdf(browser, file);
-      }
-      
-      console.log('🎉 All files converted successfully!');
-    }
-  } catch (error) {
-    console.error('❌ An unexpected error occurred:', error);
-  } finally {
-    await browser.close();
-    console.log(`📁 PDF files are saved in: ${outputDir}`);
-  }
+  console.log(`🚀 Starting PDF generation for ${targetFile}...`);
+  await generatePdf(inputPath, outPdfPath);
 }
 
 main();
