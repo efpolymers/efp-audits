@@ -933,7 +933,7 @@
         </tr>
         <tr>
           <td class="label">Date issued</td>
-          <td class="val">17th July 2026</td>
+          <td class="val">18th July 2026</td>
         </tr>
         <tr>
           <td class="label">Review scope</td>
@@ -955,7 +955,7 @@
 
     <p class="lede">The Production department manages raw material procurement, manufacturing, quality control,
       packaging,
-      and dispatch. Led by Rishabh Doshi, the team operates on a "Produce to Stock" model, maintaining minimum inventory
+      and dispatch. Led by Rishabh Doshi, the team (3 core FTE + 4 recent hires; Recently expanded) operates on a "Produce to Stock" model, maintaining minimum inventory
       thresholds of semi-finished and finished goods to fulfill sudden sales demands across domestic and international
       markets.</p>
 
@@ -979,7 +979,7 @@
         <div class="kpi-lbl">Real-time CXO Visibility</div>
       </div>
       <div class="kpi-cell">
-        <div class="kpi-num">1.5 / 5.0</div>
+        <div class="kpi-num">1.4 / 5.0</div>
         <div class="kpi-lbl">Overall Maturity Score</div>
       </div>
     </div>
@@ -997,7 +997,7 @@
         <span class="maturity-bar-lbl">5 — Optimised</span>
       </div>
       <div class="maturity-legend-notes">
-        <span>&#9632; <b>1.5</b> Current state</span>
+        <span>&#9632; <b>1.4</b> Current state</span>
         <span style="color:#2563eb;">&#9646; <b>3.2</b> Post-roadmap target</span>
         <span>&#9711; <b>5.0</b> Best-in-class benchmark</span>
       </div>
@@ -1053,7 +1053,7 @@
       </div>
       <div class="exhibit-note">
         Solid line: current state. Dashed line: target state (post-roadmap).<br><br>
-        <b>Production scores 1.5 overall</b> — The department struggles significantly with Technology (1.0) and Data
+        <b>Production scores 1.4 overall</b> — The department struggles significantly with Technology (1.0) and Data
         Quality (1.0) due to failed Zoho adoption and reliance on scattered Google Sheets.<br><br>
         By extending their existing Google Sheets with a bi-directional React dashboard and automating alerts, the
         department can achieve structural visibility without forcing a disruptive platform migration.
@@ -1099,9 +1099,9 @@
       </tr>
       <tr style="font-weight:700;">
         <td>Overall</td>
-        <td class="num">1.5</td>
+        <td class="num">1.4</td>
         <td class="num">3.2</td>
-        <td class="num">1.7</td>
+        <td class="num">1.8</td>
       </tr>
     </table>
     <div class="doc-footer"><span>Production Audit Report · v1.0</span><span>Page 3</span></div>
@@ -1115,6 +1115,7 @@
     <h3>Team Structure</h3>
     <p style="font-size:8.5pt;color:var(--muted);margin-bottom:4px;">Reporting hierarchy within the Production Division,
       led by Rishabh Doshi (Production Manager) reporting directly to Narayan Lal Gurjar (Founder &amp; CEO).</p>
+    <p style="font-size:8.5pt;color:var(--muted);margin-bottom:8px;">Headcount: 7 personnel (3 core FTE + 4 recent hires) | Status: Recently expanded</p>
     <div class="org-chart">
       <!-- Lead -->
       <div class="org-level">
@@ -1408,8 +1409,7 @@
     <div class="flow-note">
       <p style="margin-top:0;"><strong>What is good:</strong> There is a structured loop from design to client approval
         before production begins.</p>
-      <p><strong>What needs to be fixed:</strong> The entire workflow runs on WhatsApp/Email. If the order quantity is
-        less than the vendor MOQ, production must manually reconcile pricing or wait to combine orders, causing delays.
+      <p><strong>What needs to be fixed:</strong> The entire workflow runs on WhatsApp/Email. Custom packaging requests frequently encounter severe MOQ mismatches (e.g., vendor MOQ of 16,000 pouches vs. client order of only 5,000 pouches), forcing the company to procure excess packaging and creating up to a 68% surplus of unusable dead stock pouches.
       </p>
       <p><strong>Bottlenecks:</strong> Manual revisions and physical vendor outreach for every custom design.</p>
       <p style="margin-bottom:0;"><strong>Dependencies:</strong> Production is entirely dependent on the BD team and
@@ -1522,8 +1522,7 @@
         operational stage and vendor.</p>
       <p><strong>What needs to be fixed:</strong> Data is siloed across 5+ disconnected Google Sheets. There is no
         automated aggregation.</p>
-      <p><strong>Bottlenecks:</strong> Rishabh is the sole consolidation point. Manual aggregation delays CXO visibility
-        until month-end.</p>
+      <p><strong>Bottlenecks:</strong> Rishabh is the sole consolidation point. Manual aggregation delays executive visibility for Founder &amp; CEO (Narayan Lal Gurjar) and Co-Founder &amp; COO (Puran Singh Rajput) until month-end.</p>
       <p style="margin-bottom:0;"><strong>Dependencies:</strong> Accounts and Sales are dependent on Production's manual
         exports to calculate COGS and dispatch status.</p>
     </div>
@@ -1723,9 +1722,8 @@
         <div class="dep-section">
           <div class="dep-section-title">Operations Dependency</div>
           <div class="dep-section-content">
-            CXOs (Narayan Sir) rely on Rishabh Doshi for top-down visibility into production capacity, inventory status,
-            and major machinery investments.
-            <div class="dep-person">👤 Key Person: Rishabh Doshi</div>
+            Executive leadership — Founder &amp; CEO (Narayan Lal Gurjar) and Co-Founder &amp; COO (Puran Singh Rajput) — rely on Rishabh Doshi for top-down visibility into production capacity, inventory status, and major machinery investments.
+            <div class="dep-person">👤 Key Person: Rishabh Doshi (Production Manager)</div>
           </div>
         </div>
         <div class="dep-section bottleneck">
@@ -1784,11 +1782,9 @@
       </tr>
       <tr>
         <td class="id">P-02</td>
-        <td><b>Custom Packaging MOQ & Vendor Sourcing Friction.</b> Custom design requests trigger vendor MOQ
-          mismatches. Vendors are stored in scattered sheets with no central directory.</td>
+        <td><b>Custom Packaging MOQ &amp; Vendor Sourcing Friction.</b> Custom design requests trigger severe vendor MOQ mismatches (e.g., vendor MOQ of 16,000 pouches vs. order of 5,000 pouches). Vendors are stored in scattered sheets with no central directory.</td>
         <td><span class="chip chip-crit">Critical</span></td>
-        <td>Production manually calls vendors for quotes. Low MOQ orders are delayed while waiting to combine them,
-          creating dead stock surplus.</td>
+        <td>Production manually calls vendors for quotes. Low MOQ orders are delayed while waiting to combine them, generating up to 68% surplus dead stock pouches per custom order.</td>
       </tr>
       <tr>
         <td class="id">P-03</td>
@@ -2052,7 +2048,7 @@
           <span class="phase-hd-title">Phase 1 &mdash; Core Infrastructure &amp; Dashboard</span>
           <span class="phase-hd-timeline">Weeks 1&ndash;4 &middot; Centralizing Data &amp; Workflows</span>
         </div>
-        <span class="phase-maturity p1">Maturity 1.5 &rarr; 2.5</span>
+        <span class="phase-maturity p1">Maturity 1.4 &rarr; 2.5</span>
       </div>
       <div class="phase-sow">
         <div class="col-label">Scope of Work &amp; Dependencies</div>
@@ -2201,8 +2197,7 @@
       </tr>
       <tr>
         <td><strong>Vendor Sourcing &amp; MOQ</strong></td>
-        <td style="border-left: 1px solid #e2e8f0;">Manual calls to scattered vendors. Surplus dead stock from MOQ
-          mismatches.</td>
+        <td style="border-left: 1px solid #e2e8f0;">Manual calls to scattered vendors. Severe MOQ mismatches (e.g., 16K MOQ vs 5K order) generating up to 68% surplus dead stock.</td>
         <td style="border-left: 1px solid #e2e8f0; background: #f8fafc; color: #166534;"><strong>Smart Procurement
             Engine.</strong> AI matches orders to vendor MOQs to find best pricing and combine orders.</td>
       </tr>
@@ -2235,7 +2230,7 @@
       </tr>
       <tr>
         <td><strong>Department Maturity Score</strong></td>
-        <td style="border-left: 1px solid #e2e8f0;">1.5 / 5.0 (Ad-hoc)</td>
+        <td style="border-left: 1px solid #e2e8f0;">1.4 / 5.0 (Ad-hoc)</td>
         <td style="border-left: 1px solid #e2e8f0; background: #f8fafc; color: #166534;"><strong>3.2 / 5.0
             (Systematised)</strong></td>
       </tr>

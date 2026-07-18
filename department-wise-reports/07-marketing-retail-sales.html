@@ -908,7 +908,7 @@
         </tr>
         <tr>
           <td class="label">Date issued</td>
-          <td class="val">17th July 2026</td>
+          <td class="val">18th July 2026</td>
         </tr>
         <tr>
           <td class="label">Review scope</td>
@@ -932,8 +932,10 @@
     <p>The audit identified a fundamental structural dependency: the department&rsquo;s entire operational data pipeline
       &mdash; attendance, farmer CRM, payment receipts, PO images, dispatch instructions &mdash; is routed through
       WhatsApp groups and manually transferred into Google Sheets by a single team member (Kamakshi Sankhla). This
-      creates a daily bottleneck of 6&ndash;8 hours of manual data entry for one person with zero redundancy.
-      Additionally, the marketing head (Gaurav Jain) has no real-time dashboard for sales target vs. actual visibility,
+      creates a daily bottleneck of 6&ndash;8 hours of total manual data entry for one person across all administrative
+      tasks with zero redundancy.
+      Additionally, the Marketing &amp; Retail Sales Lead (Gaurav Jain) has no real-time dashboard for sales target vs.
+      actual visibility,
       relying instead on manual navigation of Zoho Books followed by manual reconciliation in a separate MIS sheet.</p>
     <div class="kpi-strip">
       <div class="kpi-cell">
@@ -1019,7 +1021,8 @@
         <b>Marketing &amp; Retail Sales scores 1.4 overall</b> &mdash; The department operates an intelligently
         structured field force model, yet scores only 1.0 in Technology Utilization and Data Quality due to complete
         reliance on WhatsApp as the operational backbone with all intelligence extracted manually by a single
-        person.<br><br>
+        person. <b>Its overall maturity gap of 1.7 (from 1.4 to 3.1) represents the largest operational maturity gap
+          across the entire organization.</b><br><br>
         Deploying a WhatsApp AI hub and an integrated sales dashboard will systematically replace the manual extraction
         layer and give the department live sales visibility for the first time.
       </div>
@@ -1076,9 +1079,12 @@
   <div class="page">
     <img src="letterhead.png" alt="Letterhead"
       style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
+    <div class="eyebrow">Section 03 &mdash; Team Structure &amp; Tooling</div>
     <h3>Team Structure</h3>
     <p style="font-size:8.5pt;color:var(--muted);margin-bottom:4px;">Reporting hierarchy for Marketing &amp; Retail
       Sales under Puran Singh Rajput (Co-Founder &amp; COO).</p>
+    <p style="font-size:8.5pt;color:var(--muted);margin-bottom:8px;">Headcount: 3 office personnel (Gaurav Jain, Vandana
+      Jain, Kamakshi Sankhla) + field RSMs &amp; ASMs | Status: Under-resourced</p>
     <div class="org-chart">
       <div class="org-level">
         <div class="org-node secondary">
@@ -1094,16 +1100,20 @@
           <div class="org-connector-top"></div>
           <div class="org-node lead">
             <div class="org-name">Gaurav Jain</div>
-            <div class="org-role">Retail Sales Manager<br>Regional Teams (UP, MP, RJ)</div>
-            <span class="org-tag">Retail Head</span>
+            <div class="org-role">Marketing &amp; Retail Sales Lead<br>Regional Teams (UP, MP, RJ)</div>
+            <span class="org-tag">Department Lead</span>
           </div>
           <div class="org-connector-top"></div>
           <div style="display:flex;gap:8px;">
-            <div class="org-node field" style="max-width:130px;">
+            <div class="org-node" style="max-width:130px;border-color:#6b4fc8;">
+              <div class="org-name">Kamakshi Sankhla</div>
+              <div class="org-role">Sales Ops &amp; Data Coordinator</div>
+            </div>
+            <div class="org-node field" style="max-width:120px;">
               <div class="org-name">RSMs &amp; ASMs</div>
               <div class="org-role">Regional &amp; Area Managers</div>
             </div>
-            <div class="org-node field" style="max-width:130px;">
+            <div class="org-node field" style="max-width:120px;">
               <div class="org-name">FSMs &amp; Field Execs</div>
               <div class="org-role">Field Sales Executives</div>
             </div>
@@ -1115,13 +1125,13 @@
           <div class="org-connector-top"></div>
           <div class="org-node vacant">
             <div class="org-name">Position Vacant</div>
-            <div class="org-role">Marketing Manager<br>Digital Marketing &amp; SEO Lead</div>
+            <div class="org-role">Marketing Manager<br>(Currently Vacant &mdash; Hiring)</div>
             <span class="org-tag vacant-tag">Hiring</span>
           </div>
           <div class="org-connector-top"></div>
           <div class="org-node" style="max-width:150px;">
-            <div class="org-name">Digital Marketing &amp; SEO</div>
-            <div class="org-role">Vandana Jain (Coordinator)<br>&amp; Executive Support</div>
+            <div class="org-name">Vandana Jain</div>
+            <div class="org-role">Digital Marketing &amp; Social Media Coordinator</div>
           </div>
         </div>
       </div>
@@ -1286,8 +1296,9 @@
       <p><strong>What needs to be fixed:</strong> The 3&times; daily cycle is entirely manual. One person (Kamakshi)
         reads every message, cross-checks coordinates from a reference file, and manually types each entry into Excel.
       </p>
-      <p><strong>Bottlenecks:</strong> Kamakshi spends an estimated 6&ndash;8 hours daily on attendance tracking alone
-        &mdash; consuming more than a full workday&rsquo;s capacity. Any absence creates a complete data blackout.</p>
+      <p><strong>Bottlenecks:</strong> Kamakshi spends an estimated 3&ndash;4 hours daily on attendance tracking (out of
+        her total 6&ndash;8 hours/day manual data-entry workload across all admin tasks). Any absence creates a complete
+        data blackout.</p>
       <p style="margin-bottom:0;"><strong>Dependencies:</strong> Accuracy depends entirely on RSMs and ASMs sending
         timely, correctly located WhatsApp messages. Late or missing messages break the record.</p>
     </div>
@@ -1411,7 +1422,7 @@
       <rect x="254" y="26" width="107" height="60" rx="3" fill="#fff" stroke="#D8DEE5" stroke-width="1" />
       <rect x="269" y="18" width="77" height="15" rx="3" fill="#F0F4F8" stroke="#D8DEE5" stroke-width="0.75" />
       <text x="308" y="28.5" text-anchor="middle" font-size="6" font-weight="700" fill="#3F4B5C"
-        font-family="Segoe UI,sans-serif" letter-spacing="0.4">FINANCE</text>
+        font-family="Segoe UI,sans-serif" letter-spacing="0.4">LOGISTICS HANDOFF</text>
       <text x="308" y="44.0" text-anchor="middle" font-size="7.4" font-weight="700" fill="#3F4B5C"
         font-family="Segoe UI,sans-serif">Bill to Logistics</text>
       <text x="308" y="56.0" text-anchor="middle" font-size="7.4" fill="#6B7785" font-family="Segoe UI,sans-serif">Task:
@@ -1681,7 +1692,9 @@
     </div>
   </div>
 
-  <!-- ============ APPENDIX: CROSS-DEPT DEPENDENCIES ============ -->
+
+
+  <!-- ============ 05 PAIN POINTS ============ -->
   <div class="page">
     <img src="letterhead.png" alt="Letterhead"
       style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
@@ -1829,12 +1842,14 @@
       </tr>
       <tr>
         <td class="id">P-03</td>
-        <td><b>Manual Attendance Tracking via WhatsApp Photos and Locations.</b> RSMs and ASMs mark attendance by
+        <td><b>Manual Attendance Tracking via WhatsApp Photos and Locations.</b> <span class="chip-ref">R-07</span>
+          <span class="chip-ref">B-05</span> RSMs and ASMs mark attendance by
           sending WhatsApp location drops 3 times per day. Kamakshi manually reads, verifies, and logs each entry into
           an Excel attendance sheet.</td>
         <td><span class="chip chip-crit">Critical</span></td>
-        <td>Kamakshi spends an estimated 6&ndash;8 hours daily on attendance tracking alone &mdash; for all RSMs and
-          ASMs combined. The process is entirely manual, unreliable if Kamakshi is absent, and produces no automated
+        <td>Kamakshi spends an estimated 3&ndash;4 hours daily on attendance tracking alone (part of her 6&ndash;8
+          hours/day total manual data-entry burden across attendance, CRM, and POs). The process is entirely manual,
+          unreliable if Kamakshi is absent, and produces no automated
           alerts for non-compliance.</td>
       </tr>
       <tr>
@@ -1880,15 +1895,16 @@
     </div>
   </div>
 
-  <!-- ============ 05 TIME & EFFORT ============ -->
+  <!-- ============ 06 TIME & EFFORT ============ -->
   <div class="page">
     <img src="letterhead.png" alt="Letterhead"
       style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
-    <div class="eyebrow">Section 05 &mdash; Time &amp; Effort</div>
+    <div class="eyebrow">Section 06 &mdash; Time &amp; Effort Allocation</div>
     <h3>Time &amp; Effort Allocation</h3>
     <p style="font-size:8.5pt;color:var(--muted);margin-bottom:8px;">Based on a standard 8-hour workday. Hours shown are
-      estimates per role per day/week, averaged from the audit interview. The table reflects the disproportionate manual
-      burden currently concentrated on Kamakshi Sankhla.</p>
+      estimates per role per day, averaged from the audit interview. The table reflects the disproportionate manual
+      burden currently concentrated on Kamakshi Sankhla across attendance, CRM, and PO processing (~6&ndash;8 hrs/day
+      total).</p>
     <table>
       <tr>
         <th>Activity</th>
@@ -1900,31 +1916,31 @@
         <td>Field Geolocation Verification &amp; Attendance Tracking (3&times; daily)</td>
         <td>Kamakshi</td>
         <td class="num">~40%</td>
-        <td class="num">~6&ndash;8 hrs/day</td>
+        <td class="num">~3&ndash;4 hrs/day</td>
       </tr>
       <tr>
         <td>Farmer / Dealer CRM Data Entry from WhatsApp</td>
         <td>Kamakshi</td>
-        <td class="num">~15%</td>
-        <td class="num">~2&ndash;3 hrs/day</td>
+        <td class="num">~25%</td>
+        <td class="num">~1.5&ndash;2 hrs/day</td>
       </tr>
       <tr>
         <td>Verification Calls to Farmers / Dealers</td>
         <td>Kamakshi</td>
-        <td class="num">~15%</td>
-        <td class="num">~2&ndash;3 hrs/day</td>
+        <td class="num">~20%</td>
+        <td class="num">~1&ndash;1.5 hrs/day</td>
       </tr>
       <tr>
         <td>PO Reading, Bill Creation &amp; Drive Uploads</td>
         <td>Kamakshi</td>
-        <td class="num">~10%</td>
-        <td class="num">~1&ndash;2 hrs/day</td>
+        <td class="num">~15%</td>
+        <td class="num">~0.5&ndash;1 hr/day</td>
       </tr>
       <tr>
         <td>Target vs. Actual Reconciliation (Zoho Books + MIS)</td>
         <td>Gaurav</td>
         <td class="num">~20%</td>
-        <td class="num">~3&ndash;4 hrs/week</td>
+        <td class="num">~0.7&ndash;0.8 hrs/day (~3.5 hrs/wk)</td>
       </tr>
       <tr>
         <td>WhatsApp Payment Monitoring &amp; Dispatch Authorization</td>
@@ -1936,28 +1952,28 @@
         <td>Social Media Calendar Planning &amp; Posting</td>
         <td>Vandana + Vendor</td>
         <td class="num">~50%</td>
-        <td class="num">~4&ndash;6 hrs/week</td>
+        <td class="num">~1.0 hr/day (~5 hrs/wk)</td>
       </tr>
       <tr>
         <td>Marketing Collateral &amp; Stock Management</td>
         <td>Vandana</td>
         <td class="num">~25%</td>
-        <td class="num">~2&ndash;3 hrs/week</td>
+        <td class="num">~0.5 hr/day (~2.5 hrs/wk)</td>
       </tr>
     </table>
-    <div class="callout" style="margin-top:8px;"><strong>Key Finding:</strong> Kamakshi&rsquo;s daily operational hours
-      exceed a standard 8-hour workday solely due to manual WhatsApp-to-Sheets data extraction. Attendance tracking
-      alone (6&ndash;8 hrs/day) and CRM entry + verification calls (~4&ndash;6 hrs/day) together exceed full working
-      capacity &mdash; indicating either extreme overwork or data gaps when volume peaks.</div>
+    <div class="callout" style="margin-top:8px;"><strong>Key Finding:</strong> Kamakshi&rsquo;s entire daily operational
+      capacity (6&ndash;8 hours/day) is consumed by manual WhatsApp-to-Sheets data extraction across attendance tracking
+      (~3&ndash;4 hrs/day), CRM entry (~1.5&ndash;2 hrs/day), and verification calls (~1&ndash;1.5 hrs/day) &mdash;
+      leaving zero bandwidth for higher-value analytical support.</div>
     <div class="doc-footer"><span>Marketing &amp; Retail Sales Audit Report &middot; v1.0</span><span>Page 10</span>
     </div>
   </div>
 
-  <!-- ============ 06 RECOMMENDATIONS ============ -->
+  <!-- ============ 07 RECOMMENDATIONS ============ -->
   <div class="page">
     <img src="letterhead.png" alt="Letterhead"
       style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
-    <div class="eyebrow">Section 06 &mdash; Corrective Action Plan</div>
+    <div class="eyebrow">Section 07 &mdash; Corrective Action Plan</div>
     <h2>Recommended Solution Segment</h2>
     <div class="section-dek">This section outlines the integrated technology solution proposed to resolve operational
       bottlenecks, replacing the legacy recommendations register.</div>
@@ -2061,11 +2077,11 @@
     </div>
   </div>
 
-  <!-- ============ 07 ROADMAP ============ -->
+  <!-- ============ 08 ROADMAP ============ -->
   <div class="page">
     <img src="letterhead.png" alt="Letterhead"
       style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
-    <div class="eyebrow">Section 07 &mdash; Implementation Plan</div>
+    <div class="eyebrow">Section 08 &mdash; Phased Implementation Roadmap</div>
     <h2>Phased Roadmap</h2>
     <div class="section-dek">Initiatives sequenced across three phases, with quantified ROI and scope of work</div>
     <table class="tl-table">
@@ -2233,11 +2249,11 @@
     </div>
   </div>
 
-  <!-- ============ 08 ROI ============ -->
+  <!-- ============ 09 ROI ============ -->
   <div class="page">
     <img src="letterhead.png" alt="Letterhead"
       style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
-    <div class="eyebrow">Section 08 &mdash; Return on Investment (ROI)</div>
+    <div class="eyebrow">Section 09 &mdash; Return on Investment (ROI)</div>
     <h2>System Impact: Before &amp; After</h2>
     <div class="section-dek">Measurable improvements post-implementation</div>
     <table class="tl-table" style="margin-top:20px;">
@@ -2250,7 +2266,7 @@
       <tr>
         <td><strong>Attendance Tracking</strong></td>
         <td style="border-left:1px solid #e2e8f0;">3&times; daily manual WhatsApp checks for all RSMs and ASMs by
-          Kamakshi &mdash; 6&ndash;8 hrs/day.</td>
+          Kamakshi &mdash; ~3&ndash;4 hrs/day.</td>
         <td style="border-left:1px solid #e2e8f0;background:#f8fafc;color:#166534;"><strong>Auto-Attendance
             Bot.</strong> Location shares trigger automated marking &mdash; zero manual effort, real-time compliance
           alerts.</td>
@@ -2258,7 +2274,7 @@
       <tr>
         <td><strong>Farmer CRM Data Entry</strong></td>
         <td style="border-left:1px solid #e2e8f0;">Kamakshi manually reads WhatsApp messages and types each farmer
-          record into the CRM sheet &mdash; 2&ndash;3 hrs/day.</td>
+          record into the CRM sheet &mdash; ~1.5&ndash;2 hrs/day.</td>
         <td style="border-left:1px solid #e2e8f0;background:#f8fafc;color:#166534;"><strong>AI-Powered
             Extraction.</strong> WhatsApp AI bot auto-populates CRM fields from field messages in real time.</td>
       </tr>
@@ -2309,12 +2325,13 @@
 
     <h3>Quantified Executive Time Savings</h3>
     <p style="font-size:8.8pt;color:var(--muted);margin-bottom:10px;">Estimated annual bandwidth reclaimed for Marketing
-      Operations (Kamakshi, Gaurav &amp; team) by automating field attendance and CRM data extraction.</p>
+      Operations (Kamakshi, Gaurav &amp; team) by automating field attendance, CRM data extraction, verification calls,
+      and order processing.</p>
 
     <div class="kpi-strip" style="margin: 14px 0 16px;">
       <div class="kpi-cell">
-        <div class="kpi-num">6–8 hrs/day</div>
-        <div class="kpi-lbl">Admin Time Reclaimed</div>
+        <div class="kpi-num">6&ndash;8 hrs/day</div>
+        <div class="kpi-lbl">Total Admin Time Reclaimed</div>
       </div>
       <div class="kpi-cell">
         <div class="kpi-num">3x</div>
@@ -2334,16 +2351,120 @@
       style="margin-top:10px;margin-bottom:15px;border-left-color:var(--accent);background:var(--accent-soft);">
       <strong style="color:var(--ink);font-size:9.5pt;">Bandwidth Reinvestment Breakdown:</strong><br>
       <ul style="font-size:8.5pt;color:var(--slate);padding-left:16px;margin-top:4px;line-height:1.45;">
-        <li><strong>Current Friction:</strong> Operations coordinator spends 6–8 hours daily manually checking 3x
-          attendance location shares for all field staff and typing WhatsApp messages into CRM spreadsheets.</li>
-        <li><strong>Automated Efficiency:</strong> WhatsApp AI Bot auto-parses messages and Auto-Attendance Bot matches
-          location coordinates automatically without manual data entry.</li>
-        <li><strong>Strategic Impact:</strong> Reclaims <strong>1,680 coordinator hours per year (~210 full working
-            days)</strong> to focus on RSM sales enablement, marketing campaign execution, and distributor growth.</li>
+        <li><strong>Current Friction:</strong> Operations coordinator spends 6&ndash;8 hours daily across 3x attendance
+          location verification (~3&ndash;4 hrs), manual WhatsApp-to-CRM data entry (~1.5&ndash;2 hrs), farmer
+          verification calls, and PO bill uploads.</li>
+        <li><strong>Automated Efficiency:</strong> WhatsApp AI Bot auto-parses field messages and Auto-Attendance Bot
+          matches location coordinates automatically without manual data entry.</li>
+        <li><strong>Strategic Impact:</strong> Reclaims <strong>1,680 operations coordinator hours per year (~210 full
+            working days)</strong> across attendance, CRM, and order processing to focus on RSM sales enablement,
+          marketing campaign execution, and distributor growth.</li>
       </ul>
     </div>
 
     <div class="doc-footer"><span>Marketing &amp; Retail Sales Audit Report &middot; v1.0</span><span>Page 13</span>
+    </div>
+  </div>
+
+  <!-- ============ APPENDIX: CROSS-DEPT DEPENDENCIES ============ -->
+  <div class="page">
+    <img src="../letterhead.png" alt="Letterhead"
+      style="width: calc(100% + 40mm); max-width: none; height: auto; margin-left: -20mm; margin-top: -26mm; margin-bottom: 22px; display: block;" />
+    <div class="eyebrow">Appendix</div>
+    <h2>Cross-Department Dependencies</h2>
+    <div class="section-dek">Findings and recommendations that require action outside the Marketing &amp; Retail Sales
+      team to resolve</div>
+
+    <div class="dep-card">
+      <div class="dep-header">
+        <div class="dep-title">Finance &amp; Accounts</div>
+        <div class="dep-badge">Daily Operations</div>
+      </div>
+      <div class="dep-grid">
+        <div class="dep-section">
+          <div class="dep-section-title">Operations Dependency</div>
+          <div class="dep-section-content">Marketing &amp; Retail Sales requires Accounts to confirm payment receipt
+            before Gaurav can authorize dispatch. This payment confirmation loop runs entirely through WhatsApp and
+            email with no structured handoff system.<div class="dep-person">&#128100; Key Person: Gaurav Jain (Sales
+              Head)</div>
+          </div>
+        </div>
+        <div class="dep-section bottleneck">
+          <div class="dep-section-title">Critical Bottleneck</div>
+          <div class="dep-section-content">Gaurav must manually monitor WhatsApp for payment screenshots from RSMs, then
+            separately verify with Accounts, then authorize logistics &mdash; three steps with no automation. Any delay
+            at the Accounts end stalls dispatch directly.</div>
+        </div>
+        <div class="dep-section data-sync" style="grid-column:1/-1;">
+          <div class="dep-section-title">Data Transfer &amp; Updates Needed</div>
+          <div class="dep-section-content">Zoho Books invoice and payment data must be integrated via API directly into
+            the MIS Sales Dashboard. A structured payment confirmation workflow must be built to replace the current
+            WhatsApp-based verification loop, providing Gaurav with an automated confirmation trigger before dispatch
+            authorization.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dep-card">
+      <div class="dep-header">
+        <div class="dep-title">Logistics &amp; Production</div>
+        <div class="dep-badge">Order Fulfillment</div>
+      </div>
+      <div class="dep-grid">
+        <div class="dep-section">
+          <div class="dep-section-title">Operations Dependency</div>
+          <div class="dep-section-content">Every retail order flows from RSM (hand-written PO image on WhatsApp) &rarr;
+            Marketing team (bill creation) &rarr; Logistics (dispatch) &rarr; Production (quantity and SKU pick). This
+            is a 4-department chain with no digital handoff at any stage.<div class="dep-person">&#128100; Key Person:
+              Kamakshi Sankhla (PO &amp; Bill)</div>
+          </div>
+        </div>
+        <div class="dep-section bottleneck">
+          <div class="dep-section-title">Critical Bottleneck</div>
+          <div class="dep-section-content">Hand-written PO images shared via WhatsApp offer no structure, validation, or
+            audit trail. Bill creation is entirely dependent on Kamakshi correctly reading the image and creating the
+            invoice manually, with no system check.</div>
+        </div>
+        <div class="dep-section data-sync" style="grid-column:1/-1;">
+          <div class="dep-section-title">Data Transfer &amp; Updates Needed</div>
+          <div class="dep-section-content">A digital PO intake form must be deployed for RSMs and ASMs. On submission,
+            the form must auto-generate a structured bill and route it directly to Logistics and Production, removing
+            the manual WhatsApp-to-bill conversion step. Dispatch confirmations should feed back automatically to the
+            MIS Sales Dashboard.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dep-card">
+      <div class="dep-header">
+        <div class="dep-title">Management &amp; CXO Visibility</div>
+        <div class="dep-badge">Reporting</div>
+      </div>
+      <div class="dep-grid">
+        <div class="dep-section">
+          <div class="dep-section-title">Operations Dependency</div>
+          <div class="dep-section-content">CXOs currently rely on Gaurav to extract and present monthly sales
+            performance data. There is no automated reporting or dashboard giving leadership real-time visibility into
+            target vs. actual performance by state/district/person.<div class="dep-person">&#128100; Key Person: Gaurav
+              Jain (Sales Head)</div>
+          </div>
+        </div>
+        <div class="dep-section bottleneck">
+          <div class="dep-section-title">Critical Bottleneck</div>
+          <div class="dep-section-content">All management-level reporting relies entirely on Gaurav manually compiling
+            MIS data. There is no self-service dashboard for leadership visibility, making real-time decision-making on
+            sales strategy impossible.</div>
+        </div>
+        <div class="dep-section data-sync" style="grid-column:1/-1;">
+          <div class="dep-section-title">Data Transfer &amp; Updates Needed</div>
+          <div class="dep-section-content">The Sales Dashboard must include a CXO-level read-only view with role-based
+            access. This view should display national sales performance, state-wise target vs. actual progress, and
+            payment status in real time &mdash; eliminating the manual reporting cycle entirely and enabling leadership
+            to act on live data.</div>
+        </div>
+      </div>
+    </div>
+    <div class="doc-footer"><span>Marketing &amp; Retail Sales Audit Report &middot; v1.0</span><span>Page 14</span>
     </div>
   </div>
 

@@ -891,7 +891,7 @@
         </tr>
         <tr>
           <td class="label">Date issued</td>
-          <td class="val">17th July 2026</td>
+          <td class="val">18th July 2026</td>
         </tr>
         <tr>
           <td class="label">Review scope</td>
@@ -1106,6 +1106,11 @@
             <div class="org-role">Onboarding · Accessories · Process<br>T&amp;D · L&amp;D · Salaries · FNF</div>
             <span class="org-tag">Vertical 1</span>
           </div>
+          <div class="org-connector-top"></div>
+          <div class="org-node secondary">
+            <div class="org-name">HR Generalist — Recruitment</div>
+            <div class="org-role">Sourcing · Screening<br>Interview Coordination</div>
+          </div>
         </div>
         <div class="org-sub-branch">
           <div class="org-connector-top"></div>
@@ -1120,11 +1125,6 @@
           <div class="org-node secondary">
             <div class="org-name">HR Generalist — PMS</div>
             <div class="org-role">Performance Evaluation<br>KPI / KRA Tracking</div>
-          </div>
-          <div class="org-connector-top"></div>
-          <div class="org-node secondary">
-            <div class="org-name">HR Generalist — Recruitment</div>
-            <div class="org-role">Sourcing · Screening<br>Interview Coordination</div>
           </div>
         </div>
       </div>
@@ -1314,9 +1314,7 @@
       <p><strong>What needs to be fixed:</strong> No unified platform to track all candidates. HR must switch between 6+
         platforms to check status. Contact details are scraped using external GPT/Perplexity — no integrated scraping
         layer. No AI pre-screening — every profile is manually reviewed at 10 minutes each.</p>
-      <p><strong>Bottlenecks:</strong> 30–40 profiles screened per day manually. 22–25 candidates scraped per day.
-        Average closing rate of 30–45 days per opening. Previously screened candidates from unclosed roles cannot be
-        re-tracked for similar future openings.</p>
+      <p><strong>Bottlenecks:</strong> 30–40 profiles screened per day manually (including carry-over candidates from active pipelines/unclosed roles) vs. 22–25 fresh candidates scraped per day. Average closing rate of 30–45 days per opening. Previously screened candidates from unclosed roles cannot be re-tracked for similar future openings.</p>
       <p style="margin-bottom:0;"><strong>Dependencies:</strong> Department heads must provide JDs, salary, working
         hours, and specific requirements. CXOs assign priority order. External platforms control candidate flow.</p>
     </div>
@@ -1962,7 +1960,7 @@
       <tr>
         <td class="id">H-02</td>
         <td><b>Manual Pre-Screening &amp; No AI Layer.</b> Every candidate profile is manually reviewed at ~10 minutes
-          each. No software pre-screens against JD criteria. 30–40 profiles screened per day, 22–25 scraped per day.
+          each. No software pre-screens against JD criteria. 30–40 profiles screened per day (including carry-over candidates from active pipelines), 22–25 fresh profiles scraped per day.
         </td>
         <td><span class="chip chip-crit">Critical</span></td>
         <td>HR confirmed sourcing is the single largest time sink. No parameter-based AI screening exists. Candidate
@@ -2298,37 +2296,26 @@
       <tr>
         <th>Initiative</th>
         <th class="id">Target</th>
-        <th class="num">Phase 1<br><span style="font-weight:400">Weeks 1–4</span></th>
-        <th class="num">Phase 2<br><span style="font-weight:400">Weeks 5–9</span></th>
-        <th class="num">Phase 3<br><span style="font-weight:400">Weeks 10–12</span></th>
+        <th class="num">Phase 1 (Q2)<br><span style="font-weight:400">Weeks 1–8</span></th>
+        <th class="num">Phase 2 (Q3)<br><span style="font-weight:400">Weeks 9–12</span></th>
       </tr>
       <tr>
-        <td>Admin Ticketing &amp; Engagement Portal</td>
-        <td class="id">Module 3</td>
-        <td class="phase-mark p1">●</td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>AI Policy Assistant &amp; Knowledge System</td>
-        <td class="id">Module 2</td>
-        <td class="phase-mark p1">●</td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>Unified Recruitment Dashboard &amp; Onboarding</td>
+        <td>ATS, AI Pre-Screening, Onboarding &amp; E-Sign</td>
         <td class="id">Module 1</td>
+        <td class="phase-mark p1">●</td>
         <td></td>
-        <td class="phase-mark p2">●</td>
+      </tr>
+      <tr>
+        <td>Admin Ticketing, Policy Assistant &amp; Attendance AI</td>
+        <td class="id">Modules 2 &amp; 3</td>
+        <td class="phase-mark p1">●</td>
         <td></td>
       </tr>
       <tr>
         <td>Performance Management &amp; L&amp;D System</td>
         <td class="id">Module 4</td>
         <td></td>
-        <td></td>
-        <td class="phase-mark p3">●</td>
+        <td class="phase-mark p2">●</td>
       </tr>
     </table>
 
@@ -2336,78 +2323,18 @@
     <div class="phase-block">
       <div class="phase-hd">
         <div class="phase-hd-left">
-          <span class="phase-hd-title">Phase 1 — Admin Visibility &amp; AI Policy Assistant</span>
-          <span class="phase-hd-timeline">Weeks 1–4 · Client's Stated #1 Priority</span>
+          <span class="phase-hd-title">Phase 1 (Q2) — ATS, AI Pre-screening, Onboarding, E-Sign &amp; Admin Ticketing</span>
+          <span class="phase-hd-timeline">Q2 (Weeks 1–8) &middot; Core Talent Infrastructure &amp; Admin Automation</span>
         </div>
-        <span class="phase-maturity">Maturity 1.6 → 2.4</span>
+        <span class="phase-maturity p1">Maturity 1.6 &rarr; 3.0</span>
       </div>
       <div class="phase-sow">
         <div class="col-label">Scope of Work &amp; Dependencies</div>
-        <div class="sow-item"><span class="sow-dot"></span><span><strong>Build:</strong> WhatsApp-native ticket
-            ingestion AI agent (LangGraph) that reads messages and auto-creates tracked tickets on Google Sheets.</span>
-        </div>
-        <div class="sow-item"><span class="sow-dot"></span><span><strong>Build:</strong> Live ticket dashboard with
-            open/closed/pending visibility and slab-based budget approval routing.</span></div>
-        <div class="sow-item"><span class="sow-dot"></span><span><strong>Build:</strong> Gemini-powered RAG policy
-            chatbot on WhatsApp Business API, reading policy docs from Google Drive. Slack integration for international
-            team.</span></div>
-        <div class="sow-item"><span class="sow-dot"></span><span><strong>Build:</strong> Field attendance AI agent —
-            reads WhatsApp location shares, auto-updates attendance Sheets.</span></div>
-        <div class="sow-item"><span class="sow-dot"></span><span><strong>Tech Stack &amp; Badges:</strong> <span
-              class="chip-ref">Gemini LLM</span> <span class="chip-ref">LangGraph</span> <span class="chip-ref">WhatsApp
-              API</span> <span class="chip-ref">Slack API</span> <span class="chip-ref">React.js</span>.</span></div>
-        <div class="sow-item"><span class="sow-dot" style="background:#ef4444;"></span><span><strong>Client
-              To-Do:</strong> Provide policy documents organized on Drive, confirm budget approval slabs, share WhatsApp
-            group access for API testing.</span></div>
-      </div>
-      <div class="phase-roi">
-        <div class="roi-card">
-          <div class="roi-card-num">100%</div>
-          <div class="roi-card-label">Ticket Visibility</div>
-          <div class="roi-card-desc">All admin tickets tracked live — no more WhatsApp chaos.</div>
-        </div>
-        <div class="roi-card">
-          <div class="roi-card-num">Zero</div>
-          <div class="roi-card-label">HR Interruptions</div>
-          <div class="roi-card-desc">Policy queries answered by AI chatbot instantly.</div>
-        </div>
-        <div class="roi-card">
-          <div class="roi-card-num">Auto</div>
-          <div class="roi-card-label">Field Attendance</div>
-          <div class="roi-card-desc">WhatsApp locations sync to Sheets — no manual entry.</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- PHASE 2 -->
-    <div class="phase-block">
-      <div class="phase-hd">
-        <div class="phase-hd-left">
-          <span class="phase-hd-title">Phase 2 — Unified Recruitment &amp; Onboarding Engine</span>
-          <span class="phase-hd-timeline">Weeks 5–9 · Largest Operational Impact</span>
-        </div>
-        <span class="phase-maturity p2">Maturity 2.4 → 3.0</span>
-      </div>
-      <div class="phase-sow">
-        <div class="col-label">Scope of Work &amp; Dependencies</div>
-        <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Build:</strong> Centralized ATS dashboard
-            connecting LinkedIn, Naukri, Indeed, Apollo, and SalesIQ via APIs. Unified candidate pipeline from sourcing
-            to joining.</span></div>
-        <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Build:</strong> AI pre-screening agent
-            (Gemini) that matches profiles against JD parameters and prerequisite questions. Replaces manual
-            10-min-per-profile screening.</span></div>
-        <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Build:</strong> Candidate re-engagement
-            database — indexes previously screened candidates for future similar roles. Employee referral tracking
-            module.</span></div>
-        <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Build:</strong> Onboarding automation —
-            automated reminders (WhatsApp/email), e-signature workflow for offer letters/NDAs, AI document
-            customization, document directory over Google Drive.</span></div>
-        <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Tech Stack &amp; Badges:</strong> <span
-              class="chip-ref">React.js + TS</span> <span class="chip-ref">Node.js</span> <span
-              class="chip-ref">Sourcing APIs</span> <span class="chip-ref">Gemini LLM</span>.</span></div>
-        <div class="sow-item"><span class="sow-dot p2" style="background:#ef4444;"></span><span><strong>Client
-              To-Do:</strong> Provide API access to sourcing platforms, share historical candidate database from Sheets,
-            confirm e-signature vendor preference, provide onboarding process documentation.</span></div>
+        <div class="sow-item"><span class="sow-dot p1"></span><span><strong>Build:</strong> Centralized ATS dashboard connecting LinkedIn, Naukri, Indeed, Apollo, and SalesIQ via APIs with AI pre-screening (Gemini) against JD parameters. Candidate re-engagement database.</span></div>
+        <div class="sow-item"><span class="sow-dot p1"></span><span><strong>Build:</strong> Automated onboarding engine — WhatsApp/email reminders, e-signature workflow for offer letters/NDAs, AI document customization, document directory on Google Drive.</span></div>
+        <div class="sow-item"><span class="sow-dot p1"></span><span><strong>Build:</strong> Live admin ticket dashboard (WhatsApp-native AI ingestion via LangGraph) with slab-based budget approval routing and AI Policy Chatbot (RAG). Field attendance location AI agent.</span></div>
+        <div class="sow-item"><span class="sow-dot p1"></span><span><strong>Tech Stack &amp; Badges:</strong> <span class="chip-ref">React.js + TS</span> <span class="chip-ref">Gemini LLM</span> <span class="chip-ref">LangGraph</span> <span class="chip-ref">Sourcing APIs</span> <span class="chip-ref">WhatsApp API</span>.</span></div>
+        <div class="sow-item"><span class="sow-dot p1" style="background:#ef4444;"></span><span><strong>Client To-Do:</strong> Provide API access to sourcing platforms &amp; WhatsApp, share policy docs &amp; historical candidate database from Sheets, confirm budget approval slabs.</span></div>
       </div>
       <div class="phase-roi">
         <div class="roi-card">
@@ -2416,44 +2343,34 @@
           <div class="roi-card-desc">AI pre-screening replaces manual 10-min reviews.</div>
         </div>
         <div class="roi-card">
-          <div class="roi-card-num">Unified</div>
-          <div class="roi-card-label">Pipeline Visibility</div>
-          <div class="roi-card-desc">6+ platforms tracked in one dashboard — CXO visibility.</div>
+          <div class="roi-card-num">100%</div>
+          <div class="roi-card-label">Ticket &amp; ATS Visibility</div>
+          <div class="roi-card-desc">Recruitment and admin tickets tracked live in one unified system.</div>
         </div>
         <div class="roi-card">
           <div class="roi-card-num">Auto</div>
-          <div class="roi-card-label">Onboarding</div>
-          <div class="roi-card-desc">Reminders, e-signatures, and document directory automated.</div>
+          <div class="roi-card-label">Onboarding &amp; Q&amp;A</div>
+          <div class="roi-card-desc">E-signatures, reminders, and policy answers fully automated.</div>
         </div>
       </div>
     </div>
 
-    <!-- PHASE 3 -->
+    <!-- PHASE 2 -->
     <div class="phase-block">
       <div class="phase-hd">
         <div class="phase-hd-left">
-          <span class="phase-hd-title">Phase 3 — Performance Management &amp; L&amp;D System</span>
-          <span class="phase-hd-timeline">Weeks 10–12 · Strategic Talent Development</span>
+          <span class="phase-hd-title">Phase 2 (Q3) — Performance Management &amp; L&amp;D System</span>
+          <span class="phase-hd-timeline">Q3 (Weeks 9–12) &middot; Strategic Talent Development &amp; PMS Automation</span>
         </div>
-        <span class="phase-maturity p3">Maturity 3.0 → 3.4</span>
+        <span class="phase-maturity p2">Maturity 3.0 &rarr; 3.4</span>
       </div>
       <div class="phase-sow">
         <div class="col-label">Scope of Work &amp; Dependencies</div>
-        <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Build:</strong> Monthly KPI/KRA dashboard
-            extending existing Google Sheets. Manager → HR → CXO workflow automation with notifications and SLA
-            tracking.</span></div>
-        <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Build:</strong> 0–5 rating digitization for
-            interviews and performance. Incentive calculation automation linked to performance scores. Probation review
-            auto-trigger at 3 months.</span></div>
-        <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Build:</strong> Skills matrix directory
-            ("who knows what"). L&D request portal replacing verbal collection. Saturday activity polling module.</span>
-        </div>
-        <div class="sow-item"><span class="sow-dot p3"></span><span><strong>Tech Stack &amp; Badges:</strong> <span
-              class="chip-ref">React.js + TS</span> <span class="chip-ref">Node.js</span> <span class="chip-ref">Google
-              Sheets API</span> <span class="chip-ref">Gemini Analytics</span>.</span></div>
-        <div class="sow-item"><span class="sow-dot p3" style="background:#ef4444;"></span><span><strong>Client
-              To-Do:</strong> Provide current KPI/KRA Sheets structure, confirm incentive calculation rules, map skills
-            taxonomy, provide induction training assets.</span></div>
+        <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Build:</strong> Monthly KPI/KRA dashboard extending existing Google Sheets. Manager &rarr; HR &rarr; CXO workflow automation with notifications and SLA tracking.</span></div>
+        <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Build:</strong> 0–5 rating digitization for interviews and performance. Incentive calculation automation linked to performance scores. Probation review auto-trigger at 3 months.</span></div>
+        <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Build:</strong> Skills matrix directory ("who knows what"). L&amp;D request portal replacing verbal collection. Saturday activity polling module.</span></div>
+        <div class="sow-item"><span class="sow-dot p2"></span><span><strong>Tech Stack &amp; Badges:</strong> <span class="chip-ref">React.js + TS</span> <span class="chip-ref">Node.js</span> <span class="chip-ref">Google Sheets API</span> <span class="chip-ref">Gemini Analytics</span>.</span></div>
+        <div class="sow-item"><span class="sow-dot p2" style="background:#ef4444;"></span><span><strong>Client To-Do:</strong> Provide current KPI/KRA Sheets structure, confirm incentive calculation rules, map skills taxonomy, provide induction training assets.</span></div>
       </div>
       <div class="phase-roi">
         <div class="roi-card">
@@ -2469,7 +2386,7 @@
         <div class="roi-card">
           <div class="roi-card-num">Mapped</div>
           <div class="roi-card-label">Skills Matrix</div>
-          <div class="roi-card-desc">Training gaps identified; L&D requests structured.</div>
+          <div class="roi-card-desc">Training gaps identified; L&amp;D requests structured.</div>
         </div>
       </div>
     </div>

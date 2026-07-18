@@ -41,11 +41,11 @@ The methodology applied follows a six-layer thinking model (Understanding → Re
 
 | Dimension | Assessment | Confidence |
 |---|---|---|
-| **Overall Business Maturity** | Level 2 — Developing | High |
-| **Process Standardization** | Level 1.5 — Initial/Developing | High |
-| **Technology Utilization** | Level 2 — Developing (Zoho underutilized) | High |
-| **Data Governance** | Level 1 — Initial (spreadsheet-dependent) | Confirmed |
-| **Sales Operations** | Level 1 — Initial (no CRM) | Confirmed |
+| **Overall Business Maturity** | Level 1.6 — Developing (ad hoc / manual) | High |
+| **Process Standardization** | Level 1.8 — Initial/Developing | High |
+| **Technology Utilization** | Level 1.5 — Developing (Zoho underutilized) | High |
+| **Data Governance** | Level 1.4 — Initial (spreadsheet-dependent) | Confirmed |
+| **Sales Operations** | Level 1.2 — Initial (no CRM) | Confirmed |
 | **Automation Readiness** | Level 1.5 — Emerging | High |
 | **AI Readiness** | Level 1 — Not Ready (data fragmentation) | High |
 | **Scalability Readiness** | Level 1.5 — Critical constraints at 2× growth | High |
@@ -62,12 +62,12 @@ The methodology applied follows a six-layer thinking model (Understanding → Re
 VISUALIZATION: Radar/Spider Chart
 Title: "EF Polymers — Enterprise Maturity Overview"
 Dimensions (8 axes, scale 1–5):
-  - Process Standardization: 1.5
-  - Technology Utilization: 2.0
-  - Data Governance: 1.0
-  - Sales & CRM: 1.0
+  - Process Standardization: 1.8
+  - Technology Utilization: 1.5
+  - Data Governance: 1.4
+  - Sales & CRM: 1.2
   - Financial Accuracy: 1.5
-  - Knowledge Management: 1.5
+  - Knowledge Management: 1.4
   - Automation Maturity: 1.5
   - Scalability Readiness: 1.5
 Overlay: Industry benchmark line at 3.0 (mid-maturity)
@@ -125,19 +125,23 @@ Overlay: Industry benchmark line at 3.0 (mid-maturity)
 
 ```mermaid
 graph TD
-    CEO["Founders / Board"]
+    CEO["Founders / Board<br/>(Narayan Lal Gurjar, CEO)"]
     COO["Puran Singh Rajput<br/>COO"]
     CBDO["Ankit Jain<br/>Co-Founder & CBDO"]
+    PROD["Rishabh Doshi<br/>Production Manager<br/>(Division Head)"]
 
     CEO --> COO
     CEO --> CBDO
+    CEO --> PROD
+
+    PROD --> RD["R&D<br/>Ritu Panwar"]
+    PROD --> LOG["Logistics<br/>Nihal Paliwal"]
+    PROD --> FACTORY["Factory Operations<br/>Harshit Sharma"]
 
     COO --> FIN["Finance & Accounts<br/>Shobha Shekhawat"]
     COO --> MKT["Marketing & Retail Sales<br/>Gaurav Jain"]
     COO --> MENA["MENA International<br/>Neha Pathak"]
-    COO --> PROD["Production<br/>Rishabh Doshi"]
-    COO --> RD["R&D<br/>Ritu Panwar"]
-    COO --> LOG["Logistics<br/>Nihal Paliwal"]
+    COO --> HR["HR / Talent<br/>Dolly Mehta"]
 
     CBDO --> SEED["BD-Seed<br/>Sameer Mahiskar"]
     CBDO --> B2B["BD-B2B/RCM<br/>Jatin Jain"]
@@ -156,7 +160,7 @@ graph TD
 | **Production** | 3 core + 4 recent hires | Recently expanded |
 | **Logistics** | 2 FTE | Lean / at capacity |
 | **Finance & Accounts** | 3 FTE | Stable |
-| **Marketing & Retail Sales** | 3 office + field RSMs | Under-resourced |
+| **Marketing & Retail Sales** | 3 office (Gaurav Jain, Vandana, Kamakshi) + field RSMs | Under-resourced |
 | **BD-Cocopeat** | 4 active (Mohit, Ishwarya, Rajesh, Yoshida) | Stable |
 | **BD-NGO/CSR** | 4 active + 1 vacant | Hiring |
 | **BD-Seed** | 1 active + 1 planned hire | Under-resourced |
@@ -175,27 +179,29 @@ graph TD
 
 | Department | Process | Technology | Data Quality | Documentation | Knowledge   | Overall |
 |---|---|---|---|---|---|---|
-| **R&D** | 2.0 | 2.0 | 1.5 | 2.5 | 1.5 | **2.0** |
-| **Production** | 2.5 | 2.0 | 2.0 | 2.0 | 2.0 | **2.0** |
-| **Logistics** | 2.0 | 1.5 | 1.5 | 1.5 | 2.0 | **1.5** |
-| **Finance & Accounts** | 2.5 | 3.0 | 2.0 | 2.0 | 2.5 | **2.5** |
-| **Marketing / Retail Sales** | 1.5 | 1.0 | 1.0 | 1.5 | 1.0 | **1.0** |
-| **BD — Cocopeat** | 2.0 | 1.5 | 1.5 | 2.0 | 1.5 | **1.5** |
-| **BD — NGO/CSR** | 1.5 | 1.0 | 1.0 | 1.5 | 1.0 | **1.0** |
-| **BD — Seed** | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | **1.0** |
-| **BD — B2B/RCM** | 2.0 | 1.5 | 1.5 | 1.5 | 1.5 | **1.5** |
+| **R&D** | 2.0 | 1.5 | 1.0 | 2.0 | 1.0 | **1.5** |
+| **Production** | 2.0 | 1.0 | 1.0 | 1.5 | 1.5 | **1.4** |
+| **Logistics** | 2.0 | 1.0 | 1.5 | 2.0 | 1.5 | **1.6** |
+| **Finance & Accounts** | 2.5 | 2.5 | 1.5 | 2.5 | 2.0 | **2.2** |
+| **Marketing / Retail Sales** | 1.5 | 1.0 | 1.0 | 2.0 | 1.5 | **1.4** |
+| **BD — Cocopeat** | 1.5 | 1.0 | 1.0 | 1.5 | 1.5 | **1.3** |
+| **BD — NGO/CSR** | 1.5 | 1.0 | 1.5 | 1.5 | 1.5 | **1.4** |
+| **BD — Seed** | 1.5 | 1.5 | 1.0 | 1.5 | 1.5 | **1.4** |
+| **BD — B2B/RCM** | 1.5 | 1.5 | 1.0 | 1.5 | 1.0 | **1.3** |
+| **BD — Government** | 1.5 | 2.0 | 2.0 | 1.5 | 1.5 | **1.7** |
 | **MENA International** | 2.0 | 1.5 | 2.0 | 2.0 | 1.5 | **2.0** |
-| **COO Office** | 2.0 | 2.0 | 1.5 | 2.0 | 2.0 | **2.0** |
-| **CBDO Office** | 1.5 | 1.0 | 1.0 | 1.5 | 1.0 | **1.0** |
-| **Enterprise Average** | **1.9** | **1.6** | **1.5** | **1.7** | **1.5** | **1.7** |
+| **COO Office** | 2.0 | 2.0 | 1.5 | 2.0 | 2.0 | **1.5** |
+| **CBDO Office** | 1.5 | 1.0 | 1.0 | 1.5 | 1.5 | **1.3** |
+| **HR / Talent** | 2.0 | 1.5 | 1.5 | 2.0 | 1.0 | **1.6** |
+| **Enterprise Average** | **1.8** | **1.5** | **1.4** | **1.8** | **1.4** | **1.6** |
 
 ```
 VISUALIZATION: Grouped Horizontal Bar Chart
 Title: "Department Maturity Scorecard"
 X-Axis: Maturity Score (1–5)
-Y-Axis: Department names (12 departments)
+Y-Axis: Department names (15 functions)
 Bars per department: Process (blue), Technology (green), Data Quality (orange), Documentation (purple), Knowledge   (red)
-Reference Line: Enterprise average at 1.7
+Reference Line: Enterprise average at 1.6
 Color coding: Scores ≤1.5 = red, 1.5–2.5 = amber, ≥2.5 = green
 ```
 
@@ -211,10 +217,10 @@ Color coding: Scores ≤1.5 = red, 1.5–2.5 = amber, ≥2.5 = green
 | Customer Lifecycle | 1.5 | 3.0 | 1.5 | High |
 | Operational Excellence | 2.0 | 3.0 | 1.0 | High |
 | Process Standardization | 1.5 | 3.0 | 1.5 | High |
-| Documentation | 1.7 | 3.0 | 1.3 | High |
-| Knowledge Management | 1.5 | 2.5 | 1.0 | High |
-| Technology Landscape | 2.0 | 3.5 | 1.5 | High |
-| Data Quality | 1.5 | 3.0 | 1.5 | Confirmed |
+| Documentation | 1.8 | 3.0 | 1.2 | High |
+| Knowledge Management | 1.4 | 2.7 | 1.3 | High |
+| Technology Landscape | 1.5 | 3.5 | 2.0 | High |
+| Data Quality | 1.4 | 3.0 | 1.6 | Confirmed |
 | Reporting & Analytics | 1.5 | 3.0 | 1.5 | High |
 | Automation Readiness | 1.5 | 2.5 | 1.0 | High |
 | AI Readiness | 1.0 | 2.0 | 1.0 | High |
@@ -223,7 +229,7 @@ Color coding: Scores ≤1.5 = red, 1.5–2.5 = amber, ≥2.5 = green
 | Scalability | 1.5 | 3.0 | 1.5 | High |
 | Change Readiness | 2.0 | 3.0 | 1.0 | Medium |
 | Customer Experience | 2.0 | 3.0 | 1.0 | Medium |
-| **Overall Business Maturity** | **1.7** | **3.0** | **1.3** | **High** |
+| **Overall Business Maturity** | **1.6** | **3.2** | **1.6** | **High** |
 
 ```
 VISUALIZATION: Maturity Heatmap (Matrix/Grid)
@@ -303,7 +309,7 @@ Key Insight: Logistics (Nihal, 2 FTE) and Accounts (3 FTE) are convergence point
 | R09 | **WhatsApp Order Intake** — Incomplete order specs via WhatsApp text | Logistics | No structured order intake form | Shipment delays, manual follow-up overhead | Logistics audit: stated directly |
 | R10 | **No Real-Time Stock Visibility** — Accounts cannot check inventory before invoicing | Accounts, Production | Zoho Inventory not exposing live stock to billing | Manual phone calls per invoice, billing delays | Accounts audit: stated directly |
 | R11 | **Scattered R&D Data** — Research across 8–10 disconnected spreadsheets | R&D | No centralized research database | Redundant testing, data loss, repeat trial costs | R&D audit: stated directly |
-| R12 | **Manual GST/TDS Reconciliation** — 1–2 weeks per tax cycle | Accounts | Manual portal-to-Books matching | 30–40 hrs/month compliance overhead | Accounts audit: stated directly |
+| R12 | **Manual GST/TDS Reconciliation** — 1–2 months per tax cycle | Accounts | Manual portal-to-Books matching | 30–40 hrs/month compliance overhead | Accounts audit: stated directly |
 | R13 | **Tertiary Sales Invisibility (RCM)** — Zero data below depot tier across 10,000 retail stores | BD-B2B/RCM | No API or data sharing with RCM retail layer | Demand planning blind spot, inventory risk | B2B/RCM audit: stated directly |
 | R14 | **Data Security / Contact Continuity** — ~90% of communications on personal WhatsApp numbers | BD-B2B/RCM, MENA | No company-owned SIMs or business number policy | Customer relationship loss on employee exit | B2B/RCM & MENA audits |
 
@@ -585,7 +591,7 @@ Annotations: Highlight that this compounds across 10-20 orders/day
 
 | # | Recommendation | Type | Priority | Expected Outcome |
 |---|---|---|---|---|
-| S08 | **Configure automated bank reconciliation rules** in Zoho Books | Automation | 🟡 High | Reduce GST compliance time from 2 weeks to 2–3 days |
+| S08 | **Configure automated bank reconciliation rules** in Zoho Books | Automation | 🟡 High | Reduce GST compliance time from 1–2 months to a few days |
 | S09 | **Implement email automation platform** for cold outreach (separate domain) | Technology | 🟡 High | Protect primary domain; increase outreach efficiency |
 | S10 | **Deploy CRM-integrated follow-up cadence** with automated reminders | Automation | 🟡 High | Eliminate memory-based lead follow-ups |
 | S11 | **Create centralized R&D knowledge database** (migrate from 8–10 spreadsheets) | Data | 🟡 High | Reduce redundant testing; preserve institutional knowledge |
@@ -698,7 +704,7 @@ Color: Green = Phase 1, Blue = Phase 2, Purple = Phase 3, Gray = Phase 4
 | **Phase 2** | Pipeline visibility (% leads tracked in CRM) | 0% | 100% |
 | **Phase 2** | COGS variance month-to-month | ±27% | ±5% |
 | **Phase 2** | Customer data duplication incidents/month | Unknown (frequent) | 0 |
-| **Phase 3** | GST reconciliation time | 1–2 weeks | 2–3 days |
+| **Phase 3** | GST reconciliation time | 1–2 months | a few days |
 | **Phase 3** | Executive reporting prep time | 4–6 hrs/month manual | Real-time dashboard |
 | **Phase 3** | Cold outreach response rate | 5% | 8–12% (email automation) |
 | **Phase 4** | AI-assisted query turnaround (R&D) | 1–4 hours | <30 min |
